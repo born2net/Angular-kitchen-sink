@@ -1,10 +1,11 @@
-import {Component, ViewContainerRef} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {RegisterCaller} from "../../../interfaces/RegisterCaller";
 import {CommBroker} from "../../../services/CommBroker";
 import {Properties} from "../properties/Properties";
 import {Consts} from "../../../Conts";
+import {NotesBase} from "./NotesBase";
 
 @Component({
     selector: 'Notes1',
@@ -21,24 +22,10 @@ import {Consts} from "../../../Conts";
                 <ng-content></ng-content>`
 })
 
-export class Notes1 implements RegisterCaller {
-    private modalDialog:ModalDialog;
-    private me:Notes1;
-
-    constructor(private sliderPanel:Sliderpanel, private commBroker:CommBroker) {
+export class Notes1 extends NotesBase {
+    constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
+        super(sliderPanel, commBroker);
         this.me = this;
-    }
-
-    registerCaller(caller:any):void {
-        this.modalDialog = caller;
-    }
-
-    private openModal1() {
-        this.modalDialog.openModal();
-    }
-
-    private onNext(event) {
-        this.sliderPanel.slideToPage('notes2', 'left')
-        this.commBroker.getService(Consts.Services().Properties).setPropeView(2);
+        this.slideLeft = 'notes2'
     }
 }

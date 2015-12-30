@@ -1,10 +1,11 @@
-import {Component, ChangeDetectorRef, ChangeDetectionStrategy} from "angular2/core";
-import {Consts} from "../../../Conts";
+import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
-import {RegisterCaller} from "../../../interfaces/registerCaller";
-import {Properties} from "../properties/Properties";
+import {RegisterCaller} from "../../../interfaces/RegisterCaller";
 import {CommBroker} from "../../../services/CommBroker";
+import {Properties} from "../properties/Properties";
+import {Consts} from "../../../Conts";
+import {NotesBase} from "./NotesBase";
 
 @Component({
     selector: 'Notes2',
@@ -15,7 +16,7 @@ import {CommBroker} from "../../../services/CommBroker";
                 <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
-                <small>I am notes1 component</small>
+                <small>I am notes2 component</small>
                 <div class="btn-group" role="group" aria-label="...">
                   <button (click)="openModal1()" type="button" class="btn btn-default">Open Modal</button>
                 </div>
@@ -24,30 +25,12 @@ import {CommBroker} from "../../../services/CommBroker";
                 <ng-content></ng-content>`
 })
 
-export class Notes2 implements RegisterCaller {
-    private modalDialog:ModalDialog;
-    private me:Notes2;
-
-    constructor(private sliderPanel:Sliderpanel, private commBroker:CommBroker, private ref:ChangeDetectorRef) {
+export class Notes2 extends NotesBase {
+    constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
+        super(sliderPanel, commBroker);
         this.me = this;
-    }
-
-    registerCaller(caller:any):void {
-        this.modalDialog = caller;
-    }
-
-    private openModal1(){
-        this.modalDialog.openModal();
-    }
-
-    private onPrev(event) {
-        this.sliderPanel.slideToPage('notes1', 'right');
-        this.commBroker.getService(Consts.Services().Properties).setPropeView(1);
-    }
-
-    private onNext(event) {
-        this.sliderPanel.slideToPage('notes3', 'left')
-        this.commBroker.getService(Consts.Services().Properties).setPropeView(3);
+        this.slideLeft = 'notes3';
+        this.slideRight = 'notes1';
     }
 }
 

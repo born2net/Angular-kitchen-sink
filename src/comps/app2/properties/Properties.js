@@ -25,7 +25,7 @@ System.register(["angular2/core", "src/Conts", "../../../services/CommBroker"], 
             Properties = (function () {
                 function Properties(commBroker) {
                     this.commBroker = commBroker;
-                    this.value = 1;
+                    this.value = 'notes1';
                     this.commBroker.setService(Conts_1.Consts.Services().Properties, this);
                 }
                 Properties.prototype.setPropeView = function (value) {
@@ -36,7 +36,7 @@ System.register(["angular2/core", "src/Conts", "../../../services/CommBroker"], 
                 Properties = __decorate([
                     core_1.Component({
                         selector: 'Properties',
-                        template: "\n                <h1>Properties</h1>\n                 <ul [ngSwitch]=\"value\">\n                  <li *ngSwitchWhen=\"1\"><h1>Notes 1</h1></li>\n                  <li *ngSwitchWhen=\"2\"><h1>Notes 2</h1></li>\n                  <li *ngSwitchWhen=\"3\"><h1>Notes 3</h1></li>\n                  <li *ngSwitchWhen=\"4\"><h1>Notes 4</h1></li>\n                </ul>\n                <ng-content></ng-content>\n              "
+                        template: "\n                <h1>Properties</h1>\n                 <ul [ngSwitch]=\"value\">\n                  <li *ngSwitchWhen=\"'notes1'\"><h1>Notes 1</h1></li>\n                  <li *ngSwitchWhen=\"'notes2'\"><h1>Notes 2</h1></li>\n                  <li *ngSwitchWhen=\"'notes3'\"><h1>Notes 3</h1></li>\n                  <li *ngSwitchWhen=\"'notes4'\"><h1>Notes 4</h1></li>\n                  <li *ngSwitchWhen=\"'notes5'\"><h1>Notes 5</h1></li>\n                </ul>\n                <ng-content></ng-content>\n              "
                     }), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], Properties);
