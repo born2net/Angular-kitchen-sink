@@ -217,20 +217,6 @@ small {
     padding: 20px;
 }
 
-#togglePanel {
-    position: absolute;
-    margin: 10px;
-    right: -5px;
-    top: -5px;
-    z-index: 1050;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 11px;
-    border-radius: 15px !important;
-}
-
 
 #campaignProperties {
     padding-top: 10px;

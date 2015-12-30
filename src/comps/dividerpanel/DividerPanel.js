@@ -22,20 +22,20 @@ System.register(["angular2/core", "../../Conts"], function(exports_1) {
         execute: function() {
             DividerPanel = (function () {
                 function DividerPanel() {
+                    this.panelOpen = true;
                 }
-                /**
-                 Listen for open/close actions on properties panel that can slide in and out
-                 @method _listenClickSlidingPanel
-                 **/
                 DividerPanel.prototype.onToggleSidePanel = function () {
                     var self = this;
                     if (jQuery(Conts_1.Consts.Elems().TOGGLE_PANEL).hasClass('propPanelIsOpen')) {
+                        this.panelOpen = false;
+                        ;
                         jQuery(Conts_1.Consts.Elems().TOGGLE_PANEL).toggleClass('propPanelIsOpen');
                         jQuery(Conts_1.Consts.Elems().PROP_PANEL_WRAP).addClass('hidden-xs hidden-sm hidden-md');
                         jQuery(Conts_1.Consts.Elems().MAIN_PANEL_WRAP).removeClass('col-xs-9 col-sm-9 col-md-9');
                         jQuery(Conts_1.Consts.Elems().MAIN_PANEL_WRAP).addClass('col-xs-12 col-md-12');
                     }
                     else {
+                        this.panelOpen = true;
                         jQuery(Conts_1.Consts.Elems().TOGGLE_PANEL).toggleClass('propPanelIsOpen');
                         jQuery(Conts_1.Consts.Elems().MAIN_PANEL_WRAP).addClass('col-xs-9 col-sm-9 col-md-9');
                         setTimeout(function () {
@@ -49,7 +49,8 @@ System.register(["angular2/core", "../../Conts"], function(exports_1) {
                 DividerPanel = __decorate([
                     core_1.Component({
                         selector: 'DividerPanel',
-                        template: "\n                <button id=\"togglePanel\" (click)=\"onToggleSidePanel($event)\" class=\"propPanelIsOpen btn btn-default btn-sm hidden-lg\">\n                    <span class=\"glyphicon glyphicon-resize-horizontal\"></span>\n                  </button>\n                <ng-content></ng-content>\n              "
+                        styles: ["\n        #togglePanel {\n                position: fixed;\n                margin: 10px;\n                right: -5px;\n                top: 50px;\n                z-index: 1050;\n                height: 30px;\n                width: 30px;\n                text-align: center;\n                padding: 6px 0;\n                font-size: 11px;\n                outline:none;\n                border-radius: 15px !important;\n        }\n        #togglePanel > span {\n           opacity: 0.5;\n           position: relative;\n           top: -3px;\n           font-size: 2em;\n        }\n    "],
+                        template: "\n                <button id=\"togglePanel\" (click)=\"onToggleSidePanel($event)\" class=\"propPanelIsOpen btn btn-default btn-sm hidden-lg\">\n                    <span [ngClass]=\"{'fa-arrow-circle-right': panelOpen, 'fa-arrow-circle-left': !panelOpen}\"  class=\"fa\"></span>\n                  </button>\n                <ng-content></ng-content>\n              "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], DividerPanel);
