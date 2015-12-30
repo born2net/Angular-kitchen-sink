@@ -1,9 +1,10 @@
 import {Component, ViewContainerRef} from 'angular2/core';
-import {Consts} from "../../Conts";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
-import {Properties} from "../properties/Properties";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {RegisterCaller} from "../../../interfaces/RegisterCaller";
+import {CommBroker} from "../../../services/CommBroker";
+import {Properties} from "../properties/Properties";
+import {Consts} from "../../../Conts";
 
 @Component({
     selector: 'Notes1',
@@ -14,8 +15,6 @@ import {RegisterCaller} from "../../../interfaces/RegisterCaller";
                 <small>I am notes1 component</small>
                 <div class="btn-group" role="group" aria-label="...">
                   <button (click)="openModal1()" type="button" class="btn btn-default">Open Modal</button>
-                  <button type="button" class="btn btn-default">Open Modal</button>
-                  <button type="button" class="btn btn-default">Open Modal</button>
                 </div>
                 <ModalDialog title="My owner is Notes1" content="I am here to serve Notes1" [owner]="me">
                 </ModalDialog>
@@ -25,19 +24,21 @@ import {RegisterCaller} from "../../../interfaces/RegisterCaller";
 export class Notes1 implements RegisterCaller {
     private modalDialog:ModalDialog;
     private me:Notes1;
-    constructor(private sliderPanel:Sliderpanel, properties:Properties) {
+
+    constructor(private sliderPanel:Sliderpanel, private commBroker:CommBroker) {
         this.me = this;
-        console.log('note 1 ' + properties.u);
     }
 
     registerCaller(caller:any):void {
         this.modalDialog = caller;
     }
 
-    private openModal1(){
+    private openModal1() {
         this.modalDialog.openModal();
     }
+
     private onNext(event) {
-        this.sliderPanel.slideToPage('notes2','left')
+        this.sliderPanel.slideToPage('notes2', 'left')
+        this.commBroker.getService(Consts.Services().Properties).setPropeView(2);
     }
 }

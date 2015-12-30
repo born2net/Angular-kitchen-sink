@@ -1,9 +1,10 @@
-import {Component} from "angular2/core";
-import {Consts} from "../../Conts";
+import {Component, ChangeDetectorRef, ChangeDetectionStrategy} from "angular2/core";
+import {Consts} from "../../../Conts";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {RegisterCaller} from "../../../interfaces/registerCaller";
 import {Properties} from "../properties/Properties";
+import {CommBroker} from "../../../services/CommBroker";
 
 @Component({
     selector: 'Notes2',
@@ -27,9 +28,8 @@ export class Notes2 implements RegisterCaller {
     private modalDialog:ModalDialog;
     private me:Notes2;
 
-    constructor(private sliderPanel:Sliderpanel, properties:Properties) {
+    constructor(private sliderPanel:Sliderpanel, private commBroker:CommBroker, private ref:ChangeDetectorRef) {
         this.me = this;
-        console.log('note 2 ' + properties.u);
     }
 
     registerCaller(caller:any):void {
@@ -41,14 +41,14 @@ export class Notes2 implements RegisterCaller {
     }
 
     private onPrev(event) {
-        this.sliderPanel.slideToPage('notes1', 'right')
+        this.sliderPanel.slideToPage('notes1', 'right');
+        this.commBroker.getService(Consts.Services().Properties).setPropeView(1);
     }
 
     private onNext(event) {
         this.sliderPanel.slideToPage('notes3', 'left')
+        this.commBroker.getService(Consts.Services().Properties).setPropeView(3);
     }
-
-
 }
 
 

@@ -107,8 +107,8 @@ System.register(['angular2/core', 'angular2/router', "../sideMenu/MenuItem", "..
                 App2 = __decorate([
                     core_1.Component({
                         templateUrl: 'src/comps/app2/App2.html',
-                        providers: [http_1.HTTP_PROVIDERS, Properties_1.Properties],
-                        directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg,
+                        providers: [http_1.HTTP_PROVIDERS],
+                        directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties,
                             Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog]
                     }), 
                     __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])

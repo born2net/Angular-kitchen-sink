@@ -99,11 +99,10 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                         _this.appResized();
                     });
                 }
+                App.prototype.ngAfterContentInit = function () {
+                    this.appResized();
+                };
                 App.prototype.ngAfterViewInit = function () {
-                    var _this = this;
-                    setTimeout(function () {
-                        _this.appResized();
-                    }, 200);
                 };
                 App.prototype.ngAfterContentChecked = function () {
                 };

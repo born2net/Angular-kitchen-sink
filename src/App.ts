@@ -2,7 +2,7 @@
 ///<reference path="../typings/jquery/jquery.d.ts" />
 
 import {bootstrap} from 'angular2/platform/browser';
-import {Component, provide, ViewEncapsulation} from 'angular2/core';
+import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';
 import {EntryPanel} from 'src/comps/entry/EntryPanel';
 import {AppManager} from 'src/comps/appmanager/AppManager';
 import {CommBroker} from 'src/services/CommBroker';
@@ -93,7 +93,7 @@ class ComponentHelper {
         name: 'App2'
     })
 ])
-export class App {
+export class App implements AfterContentInit {
     private m_commBroker:CommBroker;
 
     constructor(commBroker:CommBroker) {
@@ -105,14 +105,14 @@ export class App {
         })
     }
 
+    ngAfterContentInit() {
+        this.appResized();
+    }
+
     ngAfterViewInit() {
-        setTimeout(()=> {
-            this.appResized();
-        }, 200);
     }
 
     ngAfterContentChecked() {
-
     }
 
     /**

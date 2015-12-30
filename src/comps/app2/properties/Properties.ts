@@ -1,41 +1,31 @@
 import {Component, Injectable} from "angular2/core";
 import {Consts} from "src/Conts";
+import {CommBroker} from "../../../services/CommBroker";
 
 @Component({
     selector: 'Properties',
     template: `
+                <h1>Properties</h1>
                  <ul [ngSwitch]="value">
-                  <li *ngSwitchWhen="1">is 1111111111111</li>
-                  <li *ngSwitchWhen="2"><h1>dDDDD</h1>is 2dd</li>
-                  <li *ngSwitchWhen="3">
-                  <div style="height:  400px ;overflow-y: scroll">
-                  <h1>3333333333333333333333333</h1>
-
-                  </div>
-                  </li>
-                  <li *ngSwitchWhen="4">is 4</li>
+                  <li *ngSwitchWhen="1"><h1>Notes 1</h1></li>
+                  <li *ngSwitchWhen="2"><h1>Notes 2</h1></li>
+                  <li *ngSwitchWhen="3"><h1>Notes 3</h1></li>
+                  <li *ngSwitchWhen="4"><h1>Notes 4</h1></li>
                 </ul>
-                <button (click)="onClick()">Click me</button>
                 <ng-content></ng-content>
               `
 })
 
 export class Properties {
     private value:any;
-    public c:number;
-    public u:number;
 
-    constructor() {
-        this.u = Math.random()
-        console.log('prop is ' + this.u);
+    constructor(private commBroker:CommBroker) {
         this.value = 1;
-        this.c = 1;
+        this.commBroker.setService(Consts.Services().Properties, this);
     }
 
-    public onClick(){
-        this.c++;
-        this.value = this.c;
-        console.log(this.c + ' ' + this.u)
+    public setPropeView(value) {
+        this.value = value;
     }
 
     ngOnDestroy() {

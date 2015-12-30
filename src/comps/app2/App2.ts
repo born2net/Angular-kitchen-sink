@@ -28,8 +28,8 @@ import {Properties} from "./properties/Properties";
  **/
 @Component({
     templateUrl: 'src/comps/app2/App2.html',
-    providers: [HTTP_PROVIDERS, Properties],
-    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg,
+    providers: [HTTP_PROVIDERS],
+    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact, ModalDialog]
 })
 export class App2 {
