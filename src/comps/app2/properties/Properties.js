@@ -18,13 +18,15 @@ System.register(["angular2/core"], function(exports_1) {
         execute: function() {
             Properties = (function () {
                 function Properties() {
+                    this.u = Math.random();
+                    console.log('prop is ' + this.u);
                     this.value = 1;
                     this.c = 1;
                 }
                 Properties.prototype.onClick = function () {
                     this.c++;
                     this.value = this.c;
-                    console.log(this.c);
+                    console.log(this.c + ' ' + this.u);
                 };
                 Properties.prototype.ngOnDestroy = function () {
                 };

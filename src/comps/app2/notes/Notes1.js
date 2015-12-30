@@ -28,8 +28,8 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../propertie
             Notes1 = (function () {
                 function Notes1(sliderPanel, properties) {
                     this.sliderPanel = sliderPanel;
-                    this.properties = properties;
                     this.me = this;
+                    console.log('top ' + properties.u);
                 }
                 Notes1.prototype.registerCaller = function (caller) {
                     this.modalDialog = caller;
@@ -44,7 +44,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../propertie
                     core_1.Component({
                         selector: 'Notes1',
                         directives: [ModalDialog_1.ModalDialog],
-                        template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n                </button>\n                <small>I am notes1 component</small>\n                <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n                  <button (click)=\"openModal1()\" type=\"button\" class=\"btn btn-default\">Open Modal</button>\n                </div>\n                <ModalDialog title=\"My owner is Notes1\" content=\"I am here to serve Notes1\" [owner]=\"me\">\n                </ModalDialog>\n                <ng-content></ng-content>"
+                        template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n                </button>\n                <small>I am notes1 component</small>\n                <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n                  <button (click)=\"openModal1()\" type=\"button\" class=\"btn btn-default\">Open Modal</button>\n                  <button type=\"button\" class=\"btn btn-default\">Open Modal</button>\n                  <button type=\"button\" class=\"btn btn-default\">Open Modal</button>\n                </div>\n                <ModalDialog title=\"My owner is Notes1\" content=\"I am here to serve Notes1\" [owner]=\"me\">\n                </ModalDialog>\n                <ng-content></ng-content>"
                     }), 
                     __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, Properties_1.Properties])
                 ], Notes1);

@@ -14,6 +14,8 @@ import {RegisterCaller} from "../../../interfaces/RegisterCaller";
                 <small>I am notes1 component</small>
                 <div class="btn-group" role="group" aria-label="...">
                   <button (click)="openModal1()" type="button" class="btn btn-default">Open Modal</button>
+                  <button type="button" class="btn btn-default">Open Modal</button>
+                  <button type="button" class="btn btn-default">Open Modal</button>
                 </div>
                 <ModalDialog title="My owner is Notes1" content="I am here to serve Notes1" [owner]="me">
                 </ModalDialog>
@@ -23,8 +25,9 @@ import {RegisterCaller} from "../../../interfaces/RegisterCaller";
 export class Notes1 implements RegisterCaller {
     private modalDialog:ModalDialog;
     private me:Notes1;
-    constructor(private sliderPanel:Sliderpanel, private properties:Properties) {
+    constructor(private sliderPanel:Sliderpanel, properties:Properties) {
         this.me = this;
+        console.log('top ' + properties.u);
     }
 
     registerCaller(caller:any):void {
@@ -34,7 +37,6 @@ export class Notes1 implements RegisterCaller {
     private openModal1(){
         this.modalDialog.openModal();
     }
-
     private onNext(event) {
         this.sliderPanel.slideToPage('notes2','left')
     }

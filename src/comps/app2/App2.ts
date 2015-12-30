@@ -9,7 +9,6 @@ import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 import {IMessage} from "../../services/CommBroker";
 import {Sliderpanel} from "../sliderpanel/Sliderpanel";
-import {Properties} from "./properties/Properties";
 import {Notes} from "./notes/Notes";
 import {Notes1} from "./notes/Notes1";
 import {Notes2} from "./notes/Notes2";
@@ -22,14 +21,16 @@ import {Logout} from "../logout/Logout";
 import {Contact} from "./contact/Contact";
 import {DividerPanel} from "../dividerpanel/DividerPanel";
 import {ModalDialog} from "../modaldialog/ModalDialog";
+import {ttt} from "../ttt";
+import {Properties} from "./properties/Properties";
 
 /**
  Application 2 lazy loaded
  **/
 @Component({
     templateUrl: 'src/comps/app2/App2.html',
-    providers: [HTTP_PROVIDERS],
-    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Properties, Digg,
+    providers: [HTTP_PROVIDERS, Properties],
+    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, ttt,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact, ModalDialog]
 })
 export class App2 {

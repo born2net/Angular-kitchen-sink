@@ -1,5 +1,6 @@
 import {Component, Injectable} from "angular2/core";
 import {Consts} from "src/Conts";
+import {ttt} from "../../ttt";
 
 @Component({
     selector: 'Properties',
@@ -22,17 +23,20 @@ import {Consts} from "src/Conts";
 
 export class Properties {
     private value:any;
-    private c:number;
+    public c:number;
+    public u:number;
 
     constructor() {
+        this.u = Math.random()
+        console.log('prop is ' + this.u);
         this.value = 1;
         this.c = 1;
     }
 
-    onClick(){
+    public onClick(){
         this.c++;
         this.value = this.c;
-        console.log(this.c)
+        console.log(this.c + ' ' + this.u)
     }
 
     ngOnDestroy() {
