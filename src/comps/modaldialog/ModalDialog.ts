@@ -10,13 +10,13 @@ import {RegisterCaller} from "../../interfaces/registerCaller";
     inputs: ['title:title', 'content:content', 'owner:owner'],
     styles: [`
             .modal-dialog {
-                width: 100%;
-                height: 100%;
+                width: 95%;
+                height: 95%;
                 padding: 0;
             }
 
             .modal-content {
-                height: 100%;
+                height: 95%;
                 border-radius: 0;
             }
     `],
@@ -33,6 +33,7 @@ import {RegisterCaller} from "../../interfaces/registerCaller";
                     </div>
                     <div class="modal-body">
                         {{content}}
+                        <small>I am ModalDialog component</small>
                         <ng-content></ng-content>
                     </div>
                     <div class="modal-footer">

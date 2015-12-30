@@ -14,8 +14,6 @@ import {RegisterCaller} from "../../../interfaces/RegisterCaller";
                 <small>I am notes1 component</small>
                 <div class="btn-group" role="group" aria-label="...">
                   <button (click)="openModal1()" type="button" class="btn btn-default">Open Modal</button>
-                  <button type="button" class="btn btn-default">Open Modal</button>
-                  <button type="button" class="btn btn-default">Open Modal</button>
                 </div>
                 <ModalDialog title="My owner is Notes1" content="I am here to serve Notes1" [owner]="me">
                 </ModalDialog>
