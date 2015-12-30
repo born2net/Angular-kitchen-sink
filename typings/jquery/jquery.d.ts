@@ -3150,6 +3150,8 @@ interface JQuery {
      */
     slice(start: number, end?: number): JQuery;
 
+    modal(o?:any): JQuery;
+
     /**
      * Show the queue of functions to be executed on the matched elements.
      * 

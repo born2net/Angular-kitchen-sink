@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog"], function(exports_1) {
+System.register(["angular2/core", "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../properties/Properties"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(["angular2/core", "../../sliderpanel/Sliderpanel", "../../modald
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, ModalDialog_1;
+    var core_1, Sliderpanel_1, ModalDialog_1, Properties_1;
     var Notes2;
     return {
         setters:[
@@ -20,12 +20,16 @@ System.register(["angular2/core", "../../sliderpanel/Sliderpanel", "../../modald
             },
             function (ModalDialog_1_1) {
                 ModalDialog_1 = ModalDialog_1_1;
+            },
+            function (Properties_1_1) {
+                Properties_1 = Properties_1_1;
             }],
         execute: function() {
             Notes2 = (function () {
-                function Notes2(sliderPanel) {
+                function Notes2(sliderPanel, properties) {
                     this.sliderPanel = sliderPanel;
                     this.me = this;
+                    console.log('note 2 ' + properties.u);
                 }
                 Notes2.prototype.registerCaller = function (caller) {
                     this.modalDialog = caller;
@@ -45,7 +49,7 @@ System.register(["angular2/core", "../../sliderpanel/Sliderpanel", "../../modald
                         directives: [ModalDialog_1.ModalDialog],
                         template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"glyphicon glyphicon-chevron-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n                </button>\n                <small>I am notes1 component</small>\n                <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n                  <button (click)=\"openModal1()\" type=\"button\" class=\"btn btn-default\">Open Modal</button>\n                </div>\n                <ModalDialog title=\"My owner is Notes2\" content=\"I am here to serve Notes2\" [owner]=\"me\">\n                </ModalDialog>\n                <ng-content></ng-content>"
                     }), 
-                    __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel])
+                    __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, Properties_1.Properties])
                 ], Notes2);
                 return Notes2;
             })();

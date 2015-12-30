@@ -27,7 +27,7 @@ export class Notes1 implements RegisterCaller {
     private me:Notes1;
     constructor(private sliderPanel:Sliderpanel, properties:Properties) {
         this.me = this;
-        console.log('top ' + properties.u);
+        console.log('note 1 ' + properties.u);
     }
 
     registerCaller(caller:any):void {

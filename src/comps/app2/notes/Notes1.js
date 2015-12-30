@@ -29,7 +29,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../propertie
                 function Notes1(sliderPanel, properties) {
                     this.sliderPanel = sliderPanel;
                     this.me = this;
-                    console.log('top ' + properties.u);
+                    console.log('note 1 ' + properties.u);
                 }
                 Notes1.prototype.registerCaller = function (caller) {
                     this.modalDialog = caller;

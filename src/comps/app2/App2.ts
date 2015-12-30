@@ -21,7 +21,6 @@ import {Logout} from "../logout/Logout";
 import {Contact} from "./contact/Contact";
 import {DividerPanel} from "../dividerpanel/DividerPanel";
 import {ModalDialog} from "../modaldialog/ModalDialog";
-import {ttt} from "../ttt";
 import {Properties} from "./properties/Properties";
 
 /**
@@ -30,7 +29,7 @@ import {Properties} from "./properties/Properties";
 @Component({
     templateUrl: 'src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS, Properties],
-    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, ttt,
+    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact, ModalDialog]
 })
 export class App2 {

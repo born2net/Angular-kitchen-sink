@@ -3,6 +3,7 @@ import {Consts} from "../../Conts";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {RegisterCaller} from "../../../interfaces/registerCaller";
+import {Properties} from "../properties/Properties";
 
 @Component({
     selector: 'Notes2',
@@ -23,13 +24,12 @@ import {RegisterCaller} from "../../../interfaces/registerCaller";
 })
 
 export class Notes2 implements RegisterCaller {
-    private sliderPanel:Sliderpanel;
     private modalDialog:ModalDialog;
     private me:Notes2;
 
-    constructor(sliderPanel:Sliderpanel) {
-        this.sliderPanel = sliderPanel;
+    constructor(private sliderPanel:Sliderpanel, properties:Properties) {
         this.me = this;
+        console.log('note 2 ' + properties.u);
     }
 
     registerCaller(caller:any):void {
