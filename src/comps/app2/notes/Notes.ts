@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component, ViewContainerRef} from "angular2/core";
 import {Consts} from "../../Conts";
 import {Properties} from "../properties/Properties";
 
@@ -10,8 +10,5 @@ import {Properties} from "../properties/Properties";
 
 export class Notes {
     constructor(private properties:Properties) {
-        console.log(properties);
     }
-
-
 }

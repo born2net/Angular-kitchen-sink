@@ -22,7 +22,6 @@ System.register(["angular2/core", "../properties/Properties"], function(exports_
             Notes = (function () {
                 function Notes(properties) {
                     this.properties = properties;
-                    console.log(properties);
                 }
                 Notes = __decorate([
                     core_1.Component({
