@@ -1,32 +1,4 @@
 
-button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-size: 100%;
-  vertical-align: baseline;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-
-.add {
-  cursor: pointer;
-  margin: 3px;
-  padding: 3px 7px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
-
-.add:hover {
-  border-color: rgba(175, 47, 47, 0.1);
-}
 
 .hidden {
   display: none;

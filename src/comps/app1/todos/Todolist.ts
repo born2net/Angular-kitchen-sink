@@ -14,7 +14,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                     <h1>your to-do's</h1>
                     <input class="new-todo" placeholder="What needs to be done?"
                     autofocus [(ngModel)]="newItem" (keyup.enter)="addItem()">
-                    <button class="add" (click)="addItem()">Add</button>
+                    <button class="btn btn-default btn-lg" (click)="addItem()">Add todo</button>
                   </header>
                   <section class="main">
                     <ul class="todo-list">

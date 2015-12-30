@@ -1,6 +1,7 @@
 import {Component} from "angular2/core";
 import {Consts} from "../../Conts";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
+import {Properties} from "../properties/Properties";
 
 @Component({
     selector: 'Notes1',
@@ -13,7 +14,7 @@ import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 
 export class Notes1 {
     private sliderPanel:Sliderpanel;
-    constructor(sliderPanel:Sliderpanel) {
+    constructor(sliderPanel:Sliderpanel, private properties:Properties) {
         this.sliderPanel = sliderPanel;
     }
 

@@ -11,25 +11,27 @@
     </button>
     <Notes *ngIf="screens.notes">
       <Sliderpanel>
-        <div class="campaignSlider noScroll">
-          <Notes1 class="page center notes1 selected">
-            <div class="yScroll">
-              <h3>Notes 1</h3>
-            </div>
-          </Notes1>
-          <Notes2 class="page right notes2">
-            <h3>Notes 2</h3>
-          </Notes2>
-          <Notes3 class="page right notes3">
-            <h3>Notes 3</h3>
-          </Notes3>
-          <Notes4 class="page right notes4">
-            <h3>Notes 4</h3>
-          </Notes4>
-          <Notes5 class="page right notes5">
-            <h3>Notes 5</h3>
-          </Notes5>
-        </div>
+        <Notes>
+          <div class="campaignSlider noScroll">
+            <Notes1 class="page center notes1 selected">
+              <div class="yScroll">
+                <h3>Notes 1</h3>
+              </div>
+            </Notes1>
+            <Notes2 class="page right notes2">
+              <h3>Notes 2</h3>
+            </Notes2>
+            <Notes3 class="page right notes3">
+              <h3>Notes 3</h3>
+            </Notes3>
+            <Notes4 class="page right notes4">
+              <h3>Notes 4</h3>
+            </Notes4>
+            <Notes5 class="page right notes5">
+              <h3>Notes 5</h3>
+            </Notes5>
+          </div>
+        </Notes>
       </Sliderpanel>
     </Notes>
     <Digg *ngIf="screens.digg" mode="list">
@@ -42,28 +44,28 @@
     </Logout>
   </div>
   <div id="propPanelWrap" class="appHeight col-xs-3 col-sm-3 col-lg-3">
-    <Properties>
-      <div id="propPanel" class="appHeight">
-        <div id="emptyProperties">
-          <h2 data-localize="dashboard">Dashboard</h2>
-          <hr/>
-          <ul class="alignTextLeft">
-            <li>
-              <span data-localize="server"> Server: </span><span id="serverName"></span>
-            </li>
-            <li>
-              <span data-localize="businessId"> Business id: </span><span id="buisinessID"></span>
-            </li>
-            <li>
-              <span data-localize="username"> User name: </span><span id="loggedUserName"></span>
-            </li>
-          </ul>
-          <hr/>
-        </div>
-        <div id="campaignProperties" style="display: none">
-          <input id="formCampaignName" type="text" data-localize="campaignName" class="form-control" placeholder="Campaign name">
-        </div>
-      </div>
+    <Properties id="propPanel" class="appHeight">
+      <!--<div id="propPanel" class="appHeight">-->
+        <!--<div id="emptyProperties">-->
+          <!--<h2 data-localize="dashboard">Dashboard</h2>-->
+          <!--<hr/>-->
+          <!--<ul class="alignTextLeft">-->
+            <!--<li>-->
+              <!--<span data-localize="server"> Server: </span><span id="serverName"></span>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<span data-localize="businessId"> Business id: </span><span id="buisinessID"></span>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<span data-localize="username"> User name: </span><span id="loggedUserName"></span>-->
+            <!--</li>-->
+          <!--</ul>-->
+          <!--<hr/>-->
+        <!--</div>-->
+        <!--<div id="campaignProperties" style="display: none">-->
+          <!--<input id="formCampaignName" type="text" data-localize="campaignName" class="form-control" placeholder="Campaign name">-->
+        <!--</div>-->
+      <!--</div>-->
     </Properties>
   </div>
 </div>

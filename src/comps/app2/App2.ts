@@ -28,7 +28,7 @@ import {Contact} from "./contact/Contact";
     templateUrl: 'src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS],
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Properties, Digg,
-        Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact]
+        Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact]
 })
 export class App2 {
     private screens:any;
