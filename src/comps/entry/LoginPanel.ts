@@ -55,7 +55,7 @@ export class LoginPanel {
         setTimeout((e)=> {
             this.myRouter.navigate(['/AppManager']);
             bootbox.hideAll();
-        }, 200);
+        }, 2000);
         event.preventDefault();
         return false;
     }

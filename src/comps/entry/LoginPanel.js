@@ -48,7 +48,7 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                     setTimeout(function (e) {
                         _this.myRouter.navigate(['/AppManager']);
                         bootbox.hideAll();
-                    }, 200);
+                    }, 2000);
                     event.preventDefault();
                     return false;
                 };
