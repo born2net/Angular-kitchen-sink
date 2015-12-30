@@ -13,7 +13,7 @@ System.register(["../../../Conts"], function(exports_1) {
                     this.commBroker = commBroker;
                     this.me = this;
                 }
-                NotesBase.prototype.openModal1 = function () {
+                NotesBase.prototype.openModal = function () {
                     this.modalDialog.openModal();
                 };
                 NotesBase.prototype.onPrev = function (event) {

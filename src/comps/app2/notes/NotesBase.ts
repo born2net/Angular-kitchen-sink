@@ -16,7 +16,7 @@ export class NotesBase implements RegisterCaller {
         this.me = this;
     }
 
-    protected openModal1(){
+    protected openModal(){
         this.modalDialog.openModal();
     }
 

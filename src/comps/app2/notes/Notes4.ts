@@ -18,7 +18,7 @@ import {NotesBase} from "./NotesBase";
                 </button>
                 <small>I am notes4 component</small>
                 <div class="btn-group" role="group" aria-label="...">
-                  <button (click)="openModal1()" type="button" class="btn btn-default">Open Modal</button>
+                  <button (click)="openModal()" type="button" class="btn btn-default">Open Modal</button>
                 </div>
                 <ModalDialog title="My owner is Notes4" content="I am here to serve Notes4" [owner]="me">
                 </ModalDialog>
