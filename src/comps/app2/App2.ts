@@ -20,6 +20,7 @@ import {Digg} from "../digg/Digg";
 import {HTTP_PROVIDERS} from "angular2/http";
 import {Logout} from "../logout/Logout";
 import {Contact} from "./contact/Contact";
+import {DividerPanel} from "../dividerpanel/DividerPanel";
 
 /**
  Application 2 lazy loaded
@@ -27,7 +28,7 @@ import {Contact} from "./contact/Contact";
 @Component({
     templateUrl: 'src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS],
-    directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Properties, Digg,
+    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Properties, Digg,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact]
 })
 export class App2 {

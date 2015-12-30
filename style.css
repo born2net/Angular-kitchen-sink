@@ -129,10 +129,15 @@ small {
     min-height: 55px;
 }
 
-#propPanel, #mainPanelWrap {
+#mainPanelWrap{
     height: 200px;
-     border-left: 2px #d9d9d9 solid;
+    border-right: 2px #d9d9d9 solid;
     padding-left: 40px;
+}
+#propPanel, #mainPanelWrap {
+    /*height: 200px;*/
+     /*border-left: 2px #d9d9d9 solid;*/
+    /*padding-left: 40px;*/
     -webkit-transition: width 0.1s ease, margin 0.1s ease;
     -moz-transition: width 0.1s ease, margin 0.1s ease;
     -o-transition: width 0.1s ease, margin 0.1s ease;

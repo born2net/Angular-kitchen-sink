@@ -56,4 +56,4 @@ System.register(['angular2/core', "./TodoRemote", "./Todoitem"], function(export
         }
     }
 });
-//# sourceMappingURL=Todolist.js.map
+//# sourceMappingURL=todolist.js.map
