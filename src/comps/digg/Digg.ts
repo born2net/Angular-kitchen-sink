@@ -1,3 +1,17 @@
+///<reference path="../../../typings/app.d.ts" />
+
+/*******************************************
+ ng2Boilerplate application
+
+ Get up and running quickly with a working
+ application with solid foundation for
+ Google's Angular 2
+
+ GitHub: https://github.com/born2net/ng2Boilerplate
+
+ Licence: MIT
+ *******************************************/
+
 import {Component, ViewContainerRef, ViewEncapsulation} from 'angular2/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser';
 import {Consts} from "src/Conts";
