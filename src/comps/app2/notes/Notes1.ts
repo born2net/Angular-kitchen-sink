@@ -63,8 +63,7 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common'
                     </form>
                   </div>
                 </div>
-                <hr/>
-                <ng-content></ng-content>`
+                `
 })
 
 export class Notes1 extends NotesBase {
