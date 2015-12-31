@@ -52,8 +52,6 @@ What features of Angular does this app cover? well pretty much all the core stuf
 
 Generated docs are@ http://ng2.javascriptninja.io/docs/globals.html
 
-This application is pretty massive, I recommend you checkout the video tutorial below for a rundown of how this application is setup and be sure to submit pull requests.
-(Video coming soon)
 
 Contributors are welcome!
 
