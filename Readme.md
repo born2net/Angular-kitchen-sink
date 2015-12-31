@@ -39,7 +39,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Dependency injection and decorators such as @Host
 - Dependency sharing
 - Hook into application lifecycles
-- Form and validation
+- Form and validation (both via FormBuilder and manual creating Control Groups)
 - Node server side CRUD for RX calls
 - Todo data model persistence and sync to node server via CRUD
 - Subclass / Inheritance ES6 (Notes component) 
