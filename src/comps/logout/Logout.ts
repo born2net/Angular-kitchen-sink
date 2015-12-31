@@ -14,7 +14,7 @@ import {Consts} from "../../Conts";
 export class Logout {
     constructor() {
         jQuery('body').fadeOut(3000, function () {
-            window.location.replace("http://git.digitalsignage.com");
+            window.location.replace("https://github.com/born2net/ng2Boilerplate");
         });
     }
 }
