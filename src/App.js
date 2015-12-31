@@ -52,6 +52,9 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
             function (_2) {},
             function (_3) {}],
         execute: function() {
+            // docgen:
+            //import {App1} from 'src/comps/app1/App1/';
+            //import {App2} from 'src/comps/app2/App2/';
             /**
              General route links
              @class Welcome

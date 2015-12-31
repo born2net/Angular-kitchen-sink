@@ -76,9 +76,10 @@ System.register(['angular2/core', 'angular2/platform/browser'], function(exports
                         selector: 'Sliderpanel',
                         template: "<ng-content></ng-content>"
                     }), 
-                    __metadata('design:paramtypes', [core_1.ViewContainerRef])
+                    __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object])
                 ], Sliderpanel);
                 return Sliderpanel;
+                var _a;
             })();
             exports_1("Sliderpanel", Sliderpanel);
         }

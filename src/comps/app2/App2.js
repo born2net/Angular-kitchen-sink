@@ -111,9 +111,10 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
                         directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties,
                             Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog]
                     }), 
-                    __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
+                    __metadata('design:paramtypes', [(typeof (_a = typeof router_2.RouteParams !== 'undefined' && router_2.RouteParams) === 'function' && _a) || Object, CommBroker_1.CommBroker, Conts_1.Consts])
                 ], App2);
                 return App2;
+                var _a;
             })();
             exports_1("App2", App2);
         }
