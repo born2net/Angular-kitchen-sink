@@ -40,7 +40,8 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - App lifecycles
 - Form and validation
 - Node server side CRUD for RX calls
-- CRUD server calls
+- Todo data model persistence and sync to node server via CRUD
+- Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file
 - Themes
 - Interfaces
