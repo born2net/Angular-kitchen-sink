@@ -15,22 +15,26 @@ export class MailModel {
 @Component({
     selector: 'Contact',
     directives: [FORM_DIRECTIVES],
-    styles: [`.ng-valid[required] {
-          border-left: 5px solid #42A948; /* green */
-        }
-        .form-control {
-            width: 20%;
-        }
-
-        .ng-invalid {
-          border-left: 5px solid #a94442; /* red */
-       }`],
+    styles: [`
+            .ng-invalid {
+              border-left: 5px solid #a94442; /* red */
+           }
+           .ng-valid[required] {
+                  border-left: 5px solid #42A948; /* green */
+           }
+           .form-control {
+                width: 20%;
+           }
+       `],
     template: `
                 <small>I am Contact component</small>
                 <ng-content></ng-content>
                 <div class="container">
                   <div [hidden]="submitted">
                     <h1>Contact form</h1>
+
+                    <!-- special tx to ng2-book via http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/ -->
+
                     <!-- Importing FORM_DIRECTIVES automatically binds form to ngForm (which is a ControlGroup) and ngSubmit for us -->
                     <!-- To create a new ControlGroup and Controls implicitly use: -->
                     <!--  -->
