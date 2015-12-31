@@ -10,7 +10,7 @@ import {Consts} from "../../../Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../contact/Contact";
 import {CharCount} from "../../../pipes/CharCount";
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common'
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
 
 @Component({
     selector: 'Notes1',
@@ -68,7 +68,7 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common'
                         <br/>
                       </div>
                       <br/>
-                      <button type="submit" class="btn btn-default" [disabled]="!notesForm.status">Submit</button>
+                      <button type="submit" class="btn btn-default" [disabled]="!notesForm.valid">Submit</button>
                     </form>
                   </div>
                 </div>
@@ -78,14 +78,18 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common'
 export class Notes1 extends NotesBase {
 
     private notesForm:ControlGroup;
+    private notestTextArea:AbstractControl;
 
     constructor(fb:FormBuilder, protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
         this.slideLeft = 'notes2';
 
         this.notesForm = fb.group({
-            'notesTextArea': ['enter text here']
-        })
+            'notesTextArea': ['enter text here', Validators.required]
+        });
+
+        // gran an instance of our notesTextControl from the from
+        this.notestTextArea = this.notesForm.controls['notesTextArea'];
 
     }
     model = new MailModel(0, 'enter your text to add to notes here', true, '', '');
