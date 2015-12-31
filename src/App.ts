@@ -1,5 +1,4 @@
-///<reference path="../typings/systemjs/systemjs.d.ts" />
-///<reference path="../typings/jquery/jquery.d.ts" />
+///<reference path="../typings/app.d.ts"/>
 
 import {bootstrap} from 'angular2/platform/browser';
 import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';

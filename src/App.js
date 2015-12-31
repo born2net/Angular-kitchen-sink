@@ -1,5 +1,4 @@
-///<reference path="../typings/systemjs/systemjs.d.ts" />
-///<reference path="../typings/jquery/jquery.d.ts" />
+///<reference path="../typings/app.d.ts"/>
 System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "src/Conts", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

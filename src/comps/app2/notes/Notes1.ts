@@ -1,3 +1,5 @@
+///<reference path="../../../../typings/app.d.ts"/>
+
 import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
@@ -6,13 +8,13 @@ import {CommBroker} from "../../../services/CommBroker";
 import {Properties} from "../properties/Properties";
 import {Consts} from "../../../Conts";
 import {NotesBase} from "./NotesBase";
-import {FORM_DIRECTIVES} from 'angular2/common'
 import {MailModel} from "../contact/Contact";
 import {CharCount} from "../../../pipes/CharCount";
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common'
 
 @Component({
     selector: 'Notes1',
-    directives: [ModalDialog],
+    directives: [ModalDialog, FORM_DIRECTIVES],
     pipes: [CharCount],
     styles: [`.ng-valid[required] {
           border-left: 5px solid #42A948; /* green */
@@ -22,6 +24,9 @@ import {CharCount} from "../../../pipes/CharCount";
         }
         #totalChar {
            border: none;
+        }
+        #summary {
+            width: 20%;
         }
         #notesArea {
            width: 50%;
@@ -36,97 +41,52 @@ import {CharCount} from "../../../pipes/CharCount";
                 </button>
                 <hr/>
                 <small>I am notes1 component</small>
-                <div class="btn-group" role="group">
-                  <button (click)="openModal()" type="button" class="btn btn-default">Open Modal</button>
-                </div>
                 <hr/>
                 <h1>Notes 1</h1>
                 <div class="container">
                   <div [hidden]="submitted">
-                    <!-- Importing FORM_DIRECTIVES automatically binds form to ngForm (which is a ControlGroup) and ngSubmit for us -->
-                    <form (ngSubmit)="onSubmit(contactForm.value)" #contactForm="ngForm">
+
+                  <!-- create a form and bind it directly to the ControlGroup we created manually instantiated in the controller below (i.e.: notesForm) -->
+                  <!-- this is different from what we did in Contact.ts where we had Angualar automatically create a control group for us -->
+                  <!-- and we just created a local variable their-->
+
+                    <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
                       <div class="form-group">
                         <label for="name">Enter your notes</label>
-                        <textarea id="notesArea" type="text" class="form-control" required [(ngModel)]="model.name" (change)="onChange($event)" ngControl="name" #name="ngForm"></textarea>
+                        <!-- bind the textarea control to our manually created notesTextArea control -->
+                        <textarea id="notesArea" type="text" class="form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
                         <span>Total characters via Pipes: {{model.name | CharCount}}</span>
-                        <div [hidden]="name.valid" class="alert alert-danger">
-                          Name is required
-                        </div>
+                        <br/>
                       </div>
-                      <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="form-control" (change)="onChange($event)" [(ngModel)]="model.subject" ngControl="subject" >
-                      </div>
-                      <div class="form-group">
-                        <label for="contactMethod">How should we contact you?</label>
-                        <select class="form-control" required (change)="onChange($event)" [(ngModel)]="model.contactMethod" ngControl="contactMethod" #contactMethod="ngForm" >
-                          <option *ngFor="#p of contacts" [value]="p">
-                            {{p}}
-                          </option>
-                        </select>
-                        <div [hidden]="contactMethod.valid" class="alert alert-danger">
-                          contact method is required
-                        </div>
-                      </div>
-                      <label class="pull-left">
-                      </label>
                       <br/>
-                      <br/>
-                      <button type="submit" class="btn btn-default" [disabled]="!contactForm.form.valid">Submit</button>
+                      <button type="submit" class="btn btn-default" [disabled]="!notesForm.status">Submit</button>
                     </form>
-                  </div>
-                  <div [hidden]="!submitted">
-                    <h2>You submitted the following:</h2>
-                    <div class="row">
-                      <div class="col-xs-3">Name</div>
-                      <div class="col-xs-9  pull-left">{{ model.name }}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">Subject</div>
-                      <div class="col-xs-9 pull-left">{{ model.subject }}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">Power</div>
-                      <div class="col-xs-9 pull-left">{{ model.contactMethod }}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">Gender Male</div>
-                      <div class="col-xs-9 pull-left">{{ model.male }}</div>
-                    </div>
-                    <br>
-                    <button class="btn btn-default" (click)="submitted=false">Edit</button>
                   </div>
                 </div>
                 <hr/>
-                <ModalDialog title="My owner is Notes1" content="I am here to serve Notes1" [owner]="me">
-                </ModalDialog>
                 <ng-content></ng-content>`
 })
 
 export class Notes1 extends NotesBase {
-    constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
+
+    private notesForm:ControlGroup;
+
+    constructor(fb:FormBuilder, protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
-        this.me = this;
-        this.slideLeft = 'notes2'
+        this.slideLeft = 'notes2';
+
+        this.notesForm = fb.group({
+            'notesTextArea': ['enter text here']
+        })
+
     }
-
-    private contacts = ['Call me', 'Email me', 'Page me (old school)'];
-    model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
-    submitted = false;
-
+    model = new MailModel(0, 'enter your text to add to notes here', true, '', '');
     onSubmit(event) {
-        console.log(event);
-        if (event.contactMethod.indexOf('page')) {
-            alert('Paging is really old, get a cell phone');
-            this.submitted = false;
-            return;
-        }
-
-        this.submitted = true;
+        bootbox.alert(`sent ${event.notesTextArea}`);
     }
 
     onChange(event) {
-        if (event.target.value.length<3)
+        if (event.target.value.length < 3)
             alert('text too short for subject');
     }
 }
