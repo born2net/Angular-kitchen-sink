@@ -46,9 +46,18 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common'
                 <div class="container">
                   <div [hidden]="submitted">
 
-                  <!-- create a form and bind it directly to the ControlGroup we created manually instantiated in the controller below (i.e.: notesForm) -->
-                  <!-- this is different from what we did in Contact.ts where we had Angualar automatically create a control group for us -->
-                  <!-- and we just created a local variable their-->
+                    <!-- create a form and bind it directly to the ControlGroup we created manually instantiated in the controller below (i.e.: notesForm) -->
+                    <!-- this is different from what we did in Contact.ts where we had Angualar automatically create a control group for us -->
+                    <!-- and we just created a local variable their-->
+
+                    <!-- To create a new ControlGroup and Controls implicitly use: -->
+                    <!--  -->
+                    <!-- ngForm and -->
+                    <!-- ngControl -->
+                    <!-- But to bind to an existing ControlGroup and Controls use: -->
+                    <!--  -->
+                    <!-- ngFormModel and -->
+                    <!-- ngFormControl -->
 
                     <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
                       <div class="form-group">

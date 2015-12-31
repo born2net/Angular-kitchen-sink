@@ -32,6 +32,15 @@ export class MailModel {
                   <div [hidden]="submitted">
                     <h1>Contact form</h1>
                     <!-- Importing FORM_DIRECTIVES automatically binds form to ngForm (which is a ControlGroup) and ngSubmit for us -->
+                    <!-- To create a new ControlGroup and Controls implicitly use: -->
+                    <!--  -->
+                    <!-- ngForm and -->
+                    <!-- ngControl -->
+                    <!-- But to bind to an existing ControlGroup and Controls use: -->
+                    <!--  -->
+                    <!-- ngFormModel and -->
+                    <!-- ngFormControl -->
+
                     <form (ngSubmit)="onSubmit(contactForm.value)" #contactForm="ngForm">
                       <div class="form-group">
                         <label for="name">Name</label>
@@ -94,7 +103,7 @@ export class Contact {
 
     onSubmit(event) {
         console.log(event);
-        if (event.contactMethod.indexOf('page')) {
+        if (event.contactMethod.indexOf('Page') > -1) {
             alert('Paging is really old, get a cell phone');
             this.submitted = false;
             return;
@@ -104,7 +113,7 @@ export class Contact {
     }
 
     onChange(event) {
-        if (event.target.value.length<3)
+        if (event.target.value.length < 3)
             alert('text too short for subject');
     }
 }
