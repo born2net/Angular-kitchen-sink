@@ -11,7 +11,7 @@ import {TodoItemModel} from './TodoRemote';
                     <button (click)="editClicked()" [ngClass]="{'fa-check-square': editMode}" class="fa fa-edit buttonsEdit"></button>
                 </div>
     `,
-    styleUrls: ['src/comps/app1/todos/todoitem.css'],
+    styleUrls: ['src/comps/app1/todos/Todoitem.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItem {

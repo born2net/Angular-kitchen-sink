@@ -44,7 +44,7 @@ System.register(['angular2/core', "./TodoRemote", "./Todoitem"], function(export
                     core_1.Component({
                         selector: 'todo-list',
                         template: "\n                <section class=\"todoapp\">\n                  <header class=\"header\">\n                    <h1>your to-do's</h1>\n                    <input class=\"new-todo\" placeholder=\"What needs to be done?\"\n                    autofocus [(ngModel)]=\"newItem\" (keyup.enter)=\"addItem()\">\n                    <button class=\"btn btn-default btn-lg\" (click)=\"addItem()\">Add todo</button>\n                  </header>\n                  <section class=\"main\">\n                    <ul class=\"todo-list\">\n                      <li *ngFor=\"#item of m_dataStore.todos\">\n                        <todo-item [item]=\"item\" (done)=\"removeItem($event)\" (edit)=\"editItem($event)\">\n                        </todo-item>\n                      </li>\n                    </ul>\n                  </section>\n                </section>\n    ",
-                        styleUrls: ['src/comps/app1/todos/todolist.css'],
+                        styleUrls: ['src/comps/app1/todos/Todolist.css'],
                         directives: [Todoitem_1.TodoItem],
                         providers: [TodoRemote_1.TodosService]
                     }), 
@@ -56,4 +56,4 @@ System.register(['angular2/core', "./TodoRemote", "./Todoitem"], function(export
         }
     }
 });
-//# sourceMappingURL=todolist.js.map
+//# sourceMappingURL=Todolist.js.map

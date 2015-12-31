@@ -4,6 +4,7 @@ var express = require('express');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var typedoc = require("gulp-typedoc");
+var Rsync = require('rsync');
 
 
 gulp.task('LiveServer', ['_watchSource'], function () {
@@ -63,4 +64,26 @@ gulp.task("GenDocs", function () {
             name: "ng2Boilerplate",
             version: true
         }))
+});
+
+
+gulp.task('Rsync', function () {
+    var rsync = Rsync.build({
+        source: '/cygdrive/c/msweb/ng2Boilerplate/',
+        destination: 'Sean@digitalsignage.com:/var/www/sites/javascriptninja.io/ng2/htdocs',
+        exclude: ['*.bat', '*.iml', '.gitignore', '.git', '.idea/']
+    });
+    rsync.set('progress');
+    rsync.flags('avz');
+    console.log('running the command ' + rsync.command());
+    rsync.output(
+        function (data) {
+            console.log('sync: ' + data);
+        }, function (data) {
+            console.log('sync: ' + data);
+        }
+    );
+    rsync.execute(function (error, stdout, stderr) {
+        console.log('completed ' + error + ' ' + stdout + ' ' + stderr)
+    });
 });

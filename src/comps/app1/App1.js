@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideMenu/Menu", "../sideMenu/MenuItem", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "../digg/Digg", "../tabs/tabs", "../tabs/tab", "../logout/Logout", "./settings/Settings", "./help/Help", "./todos/Todo1", "./todos/Todo2", "./todos/todolist", "./todos/todoitem", "./todos/TodoStatsModel", "./help/contributors/contributors"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "angular2/http", "../sidemenu/Menu", "../sidemenu/MenuItem", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "../digg/Digg", "../tabs/tabs", "../tabs/tab", "../logout/Logout", "./settings/Settings", "./help/Help", "./todos/Todo1", "./todos/Todo2", "./todos/Todolist", "./todos/Todoitem", "./todos/TodoStatsModel", "./help/contributors/contributors"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideMe
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, http_1, router_2, Menu_1, MenuItem_1, CommBroker_1, Conts_1, Sliderpanel_1, Digg_1, tabs_1, tab_1, Logout_1, Settings_1, Help_1, Todo1_1, Todo2_1, todolist_1, todoitem_1, TodoStatsModel_1, contributors_1;
+    var core_1, router_1, http_1, router_2, Menu_1, MenuItem_1, CommBroker_1, Conts_1, Sliderpanel_1, Digg_1, tabs_1, tab_1, Logout_1, Settings_1, Help_1, Todo1_1, Todo2_1, Todolist_1, Todoitem_1, TodoStatsModel_1, contributors_1;
     var App1;
     return {
         setters:[
@@ -61,11 +61,11 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideMe
             function (Todo2_1_1) {
                 Todo2_1 = Todo2_1_1;
             },
-            function (todolist_1_1) {
-                todolist_1 = todolist_1_1;
+            function (Todolist_1_1) {
+                Todolist_1 = Todolist_1_1;
             },
-            function (todoitem_1_1) {
-                todoitem_1 = todoitem_1_1;
+            function (Todoitem_1_1) {
+                Todoitem_1 = Todoitem_1_1;
             },
             function (TodoStatsModel_1_1) {
                 TodoStatsModel_1 = TodoStatsModel_1_1;
@@ -108,7 +108,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideMe
                         providers: [http_1.HTTP_PROVIDERS, TodoStatsModel_1.default],
                         templateUrl: 'src/comps/app1/App1.html',
                         directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg,
-                            Todo1_1.Todo1, Todo2_1.Todo2, todolist_1.TodoList, todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, Help_1.Help, tabs_1.Tabs, tab_1.Tab, contributors_1.Contributors]
+                            Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, Help_1.Help, tabs_1.Tabs, tab_1.Tab, contributors_1.Contributors]
                     }), 
                     __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
                 ], App1);

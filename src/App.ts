@@ -6,8 +6,8 @@ import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/
 import {EntryPanel} from 'src/comps/entry/EntryPanel';
 import {AppManager} from 'src/comps/appmanager/AppManager';
 import {CommBroker} from 'src/services/CommBroker';
-import {Filemenu} from "src/comps/fileMenu/Filemenu";
-import {FilemenuItem} from "src/comps/fileMenu/FilemenuItem";
+import {Filemenu} from "src/comps/filemenu/Filemenu";
+import {FilemenuItem} from "src/comps/filemenu/FilemenuItem";
 import {Consts} from "src/Conts";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
@@ -18,8 +18,8 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 
 // docgen:
-//import {App1} from 'src/comps/app1/App1/';
-//import {App2} from 'src/comps/app2/App2/';
+import {App1} from 'src/comps/app1/App1/';
+import {App2} from 'src/comps/app2/App2/';
 
 /**
  General route links

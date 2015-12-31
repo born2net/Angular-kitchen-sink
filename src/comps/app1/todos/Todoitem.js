@@ -50,7 +50,7 @@ System.register(['angular2/core', './TodoRemote'], function(exports_1) {
                     core_1.Component({
                         selector: 'todo-item',
                         template: "\n                <div class=\"view\">\n                    <input [(ngModel)]=\"item.task\" class=\"editInput\" *ngIf=\"editMode\" value=\"{{item.task}}\"/>\n                    <label  *ngIf=\"!editMode\">{{item.task}}</label>\n                    <button (click)=\"doneClicked()\"  class=\"fa fa-minus buttonsDone\"></button>\n                    <button (click)=\"editClicked()\" [ngClass]=\"{'fa-check-square': editMode}\" class=\"fa fa-edit buttonsEdit\"></button>\n                </div>\n    ",
-                        styleUrls: ['src/comps/app1/todos/todoitem.css'],
+                        styleUrls: ['src/comps/app1/todos/Todoitem.css'],
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush
                     }), 
                     __metadata('design:paramtypes', [])
