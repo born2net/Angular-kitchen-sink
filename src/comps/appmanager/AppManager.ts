@@ -14,11 +14,13 @@ import {RouterLink, Router} from 'angular2/router';
                         style="margin: 20px; padding: 20px; font-size: 5em" class="fa fa-paper-plane"></i> <span
                         data-localize="none"></span>
                         <small>App 1</small>
+                        <small>Loads Asynchronously via router</small>
                  </button>
                 <button (click)="goToApp2(event)" type="button" name="everNodes" class="btn btn-default"><i
                         style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-rocket"></i> <span
                         data-localize="none"></span>
                         <small>App 2</small>
+                        <small>Loads Asynchronously via router</small>
                 </button>
 
             </div>
