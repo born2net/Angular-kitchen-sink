@@ -16,6 +16,7 @@ import {NotesBase} from "./NotesBase";
                 <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
+                <hr/>
                 <small>I am notes2 component</small>
                 <div class="btn-group" role="group" aria-label="...">
                   <button (click)="openModal()" type="button" class="btn btn-default">Open Modal</button>

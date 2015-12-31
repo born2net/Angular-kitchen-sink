@@ -13,6 +13,7 @@ import {NotesBase} from "./NotesBase";
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
+                <hr/>
                 <small>I am notes5 component</small>
                 <div class="btn-group" role="group" aria-label="...">
                   <button (click)="openModal()" type="button" class="btn btn-default">Open Modal</button>

@@ -13,8 +13,9 @@ import {NotesBase} from "./NotesBase";
     template: ` <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm goNext">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
+                <hr/>
                 <small>I am notes1 component</small>
-                <div class="btn-group" role="group" aria-label="...">
+                <div class="btn-group" role="group">
                   <button (click)="openModal()" type="button" class="btn btn-default">Open Modal</button>
                 </div>
                 <ModalDialog title="My owner is Notes1" content="I am here to serve Notes1" [owner]="me">

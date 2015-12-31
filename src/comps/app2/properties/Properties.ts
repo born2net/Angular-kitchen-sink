@@ -5,7 +5,8 @@ import {CommBroker} from "../../../services/CommBroker";
 @Component({
     selector: 'Properties',
     template: `
-                <h1>Properties</h1>
+                <h4>Properties</h4>
+                <hr/>
                  <ul [ngSwitch]="value">
                   <li *ngSwitchWhen="'notes1'"><h1>Notes 1</h1></li>
                   <li *ngSwitchWhen="'notes2'"><h1>Notes 2</h1></li>

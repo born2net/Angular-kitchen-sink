@@ -24,6 +24,19 @@ aside > aside > div > ul > li {
     margin-left: 30px;
 }
 
+#loading {
+    background-color: #222223;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#loading img {
+    height: 200px;
+    width: 500px;
+    padding-top: 100px;
+}
+
 #domRoot {
     min-height: 100%;
     height: auto;
@@ -301,7 +314,6 @@ small {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-
 
 .centerElement {
     margin: 0 auto;
