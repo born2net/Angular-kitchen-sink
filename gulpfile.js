@@ -66,7 +66,6 @@ gulp.task("GenDocs", function () {
         }))
 });
 
-
 gulp.task('Rsync', function () {
     var rsync = Rsync.build({
         source: '/cygdrive/c/msweb/ng2Boilerplate/',
