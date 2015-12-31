@@ -36,7 +36,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - RX reactive operators and subscribers throughout the app
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
-- Dependency injection
+- Dependency injection and decorators such as @Host
 - Dependency sharing
 - Hook into application lifecycles
 - Form and validation
@@ -45,6 +45,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file
 - Themes
+- Pipes
 - Interfaces
 - UI data binding / uni and 2 way
 - Document generation

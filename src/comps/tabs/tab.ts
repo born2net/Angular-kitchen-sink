@@ -1,5 +1,4 @@
-
-import {Component} from 'angular2/core';
+import {Component, Host} from 'angular2/core';
 import {Tabs} from '../tabs/tabs';
 
 @Component({
@@ -19,10 +18,17 @@ import {Tabs} from '../tabs/tabs';
     </div>
   `
 })
+
+/**
+ Add this Tab as part of it's parents Tabs component
+ use @Host to make sure we only look for a parent Tabs dependency injector
+ and don't go any further to prevent lookup of wrong Tabs under misconfiguration
+ **/
 export class Tab {
-    title: string;
+    title:string;
     active = this.active || false;
-    constructor(tabs: Tabs) {
+
+    constructor(@Host() tabs:Tabs) {
         //this.title = 'tab';
         tabs.addTab(this);
     }

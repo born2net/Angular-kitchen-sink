@@ -8,6 +8,9 @@ System.register(['angular2/core', '../tabs/tabs'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, tabs_1;
     var Tab;
     return {
@@ -34,7 +37,8 @@ System.register(['angular2/core', '../tabs/tabs'], function(exports_1) {
                         ],
                         styles: ["\n    .pane{\n      padding: 1em;\n    }\n  "],
                         template: "\n    <div [hidden]=\"!active\" class=\"pane\">\n      <ng-content></ng-content>\n    </div>\n  "
-                    }), 
+                    }),
+                    __param(0, core_1.Host()), 
                     __metadata('design:paramtypes', [tabs_1.Tabs])
                 ], Tab);
                 return Tab;

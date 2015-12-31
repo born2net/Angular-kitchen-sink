@@ -1,18 +1,20 @@
 import {Component} from "angular2/core";
 import {Consts} from "../../Conts";
-import {NgForm} from 'angular2/common'
+import {FORM_DIRECTIVES} from 'angular2/common'
+
 
 export class MailModel {
     constructor(public id:number,
                 public name:string,
                 public male:boolean,
-                public power:string,
-                public alterEgo?:string) {
+                public contactMethod:string,
+                public subject?:string) {
     }
 }
 
 @Component({
     selector: 'Contact',
+    directives: [FORM_DIRECTIVES],
     styles: [`.ng-valid[required] {
           border-left: 5px solid #42A948; /* green */
         }
@@ -29,51 +31,37 @@ export class MailModel {
                 <div class="container">
                   <div [hidden]="submitted">
                     <h1>Contact form</h1>
-                    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+                    <!-- Importing FORM_DIRECTIVES automatically binds form to ngForm (which is a ControlGroup) and ngSubmit for us -->
+                    <form (ngSubmit)="onSubmit(contactForm.value)" #contactForm="ngForm">
                       <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" required
-                          [(ngModel)]="model.name"
-                          (change)="onChange($event)"
-                            ngControl="name"  #name="ngForm" >
+                        <input type="text" class="form-control" required [(ngModel)]="model.name" (change)="onChange($event)" ngControl="name" #name="ngForm">
                         <div [hidden]="name.valid" class="alert alert-danger">
                           Name is required
                         </div>
                       </div>
-
                       <div class="form-group">
-                        <label for="alterEgo">Subject</label>
-                        <input type="text" class="form-control"
-                        (change)="onChange($event)"
-                          [(ngModel)]="model.alterEgo"
-                            ngControl="alterEgo" >
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" (change)="onChange($event)" [(ngModel)]="model.subject" ngControl="subject" >
                       </div>
-
                       <div class="form-group">
-                        <label for="power">How should we contact you?</label>
-                        <select class="form-control" required
-                        (change)="onChange($event)"
-                          [(ngModel)]="model.power"
-                            ngControl="power" #power="ngForm" >
+                        <label for="contactMethod">How should we contact you?</label>
+                        <select class="form-control" required (change)="onChange($event)" [(ngModel)]="model.contactMethod" ngControl="contactMethod" #contactMethod="ngForm" >
                           <option *ngFor="#p of contacts" [value]="p">
                             {{p}}
                           </option>
                         </select>
-                        <div [hidden]="power.valid" class="alert alert-danger">
-                          Power is required
+                        <div [hidden]="contactMethod.valid" class="alert alert-danger">
+                          contact method is required
                         </div>
                       </div>
                       <label class="pull-left">
                       </label>
                       <br/>
                       <br/>
-
-
-                      <button type="submit" class="btn btn-default"
-                              [disabled]="!heroForm.form.valid">Submit</button>
+                      <button type="submit" class="btn btn-default" [disabled]="!contactForm.form.valid">Submit</button>
                     </form>
                   </div>
-
                   <div [hidden]="!submitted">
                     <h2>You submitted the following:</h2>
                     <div class="row">
@@ -82,11 +70,11 @@ export class MailModel {
                     </div>
                     <div class="row">
                       <div class="col-xs-3">Subject</div>
-                      <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+                      <div class="col-xs-9 pull-left">{{ model.subject }}</div>
                     </div>
                     <div class="row">
                       <div class="col-xs-3">Power</div>
-                      <div class="col-xs-9 pull-left">{{ model.power }}</div>
+                      <div class="col-xs-9 pull-left">{{ model.contactMethod }}</div>
                     </div>
                     <div class="row">
                       <div class="col-xs-3">Gender Male</div>
@@ -103,11 +91,20 @@ export class Contact {
     private contacts = ['Call me', 'Email me', 'Page me (old school)'];
     model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
     submitted = false;
-    onSubmit() {
+
+    onSubmit(event) {
+        console.log(event);
+        if (event.contactMethod.indexOf('page')) {
+            alert('Paging is really old, get a cell phone');
+            this.submitted = false;
+            return;
+        }
+
         this.submitted = true;
     }
 
-    onChange(event){
-
+    onChange(event) {
+        if (event.target.value.length<3)
+            alert('text too short for subject');
     }
 }
