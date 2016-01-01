@@ -100,6 +100,10 @@ export class MailModel {
                 `
 })
 
+/**
+ The Contact component demonstrates the usage of forms.
+ Usage is implicit as done purely through the View.
+ **/
 export class Contact {
     private contacts = ['Call me', 'Email me', 'Page me (old school)'];
     model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');

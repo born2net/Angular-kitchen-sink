@@ -11,6 +11,7 @@ import {NotesBase} from "./NotesBase";
 import {MailModel} from "../contact/Contact";
 import {CharCount} from "../../../pipes/CharCount";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
+import StartCapValidator from "../../../validators/StartCapValidator";
 
 @Component({
     selector: 'Notes1',
@@ -36,7 +37,6 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                    width: 50%;
                    height: 200px;
                 }
-
                 .panelColorError {
                    background-color: #ffe4e4;
                 }
@@ -58,11 +58,11 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                     <!-- this is different from what we did in Contact.ts where we had Angualar automatically create a control group for us -->
                     <!-- and we just created a local variable their-->
 
-                    <!-- To create a new ControlGroup and Controls implicitly use: -->
+                    <!-- To create a new ControlGroup and Controls implicitly use (used here in Contact.ts): -->
                     <!--  -->
                     <!-- ngForm and -->
                     <!-- ngControl -->
-                    <!-- But to bind to an existing ControlGroup and Controls use: -->
+                    <!-- But to bind to an existing ControlGroup and Controls use explicitly via FormBuilder (used in this component): -->
                     <!--  -->
                     <!-- ngFormModel and -->
                     <!-- ngFormControl -->
@@ -70,18 +70,19 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                     <div [class.panelColorError]="!notesForm.valid">
                         <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
                           <div class="form-group">
-                            <input type="text" class="form-control" required
-                                [ngFormControl]="notesForm.controls['userName']">
+                            <input type="text" class="form-control" required [ngFormControl]="notesForm.controls['userName']">
                               <div *ngIf="!userName.valid" class="alert alert-warning alert-dismissible" role="alert">
                                   <strong>Warning!</strong> are you a robot?
                               </div>
-
                             <label for="name">Enter your notes</label>
 
                             <!-- bind the textarea control to our manually created notesTextArea control -->
                             <textarea id="notesArea" type="text" class="form-control"
                                 [ngFormControl]="notesForm.controls['notesTextArea']" required
                                 [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
+                            <div *ngIf="notesTextArea.hasError('notCapped')" class="alert alert-warning alert-dismissible" role="alert">
+                               <strong>Warning!</strong> Must start with first capital letter
+                            </div>
                             <div *ngIf="!notesForm.valid" class="alert alert-warning alert-dismissible" role="alert">
                                 <strong>Warning!</strong> something is not right with the form
                             </div>
@@ -97,11 +98,18 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                 `
 })
 
+/**
+ The first Note1 slider component in a series of sliders / notes.
+ Demonstrates the usage of explicit form configuration.
+ **/
 export class Notes1 extends NotesBase {
 
     private notesForm:ControlGroup;
-    private notestTextArea:AbstractControl;
+    private notesTextArea:AbstractControl;
     private userName:AbstractControl;
+    private model:MailModel;
+    private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
+
 
     constructor(fb:FormBuilder, protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
@@ -109,15 +117,24 @@ export class Notes1 extends NotesBase {
 
         this.notesForm = fb.group({
             'userName': ['user name', Validators.required],
-            'notesTextArea': ['enter text here', Validators.required]
+            'notesTextArea': ['enter text here',
+                Validators.compose([
+                    Validators.required,
+                    StartCapValidator])]
         });
 
         // gran an instance of our notesTextControl from the from
-        this.notestTextArea = this.notesForm.controls['notesTextArea'];
+        this.notesTextArea = this.notesForm.controls['notesTextArea'];
         this.userName = this.notesForm.controls['userName'];
 
+        this.model = new MailModel(0, 'enter your text to add to notes here', true, '', '');
+
+        // Demonstrate usage of Map
+        this.mapModel = new Map();
+        this.mapModel.set('my name', 'Sean Levy');
+        //console.log(this.mapModel.get('my name'));
     }
-    model = new MailModel(0, 'enter your text to add to notes here', true, '', '');
+
     onSubmit(event) {
         bootbox.alert(`sent ${event.notesTextArea}`);
     }
