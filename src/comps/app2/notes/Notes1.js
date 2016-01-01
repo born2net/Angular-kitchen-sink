@@ -60,7 +60,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                                 common_1.Validators.required,
                                 StartCapValidator_1.default])]
                     });
-                    // gran an instance of our notesTextControl from the from
+                    // map to instances from form
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
                     this.model = new Contact_1.MailModel(0, '', true, '', '');

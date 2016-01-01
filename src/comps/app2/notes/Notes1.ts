@@ -123,7 +123,7 @@ export class Notes1 extends NotesBase {
                     StartCapValidator])]
         });
 
-        // gran an instance of our notesTextControl from the from
+        // map to instances from form
         this.notesTextArea = this.notesForm.controls['notesTextArea'];
         this.userName = this.notesForm.controls['userName'];
 
