@@ -1,12 +1,12 @@
 import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
-import {RegisterCaller} from "../../../interfaces/RegisterCaller";
+import {IRegisterCaller} from "../../../interfaces/IRegisterCaller";
 import {CommBroker} from "../../../services/CommBroker";
 import {Properties} from "../properties/Properties";
 import {Consts} from "../../../Conts";
 
-export class NotesBase implements RegisterCaller {
+export class NotesBase implements IRegisterCaller {
     protected modalDialog:ModalDialog;
     protected me:any;
     protected slideLeft:any;

@@ -3,7 +3,7 @@
 import {Component, ViewContainerRef, ViewEncapsulation} from 'angular2/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser';
 import {Notes1} from "../app2/notes/Notes1";
-import {RegisterCaller} from "../../interfaces/registerCaller";
+import {IRegisterCaller} from "../../interfaces/IRegisterCaller";
 
 @Component({
     selector: 'ModalDialog',
@@ -58,7 +58,7 @@ export class ModalDialog {
     }
 
     ngAfterViewInit() {
-        (this.owner as RegisterCaller).registerCaller(this);
+        (this.owner as IRegisterCaller).registerCaller(this);
     }
 
     openModal() {

@@ -3,7 +3,6 @@
 import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
-import {RegisterCaller} from "../../../interfaces/RegisterCaller";
 import {CommBroker} from "../../../services/CommBroker";
 import {Properties} from "../properties/Properties";
 import {Consts} from "../../../Conts";

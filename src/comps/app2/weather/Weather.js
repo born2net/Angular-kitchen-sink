@@ -29,7 +29,7 @@ System.register(["angular2/core", "./WeatherService"], function(exports_1) {
                     core_1.Component({
                         selector: 'Weather',
                         providers: [WeatherService_1.WeatherService],
-                        template: "\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th>high</th>\n          <th>low</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"#item of weatherItems | async\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",
+                        template: "\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th>high</th>\n          <th>low</th>\n        </tr>\n      </thead>\n      <tbody>\n      <!-- no need to subscribe to observable since async does this for us -->\n        <tr *ngFor=\"#item of weatherItems | async\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",
                     }), 
                     __metadata('design:paramtypes', [WeatherService_1.WeatherService])
                 ], Weather);

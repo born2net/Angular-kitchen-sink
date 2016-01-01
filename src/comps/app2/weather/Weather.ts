@@ -18,6 +18,7 @@ import {WeatherService} from "./WeatherService";
         </tr>
       </thead>
       <tbody>
+      <!-- no need to subscribe to observable since async does this for us -->
         <tr *ngFor="#item of weatherItems | async">
           <td>{{ item.day }}</td>
           <td><img src="{{ item.iconPath }}" style="width: 40px; height: 40px"/></td>
