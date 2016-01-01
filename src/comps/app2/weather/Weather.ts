@@ -10,6 +10,7 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
     providers: [WeatherService],
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
+    <small>I am a weather component</small>
     <form [ngFormModel]="weatherForm" (ngSubmit)="$event.preventDefault()">
         <input type="text" class="form-control" placeholder="enter zip code" [ngFormControl]="weatherForm.controls['weatherInput']">
     </form>

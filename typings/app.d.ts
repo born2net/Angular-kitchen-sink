@@ -13,6 +13,7 @@
 //<reference path="../typings/es6-shim/es6-shim.d.ts" />
 //<reference path="../typings/zone.js/zone.js.d.ts"/>
 ///<reference path="../typings/jquery/jquery.d.ts" />
+///<reference path="../typings/systemjs/systemjs.d.ts" />
 ///<reference path="../typings/bootbox/bootbox.d.ts" />
 
 declare var assert: any;
