@@ -66,31 +66,33 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                     <!--  -->
                     <!-- ngFormModel and -->
                     <!-- ngFormControl -->
+
                     <div [class.panelColorError]="!notesForm.valid">
-                    <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
-                      <div class="form-group">
-                        <input type="text" class="form-control" required
-                            [ngFormControl]="notesForm.controls['userName']">
-                          <div *ngIf="!userName.valid" class="alert alert-warning alert-dismissible" role="alert">
-                              <strong>Warning!</strong> are you a robot?
+                        <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
+                          <div class="form-group">
+                            <input type="text" class="form-control" required
+                                [ngFormControl]="notesForm.controls['userName']">
+                              <div *ngIf="!userName.valid" class="alert alert-warning alert-dismissible" role="alert">
+                                  <strong>Warning!</strong> are you a robot?
+                              </div>
+
+                            <label for="name">Enter your notes</label>
+
+                            <!-- bind the textarea control to our manually created notesTextArea control -->
+                            <textarea id="notesArea" type="text" class="form-control"
+                                [ngFormControl]="notesForm.controls['notesTextArea']" required
+                                [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
+                            <div *ngIf="!notesForm.valid" class="alert alert-warning alert-dismissible" role="alert">
+                                <strong>Warning!</strong> something is not right with the form
+                            </div>
+
+                            <span>Total characters via Pipes: {{model.name | CharCount}}</span>
+                            <br/>
                           </div>
-
-                        <label for="name">Enter your notes</label>
-
-                        <!-- bind the textarea control to our manually created notesTextArea control -->
-                        <textarea id="notesArea" type="text" class="form-control"
-                            [ngFormControl]="notesForm.controls['notesTextArea']" required
-                            [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
-                        <div *ngIf="!notesForm.valid" class="alert alert-warning alert-dismissible" role="alert">
-                            <strong>Warning!</strong> something is not right with the form
-                        </div>
-
-                        <span>Total characters via Pipes: {{model.name | CharCount}}</span>
-                        <br/>
-                      </div>
-                      <br/>
-                      <button type="submit" class="btn btn-default" [disabled]="!notesForm.valid">Submit</button>
-                   </form>
+                          <br/>
+                          <button type="submit" class="btn btn-default" [disabled]="!notesForm.valid">Submit</button>
+                       </form>
+                    </div>
 
                 `
 })
