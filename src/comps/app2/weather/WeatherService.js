@@ -32,7 +32,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/do'], func
                     // do is a great way to trace for debugging Observables
                     return this.http
                         .get("" + WeatherService.BASE_URL + query)
-                        .do(function (x) { return console.log(x); })
+                        .do(function (x) { return console.log("ZZZZZZZZZZZZZZZZZZ Weather info " + x); })
                         .map(function (res) { return res.json(); })
                         .map(function (e) {
                         var items = e[0].data.weather;
