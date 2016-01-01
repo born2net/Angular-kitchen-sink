@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "../sidemenu/Menu", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "./notes/Notes", "./notes/Notes1", "./notes/Notes2", "./notes/Notes3", "./notes/Notes4", "./notes/Notes5", "../digg/Digg", "angular2/http", "../logout/Logout", "./contact/Contact", "../dividerpanel/DividerPanel", "../modaldialog/ModalDialog", "./properties/Properties"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "../sidemenu/Menu", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "./notes/Notes", "./notes/Notes1", "./notes/Notes2", "./notes/Notes3", "./notes/Notes4", "./notes/Notes5", "../digg/Digg", "angular2/http", "../logout/Logout", "./contact/Contact", "../dividerpanel/DividerPanel", "../modaldialog/ModalDialog", "./properties/Properties", "./weather/Weather"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, MenuItem_1, Menu_1, CommBroker_1, Conts_1, Sliderpanel_1, Notes_1, Notes1_1, Notes2_1, Notes3_1, Notes4_1, Notes5_1, Digg_1, http_1, Logout_1, Contact_1, DividerPanel_1, ModalDialog_1, Properties_1;
+    var core_1, router_1, router_2, MenuItem_1, Menu_1, CommBroker_1, Conts_1, Sliderpanel_1, Notes_1, Notes1_1, Notes2_1, Notes3_1, Notes4_1, Notes5_1, Digg_1, http_1, Logout_1, Contact_1, DividerPanel_1, ModalDialog_1, Properties_1, Weather_1;
     var App2;
     return {
         setters:[
@@ -72,6 +72,9 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
             },
             function (Properties_1_1) {
                 Properties_1 = Properties_1_1;
+            },
+            function (Weather_1_1) {
+                Weather_1 = Weather_1_1;
             }],
         execute: function() {
             /**
@@ -87,6 +90,7 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
                     self.commBroker = commBroker;
                     self.screens = {
                         notes: true,
+                        weather: false,
                         digg: false,
                         contact: false,
                         logout: false
@@ -109,12 +113,11 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
                         templateUrl: 'src/comps/app2/App2.html',
                         providers: [http_1.HTTP_PROVIDERS],
                         directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties,
-                            Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog]
+                            Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Weather_1.Weather, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog]
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof router_2.RouteParams !== 'undefined' && router_2.RouteParams) === 'function' && _a) || Object, CommBroker_1.CommBroker, Conts_1.Consts])
+                    __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
                 ], App2);
                 return App2;
-                var _a;
             })();
             exports_1("App2", App2);
         }

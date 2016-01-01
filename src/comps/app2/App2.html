@@ -2,6 +2,7 @@
   <Menu #appMennu class="noSpace">
     <MenuItem [fontAwesome]="'fa-dot-circle-o'" [tabtitle]="'Notes'"></MenuItem>
     <MenuItem [fontAwesome]="'fa-digg'" [tabtitle]="'Digg'"></MenuItem>
+    <MenuItem [fontAwesome]="'fa-sun-o'" [tabtitle]="'Weather'"></MenuItem>
     <MenuItem [fontAwesome]="'fa-comment'" [tabtitle]="'Contact'"></MenuItem>
     <MenuItem [fontAwesome]="'fa-power-off'" [tabtitle]="'Logout'"></MenuItem>
   </Menu>
@@ -44,6 +45,8 @@
       <Digg *ngIf="screens.digg" mode="list">
         <small>Digg component list style</small>
       </Digg>
+      <Weather *ngIf="screens.weather">
+      </Weather>
       <Contact class="yScroll" *ngIf="screens.contact">
       </Contact>
       <Logout *ngIf="screens.logout">

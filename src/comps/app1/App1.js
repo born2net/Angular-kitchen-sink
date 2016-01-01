@@ -110,10 +110,9 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideme
                         directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg,
                             Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, Help_1.Help, tabs_1.Tabs, tab_1.Tab, contributors_1.Contributors]
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof router_2.RouteParams !== 'undefined' && router_2.RouteParams) === 'function' && _a) || Object, CommBroker_1.CommBroker, Conts_1.Consts])
+                    __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
                 ], App1);
                 return App1;
-                var _a;
             })();
             exports_1("App1", App1);
         }

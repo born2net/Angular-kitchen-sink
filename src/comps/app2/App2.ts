@@ -22,6 +22,7 @@ import {Contact} from "./contact/Contact";
 import {DividerPanel} from "../dividerpanel/DividerPanel";
 import {ModalDialog} from "../modaldialog/ModalDialog";
 import {Properties} from "./properties/Properties";
+import {Weather} from "./weather/Weather";
 
 /**
  Application 2 lazy loaded
@@ -30,7 +31,7 @@ import {Properties} from "./properties/Properties";
     templateUrl: 'src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS],
     directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
-        Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Logout, Contact, ModalDialog]
+        Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]
 })
 export class App2 {
     private screens:any;
@@ -47,6 +48,7 @@ export class App2 {
         self.commBroker = commBroker;
         self.screens = {
             notes: true,
+            weather: false,
             digg: false,
             contact: false,
             logout: false
