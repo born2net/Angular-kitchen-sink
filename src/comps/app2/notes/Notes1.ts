@@ -80,13 +80,12 @@ import StartCapValidator from "../../../validators/StartCapValidator";
                             <textarea id="notesArea" type="text" class="form-control"
                                 [ngFormControl]="notesForm.controls['notesTextArea']" required
                                 [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
-                            <div *ngIf="notesTextArea.hasError('notCapped')" class="alert alert-warning alert-dismissible" role="alert">
+                            <div *ngIf="notesTextArea.hasError('notCapped') && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
                                <strong>Warning!</strong> Must start with first capital letter
                             </div>
-                            <div *ngIf="!notesForm.valid" class="alert alert-warning alert-dismissible" role="alert">
+                            <div *ngIf="!notesForm.valid && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
                                 <strong>Warning!</strong> something is not right with the form
                             </div>
-
                             <span>Total characters via Pipes: {{model.name | CharCount}}</span>
                             <br/>
                           </div>
@@ -127,7 +126,7 @@ export class Notes1 extends NotesBase {
         this.notesTextArea = this.notesForm.controls['notesTextArea'];
         this.userName = this.notesForm.controls['userName'];
 
-        this.model = new MailModel(0, 'enter your text to add to notes here', true, '', '');
+        this.model = new MailModel(0, '', true, '', '');
 
         // Demonstrate usage of Map
         this.mapModel = new Map();
