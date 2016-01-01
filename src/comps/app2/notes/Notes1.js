@@ -64,11 +64,22 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
                     this.model = new Contact_1.MailModel(0, '', true, '', '');
-                    // Demonstrate usage of Map
+                    // warning: unrelated, demonstrate usage of Map
                     this.mapModel = new Map();
                     this.mapModel.set('my name', 'Sean Levy');
                     //console.log(this.mapModel.get('my name'));
+                    this.observeNameChange();
                 }
+                /**
+                 * Listen to observable emitted events from name control
+                 * use one of the many RX operators debounceTime to control
+                 * the number of events emitted per milliseconds
+                 **/
+                Notes1.prototype.observeNameChange = function () {
+                    this.userName.valueChanges.debounceTime(100).subscribe(function (value) {
+                        console.log('name changed, notified via observable: ', value);
+                    });
+                };
                 Notes1.prototype.onSubmit = function (event) {
                     bootbox.alert("sent " + event.notesTextArea);
                 };

@@ -42,6 +42,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups)
+- Form observables and operations
 - Node server side CRUD for RX calls
 - Todo data model persistence and sync to node server via CRUD
 - Subclass / Inheritance ES6 (Notes component) 

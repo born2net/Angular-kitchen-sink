@@ -129,10 +129,25 @@ export class Notes1 extends NotesBase {
 
         this.model = new MailModel(0, '', true, '', '');
 
-        // Demonstrate usage of Map
+        // warning: unrelated, demonstrate usage of Map
         this.mapModel = new Map();
         this.mapModel.set('my name', 'Sean Levy');
         //console.log(this.mapModel.get('my name'));
+
+        this.observeNameChange();
+    }
+
+    /**
+     * Listen to observable emitted events from name control
+     * use one of the many RX operators debounceTime to control
+     * the number of events emitted per milliseconds
+     **/
+    observeNameChange () {
+        this.userName.valueChanges.debounceTime(100).subscribe(
+            (value:string) => {
+                console.log('name changed, notified via observable: ', value);
+            }
+        );
     }
 
     onSubmit(event) {
