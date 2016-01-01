@@ -69,6 +69,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                     this.mapModel.set('my name', 'Sean Levy');
                     //console.log(this.mapModel.get('my name'));
                     this.observeNameChange();
+                    this.observeFormChange();
                 }
                 /**
                  * Listen to observable emitted events from name control
@@ -78,6 +79,11 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                 Notes1.prototype.observeNameChange = function () {
                     this.userName.valueChanges.debounceTime(100).subscribe(function (value) {
                         console.log('name changed, notified via observable: ', value);
+                    });
+                };
+                Notes1.prototype.observeFormChange = function () {
+                    this.notesForm.valueChanges.debounceTime(100).subscribe(function (value) {
+                        console.log('forum changed, notified via observable: ', value);
                     });
                 };
                 Notes1.prototype.onSubmit = function (event) {

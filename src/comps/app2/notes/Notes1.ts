@@ -135,6 +135,7 @@ export class Notes1 extends NotesBase {
         //console.log(this.mapModel.get('my name'));
 
         this.observeNameChange();
+        this.observeFormChange();
     }
 
     /**
@@ -146,6 +147,14 @@ export class Notes1 extends NotesBase {
         this.userName.valueChanges.debounceTime(100).subscribe(
             (value:string) => {
                 console.log('name changed, notified via observable: ', value);
+            }
+        );
+    }
+
+    observeFormChange () {
+        this.notesForm.valueChanges.debounceTime(100).subscribe(
+            (value:string) => {
+                console.log('forum changed, notified via observable: ', value);
             }
         );
     }
