@@ -36,6 +36,11 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                    width: 50%;
                    height: 200px;
                 }
+
+                .panelColorError {
+                   background-color: #ffe4e4;
+                }
+
        `],
     template: ` <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm goNext">
                     <span class="glyphicon glyphicon-chevron-right"></span>
@@ -61,7 +66,7 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                     <!--  -->
                     <!-- ngFormModel and -->
                     <!-- ngFormControl -->
-
+                    <div [class.panelColorError]="!notesForm.valid">
                     <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
                       <div class="form-group">
                         <input type="text" class="form-control" required
@@ -85,6 +90,7 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
                       </div>
                       <br/>
                       <button type="submit" class="btn btn-default" [disabled]="!notesForm.valid">Submit</button>
+                   </form>
 
                 `
 })
