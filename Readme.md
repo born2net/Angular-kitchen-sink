@@ -4,6 +4,7 @@ ng2Boilerplate
 An Angular 2 and Bootstrap easy to start, A-Z startup project
 ----------------
 
+version: 0.95
 
 ready to be impressed with Angular 2?
 
@@ -38,6 +39,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Shared state (Side menu and file menu)
 - Dependency injection and decorators such as @Host
 - Dependency sharing
+- ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups)
 - Node server side CRUD for RX calls

@@ -103,6 +103,10 @@ export class MailModel {
 /**
  The Contact component demonstrates the usage of forms.
  Usage is implicit as done purely through the View.
+
+ Suggestion: I recommend you use explicit Form creation via
+ manual instance creation of Controls (inputs) and ControlGroup (Form) as it's a lot
+ more flexible, see Notes1.ts for sample code
  **/
 export class Contact {
     private contacts = ['Call me', 'Email me', 'Page me (old school)'];

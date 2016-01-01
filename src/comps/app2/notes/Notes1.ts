@@ -33,7 +33,7 @@ import StartCapValidator from "../../../validators/StartCapValidator";
                 #summary {
                     width: 20%;
                 }
-                #notesArea {
+                .myNotes {
                    width: 50%;
                    height: 200px;
                 }
@@ -68,8 +68,10 @@ import StartCapValidator from "../../../validators/StartCapValidator";
                     <!-- ngFormControl -->
 
                     <div [class.panelColorError]="!notesForm.valid">
+                        <!-- here we are mapping the ControlGroup via the directive ngFormModel to the instance of notesForm -->
                         <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
                           <div class="form-group">
+                          <!-- here we are mapping the Control via the directive ngFormControl to the instance of notesForm.controls['userName'] -->
                             <input type="text" class="form-control" required [ngFormControl]="notesForm.controls['userName']">
                               <div *ngIf="!userName.valid" class="alert alert-warning alert-dismissible" role="alert">
                                   <strong>Warning!</strong> are you a robot?
@@ -77,11 +79,10 @@ import StartCapValidator from "../../../validators/StartCapValidator";
                             <label for="name">Enter your notes</label>
 
                             <!-- bind the textarea control to our manually created notesTextArea control -->
-                            <textarea id="notesArea" type="text" class="form-control"
-                                [ngFormControl]="notesForm.controls['notesTextArea']" required
+                            <textarea type="text" class="myNotes form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required
                                 [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
                             <div *ngIf="notesTextArea.hasError('notCapped') && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
-                               <strong>Warning!</strong> Must start with first capital letter
+                               <strong>Warning!</strong> Must start with first capital letter (Validators are working :)
                             </div>
                             <div *ngIf="!notesForm.valid && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
                                 <strong>Warning!</strong> something is not right with the form
