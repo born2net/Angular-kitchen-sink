@@ -41,7 +41,6 @@ export class Weather {
     private weatherInput:AbstractControl;
     private weatherItems:Observable<IWeatherItem[]>;
 
-
     //public sort: {field: string, desc: boolean} = {field: null, desc: false};
 
     constructor(private weatherService:WeatherService, private fb:FormBuilder) {
