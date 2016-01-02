@@ -37,29 +37,35 @@ export class ForgotPass {
 
     // example of a custom event using Observable and click event
     constructor() {
-        this.clickStream.throttleTime(100)
-            .map((e)=> {
-                this.disableButton = true;
-                return e;
-            }).delay(1000).map(e=>this.disableButton = false)
-            .subscribe(
-                function (x) {
-                    console.log('Double clicked');
-                },
-                function (err) {
-                    console.log('Error: ' + err);
-                },
-                function () {
-                    console.log('Completed');
-                });
+
+        this.clickStream.bufferCount(2, 2).throttleTime(250).map((e)=> {
+            return e;
+        }).filter((len) => {
+                return len.length == 2
+            })
+            .subscribe(e => console.log('double'));
+
+        //this.clickStream.throttleTime(100)
+        //    .map((e)=> {
+        //        this.disableButton = true;
+        //        return e;
+        //    }).delay(1000).map(e=>this.disableButton = false)
+        //    .subscribe(
+        //        function (x) {
+        //            console.log('Double clicked');
+        //        },
+        //        function (err) {
+        //            console.log('Error: ' + err);
+        //        },
+        //        function () {
+        //            console.log('Completed');
+        //        });
     }
 
     private forgotPass(event) {
         this.clickStream.next('click');
 
-        //this.clickStream.buffer(() => this.clickStream.throttleTime(250))
-        //this.ee.buffer(()=> this.ee.throttle(250))
-        //this.ee.subscribe(e => console.log('aaaa'));
+
     }
 }
 

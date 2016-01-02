@@ -29,27 +29,32 @@ System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from',
             ForgotPass = (function () {
                 // example of a custom event using Observable and click event
                 function ForgotPass() {
-                    var _this = this;
                     this.clickStream = new core_1.EventEmitter();
                     this.disableButton = false;
-                    this.clickStream.throttleTime(100)
-                        .map(function (e) {
-                        _this.disableButton = true;
+                    this.clickStream.bufferCount(2, 2).throttleTime(250).map(function (e) {
                         return e;
-                    }).delay(1000).map(function (e) { return _this.disableButton = false; })
-                        .subscribe(function (x) {
-                        console.log('Double clicked');
-                    }, function (err) {
-                        console.log('Error: ' + err);
-                    }, function () {
-                        console.log('Completed');
-                    });
+                    }).filter(function (len) {
+                        return len.length == 2;
+                    })
+                        .subscribe(function (e) { return console.log('double'); });
+                    //this.clickStream.throttleTime(100)
+                    //    .map((e)=> {
+                    //        this.disableButton = true;
+                    //        return e;
+                    //    }).delay(1000).map(e=>this.disableButton = false)
+                    //    .subscribe(
+                    //        function (x) {
+                    //            console.log('Double clicked');
+                    //        },
+                    //        function (err) {
+                    //            console.log('Error: ' + err);
+                    //        },
+                    //        function () {
+                    //            console.log('Completed');
+                    //        });
                 }
                 ForgotPass.prototype.forgotPass = function (event) {
                     this.clickStream.next('click');
-                    //this.clickStream.buffer(() => this.clickStream.throttleTime(250))
-                    //this.ee.buffer(()=> this.ee.throttle(250))
-                    //this.ee.subscribe(e => console.log('aaaa'));
                 };
                 ForgotPass = __decorate([
                     core_1.Component({
