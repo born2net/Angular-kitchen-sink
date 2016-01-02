@@ -20,7 +20,7 @@ export class WeatherService {
         // do is a great way to trace for debugging Observables
         return this.http
             .get(`${WeatherService.BASE_URL}${query}`)
-            .do(x => console.log(`ZZZZZZZZZZZZZZZZZZ Weather info ${x}`))
+            .do(x => console.log(`Weather info ${x}`))
             .map((res:any) => res.json())
             .map((e) => {
                 var items:Array<IWeatherItem> = e[0].data.weather;
