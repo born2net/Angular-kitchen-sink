@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/do'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/operator/do', 'rxjs/add/observable/empty'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/do'], func
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, Observable_1;
     var WeatherService;
     return {
         setters:[
@@ -18,7 +18,11 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/do'], func
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (_1) {}],
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            },
+            function (_1) {},
+            function (_2) {}],
         execute: function() {
             WeatherService = (function () {
                 function WeatherService(http) {
@@ -32,11 +36,16 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/do'], func
                     // do is a great way to trace for debugging Observables
                     return this.http
                         .get("" + WeatherService.BASE_URL + query)
-                        .do(function (x) { return console.log("Weather info " + x); })
+                        .do(function (x) {
+                        console.log("Weather response: " + x.status);
+                    })
                         .map(function (res) { return res.json(); })
                         .map(function (e) {
                         var items = e[0].data.weather;
                         return items;
+                    })
+                        .catch(function (e) {
+                        return Observable_1.Observable.empty();
                     });
                     //.map((item: Array<{item: IWeatherItem}>) => item.map((item: {show: IWeatherItem}));
                 };

@@ -42,17 +42,14 @@ System.register(["angular2/core", "./WeatherService", 'angular2/common'], functi
                         if (zip.length == 5)
                             return true;
                         return false;
-                    }).subscribe(function (value) {
-                        console.log('fetching zip weather : ', value);
-                        _this.weatherItems = _this.weatherService.search(value + "/1");
-                    });
+                    }).subscribe(function (value) { return _this.weatherItems = _this.weatherService.search(value + "/1"); }, function (err) { return console.log("onError: " + err); }, function () { return console.log('onCompleted'); });
                 };
                 Weather = __decorate([
                     core_1.Component({
                         selector: 'Weather',
                         providers: [WeatherService_1.WeatherService],
                         styles: ["input {margin: 20px; width: 50%}"],
-                        template: "\n    <small>I am a weather component</small>\n    <form [ngFormModel]=\"weatherForm\" (submit)=\"$event.preventDefault()\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"enter zip code\" [ngFormControl]=\"weatherForm.controls['weatherInput']\">\n    </form>\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th>high</th>\n          <th>low</th>\n        </tr>\n      </thead>\n      <tbody>\n      <!-- no need to subscribe to observable since async does this for us -->\n        <tr *ngFor=\"#item of weatherItems | async\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",
+                        template: "\n    <small>I am a weather component</small>\n    <form [ngFormModel]=\"weatherForm\" (submit)=\"$event.preventDefault()\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"enter city or zip code\" [ngFormControl]=\"weatherForm.controls['weatherInput']\">\n    </form>\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th>high</th>\n          <th>low</th>\n        </tr>\n      </thead>\n      <tbody>\n      <!-- no need to subscribe to observable since async does this for us -->\n        <tr *ngFor=\"#item of weatherItems | async\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",
                     }), 
                     __metadata('design:paramtypes', [WeatherService_1.WeatherService, common_1.FormBuilder])
                 ], Weather);
@@ -62,4 +59,8 @@ System.register(["angular2/core", "./WeatherService", 'angular2/common'], functi
         }
     }
 });
+//}).subscribe((value:string) => {
+//    console.log('fetching zip weather : ', value);
+//    this.weatherItems = this.weatherService.search(`${value}/1`);
+//} 
 //# sourceMappingURL=Weather.js.map

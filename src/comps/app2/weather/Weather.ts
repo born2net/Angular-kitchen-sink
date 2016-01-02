@@ -12,7 +12,7 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
     template: `
     <small>I am a weather component</small>
     <form [ngFormModel]="weatherForm" (submit)="$event.preventDefault()">
-        <input type="text" class="form-control" placeholder="enter zip code" [ngFormControl]="weatherForm.controls['weatherInput']">
+        <input type="text" class="form-control" placeholder="enter city or zip code" [ngFormControl]="weatherForm.controls['weatherInput']">
     </form>
     <table class="table">
       <thead>
@@ -51,7 +51,6 @@ export class Weather {
         this.weatherInput = this.weatherForm.controls['weatherInput'];
         this.weatherItems = weatherService.search('91301/1');
         this.listenWeatherInput();
-
     }
 
     listenWeatherInput() {
@@ -61,10 +60,16 @@ export class Weather {
                 if (zip.length == 5)
                     return true;
                 return false;
-            }).subscribe((value:string) => {
-                console.log('fetching zip weather : ', value);
-                this.weatherItems = this.weatherService.search(`${value}/1`);
-            }
+            }).subscribe(
+            value => this.weatherItems = this.weatherService.search(`${value}/1`),
+            err => console.log(`onError: ${err}`),
+            () => console.log('onCompleted')
         );
     }
 }
+
+
+//}).subscribe((value:string) => {
+//    console.log('fetching zip weather : ', value);
+//    this.weatherItems = this.weatherService.search(`${value}/1`);
+//}
