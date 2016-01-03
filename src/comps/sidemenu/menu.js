@@ -1,3 +1,4 @@
+///<reference path="../../../typings/app.d.ts"/>
 System.register(["angular2/core", "../../services/CommBroker", "../../Conts"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -60,7 +61,7 @@ System.register(["angular2/core", "../../services/CommBroker", "../../Conts"], f
                         selector: 'Menu',
                         inputs: ['fontAwesome:fontAwesome'],
                         styles: ["\n    .appMenu {\n      background: #3e3f48;\n    }\n  "],
-                        template: "\n        <section id=\"appNavigatorWasp\" (click)=\"listenMenuSelected($event)\" class=\"appMenu hidden-xs hidden-sm hidden-md col-lg-1\">\n         <li *ngFor=\"#item of m_items\" class=\"list-group-item\">\n            <i class=\"navicons fa {{item.localFontAwesome}}\" [hidden]=\"m_hidden\">\n            </i>\n            <span>{{item.localTabTitle}}</span>\n          </li>\n      </section>\n    "
+                        template: "\n        <section id=\"appNavigatorWasp\" (click)=\"listenMenuSelected($event)\" class=\"appMenu hidden-xs hidden-sm hidden-md col-lg-1\">\n         <li *ngFor=\"#item of m_items\" data-ripple-color=\"white\" class=\"btn btn-default list-group-item\">\n            <i class=\"navicons fa {{item.localFontAwesome}}\" [hidden]=\"m_hidden\">\n            </i>\n            <span>{{item.localTabTitle}}</span>\n          </li>\n      </section>\n    "
                     }), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], Menu);
