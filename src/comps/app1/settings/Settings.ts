@@ -47,6 +47,7 @@ export class Settings {
         var self = this;
         // push method to top of event queue as dropdown event occurs before model update
         setTimeout(()=> {
+
             if (self.model.style) {
                 self.loadCss('style_dark.css');
                 self.localStorage.setItem('style', true);
