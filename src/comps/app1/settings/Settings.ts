@@ -1,14 +1,14 @@
+///<reference path="../../../../typings/app.d.ts"/>
+
 import {Component} from "angular2/core";
 import {Consts} from "../../Conts";
 import {NgForm} from 'angular2/common'
-
-export class StyleModel {
-    constructor(public male:boolean) {
-    }
-}
+import {LocalStorage} from "../../../services/LocalStorage";
+import {StyleModel} from "../../../models/StyleModel";
 
 @Component({
     selector: 'Settings',
+    providers: [LocalStorage, StyleModel],
     template: `
                 <small>I am Settings component</small>
                 <hr/>
@@ -17,15 +17,23 @@ export class StyleModel {
                   <div class="clearfix" style="padding-bottom: 13px">
                   </div>
                   <div style="position: relative; top: -12px" class="material-switch pull-left">
-                    <input id="changeStyle" name="someSwitchOption003" [(ngModel)]="model.male" (change)="onChange($event)" type="checkbox"/>
+                    <input id="changeStyle" name="someSwitchOption003" [(ngModel)]="model.style"
+                     (change)="onChange($event)" type="checkbox"/>
                     <label for="changeStyle" class="label-primary"></label>
                   </div>
                   <div class="clearfix" style="padding-bottom: 13px">
-                  <h1 style="color: gray">{{model.male==true ? 'Lite' : 'Dark'}}</h1>
+                  <h1 style="color: gray">{{model.style==false ? 'Dark' : 'Lite'}}</h1>
                 `
 })
 
 export class Settings {
+
+    private model:StyleModel;
+    constructor(private styleModel:StyleModel, private localStorage:LocalStorage) {
+        this.model = styleModel;
+        this.model.style = localStorage.getItem('style', false);
+        this.onChange();
+    }
 
     private loadCss(url:string) {
         var link = document.createElement("link");
@@ -36,16 +44,18 @@ export class Settings {
     }
 
     private onChange() {
+        var self = this;
         // push method to top of event queue as dropdown event occurs before model update
         setTimeout(()=> {
-            console.log(JSON.stringify(this.model));
-            if (this.model.male) {
-                this.loadCss('style_dark.css');
+            if (self.model.style) {
+                self.loadCss('style_dark.css');
+                self.localStorage.setItem('style', true);
+
             } else {
-                this.loadCss('style.css');
+                self.loadCss('style.css');
+                self.localStorage.setItem('style', false);
             }
         }, 1);
     }
 
-    model = new StyleModel(true);
 }
