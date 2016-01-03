@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {RouterLink, Router} from 'angular2/router';
+import {Lib} from "../../Lib";
 
 @Component({
     providers: [AppManager],
@@ -10,14 +11,14 @@ import {RouterLink, Router} from 'angular2/router';
         <small>I am AppManager component</small>
         <div id="appSelector" class="noScroll container" >
             <div align="center" style="padding-top: 100px">
-                <button (click)="goToApp1(event)" type="button" name="mailWasp" class="btn btn-default"><i
-                        style="margin: 20px; padding: 20px; font-size: 5em" class="fa fa-paper-plane"></i> <span
+                <button (click)="goToApp1(event)" data-ripple-color="black" type="button" name="mailWasp" class="btn btn-default">
+                <i style="margin: 20px; padding: 20px; font-size: 5em" class="fa fa-paper-plane"></i> <span
                         data-localize="none"></span>
                         <small>App 1</small>
                         <small>Loads Asynchronously via router</small>
                  </button>
-                <button (click)="goToApp2(event)" type="button" name="everNodes" class="btn btn-default"><i
-                        style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-rocket"></i> <span
+                <button (click)="goToApp2(event)" data-ripple-color="black" type="button" name="everNodes" class="btn btn-default">
+                <i style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-rocket"></i> <span
                         data-localize="none"></span>
                         <small>App 2</small>
                         <small>Loads Asynchronously via router</small>
@@ -37,17 +38,26 @@ export class AppManager {
     private myRouter:Router;
     constructor(router:Router) {
         this.myRouter = router;
+
+        // if you wish to subscribe to router calls
         //this.myRouter.parent.subscribe(function(e){
         //    console.log(`Route ${e}`);
         //});
     }
 
+    ngAfterViewInit() {
+        Lib.loadMaterial();
+    }
+
     private goToApp1() {
-        this.myRouter.navigate(['/App1']);
+        setTimeout(e=>this.myRouter.navigate(['/App1']),500);
+        //this.myRouter.navigate(['/App1']);
+
     }
 
     private goToApp2() {
-        this.myRouter.navigate(['/App2']);
+        setTimeout(e=>this.myRouter.navigate(['/App1']),500);
+        //this.myRouter.navigate(['/App2']);
     }
 }
 

@@ -1,5 +1,5 @@
 ///<reference path="../typings/app.d.ts"/>
-System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "src/Conts", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent'], function(exports_1) {
+System.register(['angular2/platform/browser', "./Lib", 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "src/Conts", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,12 +9,15 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Conts_1, router_1, router_2, router_3, Observable_1;
+    var browser_1, Lib_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Conts_1, router_1, router_2, router_3, Observable_1;
     var Welcome, ComponentHelper, App;
     return {
         setters:[
             function (browser_1_1) {
                 browser_1 = browser_1_1;
+            },
+            function (Lib_1_1) {
+                Lib_1 = Lib_1_1;
             },
             function (core_1_1) {
                 core_1 = core_1_1;
@@ -100,6 +103,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                 }
                 App.prototype.ngAfterContentInit = function () {
                     this.appResized();
+                    Lib_1.Lib.loadMaterial();
                 };
                 App.prototype.ngAfterViewInit = function () {
                 };

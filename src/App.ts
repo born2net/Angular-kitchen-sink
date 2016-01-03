@@ -1,6 +1,7 @@
 ///<reference path="../typings/app.d.ts"/>
 
 import {bootstrap} from 'angular2/platform/browser';
+import {Lib} from "./Lib";
 import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';
 import {EntryPanel} from 'src/comps/entry/EntryPanel';
 import {AppManager} from 'src/comps/appmanager/AppManager';
@@ -15,6 +16,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
+
 
 // docgen:
 //import {App1} from 'src/comps/app1/App1/';
@@ -106,6 +108,7 @@ export class App implements AfterContentInit {
 
     ngAfterContentInit() {
         this.appResized();
+        Lib.loadMaterial();
     }
 
     ngAfterViewInit() {

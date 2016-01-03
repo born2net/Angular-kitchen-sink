@@ -1,5 +1,3 @@
-///<reference path="../../../typings/app.d.ts" />
-
 /*******************************************
  ng2Boilerplate application
 

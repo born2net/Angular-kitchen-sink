@@ -28,6 +28,7 @@ import {Router} from "angular2/router";
                     <div id="languageSelectionLogin"></div>
                   </form>
                 </div>
+
                 <!-- <a [routerLink]="['/EntryPanelNoId', {id: 123}, 'Route4']">To forgot pass</a> -->
                 <!-- <a [routerLink]="['/App1']">Direct to App1</a><br/> -->
                 <!-- <a [routerLink]="['/App2']">Direct to App2</a><br/> -->
@@ -43,6 +44,10 @@ export class LoginPanel {
         var user = commBroker.getValue(Consts.Values().USER_NAME);
         this.user = user || '';
         this.pass = user || '';
+    }
+
+    ngAfterViewInit() {
+        //jQuery.material.init();
     }
 
     private onLogin(event) {
