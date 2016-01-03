@@ -10,7 +10,7 @@ System.register(["angular2/core", "../../../services/LocalStorage", "../../../mo
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, LocalStorage_1, StyleModel_1;
-    var Settings;
+    var lite, dark, Settings;
     return {
         setters:[
             function (core_1_1) {
@@ -23,13 +23,15 @@ System.register(["angular2/core", "../../../services/LocalStorage", "../../../mo
                 StyleModel_1 = StyleModel_1_1;
             }],
         execute: function() {
+            lite = true;
+            dark = false;
             Settings = (function () {
                 function Settings(styleModel, localStorage) {
                     this.styleModel = styleModel;
                     this.localStorage = localStorage;
                     this.model = styleModel;
-                    this.model.style = localStorage.getItem('style', false);
-                    this.onChange();
+                    this.model.style = localStorage.getItem('style', lite);
+                    this.loadStyle();
                 }
                 Settings.prototype.loadCss = function (url) {
                     var link = document.createElement("link");
@@ -42,21 +44,24 @@ System.register(["angular2/core", "../../../services/LocalStorage", "../../../mo
                     var self = this;
                     // push method to top of event queue as dropdown event occurs before model update
                     setTimeout(function () {
-                        if (self.model.style) {
-                            self.loadCss('style_dark.css');
-                            self.localStorage.setItem('style', true);
-                        }
-                        else {
-                            self.loadCss('style.css');
-                            self.localStorage.setItem('style', false);
-                        }
+                        self.model.style = !self.model.style;
+                        self.localStorage.setItem('style', self.model.style);
+                        self.loadStyle();
                     }, 1);
+                };
+                Settings.prototype.loadStyle = function () {
+                    if (this.model.style == lite) {
+                        this.loadCss('style.css');
+                    }
+                    else {
+                        this.loadCss('style_dark.css');
+                    }
                 };
                 Settings = __decorate([
                     core_1.Component({
                         selector: 'Settings',
                         providers: [LocalStorage_1.LocalStorage, StyleModel_1.StyleModel],
-                        template: "\n                <small>I am Settings component</small>\n                <hr/>\n                <h3>Choose your theme</h3>\n                <hr/>\n                  <div class=\"clearfix\" style=\"padding-bottom: 13px\">\n                  </div>\n                  <div style=\"position: relative; top: -12px\" class=\"material-switch pull-left\">\n                    <input id=\"changeStyle\" name=\"someSwitchOption003\" [(ngModel)]=\"model.style\"\n                     (change)=\"onChange($event)\" type=\"checkbox\"/>\n                    <label for=\"changeStyle\" class=\"label-primary\"></label>\n                  </div>\n                  <div class=\"clearfix\" style=\"padding-bottom: 13px\">\n                  <h1 style=\"color: gray\">{{model.style==false ? 'Dark' : 'Lite'}}</h1>\n                "
+                        template: "\n                <small>I am Settings component</small>\n                <hr/>\n                <h3>Choose your theme</h3>\n                <h4>As soon as this component loads, your previous theme selection will be restored from LocalStorage</h4>\n                <hr/>\n                  <div class=\"clearfix\" style=\"padding-bottom: 13px\">\n                  </div>\n                  <div style=\"position: relative; top: -12px\" class=\"material-switch pull-left\">\n                    <input id=\"changeStyle\" name=\"someSwitchOption003\" [(ngModel)]=\"model.style\"\n                     (change)=\"onChange($event)\" type=\"checkbox\"/>\n                    <label for=\"changeStyle\" class=\"label-primary\"></label>\n                  </div>\n                  <div class=\"clearfix\" style=\"padding-bottom: 13px\">\n                  <h1 style=\"color: gray\">{{model.style == true ? 'Lite' : 'Dark'}}</h1>\n                "
                     }), 
                     __metadata('design:paramtypes', [StyleModel_1.StyleModel, LocalStorage_1.LocalStorage])
                 ], Settings);
