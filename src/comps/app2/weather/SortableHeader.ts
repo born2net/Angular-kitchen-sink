@@ -23,7 +23,11 @@ import {COMMON_DIRECTIVES} from 'angular2/common';
 })
 export class SortableHeader {
 
+    // map the sortableHeader input into a local var named fieldName
     @Input('sortableHeader') fieldName: string;
+
+    // no mapping just create local reference sort which gets passed in
+    // the sort points to same instance as the one from the host component
     @Input() sort: {field: string, desc: boolean};
 
     headerClicked(): void {

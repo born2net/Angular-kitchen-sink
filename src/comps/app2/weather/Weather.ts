@@ -48,6 +48,12 @@ export class Weather {
     private weatherForm:ControlGroup;
     private weatherInput:AbstractControl;
     private weatherItems:Observable<IWeatherItem[]>;
+
+    // the real magic here is that the sort variable is being used in several places
+    // including here to set the pipe sorting, in the SortableHeader component to show and hide
+    // the header icons, as well as in SortableHeader to change the sort order on header clicks.
+    // So we pass the SAME sort var to all SortableHeader directives and all work with it
+    // in both displaying and the sorting mechanics
     public sort: {field: string, desc: boolean} = {field: null, desc: false};
 
     constructor(private weatherService:WeatherService, private fb:FormBuilder) {
