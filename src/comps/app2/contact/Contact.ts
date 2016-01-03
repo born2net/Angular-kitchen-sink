@@ -1,16 +1,7 @@
 import {Component} from "angular2/core";
 import {Consts} from "../../Conts";
 import {FORM_DIRECTIVES} from 'angular2/common'
-
-
-export class MailModel {
-    constructor(public id:number,
-                public name:string,
-                public male:boolean,
-                public contactMethod:string,
-                public subject?:string) {
-    }
-}
+import {MailModel} from "../../../models/MailModel";
 
 @Component({
     selector: 'Contact',

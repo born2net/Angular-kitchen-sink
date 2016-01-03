@@ -1,4 +1,4 @@
-System.register(["angular2/core", 'angular2/common'], function(exports_1) {
+System.register(["angular2/core", 'angular2/common', "../../../models/MailModel"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(["angular2/core", 'angular2/common'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
-    var MailModel, Contact;
+    var core_1, common_1, MailModel_1;
+    var Contact;
     return {
         setters:[
             function (core_1_1) {
@@ -17,23 +17,15 @@ System.register(["angular2/core", 'angular2/common'], function(exports_1) {
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (MailModel_1_1) {
+                MailModel_1 = MailModel_1_1;
             }],
         execute: function() {
-            MailModel = (function () {
-                function MailModel(id, name, male, contactMethod, subject) {
-                    this.id = id;
-                    this.name = name;
-                    this.male = male;
-                    this.contactMethod = contactMethod;
-                    this.subject = subject;
-                }
-                return MailModel;
-            })();
-            exports_1("MailModel", MailModel);
             Contact = (function () {
                 function Contact() {
                     this.contacts = ['Call me', 'Email me', 'Page me (old school)'];
-                    this.model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
+                    this.model = new MailModel_1.MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
                     this.submitted = false;
                 }
                 Contact.prototype.onSubmit = function (event) {

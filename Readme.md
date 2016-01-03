@@ -4,7 +4,7 @@ ng2Boilerplate
 An Angular 2 and Bootstrap easy to start, A-Z startup project
 ----------------
 
-version: 0.162
+version: 0.175
 
 ready to be impressed with Angular 2?
 
@@ -31,7 +31,8 @@ What features of Angular does this app cover? well pretty much all the core stuf
 
 - Routing with Aync of modules (App1 and App2) on a per navigation basis
 - jQuery integration the Angular way via BrowserDomAdapter
-- CommBroker for service management, value sharing and evet mediator 
+- CommBroker dependency service, value sharing and mediator design pattern
+- LocalStorage service
 - Global Consts
 - Responsive design (on size change Angular components will react) 
 - RX reactive operators and subscribers throughout the app

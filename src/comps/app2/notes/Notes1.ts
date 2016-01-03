@@ -7,7 +7,7 @@ import {CommBroker} from "../../../services/CommBroker";
 import {Properties} from "../properties/Properties";
 import {Consts} from "../../../Conts";
 import {NotesBase} from "./NotesBase";
-import {MailModel} from "../contact/Contact";
+import {MailModel} from "../../../models/MailModel";
 import {CharCount} from "../../../pipes/CharCount";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
 import StartCapValidator from "../../../validators/StartCapValidator";

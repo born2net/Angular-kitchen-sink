@@ -1,5 +1,5 @@
 ///<reference path="../../../../typings/app.d.ts"/>
-System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "./NotesBase", "../contact/Contact", "../../../pipes/CharCount", 'angular2/common', "../../../validators/StartCapValidator"], function(exports_1) {
+System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "./NotesBase", "../../../models/MailModel", "../../../pipes/CharCount", 'angular2/common', "../../../validators/StartCapValidator"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -14,7 +14,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, NotesBase_1, Contact_1, CharCount_1, common_1, StartCapValidator_1;
+    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, NotesBase_1, MailModel_1, CharCount_1, common_1, StartCapValidator_1;
     var Notes1;
     return {
         setters:[
@@ -33,8 +33,8 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
             function (NotesBase_1_1) {
                 NotesBase_1 = NotesBase_1_1;
             },
-            function (Contact_1_1) {
-                Contact_1 = Contact_1_1;
+            function (MailModel_1_1) {
+                MailModel_1 = MailModel_1_1;
             },
             function (CharCount_1_1) {
                 CharCount_1 = CharCount_1_1;
@@ -63,7 +63,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                     // map to instances from form
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
-                    this.model = new Contact_1.MailModel(0, '', true, '', '');
+                    this.model = new MailModel_1.MailModel(0, '', true, '', '');
                     // warning: unrelated, demonstrate usage of Map
                     this.mapModel = new Map();
                     this.mapModel.set('my name', 'Sean Levy');
