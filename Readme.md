@@ -4,7 +4,7 @@ ng2Boilerplate
 An Angular 2 and Bootstrap easy to start, A-Z startup project
 ----------------
 
-version: 0.122
+version: 0.162
 
 ready to be impressed with Angular 2?
 
@@ -48,7 +48,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file
 - Themes
-- Pipes
+- Pipes including grid sort and character counter
 - Interfaces
 - UI data binding / uni and 2 way
 - Document generation
