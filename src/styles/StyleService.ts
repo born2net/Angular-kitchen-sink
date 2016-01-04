@@ -22,7 +22,7 @@ export class StyleService {
 
         if (this.model.remember == false)
             return;
-        this.loadTheme(this.model.theme);
+         this.loadTheme(this.model.theme);
     }
 
     private loadTheme(styleName:string):void {
@@ -57,7 +57,11 @@ export class StyleService {
         var a:Promise<any> = System.import('src/styles/material-design/js/material.min.js');
         var b:Promise<any> = System.import('src/styles/material-design/js/ripples.min.js');
         Promise.all([a, b]).then(function (e) {
-            jQuery.material.init();
+            //todo: fix to apply on ngInit per component
+            setInterval(function(){
+                jQuery.material.init();
+            },3000)
+
         })
     }
 

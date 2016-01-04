@@ -64,7 +64,10 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     var a = System.import('src/styles/material-design/js/material.min.js');
                     var b = System.import('src/styles/material-design/js/ripples.min.js');
                     Promise.all([a, b]).then(function (e) {
-                        jQuery.material.init();
+                        //todo: fix to apply on ngInit per component
+                        setInterval(function () {
+                            jQuery.material.init();
+                        }, 3000);
                     });
                 };
                 StyleService.prototype.loadCss = function (url) {
