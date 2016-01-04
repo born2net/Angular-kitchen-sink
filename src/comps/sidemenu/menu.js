@@ -71,4 +71,4 @@ System.register(["angular2/core", "../../services/CommBroker", "../../Conts"], f
         }
     }
 });
-//# sourceMappingURL=Menu.js.map
+//# sourceMappingURL=menu.js.map
