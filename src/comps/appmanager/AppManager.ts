@@ -46,7 +46,6 @@ export class AppManager {
     }
 
     ngAfterViewInit() {
-        Lib.loadMaterial();
     }
 
     private goToApp1() {

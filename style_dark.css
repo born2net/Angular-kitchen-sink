@@ -181,3 +181,6 @@ input {
     background: rgba(66, 66, 66, 0.5);
 }
 
+.modal-body {
+    color: darkslategray !important;;
+}

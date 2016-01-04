@@ -1,4 +1,3 @@
-///<reference path="../typings/app.d.ts"/>
 System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -31,20 +30,6 @@ System.register(['angular2/core'], function(exports_1) {
                     }
                     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
                         s4() + '-' + s4() + s4() + s4();
-                };
-                Lib.loadMaterial = function () {
-                    if (System.has(window.location.origin + "/src/styles/material-design/js/material.min.js") ||
-                        System.has('/src/styles/material-design/js/material.min.js') ||
-                        System.has('material.min.js')) {
-                        jQuery.material.init();
-                        console.log('re-init material');
-                        return;
-                    }
-                    var a = System.import('src/styles/material-design/js/material.min.js');
-                    var b = System.import('src/styles/material-design/js/ripples.min.js');
-                    Promise.all([a, b]).then(function (e) {
-                        console.log('loaded material');
-                    });
                 };
                 Lib = __decorate([
                     core_1.Injectable(), 

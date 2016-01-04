@@ -9,6 +9,7 @@ import {CommBroker} from 'src/services/CommBroker';
 import {Filemenu} from "src/comps/filemenu/Filemenu";
 import {FilemenuItem} from "src/comps/filemenu/FilemenuItem";
 import {Consts} from "src/Conts";
+import {StyleService} from "./styles/StyleService";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
 import {AsyncRoute} from "angular2/router";
@@ -16,6 +17,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
+
 
 
 // docgen:
@@ -70,7 +72,7 @@ class ComponentHelper {
  **/
 @Component({
     encapsulation: ViewEncapsulation.Emulated,
-    providers: [CommBroker, Consts],
+    providers: [CommBroker, Consts, StyleService],
     selector: 'app',
     templateUrl: './src/App.html',
     directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem]
@@ -96,8 +98,10 @@ class ComponentHelper {
 ])
 export class App implements AfterContentInit {
     private m_commBroker:CommBroker;
+    private m_styleService:StyleService;
 
-    constructor(commBroker:CommBroker) {
+    constructor(commBroker:CommBroker, styleService:StyleService) {
+        this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Consts.Services().App, this);
 
@@ -108,7 +112,6 @@ export class App implements AfterContentInit {
 
     ngAfterContentInit() {
         this.appResized();
-        Lib.loadMaterial();
     }
 
     ngAfterViewInit() {

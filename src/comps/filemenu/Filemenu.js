@@ -87,7 +87,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/router"
                 Filemenu.prototype.ngAfterViewInit = function () {
                     Lib_1.Lib.log("AppPrefix: " + this['appPrefix']);
                     jQuery('.flip').mouseenter(function () {
-                        jQuery(this).find('.card').addClass('flipped').mouseleave(function () {
+                        jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
                             jQuery(this).removeClass('flipped');
                         });
                         return false;

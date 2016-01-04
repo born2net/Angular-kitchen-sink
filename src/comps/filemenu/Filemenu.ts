@@ -106,7 +106,7 @@ export class Filemenu {
     ngAfterViewInit() {
         Lib.log(`AppPrefix: ${this['appPrefix']}`);
         jQuery('.flip').mouseenter(function () {
-            jQuery(this).find('.card').addClass('flipped').mouseleave(function () {
+            jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
                 jQuery(this).removeClass('flipped');
             });
             return false;

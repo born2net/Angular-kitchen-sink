@@ -18,7 +18,7 @@ System.register(["angular2/core"], function(exports_1) {
         execute: function() {
             StyleModel = (function () {
                 function StyleModel() {
-                    this.style = false;
+                    this.themes = ['lite', 'dark', 'polymer'];
                 }
                 StyleModel = __decorate([
                     core_1.Injectable(), 

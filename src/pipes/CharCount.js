@@ -24,7 +24,8 @@ System.register(['angular2/core'], function(exports_1) {
                 };
                 CharCount = __decorate([
                     core_1.Pipe({
-                        name: 'CharCount'
+                        name: 'CharCount',
+                        pure: false // false = update when any field changes, vs true which only updates when our input changes
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CharCount);

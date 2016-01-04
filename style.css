@@ -96,7 +96,7 @@ small {
     font-size: 1.2em;
 }
 
-#angularText .card {
+#angularText .flipcard {
     padding-top: 2px;
 }
 
@@ -626,13 +626,13 @@ Language selector
     margin: 50px auto;
 }
 
-.flip .card.flipped {
+.flip .flipcard.flipped {
     -webkit-transform: rotatey(-180deg);
     -ms-transform: rotatey(-180deg);
     -moz-transform: rotatey(-180deg);
 }
 
-.flip .card {
+.flip .flipcard {
     width: 39px;
     height: 25px;
     -webkit-transform-style: preserve-3d;
@@ -661,7 +661,7 @@ Language selector
 }
 
 
-.flip .card .face {
+.flip .flipcard .face {
     width: 39px;
     height: 25px;
     position: absolute;
@@ -674,13 +674,13 @@ Language selector
     line-height: 39px;
 }
 
-.flip .card .front {
+.flip .flipcard .front {
     position: absolute;
     z-index: 1;
     cursor: pointer;
 }
 
-.flip .card .back {
+.flip .flipcard .back {
     -webkit-transform: rotatex(-180deg);
     -ms-transform: rotatex(-180deg);
     -moz-transform: rotatex(-180deg);
