@@ -37,7 +37,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing and mediator design pattern
 - LocalStorage service
-- Global Consts
+- Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react) 
 - RX reactive operators and subscribers throughout the app
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
