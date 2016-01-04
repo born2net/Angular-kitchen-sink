@@ -66,6 +66,7 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     Promise.all([a, b]).then(function (e) {
                         //todo: fix to apply on ngInit per component
                         setInterval(function () {
+                            console.log('loading material');
                             jQuery.material.init();
                         }, 3000);
                     });
