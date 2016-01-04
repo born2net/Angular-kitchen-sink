@@ -23,7 +23,9 @@ import {StyleService} from "../../../styles/StyleService";
                       <option *ngFor="#theme of styleService.model.themes">{{theme}}</option>
                   </select>
                   <hr/>
-                  <div style="position: relative; top: -12px" class="material-switch pull-left">
+                  <h3>Auto load theme on start</h3>
+                  <div class="clearfix" style="padding-bottom: 30px">
+                  <div style="position: relative" class="material-switch pull-left">
                     <input id="changeStyle" name="someSwitchOption003"
                      [(ngModel)]="styleService.model.remember"
                      (change)="styleService.onUpdate()" type="checkbox"/>

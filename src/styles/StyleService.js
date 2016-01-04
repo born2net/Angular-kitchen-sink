@@ -89,7 +89,8 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                             remember: self.model.remember
                         });
                         _this.loadTheme(self.model.theme);
-                        bootbox.alert('reload the application to see the full effect of the theme...');
+                        if (self.model.remember)
+                            bootbox.alert('reload the application to see the full effect of the theme...');
                     }, 10);
                 };
                 Object.defineProperty(StyleService.prototype, "model", {

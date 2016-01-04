@@ -83,7 +83,8 @@ export class StyleService {
                 remember: self.model.remember
             });
             this.loadTheme(self.model.theme);
-            bootbox.alert('reload the application to see the full effect of the theme...');
+            if (self.model.remember)
+                bootbox.alert('reload the application to see the full effect of the theme...');
         }, 10)
     }
 
