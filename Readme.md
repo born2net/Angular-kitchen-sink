@@ -52,7 +52,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Todo data model persistence and sync to node server via CRUD
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file
-- Themes
+- Theme service (supports 3 themes including Lite, Dark and Polymer)
 - Pipes including grid sort and character counter
 - Interfaces
 - UI data binding / uni and 2 way
