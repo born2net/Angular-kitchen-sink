@@ -62,7 +62,6 @@ export class StyleService {
                 console.log('loading material');
                 jQuery.material.init();
             },3000)
-
         })
     }
 
