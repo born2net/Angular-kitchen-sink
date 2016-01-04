@@ -33,12 +33,10 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 AppManager.prototype.goToApp1 = function () {
                     var _this = this;
                     setTimeout(function (e) { return _this.myRouter.navigate(['/App1']); }, 500);
-                    //this.myRouter.navigate(['/App1']);
                 };
                 AppManager.prototype.goToApp2 = function () {
                     var _this = this;
                     setTimeout(function (e) { return _this.myRouter.navigate(['/App1']); }, 500);
-                    //this.myRouter.navigate(['/App2']);
                 };
                 AppManager = __decorate([
                     core_1.Component({

@@ -50,13 +50,11 @@ export class AppManager {
 
     private goToApp1() {
         setTimeout(e=>this.myRouter.navigate(['/App1']),500);
-        //this.myRouter.navigate(['/App1']);
 
     }
 
     private goToApp2() {
         setTimeout(e=>this.myRouter.navigate(['/App1']),500);
-        //this.myRouter.navigate(['/App2']);
     }
 }
 
