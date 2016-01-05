@@ -28,7 +28,7 @@ and for your TypeScript compiler to transpile use the args of:
 --target es5 --module system --experimentalDecorators --preserveConstEnums true --sourceMap true --emitDecoratorMetadata
 ```
 
-(optionaly: copy node_modules/angular2 and node_modules/rxjs from ./node_modules directory to root of project so TypeScript can find it in the path while transpiling.
+(optionally: copy node_modules/angular2 and node_modules/rxjs from ./node_modules directory to root of project so TypeScript can find it in the path while transpiling.
  However you don’t need these directories during runtime as system.js will load both libs from node_moduldes directory respectively)
 
 What features of Angular does this app cover? well pretty much all the core stuff:
