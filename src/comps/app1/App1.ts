@@ -20,6 +20,7 @@ import {TodoList} from "./todos/Todolist";
 import {TodoItem} from "./todos/Todoitem";
 import TodoStatsModel from "./todos/TodoStatsModel";
 import {Contributors} from "./help/contributors/contributors";
+import {RefreshTheme} from "../../styles/RefreshTheme";
 /**
  Application 1 lazy loaded
  **/
@@ -29,11 +30,12 @@ import {Contributors} from "./help/contributors/contributors";
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg,
         Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab, Contributors]
 })
-export class App1 {
+export class App1 extends RefreshTheme {
     private screens:any;
     private commBroker:CommBroker;
 
     constructor(params:RouteParams, commBroker:CommBroker, Consts:Consts) {
+        super();
         var self = this;
         self.commBroker = commBroker;
         self.screens = {

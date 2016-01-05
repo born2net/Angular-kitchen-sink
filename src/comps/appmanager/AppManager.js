@@ -1,4 +1,9 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "../../styles/RefreshTheme"], function(exports_1) {
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +13,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2;
+    var core_1, router_1, router_2, RefreshTheme_1;
     var AppManager;
     return {
         setters:[
@@ -18,10 +23,15 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
             function (router_1_1) {
                 router_1 = router_1_1;
                 router_2 = router_1_1;
+            },
+            function (RefreshTheme_1_1) {
+                RefreshTheme_1 = RefreshTheme_1_1;
             }],
         execute: function() {
-            AppManager = (function () {
+            AppManager = (function (_super) {
+                __extends(AppManager, _super);
                 function AppManager(router) {
+                    _super.call(this);
                     this.myRouter = router;
                     // if you wish to subscribe to router calls
                     //this.myRouter.parent.subscribe(function(e){
@@ -48,7 +58,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                     __metadata('design:paramtypes', [router_2.Router])
                 ], AppManager);
                 return AppManager;
-            })();
+            })(RefreshTheme_1.RefreshTheme);
             exports_1("AppManager", AppManager);
         }
     }

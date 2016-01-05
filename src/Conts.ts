@@ -36,7 +36,8 @@ export class Consts {
     public static Services() {
         return {
             App: 'Application',
-            Properties: 'Properties'
+            Properties: 'Properties',
+            StyleService: 'StyleService'
         };
     }
 }

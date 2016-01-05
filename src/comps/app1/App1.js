@@ -1,4 +1,9 @@
-System.register(['angular2/core', 'angular2/router', "angular2/http", "../sidemenu/Menu", "../sidemenu/MenuItem", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "../digg/Digg", "../tabs/tabs", "../tabs/tab", "../logout/Logout", "./settings/Settings", "./help/Help", "./todos/Todo1", "./todos/Todo2", "./todos/Todolist", "./todos/Todoitem", "./todos/TodoStatsModel", "./help/contributors/contributors"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "angular2/http", "../sidemenu/Menu", "../sidemenu/MenuItem", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "../digg/Digg", "../tabs/tabs", "../tabs/tab", "../logout/Logout", "./settings/Settings", "./help/Help", "./todos/Todo1", "./todos/Todo2", "./todos/Todolist", "./todos/Todoitem", "./todos/TodoStatsModel", "./help/contributors/contributors", "../../styles/RefreshTheme"], function(exports_1) {
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideme
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, http_1, router_2, Menu_1, MenuItem_1, CommBroker_1, Conts_1, Sliderpanel_1, Digg_1, tabs_1, tab_1, Logout_1, Settings_1, Help_1, Todo1_1, Todo2_1, Todolist_1, Todoitem_1, TodoStatsModel_1, contributors_1;
+    var core_1, router_1, http_1, router_2, Menu_1, MenuItem_1, CommBroker_1, Conts_1, Sliderpanel_1, Digg_1, tabs_1, tab_1, Logout_1, Settings_1, Help_1, Todo1_1, Todo2_1, Todolist_1, Todoitem_1, TodoStatsModel_1, contributors_1, RefreshTheme_1;
     var App1;
     return {
         setters:[
@@ -72,13 +77,18 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideme
             },
             function (contributors_1_1) {
                 contributors_1 = contributors_1_1;
+            },
+            function (RefreshTheme_1_1) {
+                RefreshTheme_1 = RefreshTheme_1_1;
             }],
         execute: function() {
             /**
              Application 1 lazy loaded
              **/
-            App1 = (function () {
+            App1 = (function (_super) {
+                __extends(App1, _super);
                 function App1(params, commBroker, Consts) {
+                    _super.call(this);
                     var self = this;
                     self.commBroker = commBroker;
                     self.screens = {
@@ -113,7 +123,7 @@ System.register(['angular2/core', 'angular2/router', "angular2/http", "../sideme
                     __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
                 ], App1);
                 return App1;
-            })();
+            })(RefreshTheme_1.RefreshTheme);
             exports_1("App1", App1);
         }
     }

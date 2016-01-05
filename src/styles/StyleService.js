@@ -1,5 +1,5 @@
 ///<reference path="../../typings/app.d.ts"/>
-System.register(["angular2/core", "../services/LocalStorage", "../models/StyleModel"], function(exports_1) {
+System.register(["angular2/core", "../services/LocalStorage", "../models/StyleModel", "../services/CommBroker", "../Conts"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +9,7 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, LocalStorage_1, StyleModel_1;
+    var core_1, LocalStorage_1, StyleModel_1, CommBroker_1, Conts_1;
     var StyleService;
     return {
         setters:[
@@ -21,12 +21,20 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
             },
             function (StyleModel_1_1) {
                 StyleModel_1 = StyleModel_1_1;
+            },
+            function (CommBroker_1_1) {
+                CommBroker_1 = CommBroker_1_1;
+            },
+            function (Conts_1_1) {
+                Conts_1 = Conts_1_1;
             }],
         execute: function() {
             StyleService = (function () {
-                function StyleService() {
+                function StyleService(commBroker) {
+                    this.commBroker = commBroker;
                     this.model = new StyleModel_1.StyleModel();
                     this.localStorage = new LocalStorage_1.LocalStorage();
+                    this.commBroker.setService(Conts_1.Consts.Services().StyleService, this);
                     var styleData = this.localStorage.getItem('style_data', {
                         theme: 'lite',
                         remember: true
@@ -38,6 +46,7 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     this.loadTheme(this.model.theme);
                 }
                 StyleService.prototype.loadTheme = function (styleName) {
+                    this.model.selectedTheme = styleName;
                     switch (styleName) {
                         case 'lite':
                             {
@@ -64,11 +73,7 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     var a = System.import('src/styles/material-design/js/material.min.js');
                     var b = System.import('src/styles/material-design/js/ripples.min.js');
                     Promise.all([a, b]).then(function (e) {
-                        //todo: fix to apply on ngInit per component
-                        setInterval(function () {
-                            console.log('loading material');
-                            jQuery.material.init();
-                        }, 3000);
+                        jQuery.material.init();
                     });
                 };
                 StyleService.prototype.loadCss = function (url) {
@@ -103,9 +108,15 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     enumerable: true,
                     configurable: true
                 });
+                /** refresh theme only applies to Polymer for now **/
+                StyleService.prototype.refreshTheme = function () {
+                    if (this.model.selectedTheme != 'polymer')
+                        return;
+                    this.loadTheme('polymer');
+                };
                 StyleService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], StyleService);
                 return StyleService;
             })();

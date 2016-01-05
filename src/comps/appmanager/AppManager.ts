@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {RouterLink, Router} from 'angular2/router';
 import {Lib} from "../../Lib";
+import {RefreshTheme} from "../../styles/RefreshTheme";
 
 @Component({
     providers: [AppManager],
@@ -34,9 +35,10 @@ import {Lib} from "../../Lib";
     `,
     directives: [ROUTER_DIRECTIVES, RouterLink]
 })
-export class AppManager {
+export class AppManager extends RefreshTheme {
     private myRouter:Router;
     constructor(router:Router) {
+        super();
         this.myRouter = router;
 
         // if you wish to subscribe to router calls

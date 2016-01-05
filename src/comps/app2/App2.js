@@ -1,4 +1,9 @@
-System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "../sidemenu/Menu", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "./notes/Notes", "./notes/Notes1", "./notes/Notes2", "./notes/Notes3", "./notes/Notes4", "./notes/Notes5", "../digg/Digg", "angular2/http", "../logout/Logout", "./contact/Contact", "../dividerpanel/DividerPanel", "../modaldialog/ModalDialog", "./properties/Properties", "./weather/Weather"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "../sidemenu/Menu", "../../services/CommBroker", "../../Conts", "../sliderpanel/Sliderpanel", "./notes/Notes", "./notes/Notes1", "./notes/Notes2", "./notes/Notes3", "./notes/Notes4", "./notes/Notes5", "../digg/Digg", "angular2/http", "../logout/Logout", "./contact/Contact", "../dividerpanel/DividerPanel", "../modaldialog/ModalDialog", "./properties/Properties", "./weather/Weather", "../../styles/RefreshTheme"], function(exports_1) {
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, MenuItem_1, Menu_1, CommBroker_1, Conts_1, Sliderpanel_1, Notes_1, Notes1_1, Notes2_1, Notes3_1, Notes4_1, Notes5_1, Digg_1, http_1, Logout_1, Contact_1, DividerPanel_1, ModalDialog_1, Properties_1, Weather_1;
+    var core_1, router_1, router_2, MenuItem_1, Menu_1, CommBroker_1, Conts_1, Sliderpanel_1, Notes_1, Notes1_1, Notes2_1, Notes3_1, Notes4_1, Notes5_1, Digg_1, http_1, Logout_1, Contact_1, DividerPanel_1, ModalDialog_1, Properties_1, Weather_1, RefreshTheme_1;
     var App2;
     return {
         setters:[
@@ -75,13 +80,18 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
             },
             function (Weather_1_1) {
                 Weather_1 = Weather_1_1;
+            },
+            function (RefreshTheme_1_1) {
+                RefreshTheme_1 = RefreshTheme_1_1;
             }],
         execute: function() {
             /**
              Application 2 lazy loaded
              **/
-            App2 = (function () {
+            App2 = (function (_super) {
+                __extends(App2, _super);
                 function App2(params, commBroker, Consts) {
+                    _super.call(this);
                     var self = this;
                     jQuery(".navbar-header .navbar-toggle").trigger("click");
                     jQuery('.navbar-nav').css({
@@ -118,7 +128,7 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
                     __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
                 ], App2);
                 return App2;
-            })();
+            })(RefreshTheme_1.RefreshTheme);
             exports_1("App2", App2);
         }
     }

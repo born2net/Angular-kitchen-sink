@@ -1,5 +1,10 @@
 ///<reference path="../../../../typings/app.d.ts"/>
-System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common"], function(exports_1) {
+System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common", "../../../styles/RefreshTheme"], function(exports_1) {
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +14,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, WeatherService_1, SortableHeader_1, common_1, OrderBy_1, common_2;
+    var core_1, WeatherService_1, SortableHeader_1, common_1, OrderBy_1, common_2, RefreshTheme_1;
     var Weather;
     return {
         setters:[
@@ -30,10 +35,15 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
             },
             function (common_2_1) {
                 common_2 = common_2_1;
+            },
+            function (RefreshTheme_1_1) {
+                RefreshTheme_1 = RefreshTheme_1_1;
             }],
         execute: function() {
-            Weather = (function () {
+            Weather = (function (_super) {
+                __extends(Weather, _super);
                 function Weather(weatherService, fb) {
+                    _super.call(this);
                     this.weatherService = weatherService;
                     this.fb = fb;
                     // the real magic here is that the sort variable is being used in several places
@@ -71,7 +81,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     __metadata('design:paramtypes', [WeatherService_1.WeatherService, common_1.FormBuilder])
                 ], Weather);
                 return Weather;
-            })();
+            })(RefreshTheme_1.RefreshTheme);
             exports_1("Weather", Weather);
         }
     }

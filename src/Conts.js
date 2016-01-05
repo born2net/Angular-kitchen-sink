@@ -39,7 +39,8 @@ System.register([], function(exports_1) {
                 Consts.Services = function () {
                     return {
                         App: 'Application',
-                        Properties: 'Properties'
+                        Properties: 'Properties',
+                        StyleService: 'StyleService'
                     };
                 };
                 return Consts;

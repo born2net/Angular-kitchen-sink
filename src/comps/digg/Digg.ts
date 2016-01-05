@@ -23,6 +23,7 @@ import {CommBroker, IMessage} from "../../services/CommBroker";
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import {RefreshTheme} from "../../styles/RefreshTheme";
 
 
 const DIGG_INIT_HEIGHT = '400px';
@@ -74,7 +75,7 @@ const DIGG_INIT_HEIGHT = '400px';
   `
 })
 
-export class Digg {
+export class Digg extends RefreshTheme {
     private mode:string;
     private tileStyle:boolean;
     private channel:Observable<any[]>;
@@ -85,6 +86,7 @@ export class Digg {
     private dom = new BrowserDomAdapter();
 
     constructor(diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
+        super();
         var self = this;
         self.mode = 'list';
         this.diggs = [];

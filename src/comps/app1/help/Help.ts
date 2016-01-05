@@ -1,6 +1,7 @@
 import {Component} from "angular2/core";
 import {Consts} from "../../../Conts";
 import {Contributors} from "./contributors/contributors";
+import {RefreshTheme} from "../../../styles/RefreshTheme";
 
 @Component({
     selector: 'Help',
@@ -10,7 +11,8 @@ import {Contributors} from "./contributors/contributors";
                 `
 })
 
-export class Help {
+export class Help extends RefreshTheme {
     constructor(contributors:Contributors) {
+        super();
     }
 }

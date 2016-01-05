@@ -3,15 +3,18 @@
 import {Injectable} from "angular2/core";
 import {LocalStorage} from "../services/LocalStorage";
 import {StyleModel} from "../models/StyleModel";
+import {CommBroker} from "../services/CommBroker";
+import {Consts} from "../Conts";
 
 @Injectable()
 export class StyleService {
     private localStorage:LocalStorage;
     private styleModel:StyleModel;
 
-    constructor() {
+    constructor(private commBroker:CommBroker) {
         this.model = new StyleModel();
         this.localStorage = new LocalStorage();
+        this.commBroker.setService(Consts.Services().StyleService, this);
 
         let styleData = this.localStorage.getItem('style_data', {
             theme: 'lite',
@@ -22,11 +25,11 @@ export class StyleService {
 
         if (this.model.remember == false)
             return;
-         this.loadTheme(this.model.theme);
+        this.loadTheme(this.model.theme);
     }
 
     private loadTheme(styleName:string):void {
-
+        this.model.selectedTheme = styleName;
         switch (styleName) {
             case 'lite':
             {
@@ -57,11 +60,7 @@ export class StyleService {
         var a:Promise<any> = System.import('src/styles/material-design/js/material.min.js');
         var b:Promise<any> = System.import('src/styles/material-design/js/ripples.min.js');
         Promise.all([a, b]).then(function (e) {
-            //todo: fix to apply on ngInit per component
-            setInterval(function(){
-                console.log('loading material');
-                jQuery.material.init();
-            },3000)
+            jQuery.material.init();
         })
     }
 
@@ -94,5 +93,12 @@ export class StyleService {
 
     public set model(styleModel:StyleModel) {
         this.styleModel = styleModel;
+    }
+
+    /** refresh theme only applies to Polymer for now **/
+    public refreshTheme() {
+        if (this.model.selectedTheme != 'polymer')
+            return;
+        this.loadTheme('polymer');
     }
 }

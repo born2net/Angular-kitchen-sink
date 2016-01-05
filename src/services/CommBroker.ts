@@ -39,6 +39,9 @@ export class CommBroker {
             //observer.error('boom');
             //observer.complete('done');
         }).share();
+
+        // this is the only global member we expose
+        document['commBroker'] = this;
     }
 
     private examples() {

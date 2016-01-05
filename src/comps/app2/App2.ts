@@ -23,6 +23,7 @@ import {DividerPanel} from "../dividerpanel/DividerPanel";
 import {ModalDialog} from "../modaldialog/ModalDialog";
 import {Properties} from "./properties/Properties";
 import {Weather} from "./weather/Weather";
+import {RefreshTheme} from "../../styles/RefreshTheme";
 
 /**
  Application 2 lazy loaded
@@ -33,13 +34,13 @@ import {Weather} from "./weather/Weather";
     directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]
 })
-export class App2 {
+export class App2 extends RefreshTheme {
     private screens:any;
     private commBroker:CommBroker;
 
     constructor(params:RouteParams, commBroker:CommBroker, Consts:Consts) {
+        super();
         var self = this;
-
         jQuery(".navbar-header .navbar-toggle").trigger("click");
         jQuery('.navbar-nav').css({
             display: 'block'

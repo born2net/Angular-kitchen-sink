@@ -17,6 +17,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
+import {RefreshTheme} from "./styles/RefreshTheme";
 
 
 
@@ -72,7 +73,7 @@ class ComponentHelper {
  **/
 @Component({
     encapsulation: ViewEncapsulation.Emulated,
-    providers: [CommBroker, Consts, StyleService],
+    providers: [StyleService],
     selector: 'app',
     templateUrl: './src/App.html',
     directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem]
@@ -96,29 +97,59 @@ class ComponentHelper {
         name: 'App2'
     })
 ])
-export class App implements AfterContentInit {
+//@RefreshTheme('polymer')
+export class App extends RefreshTheme implements AfterContentInit {
     private m_commBroker:CommBroker;
     private m_styleService:StyleService;
 
     constructor(commBroker:CommBroker, styleService:StyleService) {
+        super();
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Consts.Services().App, this);
 
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(()=> {
             this.appResized();
+        });
+
+        // an example of passing a optional, typed object instead
+        // of using the old way of: opts || opts = {} and it auto maps
+        // matching fields
+        this.showTypedObjectArg({
+            styles1: ['foo','bar'], // optional
+            styles2: [1,2] // optional
         })
     }
 
+    private showTypedObjectArg({styles1, styles2}: {styles1?: string[], styles2?: number[]} = {}){
+        //console.log(styles1 + ' ' + styles2);
+    }
+
+    // component life cycles
     ngAfterContentInit() {
         this.appResized();
     }
-
-    ngAfterViewInit() {
-    }
-
-    ngAfterContentChecked() {
-    }
+    //ngAfterViewInit() {
+    //    console.log(2);
+    //}
+    //ngAfterContentChecked() {
+    //    console.log(3);
+    //}
+    //ngOnInit() {
+    //    console.log(4);
+    //}
+    //ngOnDestroy() {
+    //    console.log(5);
+    //}
+    //ngDoCheck() {
+    //    console.log(6);
+    //}
+    //ngOnChanges(changes) {
+    //    console.log(7);
+    //}
+    //ngAfterViewChecked() {
+    //    console.log(8);
+    //}
 
     /**
      On application resize deal with height changes
@@ -145,4 +176,7 @@ export class App implements AfterContentInit {
     }
 }
 
-bootstrap(App, [ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+bootstrap(App, [ROUTER_PROVIDERS,
+    provide(CommBroker, {useClass: CommBroker}),
+    provide(Consts, {useClass: Consts}),
+    provide(LocationStrategy, {useClass: HashLocationStrategy})]);

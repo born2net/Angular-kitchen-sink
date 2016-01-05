@@ -9,6 +9,7 @@ import {SortableHeader} from "./SortableHeader";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
 import {OrderBy} from "../../../pipes/OrderBy";
 import {COMMON_DIRECTIVES} from "angular2/common";
+import {RefreshTheme} from "../../../styles/RefreshTheme";
 
 @Component({
     selector: 'Weather',
@@ -44,7 +45,7 @@ import {COMMON_DIRECTIVES} from "angular2/common";
   `,
 })
 
-export class Weather {
+export class Weather extends RefreshTheme {
     private weatherForm:ControlGroup;
     private weatherInput:AbstractControl;
     private weatherItems:Observable<IWeatherItem[]>;
@@ -57,6 +58,7 @@ export class Weather {
     public sort: {field: string, desc: boolean} = {field: null, desc: false};
 
     constructor(private weatherService:WeatherService, private fb:FormBuilder) {
+        super();
         this.weatherForm = fb.group({
             'weatherInput': ['']
         });
