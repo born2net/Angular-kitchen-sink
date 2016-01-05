@@ -33,7 +33,7 @@ and for your TypeScript compiler to transpile use the args of:
 
 What features of Angular does this app cover? well pretty much all the core stuff:
 
-- Routing with Aync of modules (App1 and App2) on a per navigation basis
+- Routing with Async of modules (App1 and App2) on a per navigation basis
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing and mediator design pattern
 - LocalStorage service
