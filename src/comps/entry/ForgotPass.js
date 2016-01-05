@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts"/>
-System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/buffer', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/delay', 'rxjs/add/operator/throttleTime', 'rxjs/add/operator/distinctUntilChanged', "../../Lib"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/buffer', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/delay', 'rxjs/add/operator/throttleTime', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/do', "../../Lib"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,16 +27,22 @@ System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from',
             function (_5) {},
             function (_6) {},
             function (_7) {},
+            function (_8) {},
             function (Lib_1_1) {
                 Lib_1 = Lib_1_1;
             }],
         execute: function() {
             ForgotPass = (function () {
                 function ForgotPass() {
-                    var _this = this;
                     this.clickStream = new core_1.EventEmitter();
                     this.disableButton = false;
-                    // example of a custom event using Observable and double click the Logout button
+                    this.forgotPassInit();
+                }
+                /**
+                 * An example of a custom event using Observable and double click the Logout button
+                 **/
+                ForgotPass.prototype.forgotPassInit = function () {
+                    var _this = this;
                     var doubleClickStream = this.clickStream.buffer(this.clickStream.throttleTime(450)).map(function (e) {
                         return e.length;
                     }).filter(function (e) {
@@ -49,15 +55,15 @@ System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from',
                         Lib_1.Lib.log('double click');
                         _this.disableButton = false;
                     });
-                }
-                ForgotPass.prototype.forgotPass = function (event) {
+                };
+                ForgotPass.prototype.onForgotPass = function (event) {
                     this.clickStream.next('click');
                 };
                 ForgotPass = __decorate([
                     core_1.Component({
                         providers: [ForgotPass],
                         selector: 'ForgotPass',
-                        template: "\n                <div>\n                  <form class=\"form-signin\" role=\"form\">\n\n\n                    <h2 class=\"form-signin-heading\"></h2>\n                    <button id=\"forgotPassButton\" [disabled]=\"disableButton\" (click)=\"forgotPass($event)\" class=\"btn btn-lg btn-primary btn-block\">\n                      Forgot password\n                    </button>\n                    <hr class=\"hrThin\"/>\n                    <a [routerLink]=\"['/Login', {id: 'demo_user'}, 'Login']\">Back to login screen</a><br/>\n                    <small>(auto fill user by passing router args)</small>\n                    <div id=\"languageSelectionLogin\"></div>\n                  </form>\n                </div>\n                <!-- <a [routerLink]=\"['/App1']\">And back to Test1</a> -->\n                <br/>\n                <small>ForgotPass component and I am inside EntryPanel</small>",
+                        template: "\n                <div>\n                  <form class=\"form-signin\" role=\"form\">\n                    <h2 class=\"form-signin-heading\"></h2>\n                    <button id=\"forgotPassButton\" [disabled]=\"disableButton\" (click)=\"onForgotPass($event)\" class=\"btn btn-lg btn-primary btn-block\">\n                      Forgot password\n                    </button>\n                    <hr class=\"hrThin\"/>\n                    <a [routerLink]=\"['/Login', {id: 'demo_user'}, 'Login']\">Back to login screen</a><br/>\n                    <small>(auto fill user by passing router args)</small>\n                    <div id=\"languageSelectionLogin\"></div>\n                  </form>\n                </div>\n                <!-- <a [routerLink]=\"['/App1']\">And back to Test1</a> -->\n                <br/>\n                <small>ForgotPass component and I am inside EntryPanel</small>",
                         directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink]
                     }), 
                     __metadata('design:paramtypes', [])

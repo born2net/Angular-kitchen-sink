@@ -10,6 +10,7 @@ import 'rxjs/add/operator/bufferCount';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/throttleTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/do';
 import {Observable} from "rxjs/Observable";
 import {Lib} from "../../Lib";
 
@@ -19,10 +20,8 @@ import {Lib} from "../../Lib";
     template: `
                 <div>
                   <form class="form-signin" role="form">
-
-
                     <h2 class="form-signin-heading"></h2>
-                    <button id="forgotPassButton" [disabled]="disableButton" (click)="forgotPass($event)" class="btn btn-lg btn-primary btn-block">
+                    <button id="forgotPassButton" [disabled]="disableButton" (click)="onForgotPass($event)" class="btn btn-lg btn-primary btn-block">
                       Forgot password
                     </button>
                     <hr class="hrThin"/>
@@ -41,7 +40,13 @@ export class ForgotPass {
     private disableButton:boolean = false;
 
     constructor() {
-        // example of a custom event using Observable and double click the Logout button
+        this.forgotPassInit();
+    }
+
+    /**
+     * An example of a custom event using Observable and double click the Logout button
+     **/
+    private forgotPassInit(){
         var doubleClickStream = this.clickStream.buffer(this.clickStream.throttleTime(450)).map((e)=> {
             return e.length
         }).filter((e:any)=> {
@@ -56,7 +61,7 @@ export class ForgotPass {
         });
     }
 
-    private forgotPass(event) {
+    private onForgotPass(event) {
         this.clickStream.next('click');
     }
 }

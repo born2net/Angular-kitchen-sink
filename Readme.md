@@ -39,7 +39,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - LocalStorage service
 - Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react) 
-- RX reactive operators and subscribers throughout the app
+- RX reactive operators and subscribers throughout the app (some random examples as well)
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
 - Dependency injection and decorators such as @Host
@@ -48,7 +48,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups)
 - Form observables and operations including Async and more
-- Node server side CRUD for RX calls
+- Node server side CRUD for RX calls 
 - Todo data model persistence and sync to node server via CRUD
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file

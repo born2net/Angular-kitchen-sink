@@ -1,4 +1,4 @@
-System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/operator/share', 'rxjs/add/operator/catch', 'rxjs/add/operator/filter', 'rxjs/add/operator/first'], function(exports_1) {
+System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/operator/share', 'rxjs/add/operator/catch', 'rxjs/add/operator/filter', 'rxjs/add/operator/first', 'rxjs/add/operator/do'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,7 +21,8 @@ System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/operator/share', 
             function (_1) {},
             function (_2) {},
             function (_3) {},
-            function (_4) {}],
+            function (_4) {},
+            function (_5) {}],
         execute: function() {
             CommBroker = (function () {
                 function CommBroker() {

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/first';
-
+import 'rxjs/add/operator/do';
 
 export interface IMessage {
     fromInstance: any,

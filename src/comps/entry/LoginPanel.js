@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts" />
-System.register(['angular2/core', 'angular2/router', "../../services/CommBroker", "../../Conts", "angular2/router"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "../../services/CommBroker", "../../Conts", "angular2/router", 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/filter', 'rxjs/add/operator/scan', 'rxjs/add/operator/do', 'rxjs/add/observable/range', "rxjs/subject", "rxjs/subject/BehaviorSubject", "rxjs/Observable"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,8 +9,8 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, CommBroker_1, Conts_1, router_3;
-    var LoginPanel;
+    var core_1, router_1, router_2, CommBroker_1, Conts_1, router_3, subject_1, BehaviorSubject_1, Observable_1;
+    var User, LoginPanel;
     return {
         setters:[
             function (core_1_1) {
@@ -28,17 +28,98 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
             },
             function (router_3_1) {
                 router_3 = router_3_1;
+            },
+            function (_1) {},
+            function (_2) {},
+            function (_3) {},
+            function (_4) {},
+            function (_5) {},
+            function (_6) {},
+            function (_7) {},
+            function (_8) {},
+            function (subject_1_1) {
+                subject_1 = subject_1_1;
+            },
+            function (BehaviorSubject_1_1) {
+                BehaviorSubject_1 = BehaviorSubject_1_1;
+            },
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
             }],
         execute: function() {
+            User = (function () {
+                function User(obj) {
+                    this.id = obj && obj.id || Math.random();
+                    this.name = obj && obj.name || 'anonymous';
+                    this.pass = obj && obj.pass || '';
+                    this.gender = obj && obj.gender || 'male';
+                }
+                return User;
+            })();
+            exports_1("User", User);
             LoginPanel = (function () {
                 function LoginPanel(router, commBroker) {
                     this.myRouter = router;
                     var user = commBroker.getValue(Conts_1.Consts.Values().USER_NAME);
                     this.user = user || '';
                     this.pass = user || '';
+                    //this.exampleRx1();
+                    //this.exampleRx2();
                 }
-                LoginPanel.prototype.ngAfterViewInit = function () {
-                    //jQuery.material.init();
+                /**
+                 * An example of using RX Subject
+                 create a Subject (BehaviorSubject means we will can send and listen to streams on the same object
+                 nd since it's Behavior, attached subscribers will always receive current userr.
+                 Null means we start empty
+                 **/
+                LoginPanel.prototype.exampleRx1 = function () {
+                    var userStream = new BehaviorSubject_1.BehaviorSubject(null);
+                    userStream.do(function (e) { return console.log(e); });
+                    userStream.filter(function (user) {
+                        return user && user.gender == 'male';
+                    }).subscribe(function (user) {
+                        console.log('male gender ' + user.name);
+                    });
+                    userStream.subscribe(function (user) {
+                        if (user == null)
+                            return;
+                        console.log("user registered " + user.name + " " + user.id);
+                    });
+                    userStream.next(new User({ name: 'Sean' }));
+                    userStream.next(new User({ name: 'John' }));
+                    userStream.next(new User({ name: 'Nelly', pass: 'aaa', gender: 'female' }));
+                    userStream.next(new User({ name: 'Nadine', pass: 'bbb', gender: 'female' }));
+                    // Create a stream of all users.
+                    // The type User[] is the same as Array<User>. Another way of writing the same thing
+                    // would be: Rx.Observable<Array<User>>. When we define the type of messages to be
+                    // Rx.Observable<User[]> we mean that this stream emits an Array (of Users), not
+                    // individual User.
+                    var usersStream = new Observable_1.Observable(function (observer) {
+                        console.log(observer);
+                    });
+                    usersStream.subscribe(function (e) { return console.log(e); });
+                    var source = userStream.scan(function (acc, x) {
+                        return acc + x;
+                    }, []);
+                    source.subscribe(function (x) { return console.log("scan " + x); });
+                };
+                /**
+                 * In this example we push users into userStream1 and have it come out in userStream2
+                 * as userStream2 subscribes into userStream1 and userStream3 output
+                 **/
+                LoginPanel.prototype.exampleRx2 = function () {
+                    var userStream1 = new subject_1.Subject(null);
+                    var userStream2 = new subject_1.Subject(null);
+                    userStream1.subscribe(userStream2);
+                    userStream2.subscribe(function (x) {
+                        console.log(x);
+                    });
+                    var userStream3 = Observable_1.Observable.create(function (observer) {
+                        observer.next(new User({ name: 'Peggy', gender: 'female' }));
+                    });
+                    userStream1.next(new User({ name: 'Sean' }));
+                    userStream1.next(new User({ name: 'Larry' }));
+                    userStream3.subscribe(userStream2);
                 };
                 LoginPanel.prototype.onLogin = function (event) {
                     var _this = this;
