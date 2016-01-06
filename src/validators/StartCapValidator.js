@@ -3,6 +3,9 @@ System.register([], function(exports_1) {
         if (!control.value.match(/^[A-Z]/)) {
             return { notCapped: true };
         }
+        else {
+            return null;
+        }
     }
     exports_1("default", StartCapValidator);
     return {

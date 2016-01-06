@@ -11,6 +11,7 @@ import {MailModel} from "../../../models/MailModel";
 import {CharCount} from "../../../pipes/CharCount";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
 import StartCapValidator from "../../../validators/StartCapValidator";
+import NameTakenValidator from "../../../validators/NameTakenValidator";
 
 @Component({
     selector: 'Notes1',
@@ -38,6 +39,9 @@ import StartCapValidator from "../../../validators/StartCapValidator";
                 }
                 .panelColorError {
                    background-color: #ffe4e4;
+                }
+                .longInput {
+                    width: 570px;
                 }
 
        `],
@@ -71,14 +75,33 @@ import StartCapValidator from "../../../validators/StartCapValidator";
                         <form [ngFormModel]="notesForm" (ngSubmit)="onSubmit(notesForm.value)">
                           <div class="form-group">
                           <!-- here we are mapping the Control via the directive ngFormControl to the instance of notesForm.controls['userName'] -->
-                            <input type="text" class="form-control" required [ngFormControl]="notesForm.controls['userName']">
+
+                            <!-- user name -->
+                            <input type="text" class="form-control" placeholder="user name" required [ngFormControl]="notesForm.controls['userName']">
                               <div *ngIf="!userName.valid" class="alert alert-warning alert-dismissible" role="alert">
                                   <strong>Warning!</strong> are you a robot?
+                              </div>
+
+                              <!-- login name -->
+                              <input type="text" class="longInput form-control" placeholder="check server for free name (try: Sean)" required [ngFormControl]="notesForm.controls['login']">
+                              <p *ngIf="login.pending">Fetching data from the server...</p>
+                              <div *ngIf="login.hasError('taken')"
+                                 class="alert alert-warning alert-dismissible" role="alert">
+                                 <strong>Warning!</strong> Login is taken
+                              </div>
+                              <div *ngIf="login.hasError('notCapped') && login.touched" class="alert alert-warning alert-dismissible" role="alert">
+                                 <strong>Warning!</strong> Must start with first capital letter
+                              </div>
+
+                              <!-- phone -->
+                              <input type="text" class="longInput form-control" placeholder="phone" required [ngFormControl]="notesForm.controls['phone']">
+                              <div *ngIf="!phone.valid" class="alert alert-warning alert-dismissible" role="alert">
+                                  <strong>Warning!</strong> please use valid phone
                               </div>
                             <label for="name">Enter your notes</label>
 
                             <!-- bind the textarea control to our manually created notesTextArea control -->
-                            <textarea type="text" class="myNotes form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required
+                            <textarea type="text" placeholder="enter some notes" class="myNotes form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required
                                 [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
                             <div *ngIf="notesTextArea.hasError('notCapped') && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
                                <strong>Warning!</strong> Must start with first capital letter (Validators are working :)
@@ -106,6 +129,8 @@ export class Notes1 extends NotesBase {
     private notesForm:ControlGroup;
     private notesTextArea:AbstractControl;
     private userName:AbstractControl;
+    private phone:AbstractControl;
+    private login:AbstractControl;
     private model:MailModel;
     private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
 
@@ -115,20 +140,27 @@ export class Notes1 extends NotesBase {
         this.slideLeft = 'notes2';
 
         this.notesForm = fb.group({
-            'userName': ['user name', Validators.required],
+            'userName': ['', Validators.required],
+            'phone': ['(xxx)-xxxx-xxx', Validators.minLength(10)],
             'notesTextArea': ['enter text here',
                 Validators.compose([
                     Validators.required,
-                    StartCapValidator])]
+                    StartCapValidator])],
+            'login': ['',
+                Validators.compose([
+                    Validators.required,
+                    StartCapValidator]), NameTakenValidator]
         });
 
         // map to instances from form
         this.notesTextArea = this.notesForm.controls['notesTextArea'];
         this.userName = this.notesForm.controls['userName'];
+        this.login = this.notesForm.controls['login'];
+        this.phone = this.notesForm.controls['phone'];
 
         this.model = new MailModel(0, '', true, '', '');
 
-        // warning: unrelated, demonstrate usage of Map
+        // unrelated, demonstrate usage of Map
         this.mapModel = new Map();
         this.mapModel.set('my name', 'Sean Levy');
         //console.log(this.mapModel.get('my name'));
@@ -142,7 +174,7 @@ export class Notes1 extends NotesBase {
      * use one of the many RX operators debounceTime to control
      * the number of events emitted per milliseconds
      **/
-    observeNameChange () {
+    observeNameChange() {
         this.userName.valueChanges.debounceTime(100).subscribe(
             (value:string) => {
                 console.log('name changed, notified via observable: ', value);
@@ -150,7 +182,7 @@ export class Notes1 extends NotesBase {
         );
     }
 
-    observeFormChange () {
+    observeFormChange() {
         this.notesForm.valueChanges.debounceTime(100).subscribe(
             (value:string) => {
                 console.log('forum changed, notified via observable: ', value);
