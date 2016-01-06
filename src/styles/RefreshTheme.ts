@@ -6,7 +6,7 @@ export class RefreshTheme {
             if (document['commBroker']) {
                 document['commBroker'].getService(Consts.Services().StyleService).refreshTheme();
             }
-        }, 100);
+        }, 50);
     }
 }
 

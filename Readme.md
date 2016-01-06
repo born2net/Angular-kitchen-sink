@@ -4,7 +4,7 @@ ng2Boilerplate
 An Angular 2 and Bootstrap easy to start, A-Z startup project
 ----------------
 
-version: 0.201
+version: 0.301
 
 ready to be impressed with Angular 2?
 
@@ -39,7 +39,9 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - LocalStorage service
 - Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react) 
-- RX reactive operators and subscribers throughout the app (some random examples as well)
+- Rxjs reactive operators and subscribers throughout the app (some random examples as well)
+- Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
+- Rxjs Node server side CRUD for Observable client to server calls
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
 - Dependency injection and decorators such as @Host
@@ -47,8 +49,8 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups)
-- Form observables and operations including Async and more
-- Node server side CRUD for RX calls 
+- Form observables and operations including Async piping and more
+- Form promised based field validation
 - Todo data model persistence and sync to node server via CRUD
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file

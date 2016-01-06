@@ -1,10 +1,5 @@
 ///<reference path="../../../../typings/app.d.ts"/>
-System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common", "../../../styles/RefreshTheme"], function(exports_1) {
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14,7 +9,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, WeatherService_1, SortableHeader_1, common_1, OrderBy_1, common_2, RefreshTheme_1;
+    var core_1, WeatherService_1, SortableHeader_1, common_1, OrderBy_1, common_2;
     var Weather;
     return {
         setters:[
@@ -35,15 +30,10 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
             },
             function (common_2_1) {
                 common_2 = common_2_1;
-            },
-            function (RefreshTheme_1_1) {
-                RefreshTheme_1 = RefreshTheme_1_1;
             }],
         execute: function() {
-            Weather = (function (_super) {
-                __extends(Weather, _super);
+            Weather = (function () {
                 function Weather(weatherService, fb) {
-                    _super.call(this);
                     this.weatherService = weatherService;
                     this.fb = fb;
                     // the real magic here is that the sort variable is being used in several places
@@ -51,6 +41,8 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     // the header icons, as well as in SortableHeader to change the sort order on header clicks.
                     // So we pass the SAME sort var to all SortableHeader directives and all work with it
                     // in both displaying and the sorting mechanics
+                    // we also use changeDetection: ChangeDetectionStrategy.OnPushObserve to make sure we use
+                    // efficient rendering of the page only when the Observable is changes
                     this.sort = { field: null, desc: false };
                     this.weatherForm = fb.group({
                         'weatherInput': ['']
@@ -73,6 +65,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     core_1.Component({
                         selector: 'Weather',
                         providers: [WeatherService_1.WeatherService, SortableHeader_1.SortableHeader],
+                        changeDetection: core_1.ChangeDetectionStrategy.OnPushObserve,
                         pipes: [OrderBy_1.OrderBy],
                         directives: [common_2.COMMON_DIRECTIVES, SortableHeader_1.SortableHeader],
                         styles: ["input {margin: 20px; width: 50%}"],
@@ -81,7 +74,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     __metadata('design:paramtypes', [WeatherService_1.WeatherService, common_1.FormBuilder])
                 ], Weather);
                 return Weather;
-            })(RefreshTheme_1.RefreshTheme);
+            })();
             exports_1("Weather", Weather);
         }
     }

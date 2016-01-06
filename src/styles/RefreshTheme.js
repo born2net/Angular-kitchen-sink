@@ -13,7 +13,7 @@ System.register(["../Conts"], function(exports_1) {
                         if (document['commBroker']) {
                             document['commBroker'].getService(Conts_1.Consts.Services().StyleService).refreshTheme();
                         }
-                    }, 100);
+                    }, 50);
                 }
                 return RefreshTheme;
             })();

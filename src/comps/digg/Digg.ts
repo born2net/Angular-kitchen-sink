@@ -13,7 +13,7 @@
 import {Component, ViewContainerRef, ViewEncapsulation} from 'angular2/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser';
 import {Consts} from "src/Conts";
-import {Control, AsyncPipe} from "angular2/common";
+import {Control} from "angular2/common";
 import {Observable} from "rxjs/Observable";
 import {Http} from "angular2/http";
 import {DiggLoader} from "src/comps/digg/DiggLoader";

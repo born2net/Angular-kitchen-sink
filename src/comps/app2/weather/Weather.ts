@@ -1,6 +1,6 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component} from "angular2/core";
+import {Component, ChangeDetectionStrategy} from "angular2/core";
 import {Consts} from "../../Conts";
 import {Observable} from "rxjs/Observable";
 import {IWeatherItem} from "./IWeather";
@@ -14,6 +14,7 @@ import {RefreshTheme} from "../../../styles/RefreshTheme";
 @Component({
     selector: 'Weather',
     providers: [WeatherService, SortableHeader],
+    changeDetection: ChangeDetectionStrategy.OnPushObserve,
     pipes: [OrderBy],
     directives: [COMMON_DIRECTIVES, SortableHeader],
     styles: [`input {margin: 20px; width: 50%}`],
@@ -45,7 +46,7 @@ import {RefreshTheme} from "../../../styles/RefreshTheme";
   `,
 })
 
-export class Weather extends RefreshTheme {
+export class Weather {
     private weatherForm:ControlGroup;
     private weatherInput:AbstractControl;
     private weatherItems:Observable<IWeatherItem[]>;
@@ -55,10 +56,11 @@ export class Weather extends RefreshTheme {
     // the header icons, as well as in SortableHeader to change the sort order on header clicks.
     // So we pass the SAME sort var to all SortableHeader directives and all work with it
     // in both displaying and the sorting mechanics
+    // we also use changeDetection: ChangeDetectionStrategy.OnPushObserve to make sure we use
+    // efficient rendering of the page only when the Observable is changes
     public sort: {field: string, desc: boolean} = {field: null, desc: false};
 
     constructor(private weatherService:WeatherService, private fb:FormBuilder) {
-        super();
         this.weatherForm = fb.group({
             'weatherInput': ['']
         });
