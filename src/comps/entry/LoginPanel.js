@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts" />
-System.register(['angular2/core', 'angular2/router', "../../services/CommBroker", "../../Conts", "angular2/router", 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/filter', 'rxjs/add/operator/scan', 'rxjs/add/operator/do', 'rxjs/add/observable/range', "rxjs/subject", "rxjs/subject/BehaviorSubject", "rxjs/Observable"], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "../../services/CommBroker", "../../Conts", "angular2/router", 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/filter', 'rxjs/add/operator/scan', 'rxjs/add/operator/do', 'rxjs/add/observable/range', "rxjs/Subject", "rxjs/subject/BehaviorSubject", "rxjs/Observable"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +9,7 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, CommBroker_1, Conts_1, router_3, subject_1, BehaviorSubject_1, Observable_1;
+    var core_1, router_1, router_2, CommBroker_1, Conts_1, router_3, Subject_1, BehaviorSubject_1, Observable_1;
     var User, LoginPanel;
     return {
         setters:[
@@ -37,8 +37,8 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
             function (_6) {},
             function (_7) {},
             function (_8) {},
-            function (subject_1_1) {
-                subject_1 = subject_1_1;
+            function (Subject_1_1) {
+                Subject_1 = Subject_1_1;
             },
             function (BehaviorSubject_1_1) {
                 BehaviorSubject_1 = BehaviorSubject_1_1;
@@ -108,8 +108,8 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                  * as userStream2 subscribes into userStream1 and userStream3 output
                  **/
                 LoginPanel.prototype.exampleRx2 = function () {
-                    var userStream1 = new subject_1.Subject(null);
-                    var userStream2 = new subject_1.Subject(null);
+                    var userStream1 = new Subject_1.Subject(null);
+                    var userStream2 = new Subject_1.Subject(null);
                     userStream1.subscribe(userStream2);
                     userStream2.subscribe(function (x) {
                         console.log(x);
