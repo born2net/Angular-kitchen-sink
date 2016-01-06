@@ -56,7 +56,7 @@ export class AppManager extends RefreshTheme {
     }
 
     private goToApp2() {
-        setTimeout(e=>this.myRouter.navigate(['/App1']),500);
+        setTimeout(e=>this.myRouter.navigate(['/App2']),500);
     }
 }
 
