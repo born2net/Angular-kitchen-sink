@@ -46,7 +46,7 @@ System.register(['angular2/core', 'angular2/router', "../../styles/RefreshTheme"
                 };
                 AppManager.prototype.goToApp2 = function () {
                     var _this = this;
-                    setTimeout(function (e) { return _this.myRouter.navigate(['/App1']); }, 500);
+                    setTimeout(function (e) { return _this.myRouter.navigate(['/App2']); }, 500);
                 };
                 AppManager = __decorate([
                     core_1.Component({
