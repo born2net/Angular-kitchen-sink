@@ -120,6 +120,7 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                     userStream1.next(new User({ name: 'Sean' }));
                     userStream1.next(new User({ name: 'Larry' }));
                     userStream3.subscribe(userStream2);
+                    var userObject = { 'new_user': new User() };
                 };
                 LoginPanel.prototype.onLogin = function (event) {
                     var _this = this;

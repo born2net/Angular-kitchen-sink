@@ -139,6 +139,8 @@ export class LoginPanel {
         userStream1.next(new User({name: 'Sean'}));
         userStream1.next(new User({name: 'Larry'}));
         userStream3.subscribe(userStream2);
+
+        var userObject:{ [key: string]: User } = {'new_user': new User()};
     }
 
     private onLogin(event) {
