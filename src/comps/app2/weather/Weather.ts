@@ -19,7 +19,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
     selector: 'Weather',
     providers: [WeatherService, SortableHeader],
-    //changeDetection: ChangeDetectionStrategy.OnPushObserve,
+    changeDetection: ChangeDetectionStrategy.OnPushObserve,
     pipes: [OrderBy],
     directives: [COMMON_DIRECTIVES, SortableHeader],
     styles: [`input {margin: 20px; width: 50%}`],

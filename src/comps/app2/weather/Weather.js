@@ -71,7 +71,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     core_1.Component({
                         selector: 'Weather',
                         providers: [WeatherService_1.WeatherService, SortableHeader_1.SortableHeader],
-                        //changeDetection: ChangeDetectionStrategy.OnPushObserve,
+                        changeDetection: core_1.ChangeDetectionStrategy.OnPushObserve,
                         pipes: [OrderBy_1.OrderBy],
                         directives: [common_2.COMMON_DIRECTIVES, SortableHeader_1.SortableHeader],
                         styles: ["input {margin: 20px; width: 50%}"],
