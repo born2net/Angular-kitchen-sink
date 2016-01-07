@@ -86,7 +86,7 @@ export class Digg extends RefreshTheme {
     private viewContainer:ViewContainerRef;
     private dom = new BrowserDomAdapter();
 
-    constructor(private commBroker:CommBroker,diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
+    constructor(private commBroker:CommBroker, diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
         super();
         var self = this;
         self.mode = 'list';
@@ -104,7 +104,9 @@ export class Digg extends RefreshTheme {
             diggLoader.loadDiggs(e, self.diggs)
         });
         this.listenWinResize();
-        this.commBroker.getService(Consts.Services().Properties).setPropView('Digg');
+        var propView = this.commBroker.getService(Consts.Services().Properties);
+        if (propView)
+            propView.setPropView('Digg');
     }
 
     private listenWinResize() {
@@ -115,7 +117,7 @@ export class Digg extends RefreshTheme {
     }
 
     ngAfterContentInit() {
-        this.tileStyle = this.mode=="tiles" ? true : false;
+        this.tileStyle = this.mode == "tiles" ? true : false;
         this.setSize(this.m_commBroker.getValue(Consts.Values().APP_SIZE).height);
     }
 

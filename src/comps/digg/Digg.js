@@ -76,7 +76,9 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                         diggLoader.loadDiggs(e, self.diggs);
                     });
                     this.listenWinResize();
-                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Digg');
+                    var propView = this.commBroker.getService(Conts_1.Consts.Services().Properties);
+                    if (propView)
+                        propView.setPropView('Digg');
                 }
                 Digg.prototype.listenWinResize = function () {
                     var self = this;
