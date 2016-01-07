@@ -21,6 +21,7 @@ import {Observer} from "rxjs/Observer";
 import {IDigg} from "./DiggLoader";
 import {CommBroker, IMessage} from "../../services/CommBroker";
 import 'rxjs/add/observable/from';
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import {RefreshTheme} from "../../styles/RefreshTheme";

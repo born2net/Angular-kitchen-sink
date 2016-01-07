@@ -9,7 +9,7 @@
 
  Licence: MIT
  *******************************************/
-System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxjs/Observable", "src/comps/digg/DiggLoader", "../../services/CommBroker", 'rxjs/add/observable/from', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged', "../../styles/RefreshTheme"], function(exports_1) {
+System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxjs/Observable", "src/comps/digg/DiggLoader", "../../services/CommBroker", 'rxjs/add/observable/from', 'rxjs/add/operator/do', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged', "../../styles/RefreshTheme"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -49,6 +49,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
             function (_1) {},
             function (_2) {},
             function (_3) {},
+            function (_4) {},
             function (RefreshTheme_1_1) {
                 RefreshTheme_1 = RefreshTheme_1_1;
             }],

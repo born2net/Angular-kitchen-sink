@@ -2,14 +2,19 @@
 
 import {Component, ChangeDetectionStrategy} from "angular2/core";
 import {Consts} from "../../Conts";
-import {Observable} from "rxjs/Observable";
 import {IWeatherItem} from "./IWeather";
 import {WeatherService} from "./WeatherService";
 import {SortableHeader} from "./SortableHeader";
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from 'angular2/common'
 import {OrderBy} from "../../../pipes/OrderBy";
 import {COMMON_DIRECTIVES} from "angular2/common";
 import {RefreshTheme} from "../../../styles/RefreshTheme";
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
     selector: 'Weather',
@@ -20,9 +25,7 @@ import {RefreshTheme} from "../../../styles/RefreshTheme";
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
     <small>I am a weather component</small>
-    <form [ngFormModel]="weatherForm" (submit)="$event.preventDefault()">
-        <input type="text" class="form-control" placeholder="enter city or zip code" [ngFormControl]="weatherForm.controls['weatherInput']">
-    </form>
+    <input type="text" placeholder="enter city or zip code" [ngFormControl]="zipControl">
     <table class="table">
       <thead>
         <tr>
@@ -47,9 +50,8 @@ import {RefreshTheme} from "../../../styles/RefreshTheme";
 })
 
 export class Weather {
-    private weatherForm:ControlGroup;
-    private weatherInput:AbstractControl;
     private weatherItems:Observable<IWeatherItem[]>;
+    private zipControl:Control = new Control();
 
     // the real magic here is that the sort variable is being used in several places
     // including here to set the pipe sorting, in the SortableHeader component to show and hide
@@ -60,30 +62,31 @@ export class Weather {
     // efficient rendering of the page only when the Observable is changes
     public sort: {field: string, desc: boolean} = {field: null, desc: false};
 
-    constructor(private weatherService:WeatherService, private fb:FormBuilder) {
-        this.weatherForm = fb.group({
-            'weatherInput': ['']
-        });
-        this.weatherInput = this.weatherForm.controls['weatherInput'];
-        this.weatherItems = weatherService.search('91301/1');
+
+    constructor(private weatherService:WeatherService) {
+
+        //this.weatherItems = weatherService.search('91301/1');
         this.listenWeatherInput();
     }
 
     listenWeatherInput() {
-        this.weatherInput.valueChanges
+        this.weatherItems = this.zipControl.valueChanges
             .debounceTime(100)
+            .distinctUntilChanged()
             .filter((zip:string)=> {
                 if (zip.length == 5)
                     return true;
                 return false;
-            }).subscribe(
-            value => this.weatherItems = this.weatherService.search(`${value}/1`),
-            err => console.log(`onError: ${err}`),
-            () => console.log('onCompleted')
-        );
+            }).switchMap(zip => {
+                return this.weatherService.search(`${zip}/1`)
+            });
     }
 }
 
+//}).switchMap((zip:any) => {
+//    return this.weatherItems = this.weatherService.search(`${zip}/1`),
+//        err => console.log(`onError: ${err}`),
+//        () => console.log('onCompleted')
 
 //}).subscribe((value:string) => {
 //    console.log('fetching zip weather : ', value);
