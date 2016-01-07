@@ -48,16 +48,18 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     // we also use changeDetection: ChangeDetectionStrategy.OnPushObserve to make sure we use
                     // efficient rendering of the page only when the Observable is changes
                     this.sort = { field: null, desc: false };
-                    //this.weatherItems = weatherService.search('91301/1');
                     this.listenWeatherInput();
                 }
+                Weather.prototype.ngAfterViewInit = function () {
+                    this.zipControl.updateValue('91301');
+                };
                 Weather.prototype.listenWeatherInput = function () {
                     var _this = this;
-                    this.weatherItems = this.zipControl.valueChanges
-                        .debounceTime(100)
+                    return this.weatherItems = this.zipControl.valueChanges
+                        .debounceTime(400)
                         .distinctUntilChanged()
                         .filter(function (zip) {
-                        if (zip.length == 5)
+                        if (zip.length > 3)
                             return true;
                         return false;
                     }).switchMap(function (zip) {
@@ -68,7 +70,7 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                     core_1.Component({
                         selector: 'Weather',
                         providers: [WeatherService_1.WeatherService, SortableHeader_1.SortableHeader],
-                        changeDetection: core_1.ChangeDetectionStrategy.OnPushObserve,
+                        //changeDetection: ChangeDetectionStrategy.OnPushObserve,
                         pipes: [OrderBy_1.OrderBy],
                         directives: [common_2.COMMON_DIRECTIVES, SortableHeader_1.SortableHeader],
                         styles: ["input {margin: 20px; width: 50%}"],

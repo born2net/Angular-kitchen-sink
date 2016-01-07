@@ -19,7 +19,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
     selector: 'Weather',
     providers: [WeatherService, SortableHeader],
-    changeDetection: ChangeDetectionStrategy.OnPushObserve,
+    //changeDetection: ChangeDetectionStrategy.OnPushObserve,
     pipes: [OrderBy],
     directives: [COMMON_DIRECTIVES, SortableHeader],
     styles: [`input {margin: 20px; width: 50%}`],
@@ -64,22 +64,24 @@ export class Weather {
 
 
     constructor(private weatherService:WeatherService) {
-
-        //this.weatherItems = weatherService.search('91301/1');
         this.listenWeatherInput();
     }
 
+    ngAfterViewInit() {
+        this.zipControl.updateValue('91301');
+    }
+
     listenWeatherInput() {
-        this.weatherItems = this.zipControl.valueChanges
-            .debounceTime(100)
+        return this.weatherItems = this.zipControl.valueChanges
+            .debounceTime(400)
             .distinctUntilChanged()
             .filter((zip:string)=> {
-                if (zip.length == 5)
+                if (zip.length > 3)
                     return true;
                 return false;
             }).switchMap(zip => {
                 return this.weatherService.search(`${zip}/1`)
-            });
+            })
     }
 }
 
