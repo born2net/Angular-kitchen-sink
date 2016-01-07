@@ -60,6 +60,9 @@ System.register(["angular2/core", "./WeatherService", "./SortableHeader", 'angul
                         .distinctUntilChanged()
                         .filter(function (zip) {
                         return zip.length > 3;
+                        // switchMap is really cool as it will both flatMap our Observables
+                        // as well as it unsubscribes from all previous / pending calls to server and only
+                        // listen to to newly created Observable
                     }).switchMap(function (zip) {
                         return _this.weatherService.search(zip + "/1");
                     });

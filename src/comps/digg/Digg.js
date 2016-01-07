@@ -69,6 +69,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                     self.channel = new Observable_1.Observable(function (observer) {
                         self.stream = observer;
                     }).share();
+                    // for a cleaner approach to Observable endpoint server calls see Weather component
                     self.channel.debounceTime(1000).distinctUntilChanged().subscribe(function (e) {
                         self.diggs = [];
                         diggLoader.loadDiggs(e, self.diggs);

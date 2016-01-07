@@ -98,6 +98,7 @@ export class Digg extends RefreshTheme {
             self.stream = observer;
         }).share();
 
+        // for a cleaner approach to Observable endpoint server calls see Weather component
         self.channel.debounceTime(1000).distinctUntilChanged().subscribe((e)=> {
             self.diggs = [];
             diggLoader.loadDiggs(e, self.diggs)

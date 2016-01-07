@@ -76,7 +76,10 @@ export class Weather {
             .debounceTime(400)
             .distinctUntilChanged()
             .filter((zip:string)=> {
-                return zip.length > 3
+                return zip.length > 3;
+                // switchMap is really cool as it will both flatMap our Observables
+                // as well as it unsubscribes from all previous / pending calls to server and only
+                // listen to to newly created Observable
             }).switchMap(zip => {
                 return this.weatherService.search(`${zip}/1`)
             })
