@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts" />
-System.register(["angular2/core"], function(exports_1) {
+System.register(["angular2/core", "src/Conts", "../../services/CommBroker"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,16 +9,24 @@ System.register(["angular2/core"], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, Conts_1, CommBroker_1;
     var Logout;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (Conts_1_1) {
+                Conts_1 = Conts_1_1;
+            },
+            function (CommBroker_1_1) {
+                CommBroker_1 = CommBroker_1_1;
             }],
         execute: function() {
             Logout = (function () {
-                function Logout() {
+                function Logout(commBroker) {
+                    this.commBroker = commBroker;
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Logout');
                     jQuery('body').fadeOut(3000, function () {
                         window.location.replace("https://github.com/born2net/ng2Boilerplate");
                     });
@@ -28,7 +36,7 @@ System.register(["angular2/core"], function(exports_1) {
                         selector: 'Logout',
                         template: "\n        <h1><Center>Goodbye</Center></h1>\n        <small>I am Logout component</small>\n        "
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], Logout);
                 return Logout;
             })();

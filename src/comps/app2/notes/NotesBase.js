@@ -18,11 +18,11 @@ System.register(["../../../Conts"], function(exports_1) {
                 };
                 NotesBase.prototype.onPrev = function (event) {
                     this.sliderPanel.slideToPage(this.slideRight, 'right');
-                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropeView(this.slideRight);
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView(this.slideRight);
                 };
                 NotesBase.prototype.onNext = function (event) {
                     this.sliderPanel.slideToPage(this.slideLeft, 'left');
-                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropeView(this.slideLeft);
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView(this.slideLeft);
                 };
                 NotesBase.prototype.registerCaller = function (caller) {
                     this.modalDialog = caller;

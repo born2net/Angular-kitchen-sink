@@ -86,7 +86,7 @@ export class Digg extends RefreshTheme {
     private viewContainer:ViewContainerRef;
     private dom = new BrowserDomAdapter();
 
-    constructor(diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
+    constructor(private commBroker:CommBroker,diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
         super();
         var self = this;
         self.mode = 'list';
@@ -103,8 +103,8 @@ export class Digg extends RefreshTheme {
             self.diggs = [];
             diggLoader.loadDiggs(e, self.diggs)
         });
-
         this.listenWinResize();
+        this.commBroker.getService(Consts.Services().Properties).setPropView('Digg');
     }
 
     private listenWinResize() {

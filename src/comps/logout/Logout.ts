@@ -1,7 +1,8 @@
 ///<reference path="../../../typings/app.d.ts" />
 
 import {Component} from "angular2/core";
-import {Consts} from "../../Conts";
+import {Consts} from "src/Conts";
+import {CommBroker} from "../../services/CommBroker";
 
 @Component({
     selector: 'Logout',
@@ -12,7 +13,8 @@ import {Consts} from "../../Conts";
 })
 
 export class Logout {
-    constructor() {
+    constructor(private commBroker:CommBroker) {
+        this.commBroker.getService(Consts.Services().Properties).setPropView('Logout');
         jQuery('body').fadeOut(3000, function () {
             window.location.replace("https://github.com/born2net/ng2Boilerplate");
         });

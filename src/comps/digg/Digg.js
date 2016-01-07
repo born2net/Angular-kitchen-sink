@@ -57,8 +57,9 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
             DIGG_INIT_HEIGHT = '400px';
             Digg = (function (_super) {
                 __extends(Digg, _super);
-                function Digg(diggLoader, m_commBroker, viewContainer) {
+                function Digg(commBroker, diggLoader, m_commBroker, viewContainer) {
                     _super.call(this);
+                    this.commBroker = commBroker;
                     this.m_commBroker = m_commBroker;
                     this.dom = new browser_1.BrowserDomAdapter();
                     var self = this;
@@ -75,6 +76,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                         diggLoader.loadDiggs(e, self.diggs);
                     });
                     this.listenWinResize();
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Digg');
                 }
                 Digg.prototype.listenWinResize = function () {
                     var self = this;
@@ -104,7 +106,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                         styles: [("\n        .diggContainer {\n            overflow-y: scroll;\n            height: " + DIGG_INIT_HEIGHT + ";\n        };\n        .largeImage {\n           max-width: 100;\n           max-height: 60;\n        }\n        .smallImage {\n           width: 70;\n           height: 40;\n        }\n        .grow { transition: all .2s ease-in-out; }\n        .grow:hover { transform: scale(1.1); opacity: 0.7}\n    ")],
                         template: "\n        <ng-content></ng-content>\n        <div >\n             <form (submit)=\"$event.preventDefault();\">\n                <br/>\n                <div class=\"input-group\">\n                      <span class=\"input-group-addon\" id=\"symbol-input\">Digg filter</span>\n                      <input type=\"text\" class=\"form-control\" (keyup)=\"onSearch($event)\" placeholder=\"press [ENTER] for unfiltered result\">\n                    </div>\n              </form>\n              <div class=\"diggContainer list\">\n                  <table class=\"table table-striped\">\n                  <tbody>\n                    <tr *ngFor=\"#digg of diggs\" [ngClass]=\"{'col-xs-4': tileStyle, 'col-lg-3': tileStyle}\">\n                      <td>\n                      <img class=\"img-responsive grow\" [ngClass]=\"{'largeImage': tileStyle, 'smallImage': !tileStyle}\" src=\"{{digg.link}}\"/>\n                      <span>{{digg.title}}</span>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n        </div>\n  "
                     }), 
-                    __metadata('design:paramtypes', [DiggLoader_1.DiggLoader, CommBroker_1.CommBroker, core_1.ViewContainerRef])
+                    __metadata('design:paramtypes', [CommBroker_1.CommBroker, DiggLoader_1.DiggLoader, CommBroker_1.CommBroker, core_1.ViewContainerRef])
                 ], Digg);
                 return Digg;
             })(RefreshTheme_1.RefreshTheme);

@@ -1,7 +1,8 @@
 import {Component} from "angular2/core";
-import {Consts} from "../../Conts";
+import {Consts} from "src/Conts";
 import {FORM_DIRECTIVES} from 'angular2/common'
 import {MailModel} from "../../../models/MailModel";
+import {CommBroker} from "../../../services/CommBroker";
 
 @Component({
     selector: 'Contact',
@@ -104,6 +105,9 @@ export class Contact {
     model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
     submitted = false;
 
+    constructor(private commBroker:CommBroker){
+        this.commBroker.getService(Consts.Services().Properties).setPropView('Contact');
+    }
     onSubmit(event) {
         console.log(event);
         if (event.contactMethod.indexOf('Page') > -1) {

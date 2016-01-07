@@ -1,7 +1,7 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
 import {Component, ChangeDetectionStrategy} from "angular2/core";
-import {Consts} from "../../Conts";
+import {Consts} from "src/Conts";
 import {IWeatherItem} from "./IWeather";
 import {WeatherService} from "./WeatherService";
 import {SortableHeader} from "./SortableHeader";
@@ -15,6 +15,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/distinctUntilChanged';
+import {CommBroker} from "../../../services/CommBroker";
 
 @Component({
     selector: 'Weather',
@@ -63,8 +64,9 @@ export class Weather {
     public sort: {field: string, desc: boolean} = {field: null, desc: false};
 
 
-    constructor(private weatherService:WeatherService) {
+    constructor(private weatherService:WeatherService, private commBroker:CommBroker) {
         this.listenWeatherInput();
+        this.commBroker.getService(Consts.Services().Properties).setPropView('Weather');
     }
 
     ngAfterViewInit() {

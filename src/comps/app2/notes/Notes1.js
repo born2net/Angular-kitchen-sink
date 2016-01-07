@@ -1,5 +1,5 @@
 ///<reference path="../../../../typings/app.d.ts"/>
-System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "./NotesBase", "../../../models/MailModel", "../../../pipes/CharCount", 'angular2/common', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator"], function(exports_1) {
+System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "../../../Conts", "./NotesBase", "../../../models/MailModel", "../../../pipes/CharCount", 'angular2/common', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -14,7 +14,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, NotesBase_1, MailModel_1, CharCount_1, common_1, StartCapValidator_1, NameTakenValidator_1;
+    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, Conts_1, NotesBase_1, MailModel_1, CharCount_1, common_1, StartCapValidator_1, NameTakenValidator_1;
     var Notes1;
     return {
         setters:[
@@ -29,6 +29,9 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
             },
             function (CommBroker_1_1) {
                 CommBroker_1 = CommBroker_1_1;
+            },
+            function (Conts_1_1) {
+                Conts_1 = Conts_1_1;
             },
             function (NotesBase_1_1) {
                 NotesBase_1 = NotesBase_1_1;
@@ -80,6 +83,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                     //console.log(this.mapModel.get('my name'));
                     this.observeNameChange();
                     this.observeFormChange();
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('notes1');
                 }
                 /**
                  * Listen to observable emitted events from name control

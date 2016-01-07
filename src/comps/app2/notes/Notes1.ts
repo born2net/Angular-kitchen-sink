@@ -167,6 +167,8 @@ export class Notes1 extends NotesBase {
 
         this.observeNameChange();
         this.observeFormChange();
+
+        this.commBroker.getService(Consts.Services().Properties).setPropView('notes1')
     }
 
     /**

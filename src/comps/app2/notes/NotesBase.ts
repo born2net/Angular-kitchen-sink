@@ -22,12 +22,12 @@ export class NotesBase implements IRegisterCaller {
 
     protected onPrev(event) {
         this.sliderPanel.slideToPage(this.slideRight, 'right');
-        this.commBroker.getService(Consts.Services().Properties).setPropeView(this.slideRight);
+        this.commBroker.getService(Consts.Services().Properties).setPropView(this.slideRight);
     }
 
     protected onNext(event) {
         this.sliderPanel.slideToPage(this.slideLeft, 'left');
-        this.commBroker.getService(Consts.Services().Properties).setPropeView(this.slideLeft);
+        this.commBroker.getService(Consts.Services().Properties).setPropView(this.slideLeft);
     }
 
     public registerCaller(caller:any):void {
