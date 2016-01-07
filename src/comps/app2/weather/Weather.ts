@@ -25,7 +25,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
     <small>I am a weather component</small>
-    <input type="text" placeholder="enter city or zip code" [ngFormControl]="zipControl">
+    <input type="text" class="form-control" placeholder="enter city or zip code" [ngFormControl]="zipControl">
     <table class="table">
       <thead>
         <tr>
@@ -76,21 +76,9 @@ export class Weather {
             .debounceTime(400)
             .distinctUntilChanged()
             .filter((zip:string)=> {
-                if (zip.length > 3)
-                    return true;
-                return false;
+                return zip.length > 3
             }).switchMap(zip => {
                 return this.weatherService.search(`${zip}/1`)
             })
     }
 }
-
-//}).switchMap((zip:any) => {
-//    return this.weatherItems = this.weatherService.search(`${zip}/1`),
-//        err => console.log(`onError: ${err}`),
-//        () => console.log('onCompleted')
-
-//}).subscribe((value:string) => {
-//    console.log('fetching zip weather : ', value);
-//    this.weatherItems = this.weatherService.search(`${value}/1`);
-//}

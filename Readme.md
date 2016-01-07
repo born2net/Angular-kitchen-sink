@@ -4,7 +4,7 @@ ng2Boilerplate
 An Angular 2 and Bootstrap easy to start, A-Z startup project
 ----------------
 
-version: 0.301
+version: 0.311
 
 ready to be impressed with Angular 2?
 
