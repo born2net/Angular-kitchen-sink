@@ -1,5 +1,5 @@
 ///<reference path="../../../../typings/app.d.ts"/>
-System.register(["angular2/core", "src/Conts", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1) {
+System.register(["angular2/core", "src/Conts", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/catch', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,6 +38,7 @@ System.register(["angular2/core", "src/Conts", "./WeatherService", "./SortableHe
             function (_2) {},
             function (_3) {},
             function (_4) {},
+            function (_5) {},
             function (CommBroker_1_1) {
                 CommBroker_1 = CommBroker_1_1;
             }],

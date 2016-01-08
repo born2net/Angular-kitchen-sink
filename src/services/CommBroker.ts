@@ -1,11 +1,69 @@
 import {Component, Injectable} from 'angular2/core';
-import {Observable} from "rxjs/Observable";
 import {Observer} from "rxjs/Observer";
-import 'rxjs/add/operator/share';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/share';
+import {Subject} from "rxjs/Subject";
+
+/**
+
+ CommBroker is a React type Mediator injectable service provider
+
+ Examples
+ ============
+ self.onEvent('click').subscribe((e:IMessage)=> {
+        console.log('I heard a click');
+    });
+
+ // won't work, event != jump
+ self.onEvent('jump').subscribe((e:IMessage)=> {
+        console.log('I heard a click');
+    });
+
+ // wont work, this != self
+ self.onInstance(null).subscribe((e:IMessage)=> {
+        console.log('XYZ#$%^& should never come here...');
+    });
+
+ self.onInstanceAndEvent(this, 'click').subscribe((e:IMessage)=> {
+        console.log(`I heard you commBroker on event click ` + e.message);
+    });
+
+ self.onInstanceAndEvent(self, 'click').first().subscribe((e:IMessage)=> {
+        var commBroker:CommBroker = e.fromInstance;
+        console.log(`just one ${e.event} from ${commBroker.toString()}`);
+    });
+
+ self.onInstanceAndEvent(self, 'click').subscribe((e:IMessage) => {
+        console.log(`handle success: rx ${e.event}`)
+    }, (e) => {
+        console.log(`handle error ${e}`)
+    }, () => {
+        console.log(`handle complete`)
+    });
+
+ // before stream ready
+ var msg1:IMessage = {
+        fromInstance: self,
+        event: 'click',
+        context: 1,
+        message: 'before stream is ready'
+    };
+ self.fire(msg1);
+
+ // after stream ready
+ setTimeout(function () {
+        var msg2:IMessage = {
+            fromInstance: self,
+            event: 'click',
+            context: 2,
+            message: 'after stream is ready'
+        };
+        self.fire(msg2);
+    }, 2000)
+ **/
+
 
 export interface IMessage {
     fromInstance: any,
@@ -15,158 +73,64 @@ export interface IMessage {
 }
 
 // create an alias type just so it's easier to associate
-type ObservableMessage = Observable<IMessage>;
-type ObservableMessages = Observable<Array<ObservableMessage>>;
-type streamObserver = Observer<IMessage>;
+type SubjectMessage = Subject<IMessage>;
+type SubjectMessages = Subject<Array<SubjectMessage>>;
 
 @Injectable()
 export class CommBroker {
-    private stream:streamObserver; // we push messages into the observer stream
-    private channel:ObservableMessage; // we operate (i.e.: filter) and subscribe (listen) on the observable channel that's linked to the stream
-    private intervalHandler:any;
-    private bufferedMessages:IMessage[];
+    private streamMessages:Subject<IMessage>; // we operate (i.e.: filter) and subscribe (listen) on the observable stream that's linked to the stream
     private services:string[];
     private randomName:number = Math.random();
 
     constructor() {
         var self = this;
-        self.bufferedMessages = [];
         self.services = [];
-        self.channel = new Observable(observer => {
-            self.stream = observer;
-            /** possible operations on stream are: **/
-            //self.stream.next(msg);
-            //observer.error('boom');
-            //observer.complete('done');
-        }).share();
+        self.streamMessages = new Subject() as SubjectMessage;
+        self.streamMessages.share();
+
+        // if we wish to use a unidirectional stream we can convert to Observable instead of subject
+        //self.stream = new Observable(trigger => {
+        //    trigger.next(msg);
+        //    trigger.error('boom');
+        //    trigger.complete('done');
+        //}).share();
 
         // this is the only global member we expose
         document['commBroker'] = this;
     }
 
-    private examples() {
-        var self = this;
-
-        self.onEvent('click').subscribe((e:IMessage)=> {
-            console.log('I heard a click');
-        });
-
-        // won't work, event != jump
-        self.onEvent('jump').subscribe((e:IMessage)=> {
-            console.log('I heard a click');
-        });
-
-        // wont work, this != self
-        self.onInstance(null).subscribe((e:IMessage)=> {
-            console.log('XYZ#$%^& should never come here...');
-        });
-
-        self.onInstanceAndEvent(this, 'click').subscribe((e:IMessage)=> {
-            console.log(`I heard you commBroker on event click ` + e.message);
-        });
-
-        self.onInstanceAndEvent(self, 'click').first().subscribe((e:IMessage)=> {
-            var commBroker:CommBroker = e.fromInstance;
-            console.log(`just one ${e.event} from ${commBroker.toString()}`);
-        });
-
-        self.onInstanceAndEvent(self, 'click').subscribe((e:IMessage) => {
-            console.log(`handle success: rx ${e.event}`)
-        }, (e) => {
-            console.log(`handle error ${e}`)
-        }, () => {
-            console.log(`handle complete`)
-        });
-
-        // before stream ready
-        var msg1:IMessage = {
-            fromInstance: self,
-            event: 'click',
-            context: 1,
-            message: 'before stream is ready'
-        };
-        self.fire(msg1);
-
-        // after stream ready
-        setTimeout(function () {
-            var msg2:IMessage = {
-                fromInstance: self,
-                event: 'click',
-                context: 2,
-                message: 'after stream is ready'
-            };
-            self.fire(msg2);
-        }, 2000)
-    }
-
     public toString() {
-        return 'CommBroker ' + this.randomName;
+        return 'CommBroker ' + this.randomName; // to test uniqueness
     }
 
     /**
-     With fire we push a stream of IMessages into our channel. However to prevent racing condition
-     since 'self.channel = new Observable(observer => {....' at the top of CommBroker is an async operation,
-     we must buffer all incoming messages until our stream is ready, once it is, we begin pushing all
-     buffered messages down the pipe, after we are done, we no longer need to buffer incoming messages
-     as the stream is now open.
+     With fire we push a stream of IMessages into our stream.
      @method fire
      @params IMessage
      **/
     public fire(iMessage:IMessage):void {
         var self = this;
-        if (self.stream != undefined) {
-            self.stream.next(iMessage);
-            return;
-        }
-
-        self.bufferedMessages.push(iMessage)
-
-        // if buffering is already taking place, no need for a new one
-        if (self.intervalHandler)
-            return;
-
-        // if stream is not available yet, buffer messages until it's ready
-        self.intervalHandler = setInterval(function () {
-            if (self.stream != undefined) {
-                window.clearInterval(self.intervalHandler);
-                for (var i = 0; i < self.bufferedMessages.length; i++) {
-                    self.stream.next(iMessage);
-                }
-                self.bufferedMessages = undefined;
-            }
-        }, 500)
+        self.streamMessages.next(iMessage);
     }
 
     public onEvent(event:string) {
         var self = this;
-        return self.channel.filter((e)=> {
-            if (e.event == event) {
-                return true;
-            } else {
-                return false;
-            }
+        return self.streamMessages.filter((e)=> {
+            return e.event == event;
         })
     }
 
     public onInstance(instance:any) {
         var self = this;
-        return self.channel.filter((e)=> {
-            if (e.fromInstance == instance) {
-                return true;
-            } else {
-                return false;
-            }
+        return self.streamMessages.filter((e)=> {
+            return e.fromInstance == instance;
         })
     }
 
     public onInstanceAndEvent(instance:any, event:string) {
         var self = this;
-        return self.channel.filter((e)=> {
-            if (e.fromInstance == instance && e.event == event) {
-                return true;
-            } else {
-                return false;
-            }
+        return self.streamMessages.filter((e)=> {
+            return e.fromInstance == instance && e.event == event
         })
     }
 
@@ -179,7 +143,6 @@ export class CommBroker {
      **/
     setService(i_name, i_service) {
         this.services[i_name] = i_service;
-        //this.fire(Backbone.EVENTS['SERVICE_REGISTERED'], this, null, {name: i_name, service: i_service})
     }
 
     /**
@@ -254,5 +217,4 @@ export class CommBroker {
             return undefined;
         }
     }
-
 }
