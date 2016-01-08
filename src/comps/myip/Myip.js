@@ -44,7 +44,8 @@ System.register(["angular2/core", 'rxjs/Observable', 'rxjs/add/operator/do', "rx
                 }
                 /**
                  Using getMyIp we take advantage of AsyncSubject to retrieve data from server only once
-                 as your ip does noy change per session
+                 as your ip does noy change per session. AsyncSubject is kind of like a Promise as it resolves
+                 once and remembers and emits its last value
                  **/
                 MyIp.prototype.getMyIp = function (url) {
                     var _this = this;

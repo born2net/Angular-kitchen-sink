@@ -42,7 +42,8 @@ export class MyIp {
 
     /**
      Using getMyIp we take advantage of AsyncSubject to retrieve data from server only once
-     as your ip does noy change per session
+     as your ip does noy change per session. AsyncSubject is kind of like a Promise as it resolves
+     once and remembers and emits its last value
      **/
     getMyIp(url) {
         var self = this;
