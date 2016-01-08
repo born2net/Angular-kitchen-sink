@@ -78,7 +78,7 @@ type SubjectMessages = Subject<Array<SubjectMessage>>;
 
 @Injectable()
 export class CommBroker {
-    private streamMessages:Subject<IMessage>; // we operate (i.e.: filter) and subscribe (listen) on the observable stream that's linked to the stream
+    private streamMessages:Subject<IMessage>;
     private services:string[];
     private randomName:number = Math.random();
 
