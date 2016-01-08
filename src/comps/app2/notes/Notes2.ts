@@ -5,10 +5,12 @@ import {CommBroker} from "../../../services/CommBroker";
 import {Properties} from "../properties/Properties";
 import {Consts} from "../../../Conts";
 import {NotesBase} from "./NotesBase";
+import {MyIp} from "../../myip/Myip";
 
 @Component({
     selector: 'Notes2',
-    directives: [ModalDialog],
+    providers: [MyIp],
+    directives: [ModalDialog, MyIp],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
@@ -22,6 +24,7 @@ import {NotesBase} from "./NotesBase";
                 </div>
                 <ModalDialog title="My owner is Notes2" content="I am here to serve Notes2" [owner]="me">
                 </ModalDialog>
+                <MyIp></MyIp>
                 <ng-content></ng-content>`
 })
 
