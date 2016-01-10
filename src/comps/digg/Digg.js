@@ -52,7 +52,6 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                     this.commBroker = commBroker;
                     this.m_commBroker = m_commBroker;
                     this.dom = new browser_1.BrowserDomAdapter();
-                    //super();
                     var self = this;
                     self.mode = 'list';
                     this.diggs = [];

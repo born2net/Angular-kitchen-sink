@@ -24,7 +24,6 @@ import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import {RefreshTheme} from "../../styles/RefreshTheme";
 
 
 const DIGG_INIT_HEIGHT = '400px';
@@ -87,7 +86,6 @@ export class Digg {
     private dom = new BrowserDomAdapter();
 
     constructor(private commBroker:CommBroker, diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
-        //super();
         var self = this;
         self.mode = 'list';
         this.diggs = [];
