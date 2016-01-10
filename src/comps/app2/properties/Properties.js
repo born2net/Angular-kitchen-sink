@@ -1,4 +1,5 @@
-System.register(["angular2/core", "src/Conts", "../../../services/CommBroker"], function(exports_1) {
+///<reference path="../../../../typings/app.d.ts"/>
+System.register(["angular2/core", "src/Conts", "../../../services/CommBroker", "../notes/Notes1Props"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +9,7 @@ System.register(["angular2/core", "src/Conts", "../../../services/CommBroker"], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Conts_1, CommBroker_1;
+    var core_1, Conts_1, CommBroker_1, Notes1Props_1;
     var Properties;
     return {
         setters:[
@@ -20,6 +21,9 @@ System.register(["angular2/core", "src/Conts", "../../../services/CommBroker"], 
             },
             function (CommBroker_1_1) {
                 CommBroker_1 = CommBroker_1_1;
+            },
+            function (Notes1Props_1_1) {
+                Notes1Props_1 = Notes1Props_1_1;
             }],
         execute: function() {
             Properties = (function () {
@@ -35,7 +39,8 @@ System.register(["angular2/core", "src/Conts", "../../../services/CommBroker"], 
                 Properties = __decorate([
                     core_1.Component({
                         selector: 'Properties',
-                        template: "\n                <h4>Properties</h4>\n                <hr/>\n                 <ul [ngSwitch]=\"value\">\n                  <li *ngSwitchWhen=\"'notes1'\"><h1>Notes 1</h1></li>\n                  <li *ngSwitchWhen=\"'notes2'\"><h1>Notes 2</h1></li>\n                  <li *ngSwitchWhen=\"'notes3'\"><h1>Notes 3</h1></li>\n                  <li *ngSwitchWhen=\"'notes4'\"><h1>Notes 4</h1></li>\n                  <li *ngSwitchWhen=\"'notes5'\"><h1>Notes 5</h1></li>\n                  <li *ngSwitchWhen=\"'Digg'\"><h1>Digg</h1></li>\n                  <li *ngSwitchWhen=\"'Weather'\"><h1>Weather</h1></li>\n                  <li *ngSwitchWhen=\"'Contact'\"><h1>Contact</h1></li>\n                  <li *ngSwitchWhen=\"'Logout'\"><h1>Logout</h1></li>\n                </ul>\n                <ng-content></ng-content>\n              "
+                        directives: [Notes1Props_1.Notes1Props],
+                        template: "\n                <h4>Properties</h4>\n                <hr/>\n                 <ul [ngSwitch]=\"value\">\n                  <li *ngSwitchWhen=\"'notes1'\">\n                    <Notes1Props></Notes1Props>\n                  </li>\n                  <li *ngSwitchWhen=\"'notes2'\"><h1>Notes 2</h1></li>\n                  <li *ngSwitchWhen=\"'notes3'\"><h1>Notes 3</h1></li>\n                  <li *ngSwitchWhen=\"'notes4'\"><h1>Notes 4</h1></li>\n                  <li *ngSwitchWhen=\"'notes5'\"><h1>Notes 5</h1></li>\n                  <li *ngSwitchWhen=\"'Digg'\"><h1>Digg</h1></li>\n                  <li *ngSwitchWhen=\"'Weather'\"><h1>Weather</h1></li>\n                  <li *ngSwitchWhen=\"'Contact'\"><h1>Contact</h1></li>\n                  <li *ngSwitchWhen=\"'Logout'\"><h1>Logout</h1></li>\n                </ul>\n                <ng-content></ng-content>\n              "
                     }), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], Properties);
