@@ -9,12 +9,7 @@
 
  Licence: MIT
  *******************************************/
-System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxjs/Observable", "src/comps/digg/DiggLoader", "../../services/CommBroker", 'rxjs/add/observable/from', 'rxjs/add/operator/do', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged', "../../styles/RefreshTheme"], function(exports_1) {
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxjs/Observable", "src/comps/digg/DiggLoader", "../../services/CommBroker", 'rxjs/add/observable/from', 'rxjs/add/operator/do', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -24,7 +19,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, browser_1, Conts_1, Observable_1, DiggLoader_1, CommBroker_1, RefreshTheme_1;
+    var core_1, browser_1, Conts_1, Observable_1, DiggLoader_1, CommBroker_1;
     var DIGG_INIT_HEIGHT, Digg;
     return {
         setters:[
@@ -49,19 +44,15 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
             function (_1) {},
             function (_2) {},
             function (_3) {},
-            function (_4) {},
-            function (RefreshTheme_1_1) {
-                RefreshTheme_1 = RefreshTheme_1_1;
-            }],
+            function (_4) {}],
         execute: function() {
             DIGG_INIT_HEIGHT = '400px';
-            Digg = (function (_super) {
-                __extends(Digg, _super);
+            Digg = (function () {
                 function Digg(commBroker, diggLoader, m_commBroker, viewContainer) {
-                    _super.call(this);
                     this.commBroker = commBroker;
                     this.m_commBroker = m_commBroker;
                     this.dom = new browser_1.BrowserDomAdapter();
+                    //super();
                     var self = this;
                     self.mode = 'list';
                     this.diggs = [];
@@ -80,6 +71,17 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                     if (propView)
                         propView.setPropView('Digg');
                 }
+                /**
+                 * An example of refreshing the Polymer theme if is it the one selected
+                 * instead of sub-classing the RefreshTheme interface which we do elsewhere
+                 */
+                Digg.prototype.ngOnInit = function () {
+                    setTimeout(function (e) {
+                        if (document['commBroker']) {
+                            document['commBroker'].getService(Conts_1.Consts.Services().StyleService).refreshTheme();
+                        }
+                    }, 50);
+                };
                 Digg.prototype.listenWinResize = function () {
                     var self = this;
                     self.m_commBroker.onEvent(Conts_1.Consts.Events().WIN_SIZED).subscribe(function (e) {
@@ -111,7 +113,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker, DiggLoader_1.DiggLoader, CommBroker_1.CommBroker, core_1.ViewContainerRef])
                 ], Digg);
                 return Digg;
-            })(RefreshTheme_1.RefreshTheme);
+            })();
             exports_1("Digg", Digg);
         }
     }

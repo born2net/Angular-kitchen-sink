@@ -76,7 +76,7 @@ const DIGG_INIT_HEIGHT = '400px';
   `
 })
 
-export class Digg extends RefreshTheme {
+export class Digg {
     private mode:string;
     private tileStyle:boolean;
     private channel:Observable<any[]>;
@@ -87,7 +87,7 @@ export class Digg extends RefreshTheme {
     private dom = new BrowserDomAdapter();
 
     constructor(private commBroker:CommBroker, diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
-        super();
+        //super();
         var self = this;
         self.mode = 'list';
         this.diggs = [];
@@ -107,6 +107,18 @@ export class Digg extends RefreshTheme {
         var propView = this.commBroker.getService(Consts.Services().Properties);
         if (propView)
             propView.setPropView('Digg');
+    }
+
+    /**
+     * An example of refreshing the Polymer theme if is it the one selected
+     * instead of sub-classing the RefreshTheme interface which we do elsewhere
+     */
+    private ngOnInit(){
+        setTimeout(e=> {
+            if (document['commBroker']) {
+                document['commBroker'].getService(Consts.Services().StyleService).refreshTheme();
+            }
+        }, 50);
     }
 
     private listenWinResize() {
