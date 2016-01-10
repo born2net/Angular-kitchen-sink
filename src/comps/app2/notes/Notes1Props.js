@@ -23,7 +23,7 @@ System.register(["angular2/core"], function(exports_1) {
                 Notes1Props = __decorate([
                     core_1.Component({
                         selector: 'Notes1Props',
-                        template: "\n                <h1>Notes 1</h1>\n                <small>I am notes1 properties component</small>\n                "
+                        template: "\n                <h1>Notes 1</h1>\n                <small>I am notes1 properties component</small>\n              "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Notes1Props);
