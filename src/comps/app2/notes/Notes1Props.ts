@@ -16,5 +16,4 @@ export class Notes1Props {
 
     constructor() {
     }
-
 }
