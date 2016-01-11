@@ -51,7 +51,7 @@ const DIGG_INIT_HEIGHT = '400px';
     `],
     template: `
         <ng-content></ng-content>
-        <div >
+        <div class="appHeight">
              <form (submit)="$event.preventDefault();">
                 <br/>
                 <div class="input-group">

@@ -22,6 +22,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.2.4",
     "lodash": "^3.10.1",
+    "ng2-file-upload": "^0.46.0",
     "rsync": "^0.4.0",
     "run-sequence": "^1.1.5",
     "tsd": "^0.6.5",
