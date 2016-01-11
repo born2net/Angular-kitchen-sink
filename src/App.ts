@@ -8,6 +8,8 @@ import {AppManager} from 'src/comps/appmanager/AppManager';
 import {CommBroker} from 'src/services/CommBroker';
 import {Filemenu} from "src/comps/filemenu/Filemenu";
 import {FilemenuItem} from "src/comps/filemenu/FilemenuItem";
+import {Logo} from "./comps/logo/Logo";
+import {RefreshTheme} from "./styles/RefreshTheme";
 import {Consts} from "src/Conts";
 import {StyleService} from "./styles/StyleService";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
@@ -17,8 +19,6 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
-import {RefreshTheme} from "./styles/RefreshTheme";
-
 
 
 // docgen:
@@ -76,7 +76,7 @@ class ComponentHelper {
     providers: [StyleService],
     selector: 'app',
     templateUrl: './src/App.html',
-    directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem]
+    directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem, Logo]
 })
 @RouteConfig([
     {path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},

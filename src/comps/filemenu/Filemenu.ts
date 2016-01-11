@@ -13,7 +13,6 @@ import {Consts} from "../../Conts";
 import {App} from "src/App";
 import {Lib} from "../../Lib";
 
-
 /**
  Filemenu manages the top header file menu per application as it mutates it's content depending
  on which App has loaded
@@ -102,15 +101,15 @@ export class Filemenu {
         //jQuery(".navbar-header .navbar-toggle").trigger("click");
     }
 
-    ngAfterViewInit() {
-        Lib.log(`AppPrefix: ${this['appPrefix']}`);
-        jQuery('.flip').mouseenter(function () {
-            jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
-                jQuery(this).removeClass('flipped');
-            });
-            return false;
-        });
-    }
+    //ngAfterViewInit() {
+    //    Lib.log(`AppPrefix: ${this['appPrefix']}`);
+    //    jQuery('.flip').mouseenter(function () {
+    //        jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
+    //            jQuery(this).removeClass('flipped');
+    //        });
+    //        return false;
+    //    });
+    //}
 
     private listenMenuSelected(event) {
         this.m_commBroker.fire({

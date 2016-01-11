@@ -1,5 +1,5 @@
 ///<reference path="../typings/app.d.ts"/>
-System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "src/Conts", "./styles/StyleService", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent', "./styles/RefreshTheme"], function(exports_1) {
+System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./styles/RefreshTheme", "src/Conts", "./styles/StyleService", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent'], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -14,7 +14,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Conts_1, StyleService_1, router_1, router_2, router_3, Observable_1, RefreshTheme_1;
+    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, RefreshTheme_1, Conts_1, StyleService_1, router_1, router_2, router_3, Observable_1;
     var Welcome, ComponentHelper, App;
     return {
         setters:[
@@ -39,6 +39,12 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
             function (FilemenuItem_1_1) {
                 FilemenuItem_1 = FilemenuItem_1_1;
             },
+            function (Logo_1_1) {
+                Logo_1 = Logo_1_1;
+            },
+            function (RefreshTheme_1_1) {
+                RefreshTheme_1 = RefreshTheme_1_1;
+            },
             function (Conts_1_1) {
                 Conts_1 = Conts_1_1;
             },
@@ -57,10 +63,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
             },
             function (_1) {},
             function (_2) {},
-            function (_3) {},
-            function (RefreshTheme_1_1) {
-                RefreshTheme_1 = RefreshTheme_1_1;
-            }],
+            function (_3) {}],
         execute: function() {
             // docgen:
             //import {App1} from 'src/comps/app1/App1/';
@@ -175,7 +178,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                         providers: [StyleService_1.StyleService],
                         selector: 'app',
                         templateUrl: './src/App.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem]
+                        directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo]
                     }),
                     router_2.RouteConfig([
                         { path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true },

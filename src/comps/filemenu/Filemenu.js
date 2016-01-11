@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts" />
-System.register(['angular2/core', 'angular2/platform/browser', "angular2/router", "../../services/CommBroker", "../../Conts", "../../Lib"], function(exports_1) {
+System.register(['angular2/core', 'angular2/platform/browser', "angular2/router", "../../services/CommBroker", "../../Conts"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,7 +9,7 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/router"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, browser_1, router_1, CommBroker_1, Conts_1, Lib_1;
+    var core_1, browser_1, router_1, CommBroker_1, Conts_1;
     var Filemenu;
     return {
         setters:[
@@ -27,9 +27,6 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/router"
             },
             function (Conts_1_1) {
                 Conts_1 = Conts_1_1;
-            },
-            function (Lib_1_1) {
-                Lib_1 = Lib_1_1;
             }],
         execute: function() {
             /**
@@ -84,15 +81,15 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/router"
                     //jQuery('.navicons').show();
                     //jQuery(".navbar-header .navbar-toggle").trigger("click");
                 }
-                Filemenu.prototype.ngAfterViewInit = function () {
-                    Lib_1.Lib.log("AppPrefix: " + this['appPrefix']);
-                    jQuery('.flip').mouseenter(function () {
-                        jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
-                            jQuery(this).removeClass('flipped');
-                        });
-                        return false;
-                    });
-                };
+                //ngAfterViewInit() {
+                //    Lib.log(`AppPrefix: ${this['appPrefix']}`);
+                //    jQuery('.flip').mouseenter(function () {
+                //        jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
+                //            jQuery(this).removeClass('flipped');
+                //        });
+                //        return false;
+                //    });
+                //}
                 Filemenu.prototype.listenMenuSelected = function (event) {
                     this.m_commBroker.fire({
                         fromInstance: self,

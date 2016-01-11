@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts"/>
-System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEvent', 'rxjs/add/observable/fromArray', 'rxjs/add/operator/do', 'rxjs/add/operator/merge'], function(exports_1) {
+System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEvent', 'rxjs/add/observable/fromArray', 'rxjs/add/operator/do', 'rxjs/add/operator/merge', 'rxjs/add/operator/distinctUntilChanged'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,7 +22,8 @@ System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEv
             function (_1) {},
             function (_2) {},
             function (_3) {},
-            function (_4) {}],
+            function (_4) {},
+            function (_5) {}],
         execute: function() {
             Logo = (function () {
                 function Logo(elementRef) {
@@ -30,25 +31,25 @@ System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEv
                     this.listenMouse();
                 }
                 Logo.prototype.listenMouse = function () {
+                    var _this = this;
                     var over = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(function (e) {
                         return Observable_1.Observable.fromArray([1]);
                     });
                     var out = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(function (e) {
                         return Observable_1.Observable.fromArray([0]);
                     });
-                    //return Observable.merge(over, out)
-                    over.merge(out).subscribe(function (events) {
-                        console.log(events);
+                    over.merge(out).distinctUntilChanged().subscribe(function (events) {
+                        if (events.array[0]) {
+                            jQuery(_this.elementRef.nativeElement).find('.flipcard').addClass('flipped');
+                        }
+                        else {
+                            jQuery(_this.elementRef.nativeElement).find('.flipcard').removeClass('flipped');
+                        }
                     });
-                    //jQuery('.flip').mouseenter(function () {
-                    //    jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
-                    //        jQuery(this).removeClass('flipped');
-                    //    });
-                    //    return false;
-                    //});
                 };
                 Logo = __decorate([
                     core_1.Component({
+                        selector: 'Logo',
                         template: "\n            <div id=\"logoContainer\" class=\"reshid flip\">\n              <div class=\"flipcard\">\n                <div class=\"face front\">\n                  <img class=\"img-responsive\" src=\"assets/logo_s.png\"/>\n                </div>\n                <div class=\"face back\">\n                  <img class=\"img-responsive\" src=\"assets/logo_b.png\"/>\n                </div>\n              </div>\n            </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef])

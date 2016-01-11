@@ -7,8 +7,10 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/fromArray';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
+    selector: 'Logo',
     template: `
             <div id="logoContainer" class="reshid flip">
               <div class="flipcard">
@@ -22,28 +24,25 @@ import 'rxjs/add/operator/merge';
             </div>
     `
 })
+
 export class Logo {
     constructor(private elementRef:ElementRef) {
         this.listenMouse();
     }
 
     listenMouse():void {
-        var over:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(e=>{
+        var over:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(e=> {
             return Observable.fromArray([1])
         });
-        var out:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(e=>{
+        var out:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(e=> {
             return Observable.fromArray([0])
         });
-        //return Observable.merge(over, out)
-        over.merge(out).subscribe(events => {
-            console.log(events);
+        over.merge(out).distinctUntilChanged().subscribe(events => {
+            if (events.array[0]) {
+                jQuery(this.elementRef.nativeElement).find('.flipcard').addClass('flipped');
+            } else {
+                jQuery(this.elementRef.nativeElement).find('.flipcard').removeClass('flipped');
+            }
         });
-
-        //jQuery('.flip').mouseenter(function () {
-        //    jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
-        //        jQuery(this).removeClass('flipped');
-        //    });
-        //    return false;
-        //});
     }
 }
