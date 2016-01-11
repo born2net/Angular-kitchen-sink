@@ -4,6 +4,7 @@ import {Component, ElementRef} from 'angular2/core';
 import {Consts} from "src/Conts";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/fromArray';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/merge';
 
@@ -26,11 +27,17 @@ export class Logo {
         this.listenMouse();
     }
 
-    listenMouse():Observable<any> {
-        var over:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseover');
-        var out:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseover');
+    listenMouse():void {
+        var over:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(e=>{
+            return Observable.fromArray([1])
+        });
+        var out:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(e=>{
+            return Observable.fromArray([0])
+        });
         //return Observable.merge(over, out)
-        return over.merge(out);
+        over.merge(out).subscribe(events => {
+            console.log(events);
+        });
 
         //jQuery('.flip').mouseenter(function () {
         //    jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {

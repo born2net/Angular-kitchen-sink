@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/app.d.ts"/>
-System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/do', 'rxjs/add/operator/merge'], function(exports_1) {
+System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEvent', 'rxjs/add/observable/fromArray', 'rxjs/add/operator/do', 'rxjs/add/operator/merge'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,7 +21,8 @@ System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEv
             },
             function (_1) {},
             function (_2) {},
-            function (_3) {}],
+            function (_3) {},
+            function (_4) {}],
         execute: function() {
             Logo = (function () {
                 function Logo(elementRef) {
@@ -29,10 +30,16 @@ System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEv
                     this.listenMouse();
                 }
                 Logo.prototype.listenMouse = function () {
-                    var over = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseover');
-                    var out = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseover');
+                    var over = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(function (e) {
+                        return Observable_1.Observable.fromArray([1]);
+                    });
+                    var out = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(function (e) {
+                        return Observable_1.Observable.fromArray([0]);
+                    });
                     //return Observable.merge(over, out)
-                    return over.merge(out);
+                    over.merge(out).subscribe(function (events) {
+                        console.log(events);
+                    });
                     //jQuery('.flip').mouseenter(function () {
                     //    jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
                     //        jQuery(this).removeClass('flipped');
