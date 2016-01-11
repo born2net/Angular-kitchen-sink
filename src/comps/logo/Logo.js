@@ -33,13 +33,13 @@ System.register(['angular2/core', "rxjs/Observable", 'rxjs/add/observable/fromEv
                 Logo.prototype.listenMouse = function () {
                     var _this = this;
                     var over = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(function (e) {
-                        return Observable_1.Observable.fromArray([1]);
+                        return Observable_1.Observable.of(1);
                     });
                     var out = Observable_1.Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(function (e) {
-                        return Observable_1.Observable.fromArray([0]);
+                        return Observable_1.Observable.of(0);
                     });
                     over.merge(out).distinctUntilChanged().subscribe(function (events) {
-                        if (events.array[0]) {
+                        if (events.value) {
                             jQuery(_this.elementRef.nativeElement).find('.flipcard').addClass('flipped');
                         }
                         else {
