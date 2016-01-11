@@ -102,7 +102,6 @@ export class Filemenu {
         //jQuery(".navbar-header .navbar-toggle").trigger("click");
     }
 
-
     ngAfterViewInit() {
         Lib.log(`AppPrefix: ${this['appPrefix']}`);
         jQuery('.flip').mouseenter(function () {
