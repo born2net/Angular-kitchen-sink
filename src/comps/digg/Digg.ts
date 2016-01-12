@@ -108,8 +108,8 @@ export class Digg {
     }
 
     /**
-     * An example of refreshing the Polymer theme if is it the one selected
-     * instead of sub-classing the RefreshTheme interface which we do elsewhere
+     * Example of refreshing Polymer theme if is it the one selected
+     * instead of sub-classing refreshTheme interface which we do elsewhere
      */
     private ngOnInit(){
         setTimeout(e=> {

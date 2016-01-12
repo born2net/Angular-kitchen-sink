@@ -9,6 +9,11 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/distinctUntilChanged';
 
+/**
+ * Logo component for Application header
+ * Uses elementRef to listen to mouse events via angular
+ * adapter interface
+ **/
 @Component({
     selector: 'Logo',
     template: `
