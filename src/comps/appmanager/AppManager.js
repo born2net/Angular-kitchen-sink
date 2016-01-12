@@ -33,10 +33,6 @@ System.register(['angular2/core', 'angular2/router', "../../styles/RefreshTheme"
                 function AppManager(router) {
                     _super.call(this);
                     this.myRouter = router;
-                    // if you wish to subscribe to router calls
-                    //this.myRouter.parent.subscribe(function(e){
-                    //    console.log(`Route ${e}`);
-                    //});
                 }
                 AppManager.prototype.ngAfterViewInit = function () {
                 };

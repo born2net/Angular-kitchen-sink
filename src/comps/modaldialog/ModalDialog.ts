@@ -1,4 +1,4 @@
-///<reference path="../../../typings/jquery/jquery.d.ts" />
+///<reference path="../../../typings/app.d.ts" />
 
 import {Component, ViewContainerRef, ViewEncapsulation} from 'angular2/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser';

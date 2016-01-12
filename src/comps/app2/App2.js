@@ -85,9 +85,6 @@ System.register(['angular2/core', 'angular2/router', "../sidemenu/MenuItem", "..
                 RefreshTheme_1 = RefreshTheme_1_1;
             }],
         execute: function() {
-            /**
-             Application 2 lazy loaded
-             **/
             App2 = (function (_super) {
                 __extends(App2, _super);
                 function App2(params, commBroker, Consts) {

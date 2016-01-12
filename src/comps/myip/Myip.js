@@ -30,9 +30,6 @@ System.register(["angular2/core", 'rxjs/Observable', 'rxjs/add/operator/do', "rx
                 function MyIp(http) {
                     var _this = this;
                     this.http = http;
-                    // Demonstrates AsyncSubject where the first call will go out to server to grab your
-                    // ip, but 2nd call (via timeout) will grab it directly from the Subject never needing
-                    // to hit the server a second time (well unless this whole component gets re-instantiated that is)
                     this.getMyIp('https://secure.digitalsignage.com/getIp').subscribe(function (result) {
                         _this.ipAddress = JSON.parse(result._body).ip;
                     });
@@ -42,11 +39,6 @@ System.register(["angular2/core", 'rxjs/Observable', 'rxjs/add/operator/do', "rx
                         });
                     }, 2000);
                 }
-                /**
-                 Using getMyIp we take advantage of AsyncSubject to retrieve data from server only once
-                 as your ip does noy change per session. AsyncSubject is kind of like a Promise as it resolves
-                 once and remembers and emits its last value
-                 **/
                 MyIp.prototype.getMyIp = function (url) {
                     var _this = this;
                     var self = this;
@@ -61,8 +53,6 @@ System.register(["angular2/core", 'rxjs/Observable', 'rxjs/add/operator/do', "rx
                 MyIp = __decorate([
                     core_1.Component({
                         selector: 'MyIp',
-                        //providers: [JSONP_PROVIDERS], // if you want to use Jsonp instead
-                        providers: [http_1.HTTP_PROVIDERS],
                         template: "\n                <h3>Your ip address is: {{ipAddress}}</h3>\n                <small>I am MyIp component</small>\n                <ng-content></ng-content>\n    "
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])

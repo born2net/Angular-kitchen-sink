@@ -30,7 +30,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1) {
                     search.set('format', 'json');
                     return this.jsonp
                         .get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', { search: search })
-                        .toPromise() // optional to convert Observable to Promise
+                        .toPromise()
                         .then(function (request) { return request.json()[1]; });
                 };
                 WikiService = __decorate([

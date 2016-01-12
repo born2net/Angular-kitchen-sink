@@ -29,9 +29,6 @@ System.register(['angular2/core'], function(exports_1) {
                     }
                     return false;
                 };
-                // _deactivateAllTabs(){
-                //   this.tabs.forEach((tab)=>tab.active = false);
-                // }
                 Tabs.prototype.addTab = function (tab) {
                     if (this.tabs.length === 0) {
                         tab.active = true;

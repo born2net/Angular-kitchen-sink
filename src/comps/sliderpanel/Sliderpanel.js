@@ -19,10 +19,6 @@ System.register(['angular2/core', 'angular2/platform/browser'], function(exports
                 browser_1 = browser_1_1;
             }],
         execute: function() {
-            /**
-             @class Sliderpanel
-             example: self.slideToPage('campaignNameSelectorView', 'left')
-             **/
             Sliderpanel = (function () {
                 function Sliderpanel(viewContainer) {
                     this.dom = new browser_1.BrowserDomAdapter();
@@ -57,10 +53,8 @@ System.register(['angular2/core', 'angular2/platform/browser'], function(exports
                     var self = this;
                     if (toClassName == 'selected')
                         return;
-                    // Position the new page at the starting position of the animation
                     self.removeAllClassesFrom(toClassName);
                     self.addClassesTo(toClassName, ["page", i_direction]);
-                    // Position the new page and the current page at the ending position of their animation with a transition class indicating the duration of the animation and force reflow of page so it renders
                     var parent = self.dom.parentElement(self.getElementByClass(toClassName));
                     var grandparent = self.dom.parentElement(parent);
                     self.dom.getProperty(grandparent, 'offsetWidth');

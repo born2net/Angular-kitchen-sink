@@ -1,4 +1,3 @@
-///<reference path="../../../../typings/app.d.ts"/>
 System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "../../../Conts", "./NotesBase", "../../../models/MailModel", "../../../pipes/CharCount", 'angular2/common', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -71,25 +70,17 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                                 common_1.Validators.required,
                                 StartCapValidator_1.default]), NameTakenValidator_1.default]
                     });
-                    // map to instances from form
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
                     this.login = this.notesForm.controls['login'];
                     this.phone = this.notesForm.controls['phone'];
                     this.model = new MailModel_1.MailModel(0, '', true, '', '');
-                    // unrelated, demonstrate usage of Map
                     this.mapModel = new Map();
                     this.mapModel.set('my name', 'Sean Levy');
-                    //console.log(this.mapModel.get('my name'));
                     this.observeNameChange();
                     this.observeFormChange();
                     this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('notes1');
                 }
-                /**
-                 * Listen to observable emitted events from name control
-                 * use one of the many RX operators debounceTime to control
-                 * the number of events emitted per milliseconds
-                 **/
                 Notes1.prototype.observeNameChange = function () {
                     this.userName.valueChanges.debounceTime(100).subscribe(function (value) {
                         console.log('name changed, notified via observable: ', value);

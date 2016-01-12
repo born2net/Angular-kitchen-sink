@@ -1,4 +1,3 @@
-///<reference path="../../typings/app.d.ts"/>
 System.register([], function(exports_1) {
     function NameTakenValidator(control) {
         var q = new Promise(function (resolve, reject) {

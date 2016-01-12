@@ -19,6 +19,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
+import {HTTP_PROVIDERS} from "../angular2/ts/http";
 
 
 // docgen:
@@ -176,7 +177,7 @@ export class App extends RefreshTheme implements AfterContentInit {
     }
 }
 
-bootstrap(App, [ROUTER_PROVIDERS,
+bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS,
     provide(CommBroker, {useClass: CommBroker}),
     provide(Consts, {useClass: Consts}),
     provide(LocationStrategy, {useClass: HashLocationStrategy})]);

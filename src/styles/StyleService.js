@@ -1,4 +1,3 @@
-///<reference path="../../typings/app.d.ts"/>
 System.register(["angular2/core", "../services/LocalStorage", "../models/StyleModel", "../services/CommBroker", "../Conts"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -66,8 +65,6 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     }
                 };
                 StyleService.prototype.loadMaterial = function () {
-                    // you can check manually if a module has downloaded using system.js
-                    //System.has(`${window.location.origin}/src/styles/material-design/js/material.min.js`)
                     this.loadCss('src/styles/material-design/css/bootstrap-material-design.css');
                     this.loadCss('src/styles/material-design/css/ripples.min.css');
                     var a = System.import('src/styles/material-design/js/material.min.js');
@@ -77,7 +74,6 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     });
                 };
                 StyleService.prototype.loadCss = function (url) {
-                    //jQuery('.customStyles').remove();
                     var link = document.createElement("link");
                     link.type = "text/css";
                     link.rel = "stylesheet";
@@ -108,7 +104,6 @@ System.register(["angular2/core", "../services/LocalStorage", "../models/StyleMo
                     enumerable: true,
                     configurable: true
                 });
-                /** refresh theme only applies to Polymer for now **/
                 StyleService.prototype.refreshTheme = function () {
                     if (this.model.selectedTheme != 'polymer')
                         return;

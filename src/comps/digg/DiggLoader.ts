@@ -1,6 +1,5 @@
 import {Component, Injectable} from "angular2/core";
 import {Consts} from "src/Conts";
-import {HTTP_PROVIDERS} from "angular2/http";
 import {Http} from "angular2/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/fromArray';

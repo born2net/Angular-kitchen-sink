@@ -29,11 +29,6 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                     this.http = http;
                 }
                 WeatherService.prototype.search = function (query) {
-                    // if you wish to use ?q=param_here you can use
-                    //const search:URLSearchParams = new URLSearchParams();
-                    //search.set('q', query);
-                    //return this.http.get(`${WeatherService.BASE_URL}`, new RequestOptions({search}))
-                    // do is a great way to trace for debugging Observables
                     return this.http
                         .get("" + WeatherService.BASE_URL + query)
                         .do(function (x) {
@@ -47,7 +42,6 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                         .catch(function (e) {
                         return Observable_1.Observable.empty();
                     });
-                    //.map((item: Array<{item: IWeatherItem}>) => item.map((item: {show: IWeatherItem}));
                 };
                 WeatherService.BASE_URL = 'https://secure.digitalsignage.com/Weather/';
                 WeatherService = __decorate([

@@ -1,4 +1,3 @@
-///<reference path="../../../typings/app.d.ts" />
 System.register(['angular2/core', 'angular2/router', "../../services/CommBroker", "../../Conts", "angular2/router", 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/map', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/filter', 'rxjs/add/operator/scan', 'rxjs/add/operator/do', 'rxjs/add/observable/range', "rxjs/Subject", "rxjs/subject/BehaviorSubject", "rxjs/Observable"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -63,15 +62,7 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                     var user = commBroker.getValue(Conts_1.Consts.Values().USER_NAME);
                     this.user = user || '';
                     this.pass = user || '';
-                    //this.exampleRx1();
-                    //this.exampleRx2();
                 }
-                /**
-                 * An example of using RX Subject
-                 create a Subject (BehaviorSubject means we will can send and listen to streams on the same object
-                 nd since it's Behavior, attached subscribers will always receive current userr.
-                 Null means we start empty
-                 **/
                 LoginPanel.prototype.exampleRx1 = function () {
                     var userStream = new BehaviorSubject_1.BehaviorSubject(null);
                     userStream.do(function (e) { return console.log(e); });
@@ -89,11 +80,6 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                     userStream.next(new User({ name: 'John' }));
                     userStream.next(new User({ name: 'Nelly', pass: 'aaa', gender: 'female' }));
                     userStream.next(new User({ name: 'Nadine', pass: 'bbb', gender: 'female' }));
-                    // Create a stream of all users.
-                    // The type User[] is the same as Array<User>. Another way of writing the same thing
-                    // would be: Rx.Observable<Array<User>>. When we define the type of messages to be
-                    // Rx.Observable<User[]> we mean that this stream emits an Array (of Users), not
-                    // individual User.
                     var usersStream = new Observable_1.Observable(function (observer) {
                         console.log(observer);
                     });
@@ -103,10 +89,6 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                     }, []);
                     source.subscribe(function (x) { return console.log("scan " + x); });
                 };
-                /**
-                 * In this example we push users into userStream1 and have it come out in userStream2
-                 * as userStream2 subscribes into userStream1 and userStream3 output
-                 **/
                 LoginPanel.prototype.exampleRx2 = function () {
                     var userStream1 = new Subject_1.Subject(null);
                     var userStream2 = new Subject_1.Subject(null);
@@ -151,7 +133,7 @@ System.register(['angular2/core', 'angular2/router', "../../services/CommBroker"
                     core_1.Component({
                         selector: 'LoginPanel',
                         directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink],
-                        template: "\n                <div id=\"appLogin\" style=\"\">\n                  <form class=\"form-signin\" role=\"form\">\n                    <h2 class=\"form-signin-heading\"></h2>\n                    <input id=\"userName\" type=\"text\" value=\"{{user}}\" class=\"form-control\" data-localize=\"username\" placeholder=\"Type anything\" required autofocus>\n                    <input id=\"userPass\" type=\"password\" value=\"{{pass}}\" class=\"form-control\" data-localize=\"password\" placeholder=\"Type anything\" required>\n                    <label class=\"checkbox\">\n                      <input id=\"rememberMe\" type=\"checkbox\" checked value=\"remember-me\">\n                      <span data-localize=\"rememberMe\"> Remember me </span></label>\n                    <button id=\"loginButton\" (click)=\"onLogin($event)\" class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\n                      Sign in\n                    </button>\n                    <hr class=\"hrThin\"/>\n                    <a [routerLink]=\"['/ForgotPass', 'ForgotPass']\">Forgot password</a>\n                    <div id=\"languageSelectionLogin\"></div>\n                  </form>\n                </div>\n\n                <!-- <a [routerLink]=\"['/EntryPanelNoId', {id: 123}, 'Route4']\">To forgot pass</a> -->\n                <!-- <a [routerLink]=\"['/App1']\">Direct to App1</a><br/> -->\n                <!-- <a [routerLink]=\"['/App2']\">Direct to App2</a><br/> -->\n                <small>I am Login component and I am inside EntryPanel</small>"
+                        template: "\n                <div id=\"appLogin\" style=\"\">\n                  <form class=\"form-signin\" role=\"form\">\n                    <h2 class=\"form-signin-heading\"></h2>\n                    <input id=\"userName\" type=\"text\" value=\"{{user}}\" class=\"form-control\" data-localize=\"username\" placeholder=\"Type anything\" required autofocus>\n                    <input id=\"userPass\" type=\"password\" value=\"{{pass}}\" class=\"form-control\" data-localize=\"password\" placeholder=\"Type anything\" required>\n                    <label class=\"checkbox\">\n                      <input id=\"rememberMe\" type=\"checkbox\" checked value=\"remember-me\">\n                      <span> Remember me </span></label>\n                    <button id=\"loginButton\" (click)=\"onLogin($event)\" class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\n                      Sign in\n                    </button>\n                    <hr class=\"hrThin\"/>\n                    <a [routerLink]=\"['/ForgotPass', 'ForgotPass']\">Forgot password</a>\n                    <div id=\"languageSelectionLogin\"></div>\n                  </form>\n                </div>\n\n                <!-- <a [routerLink]=\"['/EntryPanelNoId', {id: 123}, 'Route4']\">To forgot pass</a> -->\n                <!-- <a [routerLink]=\"['/App1']\">Direct to App1</a><br/> -->\n                <!-- <a [routerLink]=\"['/App2']\">Direct to App2</a><br/> -->\n                <small>I am Login component and I am inside EntryPanel</small>"
                     }), 
                     __metadata('design:paramtypes', [router_3.Router, CommBroker_1.CommBroker])
                 ], LoginPanel);

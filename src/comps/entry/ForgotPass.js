@@ -1,4 +1,3 @@
-///<reference path="../../../typings/app.d.ts"/>
 System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/operator/buffer', 'rxjs/add/operator/bufferCount', 'rxjs/add/operator/delay', 'rxjs/add/operator/throttleTime', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/do', "../../Lib"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -38,9 +37,6 @@ System.register(['angular2/core', 'angular2/router', 'rxjs/add/observable/from',
                     this.disableButton = false;
                     this.forgotPassInit();
                 }
-                /**
-                 * An example of a custom event using Observable and double click the Logout button
-                 **/
                 ForgotPass.prototype.forgotPassInit = function () {
                     var _this = this;
                     var doubleClickStream = this.clickStream.buffer(this.clickStream.throttleTime(450)).map(function (e) {

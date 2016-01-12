@@ -1,4 +1,3 @@
-///<reference path="../../../../typings/app.d.ts"/>
 System.register(["angular2/core", "src/Conts", "./WeatherService", "./SortableHeader", 'angular2/common', "../../../pipes/OrderBy", "angular2/common", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/catch', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -48,13 +47,6 @@ System.register(["angular2/core", "src/Conts", "./WeatherService", "./SortableHe
                     this.weatherService = weatherService;
                     this.commBroker = commBroker;
                     this.zipControl = new common_1.Control();
-                    // the real magic here is that the sort variable is being used in several places
-                    // including here to set the pipe sorting, in the SortableHeader component to show and hide
-                    // the header icons, as well as in SortableHeader to change the sort order on header clicks.
-                    // So we pass the SAME sort var to all SortableHeader directives and all work with it
-                    // in both displaying and the sorting mechanics
-                    // we also use changeDetection: ChangeDetectionStrategy.OnPushObserve to make sure we use
-                    // efficient rendering of the page only when the Observable is changes
                     this.sort = { field: null, desc: false };
                     this.listenWeatherInput();
                     this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Weather');
@@ -69,9 +61,6 @@ System.register(["angular2/core", "src/Conts", "./WeatherService", "./SortableHe
                         .distinctUntilChanged()
                         .filter(function (zip) {
                         return zip.length > 3;
-                        // switchMap is really cool as it will both flatMap our Observables
-                        // as well as it unsubscribes from all previous / pending calls to server and only
-                        // listen to to newly created Observable
                     }).switchMap(function (zip) {
                         return _this.weatherService.search(zip + "/1");
                     });

@@ -30,23 +30,11 @@ System.register(['angular2/core', 'rxjs/add/operator/debounceTime', 'rxjs/add/op
                     self.services = [];
                     self.streamMessages = new Subject_1.Subject();
                     self.streamMessages.share();
-                    // if we wish to use a unidirectional stream we can convert to Observable instead of subject
-                    //self.stream = new Observable(trigger => {
-                    //    trigger.next(msg);
-                    //    trigger.error('boom');
-                    //    trigger.complete('done');
-                    //}).share();
-                    // this is the only global member we expose
                     document['commBroker'] = this;
                 }
                 CommBroker.prototype.toString = function () {
-                    return 'CommBroker ' + this.randomName; // to test uniqueness
+                    return 'CommBroker ' + this.randomName;
                 };
-                /**
-                 With fire we push a stream of IMessages into our stream.
-                 @method fire
-                 @params IMessage
-                 **/
                 CommBroker.prototype.fire = function (iMessage) {
                     var self = this;
                     self.streamMessages.next(iMessage);
@@ -69,25 +57,11 @@ System.register(['angular2/core', 'rxjs/add/operator/debounceTime', 'rxjs/add/op
                         return e.fromInstance == instance && e.event == event;
                     });
                 };
-                /**
-                 Register a service  that others can query.
-                 @method setService
-                 @param {String} i_name
-                 @param {Object} i_service
-                 @return none
-                 **/
                 CommBroker.prototype.setService = function (i_name, i_service) {
                     this.services[i_name] = i_service;
                 };
-                /**
-                 Get a registered service.
-                 @method getService
-                 @param {String} i_name
-                 @return {Object} services member
-                 **/
                 CommBroker.prototype.getService = function (i_name) {
                     if (i_name == undefined) {
-                        //log('cant get set undefined service ' + i_name);
                         return undefined;
                     }
                     if (this.services[i_name]) {
@@ -97,31 +71,13 @@ System.register(['angular2/core', 'rxjs/add/operator/debounceTime', 'rxjs/add/op
                         return undefined;
                     }
                 };
-                /**
-                 Expose all services and data members.
-                 @method getAllServices
-                 @return {Object} services
-                 **/
                 CommBroker.prototype.getAllServices = function () {
                     return this.services;
                 };
-                /**
-                 Clear all current registered services
-                 @method clearServices
-                 **/
                 CommBroker.prototype.clearServices = function () {
                     var self = this;
-                    // delete self.services;
                     self.services = undefined;
                 };
-                /**
-                 Register a data member that others can query.
-                 @method setValue
-                 @param {String} i_name
-                 @param {Object} i_value
-                 @param {Event} i_fireEvent
-                 @return none
-                 **/
                 CommBroker.prototype.setValue = function (i_name, i_value, i_fireEvent) {
                     var self = this;
                     this.services[i_name] = i_value;
@@ -135,12 +91,6 @@ System.register(['angular2/core', 'rxjs/add/operator/debounceTime', 'rxjs/add/op
                         self.fire(msg);
                     }
                 };
-                /**
-                 Get a registered data member.
-                 @method getValue
-                 @param {String} i_name
-                 @return {Object} m_services member
-                 **/
                 CommBroker.prototype.getValue = function (i_name) {
                     if (this.services[i_name]) {
                         return this.services[i_name];

@@ -25,7 +25,6 @@ System.register(['angular2/core', '../tabs/tabs'], function(exports_1) {
             Tab = (function () {
                 function Tab(tabs) {
                     this.active = this.active || false;
-                    //this.title = 'tab';
                     tabs.addTab(this);
                 }
                 Tab = __decorate([

@@ -1,14 +1,3 @@
-/*******************************************
- ng2Boilerplate application
-
- Get up and running quickly with a working
- application with solid foundation for
- Google's Angular 2
-
- GitHub: https://github.com/born2net/ng2Boilerplate
-
- Licence: MIT
- *******************************************/
 System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxjs/Observable", "src/comps/digg/DiggLoader", "../../services/CommBroker", 'rxjs/add/observable/from', 'rxjs/add/operator/do', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -60,7 +49,6 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                     self.channel = new Observable_1.Observable(function (observer) {
                         self.stream = observer;
                     }).share();
-                    // for a cleaner approach to Observable endpoint server calls see Weather component
                     self.channel.debounceTime(1000).distinctUntilChanged().subscribe(function (e) {
                         self.diggs = [];
                         diggLoader.loadDiggs(e, self.diggs);
@@ -70,10 +58,6 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                     if (propView)
                         propView.setPropView('Digg');
                 }
-                /**
-                 * An example of refreshing the Polymer theme if is it the one selected
-                 * instead of sub-classing the RefreshTheme interface which we do elsewhere
-                 */
                 Digg.prototype.ngOnInit = function () {
                     setTimeout(function (e) {
                         if (document['commBroker']) {
@@ -93,7 +77,6 @@ System.register(['angular2/core', 'angular2/platform/browser', "src/Conts", "rxj
                 };
                 Digg.prototype.setSize = function (height) {
                     var h = height - 200;
-                    //var el = this.dom.getElementsByClassName(this.el, this.mode)[0];
                     var el = this.dom.getElementsByClassName(this.el, 'diggContainer')[0];
                     this.dom.setStyle(el, 'height', h);
                 };

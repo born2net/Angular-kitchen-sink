@@ -19,11 +19,6 @@ System.register(['angular2/core', "./Filemenu"], function(exports_1) {
                 Filemenu_1 = Filemenu_1_1;
             }],
         execute: function() {
-            /**
-             Filemenu manages the top header file menu per application as it mutates it's content depending
-             on which App has loaded
-             @class Filemenu
-             **/
             FilemenuItem = (function () {
                 function FilemenuItem(fileMenu) {
                     this.m_fileMenu = fileMenu;

@@ -1,4 +1,3 @@
-///<reference path="../../../typings/app.d.ts" />
 System.register(['angular2/core', 'angular2/platform/browser', "angular2/router", "../../services/CommBroker", "../../Conts"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -29,11 +28,6 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/router"
                 Conts_1 = Conts_1_1;
             }],
         execute: function() {
-            /**
-             Filemenu manages the top header file menu per application as it mutates it's content depending
-             on which App has loaded
-             @class Filemenu
-             **/
             Filemenu = (function () {
                 function Filemenu(viewContainer, router, commBroker) {
                     this.dom = new browser_1.BrowserDomAdapter();
@@ -52,44 +46,21 @@ System.register(['angular2/core', 'angular2/platform/browser', "angular2/router"
                         }
                         if (self.m_renderedItems.length == 0) {
                             jQuery(self.m_fileMenuWrap).fadeOut('slow', function () {
-                                //notify ng2 of the changes so we comply with change strategy
                                 self.dom.setStyle(self.el, 'opacity', '0');
                             });
                         }
                         else {
                             jQuery(self.m_fileMenuWrap).fadeIn('slow', function () {
-                                //notify ng2 of the changes so we comply with change strategy
                                 self.dom.setStyle(self.el, 'opacity', '1');
                             });
                             var app = self.m_commBroker.getService(Conts_1.Consts.Services().App);
                             app.appResized();
                         }
-                        //console.log(`Route ${currentRoute}`);
                     });
                     jQuery('.navbar-nav').css({
                         display: 'block'
                     });
-                    //setTimeout(()=>{
-                    //    var menu = commBroker.getService() as Menu;
-                    //},4000);
-                    /** just some example of what can be done with direct dom manipulation **/
-                    //this.dom.removeChild(this.el, bar);
-                    //this.background = this.dom.getAttribute(this.el, 'background') || '#000000';
-                    //this.opacity = this.dom.setAttribute(this.el, 'background', 'red');
-                    //this.width = this.dom.getAttribute(this.el, 'width') || '7px';
-                    //this.position = this.dom.getAttribute(this.el, 'position') || 'right';
-                    //jQuery('.navicons').show();
-                    //jQuery(".navbar-header .navbar-toggle").trigger("click");
                 }
-                //ngAfterViewInit() {
-                //    Lib.log(`AppPrefix: ${this['appPrefix']}`);
-                //    jQuery('.flip').mouseenter(function () {
-                //        jQuery(this).find('.flipcard').addClass('flipped').mouseleave(function () {
-                //            jQuery(this).removeClass('flipped');
-                //        });
-                //        return false;
-                //    });
-                //}
                 Filemenu.prototype.listenMenuSelected = function (event) {
                     this.m_commBroker.fire({
                         fromInstance: self,

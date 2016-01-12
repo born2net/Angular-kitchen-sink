@@ -12,7 +12,8 @@ gulp.task('LiveServer', ['_watchSource'], function () {
     server.use(express.static('./'));
     server.listen(8003);
     browserSync({
-        proxy: 'localhost:8003'
+        proxy: 'localhost:8003',
+        reloadDelay: '3000'
     });
 });
 

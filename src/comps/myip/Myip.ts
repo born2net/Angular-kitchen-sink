@@ -3,7 +3,7 @@ import {Consts} from "../../Conts";
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import {AsyncSubject} from "rxjs/subject/AsyncSubject";
-import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {Http} from 'angular2/http';
 //import {JSONP_PROVIDERS, Jsonp} from 'angular2/http';
 
 interface IIpAddress {
@@ -13,7 +13,6 @@ interface IIpAddress {
 @Component({
     selector: 'MyIp',
     //providers: [JSONP_PROVIDERS], // if you want to use Jsonp instead
-    providers: [HTTP_PROVIDERS],
     template: `
                 <h3>Your ip address is: {{ipAddress}}</h3>
                 <small>I am MyIp component</small>

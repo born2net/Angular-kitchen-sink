@@ -1,5 +1,4 @@
-///<reference path="../typings/app.d.ts"/>
-System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./styles/RefreshTheme", "src/Conts", "./styles/StyleService", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent'], function(exports_1) {
+System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./styles/RefreshTheme", "src/Conts", "./styles/StyleService", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent', "../angular2/ts/http"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -14,7 +13,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, RefreshTheme_1, Conts_1, StyleService_1, router_1, router_2, router_3, Observable_1;
+    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, RefreshTheme_1, Conts_1, StyleService_1, router_1, router_2, router_3, Observable_1, http_1;
     var Welcome, ComponentHelper, App;
     return {
         setters:[
@@ -63,15 +62,11 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
             },
             function (_1) {},
             function (_2) {},
-            function (_3) {}],
+            function (_3) {},
+            function (http_1_1) {
+                http_1 = http_1_1;
+            }],
         execute: function() {
-            // docgen:
-            //import {App1} from 'src/comps/app1/App1/';
-            //import {App2} from 'src/comps/app2/App2/';
-            /**
-             General route links
-             @class Welcome
-             **/
             Welcome = (function () {
                 function Welcome(params) {
                     this.someId = 'App1' + Math.random();
@@ -87,10 +82,6 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                 return Welcome;
             })();
             exports_1("Welcome", Welcome);
-            /**
-             Load async components for router
-             @class ComponentHelper
-             **/
             ComponentHelper = (function () {
                 function ComponentHelper() {
                 }
@@ -99,10 +90,6 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                 };
                 return ComponentHelper;
             })();
-            /**
-             Main application that's kicked off by ng2 bootstrap
-             @class App
-             **/
             App = (function (_super) {
                 __extends(App, _super);
                 function App(commBroker, styleService) {
@@ -114,51 +101,20 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                     Observable_1.Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(function () {
                         _this.appResized();
                     });
-                    // an example of passing a optional, typed object instead
-                    // of using the old way of: opts || opts = {} and it auto maps
-                    // matching fields
                     this.showTypedObjectArg({
                         styles1: ['foo', 'bar'],
-                        styles2: [1, 2] // optional
+                        styles2: [1, 2]
                     });
                 }
                 App.prototype.showTypedObjectArg = function (_a) {
                     var _b = _a === void 0 ? {} : _a, styles1 = _b.styles1, styles2 = _b.styles2;
-                    //console.log(styles1 + ' ' + styles2);
                 };
-                // component life cycles
                 App.prototype.ngAfterContentInit = function () {
                     this.appResized();
                 };
-                //ngAfterViewInit() {
-                //    console.log(2);
-                //}
-                //ngAfterContentChecked() {
-                //    console.log(3);
-                //}
-                //ngOnInit() {
-                //    console.log(4);
-                //}
-                //ngOnDestroy() {
-                //    console.log(5);
-                //}
-                //ngDoCheck() {
-                //    console.log(6);
-                //}
-                //ngOnChanges(changes) {
-                //    console.log(7);
-                //}
-                //ngAfterViewChecked() {
-                //    console.log(8);
-                //}
-                /**
-                 On application resize deal with height changes
-                 @method appResized
-                 **/
                 App.prototype.appResized = function () {
                     var appHeight = document.body.clientHeight;
                     var appWidth = document.body.clientWidth;
-                    //console.log('resized ' + appHeight);
                     jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_EVER).height(appHeight - 115);
                     jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_WASP).height(appHeight - 115);
                     jQuery(Conts_1.Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 220);
@@ -204,7 +160,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
                 return App;
             })(RefreshTheme_1.RefreshTheme);
             exports_1("App", App);
-            browser_1.bootstrap(App, [router_1.ROUTER_PROVIDERS,
+            browser_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
                 core_1.provide(CommBroker_1.CommBroker, { useClass: CommBroker_1.CommBroker }),
                 core_1.provide(Conts_1.Consts, { useClass: Conts_1.Consts }),
                 core_1.provide(router_2.LocationStrategy, { useClass: router_2.HashLocationStrategy })]);

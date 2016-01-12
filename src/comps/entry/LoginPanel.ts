@@ -46,7 +46,7 @@ export class User {
                     <input id="userPass" type="password" value="{{pass}}" class="form-control" data-localize="password" placeholder="Type anything" required>
                     <label class="checkbox">
                       <input id="rememberMe" type="checkbox" checked value="remember-me">
-                      <span data-localize="rememberMe"> Remember me </span></label>
+                      <span> Remember me </span></label>
                     <button id="loginButton" (click)="onLogin($event)" class="btn btn-lg btn-primary btn-block" type="submit">
                       Sign in
                     </button>
