@@ -86,6 +86,10 @@ export class CommBroker {
         var self = this;
         self.services = [];
         self.streamMessages = new Subject() as SubjectMessage;
+
+        // we use share as a shorthand for publish() which converts cold to hot
+        // observable as well as connect() / refCount()
+        // when connected references moves from 0 to 1
         self.streamMessages.share();
 
         // if we wish to use a unidirectional stream we can convert to Observable instead of subject
