@@ -12,7 +12,6 @@
     "node_modules",
     "typings",
     "lodash",
-    "*rxjs",
     "rxjs",
     "dist",
     "./angular2",

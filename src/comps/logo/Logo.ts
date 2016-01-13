@@ -11,7 +11,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 /**
  * Logo component for Application header
- * Uses elementRef to listen to mouse events via angular
+ * activated via elementRef and listen to mouse events via angular
  * adapter interface
  **/
 @Component({
