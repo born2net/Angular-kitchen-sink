@@ -1,6 +1,7 @@
 ///<reference path="../typings/app.d.ts"/>
 
 import {bootstrap} from 'angular2/platform/browser';
+import {enableProdMode} from 'angular2/core';
 import {Lib} from "./Lib";
 import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';
 import {EntryPanel} from 'src/comps/entry/EntryPanel';
@@ -176,6 +177,8 @@ export class App extends RefreshTheme implements AfterContentInit {
         })
     }
 }
+
+//enableProdMode();
 
 bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS,
     provide(CommBroker, {useClass: CommBroker}),
