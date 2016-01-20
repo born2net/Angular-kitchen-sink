@@ -16,12 +16,11 @@ import {StyleService} from "./styles/StyleService";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
 import {AsyncRoute} from "angular2/router";
+import {HTTP_PROVIDERS} from "angular2/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
-import {HTTP_PROVIDERS} from "../angular2/ts/http";
-
 
 // docgen:
 //import {App1} from 'src/comps/app1/App1/';

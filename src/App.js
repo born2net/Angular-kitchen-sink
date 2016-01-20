@@ -1,4 +1,4 @@
-System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./styles/RefreshTheme", "src/Conts", "./styles/StyleService", 'angular2/router', "angular2/router", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent', "../angular2/ts/http"], function(exports_1) {
+System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/EntryPanel', 'src/comps/appmanager/AppManager', 'src/services/CommBroker', "src/comps/filemenu/Filemenu", "src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./styles/RefreshTheme", "src/Conts", "./styles/StyleService", 'angular2/router', "angular2/router", "angular2/http", "rxjs/Observable", 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/observable/fromEvent'], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -13,7 +13,7 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, RefreshTheme_1, Conts_1, StyleService_1, router_1, router_2, router_3, Observable_1, http_1;
+    var browser_1, core_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, RefreshTheme_1, Conts_1, StyleService_1, router_1, router_2, router_3, http_1, Observable_1;
     var Welcome, ComponentHelper, App;
     return {
         setters:[
@@ -57,15 +57,15 @@ System.register(['angular2/platform/browser', 'angular2/core', 'src/comps/entry/
             function (router_3_1) {
                 router_3 = router_3_1;
             },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
             },
             function (_1) {},
             function (_2) {},
-            function (_3) {},
-            function (http_1_1) {
-                http_1 = http_1_1;
-            }],
+            function (_3) {}],
         execute: function() {
             Welcome = (function () {
                 function Welcome(params) {

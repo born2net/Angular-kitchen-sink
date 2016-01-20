@@ -1,4 +1,4 @@
-System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "./NotesBase"], function(exports_1) {
+System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase"], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -13,7 +13,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, NotesBase_1;
+    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1;
     var Notes3;
     return {
         setters:[
@@ -22,9 +22,6 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
             },
             function (Sliderpanel_1_1) {
                 Sliderpanel_1 = Sliderpanel_1_1;
-            },
-            function (ModalDialog_1_1) {
-                ModalDialog_1 = ModalDialog_1_1;
             },
             function (CommBroker_1_1) {
                 CommBroker_1 = CommBroker_1_1;
@@ -46,8 +43,7 @@ System.register(['angular2/core', "../../sliderpanel/Sliderpanel", "../../modald
                 Notes3 = __decorate([
                     core_1.Component({
                         selector: 'Notes3',
-                        directives: [ModalDialog_1.ModalDialog],
-                        template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"glyphicon glyphicon-chevron-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes3 component</small>\n                <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n                  <button (click)=\"openModal()\" type=\"button\" class=\"btn btn-default\">Open Modal</button>\n                </div>\n                <ModalDialog title=\"My owner is Notes3\" content=\"I am here to serve Notes3\" [owner]=\"me\">\n                </ModalDialog>\n                <ng-content></ng-content>"
+                        template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"glyphicon glyphicon-chevron-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes3 component</small>\n                <ng-content></ng-content>"
                     }), 
                     __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes3);

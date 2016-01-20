@@ -8,7 +8,6 @@ import {NotesBase} from "./NotesBase";
 
 @Component({
     selector: 'Notes3',
-    directives: [ModalDialog],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
@@ -17,11 +16,6 @@ import {NotesBase} from "./NotesBase";
                 </button>
                 <hr/>
                 <small>I am notes3 component</small>
-                <div class="btn-group" role="group" aria-label="...">
-                  <button (click)="openModal()" type="button" class="btn btn-default">Open Modal</button>
-                </div>
-                <ModalDialog title="My owner is Notes3" content="I am here to serve Notes3" [owner]="me">
-                </ModalDialog>
                 <ng-content></ng-content>`
 })
 
