@@ -10,6 +10,9 @@ ready to be impressed with Angular 2?
 Check this working demo: http://ng2.javascriptninja.io
 ====
 
+this project is available in 2 flavors:
+- webpack: https://github.com/born2net/ng2Boilerplate-webpack
+- systemjs: https://github.com/born2net/ng2Boilerplate
 
 The goal behind ng2Boilerplayer is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
 
