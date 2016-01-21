@@ -24,7 +24,7 @@ gulp LiveServer
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - Webpack with optimised webpack.config
-- Routing with Async of modules (App1 and App2) on a per navigation basis
+- Advanced Routing
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing and mediator design pattern
 - LocalStorage service
