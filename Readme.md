@@ -15,7 +15,7 @@ The goal behind ng2Boilerplayer is to deliver an easy to start Angular 2 base ap
 to install::
 ```
 git clone https://github.com/born2net/ng2Boilerplate.git
-cd ng2Boilerplate-webpack/
+cd ng2Boilerplate
 npm install (which will auto run for you 'npm run build')
 cont-c to exit when done building
 gulp LiveServer
