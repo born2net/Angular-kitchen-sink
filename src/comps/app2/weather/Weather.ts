@@ -1,7 +1,7 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
 import {Component, ChangeDetectionStrategy} from "angular2/core";
-import {Consts} from "src/Conts";
+import {Consts} from "../../../../src/Conts";
 import {IWeatherItem} from "./IWeather";
 import {WeatherService} from "./WeatherService";
 import {SortableHeader} from "./SortableHeader";

@@ -5,7 +5,7 @@ import {RouterLink, RouteParams} from 'angular2/router';
 import {Menu} from "../sidemenu/Menu";
 import {MenuItem} from "../sidemenu/MenuItem";
 import {CommBroker} from "../../services/CommBroker";
-import {Consts} from "../../Conts";
+import {Consts} from "../../../src/Conts";
 import {IMessage} from "../../services/CommBroker";
 import {Sliderpanel} from "../sliderpanel/Sliderpanel";
 import {Digg} from "../digg/Digg";
@@ -19,16 +19,15 @@ import {Todo2} from "./todos/Todo2";
 import {TodoList} from "./todos/Todolist";
 import {TodoItem} from "./todos/Todoitem";
 import TodoStatsModel from "./todos/TodoStatsModel";
-import {Contributors} from "./help/contributors/contributors";
 import {RefreshTheme} from "../../styles/RefreshTheme";
 /**
  Application 1 lazy loaded
  **/
 @Component({
     providers: [HTTP_PROVIDERS, TodoStatsModel],
-    templateUrl: 'src/comps/app1/App1.html',
+    template: require('./App1.html'),
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg,
-        Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab, Contributors]
+        Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
 })
 export class App1 extends RefreshTheme {
     private screens:any;

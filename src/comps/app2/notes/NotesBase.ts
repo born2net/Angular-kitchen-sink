@@ -3,8 +3,7 @@ import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {IRegisterCaller} from "../../../interfaces/IRegisterCaller";
 import {CommBroker} from "../../../services/CommBroker";
-import {Properties} from "../properties/Properties";
-import {Consts} from "../../../Conts";
+import {Consts} from "../../../../src/Conts";
 
 export class NotesBase implements IRegisterCaller {
     protected modalDialog:ModalDialog;

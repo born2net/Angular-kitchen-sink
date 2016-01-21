@@ -7,7 +7,7 @@ import {RouterLink, RouteParams} from 'angular2/router';
 import {MenuItem} from "../sidemenu/MenuItem";
 import {Menu} from "../sidemenu/Menu";
 import {CommBroker} from "../../services/CommBroker";
-import {Consts} from "../../Conts";
+import {Consts} from "../../../src/Conts";
 import {IMessage} from "../../services/CommBroker";
 import {Sliderpanel} from "../sliderpanel/Sliderpanel";
 import {Notes} from "./notes/Notes";
@@ -30,7 +30,7 @@ import {RefreshTheme} from "../../styles/RefreshTheme";
  Application 2 lazy loaded
  **/
 @Component({
-    templateUrl: 'src/comps/app2/App2.html',
+    template: require('./App2.html'),
     providers: [HTTP_PROVIDERS],
     directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]

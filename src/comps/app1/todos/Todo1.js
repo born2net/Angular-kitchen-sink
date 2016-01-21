@@ -1,42 +1,29 @@
-System.register(["angular2/core", "../../sliderpanel/Sliderpanel"], function(exports_1) {
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, Sliderpanel_1;
-    var Todo1;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (Sliderpanel_1_1) {
-                Sliderpanel_1 = Sliderpanel_1_1;
-            }],
-        execute: function() {
-            Todo1 = (function () {
-                function Todo1(sliderPanel) {
-                    this.sliderPanel = sliderPanel;
-                }
-                Todo1.prototype.onNext = function (event) {
-                    this.sliderPanel.slideToPage('todo2', 'left');
-                };
-                Todo1 = __decorate([
-                    core_1.Component({
-                        selector: 'Todo1',
-                        template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\n                </button>\n                <small>I am todo1 component</small>\n                <ng-content></ng-content>\n                "
-                    }), 
-                    __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel])
-                ], Todo1);
-                return Todo1;
-            })();
-            exports_1("Todo1", Todo1);
-        }
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require("angular2/core");
+var Sliderpanel_1 = require("../../sliderpanel/Sliderpanel");
+var Todo1 = (function () {
+    function Todo1(sliderPanel) {
+        this.sliderPanel = sliderPanel;
     }
-});
+    Todo1.prototype.onNext = function (event) {
+        this.sliderPanel.slideToPage('todo2', 'left');
+    };
+    Todo1 = __decorate([
+        core_1.Component({
+            selector: 'Todo1',
+            template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <small>I am todo1 component</small>\n                <ng-content></ng-content>\n                "
+        }), 
+        __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel])
+    ], Todo1);
+    return Todo1;
+})();
+exports.Todo1 = Todo1;
 //# sourceMappingURL=Todo1.js.map

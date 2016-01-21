@@ -1,46 +1,31 @@
-System.register(["angular2/core", "src/Conts", "../../services/CommBroker"], function(exports_1) {
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, Conts_1, CommBroker_1;
-    var Logout;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (Conts_1_1) {
-                Conts_1 = Conts_1_1;
-            },
-            function (CommBroker_1_1) {
-                CommBroker_1 = CommBroker_1_1;
-            }],
-        execute: function() {
-            Logout = (function () {
-                function Logout(commBroker) {
-                    this.commBroker = commBroker;
-                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Logout');
-                    jQuery('body').fadeOut(3000, function () {
-                        window.location.replace("https://github.com/born2net/ng2Boilerplate");
-                    });
-                }
-                Logout = __decorate([
-                    core_1.Component({
-                        selector: 'Logout',
-                        template: "\n        <h1><Center>Goodbye</Center></h1>\n        <small>I am Logout component</small>\n        "
-                    }), 
-                    __metadata('design:paramtypes', [CommBroker_1.CommBroker])
-                ], Logout);
-                return Logout;
-            })();
-            exports_1("Logout", Logout);
-        }
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require("angular2/core");
+var Conts_1 = require("../../../src/Conts");
+var CommBroker_1 = require("../../services/CommBroker");
+var Logout = (function () {
+    function Logout(commBroker) {
+        this.commBroker = commBroker;
+        this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Logout');
+        jQuery('body').fadeOut(3000, function () {
+            window.location.replace("https://github.com/born2net/ng2Boilerplate");
+        });
     }
-});
+    Logout = __decorate([
+        core_1.Component({
+            selector: 'Logout',
+            template: "\n        <h1><Center>Goodbye</Center></h1>\n        <small>I am Logout component</small>\n        "
+        }), 
+        __metadata('design:paramtypes', [CommBroker_1.CommBroker])
+    ], Logout);
+    return Logout;
+})();
+exports.Logout = Logout;
 //# sourceMappingURL=Logout.js.map

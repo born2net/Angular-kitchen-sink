@@ -1,17 +1,11 @@
-System.register([], function(exports_1) {
-    function StartCapValidator(control) {
-        if (!control.value.match(/^[A-Z]/)) {
-            return { notCapped: true };
-        }
-        else {
-            return null;
-        }
+function StartCapValidator(control) {
+    if (!control.value.match(/^[A-Z]/)) {
+        return { notCapped: true };
     }
-    exports_1("default", StartCapValidator);
-    return {
-        setters:[],
-        execute: function() {
-        }
+    else {
+        return null;
     }
-});
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = StartCapValidator;
 //# sourceMappingURL=StartCapValidator.js.map

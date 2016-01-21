@@ -4,8 +4,7 @@ import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
-import {Properties} from "../properties/Properties";
-import {Consts} from "../../../Conts";
+import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
 import {CharCount} from "../../../pipes/CharCount";
@@ -17,8 +16,8 @@ import NameTakenValidator from "../../../validators/NameTakenValidator";
     selector: 'Notes1',
     directives: [ModalDialog, FORM_DIRECTIVES],
     pipes: [CharCount],
-    styleUrls: ['src/comps/app2/notes/Notes1.css'],
-    templateUrl: 'src/comps/app2/notes/Notes1.html'
+    styles: [require('./Notes1.scss')],
+    template: require('./Notes1.html')
 })
 
 /**

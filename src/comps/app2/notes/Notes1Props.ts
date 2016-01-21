@@ -1,7 +1,6 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
 import {Component} from "angular2/core";
-import {Consts} from "src/Conts";
 
 @Component({
     selector: 'Notes1Props',

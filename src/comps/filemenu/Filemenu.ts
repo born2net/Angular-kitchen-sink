@@ -3,15 +3,10 @@
 import {Component, ViewContainerRef} from 'angular2/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser';
 import {FilemenuItem} from "./FilemenuItem";
-import {AppManager} from "../appmanager/AppManager";
 import {Router} from "angular2/router";
-import {MenuItem} from "../sidemenu/MenuItem";
 import {CommBroker} from "../../services/CommBroker";
-import {Menu} from "../sidemenu/Menu";
-import {IMessage} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
-import {App} from "src/App";
-import {Lib} from "../../Lib";
+import {App} from "../../../src/App";
 
 /**
  Filemenu manages the top header file menu per application as it mutates it's content depending

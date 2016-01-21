@@ -1,30 +1,33 @@
 ///<reference path="../typings/app.d.ts"/>
+require("bootstrap-webpack");
+require("bootbox");
+require("font-awesome-webpack");
+require("./styles/style.css");
+require("./styles/fonts/Raleway.woff2");
 
 import {bootstrap} from 'angular2/platform/browser';
-import {enableProdMode} from 'angular2/core';
-import {Lib} from "./Lib";
+//import {enableProdMode} from 'angular2/core';
+import {HTTP_PROVIDERS} from "angular2/http";
+import {App1} from '../src/comps/app1/App1';
+import {App2} from '../src/comps/app2/App2';
 import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';
-import {EntryPanel} from 'src/comps/entry/EntryPanel';
-import {AppManager} from 'src/comps/appmanager/AppManager';
-import {CommBroker} from 'src/services/CommBroker';
-import {Filemenu} from "src/comps/filemenu/Filemenu";
-import {FilemenuItem} from "src/comps/filemenu/FilemenuItem";
+import {EntryPanel} from '../src/comps/entry/EntryPanel';
+import {AppManager} from '../src/comps/appmanager/AppManager';
+import {CommBroker} from '../src/services/CommBroker';
+import {Filemenu} from "../src/comps/filemenu/Filemenu";
+import {FilemenuItem} from "../src/comps/filemenu/FilemenuItem";
 import {Logo} from "./comps/logo/Logo";
 import {RefreshTheme} from "./styles/RefreshTheme";
-import {Consts} from "src/Conts";
+import {Consts} from "../src/Conts";
 import {StyleService} from "./styles/StyleService";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
-import {AsyncRoute} from "angular2/router";
-import {HTTP_PROVIDERS} from "angular2/http";
+//import {AsyncRoute} from "angular2/router";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 
-// docgen:
-//import {App1} from 'src/comps/app1/App1/';
-//import {App2} from 'src/comps/app2/App2/';
 
 /**
  General route links
@@ -62,11 +65,11 @@ export class Welcome {
  Load async components for router
  @class ComponentHelper
  **/
-class ComponentHelper {
-    static LoadComponentAsync(name:string, path:string) {
-        return System.import(path).then(c => c[name]);
-    }
-}
+//class ComponentHelper {
+//    static LoadComponentAsync(name:string, path:string) {
+//        //return System.import(path).then(c => c[name]);
+//    }
+//}
 
 /**
  Main application that's kicked off by ng2 bootstrap
@@ -76,7 +79,7 @@ class ComponentHelper {
     encapsulation: ViewEncapsulation.Emulated,
     providers: [StyleService],
     selector: 'app',
-    templateUrl: './src/App.html',
+    template: require('./App.html'),
     directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem, Logo]
 })
 @RouteConfig([
@@ -87,16 +90,18 @@ class ComponentHelper {
     {path: '/EntryPanel/:id/...', component: EntryPanel, as: 'EntryPanel'},
     {path: '/Login/...', component: EntryPanel, as: 'Login'},
     {path: '/ForgotPass/...', component: EntryPanel, as: 'ForgotPass'},
-    new AsyncRoute({
-        path: '/App1',
-        loader: () => ComponentHelper.LoadComponentAsync('App1', 'src/comps/app1/App1'),
-        name: 'App1'
-    }),
-    new AsyncRoute({
-        path: '/App2',
-        loader: () => ComponentHelper.LoadComponentAsync('App2', 'src/comps/app2/App2'),
-        name: 'App2'
-    })
+    {path: '/App1', component: App1, as: 'App1'},
+    {path: '/App2', component: App2, as: 'App2'},
+    //new AsyncRoute({
+    //    path: '/App1',
+    //    loader: () => ComponentHelper.LoadComponentAsync('App1', 'src/comps/app1/App1'),
+    //    name: 'App1'
+    //}),
+    //new AsyncRoute({
+    //    path: '/App2',
+    //    loader: () => ComponentHelper.LoadComponentAsync('App2', 'src/comps/app2/App2'),
+    //    name: 'App2'
+    //})
 ])
 //@RefreshTheme('polymer')
 export class App extends RefreshTheme implements AfterContentInit {

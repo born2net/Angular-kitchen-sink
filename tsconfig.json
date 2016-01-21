@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "system",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitHelpers": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "noResolve": false
   },
+  "filesGlob": [
+    "./**/*.ts",
+    "!./node_modules"
+  ],
   "exclude": [
     "node_modules",
-    "typings",
-    "lodash",
-    "rxjs",
-    "dist",
-    "./angular2",
-    "*angular2",
-    "angular2"
+    "typings"
   ],
-  "compileOnSave": false,
-  "buildOnSave": false
+  "compileOnSave": true,
+  "buildOnSave": true
 }

@@ -1,7 +1,7 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
 import {Component, Injectable} from "angular2/core";
-import {Consts} from "src/Conts";
+import {Consts} from "../../../../src/Conts";
 import {CommBroker} from "../../../services/CommBroker";
 import {Notes1Props} from "../notes/Notes1Props";
 

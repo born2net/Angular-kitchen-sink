@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    #appLoader {
+      height: 100px;
+    }
+    #loading {
+      padding-top: 200px;
+      margin: 0;
+      position: fixed;
+      background-color: #222223;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
+    #loading h3 {
+      color: white;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title>Angular 2 App | ng2-webpack</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <base href="./">
+</head>
+<body>
+<app>
+  <div id="loading">
+    <h3>Angular2 / Webpack</h3>
+    <img id="appLoader" src="./assets/loading.svg" alt="Loading icon" />
+  </div>
+</app>
+</body>
+</html>

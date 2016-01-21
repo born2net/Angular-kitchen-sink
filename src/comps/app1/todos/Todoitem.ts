@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
 import {TodoItemModel} from './TodoRemote';
+//import './Todoitem.css';
 
 @Component({
     selector: 'todo-item',
@@ -11,7 +12,7 @@ import {TodoItemModel} from './TodoRemote';
                     <button (click)="editClicked()" [ngClass]="{'fa-check-square': editMode}" class="fa fa-edit buttonsEdit"></button>
                 </div>
     `,
-    styleUrls: ['src/comps/app1/todos/Todoitem.css'],
+    styles: [require('./Todoitem.scss')],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItem {

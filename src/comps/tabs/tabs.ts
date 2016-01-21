@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Tab} from 'tab';
+//import {Tab} from 'tab';
 
 @Component({
     selector: 'tabs',
@@ -15,7 +15,7 @@ import {Tab} from 'tab';
 })
 export class Tabs {
 
-    tabs:Tab[];
+    tabs:any[];
 
     constructor() {
         this.tabs = [];
@@ -25,7 +25,7 @@ export class Tabs {
         event.preventDefault;
         _deactivateAllTabs(this.tabs);
         tab.active = true;
-        function _deactivateAllTabs(tabs:Tab[]) {
+        function _deactivateAllTabs(tabs:any[]) {
             tabs.forEach((tab)=>tab.active = false);
         }
         return false;
@@ -35,7 +35,7 @@ export class Tabs {
     //   this.tabs.forEach((tab)=>tab.active = false);
     // }
 
-    addTab(tab:Tab) {
+    addTab(tab:any) {
         if (this.tabs.length === 0) {
             tab.active = true;
         }

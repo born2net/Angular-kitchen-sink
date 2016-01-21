@@ -2,8 +2,6 @@ import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
-import {Properties} from "../properties/Properties";
-import {Consts} from "../../../Conts";
 import {NotesBase} from "./NotesBase";
 import {MyIp} from "../../myip/Myip";
 
@@ -12,10 +10,10 @@ import {MyIp} from "../../myip/Myip";
     providers: [MyIp],
     directives: [ModalDialog, MyIp],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="fa fa-arrow-left"></span>
                 </button>
                 <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="fa fa-arrow-right"></span>
                 </button>
                 <hr/>
                 <small>I am notes2 component</small>

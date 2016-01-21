@@ -1,8 +1,6 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
 import {Component} from "angular2/core";
-import {Consts} from "../../Conts";
-import {NgForm} from 'angular2/common'
 import {StyleModel} from "../../../models/StyleModel";
 import {StyleService} from "../../../styles/StyleService";
 

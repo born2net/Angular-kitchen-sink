@@ -1,4 +1,4 @@
-ng2Boilerplate
+ng2Boilerplate-webpack
 =====================
 
 An Angular 2 and Bootstrap easy to start, A-Z startup project
@@ -7,34 +7,23 @@ An Angular 2 and Bootstrap easy to start, A-Z startup project
 ready to be impressed with Angular 2?
 
 
-Check this working demo: http://ng2.javascriptninja.io
+Check this working demo: http://ng2.javascriptninja.io/ng2webpack
 ====
-
-this project is available in 2 flavors:
-- webpack: https://github.com/born2net/ng2Boilerplate-webpack
-- systemjs: https://github.com/born2net/ng2Boilerplate
 
 The goal behind ng2Boilerplayer is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
 
 to install::
 ```
-git clone https://github.com/born2net/ng2Boilerplate.git
-cd ng2Boilerplate/
-npm install
+git clone https://github.com/born2net/ng2Boilerplate-webpack.git
+cd ng2Boilerplate-webpack/
+npm install (which will auto run for you 'npm run build')
+cont-c to exit when done building
 gulp LiveServer
 ```
 
-and for your TypeScript compiler to transpile use the args of:
-```
---target es5 --module system --experimentalDecorators --preserveConstEnums true --sourceMap true --emitDecoratorMetadata
-```
-
-(optionally: copy node_modules/angular2 and node_modules/rxjs from ./node_modules directory to root of project so TypeScript can find it in the path while transpiling.
- However you don’t need these directories during runtime as system.js will load both libs from node_moduldes directory respectively)
-
 What features of Angular does this app cover? well pretty much all the core stuff:
 
-- System.js modulated async loader
+- Webpack with optimised webpack.config
 - Routing with Async of modules (App1 and App2) on a per navigation basis
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing and mediator design pattern

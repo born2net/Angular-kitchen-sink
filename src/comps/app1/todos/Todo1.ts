@@ -1,11 +1,10 @@
 import {Component} from "angular2/core";
-import {Consts} from "../../Conts";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 
 @Component({
     selector: 'Todo1',
     template: ` <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm goNext">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="fa fa-arrow-right"></span>
                 </button>
                 <small>I am todo1 component</small>
                 <ng-content></ng-content>

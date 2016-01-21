@@ -1,7 +1,6 @@
 ///<reference path="../../../typings/app.d.ts"/>
 
 import {Component, ElementRef} from 'angular2/core';
-import {Consts} from "src/Conts";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/fromArray';

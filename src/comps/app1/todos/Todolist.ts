@@ -26,7 +26,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   </section>
                 </section>
     `,
-    styleUrls: ['src/comps/app1/todos/Todolist.css'],
+    styles: [ require('./Todolist.scss')],
     directives: [TodoItem],
     providers: [TodosService]
 })

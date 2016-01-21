@@ -1,13 +1,16 @@
-@import url("lib/bootstrap/css/bootstrap-glyphicons.css");
-@import url(https://fonts.googleapis.com/css?family=Raleway:400);
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Raleway'), url(../../src/styles/fonts/Raleway.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
 
 html,
 body {
-    padding: 0;
-    margin: 0;
+    font-family: 'Raleway', 'arial';
     height: 100%;
     background-color: #ffffff;
-    font-family: 'Raleway', 'sans-serif';
 }
 
 a {
@@ -33,10 +36,6 @@ aside > aside > div > ul > li {
     height: 100%;
 }
 
-#loading label {
-    color: white;
-    padding-top: 200px;
-}
 #loading img {
     height: 200px;
     width: 500px;
@@ -521,7 +520,6 @@ Language selector
 }
 
 .dropdownlang dt a {
-    background: #e4dfcb url(_assets/arrow.png) no-repeat scroll right center;
     display: block;
     padding-right: 20px;
     border: 1px solid #d4ca9a;

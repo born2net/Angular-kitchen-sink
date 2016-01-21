@@ -1,0 +1,25 @@
+.ng-valid[required] {
+    border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid {
+    border-left: 5px solid #a94442; /* red */
+}
+.form-control {
+    width: 20%;
+}
+#totalChar {
+    border: none;
+}
+#summary {
+    width: 20%;
+}
+.myNotes {
+    width: 50%;
+    height: 200px;
+}
+.panelColorError {
+    background-color: #ffe4e4;
+}
+.longInput {
+    width: 570px;
+}

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "system",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules",
+    "typings",
+    "lodash",
+    "rxjs",
+    "dist",
+    "./angular2",
+    "*angular2",
+    "angular2"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}
