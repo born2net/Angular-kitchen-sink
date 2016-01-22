@@ -17,6 +17,9 @@
 
 //<reference path="../typings/systemjs/systemjs.d.ts" />
 
+///<reference path="../typings/redux/redux.d.ts" />
+///<reference path="../typings/redux-thunk/redux-thunk.d.ts" />
+///<reference path="../typings/reselect/reselect.d.ts" />
 ///<reference path="../typings/bootbox/bootbox.d.ts" />
 ///<reference path="../typings/lodash/lodash.d.ts" />
 

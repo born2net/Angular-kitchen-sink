@@ -15,6 +15,7 @@
     "!./node_modules"
   ],
   "exclude": [
+    "src/comps/app4/in_dev",
     "node_modules",
     "typings"
   ],

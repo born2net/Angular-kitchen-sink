@@ -23,6 +23,14 @@ var Lib = (function () {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     };
+    Lib.LoggerMiddleware = function (store) {
+        (function (store) { return function (next) { return function (action) {
+            console.log("dispatching", action);
+            var result = next(action);
+            console.log("next state", store.getState());
+            return result;
+        }; }; });
+    };
     Lib = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
@@ -30,4 +38,34 @@ var Lib = (function () {
     return Lib;
 })();
 exports.Lib = Lib;
+if (!Object.assign) {
+    Object.defineProperty(Object, "assign", {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        value: function (target) {
+            "use strict";
+            if (target === undefined || target === null) {
+                throw new TypeError("Cannot convert first argument to object");
+            }
+            var to = Object(target);
+            for (var i = 1; i < arguments.length; i++) {
+                var nextSource = arguments[i];
+                if (nextSource === undefined || nextSource === null) {
+                    continue;
+                }
+                nextSource = Object(nextSource);
+                var keysArray = Object.keys(nextSource);
+                for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+                    var nextKey = keysArray[nextIndex];
+                    var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+                    if (desc !== undefined && desc.enumerable) {
+                        to[nextKey] = nextSource[nextKey];
+                    }
+                }
+            }
+            return to;
+        }
+    });
+}
 //# sourceMappingURL=Lib.js.map

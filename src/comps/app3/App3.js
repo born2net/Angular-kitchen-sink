@@ -10,13 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var router_2 = require('angular2/router');
+var Starwars_1 = require("./starwars/Starwars");
 var App3 = (function () {
     function App3() {
     }
     App3 = __decorate([
         core_1.Component({
             template: require('./App3.html'),
-            directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink]
+            directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Starwars_1.Starwars]
         }), 
         __metadata('design:paramtypes', [])
     ], App3);

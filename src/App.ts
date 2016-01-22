@@ -1,12 +1,14 @@
 ///<reference path="../typings/app.d.ts"/>
+
 require("bootstrap-webpack");
 require("bootbox");
 require("font-awesome-webpack");
 require("./styles/style.css");
 require("./styles/fonts/Raleway.woff2");
 
-import {bootstrap} from 'angular2/platform/browser';
 //import {enableProdMode} from 'angular2/core';
+//import {AsyncRoute} from "angular2/router";
+import {bootstrap} from 'angular2/platform/browser';
 import {HTTP_PROVIDERS} from "angular2/http";
 import {App1} from '../src/comps/app1/App1';
 import {App2} from '../src/comps/app2/App2';
@@ -23,12 +25,10 @@ import {Consts} from "../src/Conts";
 import {StyleService} from "./styles/StyleService";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
-//import {AsyncRoute} from "angular2/router";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
-
 
 /**
  General route links
@@ -113,6 +113,7 @@ export class App extends RefreshTheme implements AfterContentInit {
 
     constructor(commBroker:CommBroker, styleService:StyleService) {
         super();
+        alert('aa')
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Consts.Services().App, this);

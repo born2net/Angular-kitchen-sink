@@ -3,10 +3,11 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {RouterLink, RouteParams} from 'angular2/router';
+import {Starwars} from "./starwars/Starwars";
 
 @Component({
     template: require('./App3.html'),
-    directives: [ROUTER_DIRECTIVES, RouterLink]
+    directives: [ROUTER_DIRECTIVES, RouterLink, Starwars]
 })
 export class App3 {
 

@@ -7,7 +7,19 @@ var typedoc = require("gulp-typedoc");
 var Rsync = require('rsync');
 
 
-gulp.task('LiveServer', ['_watchSource'], function () {
+gulp.task('LiveServerWatch', ['_watchSource'], function () {
+    server = express();
+    server.use(express.static('./dist'));
+    server.listen(8003);
+    browserSync({
+        port: 8080,
+        proxy: 'localhost:8003',
+        reloadDelay: '5000'
+    });
+});
+
+
+gulp.task('LiveServer', function () {
     server = express();
     server.use(express.static('./dist'));
     server.listen(8003);
