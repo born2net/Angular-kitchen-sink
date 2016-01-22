@@ -113,7 +113,6 @@ export class App extends RefreshTheme implements AfterContentInit {
 
     constructor(commBroker:CommBroker, styleService:StyleService) {
         super();
-        alert('aa')
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Consts.Services().App, this);

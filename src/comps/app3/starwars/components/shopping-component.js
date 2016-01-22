@@ -21,14 +21,21 @@ var partsInCartSelector = reselect_1.createSelector(function (state) { return st
 });
 var ShoppingComponent = (function () {
     function ShoppingComponent(commBroker, partActions, cartActions) {
+        var _this = this;
         this.parts = [];
         this.partsInCart = [];
+        this.appStore = commBroker.getService('APPSTORE');
+        this.addPart = partActions.createDispatcher(this.appStore, partActions.addPart);
+        this.addPartToCart = cartActions.createDispatcher(this.appStore, cartActions.addToCart);
+        this.removePartFromCart = cartActions.createDispatcher(this.appStore, cartActions.removeFromCart);
+        this.appStore.subscribe(function (state) {
+            _this.parts = state.parts;
+            _this.partsInCart = partsInCartSelector(state);
+        });
+        ShoppingComponent.createInitialSetOfParts(this.appStore, partActions);
     }
     ShoppingComponent.createInitialSetOfParts = function (appStore, partActions) {
         appStore.dispatch(partActions.addPart("Bumper"));
-        appStore.dispatch(partActions.addPart("MP3 Player"));
-        appStore.dispatch(partActions.addPart("Mirror"));
-        appStore.dispatch(partActions.addPart("Hood"));
     };
     ShoppingComponent = __decorate([
         core_1.Component({
