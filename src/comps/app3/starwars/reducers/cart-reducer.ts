@@ -1,6 +1,7 @@
 import * as CartActions from '../actions/cart-actions';
+import {ICart} from "../components/shopping-component";
 
-export default (state = [], action:any = {}) => {
+export default (state:ICart[] = [], action:any = {}) => {
     switch (action.type) {
         case CartActions.ADD_TO_CART:
             return [...state, action.id];

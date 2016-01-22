@@ -8,6 +8,6 @@ export class PartActions extends Actions {
     private id:number = 11;
 
     addPart(name) {
-        return {type: ADD_PART, id: ++this.id, name};
+        return {type: ADD_PART, id: _.uniqueId(), name};
     }
 }

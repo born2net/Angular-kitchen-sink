@@ -24,7 +24,7 @@ var AddPartsView = (function () {
         core_1.Component({
             selector: 'add-part',
             template: "\n        <form class=\"form-inline\" (submit)=\"onSubmit($event,name.value);name.value=''\">\n            <div class=\"form-group\">\n                <input #name type=\"text\" class=\"form-control\" placeholder=\"Part Name\" autocomplete=\"off\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-default\">Add</button>\n        </form>\n    ",
-            changeDetection: core_1.ChangeDetectionStrategy.OnPush
+            changeDetection: core_1.ChangeDetectionStrategy.CheckOnce
         }), 
         __metadata('design:paramtypes', [])
     ], AddPartsView);

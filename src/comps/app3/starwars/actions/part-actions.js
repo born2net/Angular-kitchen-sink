@@ -22,7 +22,7 @@ var PartActions = (function (_super) {
         this.id = 11;
     }
     PartActions.prototype.addPart = function (name) {
-        return { type: exports.ADD_PART, id: ++this.id, name: name };
+        return { type: exports.ADD_PART, id: _.uniqueId(), name: name };
     };
     PartActions = __decorate([
         core_1.Injectable(), 

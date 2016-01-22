@@ -17,6 +17,7 @@ require("bootbox");
 require("font-awesome-webpack");
 require("./styles/style.css");
 require("./styles/fonts/Raleway.woff2");
+require('underscore');
 var browser_1 = require('angular2/platform/browser');
 var http_1 = require("angular2/http");
 var App1_1 = require('../src/comps/app1/App1');

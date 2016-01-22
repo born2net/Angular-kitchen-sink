@@ -36,6 +36,9 @@ var ShoppingComponent = (function () {
     }
     ShoppingComponent.createInitialSetOfParts = function (appStore, partActions) {
         appStore.dispatch(partActions.addPart("Bumper"));
+        appStore.dispatch(partActions.addPart("MP3 Player"));
+        appStore.dispatch(partActions.addPart("Mirror"));
+        appStore.dispatch(partActions.addPart("Hood"));
     };
     ShoppingComponent = __decorate([
         core_1.Component({

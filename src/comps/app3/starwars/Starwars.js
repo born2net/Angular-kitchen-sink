@@ -16,17 +16,11 @@ var shopping_component_1 = require("./components/shopping-component");
 var CommBroker_1 = require("../../../services/CommBroker");
 var part_actions_1 = require("./actions/part-actions");
 var cart_actions_1 = require("./actions/cart-actions");
+var Lib_1 = require("../../../Lib");
 var Starwars = (function () {
     function Starwars(commBroker) {
         this.commBroker = commBroker;
-        var loggerMiddleware = function (store) { return function (next) { return function (action) {
-            console.log("dispatching", action);
-            var result = next(action);
-            console.log("next state", store.getState());
-            return result;
-        }; }; };
-        var createStoreWithMiddleware = redux_1.applyMiddleware(loggerMiddleware)(redux_1.createStore);
-        var store = createStoreWithMiddleware(parts_reducer_1.default, cart_reducer_1.default);
+        var createStoreWithMiddleware = redux_1.applyMiddleware(Lib_1.Lib.loggerMiddleware)(redux_1.createStore);
         var reducers = redux_1.combineReducers({ parts: parts_reducer_1.default, cart: cart_reducer_1.default });
         var appStore = new angular2_redux_1.AppStore(createStoreWithMiddleware(reducers));
         this.commBroker.setService('APPSTORE', appStore);

@@ -10,7 +10,7 @@ import {Component, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2
             <button type="submit" class="btn btn-default">Add</button>
         </form>
     `,
-    changeDetection:ChangeDetectionStrategy.OnPush
+    changeDetection:ChangeDetectionStrategy.CheckOnce
 })
 export class AddPartsView {
 

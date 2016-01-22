@@ -23,6 +23,12 @@ var Lib = (function () {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     };
+    Lib.loggerMiddleware = function (store) { return function (next) { return function (action) {
+        console.log("dispatching", action);
+        var result = next(action);
+        console.log("next state", store.getState());
+        return result;
+    }; }; };
     Lib = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

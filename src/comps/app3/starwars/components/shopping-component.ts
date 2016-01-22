@@ -14,6 +14,22 @@ const partsInCartSelector = createSelector((state:any)=>state.cart, state=>state
     return cart.map(id => partsById[id]);
 });
 
+
+export interface ICart {
+    cart:string[]
+}
+export interface IPart {
+    id:string,
+    name:string
+}
+export interface IAppStore {
+    cart:ICart,
+    parts: IPart[]
+
+}
+
+
+
 @Component({
     selector: 'shopping',
     template: `
@@ -26,11 +42,10 @@ const partsInCartSelector = createSelector((state:any)=>state.cart, state=>state
     `,
     directives: [PartsView, CartView, AddPartsView]
 })
-export class ShoppingComponent {
 
+export class ShoppingComponent {
     private parts = [];
     private partsInCart = [];
-
     private appStore;
     private addPart;
     private addPartToCart;
@@ -41,19 +56,18 @@ export class ShoppingComponent {
         this.addPart = partActions.createDispatcher(this.appStore, partActions.addPart);
         this.addPartToCart = cartActions.createDispatcher(this.appStore, cartActions.addToCart);
         this.removePartFromCart = cartActions.createDispatcher(this.appStore, cartActions.removeFromCart);
-        this.appStore.subscribe((state) => {
+
+        this.appStore.subscribe((state:IAppStore) => {
             this.parts = state.parts;
             this.partsInCart = partsInCartSelector(state);
         });
-
         ShoppingComponent.createInitialSetOfParts(this.appStore, partActions);
-
     }
 
     private static createInitialSetOfParts(appStore, partActions) {
         appStore.dispatch(partActions.addPart("Bumper"));
-        //appStore.dispatch(partActions.addPart("MP3 Player"));
-        //appStore.dispatch(partActions.addPart("Mirror"));
-        //appStore.dispatch(partActions.addPart("Hood"));
+        appStore.dispatch(partActions.addPart("MP3 Player"));
+        appStore.dispatch(partActions.addPart("Mirror"));
+        appStore.dispatch(partActions.addPart("Hood"));
     }
 }

@@ -162,6 +162,10 @@ module.exports = (function makeWebpackConfig() {
             "window.jQuery": "jquery"
         }),
         new webpack.ProvidePlugin({
+            _: "underscore",
+            "window._": "underscore"
+        }),
+        new webpack.ProvidePlugin({
             bootbox: "bootbox",
             "window.bootbox": "bootbox"
         }),

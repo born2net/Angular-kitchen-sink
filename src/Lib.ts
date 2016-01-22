@@ -1,11 +1,10 @@
-
 /** Common Library **/
 import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class Lib {
 
-    static log(msg){
+    static log(msg) {
         console.log(new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1") + ': ' + msg);
     }
 
@@ -15,10 +14,17 @@ export class Lib {
                 .toString(16)
                 .substring(1);
         }
+
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     }
 
+    static loggerMiddleware = store => next => action => {
+        console.log("dispatching", action);
+        let result = next(action);
+        console.log("next state", store.getState());
+        return result
+    }
 
     //static loadMaterial(){
     //    if (
@@ -39,7 +45,6 @@ export class Lib {
 }
 
 
-
 /* tslint:disable */
 // polyfill for Object.assign (not part of TS yet)
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
@@ -48,7 +53,7 @@ if (!Object.assign) {
         enumerable: false,
         configurable: true,
         writable: true,
-        value: function(target) {
+        value: function (target) {
             "use strict";
             if (target === undefined || target === null) {
                 throw new TypeError("Cannot convert first argument to object");

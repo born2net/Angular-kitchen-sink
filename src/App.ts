@@ -5,6 +5,7 @@ require("bootbox");
 require("font-awesome-webpack");
 require("./styles/style.css");
 require("./styles/fonts/Raleway.woff2");
+require('underscore');
 
 //import {enableProdMode} from 'angular2/core';
 //import {AsyncRoute} from "angular2/router";
