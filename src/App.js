@@ -21,6 +21,7 @@ var browser_1 = require('angular2/platform/browser');
 var http_1 = require("angular2/http");
 var App1_1 = require('../src/comps/app1/App1');
 var App2_1 = require('../src/comps/app2/App2');
+var App3_1 = require('../src/comps/app3/App3');
 var core_1 = require('angular2/core');
 var EntryPanel_1 = require('../src/comps/entry/EntryPanel');
 var AppManager_1 = require('../src/comps/appmanager/AppManager');
@@ -44,7 +45,7 @@ var Welcome = (function () {
     Welcome = __decorate([
         core_1.Component({
             styles: ["\n        #routerLinks {\n            padding: 20px;\n        };\n    "],
-            template: "\n                <div id=\"routerLinks\">\n                    <h4>Direct router shortcut links:</h4>\n                    <a [routerLink]=\"['/Login', 'Login']\">To Login screen</a><br/>\n                    <a [routerLink]=\"['/Login', {id: 'Sean-Levy'}, 'Login']\">To Login screen with demo user args</a><br/>\n                    <a [routerLink]=\"['/ForgotPass', 'ForgotPass']\">To Forgot Password screen</a><br/>\n                    <a [routerLink]=\"['/AppManager']\">To App manager</a><br/>\n                    <a [routerLink]=\"['/App1']\">To App1 (Lazy loading async)</a><br/>\n                    <a [routerLink]=\"['/App2']\">To App2 (Lazy loading async)</a><br/>\n                    <br/><small>I am Welcome component</small>\n                </div>\n                ",
+            template: "\n                <div id=\"routerLinks\">\n                    <h4>Direct router shortcut links:</h4>\n                    <a [routerLink]=\"['/Login', 'Login']\">To Login screen</a><br/>\n                    <a [routerLink]=\"['/Login', {id: 'Sean-Levy'}, 'Login']\">To Login screen with demo user args</a><br/>\n                    <a [routerLink]=\"['/ForgotPass', 'ForgotPass']\">To Forgot Password screen</a><br/>\n                    <a [routerLink]=\"['/AppManager']\">To App manager</a><br/>\n                    <a [routerLink]=\"['/App1']\">To App1</a><br/>\n                    <a [routerLink]=\"['/App2']\">To App2</a><br/>\n                    <a [routerLink]=\"['/App3']\">To App3</a><br/>\n                    <br/><small>I am Welcome component</small>\n                </div>\n                ",
             directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink]
         }), 
         __metadata('design:paramtypes', [router_2.RouteParams])
@@ -108,6 +109,7 @@ var App = (function (_super) {
             { path: '/ForgotPass/...', component: EntryPanel_1.EntryPanel, as: 'ForgotPass' },
             { path: '/App1', component: App1_1.App1, as: 'App1' },
             { path: '/App2', component: App2_1.App2, as: 'App2' },
+            { path: '/App3', component: App3_1.App3, as: 'App3' },
         ]), 
         __metadata('design:paramtypes', [CommBroker_1.CommBroker, StyleService_1.StyleService])
     ], App);

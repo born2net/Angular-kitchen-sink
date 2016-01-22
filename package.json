@@ -21,11 +21,12 @@
   "author": "Sean Levy",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "~2.10.1",
     "angular-cli": "0.0.*",
+    "angular2-redux": "^1.0.8",
     "autoprefixer": "^6.2.3",
     "bootbox": "^4.4.0",
     "bootstrap-webpack": "0.0.5",
+    "browser-sync": "~2.10.1",
     "chalk": "^1.1.1",
     "copy-webpack-plugin": "^0.3.3",
     "crypto": "0.0.3",
@@ -51,6 +52,9 @@
     "null-loader": "git+https://github.com/webpack/null-loader.git",
     "postcss-loader": "^0.8.0",
     "raw-loader": "0.5.1",
+    "redux": "^3.0.5",
+    "redux-thunk": "^1.0.3",
+    "reselect": "^2.0.2",
     "rimraf": "^2.4.4",
     "rsync": "^0.4.0",
     "run-sequence": "^1.1.5",
@@ -80,6 +84,5 @@
     "rxjs": "5.0.0-beta.0",
     "systemjs": "^0.19.4",
     "zone.js": "0.5.10"
-
   }
 }

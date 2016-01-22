@@ -66,6 +66,7 @@ module.exports = (function makeWebpackConfig() {
             'app': 'src/app',
             'common': 'src/common'
         }
+
     };
 
     /**

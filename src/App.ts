@@ -10,6 +10,7 @@ import {bootstrap} from 'angular2/platform/browser';
 import {HTTP_PROVIDERS} from "angular2/http";
 import {App1} from '../src/comps/app1/App1';
 import {App2} from '../src/comps/app2/App2';
+import {App3} from '../src/comps/app3/App3';
 import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';
 import {EntryPanel} from '../src/comps/entry/EntryPanel';
 import {AppManager} from '../src/comps/appmanager/AppManager';
@@ -46,8 +47,9 @@ import 'rxjs/add/observable/fromEvent';
                     <a [routerLink]="['/Login', {id: 'Sean-Levy'}, 'Login']">To Login screen with demo user args</a><br/>
                     <a [routerLink]="['/ForgotPass', 'ForgotPass']">To Forgot Password screen</a><br/>
                     <a [routerLink]="['/AppManager']">To App manager</a><br/>
-                    <a [routerLink]="['/App1']">To App1 (Lazy loading async)</a><br/>
-                    <a [routerLink]="['/App2']">To App2 (Lazy loading async)</a><br/>
+                    <a [routerLink]="['/App1']">To App1</a><br/>
+                    <a [routerLink]="['/App2']">To App2</a><br/>
+                    <a [routerLink]="['/App3']">To App3</a><br/>
                     <br/><small>I am Welcome component</small>
                 </div>
                 `,
@@ -92,6 +94,7 @@ export class Welcome {
     {path: '/ForgotPass/...', component: EntryPanel, as: 'ForgotPass'},
     {path: '/App1', component: App1, as: 'App1'},
     {path: '/App2', component: App2, as: 'App2'},
+    {path: '/App3', component: App3, as: 'App3'},
     //new AsyncRoute({
     //    path: '/App1',
     //    loader: () => ComponentHelper.LoadComponentAsync('App1', 'src/comps/app1/App1'),

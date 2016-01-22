@@ -20,7 +20,7 @@ npm install (which will auto run for you 'npm run build')
 cont-c to exit when done building
 gulp LiveServer
 ```
-
+      
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - Webpack with optimised webpack.config

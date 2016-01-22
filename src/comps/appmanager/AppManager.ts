@@ -16,13 +16,17 @@ import {RefreshTheme} from "../../styles/RefreshTheme";
                 <i style="margin: 20px; padding: 20px; font-size: 5em" class="fa fa-paper-plane"></i> <span
                         data-localize="none"></span>
                         <small>App 1</small>
-                        <small>Loads Asynchronously via router</small>
                  </button>
                 <button (click)="goToApp2(event)" data-ripple-color="black" type="button" name="everNodes" class="btn btn-default">
                 <i style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-rocket"></i> <span
                         data-localize="none"></span>
                         <small>App 2</small>
-                        <small>Loads Asynchronously via router</small>
+                </button>
+
+                <button (click)="goToApp3(event)" data-ripple-color="black" type="button" name="everNodes" class="btn btn-default">
+                <i style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-rocket"></i> <span
+                        data-localize="none"></span>
+                        <small>App 3</small>
                 </button>
 
             </div>
@@ -57,6 +61,10 @@ export class AppManager extends RefreshTheme {
 
     private goToApp2() {
         setTimeout(e=>this.myRouter.navigate(['/App2']),500);
+    }
+
+    private goToApp3() {
+        setTimeout(e=>this.myRouter.navigate(['/App3']),500);
     }
 }
 
