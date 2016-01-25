@@ -16,9 +16,8 @@ to install::
 ```
 git clone https://github.com/born2net/ng2Boilerplate.git
 cd ng2Boilerplate
-npm install (which will auto run for you 'npm run build')
-cont-c to exit when done building
-gulp LiveServer
+npm install
+open browser to http://localhost:8080
 ```
       
 What features of Angular does this app cover? well pretty much all the core stuff:
