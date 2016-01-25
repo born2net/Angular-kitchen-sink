@@ -16,7 +16,7 @@ module.exports = (function makeWebpackConfig() {
     console.log('Running in build mode: ' + BUILD);
     var DEBUG_MEM = args.indexOf('--debug_mem') !== -1 || process.env['debug_mem'];
     if (DEBUG_MEM)
-        console.log('Debug in memory mode');
+        console.log('Debug ' + DEBUG_MEM);
 
     /**
      * Config

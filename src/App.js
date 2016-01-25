@@ -73,7 +73,6 @@ var App = (function (_super) {
             return true;
         });
         var a = dogs.has('anim5');
-        console.log(dogs);
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Conts_1.Consts.Services().App, this);

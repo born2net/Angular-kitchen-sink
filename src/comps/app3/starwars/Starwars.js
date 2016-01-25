@@ -18,10 +18,6 @@ var part_actions_1 = require("./actions/part-actions");
 var cart_actions_1 = require("./actions/cart-actions");
 var Lib_1 = require("../../../Lib");
 var Consts = require("./StoreConsts");
-var admin_component_1 = require("./components/admin-component");
-var films_component_1 = require("./components/films-component");
-var user_actions_1 = require("./actions/user-actions");
-var film_actions_1 = require("./actions/film-actions");
 var Starwars = (function () {
     function Starwars(commBroker) {
         this.commBroker = commBroker;
@@ -33,9 +29,9 @@ var Starwars = (function () {
     Starwars = __decorate([
         core_1.Component({
             selector: 'Starwars',
-            directives: [shopping_component_1.ShoppingComponent, admin_component_1.AdminComponent, films_component_1.FilmsComponent],
-            template: " <div class=\"row\">\n            <div class=\"col-md-6\">\n                <admin></admin>\n            </div>\n            <div class=\"col-md-6\">\n                <!--<shopping></shopping>-->\n                <hr/>\n                <films-component></films-component>\n            </div>\n        </div>",
-            providers: [part_actions_1.PartActions, cart_actions_1.CartActions, part_actions_1.PartActions, user_actions_1.UserActions, film_actions_1.FilmActions]
+            directives: [shopping_component_1.ShoppingComponent],
+            template: "<shopping></shopping>",
+            providers: [part_actions_1.PartActions, cart_actions_1.CartActions]
         }), 
         __metadata('design:paramtypes', [CommBroker_1.CommBroker])
     ], Starwars);

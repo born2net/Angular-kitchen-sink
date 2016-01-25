@@ -132,8 +132,6 @@ export class App extends RefreshTheme implements AfterContentInit {
         //var a = dogs.set(1,dog3);
         //var d3 = dogs.get(1);
 
-        console.log(dogs);
-
 
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;

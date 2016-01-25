@@ -27,8 +27,6 @@ export interface IAppStore {
 
 }
 
-
-
 @Component({
     selector: 'shopping',
     template: `
