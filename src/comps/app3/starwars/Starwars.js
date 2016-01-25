@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("angular2/core");
 var redux_1 = require("redux");
+var thunk = require('redux-thunk');
 var parts_reducer_1 = require("./reducers/parts-reducer");
 var cart_reducer_1 = require("./reducers/cart-reducer");
 var angular2_redux_1 = require("angular2-redux");
@@ -21,7 +22,7 @@ var Consts = require("./StoreConsts");
 var Starwars = (function () {
     function Starwars(commBroker) {
         this.commBroker = commBroker;
-        var createStoreWithMiddleware = redux_1.applyMiddleware(Lib_1.Lib.loggerMiddleware)(redux_1.createStore);
+        var createStoreWithMiddleware = redux_1.compose(redux_1.applyMiddleware(thunk, Lib_1.Lib.loggerMiddleware), typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : function (f) { return f; })(redux_1.createStore);
         var reducers = redux_1.combineReducers({ parts: parts_reducer_1.default, cart: cart_reducer_1.default });
         var appStore = new angular2_redux_1.AppStore(createStoreWithMiddleware(reducers));
         this.commBroker.setService(Consts.APP_STORE, appStore);
