@@ -16,7 +16,7 @@
     "lint": "tsconfig-lint",
     "docs": "typedoc --options typedoc.json src/app/app.ts",
     "start": "npm run server",
-    "postinstall": "npm run build"
+    "postinstall": "npm run server"
   },
   "author": "Sean Levy",
   "license": "MIT",

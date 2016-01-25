@@ -42,7 +42,6 @@ export class Starwars {
     constructor(private commBroker:CommBroker) {
         const isDebug = window.location.href.match(/[?&]debug=([^&]+)\b/) || true && window.devToolsExtension;
         const applyDevTools = () => isDebug ? window.devToolsExtension() : f => f;
-        //debugger;
         const createStoreWithMiddleware = compose(applyMiddleware(<any> thunk, Lib.loggerMiddleware),  applyDevTools())(createStore);
         const reducers = combineReducers({parts, cart, films, users});
         const appStore = new AppStore(createStoreWithMiddleware(reducers));
