@@ -82,8 +82,8 @@ gulp.task("GenDocs", function () {
 
 gulp.task('Rsync', function () {
     var rsync = Rsync.build({
-        source: '/cygdrive/c/msweb/ng2Boilerplate/',
-        destination: 'Sean@digitalsignage.com:/var/www/sites/javascriptninja.io/ng2/htdocs',
+        source: '/cygdrive/c/msweb/ng2Boilerplate/dist',
+        destination: 'Sean@digitalsignage.com:/var/www/sites/javascriptninja.io/ng2/htdocs/',
         exclude: ['*.bat', '*.iml', '.gitignore', '.git', '.idea/']
     });
     rsync.set('progress');
