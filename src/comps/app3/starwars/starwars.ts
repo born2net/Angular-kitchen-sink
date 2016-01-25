@@ -38,7 +38,6 @@ import {FilmActions} from "./actions/film-actions";
     providers: [PartActions, CartActions, PartActions, UserActions, FilmActions]
 })
 
-
 export class Starwars {
     constructor(private commBroker:CommBroker) {
         const isDev = window.devToolsExtension;
