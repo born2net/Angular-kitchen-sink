@@ -31,9 +31,7 @@ export class FilmsComponent {
             this.filmsCount = state.films.count;
             this.currentFilm = state.films.currentFilm;
             this.isFetchingCurrentFilm = state.films.isFetchingFilm;
-
         });
-
         this._appStore.dispatch(_filmActions.fetchFilms());
     }
 

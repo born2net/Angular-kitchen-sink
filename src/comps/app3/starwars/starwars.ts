@@ -3,9 +3,11 @@
 import {Component, Injector} from "angular2/core";
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import {provide} from 'angular2/core';
-import thunkMiddleware from "redux-thunk"
+import * as thunk from 'redux-thunk';
 import parts from "./reducers/parts-reducer"
 import cart from "./reducers/cart-reducer"
+import films from "./reducers/films-reducer"
+import users from "./reducers/users-reducer"
 import {AppStore} from "angular2-redux";
 import {ShoppingComponent} from "./components/shopping-component";
 import {CommBroker} from "../../../services/CommBroker";
@@ -28,7 +30,7 @@ import {FilmActions} from "./actions/film-actions";
                 <admin></admin>
             </div>
             <div class="col-md-6">
-                <!--<shopping></shopping>-->
+                <shopping></shopping>
                 <hr/>
                 <films-component></films-component>
             </div>
@@ -38,8 +40,11 @@ import {FilmActions} from "./actions/film-actions";
 
 export class Starwars {
     constructor(private commBroker:CommBroker) {
-        let createStoreWithMiddleware = applyMiddleware(Lib.loggerMiddleware)(createStore);
-        const reducers = combineReducers({parts, cart});
+        const isDebug = window.location.href.match(/[?&]debug=([^&]+)\b/) || true && window.devToolsExtension;
+        const applyDevTools = () => isDebug ? window.devToolsExtension() : f => f;
+        //debugger;
+        const createStoreWithMiddleware = compose(applyMiddleware(<any> thunk, Lib.loggerMiddleware),  applyDevTools())(createStore);
+        const reducers = combineReducers({parts, cart, films, users});
         const appStore = new AppStore(createStoreWithMiddleware(reducers));
         this.commBroker.setService(Consts.APP_STORE, appStore);
     }

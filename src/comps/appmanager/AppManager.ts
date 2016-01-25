@@ -24,7 +24,7 @@ import {RefreshTheme} from "../../styles/RefreshTheme";
                 </button>
 
                 <button (click)="goToApp3(event)" data-ripple-color="black" type="button" name="everNodes" class="btn btn-default">
-                <i style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-rocket"></i> <span
+                <i style="margin: 20px; padding: 20px ; font-size: 5em" class="fa fa-film"></i> <span
                         data-localize="none"></span>
                         <small>App 3</small>
                 </button>
