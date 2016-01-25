@@ -12,7 +12,7 @@
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached --hot",
     "build": "rimraf dist && webpack --webpack-build --progress --profile --colors --display-error-details --display-cached --watch",
     "debug": "rimraf dist && webpack --webpack-build --progress --profile --colors --display-error-details --display-cached --hot --watch",
-    "server": "webpack-dev-server --nolazy --debug_mem --inline --progress --colors --display-error-details --display-cached --hot --port=8080",
+    "server": "webpack-dev-server --nolazy --debug_mem --inline --progress --colors --display-error-details --display-cached --port=8080",
     "lint": "tsconfig-lint",
     "docs": "typedoc --options typedoc.json src/app/app.ts",
     "start": "npm run server",

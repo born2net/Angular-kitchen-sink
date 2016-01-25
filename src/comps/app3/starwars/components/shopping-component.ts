@@ -1,5 +1,4 @@
 import {Component, Inject} from 'angular2/core'
-import {AppStore} from "angular2-redux";
 import {CartActions} from "../actions/cart-actions";
 import {PartActions} from "../actions/part-actions";
 import {PartsView} from "../components/parts-view";
@@ -7,6 +6,7 @@ import {CartView} from "../components/cart-view";
 import {AddPartsView} from "./add-part-view";
 import {createSelector} from 'reselect';
 import {CommBroker} from "../../../../services/CommBroker";
+import * as Consts from '../StoreConsts';
 
 // select the parts in cart
 const partsInCartSelector = createSelector((state:any)=>state.cart, state=>state.parts, (cart, parts) => {
@@ -51,7 +51,7 @@ export class ShoppingComponent {
     private removePartFromCart;
 
     constructor(commBroker:CommBroker, partActions:PartActions, cartActions:CartActions) {
-        this.appStore = commBroker.getService('APPSTORE');
+        this.appStore = commBroker.getService(Consts.APP_STORE);
         this.addPart = partActions.createDispatcher(this.appStore, partActions.addPart);
         this.addPartToCart = cartActions.createDispatcher(this.appStore, cartActions.addToCart);
         this.removePartFromCart = cartActions.createDispatcher(this.appStore, cartActions.removeFromCart);
@@ -64,9 +64,7 @@ export class ShoppingComponent {
     }
 
     private static createInitialSetOfParts(appStore, partActions) {
-        appStore.dispatch(partActions.addPart("Bumper"));
-        appStore.dispatch(partActions.addPart("MP3 Player"));
-        appStore.dispatch(partActions.addPart("Mirror"));
-        appStore.dispatch(partActions.addPart("Hood"));
+        appStore.dispatch(partActions.addPart("Lightsaber"));
+        appStore.dispatch(partActions.addPart("X-wing diecast"));
     }
 }

@@ -12,21 +12,35 @@ import {CommBroker} from "../../../services/CommBroker";
 import {PartActions} from "./actions/part-actions";
 import {CartActions} from "./actions/cart-actions";
 import {Lib} from "../../../Lib";
+import * as Consts from "./StoreConsts";
+import {AdminComponent} from "./components/admin-component";
+import {FilmsComponent} from "./components/films-component";
+import {UserActions} from "./actions/user-actions";
+import {FilmActions} from "./actions/film-actions";
 
 // https://babeljs.io/repl/
 
 @Component({
     selector: 'Starwars',
-    directives: [ShoppingComponent],
-    template: `<shopping></shopping>`,
-    providers: [PartActions, CartActions]
+    directives: [ShoppingComponent, AdminComponent, FilmsComponent],
+    template: ` <div class="row">
+            <div class="col-md-6">
+                <admin></admin>
+            </div>
+            <div class="col-md-6">
+                <!--<shopping></shopping>-->
+                <hr/>
+                <films-component></films-component>
+            </div>
+        </div>`,
+    providers: [PartActions, CartActions, PartActions, UserActions, FilmActions]
 })
 
 export class Starwars {
     constructor(private commBroker:CommBroker) {
         let createStoreWithMiddleware = applyMiddleware(Lib.loggerMiddleware)(createStore);
-        const reducers = combineReducers({ parts, cart });
+        const reducers = combineReducers({parts, cart});
         const appStore = new AppStore(createStoreWithMiddleware(reducers));
-        this.commBroker.setService('APPSTORE',appStore);
+        this.commBroker.setService(Consts.APP_STORE, appStore);
     }
 }

@@ -15,6 +15,7 @@ var cart_view_1 = require("../components/cart-view");
 var add_part_view_1 = require("./add-part-view");
 var reselect_1 = require('reselect');
 var CommBroker_1 = require("../../../../services/CommBroker");
+var Consts = require('../StoreConsts');
 var partsInCartSelector = reselect_1.createSelector(function (state) { return state.cart; }, function (state) { return state.parts; }, function (cart, parts) {
     var partsById = parts.reduce(function (map, part) { return (map[part.id] = part) && map; }, {});
     return cart.map(function (id) { return partsById[id]; });
@@ -24,7 +25,7 @@ var ShoppingComponent = (function () {
         var _this = this;
         this.parts = [];
         this.partsInCart = [];
-        this.appStore = commBroker.getService('APPSTORE');
+        this.appStore = commBroker.getService(Consts.APP_STORE);
         this.addPart = partActions.createDispatcher(this.appStore, partActions.addPart);
         this.addPartToCart = cartActions.createDispatcher(this.appStore, cartActions.addToCart);
         this.removePartFromCart = cartActions.createDispatcher(this.appStore, cartActions.removeFromCart);
@@ -35,10 +36,8 @@ var ShoppingComponent = (function () {
         ShoppingComponent.createInitialSetOfParts(this.appStore, partActions);
     }
     ShoppingComponent.createInitialSetOfParts = function (appStore, partActions) {
-        appStore.dispatch(partActions.addPart("Bumper"));
-        appStore.dispatch(partActions.addPart("MP3 Player"));
-        appStore.dispatch(partActions.addPart("Mirror"));
-        appStore.dispatch(partActions.addPart("Hood"));
+        appStore.dispatch(partActions.addPart("Lightsaber"));
+        appStore.dispatch(partActions.addPart("X-wing diecast"));
     };
     ShoppingComponent = __decorate([
         core_1.Component({
