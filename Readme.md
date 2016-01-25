@@ -25,6 +25,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 
 - Webpack with optimised webpack.config
 - Advanced Routing
+- StarWars movie shop powered by Redux store
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing and mediator design pattern
 - LocalStorage service

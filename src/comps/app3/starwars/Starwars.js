@@ -28,8 +28,8 @@ var film_actions_1 = require("./actions/film-actions");
 var Starwars = (function () {
     function Starwars(commBroker) {
         this.commBroker = commBroker;
-        var isDebug = window.location.href.match(/[?&]debug=([^&]+)\b/) || true && window.devToolsExtension;
-        var applyDevTools = function () { return isDebug ? window.devToolsExtension() : function (f) { return f; }; };
+        var isDev = window.devToolsExtension;
+        var applyDevTools = function () { return isDev ? window.devToolsExtension() : function (f) { return f; }; };
         var createStoreWithMiddleware = redux_1.compose(redux_1.applyMiddleware(thunk, Lib_1.Lib.loggerMiddleware), applyDevTools())(redux_1.createStore);
         var reducers = redux_1.combineReducers({ parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default });
         var appStore = new angular2_redux_1.AppStore(createStoreWithMiddleware(reducers));

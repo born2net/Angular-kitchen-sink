@@ -28,6 +28,7 @@ declare var assert: any;
 
 interface Window {
     devToolsExtension: any;
+    devToolsExtensionDisabled: any;
 }
 
 
