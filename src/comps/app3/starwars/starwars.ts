@@ -38,6 +38,7 @@ import {FilmActions} from "./actions/film-actions";
     providers: [PartActions, CartActions, PartActions, UserActions, FilmActions]
 })
 
+
 export class Starwars {
     constructor(private commBroker:CommBroker) {
         const isDebug = window.location.href.match(/[?&]debug=([^&]+)\b/) || true && window.devToolsExtension;
