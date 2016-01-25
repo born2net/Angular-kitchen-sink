@@ -64,15 +64,6 @@ var App = (function (_super) {
     function App(commBroker, styleService) {
         var _this = this;
         _super.call(this);
-        var dog1 = new Dog();
-        var dog2 = new Dog();
-        var dog3 = new Dog();
-        var dogs = Immutable.Map();
-        dogs.set(dog1.idz, dog1);
-        dogs.find(function (e) {
-            return true;
-        });
-        var a = dogs.has('anim5');
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Conts_1.Consts.Services().App, this);

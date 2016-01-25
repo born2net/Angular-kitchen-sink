@@ -38,6 +38,7 @@ import {FilmActions} from "./actions/film-actions";
     providers: [PartActions, CartActions, PartActions, UserActions, FilmActions]
 })
 
+
 export class Starwars {
     constructor(private commBroker:CommBroker) {
         const isDev = window.devToolsExtension;
@@ -47,5 +48,21 @@ export class Starwars {
         const reducers = combineReducers({parts, cart, films, users});
         const appStore = new AppStore(createStoreWithMiddleware(reducers));
         this.commBroker.setService(Consts.APP_STORE, appStore);
+
+        // test Immutable
+        //var dog1:Dog = new Dog();
+        //var dog2:Dog = new Dog();
+        //var dog3:Dog = new Dog();
+        //var dogs = Immutable.Map();
+        //dogs.set(dog1.idz, dog1);
+        //dogs.find(e=> {
+        //    return true
+        //});
+        //var a = dogs.has('anim5');
+        ////dogs = dogs.push(dog2);
+        ////var d2 = dogs.get(0);
+        ////var a = dogs.set(1,dog3);
+        ////var d3 = dogs.get(1);
+
     }
 }

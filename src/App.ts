@@ -117,22 +117,6 @@ export class App extends RefreshTheme implements AfterContentInit {
 
     constructor(commBroker:CommBroker, styleService:StyleService) {
         super();
-
-        var dog1:Dog = new Dog();
-        var dog2:Dog = new Dog();
-        var dog3:Dog = new Dog();
-        var dogs = Immutable.Map();
-        dogs.set(dog1.idz, dog1);
-        dogs.find(e=> {
-            return true
-        });
-        var a = dogs.has('anim5');
-        //dogs = dogs.push(dog2);
-        //var d2 = dogs.get(0);
-        //var a = dogs.set(1,dog3);
-        //var d3 = dogs.get(1);
-
-
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Consts.Services().App, this);
