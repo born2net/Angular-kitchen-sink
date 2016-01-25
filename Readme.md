@@ -1,13 +1,13 @@
 ng2Boilerplate
 =====================
 
-An Angular 2 and Bootstrap easy to start, A-Z startup project
+Angular 2 and Bootstrap easy to start, A-Z startup project
 ----------------
 
 ready to be impressed with Angular 2?
 
 
-Check this working demo: http://ng2.javascriptninja.io/ng2webpack
+Check this working demo: http://ng2.javascriptninja.io
 ====
 
 The goal behind ng2Boilerplayer is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
