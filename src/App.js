@@ -12,12 +12,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-require("bootstrap-webpack");
-require("bootbox");
-require("font-awesome-webpack");
-require("./styles/style.css");
-require("./styles/fonts/Raleway.woff2");
-require('underscore');
 var browser_1 = require('angular2/platform/browser');
 var http_1 = require("angular2/http");
 var App1_1 = require('../src/comps/app1/App1');
@@ -39,13 +33,24 @@ var Observable_1 = require("rxjs/Observable");
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/debounceTime');
 require('rxjs/add/observable/fromEvent');
+var Dog = (function () {
+    function Dog() {
+        this.idz = _.uniqueId('anim');
+    }
+    return Dog;
+})();
+var Cat = (function () {
+    function Cat() {
+    }
+    return Cat;
+})();
 var Welcome = (function () {
     function Welcome(params) {
         this.someId = 'App1' + Math.random();
     }
     Welcome = __decorate([
         core_1.Component({
-            styles: ["\n        #routerLinks {\n            padding: 20px;\n        };\n    "],
+            styles: ["\n        #routerLinks {\n            padding: 20px;\n        }\n    "],
             template: "\n                <div id=\"routerLinks\">\n                    <h4>Direct router shortcut links:</h4>\n                    <a [routerLink]=\"['/Login', 'Login']\">To Login screen</a><br/>\n                    <a [routerLink]=\"['/Login', {id: 'Sean-Levy'}, 'Login']\">To Login screen with demo user args</a><br/>\n                    <a [routerLink]=\"['/ForgotPass', 'ForgotPass']\">To Forgot Password screen</a><br/>\n                    <a [routerLink]=\"['/AppManager']\">To App manager</a><br/>\n                    <a [routerLink]=\"['/App1']\">To App1</a><br/>\n                    <a [routerLink]=\"['/App2']\">To App2</a><br/>\n                    <a [routerLink]=\"['/App3']\">To App3</a><br/>\n                    <br/><small>I am Welcome component</small>\n                </div>\n                ",
             directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink]
         }), 
@@ -59,6 +64,16 @@ var App = (function (_super) {
     function App(commBroker, styleService) {
         var _this = this;
         _super.call(this);
+        var dog1 = new Dog();
+        var dog2 = new Dog();
+        var dog3 = new Dog();
+        var dogs = Immutable.Map();
+        dogs.set(dog1.idz, dog1);
+        dogs.find(function (e) {
+            return true;
+        });
+        var a = dogs.has('anim5');
+        console.log(dogs);
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Conts_1.Consts.Services().App, this);

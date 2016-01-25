@@ -14,7 +14,6 @@ const partsInCartSelector = createSelector((state:any)=>state.cart, state=>state
     return cart.map(id => partsById[id]);
 });
 
-
 export interface ICart {
     cart:string[]
 }

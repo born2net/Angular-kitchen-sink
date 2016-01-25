@@ -11,5 +11,10 @@ import 'angular2/http';
 // RxJS
 import 'rxjs';
 
-// Other vendors for example jQuery, Lodash or Bootstrap
-// You can import js, ts, css, sass,
+require("bootstrap-webpack");
+require("bootbox");
+require("font-awesome-webpack");
+require("./styles/style.css");
+require("./styles/fonts/Raleway.woff2");
+require('underscore');
+require('Immutable');

@@ -17,6 +17,7 @@
 
 //<reference path="../typings/systemjs/systemjs.d.ts" />
 
+///<reference path='../node_modules/immutable/dist/Immutable.d.ts'/>
 ///<reference path="../typings/redux/redux.d.ts" />
 ///<reference path="../typings/redux-thunk/redux-thunk.d.ts" />
 ///<reference path="../typings/reselect/reselect.d.ts" />

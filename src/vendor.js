@@ -5,4 +5,11 @@ require('angular2/core');
 require('angular2/router');
 require('angular2/http');
 require('rxjs');
+require("bootstrap-webpack");
+require("bootbox");
+require("font-awesome-webpack");
+require("./styles/style.css");
+require("./styles/fonts/Raleway.woff2");
+require('underscore');
+require('Immutable');
 //# sourceMappingURL=vendor.js.map

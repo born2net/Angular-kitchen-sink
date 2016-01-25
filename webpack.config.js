@@ -14,7 +14,9 @@ module.exports = (function makeWebpackConfig() {
 
     var BUILD = args.indexOf('--webpack-build') !== -1 || process.env['webpack-build'];
     console.log('Running in build mode: ' + BUILD);
-    //var TEST = args.indexOf('--webpack-test') !== -1 || process.env['webpack-test'];
+    var DEBUG_MEM = args.indexOf('--debug_mem') !== -1 || process.env['debug_mem'];
+    if (DEBUG_MEM)
+        console.log('Debug in memory mode');
 
     /**
      * Config
@@ -43,10 +45,10 @@ module.exports = (function makeWebpackConfig() {
     };
 
     /**
-     * Output
+     * Output, run in memory debug server or to dist directory
      * Reference: http://webpack.github.io/docs/configuration.html#output
      */
-    config.output = {
+    config.output = DEBUG_MEM ? {} : {
         path: root('dist'),
         publicPath: './',
         filename: 'js/[name].js',
@@ -159,15 +161,12 @@ module.exports = (function makeWebpackConfig() {
         }),
         new webpack.ProvidePlugin({
             jQuery: "jquery",
-            "window.jQuery": "jquery"
-        }),
-        new webpack.ProvidePlugin({
-            _: "underscore",
-            "window._": "underscore"
-        }),
-        new webpack.ProvidePlugin({
+            "window.jQuery": "jquery",
             bootbox: "bootbox",
-            "window.bootbox": "bootbox"
+            "window.bootbox": "bootbox",
+            _: "underscore",
+            "Immutable": "Immutable",
+            "window.Immutable": "Immutable"
         }),
         // Inject paths into index.html file
         // Reference: https://github.com/ampedandwired/html-webpack-plugin

@@ -1,12 +1,4 @@
 ///<reference path="../typings/app.d.ts"/>
-
-require("bootstrap-webpack");
-require("bootbox");
-require("font-awesome-webpack");
-require("./styles/style.css");
-require("./styles/fonts/Raleway.woff2");
-require('underscore');
-
 //import {enableProdMode} from 'angular2/core';
 //import {AsyncRoute} from "angular2/router";
 import {bootstrap} from 'angular2/platform/browser';
@@ -31,6 +23,17 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 
+class Dog {
+    public idz:string;
+
+    constructor() {
+        this.idz = _.uniqueId('anim');
+    }
+}
+
+class Cat {
+}
+
 /**
  General route links
  @class Welcome
@@ -39,7 +42,7 @@ import 'rxjs/add/observable/fromEvent';
     styles: [`
         #routerLinks {
             padding: 20px;
-        };
+        }
     `],
     template: `
                 <div id="routerLinks">
@@ -114,6 +117,24 @@ export class App extends RefreshTheme implements AfterContentInit {
 
     constructor(commBroker:CommBroker, styleService:StyleService) {
         super();
+
+        var dog1:Dog = new Dog();
+        var dog2:Dog = new Dog();
+        var dog3:Dog = new Dog();
+        var dogs = Immutable.Map();
+        dogs.set(dog1.idz, dog1);
+        dogs.find(e=> {
+            return true
+        });
+        var a = dogs.has('anim5');
+        //dogs = dogs.push(dog2);
+        //var d2 = dogs.get(0);
+        //var a = dogs.set(1,dog3);
+        //var d3 = dogs.get(1);
+
+        console.log(dogs);
+
+
         this.m_styleService = styleService;
         this.m_commBroker = commBroker;
         this.m_commBroker.setService(Consts.Services().App, this);
@@ -126,12 +147,12 @@ export class App extends RefreshTheme implements AfterContentInit {
         // of using the old way of: opts || opts = {} and it auto maps
         // matching fields
         this.showTypedObjectArg({
-            styles1: ['foo','bar'], // optional
-            styles2: [1,2] // optional
+            styles1: ['foo', 'bar'], // optional
+            styles2: [1, 2] // optional
         })
     }
 
-    private showTypedObjectArg({styles1, styles2}: {styles1?: string[], styles2?: number[]} = {}){
+    private showTypedObjectArg({styles1, styles2}: {styles1?: string[], styles2?: number[]} = {}) {
         //console.log(styles1 + ' ' + styles2);
     }
 
@@ -139,6 +160,7 @@ export class App extends RefreshTheme implements AfterContentInit {
     ngAfterContentInit() {
         this.appResized();
     }
+
     //ngAfterViewInit() {
     //    console.log(2);
     //}
