@@ -20,8 +20,6 @@ import {FilmsComponent} from "./components/films-component";
 import {UserActions} from "./actions/user-actions";
 import {FilmActions} from "./actions/film-actions";
 
-// https://babeljs.io/repl/
-
 @Component({
     selector: 'Starwars',
     directives: [ShoppingComponent, AdminComponent, FilmsComponent],
@@ -38,7 +36,6 @@ import {FilmActions} from "./actions/film-actions";
     providers: [PartActions, CartActions, PartActions, UserActions, FilmActions]
 })
 
-
 export class Starwars {
     constructor(private commBroker:CommBroker) {
         const isDev = window.devToolsExtension;
@@ -49,6 +46,7 @@ export class Starwars {
         const appStore = new AppStore(createStoreWithMiddleware(reducers));
         this.commBroker.setService(Consts.APP_STORE, appStore);
 
+        // https://babeljs.io/repl/
         // test Immutable
         //var dog1:Dog = new Dog();
         //var dog2:Dog = new Dog();
