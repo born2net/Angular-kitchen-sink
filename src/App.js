@@ -33,17 +33,6 @@ var Observable_1 = require("rxjs/Observable");
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/debounceTime');
 require('rxjs/add/observable/fromEvent');
-var Dog = (function () {
-    function Dog() {
-        this.idz = _.uniqueId('anim');
-    }
-    return Dog;
-})();
-var Cat = (function () {
-    function Cat() {
-    }
-    return Cat;
-})();
 var Welcome = (function () {
     function Welcome(params) {
         this.someId = 'App1' + Math.random();
