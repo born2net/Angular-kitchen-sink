@@ -34,25 +34,25 @@ var FilmActions = (function (_super) {
         var _this = this;
         return function (dispatch) {
             dispatch(_this.requestFilms());
-            _this._http.get("" + BASE_URL)
+            var sub = _this._http.get("" + BASE_URL)
                 .map(function (result) { return result.json(); })
                 .map(function (json) {
                 dispatch(_this.receiveFilms(json.results));
                 dispatch(_this.receiveNumberOfFilms(json.count));
             })
-                .subscribe();
+                .subscribe(function (e) { return sub.unsubscribe(); });
         };
     };
     FilmActions.prototype.fetchFilm = function (index) {
         var _this = this;
         return function (dispatch) {
             dispatch(_this.requestFilm());
-            _this._http.get("" + BASE_URL + (index + 1) + "/")
+            var sub = _this._http.get("" + BASE_URL + (index + 1) + "/")
                 .map(function (result) { return result.json(); })
                 .map(function (json) {
                 dispatch(_this.receiveFilm(json));
             })
-                .subscribe();
+                .subscribe(function (e) { return sub.unsubscribe(); });
         };
     };
     FilmActions.prototype.requestFilms = function () {

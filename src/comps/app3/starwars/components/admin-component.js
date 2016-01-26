@@ -16,18 +16,18 @@ var CommBroker_1 = require("../../../../services/CommBroker");
 var Consts = require('../StoreConsts');
 var AdminComponent = (function () {
     function AdminComponent(commBroker, userActions) {
-        var _this = this;
         this.usersToShow = null;
         this.currentUser = null;
         this.filmFilter = null;
+        var self = this;
         var appStore = commBroker.getService(Consts.APP_STORE);
         this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
         this.setFilmFilter = userActions.createDispatcher(appStore, userActions.setFilmFilter);
         var usersToShowSelector = AdminComponent.createUsersToShowSelector();
         appStore.subscribe(function (state) {
-            _this.usersToShow = usersToShowSelector(state);
-            _this.currentUser = state.users.current;
-            _this.filmFilter = state.users.filmFilter;
+            self.usersToShow = usersToShowSelector(state);
+            self.currentUser = state.users.current;
+            self.filmFilter = state.users.filmFilter;
         });
         appStore.dispatch(userActions.fetchUsers());
     }
@@ -50,7 +50,7 @@ var AdminComponent = (function () {
     AdminComponent = __decorate([
         core_1.Component({
             selector: 'admin',
-            template: "\n        <h3>Users</h3>\n        <a href=\"\" (click)=\"$event.preventDefault();setFilmFilter(!filmFilter)\" [class.hidden]=\"!usersToShow\">Turn filter {{filmFilter?\"off\":\"on\"}}</a>\n        <users [data]=\"usersToShow\" (current)=\"setCurrentUser($event)\"></users>\n        <hr/>\n        <h3>Current User</h3>\n        <br/>\n        <user [data]=\"currentUser\"></user>\n    ",
+            template: "\n        <h3>Users</h3>\n        <a href=\"\" (click)=\"$event.preventDefault(); setFilmFilter(!filmFilter)\" [class.hidden]=\"!usersToShow\">\n            Turn filter {{filmFilter?\"off\":\"on\"}}\n        </a>\n        <users [data]=\"usersToShow\" (current)=\"setCurrentUser($event)\">\n        </users>\n        <hr/>\n        <h3>Current User</h3>\n        <br/>\n        <user [data]=\"currentUser\"></user>\n    ",
             directives: [users_view_1.UsersView, user_view_1.UserView]
         }), 
         __metadata('design:paramtypes', [CommBroker_1.CommBroker, user_actions_1.UserActions])

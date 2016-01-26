@@ -21,16 +21,17 @@ import * as Consts from '../StoreConsts'
 export class FilmsComponent {
 
     private filmsCount;
-    private _appStore
+    private _appStore;
     private currentFilm = null;
     private isFetchingCurrentFilm = false;
 
     constructor(private commBroker:CommBroker, private _filmActions:FilmActions) {
+        var self = this;
         this._appStore = commBroker.getService(Consts.APP_STORE);
         this._appStore.subscribe((state) => {
-            this.filmsCount = state.films.count;
-            this.currentFilm = state.films.currentFilm;
-            this.isFetchingCurrentFilm = state.films.isFetchingFilm;
+            self.filmsCount = state.films.count;
+            self.currentFilm = state.films.currentFilm;
+            self.isFetchingCurrentFilm = state.films.isFetchingFilm;
         });
         this._appStore.dispatch(_filmActions.fetchFilms());
     }

@@ -15,16 +15,16 @@ var CommBroker_1 = require("../../../../services/CommBroker");
 var Consts = require('../StoreConsts');
 var FilmsComponent = (function () {
     function FilmsComponent(commBroker, _filmActions) {
-        var _this = this;
         this.commBroker = commBroker;
         this._filmActions = _filmActions;
         this.currentFilm = null;
         this.isFetchingCurrentFilm = false;
+        var self = this;
         this._appStore = commBroker.getService(Consts.APP_STORE);
         this._appStore.subscribe(function (state) {
-            _this.filmsCount = state.films.count;
-            _this.currentFilm = state.films.currentFilm;
-            _this.isFetchingCurrentFilm = state.films.isFetchingFilm;
+            self.filmsCount = state.films.count;
+            self.currentFilm = state.films.currentFilm;
+            self.isFetchingCurrentFilm = state.films.isFetchingFilm;
         });
         this._appStore.dispatch(_filmActions.fetchFilms());
     }

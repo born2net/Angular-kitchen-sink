@@ -23,27 +23,25 @@ export class FilmActions extends Actions {
     fetchFilms() {
         return (dispatch) => {
             dispatch(this.requestFilms());
-
-            this._http.get(`${BASE_URL}`)
+            var sub = this._http.get(`${BASE_URL}`)
                 .map(result => result.json())
                 .map(json => {
                     dispatch(this.receiveFilms(json.results));
                     dispatch(this.receiveNumberOfFilms(json.count));
                 })
-                .subscribe();
+                .subscribe(e=>sub.unsubscribe());
         };
     }
 
     fetchFilm(index) {
         return (dispatch) => {
             dispatch(this.requestFilm());
-
-            this._http.get(`${BASE_URL}${index + 1}/`)
+            var sub = this._http.get(`${BASE_URL}${index + 1}/`)
                 .map(result => result.json())
                 .map(json => {
                     dispatch(this.receiveFilm(json));
                 })
-                .subscribe();
+                .subscribe(e=>sub.unsubscribe());
         };
     }
 

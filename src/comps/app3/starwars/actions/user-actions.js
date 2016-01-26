@@ -31,11 +31,11 @@ var UserActions = (function (_super) {
         var BASE_URL = "http://swapi.co/api/people/";
         return function (dispatch) {
             dispatch(_this.requestUsers());
-            _this._http.get("" + BASE_URL)
+            var sub = _this._http.get("" + BASE_URL)
                 .map(function (result) { return result.json(); })
                 .map(function (json) { return json.results; })
                 .map(function (result) { return dispatch(_this.receiveUsers(result)); })
-                .subscribe();
+                .subscribe(function (e) { return sub.unsubscribe(); });
         };
     };
     UserActions.prototype.requestUsers = function () {

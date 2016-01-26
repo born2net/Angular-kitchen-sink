@@ -9,7 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var reselect_1 = require('reselect');
-var partsInCartLookupSelector = reselect_1.createSelector(function (changeRecord) { return changeRecord.partsInCart.currentValue; }, function (partsInCart) { return partsInCart.reduce(function (map, part) { return (map[part.id] = true) && map; }, {}); });
+var partsInCartLookupSelector = reselect_1.createSelector(function (changeRecord) { return changeRecord.partsInCart.currentValue; }, function (partsInCart) {
+    var red = partsInCart.reduce(function (map, part) { return (map[part.id] = true) && map; }, {});
+    return red;
+});
 var PartsView = (function () {
     function PartsView() {
         this.parts = [];

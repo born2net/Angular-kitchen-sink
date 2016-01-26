@@ -17,18 +17,20 @@ import {Component, Input, Output, ChangeDetectionStrategy, EventEmitter, OnChang
             margin-right:8px;
         }
     `],
-    changeDetection:ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilmSelectionView implements OnChanges {
 
-    @Input() count = 0;
-    @Output() current:EventEmitter<any> = new EventEmitter();
+    @Input()
+    count = 0;
+    @Output()
+    current:EventEmitter<any> = new EventEmitter();
 
     private currentSelection = null;
     private list;
 
     ngOnChanges() {
-        this.list = (this.count>0?Array.apply(null, Array(this.count)).map((x, index) => index):[]);
+        this.list = (this.count > 0 ? Array.apply(null, Array(this.count)).map((x, index) => index) : []);
     }
 
     private select(item) {

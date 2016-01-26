@@ -19,12 +19,11 @@ export class UserActions extends Actions {
         const BASE_URL:string = "http://swapi.co/api/people/";
         return (dispatch) => {
             dispatch(this.requestUsers());
-
-            this._http.get(`${BASE_URL}`)
+            var sub = this._http.get(`${BASE_URL}`)
                 .map(result => result.json())
                 .map(json => json.results)
                 .map(result =>  dispatch(this.receiveUsers(result)))
-                .subscribe();
+                .subscribe(e=>sub.unsubscribe());
         };
     }
 

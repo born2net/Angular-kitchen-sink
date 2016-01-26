@@ -11,8 +11,11 @@ import * as Consts from '../StoreConsts';
     selector: 'admin',
     template: `
         <h3>Users</h3>
-        <a href="" (click)="$event.preventDefault();setFilmFilter(!filmFilter)" [class.hidden]="!usersToShow">Turn filter {{filmFilter?"off":"on"}}</a>
-        <users [data]="usersToShow" (current)="setCurrentUser($event)"></users>
+        <a href="" (click)="$event.preventDefault(); setFilmFilter(!filmFilter)" [class.hidden]="!usersToShow">
+            Turn filter {{filmFilter?"off":"on"}}
+        </a>
+        <users [data]="usersToShow" (current)="setCurrentUser($event)">
+        </users>
         <hr/>
         <h3>Current User</h3>
         <br/>
@@ -30,7 +33,7 @@ export class AdminComponent {
     private setFilmFilter;
 
     constructor(commBroker:CommBroker, userActions:UserActions) {
-
+        var self = this;
         var appStore = commBroker.getService(Consts.APP_STORE);
 
         this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
@@ -39,9 +42,9 @@ export class AdminComponent {
         const usersToShowSelector = AdminComponent.createUsersToShowSelector();
 
         appStore.subscribe((state) => {
-            this.usersToShow = usersToShowSelector(state);
-            this.currentUser = state.users.current;
-            this.filmFilter = state.users.filmFilter;
+            self.usersToShow = usersToShowSelector(state);
+            self.currentUser = state.users.current;
+            self.filmFilter = state.users.filmFilter;
 
         });
 
