@@ -16,8 +16,7 @@ var CharCount = (function () {
     };
     CharCount = __decorate([
         core_1.Pipe({
-            name: 'CharCount',
-            pure: false
+            name: 'CharCount'
         }), 
         __metadata('design:paramtypes', [])
     ], CharCount);
