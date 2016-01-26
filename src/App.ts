@@ -23,17 +23,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 
-class Dog {
-    public idz:string;
-
-    constructor() {
-        this.idz = _.uniqueId('anim');
-    }
-}
-
-class Cat {
-}
-
 /**
  General route links
  @class Welcome
