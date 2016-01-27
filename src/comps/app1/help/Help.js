@@ -15,6 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("angular2/core");
 var contributors_1 = require("./contributors/contributors");
 var RefreshTheme_1 = require("../../../styles/RefreshTheme");
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var Help = (function (_super) {
     __extends(Help, _super);
     function Help(contributors) {
@@ -24,7 +25,8 @@ var Help = (function (_super) {
         core_1.Component({
             selector: 'Help',
             providers: [contributors_1.Contributors],
-            template: " <small>I am Help component</small>\n                <ng-content></ng-content>\n                "
+            directives: [ng2_bootstrap_1.Alert, ng2_bootstrap_1.Rating],
+            template: " <small>I am Help component and using <a href=\"https://github.com/valor-software/ng2-bootstrap\" target=\"_blank\">ng2-bootstrap</a></small>\n                <br/>\n                <alert type=\"info\">Welcome to Angular2 Bootstrap starter pack!</alert>\n                <rating [(ngModel)]=\"rate\" [max]=\"max\" [readonly]=\"isReadonly\" [titles]=\"['one','two','three']\" ></rating>\n                <ng-content></ng-content>\n                "
         }), 
         __metadata('design:paramtypes', [contributors_1.Contributors])
     ], Help);

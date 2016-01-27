@@ -23,6 +23,7 @@ open browser to http://localhost:8080
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - Webpack with optimised webpack.config
+- ng2-bootstrap components
 - Advanced Routing
 - StarWars movie shop powered by Redux store
 - jQuery integration the Angular way via BrowserDomAdapter

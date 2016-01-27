@@ -11,7 +11,8 @@ import 'angular2/http';
 // RxJS
 import 'rxjs';
 
-require("bootstrap-webpack");
+require("bootstrap-webpack"); // Enable Bootstrap in our app
+require("ng2-bootstrap/ng2-bootstrap"); // Enable native support for Bootstrap components
 require("bootbox");
 require("font-awesome-webpack");
 require("./styles/style.css");

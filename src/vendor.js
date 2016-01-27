@@ -6,6 +6,7 @@ require('angular2/router');
 require('angular2/http');
 require('rxjs');
 require("bootstrap-webpack");
+require("ng2-bootstrap/ng2-bootstrap");
 require("bootbox");
 require("font-awesome-webpack");
 require("./styles/style.css");
