@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "angular2-redux": "^1.0.8",
-    "angular2": "2.0.0-beta.1",
+    "angular2": "2.0.0-beta.2",
     "bootstrap": "^3.3.5",
     "underscore": "^1.8.3",
     "bootbox": "^4.4.0",
