@@ -38,7 +38,7 @@ export class AdminComponent {
 
         this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
         this.setFilmFilter  = userActions.createDispatcher(appStore, userActions.setFilmFilter);
-                       a
+
         const usersToShowSelector = AdminComponent.createUsersToShowSelector();
 
         appStore.subscribe((state) => {
