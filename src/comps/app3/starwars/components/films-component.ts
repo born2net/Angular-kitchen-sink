@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core'
-import {AppStore} from "angular2-redux";
+import {AppStore} from "angular2-redux-util";
 import {FilmActions} from "../actions/film-actions";
 import {FilmSelectionView} from "../components/film-selection-view";
 import {FilmView} from "../components/film-view";

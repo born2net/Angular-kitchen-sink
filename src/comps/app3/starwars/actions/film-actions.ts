@@ -1,6 +1,6 @@
 import {Http} from "angular2/http";
 import {Injectable} from "angular2/core";
-import {Actions} from "angular2-redux";
+import {Actions} from "angular2-redux-util";
 import 'rxjs/add/operator/map';
 
 export const REQUEST_FILMS = 'REQUEST_FILMS';

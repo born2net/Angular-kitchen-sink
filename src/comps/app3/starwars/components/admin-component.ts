@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core'
-import {AppStore} from "angular2-redux";
+import {AppStore} from "angular2-redux-util";
 import {UserActions} from "../actions/user-actions";
 import {UsersView} from "../components/users-view";
 import {UserView} from "../components/user-view";
@@ -38,7 +38,7 @@ export class AdminComponent {
 
         this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
         this.setFilmFilter  = userActions.createDispatcher(appStore, userActions.setFilmFilter);
-
+                       a
         const usersToShowSelector = AdminComponent.createUsersToShowSelector();
 
         appStore.subscribe((state) => {

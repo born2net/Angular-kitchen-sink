@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var http_1 = require("angular2/http");
 var core_1 = require("angular2/core");
-var angular2_redux_1 = require("angular2-redux");
+var angular2_redux_util_1 = require("angular2-redux-util");
 require('rxjs/add/operator/map');
 exports.REQUEST_FILMS = 'REQUEST_FILMS';
 exports.RECEIVE_FILMS = 'RECEIVE_FILMS';
@@ -90,6 +90,6 @@ var FilmActions = (function (_super) {
         __metadata('design:paramtypes', [http_1.Http])
     ], FilmActions);
     return FilmActions;
-})(angular2_redux_1.Actions);
+})(angular2_redux_util_1.Actions);
 exports.FilmActions = FilmActions;
 //# sourceMappingURL=film-actions.js.map

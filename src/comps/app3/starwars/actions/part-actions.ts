@@ -1,5 +1,5 @@
 import {Injectable} from "angular2/core";
-import {Actions} from "angular2-redux";
+import {Actions} from "angular2-redux-util";
 
 export const ADD_PART = 'ADD_PART';
 

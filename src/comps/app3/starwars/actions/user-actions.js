@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var http_1 = require("angular2/http");
 var core_1 = require("angular2/core");
-var angular2_redux_1 = require("angular2-redux");
+var angular2_redux_util_1 = require("angular2-redux-util");
 require('rxjs/add/operator/map');
 exports.REQUEST_USERS = 'REQUEST_USERS';
 exports.RECEIVE_USERS = 'RECEIVE_USERS';
@@ -65,6 +65,6 @@ var UserActions = (function (_super) {
         __metadata('design:paramtypes', [http_1.Http])
     ], UserActions);
     return UserActions;
-})(angular2_redux_1.Actions);
+})(angular2_redux_util_1.Actions);
 exports.UserActions = UserActions;
 //# sourceMappingURL=user-actions.js.map

@@ -23,6 +23,7 @@ var AdminComponent = (function () {
         var appStore = commBroker.getService(Consts.APP_STORE);
         this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
         this.setFilmFilter = userActions.createDispatcher(appStore, userActions.setFilmFilter);
+        a;
         var usersToShowSelector = AdminComponent.createUsersToShowSelector();
         appStore.subscribe(function (state) {
             self.usersToShow = usersToShowSelector(state);

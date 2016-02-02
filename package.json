@@ -64,24 +64,24 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "angular2-redux": "^1.0.8",
     "angular2": "2.0.0-beta.2",
-    "bootstrap": "^3.3.5",
-    "underscore": "^1.8.3",
+    "angular2-redux-util": "^0.5.35",
     "bootbox": "^4.4.0",
+    "bootstrap": "^3.3.5",
     "bootstrap-webpack": "0.0.5",
     "es6-module-loader": "^0.17.8",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.6",
     "font-awesome": "^4.5.0",
     "font-awesome-webpack": "0.0.4",
-    "redux": "^3.0.5",
-    "redux-thunk": "^1.0.3",
-    "reselect": "^2.0.2",
     "immutable": "^3.7.6",
     "ng2-bootstrap": "^0.53.0",
+    "redux": "^3.0.5",
+    "redux-thunk": "^1.0.3",
     "reflect-metadata": "0.1.2",
+    "reselect": "^2.0.2",
     "rxjs": "5.0.0-beta.0",
+    "underscore": "^1.8.3",
     "zone.js": "0.5.10"
   }
 }

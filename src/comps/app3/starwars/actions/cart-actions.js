@@ -13,7 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("angular2/core");
-var angular2_redux_1 = require("angular2-redux");
+var angular2_redux_util_1 = require("angular2-redux-util");
 exports.ADD_TO_CART = "ADD_TO_CART";
 exports.REMOVE_FROM_CART = "REMOVE_FROM_CART";
 var CartActions = (function (_super) {
@@ -34,6 +34,6 @@ var CartActions = (function (_super) {
         __metadata('design:paramtypes', [])
     ], CartActions);
     return CartActions;
-})(angular2_redux_1.Actions);
+})(angular2_redux_util_1.Actions);
 exports.CartActions = CartActions;
 //# sourceMappingURL=cart-actions.js.map

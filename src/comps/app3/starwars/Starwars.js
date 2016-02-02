@@ -14,26 +14,31 @@ var parts_reducer_1 = require("./reducers/parts-reducer");
 var cart_reducer_1 = require("./reducers/cart-reducer");
 var films_reducer_1 = require("./reducers/films-reducer");
 var users_reducer_1 = require("./reducers/users-reducer");
-var angular2_redux_1 = require("angular2-redux");
+var angular2_redux_util_1 = require("angular2-redux-util");
 var shopping_component_1 = require("./components/shopping-component");
 var CommBroker_1 = require("../../../services/CommBroker");
 var part_actions_1 = require("./actions/part-actions");
 var cart_actions_1 = require("./actions/cart-actions");
-var Lib_1 = require("../../../Lib");
 var Consts = require("./StoreConsts");
 var admin_component_1 = require("./components/admin-component");
 var films_component_1 = require("./components/films-component");
 var user_actions_1 = require("./actions/user-actions");
 var film_actions_1 = require("./actions/film-actions");
+var appStoreFactory = function () {
+    var reducers = redux_1.combineReducers({ parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default });
+    var middlewareEnhancer = redux_1.applyMiddleware(thunk, angular2_redux_util_1.LoggerMiddleware);
+    var isDebug = window.devToolsExtension;
+    var applyDevTools = function () { return isDebug ? window.devToolsExtension() : function (f) { return f; }; };
+    var enhancers = redux_1.compose(middlewareEnhancer, applyDevTools());
+    var createStoreWithEnhancers = enhancers(redux_1.createStore);
+    var reduxAppStore = createStoreWithEnhancers(reducers);
+    return new angular2_redux_util_1.AppStore(reduxAppStore);
+};
 var Starwars = (function () {
     function Starwars(commBroker) {
         this.commBroker = commBroker;
-        var isDev = window.devToolsExtension;
-        var applyDevTools = function () { return isDev ? window.devToolsExtension() : function (f) { return f; }; };
-        var createStoreWithMiddleware = redux_1.compose(redux_1.applyMiddleware(thunk, Lib_1.Lib.loggerMiddleware), applyDevTools())(redux_1.createStore);
-        var reducers = redux_1.combineReducers({ parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default });
-        var appStore = new angular2_redux_1.AppStore(createStoreWithMiddleware(reducers));
-        this.commBroker.setService(Consts.APP_STORE, appStore);
+        var reduxAppStore = appStoreFactory();
+        this.commBroker.setService(Consts.APP_STORE, reduxAppStore);
     }
     Starwars = __decorate([
         core_1.Component({
