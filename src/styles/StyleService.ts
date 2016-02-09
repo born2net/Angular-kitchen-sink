@@ -33,12 +33,12 @@ export class StyleService {
         switch (styleName) {
             case 'lite':
             {
-                this.loadCss('style.css');
+                this.loadCss('../styles/style.css');
                 break;
             }
             case 'dark':
             {
-                this.loadCss('style_dark.css');
+                this.loadCss('../styles/style_dark.css');
                 break;
             }
             case 'polymer':
@@ -50,13 +50,10 @@ export class StyleService {
     }
 
     private loadMaterial() {
-
-        // you can check manually if a module has downloaded using system.js
+        //you can check manually if a module has downloaded using system.js
         //System.has(`${window.location.origin}/src/styles/material-design/js/material.min.js`)
-
         //this.loadCss('src/styles/material-design/css/bootstrap-material-design.css');
         //this.loadCss('src/styles/material-design/css/ripples.min.css');
-        //
         //var a:Promise<any> = System.import('src/styles/material-design/js/material.min.js');
         //var b:Promise<any> = System.import('src/styles/material-design/js/ripples.min.js');
         //Promise.all([a, b]).then(function (e) {
@@ -94,12 +91,5 @@ export class StyleService {
 
     public set model(styleModel:StyleModel) {
         this.styleModel = styleModel;
-    }
-
-    /** refresh theme only applies to Polymer for now **/
-    public refreshTheme() {
-        if (this.model.selectedTheme != 'polymer')
-            return;
-        this.loadTheme('polymer');
     }
 }

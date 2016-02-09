@@ -15,8 +15,7 @@
 
 ///<reference path="../typings/jquery/jquery.d.ts" />
 
-//<reference path="../typings/systemjs/systemjs.d.ts" />
-
+///<reference path="../typings/systemjs/systemjs.d.ts" />
 ///<reference path='../node_modules/immutable/dist/Immutable.d.ts'/>
 ///<reference path="../typings/redux/redux.d.ts" />
 ///<reference path="../typings/redux-thunk/redux-thunk.d.ts" />
@@ -29,6 +28,16 @@ declare var assert: any;
 interface Window {
     devToolsExtension: any;
     devToolsExtensionDisabled: any;
+    DOMParser:any;
 }
+
+declare var watch:any;
+
+// in TS1.8 we can use this:
+//declare global {
+//    devToolsExtension: any;
+//    devToolsExtensionDisabled: any;
+//    devToolsExtensionDisabled Array<T> {
+//}
 
 

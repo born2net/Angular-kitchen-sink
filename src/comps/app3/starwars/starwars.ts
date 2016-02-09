@@ -1,33 +1,13 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component} from "angular2/core";
-import {createStore, combineReducers, applyMiddleware, compose} from "redux";
-import * as thunk from 'redux-thunk';
-import parts from "./reducers/parts-reducer"
-import cart from "./reducers/cart-reducer"
-import films from "./reducers/films-reducer"
-import users from "./reducers/users-reducer"
-import {AppStore, LoggerMiddleware} from "angular2-redux-util";
+import {Component, Injector, provide} from "angular2/core";
 import {ShoppingComponent} from "./components/shopping-component";
-import {CommBroker} from "../../../services/CommBroker";
 import {PartActions} from "./actions/part-actions";
 import {CartActions} from "./actions/cart-actions";
-import * as Consts from "./StoreConsts";
 import {AdminComponent} from "./components/admin-component";
 import {FilmsComponent} from "./components/films-component";
 import {UserActions} from "./actions/user-actions";
 import {FilmActions} from "./actions/film-actions";
-
-const appStoreFactory = () => {
-    const reducers = combineReducers({parts, cart, films, users});
-    const middlewareEnhancer = applyMiddleware(<any>thunk, LoggerMiddleware); // to enable logger
-    const isDebug = window.devToolsExtension;
-    const applyDevTools = () => isDebug ? window.devToolsExtension() : f => f;
-    const enhancers = compose(middlewareEnhancer, applyDevTools());
-    const createStoreWithEnhancers = enhancers(createStore);
-    const reduxAppStore = createStoreWithEnhancers(reducers);
-    return new AppStore(reduxAppStore);
-};
 
 @Component({
     selector: 'Starwars',
@@ -46,8 +26,22 @@ const appStoreFactory = () => {
 })
 
 export class Starwars {
-    constructor(private commBroker:CommBroker) {
-        var reduxAppStore = appStoreFactory();
-        this.commBroker.setService(Consts.APP_STORE, reduxAppStore);
+    constructor() {
+        // https://babeljs.io/repl/
+        // test Immutable
+        //var dog1:Dog = new Dog();
+        //var dog2:Dog = new Dog();
+        //var dog3:Dog = new Dog();
+        //var dogs = Immutable.Map();
+        //dogs.set(dog1.idz, dog1);
+        //dogs.find(e=> {
+        //    return true
+        //});
+        //var a = dogs.has('anim5');
+        ////dogs = dogs.push(dog2);
+        ////var d2 = dogs.get(0);
+        ////var a = dogs.set(1,dog3);
+        ////var d3 = dogs.get(1);
+
     }
 }

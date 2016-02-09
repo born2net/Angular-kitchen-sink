@@ -1,6 +1,5 @@
 import {Component} from "angular2/core";
 import {Contributors} from "./contributors/contributors";
-import {RefreshTheme} from "../../../styles/RefreshTheme";
 import {Alert, Rating} from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
@@ -15,8 +14,7 @@ import {Alert, Rating} from 'ng2-bootstrap/ng2-bootstrap';
                 `
 })
 
-export class Help extends RefreshTheme {
-    constructor(contributors:Contributors) {
-        super();
+export class Help  {
+    constructor() {
     }
 }

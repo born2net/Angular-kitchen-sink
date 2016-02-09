@@ -76,6 +76,7 @@ small {
     text-transform: uppercase;
     display: block;
 }
+
 .appMenu li {
     cursor: pointer;
     background-color: #3e3f48;
@@ -120,12 +121,12 @@ small {
     transition: all .2s ease-in-out;
 }
 
-
 #largeGit:hover {
     font-size: 20em;
     color: black;
     opacity: 1;
-    transform: scale(1.4); opacity: 0.7
+    transform: scale(1.4);
+    opacity: 0.7
 }
 
 #router:hover {
@@ -147,21 +148,21 @@ small {
     min-height: 55px;
 }
 
-#mainPanelWrap{
+#mainPanelWrap {
     height: 200px;
     border-right: 2px #d9d9d9 solid;
     padding-left: 40px;
 }
+
 #propPanel, #mainPanelWrap {
     /*height: 200px;*/
-     /*border-left: 2px #d9d9d9 solid;*/
+    /*border-left: 2px #d9d9d9 solid;*/
     /*padding-left: 40px;*/
     -webkit-transition: width 0.1s ease, margin 0.1s ease;
     -moz-transition: width 0.1s ease, margin 0.1s ease;
     -o-transition: width 0.1s ease, margin 0.1s ease;
     transition: width 0.1s ease, margin 0.1s ease;
 }
-
 
 #propPanel {
     margin: 0 auto;
@@ -185,13 +186,19 @@ small {
     background-color: #222222;
 }
 
+#footer i {
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 5px;
+    color: #358ac9;
+}
+
 #footerText {
     color: #808080;
     padding: 0px;
     margin: 0px;
 }
 
-
 #appNavigatorWasp {
     padding: 0px;
     margin: 0px;
@@ -229,18 +236,15 @@ small {
     background-color: #428bca;
     color: white;
 }
-
 
 #popModal {
     padding: 20px;
 }
 
-
 #campaignProperties {
     padding-top: 10px;
     padding-right: 10px;
 }
-
 
 #appMailWaspContent {
     height: 100%;
@@ -249,9 +253,6 @@ small {
     min-width: 100%;
     /* background-color: pink; */
 }
-
-
-
 
 .noScroll {
     overflow: hidden;
@@ -380,7 +381,6 @@ small {
     height: 100%;
 }
 
-
 /************************************
  Hardware accelerated horizontal
 /************************************
@@ -468,7 +468,6 @@ Software accelerated vertical
     transition-duration: 3.25s;
 }
 */
-
 
 .clearFloat {
     clear: both;
@@ -564,7 +563,6 @@ Language selector
     vertical-align: middle;
     margin-right: 10px;
 }
-
 
 /* material switches */
 
@@ -664,7 +662,6 @@ Language selector
     margin: 0;
 }
 
-
 .flip .flipcard .face {
     width: 39px;
     height: 25px;
@@ -691,45 +688,54 @@ Language selector
     cursor: pointer;
 }
 
-
 .notice {
     padding: 15px;
     background-color: #fafafa;
     border-left: 6px solid #7f7f84;
     margin-bottom: 10px;
-    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
-    box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 5px 8px -6px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 8px -6px rgba(0, 0, 0, .2);
 }
+
 .notice-sm {
     padding: 10px;
     font-size: 80%;
 }
+
 .notice-lg {
     padding: 35px;
     font-size: large;
 }
+
 .notice-success {
     border-color: #80D651;
 }
-.notice-success>strong {
+
+.notice-success > strong {
     color: #80D651;
 }
+
 .notice-info {
     border-color: #45ABCD;
 }
-.notice-info>strong {
+
+.notice-info > strong {
     color: #45ABCD;
 }
+
 .notice-warning {
     border-color: #FEAF20;
 }
-.notice-warning>strong {
+
+.notice-warning > strong {
     color: #FEAF20;
 }
+
 .notice-danger {
     border-color: #d73814;
 }
-.notice-danger>strong {
+
+.notice-danger > strong {
     color: #d73814;
 }

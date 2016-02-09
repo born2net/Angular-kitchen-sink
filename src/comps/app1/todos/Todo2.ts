@@ -4,7 +4,7 @@ import TodoStatsModel from "./TodoStatsModel";
 
 @Component({
     selector: 'Todo2',
-    styles: [require('./TodoStatsModel.scss')],
+	   styleUrls: ['../comps/app1/todos/TodoStatsModel.css'],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                     </button>

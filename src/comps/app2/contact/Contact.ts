@@ -42,7 +42,7 @@ import {CommBroker} from "../../../services/CommBroker";
                         <label for="name">Name</label>
                         <input type="text" class="form-control" required [(ngModel)]="model.name" (change)="onChange($event)" ngControl="name" #name="ngForm">
                         <div [hidden]="name.valid" class="alert alert-danger">
-                          Name is required
+                          Name is required  field
                         </div>
                       </div>
                       <div class="form-group">

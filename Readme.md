@@ -13,7 +13,7 @@ Check this working demo: http://ng2.javascriptninja.io
 The goal behind ng2Boilerplayer is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
 
 to install::
-```
+```             
 git clone https://github.com/born2net/ng2Boilerplate.git
 cd ng2Boilerplate
 npm install

@@ -8,7 +8,6 @@ import {SortableHeader} from "./SortableHeader";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from 'angular2/common'
 import {OrderBy} from "../../../pipes/OrderBy";
 import {COMMON_DIRECTIVES} from "angular2/common";
-import {RefreshTheme} from "../../../styles/RefreshTheme";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';

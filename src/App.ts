@@ -1,81 +1,59 @@
 ///<reference path="../typings/app.d.ts"/>
+
 //import {enableProdMode} from 'angular2/core';
-//import {AsyncRoute} from "angular2/router";
+
+window['jQuery'] = require('jquery');
+window['bootbox'] = require('bootbox');
+window['_'] = require('underscore');
+window['Highcharts'] = require('highcharts');
+window['immutable'] = require('immutable');
+require('bootstrap');
+
+import "reflect-metadata";
+import 'twbs/bootstrap/css/bootstrap.css!';
+import './styles/style.css!';
 import {bootstrap} from 'angular2/platform/browser';
-import {HTTP_PROVIDERS} from "angular2/http";
+import {HTTP_PROVIDERS, JSONP_PROVIDERS} from "angular2/http";
 import {App1} from '../src/comps/app1/App1';
 import {App2} from '../src/comps/app2/App2';
 import {App3} from '../src/comps/app3/App3';
-import {Component, provide, ViewEncapsulation, AfterContentInit} from 'angular2/core';
+import {Component, provide, ViewEncapsulation} from 'angular2/core';
 import {EntryPanel} from '../src/comps/entry/EntryPanel';
 import {AppManager} from '../src/comps/appmanager/AppManager';
 import {CommBroker} from '../src/services/CommBroker';
 import {Filemenu} from "../src/comps/filemenu/Filemenu";
 import {FilemenuItem} from "../src/comps/filemenu/FilemenuItem";
 import {Logo} from "./comps/logo/Logo";
-import {RefreshTheme} from "./styles/RefreshTheme";
+import {Footer} from "./comps/footer/Footer";
 import {Consts} from "../src/Conts";
 import {StyleService} from "./styles/StyleService";
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from 'angular2/router';
 import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
+import {AppStore} from "angular2-redux-util";
+import {Lib} from "./Lib";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
+import {todos} from "./comps/app1/todos/reducers/TodoReducer"
+import parts from "./comps/app3/starwars/reducers/parts-reducer"
+import cart from "./comps/app3/starwars/reducers/cart-reducer"
+import films from "./comps/app3/starwars/reducers/films-reducer"
+import users from "./comps/app3/starwars/reducers/users-reducer"
+import notify from "./reducers/NotifyReducer"
+import {Welcome} from "./comps/welcome/Welcome";
+
 
 /**
- General route links
- @class Welcome
- **/
-@Component({
-    styles: [`
-        #routerLinks {
-            padding: 20px;
-        }
-    `],
-    template: `
-                <div id="routerLinks">
-                    <h4>Direct router shortcut links:</h4>
-                    <a [routerLink]="['/Login', 'Login']">To Login screen</a><br/>
-                    <a [routerLink]="['/Login', {id: 'Sean-Levy'}, 'Login']">To Login screen with demo user args</a><br/>
-                    <a [routerLink]="['/ForgotPass', 'ForgotPass']">To Forgot Password screen</a><br/>
-                    <a [routerLink]="['/AppManager']">To App manager</a><br/>
-                    <a [routerLink]="['/App1']">To App1</a><br/>
-                    <a [routerLink]="['/App2']">To App2</a><br/>
-                    <a [routerLink]="['/App3']">To App3</a><br/>
-                    <br/><small>I am Welcome component</small>
-                </div>
-                `,
-    directives: [ROUTER_DIRECTIVES, RouterLink]
-})
-export class Welcome {
-    private someId:string;
-
-    constructor(params:RouteParams) {
-        this.someId = 'App1' + Math.random();
-    }
-}
-
-/**
- Load async components for router
- @class ComponentHelper
- **/
-//class ComponentHelper {
-//    static LoadComponentAsync(name:string, path:string) {
-//        //return System.import(path).then(c => c[name]);
-//    }
-//}
-
-/**
- Main application that's kicked off by ng2 bootstrap
+ Main application bootstrap
  @class App
  **/
 @Component({
+    selector: 'app',
     encapsulation: ViewEncapsulation.Emulated,
     providers: [StyleService],
-    selector: 'app',
-    template: require('./App.html'),
-    directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem, Logo]
+    templateUrl: '/src/App.html',
+    directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem, Logo, Footer]
 })
 @RouteConfig([
     {path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},
@@ -90,69 +68,27 @@ export class Welcome {
     {path: '/App3', component: App3, as: 'App3'},
     //new AsyncRoute({
     //    path: '/App1',
-    //    loader: () => ComponentHelper.LoadComponentAsync('App1', 'src/comps/app1/App1'),
+    //    loader: () => Lib.LoadComponentAsync('App1', '../comps/app1/App1'),
     //    name: 'App1'
-    //}),
+    //}), /*systemjs*/
     //new AsyncRoute({
     //    path: '/App2',
-    //    loader: () => ComponentHelper.LoadComponentAsync('App2', 'src/comps/app2/App2'),
+    //    loader: () => Lib.LoadComponentAsync('App2', '../comps/app2/App2'),
     //    name: 'App2'
     //})
+
 ])
-//@RefreshTheme('polymer')
-export class App extends RefreshTheme implements AfterContentInit {
-    private m_commBroker:CommBroker;
+export class App {
     private m_styleService:StyleService;
 
-    constructor(commBroker:CommBroker, styleService:StyleService) {
-        super();
+    constructor(private commBroker:CommBroker, styleService:StyleService) {
+        Lib.loadGlobals();
         this.m_styleService = styleService;
-        this.m_commBroker = commBroker;
-        this.m_commBroker.setService(Consts.Services().App, this);
-
+        this.commBroker.setService(Consts.Services().App, this);
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(()=> {
             this.appResized();
         });
-
-        // an example of passing a optional, typed object instead
-        // of using the old way of: opts || opts = {} and it auto maps
-        // matching fields
-        this.showTypedObjectArg({
-            styles1: ['foo', 'bar'], // optional
-            styles2: [1, 2] // optional
-        })
     }
-
-    private showTypedObjectArg({styles1, styles2}: {styles1?: string[], styles2?: number[]} = {}) {
-        //console.log(styles1 + ' ' + styles2);
-    }
-
-    // component life cycles
-    ngAfterContentInit() {
-        this.appResized();
-    }
-
-    //ngAfterViewInit() {
-    //    console.log(2);
-    //}
-    //ngAfterContentChecked() {
-    //    console.log(3);
-    //}
-    //ngOnInit() {
-    //    console.log(4);
-    //}
-    //ngOnDestroy() {
-    //    console.log(5);
-    //}
-    //ngDoCheck() {
-    //    console.log(6);
-    //}
-    //ngOnChanges(changes) {
-    //    console.log(7);
-    //}
-    //ngAfterViewChecked() {
-    //    console.log(8);
-    //}
 
     /**
      On application resize deal with height changes
@@ -168,9 +104,9 @@ export class App extends RefreshTheme implements AfterContentInit {
         jQuery('#mainPanelWrap').height(appHeight - 115);
         jQuery('#propPanel').height(appHeight - 130);
 
-        this.m_commBroker.setValue(Consts.Values().APP_SIZE, {height: appHeight, width: appWidth});
+        this.commBroker.setValue(Consts.Values().APP_SIZE, {height: appHeight, width: appWidth});
 
-        this.m_commBroker.fire({
+        this.commBroker.fire({
             fromInstance: self,
             event: Consts.Events().WIN_SIZED,
             context: '',
@@ -180,8 +116,8 @@ export class App extends RefreshTheme implements AfterContentInit {
 }
 
 //enableProdMode();
-
-bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS,
+bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
+    provide(AppStore, {useFactory: Lib.StoreFactory({notify, parts, cart, films, users, todos})}),
     provide(CommBroker, {useClass: CommBroker}),
     provide(Consts, {useClass: Consts}),
     provide(LocationStrategy, {useClass: HashLocationStrategy})]);

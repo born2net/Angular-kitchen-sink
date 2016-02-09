@@ -1,10 +1,8 @@
 import {Component} from 'angular2/core'
-import {AppStore} from "angular2-redux-util";
 import {FilmActions} from "../actions/film-actions";
 import {FilmSelectionView} from "../components/film-selection-view";
 import {FilmView} from "../components/film-view";
-import {CommBroker} from "../../../../services/CommBroker";
-import * as Consts from '../StoreConsts'
+import {AppStore} from "angular2-redux-util";
 
 @Component({
     selector: 'films-component',
@@ -21,23 +19,21 @@ import * as Consts from '../StoreConsts'
 export class FilmsComponent {
 
     private filmsCount;
-    private _appStore;
     private currentFilm = null;
     private isFetchingCurrentFilm = false;
 
-    constructor(private commBroker:CommBroker, private _filmActions:FilmActions) {
+    constructor(private appStore:AppStore, private _filmActions:FilmActions) {
         var self = this;
-        this._appStore = commBroker.getService(Consts.APP_STORE);
-        this._appStore.subscribe((state) => {
+        this.appStore.subscribe((state) => {
             self.filmsCount = state.films.count;
             self.currentFilm = state.films.currentFilm;
             self.isFetchingCurrentFilm = state.films.isFetchingFilm;
         });
-        this._appStore.dispatch(_filmActions.fetchFilms());
+        this.appStore.dispatch(_filmActions.fetchFilms());
     }
 
     setCurrentFilm(index) {
-        this._appStore.dispatch(this._filmActions.setCurrentFilm(index));
-        this._appStore.dispatch(this._filmActions.fetchFilm(index ));
+        this.appStore.dispatch(this._filmActions.setCurrentFilm(index));
+        this.appStore.dispatch(this._filmActions.fetchFilm(index ));
     }
 }

@@ -105,16 +105,7 @@ export class Digg {
             propView.setPropView('Digg');
     }
 
-    /**
-     * Example of refreshing Polymer theme if is it the one selected
-     * instead of sub-classing refreshTheme interface which we do elsewhere
-     */
     private ngOnInit(){
-        setTimeout(e=> {
-            if (document['commBroker']) {
-                document['commBroker'].getService(Consts.Services().StyleService).refreshTheme();
-            }
-        }, 50);
     }
 
     private listenWinResize() {

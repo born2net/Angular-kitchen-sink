@@ -19,22 +19,23 @@ import {Todo2} from "./todos/Todo2";
 import {TodoList} from "./todos/Todolist";
 import {TodoItem} from "./todos/Todoitem";
 import TodoStatsModel from "./todos/TodoStatsModel";
-import {RefreshTheme} from "../../styles/RefreshTheme";
+import {Contributors} from "./help/contributors/contributors";
+import {TodosService} from "./todos/TodoService";
+import {TodoAction} from "./todos/actions/TodoAction";
 /**
  Application 1 lazy loaded
  **/
 @Component({
-    providers: [HTTP_PROVIDERS, TodoStatsModel],
-    template: require('./App1.html'),
-    directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg,
+    providers: [HTTP_PROVIDERS, TodoStatsModel, TodosService, TodoAction],
+    templateUrl: '/src/comps/app1/App1.html',
+    directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg, Contributors,
         Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
 })
-export class App1 extends RefreshTheme {
+export class App1 {
     private screens:any;
     private commBroker:CommBroker;
 
-    constructor(params:RouteParams, commBroker:CommBroker, Consts:Consts) {
-        super();
+    constructor(params:RouteParams, commBroker:CommBroker, Consts:Consts, private todoAction:TodoAction, private todoService:TodosService) {
         var self = this;
         self.commBroker = commBroker;
         self.screens = {

@@ -1,13 +1,14 @@
-import {Component} from "angular2/core";
-import {Consts} from "../../../../Conts";
+import {Component} from 'angular2/core';
+import {MyChart} from "./MyChart";
 
 @Component({
     selector: 'Contributors',
-    styleUrls: ['src/comps/app1/help/contributors/contributors.css'],
-    templateUrl: 'src/comps/app1/help/contributors/contributors.html'
+    directives: [MyChart],
+    template: `
+                <MyChart></MyChart>
+                <small>I am Contributors component with HighCharts ng2 component</small>`
 })
-
 export class Contributors {
-    constructor() {
-    }
 }
+
+

@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>Bootstrap / Angular 2 boilerplate</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FREE Digital Signage http://www.digitalsignage.com">
+  <meta name="author" content="MediaSignage Inc.">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <title>SignageStudio Lite</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+  <!--<link href="/lib/bootstrap/css/bootstrap.css" rel="stylesheet">-->
+  <!--<link href="../styles/style.css" rel="stylesheet">-->
+  <!--<script src="/lib/jquery.js"></script>-->
+  <!--<script src="/lib/bootbox/bootbox.js"></script>-->
+  <!--<script src="/lib/bootstrap/js/bootstrap.js"></script>-->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <app>
+    <div id="loading">
+      <label class="center">Angular2 / System.js</label>
+      <br/>
+      <img id="appLoader" src="assets/loading.svg" alt="Loading icon"/>
+    </div>
+  </app>
+  <!-- shims -->
+  <!--<script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>-->
+  <!--<script src="/node_modules/es6-shim/es6-shim.min.js"></script>-->
+  <!--<script src="/node_modules/reflect-metadata/Reflect.js"></script>-->
+  <script src="/jspm_packages/system.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-beta.1/angular2-polyfills.js"></script>
+  <script src="../../config.js"></script>
+  <!--<script src="/node_modules/rxjs/bundles/Rx.min.js"></script>-->
+  <!--<script src="https://code.angularjs.org/2.0.0-beta.1/angular2.dev.js"></script>-->
+  <!--<script src="https://code.angularjs.org/2.0.0-beta.1/http.js"></script>-->
+  <!--<script src="https://code.angularjs.org/2.0.0-beta.1/router.js"></script>-->
+  <script>
+    System.import('../App')
+      .catch(function (e) {
+        console.error(e,
+          'error system.js ' + e);
+      });
+  </script>
+</head>
+<html lang="en-US">
+<head>
+  <app></app>
+</head>
+<body>

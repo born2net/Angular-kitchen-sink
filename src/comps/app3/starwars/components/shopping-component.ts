@@ -5,8 +5,7 @@ import {PartsView} from "../components/parts-view";
 import {CartView} from "../components/cart-view";
 import {AddPartsView} from "./add-part-view";
 import {createSelector} from 'reselect';
-import {CommBroker} from "../../../../services/CommBroker";
-import * as Consts from '../StoreConsts';
+import {AppStore} from "angular2-redux-util";
 
 // select the parts in cart
 const partsInCartSelector = createSelector((state:any)=>state.cart, state=>state.parts, (cart, parts) => {
@@ -43,13 +42,11 @@ export interface IAppStore {
 export class ShoppingComponent {
     private parts = [];
     private partsInCart = [];
-    private appStore;
     private addPart;
     private addPartToCart;
     private removePartFromCart;
 
-    constructor(commBroker:CommBroker, partActions:PartActions, cartActions:CartActions) {
-        this.appStore = commBroker.getService(Consts.APP_STORE);
+    constructor(private appStore:AppStore, partActions:PartActions, cartActions:CartActions) {
         this.addPart = partActions.createDispatcher(this.appStore, partActions.addPart);
         this.addPartToCart = cartActions.createDispatcher(this.appStore, cartActions.addToCart);
         this.removePartFromCart = cartActions.createDispatcher(this.appStore, cartActions.removeFromCart);

@@ -4,8 +4,6 @@ import {UserActions} from "../actions/user-actions";
 import {UsersView} from "../components/users-view";
 import {UserView} from "../components/user-view";
 import {createSelector} from 'reselect';
-import {CommBroker} from "../../../../services/CommBroker";
-import * as Consts from '../StoreConsts';
 
 @Component({
     selector: 'admin',
@@ -32,10 +30,8 @@ export class AdminComponent {
     private setCurrentUser;
     private setFilmFilter;
 
-    constructor(commBroker:CommBroker, userActions:UserActions) {
+    constructor(appStore:AppStore, userActions:UserActions) {
         var self = this;
-        var appStore = commBroker.getService(Consts.APP_STORE);
-
         this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
         this.setFilmFilter  = userActions.createDispatcher(appStore, userActions.setFilmFilter);
 
@@ -47,7 +43,6 @@ export class AdminComponent {
             self.filmFilter = state.users.filmFilter;
 
         });
-
         appStore.dispatch(userActions.fetchUsers());
 
     }

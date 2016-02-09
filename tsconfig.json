@@ -17,7 +17,11 @@
   "exclude": [
     "src/comps/app4/in_dev",
     "node_modules",
-    "typings"
+    "jspm_packages",
+    "typings",
+    "dist",
+    "typings/main.d.ts",
+    "typings/main"
   ],
   "compileOnSave": true,
   "buildOnSave": true

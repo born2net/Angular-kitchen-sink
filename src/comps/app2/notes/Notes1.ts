@@ -15,9 +15,9 @@ import NameTakenValidator from "../../../validators/NameTakenValidator";
 @Component({
     selector: 'Notes1',
     directives: [ModalDialog, FORM_DIRECTIVES],
-    pipes: [CharCount],
-    styles: [require('./Notes1.scss')],
-    template: require('./Notes1.html')
+    templateUrl: '/src/comps/app2/notes/Notes1.html',
+    styleUrls: ['../comps/app2/notes/Notes1.css'],
+    pipes: [CharCount]
 })
 
 /**

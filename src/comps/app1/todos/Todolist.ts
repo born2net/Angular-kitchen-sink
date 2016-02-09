@@ -1,7 +1,9 @@
 import {Component} from 'angular2/core';
-import {TodosService, IDataStore, TodoItemModel} from "./TodoRemote";
+import {TodosService, IDataStore, TodoItemModel} from "./TodoService";
 import {TodoItem} from "./Todoitem";
 import {Observable} from "rxjs/Observable";
+import {TodoAction} from "./actions/TodoAction";
+import {AppStore} from "angular2-redux-util/dist/index";
 
 type channelTodoObservable = Observable<TodoItem>;
 type channelTodosObservable = Observable<Array<channelTodoObservable>>;
@@ -13,12 +15,12 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   <header class="header">
                     <h1>your to-do's</h1>
                     <input class="new-todo" placeholder="What needs to be done?"
-                    autofocus [(ngModel)]="newItem" (keyup.enter)="addItem()">
-                    <button class="btn btn-default btn-lg" (click)="addItem()">Add todo</button>
+                    autofocus [(ngModel)]="newItem" (keyup.enter)="addItem(newItem)">
+                    <button class="btn btn-default btn-lg" (click)="addItem(newItem)">Add todo</button>
                   </header>
                   <section class="main">
                     <ul class="todo-list">
-                      <li *ngFor="#item of m_dataStore.todos">
+                      <li *ngFor="#item of m_dataStore">
                         <todo-item [item]="item" (done)="removeItem($event)" (edit)="editItem($event)">
                         </todo-item>
                       </li>
@@ -26,30 +28,34 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   </section>
                 </section>
     `,
-    styles: [ require('./Todolist.scss')],
+    styleUrls: ['../comps/app1/todos/Todolist.css'],
     directives: [TodoItem],
-    providers: [TodosService]
 })
 export class TodoList {
     newItem = '';
-    private m_dataStore:IDataStore;
+    private m_dataStore:any = [];
+    private addItem:Function;
+    private editItem:Function;
+    private removeItem:Function;
 
-    constructor(private todoService:TodosService) {
-        this.m_dataStore = todoService.getDataStore();
-    }
+    constructor(private todoService:TodosService, private todoAction:TodoAction, private appStore:AppStore) {
+        todoService.action = todoAction;
+        todoAction.service = todoService;
 
-    addItem() {
-        if (this.newItem.length == 0)
-            return;
-        this.todoService.addItem(this.newItem);
-        this.newItem = '';
-    }
+        this.todoService.loadTodosRemote((status:number)=> {
+            if (status == -1) {
+                bootbox.alert('problem saving to server');
+                return;
+            }
+        });
 
-    removeItem(item:TodoItemModel) {
-        this.todoService.removeItem(item);
-    }
+        appStore.subscribe((path, prev, store) => {
+            this.m_dataStore = store;
+            this.newItem = '';
+        }, 'todos', true);
 
-    editItem(item:TodoItemModel) {
-        this.todoService.editItem(item);
+        this.addItem = todoAction.createDispatcher(appStore, todoAction.addTodo);
+        this.removeItem = todoAction.createDispatcher(appStore, todoAction.removeTodo);
+        this.editItem = todoAction.createDispatcher(appStore, todoAction.editTodo);
     }
 }

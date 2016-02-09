@@ -6,7 +6,8 @@ import {RouterLink, RouteParams} from 'angular2/router';
 import {Starwars} from "./starwars/Starwars";
 
 @Component({
-    template: require('./App3.html'),
+//        template: require('./App3.html'), /*webpack*/
+	        templateUrl: '/src/comps/app3/App3.html', /*systemjs*/
     directives: [ROUTER_DIRECTIVES, RouterLink, Starwars]
 })
 export class App3 {
