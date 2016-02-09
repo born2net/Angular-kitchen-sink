@@ -65,7 +65,7 @@ gulp.task('development', function (done) {
 });
 
 /**  Generate project documentation **/
-gulp.task("docs", function () {
+gulp.task("sysdocs", function () {
     return gulp
         .src(["./src/*.ts"])
         .pipe(typedoc({
