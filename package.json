@@ -11,7 +11,7 @@
     "clean-start": "npm run clean && npm start",
     "lint": "tsconfig-lint",
     "docs": "typedoc --options typedoc.json src/app/app.ts",
-    "postinstall": "jspm install"
+    "postinstall": "jspm install && gulp development"
   },
   "author": "Sean Levy",
   "license": "MIT",

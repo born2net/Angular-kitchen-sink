@@ -16,13 +16,14 @@ to install::
 ```             
 git clone https://github.com/born2net/ng2Boilerplate.git
 cd ng2Boilerplate
+npm install jspm -g
 npm install
 open browser to http://localhost:8080
 ```
       
 What features of Angular does this app cover? well pretty much all the core stuff:
 
-- Webpack with optimised webpack.config
+- powered by the awesome JSPM (http://jspm.io/) 
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
 - Advanced Routing
 - StarWars movie shop powered by Redux store
