@@ -18,7 +18,6 @@ git clone https://github.com/born2net/ng2Boilerplate.git
 cd ng2Boilerplate
 npm install jspm -g
 npm install
-open browser to http://localhost:8080
 ```
 
 development mode:
@@ -64,6 +63,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Theme service (supports 3 themes including Lite, Dark and Polymer)
 - Pipes including grid sort and character counter
 - Interfaces
+- Gulp tasks for dev / prod, doc gen and more
 - UI data binding / uni and 2 way
 - Document generation
 - and much more...
