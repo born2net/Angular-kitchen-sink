@@ -20,11 +20,22 @@ npm install jspm -g
 npm install
 open browser to http://localhost:8080
 ```
-      
+
+development mode:
+```
+gulp development
+```
+
+production mode:
+```
+gulp production
+```
+
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - powered by the awesome JSPM (http://jspm.io/) 
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
+- Immutable.js powered Todo component with backend server sync / redux store
 - Advanced Routing
 - StarWars movie shop powered by Redux store
 - jQuery integration the Angular way via BrowserDomAdapter

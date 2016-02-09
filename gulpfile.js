@@ -37,7 +37,7 @@ var paths = {
  * public commands
  *********************/
 
-gulp.task("bundle", function (callback) {
+gulp.task("production", function (callback) {
     runSequence(
         "x_clean",
         "x_copy_css",
