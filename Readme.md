@@ -42,18 +42,19 @@ gulp production
 
 What features of Angular does this app cover? well pretty much all the core stuff:
 
-- powered by the awesome JSPM (http://jspm.io/)
+- powered by the awesome (awesome awesome) jspm (http://jspm.io/)
    - in development TypeScript is compiled in real time in browser, best workflow
    - for production minified bundle is created
    - support multi version npm / github repositories
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
-- Immutable.js powered Todo component with 
-   - backend server sync / local redux store (https://github.com/rackt/redux)
-- Advanced Routing (also support async routing if jspm bundling not used)
+- Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
+   - backend server sync
+   - local redux store (https://github.com/rackt/redux)
+- Advanced Routing (also support async routing if jspm bundling is not used)
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
 - jQuery integration the Angular way via BrowserDomAdapter
-- CommBroker dependency service, value sharing and mediator design pattern
+- CommBroker dependency service, value sharing / mediator design pattern
 - LocalStorage service
 - Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react) 
