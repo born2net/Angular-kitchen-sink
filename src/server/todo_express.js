@@ -42,19 +42,29 @@ exports.cacheGet = function (cacheKey, callback) {
 exports.cacheSet = function (cacheKey, cacheValue, expireSeconds) {
     _this.redisClient.setex(cacheKey, expireSeconds, cacheValue);
 };
+/**
+ Todo service as part of the ng2Boilerplate example using CRUD
+ @class todo
+ @constructor
+ @return {Object} instantiated service
 
+ http://ng2.JavasScriptNinja.io"
+
+ **/
 module.exports.set = function (app, worker_id) {
 
     var ms = require("mslibmod");
     var request = require('request');
     var cors = require('cors');
-    var expirationSeconds = 172800;
+    var expirationSeconds = 186400;
 
     /** Read **/
     app.get('/todos', cors({origin: '*'}), function (req, res) {
         var ip = req.headers['X-Real-IP'] || req.connection.remoteAddress;
-        var unique = `todos_${ip}`
+        var unique = `todos_${ip}`;
         ms.log(`todos get all ${ip}`);
+        // clear cache for debug
+        //ms.cacheSet(unique, '', expirationSeconds);
         ms.cacheGet(unique, function (err, data) {
             if (err) {
                 ms.log('Todos get err ' + err);
@@ -86,7 +96,7 @@ module.exports.set = function (app, worker_id) {
             if (data) {
                 var jData = JSON.parse(data);
                 for (var index in jData) {
-                    if (jData[index].id === id) {
+                    if (jData[index]._data.modelId === id) {
                         jData.splice(index, 1);
                     }
                 }
@@ -127,8 +137,8 @@ module.exports.set = function (app, worker_id) {
                         var task = jBody.task;
                         var jData = JSON.parse(data);
                         for (var index in jData) {
-                            if (jData[index].id === id)
-                                jData[index].task = task;
+                            if (jData[index]._data.modelId === id)
+                                jData[index]._data.task = task;
                         }
                         jData = JSON.stringify(jData);
                         ms.cacheSet(unique, jData, expirationSeconds);
