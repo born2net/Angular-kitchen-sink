@@ -47,7 +47,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
    - for production minified bundle is created
    - support multi version npm / github repositories
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
-- Support for the awesomeness of Redux dev tool with live time travel (http://goo.gl/PNG5nV) 
+- Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV) 
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
    - backend server sync
    - local redux store (https://github.com/rackt/redux)
