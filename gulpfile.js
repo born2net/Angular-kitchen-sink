@@ -18,6 +18,7 @@ var insert = require("gulp-insert");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var tslintStylish = require('gulp-tslint-stylish');
+
 //var commentSwap = require('gulp-comment-swap');
 //var tsc = require('gulp-typescript');
 
@@ -62,6 +63,10 @@ gulp.task("production", function (callback) {
 /** launch the systemjs development server, files are kept raw **/
 gulp.task('development', function (done) {
     runSequence('x_open_server_development', done);
+});
+
+gulp.task('x_development_auto', function (done) {
+    runSequence('x_open_server_development_auto', done);
 });
 
 /**  Generate project documentation **/
@@ -170,13 +175,34 @@ gulp.task('x_open_server_development', ['x_watch_source'], function () {
         open: false,
         files: ['index.html', '**/*.ts'],
         notify: true,
-        reloadDebounce: 100,
+        reloadDebounce: 400,
         server: {
             baseDir: './',
             directory: true
         }
     });
     opn('http://localhost:8080/src/public/index.html')
+});
+
+/**
+ * to get a fresh server every 10 minutes for better dev performance run:
+ * forever stop 0 ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development_auto ; tail -f ~/.forever/f.log
+  **/
+gulp.task('x_open_server_development_auto', ['x_watch_source'], function () {
+    process.stdout.write('Starting browserSync and superstatic...\n');
+    browserSync({
+        port: 8080,
+        open: false,
+        files: ['index.html', '**/*.ts'],
+        notify: true,
+        reloadDebounce: 400,
+        server: {
+            baseDir: './',
+            directory: true
+        }
+    });
+    // exit every 10 minutes so forever will restart it
+    setTimeout(function(){process.exit()},600000);
 });
 
 gulp.task('x_assets',function(){

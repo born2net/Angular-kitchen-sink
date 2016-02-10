@@ -40,9 +40,6 @@ var Digg = (function () {
         if (propView)
             propView.setPropView('Digg');
     }
-    Digg.prototype.ngOnInit = function () {
-        this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
-    };
     Digg.prototype.listenWinResize = function () {
         var self = this;
         self.m_commBroker.onEvent(Conts_1.Consts.Events().WIN_SIZED).subscribe(function (e) {

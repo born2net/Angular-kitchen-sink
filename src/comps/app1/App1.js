@@ -41,6 +41,18 @@ var App1 = (function () {
     App1.prototype.ngOnInit = function () {
         this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
     };
+    App1.prototype.routerCanReuse = function (next, prev) {
+        return true;
+    };
+    App1.prototype.routerOnReuse = function (to, from) {
+    };
+    App1.prototype.routerOnActivate = function (to, from) {
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve(true);
+            }, 10);
+        });
+    };
     App1.prototype.listenMenuChanges = function () {
         var self = this;
         self.commBroker.onEvent(Conts_1.Consts.Events().MENU_SELECTION).subscribe(function (e) {

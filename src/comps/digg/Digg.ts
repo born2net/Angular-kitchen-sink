@@ -24,6 +24,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 
+
 @Component({
     selector: 'Digg',
     inputs: ['mode:mode'],
@@ -101,10 +102,6 @@ export class Digg {
         var propView = this.commBroker.getService(Consts.Services().Properties);
         if (propView)
             propView.setPropView('Digg');
-    }
-
-    ngOnInit(){
-        this.commBroker.getService(Consts.Services().App).appResized();
     }
 
     private listenWinResize() {

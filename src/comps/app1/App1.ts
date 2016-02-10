@@ -1,5 +1,8 @@
 import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES, RouteConfig, Router} from 'angular2/router';
+import {
+    ROUTER_DIRECTIVES, RouteConfig, Router, OnActivate, ComponentInstruction, CanReuse,
+    OnReuse, CanActivate
+} from 'angular2/router';
 import {HTTP_PROVIDERS} from "angular2/http";
 import {RouterLink, RouteParams} from 'angular2/router';
 import {Menu} from "../sidemenu/Menu";
@@ -32,20 +35,47 @@ import {Todos} from "./todos/Todos";
     {path: '/Logout', component: Logout, as: 'Logout'}
 ])
 
+//CanActivate example of how to allow conditional route access after 10ms of Promise resolution
+//@CanActivate(() => {
+//    return new Promise(resolve => {
+//        setTimeout(e=> {
+//            resolve(true)
+//        }, 10)
+//    })
+//})
 @Component({
     providers: [HTTP_PROVIDERS, TodoStatsModel, TodosService, TodoAction],
     templateUrl: '/src/comps/app1/App1.html',
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg, Contributors,
         Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
 })
-export class App1 {
+export class App1 implements OnActivate, CanReuse, OnReuse {
 
     constructor(private commBroker:CommBroker, private router:Router) {
         this.listenMenuChanges();
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.commBroker.getService(Consts.Services().App).appResized();
+    }
+
+    /** Examples on router life-cycle hooks **/
+    routerCanReuse(next:ComponentInstruction, prev:ComponentInstruction) {
+        return true;
+    }
+
+    routerOnReuse(to:ComponentInstruction, from:ComponentInstruction) {
+        //console.log(to.params['name']);
+        //console.log(to.urlPath ? to.urlPath : '' + ' ' + from.urlPath);
+    }
+
+    routerOnActivate(to:ComponentInstruction, from:ComponentInstruction) {
+        // demonstrate delay on routing, maybe to load some server data first or show loading bar
+        return new Promise((resolve) => {
+            setTimeout(()=> {
+                resolve(true);
+            }, 10)
+        });
     }
 
     public listenMenuChanges() {
