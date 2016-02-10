@@ -47,9 +47,11 @@ What features of Angular does this app cover? well pretty much all the core stuf
    - for production minified bundle is created
    - support multi version npm / github repositories
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
+- Support for the awesomeness of Redux dev tool with live time travel (http://goo.gl/PNG5nV) 
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
    - backend server sync
    - local redux store (https://github.com/rackt/redux)
+   - Extending Base class StoreModel makes working with Immutable.js a breeze
 - Advanced Routing (also support async routing if jspm bundling is not used)
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
