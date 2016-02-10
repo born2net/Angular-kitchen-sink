@@ -44,7 +44,6 @@ export class TodoList {
 
         this.todoService.loadTodosRemote((status:number)=> {
             if (status == -1) {
-                bootbox.alert('problem saving to server');
                 return;
             }
         });

@@ -29,8 +29,7 @@ import {Weather} from "./weather/Weather";
  Application 2 lazy loaded
  **/
 @Component({
-//    template: require('./App2.html'), /*webpack*/
-	  templateUrl: '/src/comps/app2/App2.html', /*systemjs*/
+    templateUrl: '/src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS],
     directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
         Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]

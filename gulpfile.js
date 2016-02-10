@@ -40,9 +40,8 @@ var paths = {
 gulp.task("production", function (callback) {
     runSequence(
         "x_clean",
-        "x_copy_css",
         "x_assets",
-        "x_copy_html",
+        "x_copy_files",
         "x_build-ts",
         "x_copy",
         "x_bundle",
@@ -179,21 +178,14 @@ gulp.task('x_open_server_development', ['x_watch_source'], function () {
     opn('http://localhost:8080/src/public/index.html')
 });
 
-gulp.task('x_copy_css',function(){
-    return gulp.src([
-        './src/**/*.css'
-    ]).pipe(gulp.dest(paths.dist));
-});
-
 gulp.task('x_assets',function(){
     return gulp.src([
         './src/public/assets/**/*'
     ]).pipe(gulp.dest(paths.assets));
 });
 
-gulp.task('x_copy_html',function(){
-    return gulp.src([
-        './src/**/*.html'
+gulp.task('x_copy_files',function(){
+    return gulp.src(['./**/*.html','./**/*.woff2','./**/*.css'
     ]).pipe(gulp.dest(paths.dist));
 });
 
@@ -234,7 +226,7 @@ gulp.task("x_target", function () {
         // remove script tags
         .pipe(replace(/\.\.\/\.\.\/config.js/g, "index.min.js"))
         .pipe(replace(/<!-- sys_import_start -->[^]+<!-- sys_import_end -->/, ""))
-        //.pipe(replace(/<script.*\n.*<\/script>/g, ""))
+        .pipe(replace(/<!-- sys_jspm_start -->[^]+<!-- sys_jspm_end -->/, ""))
         //.pipe(replace(/<script.*\n.*\n<\/script>/g, ""))
         //.pipe(replace(/\n\n/g, "\n"))
         //.pipe(insert.append("\n<script src='" + paths.targetMinifiedJS + "'></script>"))

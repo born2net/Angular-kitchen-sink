@@ -24,7 +24,7 @@ export class TodoAction extends Actions {
             var todoModel:TodoModel = new TodoModel({task, modelId});
             this.service.saveTodoRemote(todoModel, (status:number)=> {
                 if (status == -1) {
-                    bootbox.alert('problem saving to server');
+                    bootbox.alert('problem saving to server 1');
                     return;
                 }
                 //dispatch({type: ADD_TODO, todoModel: todoModel});
@@ -45,7 +45,7 @@ export class TodoAction extends Actions {
         return (dispatch) => {
             this.service.removeTodoRemote(todoModel, (status:number)=> {
                 if (status == -1) {
-                    bootbox.alert('problem saving to server');
+                    bootbox.alert('problem saving to server 2');
                     return;
                 }
                 dispatch(this.removeTodoDispatch(todoModel));
@@ -62,7 +62,7 @@ export class TodoAction extends Actions {
             dispatch(this.editTodoDispatch(todoModel));
             this.service.editTodoRemote(todoModel, (status:number)=> {
                 if (status == -1) {
-                    bootbox.alert('problem saving to server');
+                    bootbox.alert('problem saving to server 3');
                     return;
                 }
             });
