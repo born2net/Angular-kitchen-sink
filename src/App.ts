@@ -1,14 +1,6 @@
 ///<reference path="../typings/app.d.ts"/>
 
 //import {enableProdMode} from 'angular2/core';
-
-window['jQuery'] = require('jquery');
-window['bootbox'] = require('bootbox');
-window['_'] = require('underscore');
-window['Highcharts'] = require('highcharts');
-window['immutable'] = require('immutable');
-require('bootstrap');
-
 import "reflect-metadata";
 import 'twbs/bootstrap/css/bootstrap.css!';
 import './styles/style.css!';
@@ -35,14 +27,15 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
-import {todos} from "./comps/app1/todos/reducers/TodoReducer"
 import parts from "./comps/app3/starwars/reducers/parts-reducer"
 import cart from "./comps/app3/starwars/reducers/cart-reducer"
 import films from "./comps/app3/starwars/reducers/films-reducer"
 import users from "./comps/app3/starwars/reducers/users-reducer"
 import notify from "./reducers/NotifyReducer"
+import appdb from "./reducers/AppdbReducer"
+import {todos} from "./comps/app1/todos/reducers/TodoReducer"
+import {AppdbAction} from "./actions/AppdbAction";
 import {Welcome} from "./comps/welcome/Welcome";
-
 
 /**
  Main application bootstrap
@@ -51,7 +44,7 @@ import {Welcome} from "./comps/welcome/Welcome";
 @Component({
     selector: 'app',
     encapsulation: ViewEncapsulation.Emulated,
-    providers: [StyleService],
+    providers: [StyleService, AppdbAction],
     templateUrl: '/src/App.html',
     directives: [ROUTER_DIRECTIVES, RouterLink, Filemenu, FilemenuItem, Logo, Footer]
 })
@@ -81,8 +74,8 @@ import {Welcome} from "./comps/welcome/Welcome";
 export class App {
     private m_styleService:StyleService;
 
-    constructor(private commBroker:CommBroker, styleService:StyleService) {
-        Lib.loadGlobals();
+    constructor(private appStore:AppStore, private commBroker:CommBroker, styleService:StyleService, private appdbAction:AppdbAction) {
+        appStore.dispatch(appdbAction.appStartTime());
         this.m_styleService = styleService;
         this.commBroker.setService(Consts.Services().App, this);
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(()=> {
@@ -117,7 +110,16 @@ export class App {
 
 //enableProdMode();
 bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
-    provide(AppStore, {useFactory: Lib.StoreFactory({notify, parts, cart, films, users, todos})}),
+    provide(AppStore, {useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})}),
     provide(CommBroker, {useClass: CommBroker}),
     provide(Consts, {useClass: Consts}),
     provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+
+
+/** global libraries, can't live with'em can't with live without'em **/
+window['jQuery'] = require('jquery');
+window['bootbox'] = require('bootbox');
+window['_'] = require('underscore');
+window['Highcharts'] = require('highcharts');
+window['immutable'] = require('immutable');
+require('bootstrap');

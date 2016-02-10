@@ -7,6 +7,7 @@ import {TodoModel} from "./TodoModel";
 import {AppStore} from "angular2-redux-util/dist/index";
 import {TodoAction} from "./actions/TodoAction";
 
+// debug server
 //const url:string = 'http://secure.digitalsignage.com:8080';
 const url:string = 'http://secure.digitalsignage.com';
 
@@ -99,7 +100,7 @@ export class TodosService {
         }, error => console.log('Could not delete todo.'));
     }
 
-    editTodoRemote(todoModel:TodoModel, cb:(status:number)=>void) {
+    public editTodoRemote(todoModel:TodoModel, cb:(status:number)=>void) {
         this.todoStatsModel.updates++;
         var modelId = todoModel.getKey('modelId');
         var data = JSON.stringify(todoModel);

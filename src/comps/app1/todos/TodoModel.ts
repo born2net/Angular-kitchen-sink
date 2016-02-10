@@ -1,7 +1,7 @@
 import {StoreModel} from "../../../models/StoreModel";
 
 /**
- * Thin wrapper of Immutable data around a single business
+ * Thin wrapper of Immutable data around a single model
  * **/
 export class TodoModel extends StoreModel {
 
@@ -10,7 +10,7 @@ export class TodoModel extends StoreModel {
     }
 
     invalidateTodoId(i_id = -1) {
-        return this.setKey<TodoModel>(TodoModel, 'id', i_id);
+        return this.setKey<TodoModel>(TodoModel, 'modelId', i_id);
     }
 
 }

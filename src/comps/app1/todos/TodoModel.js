@@ -13,7 +13,7 @@ var TodoModel = (function (_super) {
     }
     TodoModel.prototype.invalidateTodoId = function (i_id) {
         if (i_id === void 0) { i_id = -1; }
-        return this.setKey(TodoModel, 'id', i_id);
+        return this.setKey(TodoModel, 'modelId', i_id);
     };
     return TodoModel;
 }(StoreModel_1.StoreModel));

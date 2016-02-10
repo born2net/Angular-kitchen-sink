@@ -8,12 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-window['jQuery'] = require('jquery');
-window['bootbox'] = require('bootbox');
-window['_'] = require('underscore');
-window['Highcharts'] = require('highcharts');
-window['immutable'] = require('immutable');
-require('bootstrap');
 require("reflect-metadata");
 require('twbs/bootstrap/css/bootstrap.css!');
 require('./styles/style.css!');
@@ -40,18 +34,22 @@ var Observable_1 = require("rxjs/Observable");
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/debounceTime');
 require('rxjs/add/observable/fromEvent');
-var TodoReducer_1 = require("./comps/app1/todos/reducers/TodoReducer");
 var parts_reducer_1 = require("./comps/app3/starwars/reducers/parts-reducer");
 var cart_reducer_1 = require("./comps/app3/starwars/reducers/cart-reducer");
 var films_reducer_1 = require("./comps/app3/starwars/reducers/films-reducer");
 var users_reducer_1 = require("./comps/app3/starwars/reducers/users-reducer");
 var NotifyReducer_1 = require("./reducers/NotifyReducer");
+var AppdbReducer_1 = require("./reducers/AppdbReducer");
+var TodoReducer_1 = require("./comps/app1/todos/reducers/TodoReducer");
+var AppdbAction_1 = require("./actions/AppdbAction");
 var Welcome_1 = require("./comps/welcome/Welcome");
 var App = (function () {
-    function App(commBroker, styleService) {
+    function App(appStore, commBroker, styleService, appdbAction) {
         var _this = this;
+        this.appStore = appStore;
         this.commBroker = commBroker;
-        Lib_1.Lib.loadGlobals();
+        this.appdbAction = appdbAction;
+        appStore.dispatch(appdbAction.appStartTime());
         this.m_styleService = styleService;
         this.commBroker.setService(Conts_1.Consts.Services().App, this);
         Observable_1.Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(function () {
@@ -78,7 +76,7 @@ var App = (function () {
         core_1.Component({
             selector: 'app',
             encapsulation: core_1.ViewEncapsulation.Emulated,
-            providers: [StyleService_1.StyleService],
+            providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction],
             templateUrl: '/src/App.html',
             directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer]
         }),
@@ -94,14 +92,20 @@ var App = (function () {
             { path: '/App2', component: App2_1.App2, as: 'App2' },
             { path: '/App3', component: App3_1.App3, as: 'App3' },
         ]), 
-        __metadata('design:paramtypes', [CommBroker_1.CommBroker, StyleService_1.StyleService])
+        __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction])
     ], App);
     return App;
 }());
 exports.App = App;
 browser_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http_1.JSONP_PROVIDERS,
-    core_1.provide(angular2_redux_util_1.AppStore, { useFactory: Lib_1.Lib.StoreFactory({ notify: NotifyReducer_1.default, parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default, todos: TodoReducer_1.todos }) }),
+    core_1.provide(angular2_redux_util_1.AppStore, { useFactory: Lib_1.Lib.StoreFactory({ notify: NotifyReducer_1.default, appdb: AppdbReducer_1.default, parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default, todos: TodoReducer_1.todos }) }),
     core_1.provide(CommBroker_1.CommBroker, { useClass: CommBroker_1.CommBroker }),
     core_1.provide(Conts_1.Consts, { useClass: Conts_1.Consts }),
     core_1.provide(router_2.LocationStrategy, { useClass: router_2.HashLocationStrategy })]);
+window['jQuery'] = require('jquery');
+window['bootbox'] = require('bootbox');
+window['_'] = require('underscore');
+window['Highcharts'] = require('highcharts');
+window['immutable'] = require('immutable');
+require('bootstrap');
 //# sourceMappingURL=App.js.map

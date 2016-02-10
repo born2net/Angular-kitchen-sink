@@ -39,11 +39,14 @@ export class TodoList {
     private removeItem:Function;
 
     constructor(private todoService:TodosService, private todoAction:TodoAction, private appStore:AppStore) {
+
+        // register services with each other, DI had issues, prob because of cyclic dependency
         todoService.action = todoAction;
         todoAction.service = todoService;
 
         this.todoService.loadTodosRemote((status:number)=> {
             if (status == -1) {
+                // ignore errors
                 return;
             }
         });

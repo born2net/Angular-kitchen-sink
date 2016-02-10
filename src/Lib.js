@@ -27,8 +27,6 @@ var Lib = (function () {
             return new angular2_redux_util_1.AppStore(reduxAppStore);
         };
     };
-    Lib.loadGlobals = function () {
-    };
     Lib.LoadComponentAsync = function (name, path) {
         return System.import(path).then(function (c) { return c[name]; });
     };
