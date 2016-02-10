@@ -43,7 +43,7 @@ exports.cacheSet = function (cacheKey, cacheValue, expireSeconds) {
     _this.redisClient.setex(cacheKey, expireSeconds, cacheValue);
 };
 /**
- Todo service as part of the ng2Boilerplate example using CRUD
+ Todo service as part of the ng2Boilerplate example using node CRUD services
  @class todo
  @constructor
  @return {Object} instantiated service

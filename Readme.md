@@ -83,14 +83,9 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Document generation
 - and much more...
 
-Notes:
-   all project (non dev) dependency modules are installed in jspm_packages, however we also 
-   install them as dev dependency modules under node_modules just to make Typescript / Intellisense
-   happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.
-   
-Docs:
-   Generated docs are@ http://ng2.javascriptninja.io/docs/globals.html
+Notes: all project (non dev) dependency modules are installed in jspm_packages, however we also install them as dev dependency modules under node_modules just to make Typescript / Intellisense happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.
 
+Docs: Generated docs are@ http://ng2.javascriptninja.io/docs/globals.html
 
 Contributors are welcome!
 
