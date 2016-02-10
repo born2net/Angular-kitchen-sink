@@ -63,7 +63,7 @@ var LoginPanel = (function () {
         setTimeout(function (e) {
             _this.myRouter.navigate(['/AppManager']);
             bootbox.hideAll();
-        }, 2000);
+        }, 200);
         event.preventDefault();
         return false;
     };

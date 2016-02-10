@@ -170,7 +170,7 @@ gulp.task('x_open_server_development', ['x_watch_source'], function () {
         open: false,
         files: ['index.html', '**/*.ts'],
         notify: true,
-        reloadDebounce: 4000,
+        reloadDebounce: 100,
         server: {
             baseDir: './',
             directory: true

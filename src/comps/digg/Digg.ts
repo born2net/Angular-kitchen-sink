@@ -24,8 +24,6 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 
-const DIGG_INIT_HEIGHT = '400px';
-
 @Component({
     selector: 'Digg',
     inputs: ['mode:mode'],
@@ -34,21 +32,21 @@ const DIGG_INIT_HEIGHT = '400px';
     styles: [`
         .diggContainer {
             overflow-y: scroll;
-            height: ${DIGG_INIT_HEIGHT};
+            height: 300px;
         };
         .largeImage {
-           max-width: 100;
-           max-height: 60;
+           max-width: 100px;
+           max-height: 60px;
         }
         .smallImage {
-           width: 70;
-           height: 40;
+           width: 70px;
+           height: 40px;
         }
         .grow { transition: all .2s ease-in-out; }
         .grow:hover { transform: scale(1.1); opacity: 0.7}
     `],
     template: `
-        <ng-content></ng-content>
+        <h1>Digg</h1>
         <div class="appHeight">
              <form (submit)="$event.preventDefault();">
                 <br/>
@@ -105,7 +103,8 @@ export class Digg {
             propView.setPropView('Digg');
     }
 
-    private ngOnInit(){
+    ngOnInit(){
+        this.commBroker.getService(Consts.Services().App).appResized();
     }
 
     private listenWinResize() {
@@ -121,7 +120,7 @@ export class Digg {
     }
 
     private setSize(height) {
-        var h:any = height - 200;
+        var h:any = height - 400;
         //var el = this.dom.getElementsByClassName(this.el, this.mode)[0];
         var el = this.dom.getElementsByClassName(this.el, 'diggContainer')[0];
         this.dom.setStyle(el, 'height', h);

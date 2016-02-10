@@ -61,7 +61,7 @@ var App = (function () {
         var appWidth = document.body.clientWidth;
         jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_EVER).height(appHeight - 115);
         jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_WASP).height(appHeight - 115);
-        jQuery(Conts_1.Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 220);
+        jQuery(Conts_1.Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 420);
         jQuery('#mainPanelWrap').height(appHeight - 115);
         jQuery('#propPanel').height(appHeight - 130);
         this.commBroker.setValue(Conts_1.Consts.Values().APP_SIZE, { height: appHeight, width: appWidth });
@@ -88,7 +88,7 @@ var App = (function () {
             { path: '/EntryPanel/:id/...', component: EntryPanel_1.EntryPanel, as: 'EntryPanel' },
             { path: '/Login/...', component: EntryPanel_1.EntryPanel, as: 'Login' },
             { path: '/ForgotPass/...', component: EntryPanel_1.EntryPanel, as: 'ForgotPass' },
-            { path: '/App1', component: App1_1.App1, as: 'App1' },
+            { path: '/App1/...', component: App1_1.App1, as: 'App1' },
             { path: '/App2', component: App2_1.App2, as: 'App2' },
             { path: '/App3', component: App3_1.App3, as: 'App3' },
         ]), 

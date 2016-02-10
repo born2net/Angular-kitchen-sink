@@ -56,7 +56,7 @@ import {Welcome} from "./comps/welcome/Welcome";
     {path: '/EntryPanel/:id/...', component: EntryPanel, as: 'EntryPanel'},
     {path: '/Login/...', component: EntryPanel, as: 'Login'},
     {path: '/ForgotPass/...', component: EntryPanel, as: 'ForgotPass'},
-    {path: '/App1', component: App1, as: 'App1'},
+    {path: '/App1/...', component: App1, as: 'App1'},
     {path: '/App2', component: App2, as: 'App2'},
     {path: '/App3', component: App3, as: 'App3'},
     //new AsyncRoute({
@@ -93,7 +93,7 @@ export class App {
         //console.log('resized ' + appHeight);
         jQuery(Consts.Elems().APP_NAVIGATOR_EVER).height(appHeight - 115);
         jQuery(Consts.Elems().APP_NAVIGATOR_WASP).height(appHeight - 115);
-        jQuery(Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 220);
+        jQuery(Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 420);
         jQuery('#mainPanelWrap').height(appHeight - 115);
         jQuery('#propPanel').height(appHeight - 130);
 

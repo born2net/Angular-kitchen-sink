@@ -7,6 +7,12 @@
     <MenuItem [fontAwesome]="'fa-power-off'" [tabtitle]="'Logout'"></MenuItem>
   </Menu>
   <div id="mainPanelWrapWasp" class="col-xs-12 col-sm-12 col-md-12 col-lg-11 appHeight">
+
+
+   <router-outlet></router-outlet>
+
+
+    <!--
     <Todos *ngIf="screens.todos">
       <Sliderpanel>
         <div class="campaignSlider noScroll">
@@ -84,5 +90,6 @@
     <Logout *ngIf="screens.logout">
       <h5>logout 1</h5>
     </Logout>
+    -->
   </div>
 </div>

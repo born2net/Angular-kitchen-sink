@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteConfig, Router} from 'angular2/router';
 import {HTTP_PROVIDERS} from "angular2/http";
 import {RouterLink, RouteParams} from 'angular2/router';
 import {Menu} from "../sidemenu/Menu";
@@ -22,44 +22,37 @@ import TodoStatsModel from "./todos/TodoStatsModel";
 import {Contributors} from "./help/contributors/contributors";
 import {TodosService} from "./todos/TodoService";
 import {TodoAction} from "./todos/actions/TodoAction";
-/**
- Application 1 lazy loaded
- **/
+import {Todos} from "./todos/Todos";
+
+@RouteConfig([
+    {path: '/Todos', component: Todos, as: 'Todos', useAsDefault: true},
+    {path: '/Digg', component: Digg, as: 'Digg'},
+    {path: '/Settings', component: Settings, as: 'Settings'},
+    {path: '/Help', component: Help, as: 'Help'},
+    {path: '/Logout', component: Logout, as: 'Logout'}
+])
+
 @Component({
     providers: [HTTP_PROVIDERS, TodoStatsModel, TodosService, TodoAction],
     templateUrl: '/src/comps/app1/App1.html',
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg, Contributors,
-        Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
+        Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
 })
 export class App1 {
-    private screens:any;
-    private commBroker:CommBroker;
 
-    constructor(params:RouteParams, commBroker:CommBroker, Consts:Consts, private todoAction:TodoAction, private todoService:TodosService) {
-        var self = this;
-        self.commBroker = commBroker;
-        self.screens = {
-            todos: true,
-            digg: false,
-            settings: false,
-            help: false,
-            logout: false
-        };
-        self.listenMenuChanges();
+    constructor(private commBroker:CommBroker, private router:Router) {
+        this.listenMenuChanges();
+    }
+
+    ngOnInit(){
+        this.commBroker.getService(Consts.Services().App).appResized();
     }
 
     public listenMenuChanges() {
         var self = this;
         self.commBroker.onEvent(Consts.Events().MENU_SELECTION).subscribe((e:IMessage)=> {
-            let screen = (e.message).toLowerCase();
-            if (!self.screens.hasOwnProperty(screen)) {
-                console.log('no screen by the name of ' + screen);
-                return;
-            }
-
-            for (let screen in self.screens)
-                self.screens[screen] = false;
-            self.screens[screen] = true;
+            let screen = (e.message);
+            self.router.navigate([`/App1/${screen}`]);
         });
     }
 }

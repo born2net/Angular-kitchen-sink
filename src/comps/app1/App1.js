@@ -31,42 +31,38 @@ var TodoStatsModel_1 = require("./todos/TodoStatsModel");
 var contributors_1 = require("./help/contributors/contributors");
 var TodoService_1 = require("./todos/TodoService");
 var TodoAction_1 = require("./todos/actions/TodoAction");
+var Todos_1 = require("./todos/Todos");
 var App1 = (function () {
-    function App1(params, commBroker, Consts, todoAction, todoService) {
-        this.todoAction = todoAction;
-        this.todoService = todoService;
-        var self = this;
-        self.commBroker = commBroker;
-        self.screens = {
-            todos: true,
-            digg: false,
-            settings: false,
-            help: false,
-            logout: false
-        };
-        self.listenMenuChanges();
+    function App1(commBroker, router) {
+        this.commBroker = commBroker;
+        this.router = router;
+        this.listenMenuChanges();
     }
+    App1.prototype.ngOnInit = function () {
+        this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
+    };
     App1.prototype.listenMenuChanges = function () {
         var self = this;
         self.commBroker.onEvent(Conts_1.Consts.Events().MENU_SELECTION).subscribe(function (e) {
-            var screen = (e.message).toLowerCase();
-            if (!self.screens.hasOwnProperty(screen)) {
-                console.log('no screen by the name of ' + screen);
-                return;
-            }
-            for (var screen_1 in self.screens)
-                self.screens[screen_1] = false;
-            self.screens[screen] = true;
+            var screen = (e.message);
+            self.router.navigate([("/App1/" + screen)]);
         });
     };
     App1 = __decorate([
+        router_1.RouteConfig([
+            { path: '/Todos', component: Todos_1.Todos, as: 'Todos', useAsDefault: true },
+            { path: '/Digg', component: Digg_1.Digg, as: 'Digg' },
+            { path: '/Settings', component: Settings_1.Settings, as: 'Settings' },
+            { path: '/Help', component: Help_1.Help, as: 'Help' },
+            { path: '/Logout', component: Logout_1.Logout, as: 'Logout' }
+        ]),
         core_1.Component({
             providers: [http_1.HTTP_PROVIDERS, TodoStatsModel_1.default, TodoService_1.TodosService, TodoAction_1.TodoAction],
             templateUrl: '/src/comps/app1/App1.html',
             directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, contributors_1.Contributors,
-                Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, Help_1.Help, tabs_1.Tabs, tab_1.Tab]
+                Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, Help_1.Help, tabs_1.Tabs, tab_1.Tab]
         }), 
-        __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts, TodoAction_1.TodoAction, TodoService_1.TodosService])
+        __metadata('design:paramtypes', [CommBroker_1.CommBroker, router_1.Router])
     ], App1);
     return App1;
 }());
