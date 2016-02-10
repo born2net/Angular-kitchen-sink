@@ -47,6 +47,7 @@ gulp.task("production", function (callback) {
         "x_bundle",
         "x_minify",
         "x_target",
+        "rsync",
         'x_open_server_bundle',
         function (error) {
             if (error) {

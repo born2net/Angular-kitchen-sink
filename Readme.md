@@ -11,6 +11,16 @@ Check this working demo: http://ng2.javascriptninja.io
 ====
 
 The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
+I spent countless hours reading every Angular2 book and article I could get my hands on (so you don't have to),
+and built IMHO the perfect Angular2 setup... 
+
+- The goals are
+   - Best workflow for development
+   - Best production process
+   - Touch as many ng2 areas as possible
+   - strong modeling design (redux)
+   - Power by commonly used components (sliders, bootstrap, charts, etc)
+
 
 to install::
 ```             
@@ -33,12 +43,14 @@ gulp production
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - powered by the awesome JSPM (http://jspm.io/)
-    - in development TypeScript is compiled in real time in browser, best workflow
-    - for production minified bundle is created
+   - in development TypeScript is compiled in real time in browser, best workflow
+   - for production minified bundle is created
+   - support multi version npm / github repositories
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
-- Immutable.js powered Todo component with backend server sync / redux store
-- Advanced Routing
-- Highcharts ng2 directive wrapper
+- Immutable.js powered Todo component with 
+   - backend server sync / local redux store (https://github.com/rackt/redux)
+- Advanced Routing (also support async routing if jspm bundling not used)
+- Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing and mediator design pattern
