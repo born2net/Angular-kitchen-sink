@@ -34,6 +34,7 @@
     "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tslint": "^4.3.1",
+    "gulp-tslint-stylish": "^1.1.1",
     "gulp-typedoc": "^1.2.1",
     "gulp-typescript": "^2.10.0",
     "gulp-uglify": "^1.2.0",
@@ -115,8 +116,5 @@
       "core-js": "npm:core-js@^1.1.4",
       "traceur-runtime": "npm:traceur-runtime@^0.0.59"
     }
-  },
-  "dependencies": {
-
   }
 }
