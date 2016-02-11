@@ -78,11 +78,11 @@
     "ts-loader": "^0.7.2",
     "tsc": "^1.20150623.0",
     "tsconfig-lint": "^0.2.0",
-    "tsd": "^0.6.5",
     "tslint": "^3.2.1",
     "tslint-loader": "^2.1.0",
     "typedoc": "^0.3.12",
     "typescript": "^1.7.3",
+    "typings": "^0.6.8",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
     "zone.js": "^0.5.11"
