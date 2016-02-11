@@ -18,6 +18,7 @@ export class NotesDetails {
 
     ngAfterContentInit() {
         var self = this;
+        // act upon changes in hide/show of my children
         self.items.changes.subscribe((e)=> {
             console.log(`I see ${self.items.length} items`)
         })
