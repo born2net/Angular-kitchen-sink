@@ -47,7 +47,7 @@
     "gulp-typedoc": "^1.2.1",
     "gulp-typescript": "^2.10.0",
     "gulp-uglify": "^1.2.0",
-    "gulp-util": "npm:gulp-util@^3.0.7",
+    "gulp-util": "gulp-util@^3.0.7",
     "gulp-watch": "^4.2.4",
     "highcharts": "^4.2.1",
     "html-loader": "^0.4.0",
@@ -84,9 +84,7 @@
     "typescript": "^1.7.3",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
-    "zone.js": "^0.5.11",
-    "clean-css": "npm:clean-css@^3.4.9",
-    "core-js": "npm:core-js@^1.1.4"
+    "zone.js": "^0.5.11"
   },
   "jspm": {
     "dependencies": {
