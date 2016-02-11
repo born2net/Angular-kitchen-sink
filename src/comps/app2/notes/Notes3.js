@@ -17,6 +17,8 @@ var core_1 = require('angular2/core');
 var Sliderpanel_1 = require("../../sliderpanel/Sliderpanel");
 var CommBroker_1 = require("../../../services/CommBroker");
 var NotesBase_1 = require("./NotesBase");
+var Minitab_1 = require("../../minitabs/Minitab");
+var Minitabs_1 = require("../../minitabs/Minitabs");
 var Notes3 = (function (_super) {
     __extends(Notes3, _super);
     function Notes3(sliderPanel, commBroker) {
@@ -30,7 +32,8 @@ var Notes3 = (function (_super) {
     Notes3 = __decorate([
         core_1.Component({
             selector: 'Notes3',
-            template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes3 component</small>\n                <ng-content></ng-content>"
+            directives: [Minitab_1.Minitab, Minitabs_1.Minitabs],
+            template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes3 component</small>\n                 <mini-tabs>\n                  <mini-tab [tabTitle]=\"'Tab 1'\">Tab 1 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 2\">Tab 2 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 3\">Tab 3 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 4\">Tab 4 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 5\">Tab 5 Content</mini-tab>\n                </mini-tabs>\n                <small>I am a Minitab component (@ContentChildren)</small>\n                <ng-content></ng-content>"
         }), 
         __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
     ], Notes3);
