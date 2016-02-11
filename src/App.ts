@@ -1,6 +1,7 @@
 ///<reference path="../typings/app.d.ts"/>
 
 //import {enableProdMode} from 'angular2/core';
+// import 'zone.js/dist/zone.min.js';
 import "reflect-metadata";
 import 'twbs/bootstrap/css/bootstrap.css!';
 import './styles/style.css!';

@@ -22,6 +22,7 @@
 ///<reference path="../typings/reselect/reselect.d.ts" />
 ///<reference path="../typings/bootbox/bootbox.d.ts" />
 ///<reference path="../typings/lodash/lodash.d.ts" />
+///<reference path="../typings/moment/moment-node.d.ts" />
 
 declare var assert: any;
 

@@ -58,6 +58,7 @@
     "json-loader": "^0.5.3",
     "live-server": "^0.9.0",
     "lodash": "^3.10.1",
+    "moment": "^2.11.2",
     "ng2-bootstrap": "^0.53.0",
     "ng2-bs3-modal": "^0.1.0",
     "ng2-highcharts": "^0.2.4",
@@ -88,6 +89,7 @@
   },
   "jspm": {
     "dependencies": {
+      "angular2": "npm:angular2@2.0.0-beta.3",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -99,6 +101,7 @@
       "immutable": "npm:immutable@^3.7.6",
       "is-equal": "npm:is-equal@^1.4.2",
       "jquery": "npm:jquery@^2.2.0",
+      "moment": "npm:moment@^2.11.2",
       "ng2-bootstrap": "npm:ng2-bootstrap@^1.0.2-beta.2",
       "plugin-typescript": "github:frankwallis/plugin-typescript@2.5.6",
       "redux": "npm:redux@^3.2.1",
