@@ -17,11 +17,12 @@
 
 ///<reference path="../typings/systemjs/systemjs.d.ts" />
 ///<reference path='../node_modules/immutable/dist/Immutable.d.ts'/>
-///<reference path="../typings/redux/redux.d.ts" />
-///<reference path="../typings/redux-thunk/redux-thunk.d.ts" />
-///<reference path="../typings/reselect/reselect.d.ts" />
+///<reference path="../typings/browser/ambient/redux/redux.d.ts" />
+///<reference path="../typings/browser/ambient/redux-thunk/redux-thunk.d.ts" />
+///<reference path="../typings/browser/ambient/reselect/reselect.d.ts" />
 ///<reference path="../typings/bootbox/bootbox.d.ts" />
 ///<reference path="../typings/lodash/lodash.d.ts" />
+///<reference path="../typings/moment/moment-node.d.ts" />
 
 declare var assert: any;
 
