@@ -14,6 +14,7 @@ var Minitabs = (function () {
     function Minitabs() {
     }
     Minitabs.prototype.ngAfterContentInit = function () {
+        console.log(this.tabs);
         var activeTabs = this.tabs.filter(function (tab) { return tab.active; });
         if (activeTabs.length === 0)
             this.selectTab(this.tabs.first);

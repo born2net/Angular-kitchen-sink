@@ -17,12 +17,15 @@ var core_1 = require('angular2/core');
 var Sliderpanel_1 = require("../../sliderpanel/Sliderpanel");
 var CommBroker_1 = require("../../../services/CommBroker");
 var NotesBase_1 = require("./NotesBase");
+var NotesDetails_1 = require("./NotesDetails");
+var NotesDetailsItems_1 = require("./NotesDetailsItems");
 var Notes4 = (function (_super) {
     __extends(Notes4, _super);
     function Notes4(sliderPanel, commBroker) {
         _super.call(this, sliderPanel, commBroker);
         this.sliderPanel = sliderPanel;
         this.commBroker = commBroker;
+        this.show = true;
         this.me = this;
         this.slideLeft = 'notes5';
         this.slideRight = 'notes3';
@@ -30,7 +33,8 @@ var Notes4 = (function (_super) {
     Notes4 = __decorate([
         core_1.Component({
             selector: 'Notes4',
-            template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes4 component</small>\n                <ng-content></ng-content>"
+            directives: [NotesDetails_1.NotesDetails, NotesDetailsItems_1.NotesDetailsItems],
+            template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes4 component</small>\n                <hr/>\n                <button (click)=\"show = !show\">Toggle one item</button>\n                <notes-details>\n                  <notes-details-item> noted details item 1 </notes-details-item>\n                  <notes-details-item *ngIf=\"show\"> noted details item 2 </notes-details-item>\n                </notes-details>\n                <ng-content></ng-content>"
         }), 
         __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
     ], Notes4);

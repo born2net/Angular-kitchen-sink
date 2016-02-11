@@ -2,9 +2,12 @@ import {Component} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
+import {NotesDetails} from "./NotesDetails";
+import {NotesDetailsItems} from "./NotesDetailsItems";
 
 @Component({
     selector: 'Notes4',
+    directives: [NotesDetails, NotesDetailsItems],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                 </button>
@@ -13,10 +16,17 @@ import {NotesBase} from "./NotesBase";
                 </button>
                 <hr/>
                 <small>I am notes4 component</small>
+                <hr/>
+                <button (click)="show = !show">Toggle one item</button>
+                <notes-details>
+                  <notes-details-item> noted details item 1 </notes-details-item>
+                  <notes-details-item *ngIf="show"> noted details item 2 </notes-details-item>
+                </notes-details>
                 <ng-content></ng-content>`
 })
 
 export class Notes4 extends NotesBase {
+    show: boolean = true;
     constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
         this.me = this;
