@@ -52,6 +52,7 @@ System.config({
     "angular2-uuid": "npm:angular2-uuid@1.0.6",
     "bootbox": "npm:bootbox@4.4.0",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
+    "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@0.1.0",
     "clean-css": "npm:clean-css@3.4.9",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",

@@ -93,6 +93,7 @@
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
       "bootbox": "npm:bootbox@^4.4.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@^0.1.0",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "highcharts": "npm:highcharts@^4.2.2",
       "immutable": "npm:immutable@^3.7.6",
