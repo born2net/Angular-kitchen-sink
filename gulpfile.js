@@ -61,7 +61,14 @@ gulp.task("production", function (callback) {
         });
 });
 
-/** launch the systemjs development server, files are kept raw **/
+/** launch the systemjs development server, files are kept raw
+ * run it from the command line via:
+ *
+ * gulp development (will launch browser)
+ * gulp development --restart (will not launch browser and restart daemon every 10min for best performance)
+ *
+ **/
+
 gulp.task('development', function (done) {
     console.log(util.env.restart)
     if (util.env.restart){
