@@ -18,6 +18,7 @@ var insert = require("gulp-insert");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var tslintStylish = require('gulp-tslint-stylish');
+var util = require('gulp-util');
 
 //var commentSwap = require('gulp-comment-swap');
 //var tsc = require('gulp-typescript');
@@ -62,11 +63,12 @@ gulp.task("production", function (callback) {
 
 /** launch the systemjs development server, files are kept raw **/
 gulp.task('development', function (done) {
-    runSequence('x_open_server_development', done);
-});
-
-gulp.task('x_development_auto', function (done) {
-    runSequence('x_open_server_development_auto', done);
+    console.log(util.env.restart)
+    if (util.env.restart){
+        runSequence('x_open_server_development_auto', done);
+    } else {
+        runSequence('x_open_server_development', done);
+    }
 });
 
 /**  Generate project documentation **/

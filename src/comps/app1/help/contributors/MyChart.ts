@@ -1,5 +1,5 @@
 import {Component, View, OnInit} from 'angular2/core';
-import {Ng2Highcharts} from 'ng2-highcharts/ng2-highcharts';
+import {Ng2Highcharts} from '../../../ng2-highcharts/ng2-highcharts';
 
 @Component({
     selector: 'MyChart'
@@ -15,6 +15,8 @@ import {Ng2Highcharts} from 'ng2-highcharts/ng2-highcharts';
     directives: [Ng2Highcharts]
 })
 export class MyChart implements OnInit {
+    constructor(){
+    }
     //chartOptions = {
     //    chart: {
     //        type: 'pie'

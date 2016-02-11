@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {
     ROUTER_DIRECTIVES, RouteConfig, Router, OnActivate, ComponentInstruction, CanReuse,
-    OnReuse, CanActivate
+    OnReuse, CanActivate, OnDeactivate
 } from 'angular2/router';
 import {HTTP_PROVIDERS} from "angular2/http";
 import {RouterLink, RouteParams} from 'angular2/router';
@@ -49,13 +49,15 @@ import {Todos} from "./todos/Todos";
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg, Contributors,
         Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
 })
-export class App1 implements OnActivate, CanReuse, OnReuse {
+export class App1 implements OnActivate, CanReuse, OnReuse, OnDeactivate {
+    private routerActive:boolean;
 
     constructor(private commBroker:CommBroker, private router:Router) {
         this.listenMenuChanges();
     }
 
     ngOnInit() {
+        this.routerActive = true;
         this.commBroker.getService(Consts.Services().App).appResized();
     }
 
@@ -66,10 +68,11 @@ export class App1 implements OnActivate, CanReuse, OnReuse {
 
     routerOnReuse(to:ComponentInstruction, from:ComponentInstruction) {
         //console.log(to.params['name']);
-        //console.log(to.urlPath ? to.urlPath : '' + ' ' + from.urlPath);
+        // console.log(to.urlPath ? to.urlPath : '' + ' ' + from.urlPath);
     }
 
     routerOnActivate(to:ComponentInstruction, from:ComponentInstruction) {
+        this.routerActive = true;
         // demonstrate delay on routing, maybe to load some server data first or show loading bar
         return new Promise((resolve) => {
             setTimeout(()=> {
@@ -80,9 +83,15 @@ export class App1 implements OnActivate, CanReuse, OnReuse {
 
     public listenMenuChanges() {
         var self = this;
-        self.commBroker.onEvent(Consts.Events().MENU_SELECTION).subscribe((e:IMessage)=> {
+        var unsub = self.commBroker.onEvent(Consts.Events().MENU_SELECTION).subscribe((e:IMessage)=> {
+            if (!self.routerActive)
+                return;
             let screen = (e.message);
             self.router.navigate([`/App1/${screen}`]);
         });
+    }
+
+    routerOnDeactivate(next:ComponentInstruction, prev:ComponentInstruction) {
+        this.routerActive = false;
     }
 }

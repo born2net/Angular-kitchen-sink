@@ -39,6 +39,7 @@ var App1 = (function () {
         this.listenMenuChanges();
     }
     App1.prototype.ngOnInit = function () {
+        this.routerActive = true;
         this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
     };
     App1.prototype.routerCanReuse = function (next, prev) {
@@ -47,6 +48,7 @@ var App1 = (function () {
     App1.prototype.routerOnReuse = function (to, from) {
     };
     App1.prototype.routerOnActivate = function (to, from) {
+        this.routerActive = true;
         return new Promise(function (resolve) {
             setTimeout(function () {
                 resolve(true);
@@ -55,10 +57,15 @@ var App1 = (function () {
     };
     App1.prototype.listenMenuChanges = function () {
         var self = this;
-        self.commBroker.onEvent(Conts_1.Consts.Events().MENU_SELECTION).subscribe(function (e) {
+        var unsub = self.commBroker.onEvent(Conts_1.Consts.Events().MENU_SELECTION).subscribe(function (e) {
+            if (!self.routerActive)
+                return;
             var screen = (e.message);
             self.router.navigate([("/App1/" + screen)]);
         });
+    };
+    App1.prototype.routerOnDeactivate = function (next, prev) {
+        this.routerActive = false;
     };
     App1 = __decorate([
         router_1.RouteConfig([
