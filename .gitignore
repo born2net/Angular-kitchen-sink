@@ -1,0 +1,3 @@
+#ignore installed packages
+jspm_packages
+node_modules
