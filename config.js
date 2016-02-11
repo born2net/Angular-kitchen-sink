@@ -16,7 +16,7 @@ System.config({
   },
 
   packages: {
-    "ng2-bs3-modal": {
+    "ng2-bs3-modal/dist/ng2-bs3-modal": {
       "main": "src/ng2-bs3-modal.ts",
       "defaultExtension": "ts",
       "meta": {
@@ -46,11 +46,9 @@ System.config({
   },
 
   map: {
-    "InfomediaLtd/angular2-simple-list": "github:InfomediaLtd/angular2-simple-list@master",
     "angular2": "npm:angular2@2.0.0-beta.2",
     "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
     "angular2-redux-util": "npm:angular2-redux-util@0.5.38",
-    "angular2-simple-list": "github:InfomediaLtd/angular2-simple-list@master",
     "angular2-uuid": "npm:angular2-uuid@1.0.6",
     "bootbox": "npm:bootbox@4.4.0",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
@@ -76,9 +74,6 @@ System.config({
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
     "typescript": "npm:typescript@1.8.0",
     "underscore": "npm:underscore@1.8.3",
-    "github:InfomediaLtd/angular2-simple-list@master": {
-      "es6-promise": "npm:es6-promise@3.0.2"
-    },
     "github:frankwallis/plugin-typescript@2.5.6": {
       "typescript": "npm:typescript@1.7.5"
     },
