@@ -47,9 +47,9 @@ What features of Angular does this app cover? well pretty much all the core stuf
    - for production minified bundle is created
    - support multi version npm / github repositories
 - Gulp tasks for dev / prod, doc gen and more
-   use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
-   use: gulp development --restart (see below on details for best performance debugging)
-   use: gulp production (see below on details for server directory setup)
+   - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
+   - use: gulp development --restart (see below on details for best performance debugging)
+   - use: gulp production (see below on details for server directory setup)
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
 - Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
