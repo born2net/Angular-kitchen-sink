@@ -28,6 +28,8 @@ export class Lib {
 
         return System.import(path).then(c => c[name]);
 
+        // jspm bundle src/comps/app1/App1.js ./dist/public/main-bundle.js --skip-source-maps --inject
+
         // bundles: {
         //     "main-bundle": [
         //         "dist/public/App1",
