@@ -26,7 +26,7 @@ var NotesDetails = (function () {
     NotesDetails = __decorate([
         core_1.Component({
             selector: 'notes-details',
-            template: "\n                I see {{items.length}} items. <ng-content></ng-content>\n                <small>I am NotesDetails (constructor based QueryList)</small>\n                "
+            template: "\n                I see {{items?.length}} items. <ng-content></ng-content>\n                <small>I am NotesDetails (constructor based QueryList)</small>\n                "
         }),
         __param(0, core_1.Query(NotesDetailsItems_1.NotesDetailsItems)), 
         __metadata('design:paramtypes', [core_1.QueryList])
