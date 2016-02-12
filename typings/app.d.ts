@@ -15,7 +15,9 @@
 
 ///<reference path="../typings/jquery/jquery.d.ts" />
 
-///<reference path="../typings/systemjs/systemjs.d.ts" />
+//<reference path='../node_modules/angular2/typings/browser.d.ts'/>
+
+///<reference path="../typings/browser/ambient/systemjs/systemjs.d.ts" />
 ///<reference path='../node_modules/immutable/dist/Immutable.d.ts'/>
 ///<reference path="../typings/browser/ambient/redux/redux.d.ts" />
 ///<reference path="../typings/browser/ambient/redux-thunk/redux-thunk.d.ts" />

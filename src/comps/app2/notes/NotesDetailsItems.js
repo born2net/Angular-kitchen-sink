@@ -10,14 +10,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var NotesDetailsItems = (function () {
-    function NotesDetailsItems() {
+    function NotesDetailsItems(zone) {
+        this.zone = zone;
+        this.select = new core_1.EventEmitter();
+        this.myValue = 'val';
+        this.random = Math.random();
+        this.zone.run(function () {
+            console.log('force update zone UI');
+        });
     }
+    NotesDetailsItems.prototype.onClick = function () {
+        this.select.emit(this.myValue);
+    };
+    NotesDetailsItems.prototype.ngOnDestroy = function () {
+    };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], NotesDetailsItems.prototype, "select", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Function)
+    ], NotesDetailsItems.prototype, "content", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], NotesDetailsItems.prototype, "myValue", void 0);
     NotesDetailsItems = __decorate([
         core_1.Component({
             selector: 'notes-details-item',
-            template: "<br/> <ng-content></ng-content>"
+            changeDetection: core_1.ChangeDetectionStrategy.CheckAlways,
+            template: "<br/>\n    <button (click)=\"onClick()\">click me</button>\n    <p>content from parent is: {{content(random)}}</p>\n    <ng-content></ng-content>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.NgZone])
     ], NotesDetailsItems);
     return NotesDetailsItems;
 }());

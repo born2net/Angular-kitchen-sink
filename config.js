@@ -76,6 +76,7 @@ System.config({
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
     "typescript": "npm:typescript@1.8.0",
     "underscore": "npm:underscore@1.8.3",
+    "zone.js": "npm:zone.js@0.5.11",
     "github:frankwallis/plugin-typescript@2.5.6": {
       "typescript": "npm:typescript@1.7.5"
     },

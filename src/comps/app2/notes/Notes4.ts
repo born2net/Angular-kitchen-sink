@@ -5,6 +5,11 @@ import {NotesBase} from "./NotesBase";
 import {NotesDetails} from "./NotesDetails";
 import {NotesDetailsItems} from "./NotesDetailsItems";
 
+
+/**
+ *  Among other things, this class demonstrates how to pass a method to a component
+ *  and that component call it: [content]="getContent"
+ **/
 @Component({
     selector: 'Notes4',
     directives: [NotesDetails, NotesDetailsItems],
@@ -19,19 +24,33 @@ import {NotesDetailsItems} from "./NotesDetailsItems";
                 <hr/>
                 <button (click)="show = !show">Toggle one item</button>
                 <notes-details>
-                  <notes-details-item> noted details item 1 </notes-details-item>
-                  <notes-details-item *ngIf="show"> noted details item 2 </notes-details-item>
+                  <notes-details-item [content]="getContent" [myValue]="'One'"
+                        (select)="itemDetailsClicked($event)"> noted details item 1 </notes-details-item>
+                  <notes-details-item [content]="getContent" [myValue]="'Two'"
+                        (select)="itemDetailsClicked($event)" *ngIf="show"> noted details item 2 </notes-details-item>
                 </notes-details>
                 <ng-content></ng-content>`
 })
 
 export class Notes4 extends NotesBase {
-    show: boolean = true;
+    private show:boolean = true;
+    private someValue:any = '999';
+
     constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
-        this.me = this;
+        this.someValue = 'FooBar';
+        var self = this;
         this.slideLeft = 'notes5';
         this.slideRight = 'notes3';
+
+    }
+
+    getContent(user):string {
+        return user;
+    }
+
+    itemDetailsClicked(event) {
+        alert(event);
     }
 }
 

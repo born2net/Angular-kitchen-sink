@@ -26,15 +26,23 @@ var Notes4 = (function (_super) {
         this.sliderPanel = sliderPanel;
         this.commBroker = commBroker;
         this.show = true;
-        this.me = this;
+        this.someValue = '999';
+        this.someValue = 'FooBar';
+        var self = this;
         this.slideLeft = 'notes5';
         this.slideRight = 'notes3';
     }
+    Notes4.prototype.getContent = function (user) {
+        return user;
+    };
+    Notes4.prototype.itemDetailsClicked = function (event) {
+        alert(event);
+    };
     Notes4 = __decorate([
         core_1.Component({
             selector: 'Notes4',
             directives: [NotesDetails_1.NotesDetails, NotesDetailsItems_1.NotesDetailsItems],
-            template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes4 component</small>\n                <hr/>\n                <button (click)=\"show = !show\">Toggle one item</button>\n                <notes-details>\n                  <notes-details-item> noted details item 1 </notes-details-item>\n                  <notes-details-item *ngIf=\"show\"> noted details item 2 </notes-details-item>\n                </notes-details>\n                <ng-content></ng-content>"
+            template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes4 component</small>\n                <hr/>\n                <button (click)=\"show = !show\">Toggle one item</button>\n                <notes-details>\n                  <notes-details-item [content]=\"getContent\" [myValue]=\"'One'\"\n                        (select)=\"itemDetailsClicked($event)\"> noted details item 1 </notes-details-item>\n                  <notes-details-item [content]=\"getContent\" [myValue]=\"'Two'\"\n                        (select)=\"itemDetailsClicked($event)\" *ngIf=\"show\"> noted details item 2 </notes-details-item>\n                </notes-details>\n                <ng-content></ng-content>"
         }), 
         __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
     ], Notes4);

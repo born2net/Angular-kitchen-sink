@@ -15,7 +15,6 @@ export class NotesDetails {
 
     constructor(@Query(NotesDetailsItems) items:QueryList<NotesDetailsItems>) {
         this.items = items;
-
     }
 
     ngAfterContentInit() {
