@@ -46,6 +46,10 @@ What features of Angular does this app cover? well pretty much all the core stuf
    - in development TypeScript is compiled in real time in browser, best workflow
    - for production minified bundle is created
    - support multi version npm / github repositories
+- Gulp tasks for dev / prod, doc gen and more
+   use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
+   use: gulp development --restart (same as above but auto restart every 10min for best performance debugging, requires npm install forever -g)
+   use: gulp production (see below on details for server directory setup)
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
 - Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
@@ -80,10 +84,18 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Theme service (supports 3 themes including Lite, Dark and Polymer)
 - Pipes including grid sort and character counter
 - Interfaces
-- Gulp tasks for dev / prod, doc gen and more
 - UI data binding / uni and 2 way
 - Document generation
 - and much more...
+
+Production: to release to production
+   1. change the gulp sync to your method of rsync of ftp 
+   2. your server should have the structure emitted in the 'dist' folder that is created by 
+   ```gulp production```
+   3. server hosting root is assumed to be same as dist folder (where dist/ROOT_HERE) 
+   4. all Typescript files are bundles where css and html is copies raw to dist folder for bets performance / size ratio
+
+All this awesomeness tx to jspm, love it!!!
 
 Notes: all project (non dev) dependency modules are installed in jspm_packages, however we also install them as dev dependency modules under node_modules just to make Typescript / Intellisense happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.
 
