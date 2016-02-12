@@ -95,7 +95,8 @@ for best performance I find it's great to restart the web dev server every 10min
 ```
 gulp development --restart
 forever stop 0 ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development --restart ; tail -f ~/.forever/f.log
-open browser to: http://localhost:8080/src/public/index.html 
+open browser to: http://localhost:8080/src/public/index.html
+alias stop='forever stopall'
 ```
 this above will create a process that restarts every 10minutes but it's transparent to you.
 
