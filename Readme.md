@@ -101,7 +101,7 @@ this above will create a process that restarts every 10minutes but it's transpar
 
 Another handy command to shortcut kill chrome sessions to start a fresh one is:
 ```
-kill_chrome='ps -W | awk '\''/chrome/,NF=1'\'' | xargs kill -f'
+alias kill_chrome='ps -W | awk '\''/chrome/,NF=1'\'' | xargs kill -f'
 ```
 
 and if you are on a Windows environment I highly recommend you work with:
