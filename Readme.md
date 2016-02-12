@@ -48,7 +48,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
    - support multi version npm / github repositories
 - Gulp tasks for dev / prod, doc gen and more
    use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
-   use: gulp development --restart (same as above but auto restart every 10min for best performance debugging, requires npm install forever -g)
+   use: gulp development --restart (see below on details for best performance debugging)
    use: gulp production (see below on details for server directory setup)
 - ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
 - Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
@@ -88,7 +88,35 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Document generation
 - and much more...
 
-Production: to release to production
+Debugging:
+---------
+jspm is great as you get to debug close to the metal (not like Webpack all bundled up and hard to reason about)
+for best performance I find it's great to restart the web dev server every 10min, hence gulp + forever:
+```
+gulp development --restart
+forever stop 0 ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development --restart ; tail -f ~/.forever/f.log
+open browser to: http://localhost:8080/src/public/index.html 
+```
+this above will create a process that restarts every 10minutes but it's transparent to you.
+
+Another handy command to shortcut kill chrome sessions to start a fresh one is:
+```
+kill_chrome='ps -W | awk '\''/chrome/,NF=1'\'' | xargs kill -f'
+```
+
+and if you are on a Windows environment I highly recommend you work with:
+http://cmder.net for the ultimate windows terminal
+as well as Cygwin for Linux look and feel
+https://www.cygwin.com
+
+just my 2 cents, O spent a lot of time mastering my dev environment, so figured I will share ;)
+
+
+
+
+Production: 
+------------
+to release to production
    1. change the gulp sync to your method of rsync of ftp 
    2. your server should have the structure emitted in the 'dist' folder that is created by 
    ```gulp production```
@@ -97,7 +125,9 @@ Production: to release to production
 
 All this awesomeness tx to jspm, love it!!!
 
-Notes: all project (non dev) dependency modules are installed in jspm_packages, however we also install them as dev dependency modules under node_modules just to make Typescript / Intellisense happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.
+Notes:
+------------
+all project (non dev) dependency modules are installed in jspm_packages, however we also install them as dev dependency modules under node_modules just to make Typescript / Intellisense happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.
 
 Docs: Generated docs are@ http://ng2.javascriptninja.io/docs/globals.html
 
