@@ -94,7 +94,7 @@ jspm is great as you get to debug close to the metal (not like Webpack all bundl
 for best performance I find it's great to restart the web dev server every 10min, hence gulp + forever:
 ```
 gulp development --restart
-forever stop 0 ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development --restart ; tail -f ~/.forever/f.log
+forever stopall ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development --restart ; tail -f ~/.forever/f.log
 open browser to: http://localhost:8080/src/public/index.html
 alias stop='forever stopall'
 ```
