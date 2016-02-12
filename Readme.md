@@ -116,6 +116,7 @@ just my 2 cents, I spent a lot of time mastering my dev environment, so figured 
 
 Production: 
 ------------
+jspm is also great for release as it bundles and minifies.
 to release to production
    1. change the gulp sync to your method of rsync of ftp 
    2. your server should have the structure emitted in the 'dist' folder that is created by 
