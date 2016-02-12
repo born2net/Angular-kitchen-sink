@@ -28,6 +28,19 @@ export class Lib {
 
         return System.import(path).then(c => c[name]);
 
+        // bundles: {
+        //     "main-bundle": [
+        //         "dist/public/App1",
+        //         "main-bundle/App1",
+        //         "dist/public/App1.ts",
+        //         "/dist/public/App1",
+        //         "App1",
+        //         "public/App1",
+        //         "dist/public/App1",
+        //         "src/comps/app1/App1.js"
+        //     ]
+        // },
+
         //return System.import('/dist/public/out.js')
         //    .catch(function (e) {
         //        alert('prob loading out.js ' + e);
