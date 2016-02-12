@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "angular-cli": "0.0.*",
-    "angular2": "2.0.0-beta.3",
+    "angular2": "2.0.0-beta.6",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
     "autoprefixer": "^6.2.3",
@@ -59,7 +59,7 @@
     "live-server": "^0.9.0",
     "lodash": "^3.10.1",
     "moment": "^2.11.2",
-    "ng2-bootstrap": "^0.53.0",
+    "ng2-bootstrap": "^1.0.3",
     "ng2-bs3-modal": "^0.1.0",
     "ng2-highcharts": "^0.2.4",
     "npm": "^3.5.3",
@@ -89,7 +89,7 @@
   },
   "jspm": {
     "dependencies": {
-      "angular2": "npm:angular2@2.0.0-beta.3",
+      "angular2": "npm:angular2@^2.0.0-beta.6",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -102,7 +102,6 @@
       "is-equal": "npm:is-equal@^1.4.2",
       "jquery": "npm:jquery@^2.2.0",
       "moment": "npm:moment@^2.11.2",
-      "ng2-bootstrap": "npm:ng2-bootstrap@^1.0.2-beta.2",
       "plugin-typescript": "github:frankwallis/plugin-typescript@2.5.6",
       "redux": "npm:redux@^3.2.1",
       "redux-thunk": "npm:redux-thunk@^1.0.3",
@@ -113,8 +112,10 @@
       "ts": "github:frankwallis/plugin-typescript@^2.6.0",
       "typescript": "npm:typescript@1.8.0",
       "underscore": "npm:underscore@^1.8.3",
-      "zone.js": "npm:zone.js@0.5.11"
+      "zone.js": "npm:zone.js@^0.5.14"
     },
-    "devDependencies": {}
+    "devDependencies": {
+      "ng2-bootstrap": "npm:ng2-bootstrap@^1.0.3"
+    }
   }
 }
