@@ -42,13 +42,9 @@ var LoginPanel = (function () {
         var user = commBroker.getValue(Conts_1.Consts.Values().USER_NAME);
         this.user = user || '';
         this.pass = user || '';
-        appStore.subscribe(function (objectPath, oldVal, newVal) {
+        this.unsub = appStore.subscribe(function (objectPath, oldVal, newVal) {
             console.log('%s changed from %s to %s', objectPath, oldVal, newVal);
         }, 'notify', true);
-        var ubsub = appStore.subscribe(function (objectPath, oldVal, newVal) {
-        }, 'notify.data', false);
-        var ubsub = appStore.subscribe(function (state) {
-        });
     }
     LoginPanel.prototype.authUser = function (i_user, i_pass) {
         this.onLogin();
@@ -75,6 +71,9 @@ var LoginPanel = (function () {
         configurable: true
     });
     LoginPanel.prototype.toString = function () {
+    };
+    LoginPanel.prototype.ngOnDestroy = function () {
+        this.unsub();
     };
     LoginPanel = __decorate([
         core_1.Injectable(),

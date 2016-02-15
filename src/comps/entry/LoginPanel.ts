@@ -65,6 +65,7 @@ export class LoginPanel {
     private user:string;
     private pass:string;
     private myRouter:Router;
+    private unsub:Function;
 
     constructor(private appStore:AppStore, router:Router, private commBroker:CommBroker) {
         this.myRouter = router;
@@ -73,15 +74,16 @@ export class LoginPanel {
         this.user = user || '';
         this.pass = user || '';
 
-        appStore.subscribe((objectPath, oldVal, newVal) => {
+        this.unsub = appStore.subscribe((objectPath, oldVal, newVal) => {
             console.log('%s changed from %s to %s', objectPath, oldVal, newVal)
         }, 'notify', true);
 
-        var ubsub = appStore.subscribe((objectPath, oldVal, newVal) => {
-        }, 'notify.data', false);
-
-        var ubsub = appStore.subscribe((state)=> {
-        })
+        // more examples
+        // var ubsub = appStore.subscribe((objectPath, oldVal, newVal) => {
+        // }, 'notify.data', false);
+        //
+        // var ubsub = appStore.subscribe((state)=> {
+        // })
     }
 
     private authUser(i_user:string, i_pass:string){
@@ -107,6 +109,11 @@ export class LoginPanel {
     }
 
     toString() {
+    }
+
+    // important, be sure to remember to unsubscribe from store subscriptions to prevent leaks
+    ngOnDestroy() {
+        this.unsub();
     }
 }
 
