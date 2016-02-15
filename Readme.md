@@ -4,7 +4,8 @@ ng2Boilerplate
 The ultimate Angular 2 bootstrap single page app 
 ----------------
 
-ready to be impressed with Angular 2?
++ the perfect workflow with in browser Typescript compilation for development
+just in-time browser reloads on saves, and production ready via bundling, all powered by the awesome jspm
 
 
 Check this working demo: http://ng2.javascriptninja.io
