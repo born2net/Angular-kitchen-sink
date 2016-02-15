@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
-import {TodosService, IDataStore, TodoItemModel} from "./TodoService";
 import {TodoItem} from "./Todoitem";
 import {Observable} from "rxjs/Observable";
 import {TodoAction} from "./actions/TodoAction";
 import {AppStore} from "angular2-redux-util/dist/index";
+import {TodoService} from "./TodoService";
 
 type channelTodoObservable = Observable<TodoItem>;
 type channelTodosObservable = Observable<Array<channelTodoObservable>>;
@@ -38,11 +38,7 @@ export class TodoList {
     private editItem:Function;
     private removeItem:Function;
 
-    constructor(private todoService:TodosService, private todoAction:TodoAction, private appStore:AppStore) {
-
-        // register services with each other, DI had issues, prob because of cyclic dependency
-        todoService.action = todoAction;
-        todoAction.service = todoService;
+    constructor(private todoService:TodoService, private todoAction:TodoAction, private appStore:AppStore) {
 
         this.todoService.loadTodosRemote((status:number)=> {
             if (status == -1) {

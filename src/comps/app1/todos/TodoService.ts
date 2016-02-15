@@ -39,20 +39,15 @@ export interface IDataStore {
 }
 
 @Injectable()
-export class TodosService {
+export class TodoService {
     private m_dataStore:IDataStore;
     private m_addTodoDispatch:Function;
     private m_clearTodoDispatch:Function;
-    public m_actionTodo:TodoAction;
 
-    constructor(private _http:Http, private todoStatsModel:TodoStatsModel, private appStore:AppStore) {
+    constructor(private m_todoAction:TodoAction, private _http:Http, private todoStatsModel:TodoStatsModel, private appStore:AppStore) {
         this.m_dataStore = {todos: []};
-    }
-
-    public set action(i_actionTodo) {
-        this.m_actionTodo = i_actionTodo;
-        this.m_addTodoDispatch = this.m_actionTodo.createDispatcher(this.appStore, this.m_actionTodo.addTodoDispatch);
-        this.m_clearTodoDispatch = this.m_actionTodo.createDispatcher(this.appStore, this.m_actionTodo.clearTodoDispatch);
+        this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.appStore, this.m_todoAction.addTodoDispatch);
+        this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.appStore, this.m_todoAction.clearTodoDispatch);
     }
 
     public saveTodoRemote(todo:TodoModel, cb:(status:number)=>void) {

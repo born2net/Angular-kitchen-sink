@@ -23,7 +23,7 @@ import {TodoList} from "./todos/Todolist";
 import {TodoItem} from "./todos/Todoitem";
 import TodoStatsModel from "./todos/TodoStatsModel";
 import {Contributors} from "./help/contributors/contributors";
-import {TodosService} from "./todos/TodoService";
+import {TodoService} from "./todos/TodoService";
 import {TodoAction} from "./todos/actions/TodoAction";
 import {Todos} from "./todos/Todos";
 
@@ -44,7 +44,7 @@ import {Todos} from "./todos/Todos";
 //    })
 //})
 @Component({
-    providers: [HTTP_PROVIDERS, TodoStatsModel, TodosService, TodoAction],
+    providers: [HTTP_PROVIDERS, TodoStatsModel, TodoService, TodoAction],
     templateUrl: '/src/comps/app1/App1.html',
     directives: [ROUTER_DIRECTIVES, RouterLink, Menu, MenuItem, Sliderpanel, Digg, Contributors,
         Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Help, Tabs, Tab]
