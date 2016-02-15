@@ -78,12 +78,35 @@ export class LoginPanel {
             console.log('%s changed from %s to %s', objectPath, oldVal, newVal)
         }, 'notify', true);
 
-        // more examples
+        // more examples of subscribing to store
+        //
+        // useIsEqual is set to true for deep Map equality
+        // appStore.subscribe((objectPath, oldVal, newVal) => {
+        //     console.log('%s changed from %s to %s', objectPath, oldVal, newVal)
+        // }, 'notify', true);
+        //
+        // useIsEqual is set to false for normal equality
         // var ubsub = appStore.subscribe((objectPath, oldVal, newVal) => {
         // }, 'notify.data', false);
         //
+        // with casting
+        // this.ubsub = appStore.subscribe((path, prev, value:Map<string,any>) => {
+        //     if (value.get('credentials').authenticated)
+        //         this.onLogin();
+        // }, 'appdb', false);
+        //
+        // this is a shorthand version which allows you to just receive back the changes
+        // this.ubsub = appStore.sub((appdb:Map<string,any>) => {
+        //     var status = appdb.get('credentials').get('authenticated');
+        //     var user = appdb.get('credentials').get('user');
+        //     var pass = appdb.get('credentials').get('pass');
+        //     if (status)
+        //         this.onLogin();
+        // }, 'appdb', false);
+        //
         // var ubsub = appStore.subscribe((state)=> {
         // })
+
     }
 
     private authUser(i_user:string, i_pass:string){

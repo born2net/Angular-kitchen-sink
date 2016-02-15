@@ -9,12 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("angular2/core");
-var Conts_1 = require("../../../src/Conts");
-var CommBroker_1 = require("../../services/CommBroker");
 var Logout = (function () {
-    function Logout(commBroker) {
-        this.commBroker = commBroker;
-        this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Logout');
+    function Logout() {
         jQuery('body').fadeOut(3000, function () {
             window.location.replace("https://github.com/born2net/ng2Boilerplate");
         });
@@ -24,7 +20,7 @@ var Logout = (function () {
             selector: 'Logout',
             template: "\n        <h1><Center>Goodbye</Center></h1>\n        <small>I am Logout component</small>\n        "
         }), 
-        __metadata('design:paramtypes', [CommBroker_1.CommBroker])
+        __metadata('design:paramtypes', [])
     ], Logout);
     return Logout;
 }());
