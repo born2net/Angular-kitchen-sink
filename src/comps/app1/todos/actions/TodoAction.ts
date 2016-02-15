@@ -67,6 +67,7 @@ export class TodoAction extends Actions {
                 provide(AppStore, {useValue: this.appStore})
             ]);
         this.service = injector.get(TodoService);
+        return this.service;
     }
 
     public addTodo(task:string, id?:string) {
