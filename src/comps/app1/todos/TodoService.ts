@@ -47,8 +47,8 @@ export class TodoService {
     // example of how to inject a dependency (TodoAction) using a Token instead of a Type (in our case token and type names are the same)
     constructor(@Inject(TodoAction) private m_todoAction:TodoAction, private _http:Http, private todoStatsModel:TodoStatsModel, private appStore:AppStore) {
         this.m_dataStore = {todos: []};
-        this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.appStore, this.m_todoAction.addTodoDispatch);
-        this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.appStore, this.m_todoAction.clearTodoDispatch);
+        this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.addTodoDispatch, this.appStore);
+        this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.clearTodoDispatch, this.appStore);
     }
 
     public saveTodoRemote(todo:TodoModel, cb:(status:number)=>void) {

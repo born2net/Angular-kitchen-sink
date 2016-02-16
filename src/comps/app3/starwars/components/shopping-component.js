@@ -26,9 +26,9 @@ var ShoppingComponent = (function () {
         this.appStore = appStore;
         this.parts = [];
         this.partsInCart = [];
-        this.addPart = partActions.createDispatcher(this.appStore, partActions.addPart);
-        this.addPartToCart = cartActions.createDispatcher(this.appStore, cartActions.addToCart);
-        this.removePartFromCart = cartActions.createDispatcher(this.appStore, cartActions.removeFromCart);
+        this.addPart = partActions.createDispatcher(partActions.addPart, this.appStore);
+        this.addPartToCart = cartActions.createDispatcher(cartActions.addToCart, this.appStore);
+        this.removePartFromCart = cartActions.createDispatcher(cartActions.removeFromCart, this.appStore);
         this.appStore.subscribe(function (state) {
             _this.parts = state.parts;
             _this.partsInCart = partsInCartSelector(state);

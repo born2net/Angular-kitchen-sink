@@ -20,8 +20,8 @@ var AdminComponent = (function () {
         this.currentUser = null;
         this.filmFilter = null;
         var self = this;
-        this.setCurrentUser = userActions.createDispatcher(appStore, userActions.setCurrentUser);
-        this.setFilmFilter = userActions.createDispatcher(appStore, userActions.setFilmFilter);
+        this.setCurrentUser = userActions.createDispatcher(userActions.setCurrentUser, appStore);
+        this.setFilmFilter = userActions.createDispatcher(userActions.setFilmFilter, appStore);
         var usersToShowSelector = AdminComponent.createUsersToShowSelector();
         appStore.subscribe(function (state) {
             self.usersToShow = usersToShowSelector(state);

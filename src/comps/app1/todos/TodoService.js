@@ -49,8 +49,8 @@ var TodoService = (function () {
         this.todoStatsModel = todoStatsModel;
         this.appStore = appStore;
         this.m_dataStore = { todos: [] };
-        this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.appStore, this.m_todoAction.addTodoDispatch);
-        this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.appStore, this.m_todoAction.clearTodoDispatch);
+        this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.addTodoDispatch, this.appStore);
+        this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.clearTodoDispatch, this.appStore);
     }
     TodoService.prototype.saveTodoRemote = function (todo, cb) {
         this.todoStatsModel.creates++;

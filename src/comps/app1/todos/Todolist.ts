@@ -52,8 +52,8 @@ export class TodoList {
             this.newItem = '';
         }, 'todos', true);
 
-        this.addItem = todoAction.createDispatcher(appStore, todoAction.addTodo);
-        this.removeItem = todoAction.createDispatcher(appStore, todoAction.removeTodo);
-        this.editItem = todoAction.createDispatcher(appStore, todoAction.editTodo);
+        this.addItem = todoAction.createDispatcher(todoAction.addTodo, appStore);
+        this.removeItem = todoAction.createDispatcher(todoAction.removeTodo, appStore);
+        this.editItem = todoAction.createDispatcher(todoAction.editTodo, appStore);
     }
 }
