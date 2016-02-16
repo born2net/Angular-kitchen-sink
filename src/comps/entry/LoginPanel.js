@@ -23,6 +23,7 @@ require('rxjs/add/operator/scan');
 require('rxjs/add/operator/do');
 require('rxjs/add/observable/range');
 var angular2_redux_util_1 = require("angular2-redux-util");
+var bootbox = require('bootbox');
 var User = (function () {
     function User(obj) {
         this.id = obj && obj.id || Math.random();

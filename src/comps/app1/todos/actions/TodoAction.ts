@@ -12,6 +12,8 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 export const CLEAR_TODOS = 'CLEAR_TODOS';
 
+var bootbox = require('bootbox');
+
 @Injectable()
 export class TodoAction extends Actions {
 

@@ -1,6 +1,8 @@
 ///<reference path="../typings/app.d.ts"/>
 
 //import {enableProdMode} from 'angular2/core';
+require('bootstrap');
+import Immutable = require('immutable');
 import 'zone.js/dist/zone.min.js';
 import "reflect-metadata";
 import 'twbs/bootstrap/css/bootstrap.css!';
@@ -117,10 +119,3 @@ bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
     provide(LocationStrategy, {useClass: HashLocationStrategy})]);
 
 
-/** global libraries, can't live with'em can't with live without'em **/
-window['jQuery'] = require('jquery');
-window['bootbox'] = require('bootbox');
-window['_'] = require('underscore');
-window['Highcharts'] = require('highcharts');
-window['immutable'] = require('immutable');
-require('bootstrap');

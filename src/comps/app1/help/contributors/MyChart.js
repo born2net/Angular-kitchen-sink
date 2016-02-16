@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var ng2_highcharts_1 = require('../../../ng2-highcharts/ng2-highcharts');
+window['Highcharts'] = require('highcharts');
 var MyChart = (function () {
     function MyChart() {
         this.chartBar = {

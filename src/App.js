@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require('bootstrap');
 require('zone.js/dist/zone.min.js');
 require("reflect-metadata");
 require('twbs/bootstrap/css/bootstrap.css!');
@@ -103,10 +104,4 @@ browser_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http
     core_1.provide(CommBroker_1.CommBroker, { useClass: CommBroker_1.CommBroker }),
     core_1.provide(Conts_1.Consts, { useClass: Conts_1.Consts }),
     core_1.provide(router_2.LocationStrategy, { useClass: router_2.HashLocationStrategy })]);
-window['jQuery'] = require('jquery');
-window['bootbox'] = require('bootbox');
-window['_'] = require('underscore');
-window['Highcharts'] = require('highcharts');
-window['immutable'] = require('immutable');
-require('bootstrap');
 //# sourceMappingURL=App.js.map

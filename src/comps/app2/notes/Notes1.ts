@@ -12,6 +12,8 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl}
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 
+var bootbox = require('bootbox');
+
 @Component({
     selector: 'Notes1',
     directives: [ModalDialog, FORM_DIRECTIVES],

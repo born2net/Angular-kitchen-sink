@@ -24,6 +24,7 @@ var CharCount_1 = require("../../../pipes/CharCount");
 var common_1 = require('angular2/common');
 var StartCapValidator_1 = require("../../../validators/StartCapValidator");
 var NameTakenValidator_1 = require("../../../validators/NameTakenValidator");
+var bootbox = require('bootbox');
 var Notes1 = (function (_super) {
     __extends(Notes1, _super);
     function Notes1(fb, sliderPanel, commBroker) {
