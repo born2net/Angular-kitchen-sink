@@ -7,7 +7,6 @@ import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
-import {CharCount} from "../../../pipes/CharCount";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
@@ -18,8 +17,7 @@ var bootbox = require('bootbox');
     selector: 'Notes1',
     directives: [ModalDialog, FORM_DIRECTIVES],
     templateUrl: '/src/comps/app2/notes/Notes1.html',
-    styleUrls: ['../comps/app2/notes/Notes1.css'],
-    pipes: [CharCount]
+    styleUrls: ['../comps/app2/notes/Notes1.css']
 })
 
 /**

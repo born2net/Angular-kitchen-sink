@@ -7,12 +7,13 @@ import 'zone.js/dist/zone.min.js';
 import "reflect-metadata";
 import 'twbs/bootstrap/css/bootstrap.css!';
 import './styles/style.css!';
+import {CharCount} from "./pipes/CharCount";
 import {bootstrap} from 'angular2/platform/browser';
 import {HTTP_PROVIDERS, JSONP_PROVIDERS} from "angular2/http";
 import {App1} from '../src/comps/app1/App1';
 import {App2} from '../src/comps/app2/App2';
 import {App3} from '../src/comps/app3/App3';
-import {Component, provide, ViewEncapsulation} from 'angular2/core';
+import {Component, provide, ViewEncapsulation, PLATFORM_PIPES} from 'angular2/core';
 import {EntryPanel} from '../src/comps/entry/EntryPanel';
 import {AppManager} from '../src/comps/appmanager/AppManager';
 import {CommBroker} from '../src/services/CommBroker';
@@ -115,6 +116,7 @@ export class App {
 bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
     provide(AppStore, {useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})}),
     provide(CommBroker, {useClass: CommBroker}),
+    provide(PLATFORM_PIPES, { useValue : CharCount, multi : true }),
     provide(Consts, {useClass: Consts}),
     provide(LocationStrategy, {useClass: HashLocationStrategy})]);
 
