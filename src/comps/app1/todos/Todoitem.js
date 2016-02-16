@@ -16,19 +16,27 @@ var TodoItem = (function () {
         this.done = new core_1.EventEmitter();
         this.edit = new core_1.EventEmitter();
     }
+    Object.defineProperty(TodoItem.prototype, "item", {
+        set: function (value) {
+            this._item = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     TodoItem.prototype.doneClicked = function () {
-        this.done.next(this.item);
+        this.done.next(this._item);
     };
     TodoItem.prototype.editClicked = function () {
         this.editMode = !this.editMode;
         if (this.editMode)
             return;
-        this.edit.next(this.item);
+        this.edit.next(this._item);
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', TodoService_1.TodoItemModel)
-    ], TodoItem.prototype, "item", void 0);
+        __metadata('design:type', TodoService_1.TodoItemModel), 
+        __metadata('design:paramtypes', [TodoService_1.TodoItemModel])
+    ], TodoItem.prototype, "item", null);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
@@ -40,7 +48,7 @@ var TodoItem = (function () {
     TodoItem = __decorate([
         core_1.Component({
             selector: 'todo-item',
-            template: "\n                <div class=\"view\">\n                    <input [(ngModel)]=\"item.task\" class=\"editInput\" *ngIf=\"editMode\" value=\"{{item.task}}\"/>\n                    <label  *ngIf=\"!editMode\">{{item.getKey('task')}}</label>\n                    <button (click)=\"doneClicked()\"  class=\"fa fa-minus buttonsDone\"></button>\n                    <button (click)=\"editClicked()\" [ngClass]=\"{'fa-check-square': editMode}\" class=\"fa fa-edit buttonsEdit\"></button>\n                </div>\n    ",
+            template: "\n                <div class=\"view\">\n                    <input [(ngModel)]=\"_item.task\" class=\"editInput\" *ngIf=\"editMode\" value=\"{{_item.task}}\"/>\n                    <label  *ngIf=\"!editMode\">{{_item.getKey('task')}}</label>\n                    <button (click)=\"doneClicked()\"  class=\"fa fa-minus buttonsDone\"></button>\n                    <button (click)=\"editClicked()\" [ngClass]=\"{'fa-check-square': editMode}\" class=\"fa fa-edit buttonsEdit\"></button>\n                </div>\n    ",
             styleUrls: ['../comps/app1/todos/Todoitem.css'],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
