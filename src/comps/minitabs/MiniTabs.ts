@@ -53,10 +53,11 @@ export class Minitabs implements AfterContentInit {
     @ContentChildren(Minitab)
     tabs:QueryList<Minitab>;
 
+    // access native elements through the angular interface of ViewChildren
     isAccent() {
         this.toggleClass = !this.toggleClass;
         this.myTabs.map(i=> {
-            console.log('my tabs ' + i);
+            console.log('my tabs ' + i._appElement.nativeElement);
         });
     }
 
