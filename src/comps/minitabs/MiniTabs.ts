@@ -1,11 +1,34 @@
-import { Component, ContentChildren, QueryList, AfterContentInit } from 'angular2/core';
-import { Minitab } from './Minitab';
+import {Component, ContentChildren, QueryList, AfterContentInit} from 'angular2/core';
+import {Minitab} from './Minitab';
 
+/**
+ *  Below I demonstrate dynamic class setup.
+ *
+ *  You can also do [class]="getClass()"  and it will set a string of class or classes, but this will mess
+ *  with any of the classes on the element if they are already set.
+ *
+ *  Often you will want to toggle a single class, which you can do by
+ *  using a [class.className] syntax in the property.
+ *
+ *  and more examples for styles:
+ *
+ <!-- getColor() returns a valid color -->
+ <h1 [style.color]="getColor()">Title</h1>
+ <h1 [style.line-height.em]="'2'">Title</h1>
+
+ **/
 @Component({
     selector: 'mini-tabs',
-    template:`
+    styles: [`
+        .accent {
+            background-color: lightgray;
+        }
+    `],
+    template: `
+    <button (click)="isAccent($event)">toggle a class style on/off</button>
     <ul class="nav nav-tabs">
-      <li *ngFor="#tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active">
+      <li *ngFor="#tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active"
+        [class.accent]="toggleClass">
         <a href="#">{{tab.title}}</a>
       </li>
     </ul>
@@ -14,7 +37,13 @@ import { Minitab } from './Minitab';
 })
 export class Minitabs implements AfterContentInit {
 
-    @ContentChildren(Minitab) tabs: QueryList<Minitab>;
+    private toggleClass:boolean = false;
+    @ContentChildren(Minitab)
+    tabs:QueryList<Minitab>;
+
+    isAccent() {
+        this.toggleClass = !this.toggleClass;
+    }
 
     // contentChildren are set
     ngAfterContentInit() {
@@ -23,11 +52,11 @@ export class Minitabs implements AfterContentInit {
         let activeTabs = this.tabs.filter((tab)=>tab.active);
 
         // if there is no active tab set, activate the first
-        if(activeTabs.length === 0)
+        if (activeTabs.length === 0)
             this.selectTab(this.tabs.first);
     }
 
-    selectTab(tab: Minitab, event?:MouseEvent){
+    selectTab(tab:Minitab, event?:MouseEvent) {
         // deactivate all tabs
         event ? event.preventDefault() : null;
         this.tabs.toArray().forEach(tab => tab.active = false);
