@@ -1,4 +1,4 @@
-import {Component, ContentChildren, QueryList, AfterContentInit} from 'angular2/core';
+import {Component, ContentChildren, QueryList, AfterContentInit, ViewChildren} from 'angular2/core';
 import {Minitab} from './Minitab';
 
 /**
@@ -27,7 +27,7 @@ import {Minitab} from './Minitab';
     template: `
     <button (click)="isAccent($event)">toggle a class style on/off</button>
     <ul class="nav nav-tabs">
-      <li *ngFor="#tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active"
+      <li #tabItem *ngFor="#tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active"
         [class.accent]="toggleClass">
         <a href="#">{{tab.title}}</a>
       </li>
@@ -37,12 +37,27 @@ import {Minitab} from './Minitab';
 })
 export class Minitabs implements AfterContentInit {
 
+    //As the name suggests, @ContentChild and @ContentChildren queries will return directives
+    //existing inside the <ng-content></ng-content> element of your view,
+    //whereas @ViewChild and @ViewChildren only look at elements
+    //that are on your view template directly (i.e. the shadow dom).
+    //here we are using the ViewChildren to grab all children via the tabItem index
+    @ViewChildren('tabItem')
+    myTabs:QueryList<any>;
+
+    ngAfterViewChecked() {
+        //console.log(this.myTabs);
+    }
+
     private toggleClass:boolean = false;
     @ContentChildren(Minitab)
     tabs:QueryList<Minitab>;
 
     isAccent() {
         this.toggleClass = !this.toggleClass;
+        this.myTabs.map(i=> {
+            console.log('my tabs ' + i);
+        });
     }
 
     // contentChildren are set
