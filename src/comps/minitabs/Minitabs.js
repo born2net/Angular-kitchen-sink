@@ -12,7 +12,11 @@ var core_1 = require('angular2/core');
 var Minitab_1 = require('./Minitab');
 var Minitabs = (function () {
     function Minitabs() {
+        this.toggleClass = false;
     }
+    Minitabs.prototype.isAccent = function () {
+        this.toggleClass = !this.toggleClass;
+    };
     Minitabs.prototype.ngAfterContentInit = function () {
         console.log(this.tabs);
         var activeTabs = this.tabs.filter(function (tab) { return tab.active; });
@@ -31,7 +35,8 @@ var Minitabs = (function () {
     Minitabs = __decorate([
         core_1.Component({
             selector: 'mini-tabs',
-            template: "\n    <ul class=\"nav nav-tabs\">\n      <li *ngFor=\"#tab of tabs\" (click)=\"selectTab(tab,$event)\" [class.active]=\"tab.active\">\n        <a href=\"#\">{{tab.title}}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n  "
+            styles: ["\n        .accent {\n            background-color: lightgray;\n        }\n    "],
+            template: "\n    <button (click)=\"isAccent($event)\">toggle a class style on/off</button>\n    <ul class=\"nav nav-tabs\">\n      <li *ngFor=\"#tab of tabs\" (click)=\"selectTab(tab,$event)\" [class.active]=\"tab.active\"\n        [class.accent]=\"toggleClass\">\n        <a href=\"#\">{{tab.title}}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], Minitabs);
