@@ -19,7 +19,7 @@ var Minitabs = (function () {
     Minitabs.prototype.isAccent = function () {
         this.toggleClass = !this.toggleClass;
         this.myTabs.map(function (i) {
-            console.log('my tabs ' + i);
+            console.log('my tabs ' + i._appElement.nativeElement);
         });
     };
     Minitabs.prototype.ngAfterContentInit = function () {
