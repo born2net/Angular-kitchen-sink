@@ -101,6 +101,7 @@
       "immutable": "npm:immutable@^3.7.6",
       "is-equal": "npm:is-equal@^1.4.2",
       "jquery": "npm:jquery@^2.2.0",
+      "lodash": "npm:lodash@4.2.1",
       "moment": "npm:moment@^2.11.2",
       "plugin-typescript": "github:frankwallis/plugin-typescript@2.5.6",
       "redux": "npm:redux@^3.2.1",
