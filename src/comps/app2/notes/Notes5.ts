@@ -7,7 +7,8 @@ import {NotesBase} from "./NotesBase";
  * In this example I show to to pass parameters to a service that is being injected using
  * the dependency injection in angular2.
  * The NotesService gets injected into the Notes5 component, and it is passed in
- * a constructor parameter value of 'get the milk'. This is powerful as it lets us
+ * a constructor parameter value of 'example of passing param to component via DI'.
+ * This is powerful as it lets us
  * instantiate components through the angular DI system with params.
  */
 
@@ -18,17 +19,17 @@ class NotesService {
     }
 
     showConfigValue() {
-        // show the passed in param via provide("NotesConfigValue", {useValue: {noteDefault: 'get the milk'}}),
-        console.log(this.config);
+        // show the passed in param via provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),
+        console.log(this.config.noteDefault);
     }
 }
 
 @Component({
     selector: 'Notes5',
     providers: [
-        // NotesService get's provided with a 'useValue' constructor value
+        // NotesService get's provided with a 'useValue' constructor
         NotesService,
-        provide("NotesConfigValue", {useValue: {noteDefault: 'get the milk'}}),
+        provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),
     ],
     template: `<button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>

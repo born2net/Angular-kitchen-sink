@@ -25,7 +25,7 @@ var NotesService = (function () {
         this.config = config;
     }
     NotesService.prototype.showConfigValue = function () {
-        console.log(this.config);
+        console.log(this.config.noteDefault);
     };
     NotesService = __decorate([
         core_1.Injectable(),
@@ -50,7 +50,7 @@ var Notes5 = (function (_super) {
             selector: 'Notes5',
             providers: [
                 NotesService,
-                core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'get the milk' } }),
+                core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'example of passing param to component via DI' } }),
             ],
             template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <ng-content></ng-content>"
         }), 
