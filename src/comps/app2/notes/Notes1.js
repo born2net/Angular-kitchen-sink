@@ -36,6 +36,10 @@ var Notes1 = (function (_super) {
             'userName': ['', common_1.Validators.required],
             'reference': ['', common_1.Validators.required],
             'phone': ['(xxx)-xxxx-xxx', common_1.Validators.minLength(10)],
+            'birthdate': ['',
+                common_1.Validators.compose([
+                    common_1.Validators.required,
+                    this.isOldEnough])],
             'notesTextArea': ['enter text here',
                 common_1.Validators.compose([
                     common_1.Validators.required,
@@ -50,6 +54,7 @@ var Notes1 = (function (_super) {
         this.reference = this.notesForm.controls['reference'];
         this.login = this.notesForm.controls['login'];
         this.phone = this.notesForm.controls['phone'];
+        this.birthdate = this.notesForm.controls['birthdate'];
         this.model = new MailModel_1.MailModel(0, '', true, '', '');
         this.mapModel = new Map();
         this.mapModel.set('my name', 'Sean Levy');
@@ -57,6 +62,17 @@ var Notes1 = (function (_super) {
         this.observeFormChange();
         this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('notes1');
     }
+    Notes1.prototype.isOldEnough = function (control) {
+        if (!control.value) {
+            return null;
+        }
+        var birthDatePlus18 = new Date(control.value);
+        var year = birthDatePlus18.getFullYear();
+        if (year < 1925)
+            return { notValid: true };
+        birthDatePlus18.setFullYear(birthDatePlus18.getFullYear() + 18);
+        return birthDatePlus18 < new Date() ? null : { tooYoung: true };
+    };
     Notes1.prototype.observeNameChange = function () {
         this.userName.valueChanges.debounceTime(100).subscribe(function (value) {
             console.log('name changed, notified via observable: ', value);

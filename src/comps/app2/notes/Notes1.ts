@@ -1,18 +1,21 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component} from 'angular2/core';
+import {Component, provide} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
+import {
+    FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control
+} from 'angular2/common'
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import {DisplayError} from "../../displayerror/DisplayError";
 
 var bootbox = require('bootbox');
+
 
 @Component({
     selector: 'Notes1',
@@ -32,6 +35,7 @@ export class Notes1 extends NotesBase {
     private userName:AbstractControl;
     private reference:AbstractControl;
     private phone:AbstractControl;
+    private birthdate:AbstractControl;
     private login:AbstractControl;
     private model:MailModel;
     private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
@@ -45,6 +49,10 @@ export class Notes1 extends NotesBase {
             'userName': ['', Validators.required],
             'reference': ['', Validators.required],
             'phone': ['(xxx)-xxxx-xxx', Validators.minLength(10)],
+            'birthdate': ['',
+                Validators.compose([
+                    Validators.required,
+                    this.isOldEnough])],
             'notesTextArea': ['enter text here',
                 Validators.compose([
                     Validators.required,
@@ -61,6 +69,7 @@ export class Notes1 extends NotesBase {
         this.reference = this.notesForm.controls['reference'];
         this.login = this.notesForm.controls['login'];
         this.phone = this.notesForm.controls['phone'];
+        this.birthdate = this.notesForm.controls['birthdate'];
 
         this.model = new MailModel(0, '', true, '', '');
 
@@ -73,6 +82,19 @@ export class Notes1 extends NotesBase {
         this.observeFormChange();
 
         this.commBroker.getService(Consts.Services().Properties).setPropView('notes1')
+    }
+
+    isOldEnough(control:Control) {
+        if (!control.value) {
+            return null;
+        }
+        let birthDatePlus18 = new Date(control.value);
+        let year = birthDatePlus18.getFullYear();
+        if (year<1925)
+            return {notValid: true};
+
+        birthDatePlus18.setFullYear(birthDatePlus18.getFullYear() + 18);
+        return birthDatePlus18 < new Date() ? null : {tooYoung: true};
     }
 
     /**
@@ -105,3 +127,4 @@ export class Notes1 extends NotesBase {
             console.log('text too short for subject');
     }
 }
+

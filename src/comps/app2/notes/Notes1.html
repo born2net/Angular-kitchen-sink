@@ -57,6 +57,16 @@
           </div>
           <label for="name">Enter your notes</label>
 
+          <!-- age -->
+          <div>
+            <label>Birth date</label>
+            <input type="date" class="longInput form-control" required [ngFormControl]="notesForm.controls['birthdate']">
+            <div *ngIf="birthdate.control?.dirty">
+              <div *ngIf="birthdate.control?.hasError('required')">Birth date is required</div>
+              <div *ngIf="birthdate.control?.hasError('tooYoung')">You're way too young</div>
+            </div>
+          </div>
+
           <!-- bind the textarea control to our manually created notesTextArea control -->
           <textarea type="text" placeholder="enter some notes" class="myNotes form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
           <div *ngIf="notesTextArea.hasError('notCapped') && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
