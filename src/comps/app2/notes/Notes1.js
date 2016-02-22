@@ -23,6 +23,7 @@ var MailModel_1 = require("../../../models/MailModel");
 var common_1 = require('angular2/common');
 var StartCapValidator_1 = require("../../../validators/StartCapValidator");
 var NameTakenValidator_1 = require("../../../validators/NameTakenValidator");
+var DisplayError_1 = require("../../displayerror/DisplayError");
 var bootbox = require('bootbox');
 var Notes1 = (function (_super) {
     __extends(Notes1, _super);
@@ -33,6 +34,7 @@ var Notes1 = (function (_super) {
         this.slideLeft = 'notes2';
         this.notesForm = fb.group({
             'userName': ['', common_1.Validators.required],
+            'reference': ['', common_1.Validators.required],
             'phone': ['(xxx)-xxxx-xxx', common_1.Validators.minLength(10)],
             'notesTextArea': ['enter text here',
                 common_1.Validators.compose([
@@ -45,6 +47,7 @@ var Notes1 = (function (_super) {
         });
         this.notesTextArea = this.notesForm.controls['notesTextArea'];
         this.userName = this.notesForm.controls['userName'];
+        this.reference = this.notesForm.controls['reference'];
         this.login = this.notesForm.controls['login'];
         this.phone = this.notesForm.controls['phone'];
         this.model = new MailModel_1.MailModel(0, '', true, '', '');
@@ -74,7 +77,7 @@ var Notes1 = (function (_super) {
     Notes1 = __decorate([
         core_1.Component({
             selector: 'Notes1',
-            directives: [ModalDialog_1.ModalDialog, common_1.FORM_DIRECTIVES],
+            directives: [ModalDialog_1.ModalDialog, common_1.FORM_DIRECTIVES, DisplayError_1.DisplayError],
             templateUrl: '/src/comps/app2/notes/Notes1.html',
             styleUrls: ['../comps/app2/notes/Notes1.css']
         }), 

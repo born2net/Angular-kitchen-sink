@@ -24,6 +24,12 @@ export class Lib {
         };
     }
 
+    static insertAt(immutable, item, index) {
+        let first = immutable.slice(0, index - 1).push(item)
+        let second = immutable.slice(index)
+        return first.conact(second);
+    }
+
     static LoadComponentAsync(name:string, path:string) {
 
         return System.import(path).then(c => c[name]);

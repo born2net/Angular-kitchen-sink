@@ -35,6 +35,11 @@
             <strong>Warning!</strong> are you a robot?
           </div>
 
+          <!-- reference use a custom component to display required error message -->
+          <input type="text" class="form-control" placeholder="reference" required [ngFormControl]="notesForm.controls['reference']">
+          <display-error control="reference" error="required">how did you learn about us?</display-error>
+
+
           <!-- login name -->
           <input type="text" class="longInput form-control" placeholder="check server for free name (try: Sean)" required [ngFormControl]="notesForm.controls['login']">
           <p *ngIf="login.pending">Fetching data from the server...</p>
@@ -53,7 +58,7 @@
           <label for="name">Enter your notes</label>
 
           <!-- bind the textarea control to our manually created notesTextArea control -->
-                            <textarea type="text" placeholder="enter some notes" class="myNotes form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
+          <textarea type="text" placeholder="enter some notes" class="myNotes form-control" [ngFormControl]="notesForm.controls['notesTextArea']" required [(ngModel)]="model.name" (change)="onChange($event)"></textarea>
           <div *ngIf="notesTextArea.hasError('notCapped') && notesTextArea.touched" class="alert alert-warning alert-dismissible" role="alert">
             <strong>Warning!</strong> Must start with first capital letter (Validators are working :)
           </div>

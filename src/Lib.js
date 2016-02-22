@@ -27,6 +27,11 @@ var Lib = (function () {
             return new angular2_redux_util_1.AppStore(reduxAppStore);
         };
     };
+    Lib.insertAt = function (immutable, item, index) {
+        var first = immutable.slice(0, index - 1).push(item);
+        var second = immutable.slice(index);
+        return first.conact(second);
+    };
     Lib.LoadComponentAsync = function (name, path) {
         return System.import(path).then(function (c) { return c[name]; });
     };

@@ -10,12 +10,13 @@ import {MailModel} from "../../../models/MailModel";
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl} from 'angular2/common'
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
+import {DisplayError} from "../../displayerror/DisplayError";
 
 var bootbox = require('bootbox');
 
 @Component({
     selector: 'Notes1',
-    directives: [ModalDialog, FORM_DIRECTIVES],
+    directives: [ModalDialog, FORM_DIRECTIVES, DisplayError],
     templateUrl: '/src/comps/app2/notes/Notes1.html',
     styleUrls: ['../comps/app2/notes/Notes1.css']
 })
@@ -29,6 +30,7 @@ export class Notes1 extends NotesBase {
     private notesForm:ControlGroup;
     private notesTextArea:AbstractControl;
     private userName:AbstractControl;
+    private reference:AbstractControl;
     private phone:AbstractControl;
     private login:AbstractControl;
     private model:MailModel;
@@ -41,6 +43,7 @@ export class Notes1 extends NotesBase {
 
         this.notesForm = fb.group({
             'userName': ['', Validators.required],
+            'reference': ['', Validators.required],
             'phone': ['(xxx)-xxxx-xxx', Validators.minLength(10)],
             'notesTextArea': ['enter text here',
                 Validators.compose([
@@ -55,6 +58,7 @@ export class Notes1 extends NotesBase {
         // map to instances from form
         this.notesTextArea = this.notesForm.controls['notesTextArea'];
         this.userName = this.notesForm.controls['userName'];
+        this.reference = this.notesForm.controls['reference'];
         this.login = this.notesForm.controls['login'];
         this.phone = this.notesForm.controls['phone'];
 
