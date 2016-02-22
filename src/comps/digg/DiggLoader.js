@@ -24,7 +24,7 @@ var DiggLoader = (function () {
         filter = filter.toLowerCase();
         var s = this.m_http.get('https://secure.digitalsignage.com/Digg').retry(2);
         s.mergeMap(function (res) {
-            var news = JSON.parse(res._body);
+            var news = res.json();
             return Observable_1.Observable.fromArray(news);
         }).filter(function (data) {
             if (data.title.toLowerCase().indexOf(filter) > -1) {

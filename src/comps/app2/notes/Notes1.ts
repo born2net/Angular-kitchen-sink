@@ -84,7 +84,7 @@ export class Notes1 extends NotesBase {
         this.commBroker.getService(Consts.Services().Properties).setPropView('notes1')
     }
 
-    isOldEnough(control:Control) {
+    isOldEnough(control:Control):any {
         if (!control.value) {
             return null;
         }

@@ -24,14 +24,28 @@ export interface IDigg {
  */
 export class DiggLoader {
     private m_http:Http;
+
     constructor(private http:Http) {
         this.m_http = http;
     }
+
     loadDiggs(filter:any, diggs:IDigg[]) {
         filter = filter.toLowerCase();
+
+        // Another options is to use jsonp if no CORS support via:
+        // jsonp.get('https://secure.digitalsignage.com/Digg?callback=JSONP_CALLBACK').map(res...
+
+        // and another search params and request options:
+        // let searchParams = new URLSearchParams();
+        // searchParams.set('sort', 'ascending');
+        // let options = new RequestOptions({search: searchParams});
+        // this.m_http.get('https://secure.digitalsignage.com/Digg', options) .subscribe(response => {
+        //     console.log(response.text());
+        // });
+
         let s:any = this.m_http.get('https://secure.digitalsignage.com/Digg').retry(2);
         s.mergeMap((res)=> {
-            let news = JSON.parse(res._body);
+            let news = res.json();
             return Observable.fromArray(news);
         }).filter(function (data:IDigg) {
             if (data.title.toLowerCase().indexOf(filter) > -1) {
