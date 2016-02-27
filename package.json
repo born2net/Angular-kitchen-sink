@@ -116,6 +116,7 @@
       "zone.js": "npm:zone.js@^0.5.14"
     },
     "devDependencies": {
+      "clean-css": "npm:clean-css@^3.4.9",
       "ng2-bootstrap": "npm:ng2-bootstrap@^1.0.3"
     }
   }
