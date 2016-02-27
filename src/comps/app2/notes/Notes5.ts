@@ -2,6 +2,7 @@ import {Component, Inject, Injectable, provide} from 'angular2/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
+import {CountDown} from "../../countdown/CountDown";
 
 /**
  * In this example I show to to pass parameters to a service that is being injected using
@@ -19,15 +20,28 @@ class NotesService {
     }
 
     showConfigValue() {
-        // show the passed in param via provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),
+        // show the passed in param via provide("NotesConfigValue",asterisklue: {noteDefault: 'example of passing param to component via DI'}}),
         console.log(this.config.noteDefault);
     }
 }
+/**
+ This is a powerful demonstrating that shows how to create a directive just like
+ the *ngFor or *ngIf of ng2, and in our case *CountDown.
+
+ What this means is that we are able to manually create a template
+ and using viewContainer.createEmbeddedView(this.templateRef) we  bind
+ the template into the component.
+
+ While in practicality we mostly use <ng-content> to achieve the same effect
+ it still a great example into the inner workings of ng2.
+ */
+
 
 @Component({
     selector: 'Notes5',
+    directives: [CountDown],
     providers: [
-        // NotesService get's provided with a 'useValue' constructor
+        // NotesService get's provided with a noteDefault
         NotesService,
         provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),
     ],
@@ -36,7 +50,23 @@ class NotesService {
                 </button>
                 <hr/>
                 <small>I am notes5 component</small>
-                <ng-content></ng-content>`
+                <div>
+                   <small>I am CountDown component</small>
+                    <h2>CountDown</h2>
+                    <div class="timer" *CountDown="#timer=timerApi">
+                      <div class="time">{{ timer.getTime() }}</div>
+                      <div class="controls">
+                        <button (click)="timer.toggle()">Toggle</button>
+                        <button (click)="timer.reset()">Reset</button>
+                      </div>
+                    </div>
+                </div>
+                <label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>
+                <br/>
+                <label>Check the code to learn more...</label>
+
+
+                `
 })
 
 export class Notes5 extends NotesBase {

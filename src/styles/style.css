@@ -739,3 +739,58 @@ Language selector
 .notice-danger > strong {
     color: #d73814;
 }
+
+
+
+
+
+
+.timer {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    height: 300px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    background: linear-gradient(to bottom, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+    box-shadow: 0px 5px 9px -4px rgba(0,0,0,0.75);
+}
+
+.time {
+    font-size: 48px;
+    border-bottom: 1px solid darkgray;
+    padding: 10px 5px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, #a9db80 0%,#96c56f 100%);
+    box-shadow: inset 0px 5px 9px -4px rgba(0,0,0,0.75);
+    text-shadow: 0px 0px 7px rgba(227, 255, 234, 1);
+    color: #242;
+}
+
+.controls {
+    margin-top: 30px;
+}
+
+.controls button {
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+
+.controls button:first-child {
+    background-color: #1FA33D;
+}
+
+.controls button:last-child {
+    background-color: #CE2727;
+}
