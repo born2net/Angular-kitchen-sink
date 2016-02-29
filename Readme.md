@@ -72,7 +72,8 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
 - Dependency injection and decorators such as @Host
-- Advanced decorators such as @HostListener @CanActivate @ContentChildren @Injectable and more
+- Advanced decorators such as @HostListener @ContentChildren @Injectable and more
+- Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)   
 - Dependency sharing
 - ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles

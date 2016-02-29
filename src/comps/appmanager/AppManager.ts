@@ -1,7 +1,9 @@
 import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES, CanActivate, ComponentInstruction} from 'angular2/router';
 import {RouterLink, Router} from 'angular2/router';
 import {Lib} from "../../Lib";
+import {appInjService} from "../../services/AppInjService";
+import {AuthService} from "../../services/AuthService";
 
 @Component({
     providers: [AppManager],
@@ -37,6 +39,12 @@ import {Lib} from "../../Lib";
     </div>
     `,
     directives: [ROUTER_DIRECTIVES, RouterLink]
+})
+
+// An example of how we can allow or deny access to a Route
+@CanActivate((to:ComponentInstruction, from:ComponentInstruction) => {
+    let authService:AuthService = appInjService().get(AuthService);
+    return authService.checkAccess(to, from, ['/Login/Login']);
 })
 export class AppManager {
     private myRouter:Router;
