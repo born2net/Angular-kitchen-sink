@@ -18,8 +18,8 @@ and built IMHO the perfect Angular2 setup...
 - The goals are
    - Best workflow for development
    - Best production process
-   - Touch as many ng2 areas as possible
-   - strong modeling design (redux)
+   - Touch as many ng2 areas as possible so you can use this project as examples for source code that actually works!
+   - strong modeling design via redux and immutable.js  
    - Power by commonly used components (sliders, bootstrap, charts, etc)
 
 
@@ -56,7 +56,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
    - backend server sync
    - local redux store (https://github.com/rackt/redux)
-   - Extending Base class StoreModel makes working with Immutable.js a breeze
+   - Extend Base class StoreModel makes working with Immutable.js a breeze and use the power of Typing
    - Using factory to always create immutable typed instances of a class
 - Advanced Routing (also support async routing if jspm bundling is not used)
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
