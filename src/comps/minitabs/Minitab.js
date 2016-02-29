@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -30,6 +29,7 @@ var Minitab = (function () {
         __metadata('design:paramtypes', [])
     ], Minitab);
     return Minitab;
-}());
+})();
 exports.Minitab = Minitab;
-//# sourceMappingURL=Minitab.js.map
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBzL21pbml0YWJzL21pbml0YWIudHMiXSwibmFtZXMiOlsiTWluaXRhYiIsIk1pbml0YWIuY29uc3RydWN0b3IiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBLHFCQUFpQyxlQUFlLENBQUMsQ0FBQTtBQUVqRDtJQUFBQTtRQWVhQyxXQUFNQSxHQUFHQSxLQUFLQSxDQUFDQTtJQUM1QkEsQ0FBQ0E7SUFGR0Q7UUFBQ0EsWUFBS0EsQ0FBQ0EsVUFBVUEsQ0FBQ0E7O09BQUNBLDBCQUFLQSxVQUFTQTtJQUNqQ0E7UUFBQ0EsWUFBS0EsRUFBRUE7O09BQUNBLDJCQUFNQSxVQUFTQTtJQWY1QkE7UUFBQ0EsZ0JBQVNBLENBQUNBO1lBQ1BBLFFBQVFBLEVBQUVBLFVBQVVBO1lBQ3BCQSxNQUFNQSxFQUFFQSxDQUFDQSw4Q0FJVkEsQ0FBQ0E7WUFDQUEsUUFBUUEsRUFBRUEsa0dBSVhBO1NBQ0ZBLENBQUNBOztnQkFJREE7SUFBREEsY0FBQ0E7QUFBREEsQ0FoQkEsQUFnQkNBLElBQUE7QUFIWSxlQUFPLFVBR25CLENBQUEiLCJmaWxlIjoiY29tcHMvbWluaXRhYnMvTWluaXRhYi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCwgSW5wdXQgfSBmcm9tICdhbmd1bGFyMi9jb3JlJztcclxuXHJcbkBDb21wb25lbnQoe1xyXG4gICAgc2VsZWN0b3I6ICdtaW5pLXRhYicsXHJcbiAgICBzdHlsZXM6IFtgXHJcbiAgICAucGFuZXtcclxuICAgICAgcGFkZGluZzogMWVtO1xyXG4gICAgfVxyXG4gIGBdLFxyXG4gICAgdGVtcGxhdGU6IGBcclxuICAgIDxkaXYgW2hpZGRlbl09XCIhYWN0aXZlXCIgY2xhc3M9XCJwYW5lXCI+XHJcbiAgICAgIDxuZy1jb250ZW50PjwvbmctY29udGVudD5cclxuICAgIDwvZGl2PlxyXG4gIGBcclxufSlcclxuZXhwb3J0IGNsYXNzIE1pbml0YWIge1xyXG4gICAgQElucHV0KCd0YWJUaXRsZScpIHRpdGxlOiBzdHJpbmc7XHJcbiAgICBASW5wdXQoKSBhY3RpdmUgPSBmYWxzZTtcclxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
