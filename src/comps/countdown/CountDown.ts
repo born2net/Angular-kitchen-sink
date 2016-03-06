@@ -18,6 +18,12 @@ export class CountDown {
         this.cdr.detach();
     }
 
+    // Detaches and removes the view container
+    hide() {
+        this.viewContainer.detach();
+        this.viewContainer.remove();
+    }
+
     ngAfterViewInit() {
         let view = this.viewContainer.createEmbeddedView(this.templateRef);
         let api = {
