@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "angular-cli": "0.0.*",
-    "angular2": "2.0.0-beta.6",
+    "angular2": "2.0.0-beta.8",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
     "autoprefixer": "^6.2.3",
@@ -85,11 +85,11 @@
     "typings": "^0.6.8",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
-    "zone.js": "^0.5.11"
+    "zone.js": "^0.5.15"
   },
   "jspm": {
     "dependencies": {
-      "angular2": "npm:angular2@^2.0.0-beta.6",
+      "angular2": "npm:angular2@^2.0.0-beta.8",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -103,14 +103,14 @@
       "jquery": "npm:jquery@^2.2.0",
       "lodash": "npm:lodash@4.2.1",
       "moment": "npm:moment@^2.11.2",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@2.5.6",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^4",
       "redux": "npm:redux@^3.2.1",
       "redux-thunk": "npm:redux-thunk@^1.0.3",
       "reflect-metadata": "npm:reflect-metadata@^0.1.3",
       "reselect": "npm:reselect@^2.0.3",
-      "rxjs": "npm:rxjs@5.0.0-beta.0",
+      "rxjs": "npm:rxjs@5.0.0-beta.2",
       "text": "github:systemjs/plugin-text@^0.0.4",
-      "ts": "github:frankwallis/plugin-typescript@^2.6.0",
+      "ts": "github:frankwallis/plugin-typescript@^4",
       "typescript": "npm:typescript@1.8.0",
       "underscore": "npm:underscore@^1.8.3",
       "zone.js": "npm:zone.js@^0.5.14"
