@@ -5,11 +5,12 @@ import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {MyIp} from "../../myip/Myip";
 import {MODAL_DIRECTIVES} from 'ng2-bs3-modal/dist/ng2-bs3-modal'
+import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 
 @Component({
     selector: 'Notes2',
     providers: [MyIp],
-    directives: [ModalDialog, MyIp, MODAL_DIRECTIVES],
+    directives: [ModalDialog, MyIp, TrimmedInput, MODAL_DIRECTIVES],
     template: `
                 <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
@@ -37,6 +38,8 @@ import {MODAL_DIRECTIVES} from 'ng2-bs3-modal/dist/ng2-bs3-modal'
                 </modal>
 
                 <MyIp></MyIp>
+                <small>Example of @HostBinding</small>
+                <input type="text" trimmed-input />
                 <ng-content></ng-content>`
 })
 
