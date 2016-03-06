@@ -61,6 +61,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Advanced Routing (also support async routing if jspm bundling is not used)
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
+- Pass customer styles to components via ngStyle and custom properties
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing / mediator design pattern
 - LocalStorage service
