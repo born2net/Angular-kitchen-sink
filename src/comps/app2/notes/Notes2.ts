@@ -38,7 +38,7 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
                 </modal>
 
                 <MyIp></MyIp>
-                <small>Example of @HostBinding</small>
+                <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>
                 <input type="text" trimmed-input />
                 <ng-content></ng-content>`
 })

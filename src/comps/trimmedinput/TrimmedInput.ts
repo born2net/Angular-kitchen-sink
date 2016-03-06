@@ -16,7 +16,7 @@ export class TrimmedInput {
     // manually add event listener into the a dom member property
     @HostListener("input", ["$event.target.value"])
     onChange(updatedValue: string) {
-        this.value = updatedValue.trim();
+        this.value = updatedValue.trim() + '_';
         console.log(this.value)
     }
 
