@@ -1,4 +1,4 @@
-import {Component, ContentChildren, QueryList, AfterContentInit, ViewChildren} from 'angular2/core';
+import {Component, ContentChildren, QueryList, AfterContentInit, ViewChildren, Input} from 'angular2/core';
 import {Minitab} from './Minitab';
 
 /**
@@ -25,7 +25,7 @@ import {Minitab} from './Minitab';
         }
     `],
     template: `
-    <button (click)="isAccent($event)">toggle a class style on/off</button>
+    <button [ngStyle]="_style" (click)="isAccent($event)">toggle a class style on/off</button>
     <ul class="nav nav-tabs">
       <li #tabItem *ngFor="#tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active"
         [class.accent]="toggleClass">
@@ -37,6 +37,8 @@ import {Minitab} from './Minitab';
 })
 export class Minitabs implements AfterContentInit {
 
+    _style:Object;
+
     //As the name suggests, @ContentChild and @ContentChildren queries will return directives
     //existing inside the <ng-content></ng-content> element of your view,
     //whereas @ViewChild and @ViewChildren only look at elements
@@ -44,6 +46,12 @@ export class Minitabs implements AfterContentInit {
     //here we are using the ViewChildren to grab all children via the tabItem index
     @ViewChildren('tabItem')
     myTabs:QueryList<any>;
+
+    // ability to style components by passing css
+    @Input('style')
+    set style(i_style:Object){
+        this._style = i_style;
+    }
 
     ngAfterViewChecked() {
         //console.log(this.myTabs);

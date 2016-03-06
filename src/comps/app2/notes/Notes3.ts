@@ -16,7 +16,8 @@ import {Minitabs} from "../../minitabs/Minitabs";
                 </button>
                 <hr/>
                 <small>I am notes3 component</small>
-                 <mini-tabs>
+                <!-- style is really cool as we can externally style components via ngStyle -->
+                 <mini-tabs [style]="{'color': '#333333', 'backgroundColor': 'dodgerblue'}">
                   <mini-tab [tabTitle]="'Tab 1'">Tab 1 Content</mini-tab>
                   <mini-tab tabTitle="Tab 2">Tab 2 Content</mini-tab>
                   <mini-tab tabTitle="Tab 3">Tab 3 Content</mini-tab>

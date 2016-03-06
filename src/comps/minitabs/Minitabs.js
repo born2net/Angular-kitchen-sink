@@ -14,6 +14,13 @@ var Minitabs = (function () {
     function Minitabs() {
         this.toggleClass = false;
     }
+    Object.defineProperty(Minitabs.prototype, "style", {
+        set: function (i_style) {
+            this._style = i_style;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Minitabs.prototype.ngAfterViewChecked = function () {
     };
     Minitabs.prototype.isAccent = function () {
@@ -38,6 +45,11 @@ var Minitabs = (function () {
         __metadata('design:type', core_1.QueryList)
     ], Minitabs.prototype, "myTabs", void 0);
     __decorate([
+        core_1.Input('style'), 
+        __metadata('design:type', Object), 
+        __metadata('design:paramtypes', [Object])
+    ], Minitabs.prototype, "style", null);
+    __decorate([
         core_1.ContentChildren(Minitab_1.Minitab), 
         __metadata('design:type', core_1.QueryList)
     ], Minitabs.prototype, "tabs", void 0);
@@ -45,7 +57,7 @@ var Minitabs = (function () {
         core_1.Component({
             selector: 'mini-tabs',
             styles: ["\n        .accent {\n            background-color: lightgray;\n        }\n    "],
-            template: "\n    <button (click)=\"isAccent($event)\">toggle a class style on/off</button>\n    <ul class=\"nav nav-tabs\">\n      <li #tabItem *ngFor=\"#tab of tabs\" (click)=\"selectTab(tab,$event)\" [class.active]=\"tab.active\"\n        [class.accent]=\"toggleClass\">\n        <a href=\"#\">{{tab.title}}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n  "
+            template: "\n    <button [ngStyle]=\"_style\" (click)=\"isAccent($event)\">toggle a class style on/off</button>\n    <ul class=\"nav nav-tabs\">\n      <li #tabItem *ngFor=\"#tab of tabs\" (click)=\"selectTab(tab,$event)\" [class.active]=\"tab.active\"\n        [class.accent]=\"toggleClass\">\n        <a href=\"#\">{{tab.title}}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], Minitabs);
