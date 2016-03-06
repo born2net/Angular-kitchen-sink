@@ -5,7 +5,7 @@ var TodoModel_1 = require("../TodoModel");
 function todos(state, action) {
     if (state === void 0) { state = immutable_1.List(); }
     function indexOf(id) {
-        return state.findIndex(function (i) { return i.getKey('modelId') === id; });
+        return state.findIndex(function (i) { return i.getModelId() === id; });
     }
     switch (action.type) {
         case TodoAction.ADD_TODO:

@@ -14,7 +14,7 @@ export interface ITodoAction {
 export function todos(state:List<TodoModel> = List<TodoModel>(), action:ITodoAction):List<TodoModel> {
 
     function indexOf(id:string) {
-        return state.findIndex((i:TodoModel) => i.getKey('modelId') === id);
+        return state.findIndex((i:TodoModel) => i.getModelId() === id);
     }
 
     switch (action.type) {

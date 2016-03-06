@@ -11,6 +11,15 @@ var TodoModel = (function (_super) {
         if (data === void 0) { data = {}; }
         _super.call(this, data);
     }
+    TodoModel.prototype.setModelKey = function (key, value) {
+        return this.setData(TodoModel, this._data.set(key, value));
+    };
+    TodoModel.prototype.setModelId = function (id) {
+        return this.setKey(TodoModel, 'modelId', id);
+    };
+    TodoModel.prototype.getModelId = function () {
+        return this.getKey('modelId');
+    };
     TodoModel.prototype.invalidateTodoId = function (i_id) {
         if (i_id === void 0) { i_id = -1; }
         return this.setKey(TodoModel, 'modelId', i_id);

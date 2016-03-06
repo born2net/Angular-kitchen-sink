@@ -20,7 +20,7 @@ import {CommBroker} from "../../../services/CommBroker";
 @Component({
     selector: 'Weather',
     providers: [WeatherService, SortableHeader],
-    changeDetection: ChangeDetectionStrategy.OnPushObserve,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     pipes: [OrderBy],
     directives: [COMMON_DIRECTIVES, SortableHeader],
     styles: [`input {margin: 20px; width: 50%}`],

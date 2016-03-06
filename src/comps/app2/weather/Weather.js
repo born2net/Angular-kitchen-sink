@@ -49,7 +49,7 @@ var Weather = (function () {
         core_1.Component({
             selector: 'Weather',
             providers: [WeatherService_1.WeatherService, SortableHeader_1.SortableHeader],
-            changeDetection: core_1.ChangeDetectionStrategy.OnPushObserve,
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             pipes: [OrderBy_1.OrderBy],
             directives: [common_2.COMMON_DIRECTIVES, SortableHeader_1.SortableHeader],
             styles: ["input {margin: 20px; width: 50%}"],
