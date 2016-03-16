@@ -94,7 +94,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 Debugging:
 ---------
 jspm is great as you get to debug close to the metal (not like Webpack all bundled up and hard to reason about)
-for best performance I find it's great to restart the web dev server every 10min, hence gulp + forever:
+for best performance I find it's great to restart the web dev server every 30min, hence gulp + forever:
 ```
 gulp development --restart
 forever stopall ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development --restart ; tail -f ~/.forever/f.log

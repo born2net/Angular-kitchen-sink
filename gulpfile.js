@@ -65,13 +65,13 @@ gulp.task("production", function (callback) {
  * run it from the command line via:
  *
  * gulp development (will launch browser)
- * gulp development --restart (will not launch browser and restart daemon every 10min for best performance)
+ * gulp development --restart (will not launch browser and restart daemon every 30min for best performance)
  *
  **/
 
 gulp.task('development', function (done) {
     console.log(util.env.restart)
-    if (util.env.restart){
+    if (util.env.restart) {
         runSequence('x_open_server_development_auto', done);
     } else {
         runSequence('x_open_server_development', done);
@@ -194,9 +194,9 @@ gulp.task('x_open_server_development', ['x_watch_source'], function () {
 });
 
 /**
- * to get a fresh server every 10 minutes for better dev performance run:
+ * to get a fresh server every 30 minutes for better dev performance run:
  * forever stop 0 ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development_auto ; tail -f ~/.forever/f.log
-  **/
+ **/
 gulp.task('x_open_server_development_auto', ['x_watch_source'], function () {
     process.stdout.write('Starting browserSync and superstatic...\n');
     browserSync({
@@ -210,18 +210,20 @@ gulp.task('x_open_server_development_auto', ['x_watch_source'], function () {
             directory: true
         }
     });
-    // exit every 10 minutes so forever will restart it
-    setTimeout(function(){process.exit()},600000);
+    // exit every 30 minutes so forever will restart it
+    setTimeout(function () {
+        process.exit()
+    }, 1800000);
 });
 
-gulp.task('x_assets',function(){
+gulp.task('x_assets', function () {
     return gulp.src([
         './src/public/assets/**/*'
     ]).pipe(gulp.dest(paths.assets));
 });
 
-gulp.task('x_copy_files',function(){
-    return gulp.src(['./**/*.html','./**/*.woff2','./**/*.css'
+gulp.task('x_copy_files', function () {
+    return gulp.src(['./**/*.html', './**/*.woff2', './**/*.css'
     ]).pipe(gulp.dest(paths.dist));
 });
 
