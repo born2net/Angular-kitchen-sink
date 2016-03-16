@@ -101,7 +101,7 @@ forever stopall ; forever start -a -l f.log node_modules/gulp/bin/gulp.js develo
 open browser to: http://localhost:8080/src/public/index.html
 alias stop='forever stopall'
 ```
-this above will create a process that restarts every 10minutes but it's transparent to you.
+this above will create a process that restarts every 30 minutes but it's transparent to you.
 
 Another handy command to shortcut kill chrome sessions to start a fresh one is:
 ```
