@@ -1,7 +1,7 @@
 ng2Boilerplate
 =====================
 
-Ultimate Angular 2 kitchen sink, because code is always better than docs! 
+The Ultimate Angular 2 kitchen sink Single Page App, because code samples are always better than docs! 
 ----------------
 
 I have mastered the perfect workflow with in browser Typescript compilation for development, 
