@@ -1,7 +1,7 @@
 ng2Boilerplate
 =====================
 
-The ultimate Angular 2 bootstrap single page app 
+Ultimate Angular 2 kitchen sink, because code is always better than docs! 
 ----------------
 
 I have mastered the perfect workflow with in browser Typescript compilation for development, 
