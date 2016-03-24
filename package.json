@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "angular-cli": "0.0.*",
-    "angular2": "2.0.0-beta.8",
+    "angular2": "2.0.0-beta.12",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
     "autoprefixer": "^6.2.3",
@@ -29,7 +29,7 @@
     "css-loader": "^0.23.1",
     "es6-module-loader": "^0.17.8",
     "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.6",
+    "es6-shim": "^0.35",
     "express": "~4.13.1",
     "font-awesome": "^4.5.0",
     "gulp": "^3.9.0",
@@ -59,7 +59,7 @@
     "live-server": "^0.9.0",
     "lodash": "^3.10.1",
     "moment": "^2.11.2",
-    "ng2-bootstrap": "^1.0.3",
+    "ng2-bootstrap": "^1.0.7",
     "ng2-bs3-modal": "^0.1.0",
     "ng2-highcharts": "^0.2.4",
     "npm": "^3.5.3",
@@ -85,11 +85,11 @@
     "typings": "^0.6.8",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
-    "zone.js": "^0.5.15"
+    "zone.js": "^0.6.6"
   },
   "jspm": {
     "dependencies": {
-      "angular2": "npm:angular2@^2.0.0-beta.8",
+      "angular2": "npm:angular2@^2.0.0-beta.12",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -113,11 +113,11 @@
       "ts": "github:frankwallis/plugin-typescript@^4",
       "typescript": "npm:typescript@1.8.0",
       "underscore": "npm:underscore@^1.8.3",
-      "zone.js": "npm:zone.js@^0.5.14"
+      "zone.js": "npm:zone.js@^0.6.6"
     },
     "devDependencies": {
       "clean-css": "npm:clean-css@^3.4.9",
-      "ng2-bootstrap": "npm:ng2-bootstrap@^1.0.3"
+      "ng2-bootstrap": "npm:ng2-bootstrap@1.0.7"
     }
   }
 }

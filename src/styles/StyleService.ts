@@ -5,6 +5,7 @@ import {LocalStorage} from "../services/LocalStorage";
 import {StyleModel} from "../models/StyleModel";
 import {CommBroker} from "../services/CommBroker";
 import {Consts} from "../Conts";
+const bootbox = require('bootbox');
 
 @Injectable()
 export class StyleService {

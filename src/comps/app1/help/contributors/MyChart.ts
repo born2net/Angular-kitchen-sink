@@ -1,20 +1,18 @@
-import {Component, View, OnInit} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {Ng2Highcharts} from '../../../ng2-highcharts/ng2-highcharts';
 
 window['Highcharts'] = require('highcharts');
 
 @Component({
-    selector: 'MyChart'
-})
-@View({
+    selector: 'MyChart',
+    directives: [Ng2Highcharts],
     template: `
         <div style="width: 100%; height: 80%">
             <!-- <div [ng2-highcharts]="chartOptions" class="graph"></div> -->
              <div [ng2-highcharts]="chartBar" class="graph"></div>
         </div>
 
-    `,
-    directives: [Ng2Highcharts]
+    `
 })
 export class MyChart implements OnInit {
     constructor(){

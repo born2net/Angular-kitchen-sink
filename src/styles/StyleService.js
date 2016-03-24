@@ -13,6 +13,7 @@ var LocalStorage_1 = require("../services/LocalStorage");
 var StyleModel_1 = require("../models/StyleModel");
 var CommBroker_1 = require("../services/CommBroker");
 var Conts_1 = require("../Conts");
+var bootbox = require('bootbox');
 var StyleService = (function () {
     function StyleService(commBroker) {
         this.commBroker = commBroker;

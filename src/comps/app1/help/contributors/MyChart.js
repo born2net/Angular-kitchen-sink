@@ -85,11 +85,9 @@ var MyChart = (function () {
     };
     MyChart = __decorate([
         core_1.Component({
-            selector: 'MyChart'
-        }),
-        core_1.View({
-            template: "\n        <div style=\"width: 100%; height: 80%\">\n            <!-- <div [ng2-highcharts]=\"chartOptions\" class=\"graph\"></div> -->\n             <div [ng2-highcharts]=\"chartBar\" class=\"graph\"></div>\n        </div>\n\n    ",
-            directives: [ng2_highcharts_1.Ng2Highcharts]
+            selector: 'MyChart',
+            directives: [ng2_highcharts_1.Ng2Highcharts],
+            template: "\n        <div style=\"width: 100%; height: 80%\">\n            <!-- <div [ng2-highcharts]=\"chartOptions\" class=\"graph\"></div> -->\n             <div [ng2-highcharts]=\"chartBar\" class=\"graph\"></div>\n        </div>\n\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], MyChart);

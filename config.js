@@ -52,7 +52,7 @@ System.config({
   },
 
   map: {
-    "angular2": "npm:angular2@2.0.0-beta.8",
+    "angular2": "npm:angular2@2.0.0-beta.12",
     "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
     "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
     "angular2-uuid": "npm:angular2-uuid@1.0.6",
@@ -82,7 +82,7 @@ System.config({
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
     "typescript": "npm:typescript@1.8.0",
     "underscore": "npm:underscore@1.8.3",
-    "zone.js": "npm:zone.js@0.5.15",
+    "zone.js": "npm:zone.js@0.6.6",
     "github:frankwallis/plugin-typescript@4.0.2": {
       "typescript": "npm:typescript@1.8.7"
     },
@@ -158,14 +158,13 @@ System.config({
       "object-path": "npm:object-path@0.9.2",
       "redux": "npm:redux@3.3.1"
     },
-    "npm:angular2@2.0.0-beta.8": {
+    "npm:angular2@2.0.0-beta.12": {
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
-      "es6-promise": "npm:es6-promise@3.1.2",
-      "es6-shim": "npm:es6-shim@0.33.13",
+      "es6-shim": "npm:es6-shim@0.35.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "rxjs": "npm:rxjs@5.0.0-beta.2",
-      "zone.js": "npm:zone.js@0.5.15"
+      "zone.js": "npm:zone.js@0.6.6"
     },
     "npm:asn1.js@4.5.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -400,10 +399,7 @@ System.config({
       "is-date-object": "npm:is-date-object@1.0.1",
       "is-symbol": "npm:is-symbol@1.0.1"
     },
-    "npm:es6-promise@3.1.2": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:es6-shim@0.33.13": {
+    "npm:es6-shim@0.35.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:evp_bytestokey@1.0.0": {
@@ -592,7 +588,7 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0"
     },
     "npm:ng2-bootstrap@1.0.5": {
-      "angular2": "npm:angular2@2.0.0-beta.8",
+      "angular2": "npm:angular2@2.0.0-beta.12",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "moment": "npm:moment@2.11.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -838,8 +834,7 @@ System.config({
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
     },
-    "npm:zone.js@0.5.15": {
-      "es6-promise": "npm:es6-promise@3.1.2",
+    "npm:zone.js@0.6.6": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     }
   }
