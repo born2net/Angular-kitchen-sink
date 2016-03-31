@@ -11,11 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var TodoService_1 = require('./TodoService');
 var TodoItem = (function () {
-    function TodoItem() {
+    function TodoItem(differs) {
         this.editMode = false;
         this.done = new core_1.EventEmitter();
         this.edit = new core_1.EventEmitter();
+        this.differ = differs.find([]).create(null);
     }
+    TodoItem.prototype.ngDoCheck = function () {
+        var changes = this.differ.diff(this._item);
+        if (changes) {
+            changes.forEachAddedItem(function (r) { return console.log('added', r); });
+            changes.forEachRemovedItem(function (r) { return console.log('removed', r); });
+            changes.forEachChangedItem(function (r) { return console.log('changed', r); });
+        }
+    };
     Object.defineProperty(TodoItem.prototype, "item", {
         set: function (value) {
             this._item = value;
@@ -52,7 +61,7 @@ var TodoItem = (function () {
             styleUrls: ['../comps/app1/todos/Todoitem.css'],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.KeyValueDiffers])
     ], TodoItem);
     return TodoItem;
 }());

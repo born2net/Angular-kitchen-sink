@@ -1,5 +1,5 @@
 import {ROUTER_DIRECTIVES, RouteParams, RouterLink} from "angular2/router";
-import {Component, AfterContentInit} from "angular2/core";
+import {Component, OnInit} from "angular2/core";
 /**
  General route links
  @class Welcome
@@ -25,7 +25,7 @@ import {Component, AfterContentInit} from "angular2/core";
                 `,
     directives: [ROUTER_DIRECTIVES, RouterLink]
 })
-export class Welcome implements AfterContentInit {
+export class Welcome implements OnInit {
     private someId:string;
 
     constructor(params:RouteParams) {
@@ -40,31 +40,63 @@ export class Welcome implements AfterContentInit {
         })
     }
 
-    private showTypedObjectArg({styles1, styles2}: {styles1?: string[], styles2?: number[]} = {}) {
+    private showTypedObjectArg({styles1, styles2}: {styles1?:string[], styles2?:number[]} = {}) {
         //console.log(styles1 + ' ' + styles2);
     }
 
-    /** component life cycles **/
-    ngAfterContentInit() {
+    ngOnInit() {
     }
-    //ngAfterViewInit() {
+
+    /** component life cycles **/
+    //ngOnInit() {
+    //    console.log(1);
+    //}
+
+    //ngOnDestroy() {
     //    console.log(2);
     //}
-    //ngAfterContentChecked() {
+
+    /** The OnChanges hook is called after one or more of our component properties have been changed.
+     * The ngOnChanges method receives a parameter which tells which properties have changed
+     **/
+    // ngOnChanges(changes: {[propName: string]: SimpleChange}): void {
+    //     console.log(4);
+    // }
+
+    /**
+     * There may be times when we just want to do something in case an item was removed or added,
+     * or if only a particular property changed, for instance.
+     * If we run into one of these scenarios, we can use the DoCheck hook.
+     * It’s important to note that the OnChanges hook gets overriden by DoCheck so
+     * if we implement both, OnChanges will be ignored.
+     */
+    //ngDoCheck(changes: {[propName: string]: SimpleChange}): void {
     //    console.log(3);
     //}
-    //ngOnInit() {
-    //    console.log(4);
-    //}
-    //ngOnDestroy() {
+
+    /**
+     * The AfterContentChecked is called after the directive check has finished.
+     * The check, in this context, is the change detection system check.
+     * The other two hooks: AfterViewInit and AfterViewChecked are triggered right after the content ones,
+     * right after the view has been fully initialized.
+     * Those two hooks are only applicable to components, and not to directives.
+     *
+     * Also, the AfterXXXInit hooks are only called once during the directive lifecycle,
+     * while the AfterXXXChecked hooks are called after every change detection cycle.
+     */
+
+    // ngAfterContentInit() {
     //    console.log(5);
-    //}
-    //ngDoCheck() {
+    // }
+
+    //ngAfterContentChecked() {
     //    console.log(6);
     //}
-    //ngOnChanges(changes) {
+
+    //ngAfterViewInit() {
     //    console.log(7);
     //}
+
     //ngAfterViewChecked() {
     //    console.log(8);
     //}

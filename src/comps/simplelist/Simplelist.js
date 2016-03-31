@@ -12,10 +12,19 @@ var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var common_directives_1 = require("angular2/src/common/common_directives");
 var SimpleList = (function () {
-    function SimpleList() {
+    function SimpleList(differs, changeDetector) {
+        this.changeDetector = changeDetector;
         this.current = new core_1.EventEmitter();
         this.linkResultPerItem = {};
+        this.differ = differs.find([]).create(null);
     }
+    SimpleList.prototype.ngDoCheck = function () {
+        var changes = this.differ.diff(this.list);
+        if (changes) {
+            changes.forEachAddedItem(function (r) { return console.log('Added to movie list', JSON.stringify(r.item)); });
+            changes.forEachRemovedItem(function (r) { return console.log('Removed from list', JSON.stringify(r.item)); });
+        }
+    };
     SimpleList.prototype.getContent = function (item) {
         if (this.content) {
             return this.content(item);
@@ -61,7 +70,7 @@ var SimpleList = (function () {
             template: "\n        <div *ngIf=\"!list\">\n            Loading...\n        </div>\n        <div *ngIf=\"list\">\n            <table class=\"table table-striped table-bordered table-hover\">\n                <tbody>\n                    <tr *ngFor=\"#item of list\" (mouseover)=\"current.next(item)\" (mouseout)=\"current.next(null)\">\n                        <td *ngIf=\"!link\">{{getContent(item)}}</td>\n                        <td *ngIf=\"link\"><a [routerLink]=\"getLink(item)\">{{getContent(item)}}</a></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    ",
             directives: [router_1.RouterLink, common_directives_1.COMMON_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.IterableDiffers, core_1.ChangeDetectorRef])
     ], SimpleList);
     return SimpleList;
 }());

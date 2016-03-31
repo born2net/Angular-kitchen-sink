@@ -40,5 +40,6 @@ export class PartsView implements OnChanges {
     ngOnChanges(changeRecord:{[propName: string]: SimpleChange}) {
         this.partsInCartLookup = partsInCartLookupSelector(changeRecord);
     }
+
 }
 

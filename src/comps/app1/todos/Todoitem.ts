@@ -1,4 +1,7 @@
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
+import {
+    Component, Input, Output, EventEmitter, ChangeDetectionStrategy, KeyValueDiffers,
+    KeyValueDiffer
+} from 'angular2/core';
 import {TodoItemModel} from './TodoService';
 //import './Todoitem.css';
 
@@ -16,6 +19,25 @@ import {TodoItemModel} from './TodoService';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItem {
+
+    constructor(differs: KeyValueDiffers) {
+        this.differ = differs.find([]).create(null);
+    }
+
+    /**
+     * Use KeyValueDiffers to generate KeyValueChangeRecord of each change
+     * using the ngDoCheck life cycle hook
+     */
+    ngDoCheck() {
+        var changes = this.differ.diff(this._item);
+        if (changes) {
+            changes.forEachAddedItem(r => console.log('added', r));
+            changes.forEachRemovedItem(r => console.log('removed', r));
+            changes.forEachChangedItem(r => console.log('changed', r));
+        }
+    }
+
+    private differ:KeyValueDiffer;
     private editMode = false;
     private _item:TodoItemModel;
 

@@ -11,18 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("angular2/core");
 var Sliderpanel_1 = require("../../sliderpanel/Sliderpanel");
 var Todo1 = (function () {
-    function Todo1(sliderPanel) {
+    function Todo1(sliderPanel, ref) {
+        this.ref = ref;
         this.sliderPanel = sliderPanel;
     }
+    Todo1.prototype.onForceDetection = function () {
+        this.ref.markForCheck();
+        console.log('cd completed');
+    };
     Todo1.prototype.onNext = function (event) {
         this.sliderPanel.slideToPage('todo2', 'left');
     };
     Todo1 = __decorate([
         core_1.Component({
             selector: 'Todo1',
-            template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <small>I am todo1 component</small>\n                <ng-content></ng-content>\n                "
+            template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>                \n                <small>I am todo1 component</small>\n               <br/>\n                <br/>\n                 <button type=\"button\" (click)=\"onForceDetection()\" class=\"btn btn-default btn-sm goNext\">\n                    Force change detection on component;\n                </button>\n                <ng-content></ng-content>\n                "
         }), 
-        __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel])
+        __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, core_1.ChangeDetectorRef])
     ], Todo1);
     return Todo1;
 }());

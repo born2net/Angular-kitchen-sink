@@ -64,12 +64,15 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Pass custom styles to components via ngStyle and custom properties
 - jQuery integration the Angular way via BrowserDomAdapter
 - CommBroker dependency service, value sharing / mediator design pattern
+- Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react) 
 - Rxjs reactive operators and subscribers throughout the app (some random examples as well)
 - Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
 - Rxjs Node server side CRUD for Observable client to server calls
+- Create your own custom \*NgBookIf and \*ngBookRepeat directives with createEmbeddedView
+- Force change detection via ref.markForCheck();
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
 - Dependency injection and decorators such as @Host

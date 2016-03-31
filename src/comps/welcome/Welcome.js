@@ -21,7 +21,7 @@ var Welcome = (function () {
     Welcome.prototype.showTypedObjectArg = function (_a) {
         var _b = _a === void 0 ? {} : _a, styles1 = _b.styles1, styles2 = _b.styles2;
     };
-    Welcome.prototype.ngAfterContentInit = function () {
+    Welcome.prototype.ngOnInit = function () {
     };
     Welcome = __decorate([
         core_1.Component({
