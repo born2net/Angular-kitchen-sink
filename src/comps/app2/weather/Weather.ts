@@ -1,6 +1,6 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component, ChangeDetectionStrategy} from "angular2/core";
+import {Component, ChangeDetectionStrategy, Renderer, ViewChild, ElementRef} from "angular2/core";
 import {Consts} from "../../../../src/Conts";
 import {IWeatherItem} from "./IWeather";
 import {WeatherService} from "./WeatherService";
@@ -26,7 +26,7 @@ import {CommBroker} from "../../../services/CommBroker";
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
     <small>I am a weather component</small>
-    <input type="text" class="form-control" placeholder="enter city or zip code" [ngFormControl]="zipControl">
+    <input type="text" #anotherWayToGetInput class="form-control" placeholder="enter city or zip code" [ngFormControl]="zipControl">
     <table class="table">
       <thead>
         <tr>
@@ -61,16 +61,55 @@ export class Weather {
     // in both displaying and the sorting mechanics
     // we also use changeDetection: ChangeDetectionStrategy.OnPushObserve to make sure we use
     // efficient rendering of the page only when the Observable is changes
-    public sort: {field: string, desc: boolean} = {field: null, desc: false};
+    public sort:{field:string, desc:boolean} = {field: null, desc: false};
+
+    // reference: http://angularjs.blogspot.com/2016/04/5-rookie-mistakes-to-avoid-with-angular.html
+    // this is a nice example of getting a reference to a native element (input) just by inserting
+    // an ng2 identifier to it (#anotherWayToGetInput)
+    @ViewChild('anotherWayToGetInput') myWeatherInput:ElementRef;
+
+    // if you need to access an element not in your view but instead through content projection
+    // you can use ContentChildren instead:
+    //@ContentChildren('myListInputs') myListInputs: QueryList<ElementRef>;
 
 
-    constructor(private weatherService:WeatherService, private commBroker:CommBroker) {
+    // Another great solution is to take advantage of the selector in the
+    // @Directive decorator. You simply define a directive that selects for <li> elements,
+    // then use IT (the directive) INSIDE your @ContentChildren query to filter all <li> elements down to only those
+    // that are content children of the component.
+    //
+    // ContentChildren and directive (recommended), user code:
+    // <my-list>
+    //      <li *ngFor="#item of items"> {{item}} </li>
+    // </my-list>
+    //
+    // @Directive({ selector: 'li' })
+    // export class ListItem {}
+    //
+    // The component code:
+    // @Component({
+    //     selector: 'my-list'
+    // })
+    // export class MyList implements AfterContentInit {
+    //     @ContentChildren(ListItem) items: QueryList<ListItem>; // <--- MAGIC IS HERE, use directive to pull out list
+    //
+    //     ngAfterContentInit() {
+    //         // do something with list items
+    //     }
+    // }
+
+    constructor(private renderer:Renderer, private weatherService:WeatherService, private commBroker:CommBroker) {
         this.listenWeatherInput();
         this.commBroker.getService(Consts.Services().Properties).setPropView('Weather');
     }
 
     ngAfterViewInit() {
         this.zipControl.updateValue('91301');
+
+        // now we can access a native input element and set its focus
+        setTimeout(()=> {
+            this.renderer.invokeElementMethod(this.myWeatherInput.nativeElement, 'focus', [])
+        }, 1000);
     }
 
     listenWeatherInput() {

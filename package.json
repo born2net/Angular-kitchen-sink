@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "angular-cli": "0.0.*",
-    "angular2": "2.0.0-beta.12",
+    "angular2": "2.0.0-beta.15",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
     "autoprefixer": "^6.2.3",
@@ -85,11 +85,11 @@
     "typings": "^0.6.8",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
-    "zone.js": "^0.6.6"
+    "zone.js": "^0.6.10"
   },
   "jspm": {
     "dependencies": {
-      "angular2": "npm:angular2@^2.0.0-beta.12",
+      "angular2": "npm:angular2@^2.0.0-beta.15",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -114,7 +114,7 @@
       "ts": "github:frankwallis/plugin-typescript@^4",
       "typescript": "npm:typescript@1.8.0",
       "underscore": "npm:underscore@^1.8.3",
-      "zone.js": "npm:zone.js@^0.6.6"
+      "zone.js": "npm:zone.js@^0.6.10"
     },
     "devDependencies": {
       "clean-css": "npm:clean-css@^3.4.9",

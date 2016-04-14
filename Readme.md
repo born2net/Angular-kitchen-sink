@@ -63,6 +63,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - StarWars movie shop powered by Redux store
 - Pass custom styles to components via ngStyle and custom properties
 - jQuery integration the Angular way via BrowserDomAdapter
+- Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)
 - CommBroker dependency service, value sharing / mediator design pattern
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
