@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {TodoAction} from "./actions/TodoAction";
 import {AppStore} from "angular2-redux-util/dist/index";
 import {TodoService} from "./TodoService";
+import {TodoModel} from "./TodoModel";
 
 type channelTodoObservable = Observable<TodoItem>;
 type channelTodosObservable = Observable<Array<channelTodoObservable>>;
@@ -20,7 +21,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   </header>
                   <section class="main">
                     <ul class="todo-list">
-                      <li *ngFor="#item of m_dataStore">
+                      <li *ngFor="#item of m_dataStore; trackBy:identify">
                         <todo-item [item]="item" (done)="removeItem($event)" (edit)="editItem($event)">
                         </todo-item>
                       </li>
@@ -55,5 +56,11 @@ export class TodoList {
         this.addItem = todoAction.createDispatcher(todoAction.addTodo, appStore);
         this.removeItem = todoAction.createDispatcher(todoAction.removeTodo, appStore);
         this.editItem = todoAction.createDispatcher(todoAction.editTodo, appStore);
+    }
+
+    identify(index,item:TodoModel){
+        // do what ever logic you need to come up with the unique identifier
+        // of your item in loop, i will just return the object id.
+        return item.getModelId();
     }
 }
