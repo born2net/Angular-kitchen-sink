@@ -79,7 +79,8 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Dependency injection and decorators such as @Host
 - Advanced decorators such as @HostListener @ContentChildren @Injectable and more
 - Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)
-- trackBy to create a custom identifier for *ngFor (trackBy:identify)   
+- trackBy to create a custom identifier for *ngFor (trackBy:identify)
+   - use nodeLogger to show ToDo items are only updated and not re-created when using our own identifier method 
 - Dependency sharing
 - ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles
