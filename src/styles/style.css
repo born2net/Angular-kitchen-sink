@@ -1,3 +1,59 @@
+/**
+
+
+Some notes about targeting a component's host:
+=============================================
+
+:host
+
+Use the :host pseudo-class selector to target styles in the element that hosts the component
+(as opposed to targeting elements inside the component's template):
+
+:host {
+  display: block;
+  border: 1px solid black;
+}
+
+This is the only way we can target the host element. We cannot reach it from inside the
+component with other selectors, because it is not part of the component's own template. It is in a parent component's template.
+Use the function form to apply host styles conditionally by including another selector inside parentheses after :host.
+In the next example we target the host element again, but only when it also has the active CSS class.
+
+
+:host(.active) {
+  border-width: 3px;
+}
+
+
+:host-context
+
+Sometimes it is useful to apply styles based on some condition outside a component's view.
+For example, there may be a CSS theme class applied to the document <body> element, and we want to change how our component looks based on that.
+Use the :host-context() pseudo-class selector. It works just like the function form of :host().
+It looks for a CSS class in any ancestor of the component host element, all the way up to the document root. It's useful when combined with another selector.
+In the following example, we apply a background-color style to all <h2>
+elements inside the component, only if some ancestor element has the CSS class theme-light.
+
+
+:host-context(.theme-light) h2 {
+  background-color: #eef;
+}
+/deep/
+
+Component styles normally apply only to the HTML in the component's own template.
+We can use the /deep/ selector to force a style down through the child component tree into all the
+child component views. The /deep/ selector works to any depth of nested components, and it applies both to the view children and the content children of the component.
+In this example, we target all <h3> elements, from the host element down through this component to all of its child elements in the DOM:
+
+
+:host /deep/ h3 {
+  font-style: italic;
+}
+The /deep/ selector also has the alias >>>. We can use either of the two interchangeably.
+The /deep/ and >>> selectors should only be used with emulated view encapsulation. This is the default and it is what we use most of the time. See the Controlling View Encapsulation section for more details.
+
+**/
+
 @font-face {
     font-family: 'Raleway';
     font-style: normal;
@@ -740,11 +796,6 @@ Language selector
     color: #d73814;
 }
 
-
-
-
-
-
 .timer {
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     border: 1px solid gray;
@@ -757,8 +808,8 @@ Language selector
     flex-direction: column;
     justify-content: center;
     margin: 20px auto;
-    background: linear-gradient(to bottom, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
-    box-shadow: 0px 5px 9px -4px rgba(0,0,0,0.75);
+    background: linear-gradient(to bottom, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+    box-shadow: 0px 5px 9px -4px rgba(0, 0, 0, 0.75);
 }
 
 .time {
@@ -766,8 +817,8 @@ Language selector
     border-bottom: 1px solid darkgray;
     padding: 10px 5px;
     border-radius: 4px;
-    background: linear-gradient(to bottom, #a9db80 0%,#96c56f 100%);
-    box-shadow: inset 0px 5px 9px -4px rgba(0,0,0,0.75);
+    background: linear-gradient(to bottom, #a9db80 0%, #96c56f 100%);
+    box-shadow: inset 0px 5px 9px -4px rgba(0, 0, 0, 0.75);
     text-shadow: 0px 0px 7px rgba(227, 255, 234, 1);
     color: #242;
 }
