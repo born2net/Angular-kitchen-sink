@@ -1,6 +1,6 @@
 import {Injectable, Injector} from 'angular2/core';
 
-// repo: https://github.com/PawelDecowski/jQuery-CreditCardValidator/
+// repo and credit to: https://github.com/PawelDecowski/jQuery-CreditCardValidator/
 
 // var b = creditService.validateCardNumber('5418426187097565');
 // var b = creditService.validateCardExpiry('10','15');
