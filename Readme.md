@@ -68,7 +68,8 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration
-- Responsive design (on size change Angular components will react) 
+- Responsive design (on size change Angular components will react)
+- RXjs powered CustomHTTP class that extends the default Http ng2 to add new behaviour 
 - Rxjs reactive operators and subscribers throughout the app (some random examples as well)
 - Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
 - Rxjs Node server side CRUD for Observable client to server calls
