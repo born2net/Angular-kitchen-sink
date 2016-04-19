@@ -1,3 +1,9 @@
+/**
+ *  Custom HTTP class extending the default ng2 Http service and using Observables
+ *
+ *  credit to: http://restlet.com/blog/2016/04/18/interacting-efficiently-with-a-restful-service-with-angular2-and-rxjs-part-3/
+ **/
+
 import {Injectable} from 'angular2/core';
 import {Observable} from "rxjs/Observable";
 import {Observer} from "rxjs/Observer";
@@ -8,8 +14,6 @@ import {
     RequestOptionsArgs, RequestOptions, ConnectionBackend, Http, HTTP_PROVIDERS, Request,
     Response
 } from "angular2/http";
-
-// credit to: http://restlet.com/blog/2016/04/18/interacting-efficiently-with-a-restful-service-with-angular2-and-rxjs-part-3/
 
 @Injectable()
 export class CustomHttp extends Http {
@@ -66,18 +70,19 @@ export class ErrorNotifierService {
     }
 }
 
-/** To Bootstrap the custom HTTP service at
+/**
+ * To Bootstrap the custom HTTP service at
  * the startup of the application append
  * the following code:
  **/
 // bootstrap(AppComponent, [
 //     HTTP_PROVIDERS,
 //     provide(Http, {
-//         useFactory: (backend: XHRBackend, defaultOptions: RequestOptions,
+//         useFactory: (backend:XHRBackend, defaultOptions:RequestOptions,
 //                      errorService:ErrorNotifierService) => {
 //             return new CustomHttp(backend, defaultOptions, errorService);
 //         },
-//         deps: [ XHRBackend, RequestOptions, ErrorNotifierService ]
+//         deps: [XHRBackend, RequestOptions, ErrorNotifierService]
 //     }),
 //     ErrorNotifierService
 // ]);
