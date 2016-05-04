@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "angular-cli": "0.0.*",
-    "angular2": "2.0.0-beta.15",
+    "angular2": "2.0.0-beta.17",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
     "autoprefixer": "^6.2.3",
@@ -32,7 +32,7 @@
     "es6-shim": "^0.35",
     "express": "~4.13.1",
     "font-awesome": "^4.5.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-comment-swap": "0.0.10",
     "gulp-concat": "^2.6.0",
     "gulp-git": "^1.6.0",
@@ -73,7 +73,7 @@
     "rimraf": "^2.4.4",
     "rsync": "^0.4.0",
     "run-sequence": "^1.1.5",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "5.0.0-beta.6",
     "superstatic": "^4.0.1",
     "ts-loader": "^0.7.2",
     "tsc": "^1.20150623.0",
@@ -85,7 +85,7 @@
     "typings": "^0.6.8",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
-    "zone.js": "^0.6.10"
+    "zone.js": "^0.6.12"
   },
   "jspm": {
     "dependencies": {
@@ -114,7 +114,7 @@
       "ts": "github:frankwallis/plugin-typescript@^4",
       "typescript": "npm:typescript@1.8.0",
       "underscore": "npm:underscore@^1.8.3",
-      "zone.js": "npm:zone.js@^0.6.10"
+      "zone.js": "npm:zone.js@^0.6.12"
     },
     "devDependencies": {
       "clean-css": "npm:clean-css@^3.4.9",

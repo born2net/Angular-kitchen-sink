@@ -31,7 +31,7 @@ var Tabs = (function () {
     Tabs = __decorate([
         core_1.Component({
             selector: 'tabs',
-            template: "\n    <ul class=\"nav nav-tabs\">\n      <li *ngFor=\"#tab of tabs\" (click)=\"selectTab(tab, $event)\" [class.active]=\"tab.active\">\n        <a href=\"#\">{{tab.title}}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n    <small>I am Tabs component</small>\n  "
+            template: "\n    <ul class=\"nav nav-tabs\">\n      <li *ngFor=\"let tab of tabs\" (click)=\"selectTab(tab, $event)\" [class.active]=\"tab.active\">\n        <a href=\"#\">{{tab.title}}</a>\n      </li>\n    </ul>\n    <ng-content></ng-content>\n    <small>I am Tabs component</small>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], Tabs);

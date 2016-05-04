@@ -33,7 +33,7 @@ var FilmSelectionView = (function () {
     FilmSelectionView = __decorate([
         core_1.Component({
             selector: 'film-selection',
-            template: "\n        <button type=\"button\"\n            *ngFor=\"#item of list\"\n            class=\"vehicle-selection\"\n            [ngClass]=\"{'btn-primary':item==currentSelection}\"\n            (click)=\"select(item)\"\n            >\n            {{item+1}}\n        </button>\n    ",
+            template: "\n        <button type=\"button\"\n            *ngFor=\"let item of list\"\n            class=\"vehicle-selection\"\n            [ngClass]=\"{'btn-primary':item==currentSelection}\"\n            (click)=\"select(item)\"\n            >\n            {{item+1}}\n        </button>\n    ",
             styles: ["\n        .vehicle-selection {\n            margin-right:8px;\n        }\n    "],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 

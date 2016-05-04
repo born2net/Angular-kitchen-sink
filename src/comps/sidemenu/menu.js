@@ -49,7 +49,7 @@ var Menu = (function () {
             selector: 'Menu',
             inputs: ['fontAwesome:fontAwesome'],
             styles: ["\n    .appMenu {\n      background: #3e3f48;\n    }\n  "],
-            template: "\n        <section id=\"appNavigatorWasp\" (click)=\"listenMenuSelected($event)\" class=\"appMenu hidden-xs hidden-sm hidden-md col-lg-1\">\n         <li *ngFor=\"#item of m_items\" data-ripple-color=\"white\" class=\"btn btn-default list-group-item\">\n            <i class=\"navicons fa {{item.localFontAwesome}}\" [hidden]=\"m_hidden\">\n            </i>\n            <span>{{item.localTabTitle}}</span>\n          </li>\n      </section>\n    "
+            template: "\n        <section id=\"appNavigatorWasp\" (click)=\"listenMenuSelected($event)\" class=\"appMenu hidden-xs hidden-sm hidden-md col-lg-1\">\n         <li *ngFor=\"let item of m_items\" data-ripple-color=\"white\" class=\"btn btn-default list-group-item\">\n            <i class=\"navicons fa {{item.localFontAwesome}}\" [hidden]=\"m_hidden\">\n            </i>\n            <span>{{item.localTabTitle}}</span>\n          </li>\n      </section>\n    "
         }), 
         __metadata('design:paramtypes', [CommBroker_1.CommBroker])
     ], Menu);

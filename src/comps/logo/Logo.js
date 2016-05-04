@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('angular2/core');
 var Observable_1 = require("rxjs/Observable");
 require('rxjs/add/observable/fromEvent');
-require('rxjs/add/observable/fromArray');
 require('rxjs/add/operator/do');
 require('rxjs/add/operator/merge');
 require('rxjs/add/operator/distinctUntilChanged');

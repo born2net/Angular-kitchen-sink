@@ -21,7 +21,7 @@ import {Accordion, AccordionGroup} from './accordion';
                   <accordion-group heading="First Group Header " isGroupOpen="true">
                     Introduction
                   </accordion-group>
-                  <accordion-group [heading]="group.heading" *ngFor="#group of groups">
+                  <accordion-group [heading]="group.heading" *ngFor="let group of groups">
                     {{group.content}}
                   </accordion-group>
                   <accordion-group heading="Last Group Header" [isGroupOpen]="isGroupOpen">

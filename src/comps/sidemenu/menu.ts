@@ -16,7 +16,7 @@ import {IMessage} from "../../services/CommBroker";
   `],
     template: `
         <section id="appNavigatorWasp" (click)="listenMenuSelected($event)" class="appMenu hidden-xs hidden-sm hidden-md col-lg-1">
-         <li *ngFor="#item of m_items" data-ripple-color="white" class="btn btn-default list-group-item">
+         <li *ngFor="let item of m_items" data-ripple-color="white" class="btn btn-default list-group-item">
             <i class="navicons fa {{item.localFontAwesome}}" [hidden]="m_hidden">
             </i>
             <span>{{item.localTabTitle}}</span>

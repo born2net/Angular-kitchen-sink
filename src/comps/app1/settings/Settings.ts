@@ -18,7 +18,7 @@ import {StyleService} from "../../../styles/StyleService";
                   <select class="form-control"
                     [(ngModel)]="styleService.model.theme"
                     (change)="styleService.model.theme=$event.value; styleService.onUpdate()">
-                      <option *ngFor="#theme of styleService.model.themes">{{theme}}</option>
+                      <option *ngFor="let theme of styleService.model.themes">{{theme}}</option>
                   </select>
                   <hr/>
                   <h3>Auto load theme on start</h3>

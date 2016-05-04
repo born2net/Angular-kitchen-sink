@@ -19,7 +19,7 @@ var ModalDialog_1 = require("../../modaldialog/ModalDialog");
 var CommBroker_1 = require("../../../services/CommBroker");
 var NotesBase_1 = require("./NotesBase");
 var Myip_1 = require("../../myip/Myip");
-var ng2_bs3_modal_1 = require('ng2-bs3-modal/dist/ng2-bs3-modal');
+var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var TrimmedInput_1 = require("../../trimmedinput/TrimmedInput");
 var Notes2 = (function (_super) {
     __extends(Notes2, _super);

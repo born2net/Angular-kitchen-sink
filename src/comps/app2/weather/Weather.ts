@@ -38,7 +38,7 @@ import {CommBroker} from "../../../services/CommBroker";
       </thead>
       <tbody>
       <!-- no need to subscribe to observable since async does this for us -->
-        <tr *ngFor="#item of weatherItems | async | OrderBy:sort.field:sort.desc">
+        <tr *ngFor="let item of weatherItems | async | OrderBy:sort.field:sort.desc">
           <td>{{ item.day }}</td>
           <td><img src="{{ item.iconPath }}" style="width: 40px; height: 40px"/></td>
           <td>{{ item.maxtempF }}</td>
@@ -80,7 +80,7 @@ export class Weather {
     //
     // ContentChildren and directive (recommended), user code:
     // <my-list>
-    //      <li *ngFor="#item of items"> {{item}} </li>
+    //      <li *ngFor="let item of items"> {{item}} </li>
     // </my-list>
     //
     // @Directive({ selector: 'li' })

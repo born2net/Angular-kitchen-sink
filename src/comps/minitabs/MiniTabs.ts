@@ -27,7 +27,7 @@ import {Minitab} from './Minitab';
     template: `
     <button [ngStyle]="_style" (click)="isAccent($event)">toggle a class style on/off</button>
     <ul class="nav nav-tabs">
-      <li #tabItem *ngFor="#tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active"
+      <li let tabItem *ngFor="let tab of tabs" (click)="selectTab(tab,$event)" [class.active]="tab.active"
         [class.accent]="toggleClass">
         <a href="#">{{tab.title}}</a>
       </li>

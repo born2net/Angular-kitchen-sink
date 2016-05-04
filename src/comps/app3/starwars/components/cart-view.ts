@@ -5,7 +5,7 @@ import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'a
     template: `
         <p [class.hidden]="parts.length>0" class="text-muted">Empty :(</p>
         <table>
-            <tr *ngFor="#part of parts">
+            <tr *ngFor="let part of parts">
                 <td>
                     <button style="margin-right:10px;margin-bottom:3px;margin-top:3px"
                         (click)="removeFromCart.next(part.id)">remove

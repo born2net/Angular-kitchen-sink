@@ -13,8 +13,13 @@ var _ = require('lodash');
 var OrderBy = (function () {
     function OrderBy() {
     }
-    OrderBy.prototype.transform = function (input, _a) {
-        var field = _a[0], _b = _a[1], desc = _b === void 0 ? false : _b;
+    OrderBy.prototype.transform = function (input) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        var field = args[0];
+        var desc = args[1] == undefined ? false : args[1];
         if (input && field) {
             return Array.from(input).sort(function (a, b) {
                 if (_.get(a, field) < _.get(b, field)) {

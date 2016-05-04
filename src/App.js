@@ -32,7 +32,7 @@ var Footer_1 = require("./comps/footer/Footer");
 var Conts_1 = require("../src/Conts");
 var StyleService_1 = require("./styles/StyleService");
 var router_1 = require('angular2/router');
-var router_2 = require('angular2/router');
+var common_1 = require('angular2/platform/common');
 var angular2_redux_util_1 = require("angular2-redux-util");
 var Lib_1 = require("./Lib");
 var Observable_1 = require("rxjs/Observable");
@@ -83,9 +83,9 @@ var App = (function () {
             encapsulation: core_1.ViewEncapsulation.Emulated,
             providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction],
             templateUrl: '/src/App.html',
-            directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer]
+            directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterLink, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer]
         }),
-        router_2.RouteConfig([
+        router_1.RouteConfig([
             { path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true },
             { path: '/AppManager', component: AppManager_1.AppManager, as: 'AppManager' },
             { path: '/Welcome', component: Welcome_1.Welcome, as: 'Welcome' },
@@ -108,7 +108,7 @@ browser_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http
     core_1.provide(AuthService_1.AuthService, { useClass: AuthService_1.AuthService }),
     core_1.provide(core_1.PLATFORM_PIPES, { useValue: CharCount_1.CharCount, multi: true }),
     core_1.provide(Conts_1.Consts, { useClass: Conts_1.Consts }),
-    core_1.provide(router_2.LocationStrategy, { useClass: router_2.HashLocationStrategy })]).then(function (appRef) {
+    core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })]).then(function (appRef) {
     AppInjService_1.appInjService(appRef.injector);
 });
 //# sourceMappingURL=App.js.map

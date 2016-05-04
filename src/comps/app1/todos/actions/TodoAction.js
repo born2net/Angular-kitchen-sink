@@ -35,7 +35,7 @@ var TodoAction = (function (_super) {
     TodoAction.prototype.factoryTodoService = function () {
         if (this.service)
             return this.service;
-        var injector = core_1.Injector.resolveAndCreate([
+        var injector = core_1.ReflectiveInjector.resolveAndCreate([
             TodoService_1.TodoService,
             TodoAction,
             http_1.HTTP_PROVIDERS,

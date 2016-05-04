@@ -59,7 +59,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
               <div class="diggContainer list">
                   <table class="table table-striped">
                   <tbody>
-                    <tr *ngFor="#digg of diggs" [ngClass]="{'col-xs-4': tileStyle, 'col-lg-3': tileStyle}">
+                    <tr *ngFor="let digg of diggs" [ngClass]="{'col-xs-4': tileStyle, 'col-lg-3': tileStyle}">
                       <td>
                       <img class="img-responsive grow" [ngClass]="{'largeImage': tileStyle, 'smallImage': !tileStyle}" src="{{digg.link}}"/>
                       <span>{{digg.title}}</span>
@@ -75,7 +75,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 export class Digg {
     private mode:string;
     private tileStyle:boolean;
-    private channel:Observable<any[]>;
+    private channel:Observable<any>;
     private stream:Observer<any[]>;
     private diggs:IDigg[];
     private el:any;

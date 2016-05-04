@@ -14,7 +14,7 @@ const partsInCartLookupSelector = createSelector((changeRecord:any) => changeRec
     selector: 'parts',
     template: `
         <table>
-            <tr *ngFor="#part of parts">
+            <tr *ngFor="let part of parts">
                 <td>
                     <button style="margin-right:10px;margin-bottom:3px;margin-top:3px"
                         [disabled]="partsInCartLookup[part.id]"

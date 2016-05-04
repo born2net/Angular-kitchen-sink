@@ -53,7 +53,7 @@ class NotesService {
                 <div>
                    <small>I am CountDown component</small>
                     <h2>CountDown</h2>
-                    <div class="timer" *CountDown="#timer=timerApi">
+                    <div class="timer" *CountDown="let timer=timerApi">
                       <div class="time">{{ timer.getTime() }}</div>
                       <div class="controls">
                         <button (click)="timer.toggle()">Toggle</button>

@@ -1,5 +1,6 @@
 import {Injectable} from "angular2/core";
 import {Actions} from "angular2-redux-util";
+const _ = require('underscore');
 
 export const ADD_PART = 'ADD_PART';
 

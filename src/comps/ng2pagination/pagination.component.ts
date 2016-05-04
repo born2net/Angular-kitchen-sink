@@ -45,7 +45,7 @@ const PAGINATION_TEMPLATE = `
       <a class="page-link" href (click)="selectPage(page - 1, $event)" [innerHTML]="getText('previous')"></a>
       </li>
 
-    <li *ngFor="#pg of pages"
+    <li *ngFor="let pg of pages"
         [class.active]="pg.active"
         [class.disabled]="disabled&&!pg.active"
         class="pagination-page page-item">
@@ -82,8 +82,8 @@ export class Pagination implements ControlValueAccessor, OnInit, IPaginationConf
 
     @Input() private disabled:boolean;
 
-    @Output() private numPages:EventEmitter<number> = new EventEmitter();
-    @Output() private pageChanged:EventEmitter<IPageChangedEvent> = new EventEmitter();
+    @Output() private numPages:EventEmitter<any> = new EventEmitter();
+    @Output() private pageChanged:EventEmitter<any> = new EventEmitter();
 
     @Input() public get itemsPerPage() {
         return this._itemsPerPage;

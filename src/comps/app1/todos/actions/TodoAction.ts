@@ -1,4 +1,4 @@
-import {Injectable, Component, Injector, provide} from "angular2/core";
+import {Injectable, Component, Injector, provide, ReflectiveInjector} from "angular2/core";
 import {Actions, AppStore} from "angular2-redux-util";
 import {TodoModel} from "../TodoModel";
 import {StoreModel} from "../../../../models/StoreModel";
@@ -59,7 +59,7 @@ export class TodoAction extends Actions {
         if (this.service)
             return this.service;
 
-        var injector = Injector.resolveAndCreate(
+        var injector = ReflectiveInjector.resolveAndCreate(
             [
                 TodoService,
                 TodoAction,

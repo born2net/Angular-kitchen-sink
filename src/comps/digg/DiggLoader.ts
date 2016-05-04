@@ -1,7 +1,7 @@
 import {Component, Injectable} from "angular2/core";
 import {Http} from "angular2/http";
 import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/fromArray';
+import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/retry';
 import {Observable} from "rxjs/Observable";
@@ -46,7 +46,7 @@ export class DiggLoader {
         let s:any = this.m_http.get('https://secure.digitalsignage.com/Digg').retry(2);
         s.mergeMap((res)=> {
             let news = res.json();
-            return Observable.fromArray(news);
+            return Observable.from(news);
         }).filter(function (data:IDigg) {
             if (data.title.toLowerCase().indexOf(filter) > -1) {
                 return true;

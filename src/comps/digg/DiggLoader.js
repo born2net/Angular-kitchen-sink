@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("angular2/core");
 var http_1 = require("angular2/http");
 require('rxjs/add/operator/map');
-require('rxjs/add/observable/fromArray');
+require('rxjs/add/observable/from');
 require('rxjs/add/operator/mergeMap');
 require('rxjs/add/operator/retry');
 var Observable_1 = require("rxjs/Observable");
@@ -25,7 +25,7 @@ var DiggLoader = (function () {
         var s = this.m_http.get('https://secure.digitalsignage.com/Digg').retry(2);
         s.mergeMap(function (res) {
             var news = res.json();
-            return Observable_1.Observable.fromArray(news);
+            return Observable_1.Observable.from(news);
         }).filter(function (data) {
             if (data.title.toLowerCase().indexOf(filter) > -1) {
                 return true;

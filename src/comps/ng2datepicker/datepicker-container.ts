@@ -104,7 +104,7 @@ export class DatePickerInner implements OnInit {
     private compareHandlerMonth:Function;
     private refreshViewHandlerYear:Function;
     private compareHandlerYear:Function;
-    private update:EventEmitter<Date> = new EventEmitter();
+    private update:EventEmitter<any> = new EventEmitter();
 
     @Input()
     private get initDate():Date {

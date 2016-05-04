@@ -1,5 +1,3 @@
-///<reference path="../../../../typings/app.d.ts"/>
-
 import {Component, Injector, provide} from "angular2/core";
 import {ShoppingComponent} from "./components/shopping-component";
 import {PartActions} from "./actions/part-actions";

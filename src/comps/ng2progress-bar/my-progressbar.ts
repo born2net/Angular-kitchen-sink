@@ -31,7 +31,7 @@ import {Progressbar} from './progressbar.component';
                   <button type="button" class="btn btn-sm btn-primary" (click)="generateStackedValues()">Stacked Values</button>
                 </h3>
                 <bs-progress>
-                  <bar *ngFor="#stacked of stackedValues" [value]="stacked.value" [type]="stacked?.type">
+                  <bar *ngFor="let stacked of stackedValues" [value]="stacked.value" [type]="stacked?.type">
                     <span [hidden]="stacked.value < 5">{{stacked?.value}}%</span>
                   </bar>
                 </bs-progress>

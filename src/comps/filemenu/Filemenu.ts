@@ -24,7 +24,7 @@ import {App} from "../../../src/App";
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navigatior<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                   <li class="divider"></li>
-                    <li *ngFor="#item of m_renderedItems" (click)="listenMenuSelected($event)">
+                    <li *ngFor="let item of m_renderedItems" (click)="listenMenuSelected($event)">
                        <a href="#">{{item.title}}</a>
                     </li>
                     <li class="divider"></li>

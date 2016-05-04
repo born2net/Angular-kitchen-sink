@@ -25,7 +25,7 @@ var CartView = (function () {
     CartView = __decorate([
         core_1.Component({
             selector: 'cart',
-            template: "\n        <p [class.hidden]=\"parts.length>0\" class=\"text-muted\">Empty :(</p>\n        <table>\n            <tr *ngFor=\"#part of parts\">\n                <td>\n                    <button style=\"margin-right:10px;margin-bottom:3px;margin-top:3px\"\n                        (click)=\"removeFromCart.next(part.id)\">remove\n                    </button>\n                </td>\n                <td>{{part.name}}</td>\n            </tr>\n        </table>\n    ",
+            template: "\n        <p [class.hidden]=\"parts.length>0\" class=\"text-muted\">Empty :(</p>\n        <table>\n            <tr *ngFor=\"let part of parts\">\n                <td>\n                    <button style=\"margin-right:10px;margin-bottom:3px;margin-top:3px\"\n                        (click)=\"removeFromCart.next(part.id)\">remove\n                    </button>\n                </td>\n                <td>{{part.name}}</td>\n            </tr>\n        </table>\n    ",
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
         __metadata('design:paramtypes', [])

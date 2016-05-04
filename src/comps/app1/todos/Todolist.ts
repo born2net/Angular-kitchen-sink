@@ -22,7 +22,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   </header>
                   <section class="main">
                     <ul class="todo-list">
-                      <li *ngFor="#item of m_dataStore; trackBy:identify" nodeLogger="{{item}}"> 
+                      <li *ngFor="let item of m_dataStore; trackBy:identify" nodeLogger="{{item}}"> 
                         <todo-item [item]="item" (done)="removeItem($event)" (edit)="editItem($event)">
                         </todo-item>
                       </li>

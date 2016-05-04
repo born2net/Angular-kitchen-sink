@@ -26,8 +26,12 @@ import {Logo} from "./comps/logo/Logo";
 import {Footer} from "./comps/footer/Footer";
 import {Consts} from "../src/Conts";
 import {StyleService} from "./styles/StyleService";
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from 'angular2/router';
-import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
+// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from 'angular2/router';
+// import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from 'angular2/router';
+
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute, Router, RouteParams, RouterLink, RouteConfig} from 'angular2/router';
+import {LocationStrategy, HashLocationStrategy} from 'angular2/platform/common';
+
 import {AppStore} from "angular2-redux-util";
 import {Lib} from "./Lib";
 import {Observable} from "rxjs/Observable";

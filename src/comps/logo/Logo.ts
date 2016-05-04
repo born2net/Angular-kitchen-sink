@@ -3,7 +3,6 @@
 import {Component, ElementRef} from 'angular2/core';
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/fromArray';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/distinctUntilChanged';

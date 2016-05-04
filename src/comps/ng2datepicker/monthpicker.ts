@@ -41,8 +41,8 @@ import {DatePickerInner} from './datepicker-container';
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="#rowz of rows">
-                      <td *ngFor="#dtz of rowz" class="text-center" role="gridcell" id="{{dtz.uid}}" [ngClass]="dtz.customClass">
+                    <tr *ngFor="let rowz of rows">
+                      <td *ngFor="let dtz of rowz" class="text-center" role="gridcell" id="{{dtz.uid}}" [ngClass]="dtz.customClass">
                         <button type="button" style="min-width:100%;" class="btn btn-default"
                                 [ngClass]="{'btn-info': dtz.selected, active: datePicker.isActive(dtz), disabled: dtz.disabled}"
                                 [disabled]="dtz.disabled"

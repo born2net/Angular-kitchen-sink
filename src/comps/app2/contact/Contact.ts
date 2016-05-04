@@ -52,7 +52,7 @@ import {CommBroker} from "../../../services/CommBroker";
                       <div class="form-group">
                         <label for="contactMethod">How should we contact you?</label>
                         <select class="form-control" required (change)="onChange($event)" [(ngModel)]="model.contactMethod" ngControl="contactMethod" #contactMethod="ngForm" >
-                          <option *ngFor="#p of contacts" [value]="p">
+                          <option *ngFor="let p of contacts" [value]="p">
                             {{p}}
                           </option>
                         </select>

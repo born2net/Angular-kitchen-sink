@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("angular2/core");
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/operator/do');
-var AsyncSubject_1 = require("rxjs/subject/AsyncSubject");
+var AsyncSubject_1 = require("rxjs/AsyncSubject");
 var http_1 = require('angular2/http');
 var MyIp = (function () {
     function MyIp(http) {

@@ -21,7 +21,7 @@ export class CustomHttp extends Http {
         super(backend, defaultOptions);
     }
 
-    request(url:string | Request, options?:RequestOptionsArgs):Observable<Response> {
+    request(url:string | Request, options?:RequestOptionsArgs):Observable<any> {
         console.log('Before the request...');
         return super.request(url, options)
             .retryWhen(error => error.delay(500))
@@ -38,7 +38,7 @@ export class CustomHttp extends Http {
             });
     }
 
-    get(url:string, options?:RequestOptionsArgs):Observable<Response> {
+    get(url:string, options?:RequestOptionsArgs):Observable<any> {
         console.log('Before the request...');
         return super.get(url, options)
             .catch((err) => {

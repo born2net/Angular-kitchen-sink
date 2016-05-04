@@ -15,6 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("angular2/core");
 var angular2_redux_util_1 = require("angular2-redux-util");
+var _ = require('underscore');
 exports.ADD_PART = 'ADD_PART';
 var PartActions = (function (_super) {
     __extends(PartActions, _super);

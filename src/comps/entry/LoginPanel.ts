@@ -15,7 +15,7 @@ import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/range';
 import {Subject} from "rxjs/Subject";
-import {BehaviorSubject} from "rxjs/subject/BehaviorSubject";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Observable} from "rxjs/Observable";
 import {AppStore} from "angular2-redux-util";
 

@@ -4,7 +4,7 @@ import {Component, Input, Output, ChangeDetectionStrategy, EventEmitter, OnChang
     selector: 'film-selection',
     template: `
         <button type="button"
-            *ngFor="#item of list"
+            *ngFor="let item of list"
             class="vehicle-selection"
             [ngClass]="{'btn-primary':item==currentSelection}"
             (click)="select(item)"
