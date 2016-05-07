@@ -11,21 +11,21 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
     selector: 'Notes2',
     providers: [MyIp],
     //directives: [ModalDialog, MyIp, TrimmedInput, MODAL_DIRECTIVES],
-    directives: [TrimmedInput, MyIp, ModalDialog],
+    directives: [TrimmedInput, MyIp, ModalDialog, ModalDialog],
     template: `     
-                <!--<button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">-->
-                    <!--<span class="fa fa-arrow-left"></span>-->
-                <!--</button>-->
-                <!--<button type="button" (click)="onNext($event)" class="btn btn-default btn-sm">-->
-                    <!--<span class="fa fa-arrow-right"></span>-->
-                <!--</button>-->
-                <!--<hr/>-->
-                <!--<small>I am notes2 component</small>-->
-                <!--<div class="btn-group" role="group" aria-label="...">-->
-                  <!--<button (click)="openModal()" type="button" class="btn btn-default">Bootstrap 3 wrapped Modal</button>-->
-                <!--</div>-->
-                <!--<ModalDialog title="My owner is Notes2" content="I am here to serve Notes2" [owner]="me">-->
-                <!--</ModalDialog>-->
+                <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
+                    <span class="fa fa-arrow-left"></span>
+                </button>
+                <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm">
+                    <span class="fa fa-arrow-right"></span>
+                </button>
+                <hr/>
+                <small>I am notes2 component</small>
+                <div class="btn-group" role="group" aria-label="...">
+                  <button (click)="openModal()" type="button" class="btn btn-default">Bootstrap 3 wrapped Modal</button>
+                </div>
+                <ModalDialog title="My owner is Notes2" content="I am here to serve Notes2" [owner]="me">
+                </ModalDialog>
                 <!--<hr/>-->
                 <!--<button type="button" class="btn btn-default" (click)="modal.open()">Bootstrap 3 pure ng2 Modal</button>-->
                 <!--<modal #modal>-->
