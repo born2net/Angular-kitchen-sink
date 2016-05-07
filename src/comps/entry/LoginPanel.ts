@@ -1,11 +1,10 @@
 ///<reference path="../../../typings/app.d.ts" />
 
-import {Component, Injectable} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {RouterLink} from 'angular2/router';
+import {Component, Injectable} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
-import {Router} from "angular2/router";
+import {Router} from "@angular/router";
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
@@ -38,7 +37,7 @@ export class User {
 @Injectable()
 @Component({
     selector: 'LoginPanel',
-    directives: [ROUTER_DIRECTIVES, RouterLink],
+    directives: [ROUTER_DIRECTIVES],
     template: `
                 <MyChart></MyChart>
                 <div id="appLogin" style="">
@@ -58,7 +57,7 @@ export class User {
                   </form>
                 </div>
 
-                <!-- <a [routerLink]="['/EntryPanelNoId', {id: 123}, 'Route4']">To forgot pass</a> -->
+                <!-- <a [routerLink]="['/EntryPanelNoId', {id: 123}']">To forgot pass</a> -->
                 <!-- <a [routerLink]="['/App1']">Direct to App1</a><br/> -->
                 <!-- <a [routerLink]="['/App2']">Direct to App2</a><br/> -->
                 <small>I am Login component and I am inside EntryPanel</small>`

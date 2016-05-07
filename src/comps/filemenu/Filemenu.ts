@@ -1,9 +1,9 @@
 ///<reference path="../../../typings/app.d.ts" />
 
-import {Component, ViewContainerRef} from 'angular2/core';
-import {BrowserDomAdapter} from 'angular2/platform/browser';
+import {Component, ViewContainerRef} from '@angular/core';
+import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
 import {FilemenuItem} from "./FilemenuItem";
-import {Router} from "angular2/router";
+import {Router} from "@angular/router";
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 import {App} from "../../../src/App";
@@ -53,7 +53,8 @@ export class Filemenu {
         self.el = viewContainer.element.nativeElement;
         self.m_fileMenuWrap = self.dom.getElementsByClassName(self.el, 'm_fileMenuWrap');
 
-        router.subscribe(function (currentRoute) {
+        router.changes.subscribe(function (currentRoute) {
+        //router.subscribe(function (currentRoute) {
             self.m_renderedItems = [];
             for (var item in self.m_items) {
                 if (self.m_items[item]['app'] == currentRoute)

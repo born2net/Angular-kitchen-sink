@@ -1,6 +1,6 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {Consts} from "../../../../src/Conts";
-import {FORM_DIRECTIVES} from 'angular2/common'
+import {FORM_DIRECTIVES} from '@angular/common'
 import {MailModel} from "../../../models/MailModel";
 import {CommBroker} from "../../../services/CommBroker";
 

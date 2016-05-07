@@ -1,8 +1,8 @@
 /**
  * Created by Tareq Boulakjar. from angulartypescript.com
  */
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES } from 'angular2/common';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
 import {ButtonCheckbox} from './button-checkbox.component';
 import {ButtonRadio} from './button-radio.component';
 /*Angular 2 Button*/

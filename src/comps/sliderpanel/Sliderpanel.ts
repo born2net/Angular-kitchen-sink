@@ -1,5 +1,5 @@
-import {Component, ViewContainerRef} from 'angular2/core';
-import {BrowserDomAdapter} from 'angular2/platform/browser';
+import {Component, ViewContainerRef} from '@angular/core';
+import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
 
 /**
  @class Sliderpanel

@@ -1,4 +1,4 @@
-import {Directive, ElementRef} from 'angular2/core'
+import {Directive, ElementRef} from '@angular/core'
 
 /**
  * Example of directive exporting its instance variable to the entire template it's hosted

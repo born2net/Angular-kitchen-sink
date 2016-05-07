@@ -1,10 +1,10 @@
-import {Component, Self, Input} from 'angular2/core';
+import {Component, Self, Input} from '@angular/core';
 import {
     CORE_DIRECTIVES,
     FORM_DIRECTIVES,
     ControlValueAccessor,
     NgModel
-} from 'angular2/common';
+} from '@angular/common';
 
 import {DatePickerInner} from './datepicker-container';
 import {DayPicker} from './daypicker';

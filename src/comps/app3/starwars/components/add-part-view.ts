@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core'
+import {Component, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core'
 
 @Component({
     selector: 'add-part',

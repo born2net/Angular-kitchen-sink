@@ -1,4 +1,4 @@
-import {Component, ContentChildren, QueryList, AfterContentInit, ViewChildren, Input} from 'angular2/core';
+import {Component, ContentChildren, QueryList, AfterContentInit, ViewChildren, Input} from '@angular/core';
 import {Minitab} from './Minitab';
 
 /**

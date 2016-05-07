@@ -1,5 +1,5 @@
-import {Component, Input} from 'angular2/core';
-import { NgClass, NgStyle } from 'angular2/common';
+import {Component, Input} from '@angular/core';
+import { NgClass, NgStyle } from '@angular/common';
 
 import {Progress} from './progress.directive';
 import {Bar} from './bar.component';

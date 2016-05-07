@@ -1,5 +1,5 @@
-import {Injectable, Inject} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Injectable, Inject} from '@angular/core';
+import {Http} from '@angular/http';
 import {Lib} from "../../../Lib";
 import 'rxjs/add/operator/share';
 import TodoStatsModel from "./TodoStatsModel";

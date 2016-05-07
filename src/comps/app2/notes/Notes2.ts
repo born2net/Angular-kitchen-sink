@@ -1,17 +1,18 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
-import {ModalDialog} from "../../modaldialog/ModalDialog";
+// import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
-import {MyIp} from "../../myip/Myip";
-import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
+// import {MyIp} from "../../myip/Myip";
+// import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
 import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 
 @Component({
     selector: 'Notes2',
-    providers: [MyIp],
-    directives: [ModalDialog, MyIp, TrimmedInput, MODAL_DIRECTIVES],
-    template: `
+    // providers: [MyIp],
+    //directives: [ModalDialog, MyIp, TrimmedInput, MODAL_DIRECTIVES],
+    directives: [TrimmedInput],
+    template: `     
                 <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -20,26 +21,26 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
                 </button>
                 <hr/>
                 <small>I am notes2 component</small>
-                <div class="btn-group" role="group" aria-label="...">
-                  <button (click)="openModal()" type="button" class="btn btn-default">Bootstrap 3 wrapped Modal</button>
-                </div>
-                <ModalDialog title="My owner is Notes2" content="I am here to serve Notes2" [owner]="me">
-                </ModalDialog>
-                <hr/>
-                <button type="button" class="btn btn-default" (click)="modal.open()">Bootstrap 3 pure ng2 Modal</button>
-                <modal #modal>
-                    <modal-header [show-close]="true">
-                        <h4 class="modal-title">I'm a pure Angular2 modal!</h4>
-                    </modal-header>
-                    <modal-body>
-                        Hello World!
-                    </modal-body>
-                    <modal-footer [show-default-buttons]="true"></modal-footer>
-                </modal>
+                <!--<div class="btn-group" role="group" aria-label="...">-->
+                  <!--<button (click)="openModal()" type="button" class="btn btn-default">Bootstrap 3 wrapped Modal</button>-->
+                <!--</div>-->
+                <!--<ModalDialog title="My owner is Notes2" content="I am here to serve Notes2" [owner]="me">-->
+                <!--</ModalDialog>-->
+                <!--<hr/>-->
+                <!--<button type="button" class="btn btn-default" (click)="modal.open()">Bootstrap 3 pure ng2 Modal</button>-->
+                <!--<modal #modal>-->
+                    <!--<modal-header [show-close]="true">-->
+                        <!--<h4 class="modal-title">I'm a pure Angular2 modal!</h4>-->
+                    <!--</modal-header>-->
+                    <!--<modal-body>-->
+                        <!--Hello World!-->
+                    <!--</modal-body>-->
+                    <!--<modal-footer [show-default-buttons]="true"></modal-footer>-->
+                <!--</modal>-->
 
-                <MyIp></MyIp>
-                <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>
-                <input type="text" trimmed-input />
+                <!--<MyIp></MyIp>-->
+                <!--<small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>-->
+                <!--<input type="text" trimmed-input />-->
                 <ng-content></ng-content>`
 })
 

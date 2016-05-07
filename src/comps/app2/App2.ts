@@ -1,9 +1,8 @@
 ///<reference path="../../../typings/jquery/jquery.d.ts" />
 
-import {Component} from 'angular2/core';
-import {Http} from 'angular2/http';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {RouterLink, RouteParams} from 'angular2/router';
+import {Component} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
+//import {RouterLink, RouteParams} from '@angular/router';
 import {MenuItem} from "../sidemenu/MenuItem";
 import {Menu} from "../sidemenu/Menu";
 import {CommBroker} from "../../services/CommBroker";
@@ -17,7 +16,7 @@ import {Notes3} from "./notes/Notes3";
 import {Notes4} from "./notes/Notes4";
 import {Notes5} from "./notes/Notes5";
 import {Digg} from "../digg/Digg";
-import {HTTP_PROVIDERS} from "angular2/http";
+import {HTTP_PROVIDERS} from "@angular/http";
 import {Logout} from "../logout/Logout";
 import {Contact} from "./contact/Contact";
 import {DividerPanel} from "../dividerpanel/DividerPanel";
@@ -31,14 +30,17 @@ import {Weather} from "./weather/Weather";
 @Component({
     templateUrl: '/src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS],
-    directives: [ROUTER_DIRECTIVES, RouterLink, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
-        Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]
+    directives: [ROUTER_DIRECTIVES, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
+        Weather, Logout, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog]
 })
+
+// Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]
+
 export class App2 {
     private screens:any;
     private commBroker:CommBroker;
 
-    constructor(params:RouteParams, commBroker:CommBroker, Consts:Consts) {
+    constructor(commBroker:CommBroker) {
         var self = this;
         jQuery(".navbar-header .navbar-toggle").trigger("click");
         jQuery('.navbar-nav').css({

@@ -1,4 +1,4 @@
-import {Directive, Component, TemplateRef, ViewContainerRef, ChangeDetectorRef} from 'angular2/core'
+import {Directive, Component, TemplateRef, ViewContainerRef, ChangeDetectorRef} from '@angular/core'
 
 @Directive({
     selector: '[CountDown]'
@@ -8,7 +8,7 @@ export class CountDown {
     running: boolean = false;
     time: number = 0;
 
-    constructor(private templateRef: TemplateRef,
+    constructor(private templateRef: TemplateRef<any>,
                 private viewContainer: ViewContainerRef,
                 private cdr: ChangeDetectorRef) {}
 
@@ -31,7 +31,9 @@ export class CountDown {
             reset: () => this.reset(),
             getTime: () => this.getTime()
         }
-        view.setLocal('timerApi', api);
+        //todo: fix as setLocal no longer supported
+        //var viewRef = <EmbeddedViewRef<NgForRow>>this._viewContainer.get(record.currentIndex);
+        //view.setLocal('timerApi', api);
 
         setTimeout(() => this.cdr.reattach());
     }

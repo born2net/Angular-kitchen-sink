@@ -1,5 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {Component, OnInit} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import {DatePickerInner} from './datepicker-container';
 
 

@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import {AppStore} from "angular2-redux-util";
 import {UserActions} from "../actions/user-actions";
 import {UsersView} from "../components/users-view";

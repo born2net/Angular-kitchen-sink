@@ -1,33 +1,33 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {ForgotPass} from '../../../src/comps/entry/ForgotPass';
 import {LoginPanel} from '../../../src/comps/entry/LoginPanel';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {RouteParams, RouterLink, RouteConfig} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteSegment} from '@angular/router';
+import {Routes} from '@angular/router';
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 
 
-@RouteConfig([
-    {path: '/Another2', component: LoginPanel, as: 'Route3'},
-    {path: '/Another3', component: ForgotPass, as: 'Route4'},
-    {path: '/ForgotPass', component: ForgotPass, as: 'ForgotPass'},
-    {path: '/Login', component: LoginPanel, as: 'Login'}
+@Routes([
+    {path: '/Another2', component: LoginPanel},
+    {path: '/Another3', component: ForgotPass},
+    {path: '/ForgotPass', component: ForgotPass},
+    {path: '/Login', component: LoginPanel}
 ])
 @Component({
     providers: [LoginPanel],
-    directives: [ROUTER_DIRECTIVES, RouterLink],
+    directives: [ROUTER_DIRECTIVES],
     selector: 'EntryPanel',
     template: `
                 <!--<a [routerLink]="['/App1']">And back to Test1</a><br/>-->
-                <!--<a [routerLink]="['/EntryPanel', {id: 1111}, 'Route3']">Login {{someId}}</a><br/>-->
-                <!--<a [routerLink]="['/EntryPanel', {id: 1111}, 'Route4']">Forgot pass {{someId}}</a><br/>-->
+                <!--<a [routerLink]="['/EntryPanel', {id: 1111}]">Login {{someId}}</a><br/>-->
+                <!--<a [routerLink]="['/EntryPanel', {id: 1111}]">Forgot pass {{someId}}</a><br/>-->
                 <small>I am entrypanel component and I am inside main App</small>
                 <router-outlet></router-outlet>`
 })
 export class EntryPanel {
-    constructor(params:RouteParams, commBroker:CommBroker) {
-        if (params.get('id') != null) {
-            commBroker.setValue(Consts.Values().USER_NAME, params.get('id'));
+    constructor(params:RouteSegment, commBroker:CommBroker) {
+        if (params.getParam('id') != null) {
+            commBroker.setValue(Consts.Values().USER_NAME, params.getParam('id'));
         } else {
             commBroker.setValue(Consts.Values().USER_NAME, 'foo-bar');
         }

@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
-var browser_1 = require('angular2/platform/browser');
+var core_1 = require('@angular/core');
+var browser_adapter_1 = require('@angular/platform-browser/src/browser/browser_adapter');
 var Conts_1 = require("../../../src/Conts");
 var Observable_1 = require("rxjs/Observable");
 var DiggLoader_1 = require("../../../src/comps/digg/DiggLoader");
@@ -22,7 +22,7 @@ var Digg = (function () {
     function Digg(commBroker, diggLoader, m_commBroker, viewContainer) {
         this.commBroker = commBroker;
         this.m_commBroker = m_commBroker;
-        this.dom = new browser_1.BrowserDomAdapter();
+        this.dom = new browser_adapter_1.BrowserDomAdapter();
         var self = this;
         self.mode = 'list';
         this.diggs = [];

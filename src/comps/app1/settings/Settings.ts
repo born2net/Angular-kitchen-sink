@@ -1,6 +1,6 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {StyleModel} from "../../../models/StyleModel";
 import {StyleService} from "../../../styles/StyleService";
 

@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {Todo1} from "./Todo1";
 import {Todo2} from "./Todo2";

@@ -13,8 +13,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var http_1 = require("angular2/http");
-var core_1 = require("angular2/core");
+var http_1 = require("@angular/http");
+var core_1 = require("@angular/core");
 var angular2_redux_util_1 = require("angular2-redux-util");
 require('rxjs/add/operator/map');
 exports.REQUEST_USERS = 'REQUEST_USERS';

@@ -1,5 +1,5 @@
-import {Component, OnInit, OnDestroy, Input, Host} from 'angular2/core';
-import {NgClass, NgStyle} from 'angular2/common';
+import {Component, OnInit, OnDestroy, Input, Host} from '@angular/core';
+import {NgClass, NgStyle} from '@angular/common';
 
 import {Progress} from './progress.directive';
 

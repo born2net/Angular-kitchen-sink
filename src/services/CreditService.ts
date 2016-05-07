@@ -1,4 +1,4 @@
-import {Injectable, Injector} from 'angular2/core';
+import {Injectable, Injector} from '@angular/core';
 
 // repo and credit to: https://github.com/PawelDecowski/jQuery-CreditCardValidator/
 

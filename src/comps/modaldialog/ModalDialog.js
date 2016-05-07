@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
-var browser_1 = require('angular2/platform/browser');
+var core_1 = require('@angular/core');
+var browser_adapter_1 = require('@angular/platform-browser/src/browser/browser_adapter');
 var ModalDialog = (function () {
     function ModalDialog(viewContainer) {
-        this.dom = new browser_1.BrowserDomAdapter();
+        this.dom = new browser_adapter_1.BrowserDomAdapter();
         this.viewContainer = viewContainer;
         this.el = this.viewContainer.element.nativeElement;
     }

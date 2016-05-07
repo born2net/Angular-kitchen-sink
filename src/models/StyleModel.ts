@@ -1,4 +1,4 @@
-import {Component, Injectable} from "angular2/core";
+import {Component, Injectable} from "@angular/core";
 
 @Injectable()
 export class StyleModel {

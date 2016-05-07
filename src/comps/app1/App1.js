@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
-var router_1 = require('angular2/router');
-var http_1 = require("angular2/http");
-var router_2 = require('angular2/router');
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var http_1 = require("@angular/http");
 var Menu_1 = require("../sidemenu/Menu");
 var MenuItem_1 = require("../sidemenu/MenuItem");
 var CommBroker_1 = require("../../services/CommBroker");
@@ -22,7 +21,6 @@ var tabs_1 = require("../tabs/tabs");
 var tab_1 = require("../tabs/tab");
 var Logout_1 = require("../logout/Logout");
 var Settings_1 = require("./settings/Settings");
-var Help_1 = require("./help/Help");
 var Todo1_1 = require("./todos/Todo1");
 var Todo2_1 = require("./todos/Todo2");
 var Todolist_1 = require("./todos/Todolist");
@@ -42,17 +40,12 @@ var App1 = (function () {
         this.routerActive = true;
         this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
     };
-    App1.prototype.routerCanReuse = function (next, prev) {
-        return true;
-    };
-    App1.prototype.routerOnReuse = function (to, from) {
-    };
-    App1.prototype.routerOnActivate = function (to, from) {
+    App1.prototype.routerOnActivate = function (segment, tree) {
         this.routerActive = true;
         return new Promise(function (resolve) {
             setTimeout(function () {
-                resolve(true);
-            }, 10);
+                resolve(false);
+            }, 3000);
         });
     };
     App1.prototype.listenMenuChanges = function () {
@@ -64,22 +57,18 @@ var App1 = (function () {
             self.router.navigate([("/App1/" + screen)]);
         });
     };
-    App1.prototype.routerOnDeactivate = function (next, prev) {
-        this.routerActive = false;
-    };
     App1 = __decorate([
-        router_1.RouteConfig([
-            { path: '/Todos', component: Todos_1.Todos, as: 'Todos', useAsDefault: true },
-            { path: '/Digg', component: Digg_1.Digg, as: 'Digg' },
-            { path: '/Settings', component: Settings_1.Settings, as: 'Settings' },
-            { path: '/Help', component: Help_1.Help, as: 'Help' },
-            { path: '/Logout', component: Logout_1.Logout, as: 'Logout' }
+        router_1.Routes([
+            { path: '/Todos', component: Todos_1.Todos },
+            { path: '/Digg', component: Digg_1.Digg },
+            { path: '/Settings', component: Settings_1.Settings },
+            { path: '/Logout', component: Logout_1.Logout }
         ]),
         core_1.Component({
             providers: [http_1.HTTP_PROVIDERS, TodoStatsModel_1.default, TodoService_1.TodoService, TodoAction_1.TodoAction],
             templateUrl: '/src/comps/app1/App1.html',
-            directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, contributors_1.Contributors,
-                Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, Help_1.Help, tabs_1.Tabs, tab_1.Tab]
+            directives: [router_1.ROUTER_DIRECTIVES, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, contributors_1.Contributors,
+                Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, tabs_1.Tabs, tab_1.Tab]
         }), 
         __metadata('design:paramtypes', [CommBroker_1.CommBroker, router_1.Router])
     ], App1);

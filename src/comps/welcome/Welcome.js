@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var router_1 = require("angular2/router");
-var core_1 = require("angular2/core");
+var router_1 = require("@angular/router");
+var core_1 = require("@angular/core");
 var Welcome = (function () {
-    function Welcome(params) {
+    function Welcome() {
         this.someId = 'App1' + Math.random();
         this.showTypedObjectArg({
             styles1: ['foo', 'bar'],
@@ -27,9 +27,9 @@ var Welcome = (function () {
         core_1.Component({
             styles: ["\n        #routerLinks {\n            padding: 20px;\n        }\n    "],
             template: "\n                <div id=\"routerLinks\">\n                    <h4>Direct router shortcut links:</h4>\n                    <a [routerLink]=\"['/Login', 'Login']\">To Login screen</a><br/>\n                    <a [routerLink]=\"['/Login', {id: 'Sean-Levy'}, 'Login']\">To Login screen with demo user args</a><br/>\n                    <a [routerLink]=\"['/ForgotPass', 'ForgotPass']\">To Forgot Password screen</a><br/>\n                    <a [routerLink]=\"['/AppManager']\">To App manager</a><br/>\n                    <a [routerLink]=\"['/App1']\">To App1</a><br/>\n                    <a [routerLink]=\"['/App2']\">To App2</a><br/>\n                    <a [routerLink]=\"['/App3']\">To App3</a><br/>\n                    <br/><small>I am Welcome component</small>\n                </div>\n                ",
-            directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterLink]
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [router_1.RouteParams])
+        __metadata('design:paramtypes', [])
     ], Welcome);
     return Welcome;
 }());

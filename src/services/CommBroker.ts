@@ -1,4 +1,4 @@
-import {Component, Injectable} from 'angular2/core';
+import {Component, Injectable} from '@angular/core';
 import {Observer} from "rxjs/Observer";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';

@@ -1,8 +1,8 @@
 /**
  * Created by Tareq Boulakjar. from angulartypescript.com
  */
-import {Component} from 'angular2/core';
-import { CORE_DIRECTIVES } from 'angular2/common';
+import {Component} from '@angular/core';
+import { CORE_DIRECTIVES } from '@angular/common';
 import {Progress} from './progress.directive';
 import {Bar} from './bar.component';
 import {Progressbar} from './progressbar.component';

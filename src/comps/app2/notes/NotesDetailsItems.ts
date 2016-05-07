@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter, Input, NgZone, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, Output, EventEmitter, Input, NgZone, ChangeDetectionStrategy} from '@angular/core';
 import {TimeInterval} from "rxjs/Rx.KitchenSink";
 
 @Component({

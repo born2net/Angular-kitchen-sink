@@ -1,4 +1,4 @@
-import {Injector} from 'angular2/core';
+import {Injector} from '@angular/core';
 let appInjectorRef: Injector;
 /**
  * With the help of appInjService we register the main app

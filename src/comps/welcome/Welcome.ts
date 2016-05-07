@@ -1,5 +1,5 @@
-import {ROUTER_DIRECTIVES, RouteParams, RouterLink} from "angular2/router";
-import {Component, OnInit} from "angular2/core";
+import {ROUTER_DIRECTIVES} from "@angular/router";
+import {Component, OnInit} from "@angular/core";
 /**
  General route links
  @class Welcome
@@ -23,12 +23,13 @@ import {Component, OnInit} from "angular2/core";
                     <br/><small>I am Welcome component</small>
                 </div>
                 `,
-    directives: [ROUTER_DIRECTIVES, RouterLink]
+    directives: [ROUTER_DIRECTIVES]
 })
 export class Welcome implements OnInit {
     private someId:string;
 
-    constructor(params:RouteParams) {
+    //constructor(params:RouteParams) {
+    constructor() {
         this.someId = 'App1' + Math.random();
 
         // an example of passing a optional, typed object instead

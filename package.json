@@ -16,8 +16,12 @@
   "author": "Sean Levy",
   "license": "MIT",
   "devDependencies": {
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
     "angular-cli": "0.0.*",
-    "angular2": "2.0.0-beta.17",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
     "autoprefixer": "^6.2.3",
@@ -56,6 +60,7 @@
     "is-equal": "^1.4.2",
     "jquery": "^2.2.0",
     "json-loader": "^0.5.3",
+    "jspm": "^0.17.0-beta.14",
     "live-server": "^0.9.0",
     "lodash": "^3.10.1",
     "moment": "^2.11.2",
@@ -88,7 +93,15 @@
     "zone.js": "^0.6.12"
   },
   "jspm": {
+    "main": "ng2Boilerplater.js",
+    "directories": {
+      "lib": "src"
+    },
     "dependencies": {
+      "angular-common": "npm:@angular/common@^2.0.0-rc.1",
+      "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.1",
+      "angular-core": "npm:@angular/core@^2.0.0-rc.1",
+      "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.1",
       "angular2": "npm:angular2@^2.0.0-beta.15",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
@@ -96,29 +109,182 @@
       "bootbox": "npm:bootbox@^4.4.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@^0.1.0",
-      "crypto": "github:jspm/nodelibs-crypto@^0.1.0",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "highcharts": "npm:highcharts@^4.2.2",
+      "http": "npm:@angular/http@^2.0.0-rc.1",
       "immutable": "npm:immutable@^3.7.6",
       "is-equal": "npm:is-equal@^1.4.2",
       "jquery": "npm:jquery@^2.2.0",
       "lodash": "npm:lodash@4.2.1",
       "moment": "npm:moment@^2.11.2",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^4",
       "redux": "npm:redux@^3.2.1",
       "redux-thunk": "npm:redux-thunk@^1.0.3",
-      "reflect-metadata": "npm:reflect-metadata@^0.1.3",
       "reselect": "npm:reselect@^2.0.3",
       "rxjs": "npm:rxjs@5.0.0-beta.2",
       "text": "github:systemjs/plugin-text@^0.0.4",
       "ts": "github:frankwallis/plugin-typescript@^4",
-      "typescript": "npm:typescript@1.8.0",
+      "typescript": "npm:typescript@1.8.7",
       "underscore": "npm:underscore@^1.8.3",
       "zone.js": "npm:zone.js@^0.6.12"
     },
     "devDependencies": {
+      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "clean-css": "npm:clean-css@^3.4.9",
-      "ng2-bootstrap": "npm:ng2-bootstrap@1.0.7"
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
+      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
+      "ng2-bootstrap": "npm:ng2-bootstrap@1.0.7",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
+      "reflect-metadata": "npm:reflect-metadata@0.1.2",
+      "router": "npm:@angular/router@^2.0.0-rc.1",
+      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+    },
+    "peerDependencies": {
+      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.1",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
+      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
+    },
+    "overrides": {
+      "github:components/jquery@2.2.1": {
+        "main": "jquery"
+      },
+      "github:twbs/bootstrap@3.3.6": {
+        "shim": {
+          "js/bootstrap": {
+            "deps": [
+              "jquery"
+            ],
+            "exports": "$"
+          }
+        },
+        "dependencies": {
+          "jquery": "*"
+        },
+        "files": [
+          "dist",
+          "fonts",
+          "js",
+          "css",
+          "less",
+          "grunt",
+          "LICENSE"
+        ],
+        "systemjs": {
+          "main": "dist/js/bootstrap.js",
+          "modules": {
+            "dist/js/bootstrap.js": {
+              "deps": [
+                "jquery"
+              ],
+              "exports": "$"
+            }
+          }
+        }
+      },
+      "npm:angular2@2.0.0-beta.17": {
+        "main": false,
+        "dependencies": {
+          "reflect-metadata": "npm:reflect-metadata@0.1.2",
+          "rxjs": "npm:rxjs@^5.0.0-beta.2",
+          "zone.js": "npm:zone.js@^0.6.6"
+        },
+        "peerDependencies": {
+          "reflect-metadata": "npm:reflect-metadata@0.1.2",
+          "rxjs": "npm:rxjs@^5.0.0-beta.2",
+          "zone.js": "npm:zone.js@^0.6.6"
+        },
+        "jspmNodeConversion": false,
+        "map": {
+          "crypto": "@empty"
+        },
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        }
+      },
+      "npm:angular@1.5.0": {
+        "format": "global",
+        "jspmNodeConversion": false,
+        "main": "angular",
+        "meta": {
+          "angular.js": {
+            "exports": "angular",
+            "format": "global"
+          }
+        }
+      },
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:jquery@2.2.1": {
+        "format": "amd"
+      },
+      "npm:moment@2.11.2": {
+        "jspmNodeConversion": false
+      },
+      "npm:readable-stream@1.1.13": {
+        "map": {
+          "stream": "stream-browserify/index"
+        },
+        "systemjs": {
+          "main": "readable.js"
+        },
+        "dependencies": {
+          "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
+          "isarray": "0.0.1",
+          "string_decoder": "~0.10.0",
+          "stream-browserify": "^1.0.0"
+        }
+      },
+      "npm:reflect-metadata@0.1.2": {
+        "map": {
+          "crypto": "@empty"
+        }
+      },
+      "npm:typescript@1.8.7": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
+        }
+      }
     }
+  },
+  "dependencies": {
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/http": "^2.0.0-rc.1",
+    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "@angular/router": "^2.0.0-rc.1",
+    "rxjs": "^5.0.0-beta.6",
+    "zone.js": "^0.6.12"
   }
 }

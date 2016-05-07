@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {Contributors} from "./contributors/contributors";
 import {RatingComponent, AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
 import {CommBroker} from "../../../services/CommBroker";

@@ -1,6 +1,6 @@
 ///<reference path="../../typings/app.d.ts"/>
 
-import {Control} from 'angular2/common'
+import {Control} from '@angular/common'
 
 interface ValidationResult {
     [key:string]:boolean;

@@ -13,12 +13,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("angular2/core");
+var core_1 = require("@angular/core");
 var angular2_redux_util_1 = require("angular2-redux-util");
 var TodoModel_1 = require("../TodoModel");
 var StoreModel_1 = require("../../../../models/StoreModel");
 var TodoService_1 = require("../TodoService");
-var http_1 = require("angular2/http");
+var http_1 = require("@angular/http");
 var TodoStatsModel_1 = require("../TodoStatsModel");
 var CommBroker_1 = require("../../../../services/CommBroker");
 exports.ADD_TODO = 'ADD_TODO';

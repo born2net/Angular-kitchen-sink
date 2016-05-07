@@ -1,5 +1,5 @@
-import {provide, Directive, forwardRef} from 'angular2/core';
-import {Control, NG_VALIDATORS} from 'angular2/common';
+import {provide, Directive, forwardRef} from '@angular/core';
+import {Control, NG_VALIDATORS} from '@angular/common';
 
 function validateEmailFactory() {
     return (c: Control) => {

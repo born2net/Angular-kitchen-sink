@@ -1,4 +1,4 @@
-import {Component, Injector, provide} from "angular2/core";
+import {Component, Injector, provide} from "@angular/core";
 import {ShoppingComponent} from "./components/shopping-component";
 import {PartActions} from "./actions/part-actions";
 import {CartActions} from "./actions/cart-actions";

@@ -1,7 +1,7 @@
 import {
     Component, Input, Output, EventEmitter, ChangeDetectionStrategy, KeyValueDiffers,
     KeyValueDiffer
-} from 'angular2/core';
+} from '@angular/core';
 import {TodoItemModel} from './TodoService';
 //import './Todoitem.css';
 

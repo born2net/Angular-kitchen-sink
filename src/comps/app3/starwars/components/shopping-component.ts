@@ -1,4 +1,4 @@
-import {Component, Inject} from 'angular2/core'
+import {Component, Inject} from '@angular/core'
 import {CartActions} from "../actions/cart-actions";
 import {PartActions} from "../actions/part-actions";
 import {PartsView} from "../components/parts-view";

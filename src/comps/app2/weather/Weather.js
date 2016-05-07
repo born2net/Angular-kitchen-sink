@@ -8,13 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("angular2/core");
+var core_1 = require("@angular/core");
 var Conts_1 = require("../../../../src/Conts");
 var WeatherService_1 = require("./WeatherService");
 var SortableHeader_1 = require("./SortableHeader");
-var common_1 = require('angular2/common');
+var common_1 = require('@angular/common');
 var OrderBy_1 = require("../../../pipes/OrderBy");
-var common_2 = require("angular2/common");
+var common_2 = require("@angular/common");
 require('rxjs/add/operator/distinctUntilChanged');
 require('rxjs/add/operator/switchMap');
 require('rxjs/add/operator/debounceTime');

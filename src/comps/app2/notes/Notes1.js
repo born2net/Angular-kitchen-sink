@@ -13,14 +13,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 var Sliderpanel_1 = require("../../sliderpanel/Sliderpanel");
 var ModalDialog_1 = require("../../modaldialog/ModalDialog");
 var CommBroker_1 = require("../../../services/CommBroker");
 var Conts_1 = require("../../../../src/Conts");
 var NotesBase_1 = require("./NotesBase");
 var MailModel_1 = require("../../../models/MailModel");
-var common_1 = require('angular2/common');
+var common_1 = require('@angular/common');
 var StartCapValidator_1 = require("../../../validators/StartCapValidator");
 var NameTakenValidator_1 = require("../../../validators/NameTakenValidator");
 var DisplayError_1 = require("../../displayerror/DisplayError");

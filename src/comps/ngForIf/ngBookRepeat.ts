@@ -13,7 +13,7 @@ import {
     DoCheck,
     IterableDiffers,
     IterableDiffer,
-} from 'angular2/core';
+} from '@angular/core';
 
 
 @Directive({
@@ -27,7 +27,7 @@ class MyRepeatIf implements DoCheck {
 
 
     constructor(private viewContainer:ViewContainerRef,
-                private template:TemplateRef,
+                private template:TemplateRef<any>,
                 private changeDetector:ChangeDetectorRef,
                 private differs:IterableDiffers) {
     }
@@ -46,7 +46,8 @@ class MyRepeatIf implements DoCheck {
                 console.log('template', this.template);
                 changes.forEachAddedItem((change) => {
                     let view = this.viewContainer.createEmbeddedView(this.template);
-                    view.setLocal('\$implicit', change.item);
+                    //todo: fix as broken in rc.1
+                    //view.setLocal('\$implicit', change.item);
                     this.views.set(change.item, view);
                 });
                 changes.forEachRemovedItem((change) => {

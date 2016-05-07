@@ -1,5 +1,5 @@
-import {Injectable} from 'angular2/core';
-import {Http, RequestOptions, URLSearchParams} from 'angular2/http';
+import {Injectable} from '@angular/core';
+import {Http, RequestOptions, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/empty'

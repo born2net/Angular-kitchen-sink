@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
-var router_1 = require('angular2/router');
-var router_2 = require('angular2/router');
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var MenuItem_1 = require("../sidemenu/MenuItem");
 var Menu_1 = require("../sidemenu/Menu");
 var CommBroker_1 = require("../../services/CommBroker");
@@ -23,7 +22,7 @@ var Notes3_1 = require("./notes/Notes3");
 var Notes4_1 = require("./notes/Notes4");
 var Notes5_1 = require("./notes/Notes5");
 var Digg_1 = require("../digg/Digg");
-var http_1 = require("angular2/http");
+var http_1 = require("@angular/http");
 var Logout_1 = require("../logout/Logout");
 var Contact_1 = require("./contact/Contact");
 var DividerPanel_1 = require("../dividerpanel/DividerPanel");
@@ -31,7 +30,7 @@ var ModalDialog_1 = require("../modaldialog/ModalDialog");
 var Properties_1 = require("./properties/Properties");
 var Weather_1 = require("./weather/Weather");
 var App2 = (function () {
-    function App2(params, commBroker, Consts) {
+    function App2(commBroker) {
         var self = this;
         jQuery(".navbar-header .navbar-toggle").trigger("click");
         jQuery('.navbar-nav').css({
@@ -62,10 +61,10 @@ var App2 = (function () {
         core_1.Component({
             templateUrl: '/src/comps/app2/App2.html',
             providers: [http_1.HTTP_PROVIDERS],
-            directives: [router_1.ROUTER_DIRECTIVES, router_2.RouterLink, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties,
-                Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Weather_1.Weather, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog]
+            directives: [router_1.ROUTER_DIRECTIVES, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties,
+                Weather_1.Weather, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog, Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Contact_1.Contact, ModalDialog_1.ModalDialog]
         }), 
-        __metadata('design:paramtypes', [router_2.RouteParams, CommBroker_1.CommBroker, Conts_1.Consts])
+        __metadata('design:paramtypes', [CommBroker_1.CommBroker])
     ], App2);
     return App2;
 }());

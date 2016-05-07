@@ -1,4 +1,4 @@
-import {Directive, HostListener, HostBinding} from "angular2/core";
+import {Directive, HostListener, HostBinding} from "@angular/core";
 
 @Directive({
     selector: 'a[data-footer]'

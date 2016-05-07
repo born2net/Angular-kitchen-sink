@@ -1,8 +1,7 @@
 ///<reference path="../../../typings/app.d.ts"/>
 
-import {Component, EventEmitter} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {RouterLink} from 'angular2/router';
+import {Component, EventEmitter} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/buffer';
@@ -33,7 +32,7 @@ import {Lib} from "../../Lib";
                 <!-- <a [routerLink]="['/App1']">And back to Test1</a> -->
                 <br/>
                 <small>ForgotPass component and I am inside EntryPanel</small>`,
-    directives: [ROUTER_DIRECTIVES, RouterLink]
+    directives: [ROUTER_DIRECTIVES]
 })
 export class ForgotPass {
     private clickStream:EventEmitter<any> = new EventEmitter();

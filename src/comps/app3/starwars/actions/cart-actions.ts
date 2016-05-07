@@ -1,4 +1,4 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {Actions} from "angular2-redux-util";
 
 export const ADD_TO_CART = "ADD_TO_CART";

@@ -4,7 +4,7 @@
  *  credit to: http://restlet.com/blog/2016/04/18/interacting-efficiently-with-a-restful-service-with-angular2-and-rxjs-part-3/
  **/
 
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Observer} from "rxjs/Observer";
 import 'rxjs/add/operator/map';
@@ -13,7 +13,7 @@ import 'rxjs/add/observable/fromEvent';
 import {
     RequestOptionsArgs, RequestOptions, ConnectionBackend, Http, HTTP_PROVIDERS, Request,
     Response
-} from "angular2/http";
+} from "@angular/http";
 
 @Injectable()
 export class CustomHttp extends Http {

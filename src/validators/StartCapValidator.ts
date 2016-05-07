@@ -1,4 +1,4 @@
-import {Control} from 'angular2/common'
+import {Control} from '@angular/common'
 
 export default function StartCapValidator(control: Control): { [s: string]: boolean } {
     if (!control.value.match(/^[A-Z]/)) {

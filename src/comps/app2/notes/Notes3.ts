@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";

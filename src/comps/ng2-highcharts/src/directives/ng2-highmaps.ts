@@ -1,5 +1,5 @@
 /// <reference path="../../typings/highcharts/highcharts.d.ts" />
-import {Directive, ElementRef, Input} from 'angular2/core';
+import {Directive, ElementRef, Input} from '@angular/core';
 
 declare var jQuery: any;
 

@@ -1,4 +1,4 @@
-import {Component, Inject, Injectable, provide} from 'angular2/core';
+import {Component, Inject, Injectable, provide} from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
@@ -50,20 +50,20 @@ class NotesService {
                 </button>
                 <hr/>
                 <small>I am notes5 component</small>
-                <div>
-                   <small>I am CountDown component</small>
-                    <h2>CountDown</h2>
-                    <div class="timer" *CountDown="let timer=timerApi">
-                      <div class="time">{{ timer.getTime() }}</div>
-                      <div class="controls">
-                        <button (click)="timer.toggle()">Toggle</button>
-                        <button (click)="timer.reset()">Reset</button>
-                      </div>
-                    </div>
-                </div>
-                <label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>
-                <br/>
-                <label>Check the code to learn more...</label>
+                <!--<div>-->
+                   <!--<small>I am CountDown component</small>-->
+                    <!--<h2>CountDown</h2>-->
+                    <!--<div class="timer" *CountDown="let timer=timerApi">-->
+                      <!--<div class="time">{{ timer.getTime() }}</div>-->
+                      <!--<div class="controls">-->
+                        <!--<button (click)="timer.toggle()">Toggle</button>-->
+                        <!--<button (click)="timer.reset()">Reset</button>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->
+                <!--<br/>-->
+                <!--<label>Check the code to learn more...</label>-->
 
 
                 `

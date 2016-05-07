@@ -1,4 +1,4 @@
-import {Component, Query, QueryList} from 'angular2/core';
+import {Component, Query, QueryList} from '@angular/core';
 import {NotesDetailsItems} from "./NotesDetailsItems";
 
 // notice the optional {{items?.length}} deceleration

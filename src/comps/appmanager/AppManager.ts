@@ -1,7 +1,6 @@
-import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES, CanActivate, ComponentInstruction} from 'angular2/router';
-import {RouterLink, Router} from 'angular2/router';
-import {Lib} from "../../Lib";
+import {Component} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
+import {Router} from '@angular/router';
 import {appInjService} from "../../services/AppInjService";
 import {AuthService} from "../../services/AuthService";
 
@@ -38,14 +37,16 @@ import {AuthService} from "../../services/AuthService";
         </div>
     </div>
     `,
-    directives: [ROUTER_DIRECTIVES, RouterLink]
+    directives: [ROUTER_DIRECTIVES]
 })
 
 // An example of how we can allow or deny access to a Route
-@CanActivate((to:ComponentInstruction, from:ComponentInstruction) => {
-    let authService:AuthService = appInjService().get(AuthService);
-    return authService.checkAccess(to, from, ['/Login/Login']);
-})
+// @CanActivate((to:ComponentInstruction, from:ComponentInstruction) => {
+//     let authService:AuthService = appInjService().get(AuthService);
+//     return authService.checkAccess(to, from, ['/Login/Login']);
+// })
+
+
 export class AppManager {
     private myRouter:Router;
     constructor(router:Router) {
@@ -55,6 +56,22 @@ export class AppManager {
         //this.myRouter.parent.subscribe(function(e){
         //    console.log(`Route ${e}`);
         //});
+    }
+
+    routerOnActivate() {
+        // this.id = this._routeParams.get("id");
+        // return new Promise((resolve, reject) => {
+        //     if (this.id) {
+        //         this.gateDataModel.unique_display_id = parseInt(this.id);
+        //         this.myService.loadData(this.id)
+        //             .subscribe(response => {
+        //                 console.log(response);
+        //                 resolve();
+        //             });
+        //     } else {
+        //         resolve();
+        //     }
+        // });
     }
 
     ngAfterViewInit() {

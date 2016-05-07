@@ -1,4 +1,4 @@
-import {Directive, TemplateRef, ViewContainerRef, Inject} from 'angular2/core';
+import {Directive, TemplateRef, ViewContainerRef, Inject} from '@angular/core';
 
 export interface IAttribute {
     [key: string]: any;
@@ -9,9 +9,9 @@ export interface IAttribute {
     properties: ['ngTransclude']
 })
 export class NgTransclude {
-    private _ngTransclude: TemplateRef;
+    private _ngTransclude: TemplateRef<any>;
 
-    private set ngTransclude(templateRef:TemplateRef) {
+    private set ngTransclude(templateRef:TemplateRef<any>) {
         this._ngTransclude = templateRef;
         if (templateRef) {
             this.viewRef.createEmbeddedView(templateRef);

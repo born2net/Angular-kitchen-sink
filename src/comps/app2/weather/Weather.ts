@@ -1,13 +1,13 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component, ChangeDetectionStrategy, Renderer, ViewChild, ElementRef} from "angular2/core";
+import {Component, ChangeDetectionStrategy, Renderer, ViewChild, ElementRef} from "@angular/core";
 import {Consts} from "../../../../src/Conts";
 import {IWeatherItem} from "./IWeather";
 import {WeatherService} from "./WeatherService";
 import {SortableHeader} from "./SortableHeader";
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from 'angular2/common'
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from '@angular/common'
 import {OrderBy} from "../../../pipes/OrderBy";
-import {COMMON_DIRECTIVES} from "angular2/common";
+import {COMMON_DIRECTIVES} from "@angular/common";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';

@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
-var browser_1 = require('angular2/platform/browser');
-var router_1 = require("angular2/router");
+var core_1 = require('@angular/core');
+var browser_adapter_1 = require('@angular/platform-browser/src/browser/browser_adapter');
+var router_1 = require("@angular/router");
 var CommBroker_1 = require("../../services/CommBroker");
 var Conts_1 = require("../../Conts");
 var Filemenu = (function () {
     function Filemenu(viewContainer, router, commBroker) {
-        this.dom = new browser_1.BrowserDomAdapter();
+        this.dom = new browser_adapter_1.BrowserDomAdapter();
         var self = this;
         self.m_commBroker = commBroker;
         self.m_items = [];
@@ -23,7 +23,7 @@ var Filemenu = (function () {
         self.viewContainer = viewContainer;
         self.el = viewContainer.element.nativeElement;
         self.m_fileMenuWrap = self.dom.getElementsByClassName(self.el, 'm_fileMenuWrap');
-        router.subscribe(function (currentRoute) {
+        router.changes.subscribe(function (currentRoute) {
             self.m_renderedItems = [];
             for (var item in self.m_items) {
                 if (self.m_items[item]['app'] == currentRoute)

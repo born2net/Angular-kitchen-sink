@@ -16,7 +16,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 var Sliderpanel_1 = require("../../sliderpanel/Sliderpanel");
 var CommBroker_1 = require("../../../services/CommBroker");
 var NotesBase_1 = require("./NotesBase");
@@ -54,7 +54,7 @@ var Notes5 = (function (_super) {
                 NotesService,
                 core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'example of passing param to component via DI' } }),
             ],
-            template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <div>\n                   <small>I am CountDown component</small>\n                    <h2>CountDown</h2>\n                    <div class=\"timer\" *CountDown=\"let timer=timerApi\">\n                      <div class=\"time\">{{ timer.getTime() }}</div>\n                      <div class=\"controls\">\n                        <button (click)=\"timer.toggle()\">Toggle</button>\n                        <button (click)=\"timer.reset()\">Reset</button>\n                      </div>\n                    </div>\n                </div>\n                <label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>\n                <br/>\n                <label>Check the code to learn more...</label>\n\n\n                "
+            template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n\n\n                "
         }), 
         __metadata('design:paramtypes', [NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
     ], Notes5);

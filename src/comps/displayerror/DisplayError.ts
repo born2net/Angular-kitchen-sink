@@ -1,5 +1,5 @@
-import {Component, Host, Input} from "angular2/core";
-import {AbstractControl, NgFormModel} from "angular2/common";
+import {Component, Host, Input} from "@angular/core";
+import {AbstractControl, NgFormModel} from "@angular/common";
 
 @Component({
     selector: 'display-error',

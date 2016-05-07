@@ -3,10 +3,10 @@ import {
     OnInit, EventEmitter,
     ElementRef, ViewContainerRef,
     Self, Renderer
-} from 'angular2/core';
+} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES,
     DefaultValueAccessor, NgIf, NgClass, NgModel
-} from 'angular2/common';
+} from '@angular/common';
 
  import {DatePickerInner} from './datepicker-container';
 

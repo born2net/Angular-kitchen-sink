@@ -1,4 +1,4 @@
-import {HostListener, HostBinding, Directive} from 'angular2/core';
+import {HostListener, HostBinding, Directive} from '@angular/core';
 
 @Directive({
     selector: '[trimmed-input]'

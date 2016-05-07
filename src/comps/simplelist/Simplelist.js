@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('angular2/core');
-var router_1 = require('angular2/router');
-var common_directives_1 = require("angular2/src/common/common_directives");
+var core_1 = require('@angular/core');
+var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
 var SimpleList = (function () {
     function SimpleList(differs, changeDetector) {
         this.changeDetector = changeDetector;
@@ -68,7 +68,7 @@ var SimpleList = (function () {
         core_1.Component({
             selector: 'simple-list',
             template: "\n        <div *ngIf=\"!list\">\n            Loading...\n        </div>\n        <div *ngIf=\"list\">\n            <table class=\"table table-striped table-bordered table-hover\">\n                <tbody>\n                    <tr *ngFor=\"let item of list\" (mouseover)=\"current.next(item)\" (mouseout)=\"current.next(null)\">\n                        <td *ngIf=\"!link\">{{getContent(item)}}</td>\n                        <td *ngIf=\"link\"><a [routerLink]=\"getLink(item)\">{{getContent(item)}}</a></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    ",
-            directives: [router_1.RouterLink, common_directives_1.COMMON_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES, common_1.COMMON_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [core_1.IterableDiffers, core_1.ChangeDetectorRef])
     ], SimpleList);

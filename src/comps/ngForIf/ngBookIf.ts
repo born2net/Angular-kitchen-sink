@@ -13,7 +13,7 @@ import {
     DoCheck,
     IterableDiffers,
     IterableDiffer,
-} from 'angular2/core';
+} from '@angular/core';
 
 
 @Directive({
@@ -21,7 +21,7 @@ import {
     inputs: ['ngBookIf']
 })
 class NgBookIf {
-    constructor(private viewContainer:ViewContainerRef, private template:TemplateRef) {
+    constructor(private viewContainer:ViewContainerRef, private template:TemplateRef<any>) {
     }
 
     set ngBookIf(condition) {

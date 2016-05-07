@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import {FilmActions} from "../actions/film-actions";
 import {FilmSelectionView} from "../components/film-selection-view";
 import {FilmView} from "../components/film-view";

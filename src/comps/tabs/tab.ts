@@ -1,4 +1,4 @@
-import {Component, Host} from 'angular2/core';
+import {Component, Host} from '@angular/core';
 import {Tabs} from '../tabs/tabs';
 
 @Component({

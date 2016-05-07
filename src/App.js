@@ -11,17 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require('bootstrap');
 require('zone.js/dist/zone.min.js');
 require("reflect-metadata");
-require('twbs/bootstrap/css/bootstrap.css!');
+require('twbs/bootstrap/dist/css/bootstrap.css!');
 require('./styles/style.css!');
 var CharCount_1 = require("./pipes/CharCount");
 var AuthService_1 = require("./services/AuthService");
-var browser_1 = require('angular2/platform/browser');
+var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
 var AppInjService_1 = require("./services/AppInjService");
-var http_1 = require("angular2/http");
+var http_1 = require("@angular/http");
 var App1_1 = require('../src/comps/app1/App1');
 var App2_1 = require('../src/comps/app2/App2');
 var App3_1 = require('../src/comps/app3/App3');
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 var EntryPanel_1 = require('../src/comps/entry/EntryPanel');
 var AppManager_1 = require('../src/comps/appmanager/AppManager');
 var CommBroker_1 = require('../src/services/CommBroker');
@@ -31,8 +31,8 @@ var Logo_1 = require("./comps/logo/Logo");
 var Footer_1 = require("./comps/footer/Footer");
 var Conts_1 = require("../src/Conts");
 var StyleService_1 = require("./styles/StyleService");
-var router_1 = require('angular2/router');
-var common_1 = require('angular2/platform/common');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
 var angular2_redux_util_1 = require("angular2-redux-util");
 var Lib_1 = require("./Lib");
 var Observable_1 = require("rxjs/Observable");
@@ -83,26 +83,26 @@ var App = (function () {
             encapsulation: core_1.ViewEncapsulation.Emulated,
             providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction],
             templateUrl: '/src/App.html',
-            directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterLink, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer]
+            directives: [router_1.ROUTER_DIRECTIVES, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer]
         }),
-        router_1.RouteConfig([
-            { path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true },
-            { path: '/AppManager', component: AppManager_1.AppManager, as: 'AppManager' },
-            { path: '/Welcome', component: Welcome_1.Welcome, as: 'Welcome' },
-            { path: '/EntryPanelNoId/...', component: EntryPanel_1.EntryPanel, as: 'EntryPanelNoId' },
-            { path: '/EntryPanel/:id/...', component: EntryPanel_1.EntryPanel, as: 'EntryPanel' },
-            { path: '/Login/...', component: EntryPanel_1.EntryPanel, as: 'Login' },
-            { path: '/ForgotPass/...', component: EntryPanel_1.EntryPanel, as: 'ForgotPass' },
-            { path: '/App1/...', component: App1_1.App1, as: 'App1' },
-            { path: '/App2', component: App2_1.App2, as: 'App2' },
-            { path: '/App3', component: App3_1.App3, as: 'App3' },
+        router_1.Routes([
+            { path: '/', component: EntryPanel_1.EntryPanel },
+            { path: '/AppManager', component: AppManager_1.AppManager },
+            { path: '/Welcome', component: Welcome_1.Welcome },
+            { path: '/EntryPanelNoId', component: EntryPanel_1.EntryPanel },
+            { path: '/EntryPanel/:id', component: EntryPanel_1.EntryPanel },
+            { path: '/Login', component: EntryPanel_1.EntryPanel },
+            { path: '/ForgotPass', component: EntryPanel_1.EntryPanel },
+            { path: '/App1', component: App1_1.App1 },
+            { path: '/App2', component: App2_1.App2 },
+            { path: '/App3', component: App3_1.App3 }
         ]), 
         __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction])
     ], App);
     return App;
 }());
 exports.App = App;
-browser_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http_1.JSONP_PROVIDERS,
+platform_browser_dynamic_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http_1.JSONP_PROVIDERS,
     core_1.provide(angular2_redux_util_1.AppStore, { useFactory: Lib_1.Lib.StoreFactory({ notify: NotifyReducer_1.default, appdb: AppdbReducer_1.default, parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default, todos: TodoReducer_1.todos }) }),
     core_1.provide(CommBroker_1.CommBroker, { useClass: CommBroker_1.CommBroker }),
     core_1.provide(AuthService_1.AuthService, { useClass: AuthService_1.AuthService }),

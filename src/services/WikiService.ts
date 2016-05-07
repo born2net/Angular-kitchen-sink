@@ -1,5 +1,5 @@
-import {Injectable} from 'angular2/core';
-import {URLSearchParams, Jsonp} from 'angular2/http';
+import {Injectable} from '@angular/core';
+import {URLSearchParams, Jsonp} from '@angular/http';
 
 @Injectable()
 export class WikiService {

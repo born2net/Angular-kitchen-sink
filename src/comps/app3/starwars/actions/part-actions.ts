@@ -1,4 +1,4 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {Actions} from "angular2-redux-util";
 const _ = require('underscore');
 

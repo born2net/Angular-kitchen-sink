@@ -1,9 +1,9 @@
-import {Injectable, Component, Injector, provide, ReflectiveInjector} from "angular2/core";
+import {Injectable, Component, Injector, provide, ReflectiveInjector} from "@angular/core";
 import {Actions, AppStore} from "angular2-redux-util";
 import {TodoModel} from "../TodoModel";
 import {StoreModel} from "../../../../models/StoreModel";
 import {TodoService} from "../TodoService";
-import {HTTP_PROVIDERS} from "angular2/http";
+import {HTTP_PROVIDERS} from "@angular/http";
 import TodoStatsModel from "../TodoStatsModel";
 import {CommBroker} from "../../../../services/CommBroker";
 

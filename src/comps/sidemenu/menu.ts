@@ -1,6 +1,6 @@
 ///<reference path="../../../typings/app.d.ts"/>
 
-import {Component, Injectable} from "angular2/core";
+import {Component, Injectable} from "@angular/core";
 import {MenuItem} from "./MenuItem";
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";

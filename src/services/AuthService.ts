@@ -1,5 +1,5 @@
-import {Injectable, Injector} from 'angular2/core';
-import {Router, ComponentInstruction} from "angular2/router";
+import {Injectable, Injector} from '@angular/core';
+import {Router} from "@angular/router";
 import {appInjService} from "./AppInjService";
 import Map = Immutable.Map;
 var bootbox = require('bootbox');
@@ -17,9 +17,11 @@ export class AuthService {
     private ubsub:()=>void;
     private m_authenticated:boolean = false;
 
-    public checkAccess(to:ComponentInstruction, from:ComponentInstruction, target = ['/Login/Login']):Promise<any> {
+    // public checkAccess(to:ComponentInstruction, from:ComponentInstruction, target = ['/Login/Login']):Promise<any> {
+    public checkAccess():Promise<any> {
         let injector:Injector = appInjService();
         let router:Router = injector.get(Router);
+        let target = ['/Login/Login'];
 
         // since this is just an example app we will always set m_authenticated to true, but
         // here you will want to add some server side auth logic

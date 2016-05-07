@@ -1,6 +1,6 @@
 ///<reference path="../../../../typings/app.d.ts"/>
 
-import {Component, provide} from 'angular2/core';
+import {Component, provide} from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
@@ -9,7 +9,7 @@ import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
 import {
     FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control
-} from 'angular2/common'
+} from '@angular/common'
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import {DisplayError} from "../../displayerror/DisplayError";

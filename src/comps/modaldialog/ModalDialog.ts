@@ -1,9 +1,6 @@
-///<reference path="../../../typings/app.d.ts" />
-
-import {Component, ViewContainerRef, ViewEncapsulation} from 'angular2/core';
-import {BrowserDomAdapter} from 'angular2/platform/browser';
-import {Notes1} from "../app2/notes/Notes1";
+import {Component, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {IRegisterCaller} from "../../interfaces/IRegisterCaller";
+import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
 
 @Component({
     selector: 'ModalDialog',
@@ -45,7 +42,6 @@ import {IRegisterCaller} from "../../interfaces/IRegisterCaller";
         </div>
     `
 })
-
 export class ModalDialog {
     private el:HTMLElement;
     private viewContainer:ViewContainerRef;
