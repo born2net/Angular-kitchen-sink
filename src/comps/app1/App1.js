@@ -21,6 +21,7 @@ var tabs_1 = require("../tabs/tabs");
 var tab_1 = require("../tabs/tab");
 var Logout_1 = require("../logout/Logout");
 var Settings_1 = require("./settings/Settings");
+var Help_1 = require("./help/Help");
 var Todo1_1 = require("./todos/Todo1");
 var Todo2_1 = require("./todos/Todo2");
 var Todolist_1 = require("./todos/Todolist");
@@ -62,13 +63,14 @@ var App1 = (function () {
             { path: '/Todos', component: Todos_1.Todos },
             { path: '/Digg', component: Digg_1.Digg },
             { path: '/Settings', component: Settings_1.Settings },
+            { path: '/Help', component: Help_1.Help },
             { path: '/Logout', component: Logout_1.Logout }
         ]),
         core_1.Component({
             providers: [http_1.HTTP_PROVIDERS, TodoStatsModel_1.default, TodoService_1.TodoService, TodoAction_1.TodoAction],
             templateUrl: '/src/comps/app1/App1.html',
             directives: [router_1.ROUTER_DIRECTIVES, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, contributors_1.Contributors,
-                Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, tabs_1.Tabs, tab_1.Tab]
+                Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, tabs_1.Tabs, tab_1.Tab, Help_1.Help]
         }), 
         __metadata('design:paramtypes', [CommBroker_1.CommBroker, router_1.Router])
     ], App1);

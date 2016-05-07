@@ -12,7 +12,7 @@ import {Tabs} from "../tabs/tabs";
 import {Tab} from "../tabs/tab";
 import {Logout} from "../logout/Logout";
 import {Settings} from "./settings/Settings";
-//import {Help} from "./help/Help";
+import {Help} from "./help/Help";
 import {Todo1} from "./todos/Todo1";
 import {Todo2} from "./todos/Todo2";
 import {TodoList} from "./todos/Todolist";
@@ -28,7 +28,7 @@ import {Todos} from "./todos/Todos";
     {path: '/Todos', component: Todos},
     {path: '/Digg', component: Digg},
     {path: '/Settings', component: Settings},
-    // {path: '/Help', component: Help},
+    {path: '/Help', component: Help},
     {path: '/Logout', component: Logout}
 ])
 
@@ -44,7 +44,7 @@ import {Todos} from "./todos/Todos";
     providers: [HTTP_PROVIDERS, TodoStatsModel, TodoService, TodoAction],
     templateUrl: '/src/comps/app1/App1.html',
     directives: [ROUTER_DIRECTIVES, Menu, MenuItem, Sliderpanel, Digg, Contributors,
-        Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab]
+        Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help]
 })
 export class App1 {
     private routerActive:boolean;
