@@ -58,6 +58,11 @@ export class App2 {
         self.listenMenuChanges();
     }
 
+    ngOnInit() {
+        this.routerActive = true;
+        this.commBroker.getService(Consts.Services().App).appResized();
+    }
+
     private listenMenuChanges() {
         var self = this;
         self.commBroker.onEvent(Consts.Events().MENU_SELECTION).subscribe((e:IMessage)=> {

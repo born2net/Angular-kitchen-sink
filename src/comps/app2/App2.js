@@ -46,6 +46,10 @@ var App2 = (function () {
         };
         self.listenMenuChanges();
     }
+    App2.prototype.ngOnInit = function () {
+        this.routerActive = true;
+        this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
+    };
     App2.prototype.listenMenuChanges = function () {
         var self = this;
         self.commBroker.onEvent(Conts_1.Consts.Events().MENU_SELECTION).subscribe(function (e) {
