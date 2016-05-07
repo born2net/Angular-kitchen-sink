@@ -102,7 +102,6 @@
       "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.1",
       "angular-core": "npm:@angular/core@^2.0.0-rc.1",
       "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.1",
-      "angular2": "npm:angular2@^2.0.0-beta.15",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -194,31 +193,6 @@
               ],
               "exports": "$"
             }
-          }
-        }
-      },
-      "npm:angular2@2.0.0-beta.17": {
-        "main": false,
-        "dependencies": {
-          "reflect-metadata": "npm:reflect-metadata@0.1.2",
-          "rxjs": "npm:rxjs@^5.0.0-beta.2",
-          "zone.js": "npm:zone.js@^0.6.6"
-        },
-        "peerDependencies": {
-          "reflect-metadata": "npm:reflect-metadata@0.1.2",
-          "rxjs": "npm:rxjs@^5.0.0-beta.2",
-          "zone.js": "npm:zone.js@^0.6.6"
-        },
-        "jspmNodeConversion": false,
-        "map": {
-          "crypto": "@empty"
-        },
-        "meta": {
-          "src/*.js": {
-            "deps": [
-              "reflect-metadata",
-              "zone.js"
-            ]
           }
         }
       },
