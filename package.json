@@ -66,6 +66,7 @@
     "moment": "^2.11.2",
     "ng2-bootstrap": "^1.0.16",
     "ng2-bs3-modal": "^0.1.0",
+    "ng2-bs3-modal-born2net": "^0.2.17",
     "ng2-highcharts": "^0.2.4",
     "npm": "^3.5.3",
     "object-path": "^0.9.2",
@@ -110,16 +111,17 @@
       "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@^0.1.0",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "highcharts": "npm:highcharts@^4.2.2",
-      "http": "npm:@angular/http@^2.0.0-rc.1",
+      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
       "immutable": "npm:immutable@^3.7.6",
       "is-equal": "npm:is-equal@^1.4.2",
       "jquery": "npm:jquery@^2.2.0",
       "lodash": "npm:lodash@4.2.1",
       "moment": "npm:moment@^2.11.2",
+      "ng2-bs3-modal-born2net": "npm:ng2-bs3-modal-born2net@^0.2.17",
       "redux": "npm:redux@^3.2.1",
       "redux-thunk": "npm:redux-thunk@^1.0.3",
       "reselect": "npm:reselect@^2.0.3",
-      "rxjs": "npm:rxjs@5.0.0-beta.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
       "text": "github:systemjs/plugin-text@^0.0.4",
       "ts": "github:frankwallis/plugin-typescript@^4",
       "typescript": "npm:typescript@1.8.7",
@@ -134,35 +136,37 @@
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
       "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "clean-css": "npm:clean-css@^3.4.9",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
       "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
-      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
       "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
       "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
       "router": "npm:@angular/router@^2.0.0-rc.1",
-      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "zone.js": "npm:zone.js@^0.6.12"
     },
     "peerDependencies": {
-      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
       "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
+      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "timers": "github:jspm/nodelibs-timers@^0.2.0-alpha",
+      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
     },
     "overrides": {
-      "github:components/jquery@2.2.1": {
-        "main": "jquery"
-      },
       "github:twbs/bootstrap@3.3.6": {
         "shim": {
           "js/bootstrap": {
@@ -196,7 +200,7 @@
           }
         }
       },
-      "npm:angular@1.5.0": {
+      "npm:angular@1.5.5": {
         "format": "global",
         "jspmNodeConversion": false,
         "main": "angular",
@@ -212,16 +216,13 @@
           "test.js"
         ]
       },
-      "npm:jquery@2.2.1": {
+      "npm:jquery@2.2.3": {
         "format": "amd"
-      },
-      "npm:moment@2.11.2": {
-        "jspmNodeConversion": false
       },
       "npm:moment@2.13.0": {
         "jspmNodeConversion": false
       },
-      "npm:readable-stream@1.1.13": {
+      "npm:readable-stream@1.0.34": {
         "map": {
           "stream": "stream-browserify/index"
         },
@@ -230,10 +231,25 @@
         },
         "dependencies": {
           "core-util-is": "~1.0.0",
-          "inherits": "~2.0.1",
           "isarray": "0.0.1",
           "string_decoder": "~0.10.0",
-          "stream-browserify": "^1.0.0"
+          "inherits": "~2.0.1",
+          "stream-browserify": "~1.0.0"
+        }
+      },
+      "npm:readable-stream@1.1.14": {
+        "map": {
+          "stream": "stream-browserify/index"
+        },
+        "systemjs": {
+          "main": "readable.js"
+        },
+        "dependencies": {
+          "core-util-is": "~1.0.0",
+          "isarray": "0.0.1",
+          "string_decoder": "~0.10.0",
+          "inherits": "~2.0.1",
+          "stream-browserify": "~1.0.0"
         }
       },
       "npm:reflect-metadata@0.1.2": {

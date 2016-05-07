@@ -5,13 +5,13 @@ import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {MyIp} from "../../myip/Myip";
 // import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
+import {MODAL_DIRECTIVES} from "ng2-bs3-modal-born2net/ng2-bs3-modal";
 import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 
 @Component({
     selector: 'Notes2',
     providers: [MyIp],
-    //directives: [ModalDialog, MyIp, TrimmedInput, MODAL_DIRECTIVES],
-    directives: [TrimmedInput, MyIp, ModalDialog, ModalDialog],
+    directives: [TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES],
     template: `     
                 <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
