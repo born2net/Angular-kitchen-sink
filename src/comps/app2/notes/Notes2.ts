@@ -3,15 +3,15 @@ import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 // import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
-// import {MyIp} from "../../myip/Myip";
+import {MyIp} from "../../myip/Myip";
 // import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
 import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 
 @Component({
     selector: 'Notes2',
-    // providers: [MyIp],
+    providers: [MyIp],
     //directives: [ModalDialog, MyIp, TrimmedInput, MODAL_DIRECTIVES],
-    directives: [TrimmedInput],
+    directives: [TrimmedInput, MyIp],
     template: `     
                 <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
@@ -38,9 +38,9 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
                     <!--<modal-footer [show-default-buttons]="true"></modal-footer>-->
                 <!--</modal>-->
 
-                <!--<MyIp></MyIp>-->
-                <!--<small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>-->
-                <!--<input type="text" trimmed-input />-->
+                <MyIp></MyIp>
+                <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>
+                <input type="text" trimmed-input />
                 <ng-content></ng-content>`
 })
 

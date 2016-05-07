@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {Contributors} from "./contributors/contributors";
-// import {RatingComponent, AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
+import {RatingComponent, AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../Conts";
 import {Tabs} from "../../tabs/tabs";
@@ -9,13 +9,12 @@ import {Tab} from "../../tabs/tab";
 @Component({
     selector: 'Help',
     providers: [Contributors],
-    // directives: [AlertComponent, RatingComponent, Tab, Tabs, Contributors],
-    directives: [Tab, Tabs, Contributors],
+    directives: [AlertComponent, RatingComponent, Tab, Tabs, Contributors],
     template: ` <small>I am Help component and using
                 <a href="https://github.com/valor-software/ng2-bootstrap" target="_blank">ng2-bootstrap</a></small>
                 <br/>
-                <!--<alert type="info">Welcome to Angular2 Bootstrap starter pack!</alert>-->
-                <!--<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" [titles]="['one','two','three']" ></rating>-->
+                <alert type="info">Welcome to Angular2 Bootstrap starter pack!</alert>
+                <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" [titles]="['one','two','three']" ></rating>
                 <br/>
                   <tabs>
                     <tab [tabtitle]="'About this app'">
