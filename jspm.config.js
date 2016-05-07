@@ -442,7 +442,7 @@ SystemJS.config({
         "angular-core": "npm:@angular/core@2.0.0-rc.1",
         "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
         "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
-        "angular2": "npm:angular2@2.0.0-beta.rc.1",
+        "angular2": "npm:angular2@2.0.0-beta.17",
         "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
         "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
         "angular2-uuid": "npm:angular2-uuid@1.0.6",
@@ -466,7 +466,7 @@ SystemJS.config({
         "jquery": "npm:jquery@2.2.1",
         "lodash": "npm:lodash@4.2.1",
         "module": "github:jspm/nodelibs-module@0.2.0-alpha",
-        "moment": "npm:moment@2.13.0",
+        "moment": "npm:moment@2.11.2",
         "os": "github:jspm/nodelibs-os@0.2.0-alpha",
         "path": "github:jspm/nodelibs-path@0.2.0-alpha",
         "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.9",
@@ -600,6 +600,13 @@ SystemJS.config({
                 "is-equal": "npm:is-equal@1.5.1",
                 "object-path": "npm:object-path@0.9.2",
                 "redux": "npm:redux@3.3.1"
+            }
+        },
+        "npm:angular2@2.0.0-beta.17": {
+            "map": {
+                "reflect-metadata": "npm:reflect-metadata@0.1.2",
+                "rxjs": "npm:rxjs@5.0.0-beta.6",
+                "zone.js": "npm:zone.js@0.6.12"
             }
         },
         "npm:asn1.js@4.5.2": {
@@ -832,6 +839,9 @@ SystemJS.config({
                 "bn.js": "npm:bn.js@4.11.1",
                 "brorand": "npm:brorand@1.0.5"
             }
+        },
+        "npm:moment@2.11.2": {
+            "map": {}
         },
         "npm:object.entries@1.0.3": {
             "map": {
