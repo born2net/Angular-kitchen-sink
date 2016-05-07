@@ -442,7 +442,6 @@ SystemJS.config({
         "angular-core": "npm:@angular/core@2.0.0-rc.1",
         "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
         "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
-        "angular2": "npm:angular2@2.0.0-beta.17",
         "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
         "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
         "angular2-uuid": "npm:angular2-uuid@1.0.6",
@@ -600,13 +599,6 @@ SystemJS.config({
                 "is-equal": "npm:is-equal@1.5.1",
                 "object-path": "npm:object-path@0.9.2",
                 "redux": "npm:redux@3.3.1"
-            }
-        },
-        "npm:angular2@2.0.0-beta.17": {
-            "map": {
-                "reflect-metadata": "npm:reflect-metadata@0.1.2",
-                "rxjs": "npm:rxjs@5.0.0-beta.6",
-                "zone.js": "npm:zone.js@0.6.12"
             }
         },
         "npm:asn1.js@4.5.2": {
