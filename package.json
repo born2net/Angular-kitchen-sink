@@ -244,6 +244,9 @@
       "npm:moment@2.11.2": {
         "jspmNodeConversion": false
       },
+      "npm:moment@2.13.0": {
+        "jspmNodeConversion": false
+      },
       "npm:readable-stream@1.1.13": {
         "map": {
           "stream": "stream-browserify/index"
