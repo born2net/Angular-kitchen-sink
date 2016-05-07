@@ -34,8 +34,6 @@ import {Weather} from "./weather/Weather";
         Weather, Logout, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog]
 })
 
-// Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Weather, Logout, Contact, ModalDialog]
-
 export class App2 {
     private screens:any;
     private commBroker:CommBroker;
@@ -59,7 +57,7 @@ export class App2 {
     }
 
     ngOnInit() {
-        this.routerActive = true;
+        //this.routerActive = true;
         this.commBroker.getService(Consts.Services().App).appResized();
     }
 

@@ -33,6 +33,10 @@ interface Window {
     DOMParser:any;
 }
 
+interface module {
+    id: any;
+}
+
 /**
  * ES6 shims taken from /typings/browser/ambient/es6-shim
  */
@@ -47,7 +51,7 @@ interface String {
 }
 
 
-
+declare var module:any;
 declare var watch:any;
 
 // in TS1.8 we can use this:

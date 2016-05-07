@@ -47,7 +47,6 @@ var App2 = (function () {
         self.listenMenuChanges();
     }
     App2.prototype.ngOnInit = function () {
-        this.routerActive = true;
         this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
     };
     App2.prototype.listenMenuChanges = function () {

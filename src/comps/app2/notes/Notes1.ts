@@ -1,5 +1,3 @@
-///<reference path="../../../../typings/app.d.ts"/>
-
 import {Component, provide} from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
@@ -19,9 +17,10 @@ var bootbox = require('bootbox');
 
 @Component({
     selector: 'Notes1',
+    moduleId: module.id,
     directives: [ModalDialog, FORM_DIRECTIVES, DisplayError],
-    templateUrl: '/src/comps/app2/notes/Notes1.html',
-    styleUrls: ['../comps/app2/notes/Notes1.css']
+    templateUrl: 'Notes1.html',
+    styleUrls: ['Notes1.css']
 })
 
 /**
