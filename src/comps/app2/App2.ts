@@ -74,7 +74,7 @@ export class App2 {
     }
 }
 
-// in TS1.8+ we can Augment the global/module scope from modules:
+// in TS1.8+ we can Augment the global/module scope from inside modules:
 // ref: https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
 // declare global {
 //     interface Array<T> {
