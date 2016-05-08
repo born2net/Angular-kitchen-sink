@@ -40,7 +40,7 @@ var MyIp = (function () {
     MyIp = __decorate([
         core_1.Component({
             selector: 'MyIp',
-            template: "\n                <h3>Your ip address is: {{ipAddress}}</h3>\n                <small>I am MyIp component</small>\n                <ng-content></ng-content>\n    "
+            template: "\n                <h3>Your ip address is: {{ipAddress}}</h3>\n                <small>I am MyIp component</small>\n                <!--\n                 This is an example of providing a default template only if one is not provided by consumer of\n                 the component's ng-content template \n                -->\n                total children in ng-content: {{contentWrap.childNodes.length}}\n                <div #contentWrap><ng-content></ng-content></div>\n                <div class=\"timer\" *ngIf=\"contentWrap.childNodes.length === 1\">\n                  <div class=\"time\"> TOTAL {{contentWrap.childNodes.length}}</div></div>"
         }), 
         __metadata('design:paramtypes', [http_1.Http])
     ], MyIp);

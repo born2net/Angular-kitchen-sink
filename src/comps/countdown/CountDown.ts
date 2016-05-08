@@ -1,5 +1,8 @@
 import {Directive, Component, TemplateRef, ViewContainerRef, ChangeDetectorRef} from '@angular/core'
 
+// credit: http://www.michaelbromley.co.uk/blog/513/components-with-custom-templates-in-angular-2
+// http://plnkr.co/edit/4pToagzeAI5wuLgHg61j?p=preview
+
 @Directive({
     selector: '[CountDown]'
 })

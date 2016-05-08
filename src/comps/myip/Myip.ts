@@ -7,7 +7,7 @@ import {Http} from '@angular/http';
 //import {JSONP_PROVIDERS, Jsonp} from '@angular/http';
 
 interface IIpAddress {
-    ip: string;
+    ip:string;
 }
 
 @Component({
@@ -16,8 +16,14 @@ interface IIpAddress {
     template: `
                 <h3>Your ip address is: {{ipAddress}}</h3>
                 <small>I am MyIp component</small>
-                <ng-content></ng-content>
-    `
+                <!--
+                 This is an example of providing a default template only if one is not provided by consumer of
+                 the component's ng-content template 
+                -->
+                total children in ng-content: {{contentWrap.childNodes.length}}
+                <div #contentWrap><ng-content></ng-content></div>
+                <div class="timer" *ngIf="contentWrap.childNodes.length === 1">
+                  <div class="time"> TOTAL {{contentWrap.childNodes.length}}</div></div>`
 })
 export class MyIp {
     private ipAddress:string;

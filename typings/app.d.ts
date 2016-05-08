@@ -50,15 +50,33 @@ interface String {
     repeat(count:number): string;
 }
 
+interface NodeRequireFunction {
+    (id: string): any;
+}
 
-declare var module:any;
+interface NodeRequire extends NodeRequireFunction {
+    resolve(id:string): string;
+    cache: any;
+    extensions: any;
+    main: any;
+}
+
+//declare var require: NodeRequire;
+
+interface NodeModule {
+    exports: any;
+    require: NodeRequireFunction;
+    id: string;
+    filename: string;
+    loaded: boolean;
+    parent: any;
+    children: any[];
+}
+
+declare var module: NodeModule;
+
 declare var watch:any;
 
-// in TS1.8 we can use this:
-//declare global {
-//    devToolsExtension: any;
-//    devToolsExtensionDisabled: any;
-//    devToolsExtensionDisabled Array<T> {
-//}
+
 
 

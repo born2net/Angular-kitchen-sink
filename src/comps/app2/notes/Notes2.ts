@@ -38,10 +38,17 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
                     <modal-footer [show-default-buttons]="true"></modal-footer>
                 </modal>
 
-                <MyIp></MyIp>
+                <MyIp>
+                    <!-- remove entire snippet including this comment to have component inject default template -->
+                    <hr/>
+                      <div>
+                          <h4>Example of providing a default ng-content template if not provided by the consumer of the component</h4>
+                      </div>
+                    <hr/>
+                </MyIp>
                 <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>
                 <input type="text" trimmed-input />
-                <ng-content></ng-content>`
+                `
 })
 
 export class Notes2 extends NotesBase {
