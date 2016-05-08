@@ -145,8 +145,14 @@ gulp.task('x_build-ts', function () {
 });
 
 /** bundle the app with jspm **/
+// in jspm 0.16
+// gulp.task("x_bundle",
+//     shell.task(["jspm bundle-sfx src/App.js " + paths.dist + "/" + paths.targetJS + ' --skip-source-maps'])
+// );
+
+// in jspm 0.17+
 gulp.task("x_bundle",
-    shell.task(["jspm bundle-sfx src/App.js " + paths.dist + "/" + paths.targetJS + ' --skip-source-maps'])
+    shell.task(["jspm bundle src/App.js " + paths.dist + "/" + paths.targetJS + ' --skip-source-maps'])
 );
 
 /** execute a hard reset on git head to latest **/

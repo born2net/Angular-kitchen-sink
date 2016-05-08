@@ -29,6 +29,19 @@
       });
   </script>
   <!-- sys_import_end -->
+
+  <!-- as of jspm 0.17+ for release you will need to load the bundled jspm as follows -->
+  <!--
+  <script src="../jspm_packages/system.js"></script>
+  <script src="jspm.browser.js"></script>
+  <script src="jspm.config.js"></script>
+  <script src="./index.min.js"></script>
+  <script>
+  		SystemJS.import("src/App.js").catch(function (e) {
+	 		console.error(e, "error system.js " + e);
+  		});
+  </script>
+  -->
 </head>
 <body>
 <app>
