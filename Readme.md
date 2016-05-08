@@ -45,7 +45,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 
 - powered by the awesome (awesome awesome) jspm (http://jspm.io/)
    - in development TypeScript is compiled in real time in browser, best workflow
-   - for production minified bundle is created
+   - for production a jspm minified bundle is created
    - support multi version npm / github repositories
 - Gulp tasks for dev / prod, doc gen and more
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
