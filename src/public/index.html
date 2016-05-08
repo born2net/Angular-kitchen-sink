@@ -14,6 +14,10 @@
   <!--
    removed 2-12-2016 and replaced with import of zone and reflect
    <script src="https://code.angularjs.org/2.0.0-beta.3/angular2-polyfills.js"></script>
+
+  <!-- es6 shim needed only in release to support IE 11 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.js"></script>
+
   -->
   <!-- sys_jspm_start -->
   <script src="/jspm_packages/system.js"></script>
@@ -22,15 +26,15 @@
   <script src="../../jspm.config.js"></script>
   <!-- sys_import_start -->
   <script>
-    System.import('../App')
-      .catch(function (e) {
-        console.error(e,
-          'error system.js ' + e);
-      });
+	 System.import('../App')
+		.catch(function (e) {
+		  console.error(e,
+			 'error system.js ' + e);
+		});
   </script>
   <!-- sys_import_end -->
 
-  <!-- as of jspm 0.17+ for release you will need to load the bundled jspm as follows -->
+  <!-- as of jspm 0.17+ for release you will need to load the bundled jspm as follows, so be sure to uncomment in release mode -->
   <!--
   <script src="../jspm_packages/system.js"></script>
   <script src="jspm.browser.js"></script>
@@ -46,9 +50,9 @@
 <body>
 <app>
   <div id="loading">
-    <label class="center">Angular2 Loading...</label>
-    <br/>
-    <img id="appLoader" src="assets/loading.svg" alt="Loading icon"/>
+	 <label class="center">Angular2 Loading...</label>
+	 <br/>
+	 <img id="appLoader" src="assets/loading.svg" alt="Loading icon"/>
   </div>
 </app>
 </body>
