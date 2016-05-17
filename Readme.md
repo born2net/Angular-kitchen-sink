@@ -23,6 +23,11 @@ and built IMHO the perfect Angular2 setup...
    - Power by commonly used components (sliders, bootstrap, charts, etc)
 
 
+
+before installation::
+Make sure you have build tools: g++ needed for node-gyp rebuild.
+Fedora/red-hat package: ```dnf -y install gcc-c++```
+
 to install::
 ```             
 git clone https://github.com/born2net/ng2Boilerplate.git
@@ -30,6 +35,7 @@ cd ng2Boilerplate
 npm install jspm -g
 npm install
 ```
+
 
 development mode:
 ```
