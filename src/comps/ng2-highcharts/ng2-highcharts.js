@@ -1,15 +1,33 @@
-"use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-var ng2_highcharts_1 = require('./src/directives/ng2-highcharts');
-__export(require('./src/directives/ng2-highcharts'));
-var ng2_highstocks_1 = require('./src/directives/ng2-highstocks');
-__export(require('./src/directives/ng2-highstocks'));
-var ng2_highmaps_1 = require('./src/directives/ng2-highmaps');
-__export(require('./src/directives/ng2-highmaps'));
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
-    directives: [ng2_highcharts_1.Ng2Highcharts, ng2_highstocks_1.Ng2Highstocks, ng2_highmaps_1.Ng2Highmaps]
-};
+System.register(['./src/directives/ng2-highcharts', './src/directives/ng2-highstocks', './src/directives/ng2-highmaps'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var ng2_highcharts_1, ng2_highstocks_1, ng2_highmaps_1;
+    function exportStar_1(m) {
+        var exports = {};
+        for(var n in m) {
+            if (n !== "default") exports[n] = m[n];
+        }
+        exports_1(exports);
+    }
+    return {
+        setters:[
+            function (ng2_highcharts_1_1) {
+                ng2_highcharts_1 = ng2_highcharts_1_1;
+                exportStar_1(ng2_highcharts_1_1);
+            },
+            function (ng2_highstocks_1_1) {
+                ng2_highstocks_1 = ng2_highstocks_1_1;
+                exportStar_1(ng2_highstocks_1_1);
+            },
+            function (ng2_highmaps_1_1) {
+                ng2_highmaps_1 = ng2_highmaps_1_1;
+                exportStar_1(ng2_highmaps_1_1);
+            }],
+        execute: function() {
+            exports_1("default",{
+                directives: [ng2_highcharts_1.Ng2Highcharts, ng2_highstocks_1.Ng2Highstocks, ng2_highmaps_1.Ng2Highmaps]
+            });
+        }
+    }
+});
 //# sourceMappingURL=ng2-highcharts.js.map

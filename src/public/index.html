@@ -26,11 +26,33 @@
   <script src="../../jspm.config.js"></script>
   <!-- sys_import_start -->
   <script>
-	 System.import('../App')
-		.catch(function (e) {
-		  console.error(e,
-			 'error system.js ' + e);
-		});
+	 switch (location.port){
+		case '9089': {
+		  // alert('mode: hot-reload 9089');
+		  var readyForMainLoad
+		  if (location.origin.match(/localhost/)) {
+			 System.trace = true
+			 readyForMainLoad = System.import('systemjs-hot-reloader').then(function(HotReloader){
+				window.hr = new HotReloader.default('http://localhost:9089')
+			 })
+		  }
+		  Promise.resolve(readyForMainLoad).then(() => {
+			 System.import('reflect-metadata')
+			 .then(function(){System.import('zone.js')})
+			 .then(function(){System.import('../App')})
+		})
+		  break;
+		}
+		default: {
+		  // alert('mode: watch port 8080');
+		  System.import('../App')
+			 .catch(function (e) {
+				console.error(e,
+				  'error system.js ' + e);
+			 });
+		  break;
+		}
+	 }
   </script>
   <!-- sys_import_end -->
 

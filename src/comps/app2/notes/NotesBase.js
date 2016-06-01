@@ -1,26 +1,38 @@
-"use strict";
-var Conts_1 = require("../../../../src/Conts");
-var NotesBase = (function () {
-    function NotesBase(sliderPanel, commBroker) {
-        this.sliderPanel = sliderPanel;
-        this.commBroker = commBroker;
-        this.me = this;
+System.register(["../../../../src/Conts"], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var Conts_1;
+    var NotesBase;
+    return {
+        setters:[
+            function (Conts_1_1) {
+                Conts_1 = Conts_1_1;
+            }],
+        execute: function() {
+            NotesBase = (function () {
+                function NotesBase(sliderPanel, commBroker) {
+                    this.sliderPanel = sliderPanel;
+                    this.commBroker = commBroker;
+                    this.me = this;
+                }
+                NotesBase.prototype.openModal = function () {
+                    this.modalDialog.openModal();
+                };
+                NotesBase.prototype.onPrev = function (event) {
+                    this.sliderPanel.slideToPage(this.slideRight, 'right');
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView(this.slideRight);
+                };
+                NotesBase.prototype.onNext = function (event) {
+                    this.sliderPanel.slideToPage(this.slideLeft, 'left');
+                    this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView(this.slideLeft);
+                };
+                NotesBase.prototype.registerCaller = function (caller) {
+                    this.modalDialog = caller;
+                };
+                return NotesBase;
+            }());
+            exports_1("NotesBase", NotesBase);
+        }
     }
-    NotesBase.prototype.openModal = function () {
-        this.modalDialog.openModal();
-    };
-    NotesBase.prototype.onPrev = function (event) {
-        this.sliderPanel.slideToPage(this.slideRight, 'right');
-        this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView(this.slideRight);
-    };
-    NotesBase.prototype.onNext = function (event) {
-        this.sliderPanel.slideToPage(this.slideLeft, 'left');
-        this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView(this.slideLeft);
-    };
-    NotesBase.prototype.registerCaller = function (caller) {
-        this.modalDialog = caller;
-    };
-    return NotesBase;
-}());
-exports.NotesBase = NotesBase;
+});
 //# sourceMappingURL=NotesBase.js.map

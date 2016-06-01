@@ -1,1 +1,1 @@
-{"version":3,"file":"Notes1Props.js","sourceRoot":"","sources":["Notes1Props.ts"],"names":[],"mappings":";;;;;;;;;;AAEA,qBAAwB,eAAe,CAAC,CAAA;AAUxC;IAGI;IACA,CAAC;IAZL;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,aAAa;YACvB,QAAQ,EAAE,qHAGC;SACd,CAAC;;mBAAA;IAOF,kBAAC;AAAD,CAAC,AALD,IAKC;AALY,mBAAW,cAKvB,CAAA"}
+{"version":3,"file":"Notes1Props.js","sourceRoot":"","sources":["Notes1Props.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;YAYA;gBAGI;gBACA,CAAC;gBAZL;oBAAC,gBAAS,CAAC;wBACP,QAAQ,EAAE,aAAa;wBACvB,QAAQ,EAAE,qHAGC;qBACd,CAAC;;+BAAA;gBAOF,kBAAC;YAAD,CAAC,AALD,IAKC;YALD,qCAKC,CAAA"}

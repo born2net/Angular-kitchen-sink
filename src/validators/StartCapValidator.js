@@ -1,12 +1,19 @@
-"use strict";
-function StartCapValidator(control) {
-    if (!control.value.match(/^[A-Z]/)) {
-        return { notCapped: true };
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    function StartCapValidator(control) {
+        if (!control.value.match(/^[A-Z]/)) {
+            return { notCapped: true };
+        }
+        else {
+            return null;
+        }
     }
-    else {
-        return null;
+    exports_1("default", StartCapValidator);
+    return {
+        setters:[],
+        execute: function() {
+        }
     }
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = StartCapValidator;
+});
 //# sourceMappingURL=StartCapValidator.js.map
