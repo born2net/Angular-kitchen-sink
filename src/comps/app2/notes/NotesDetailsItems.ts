@@ -1,5 +1,4 @@
 import {Component, Output, EventEmitter, Input, NgZone, ChangeDetectionStrategy} from '@angular/core';
-import {TimeInterval} from "rxjs/Rx.KitchenSink";
 
 @Component({
     selector: 'notes-details-item',

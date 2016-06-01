@@ -27,6 +27,9 @@
 
 declare var assert:any;
 
+declare module 'highcharts' {
+}
+
 interface Window {
     devToolsExtension: any;
     devToolsExtensionDisabled: any;

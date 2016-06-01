@@ -17,6 +17,9 @@ interface BootboxConfirmOptions {
 }
 
 interface BootboxPromptOptions {
+    title?:any;
+    inputType?:any;
+    buttons?:any;
 	size?: string;
 	message?: string;
 	callback: (result: string) => any;
@@ -80,3 +83,7 @@ interface BootboxStatic {
 }
 
 declare var bootbox: BootboxStatic;
+
+declare module "bootbox" {
+    export = bootbox;
+}
