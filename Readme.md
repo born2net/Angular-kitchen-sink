@@ -34,11 +34,13 @@ npm install
 development standard mode:
 ```
 gulp development
+open browser to: http://localhost:8080/src/public/index.html#/Login/Login
 ```
 
 development hot-reload mode:
 ```
 npm run devserver
+open browser to: http://localhost:9089/src/public/index.html#/Login/Login
 ```
 
 
