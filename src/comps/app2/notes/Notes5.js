@@ -68,7 +68,6 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                     var _this = this;
                     System.import(componentPath)
                         .then(function (fileContents) {
-                        console.log(fileContents);
                         return fileContents[componentName];
                     })
                         .then(function (component) {

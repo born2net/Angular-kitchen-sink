@@ -102,10 +102,7 @@ SystemJS.config({
         "src": {
             "main": "App",
             "defaultExtension": "ts",
-            "meta": {
-                "*.js": {
-                    "loader": false
-                },
+            "meta": {                
                 "*.ts": {
                     "loader": "ts"
                 },

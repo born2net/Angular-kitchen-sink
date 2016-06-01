@@ -91,7 +91,6 @@ export class Notes5 extends NotesBase {
     public LoadComponentAsync(componentPath:string, componentName:string, locationAnchor:ViewContainerRef) {
         System.import(componentPath)
             .then(fileContents => {
-                console.log(fileContents);
                 return fileContents[componentName]
             })
             .then(component => {
