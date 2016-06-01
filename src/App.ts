@@ -2,51 +2,49 @@
 
 //import {enableProdMode} from '@angular/core';
 
-require('bootstrap');
-import Immutable = require('immutable');
-import 'zone.js/dist/zone.min.js';
+import "zone.js/dist/zone";
+import "zone.js/dist/long-stack-trace-zone";
 import "reflect-metadata";
-import 'twbs/bootstrap/dist/css/bootstrap.css!';
-import './styles/style.css!';
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
+import {bootstrap} from "@angular/platform-browser-dynamic";
+import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef} from "@angular/core";
+import "jspm_packages/github/twbs/bootstrap@3.3.6";
+import "twbs/bootstrap/dist/css/bootstrap.css!";
+import "./styles/style.css!";
 import {CharCount} from "./pipes/CharCount";
 import {AuthService} from "./services/AuthService";
-import {bootstrap} from "@angular/platform-browser-dynamic";
 import {appInjService} from "./services/AppInjService";
 import {HTTP_PROVIDERS, JSONP_PROVIDERS} from "@angular/http";
-import {App1} from '../src/comps/app1/App1';
-import {App2} from '../src/comps/app2/App2';
-import {App3} from '../src/comps/app3/App3';
-import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef} from '@angular/core';
-import {EntryPanel} from '../src/comps/entry/EntryPanel';
-import {AppManager} from '../src/comps/appmanager/AppManager';
-import {CommBroker} from '../src/services/CommBroker';
+import {App1} from "../src/comps/app1/App1";
+import {App2} from "../src/comps/app2/App2";
+import {App3} from "../src/comps/app3/App3";
+import {EntryPanel} from "../src/comps/entry/EntryPanel";
+import {AppManager} from "../src/comps/appmanager/AppManager";
+import {CommBroker} from "../src/services/CommBroker";
 import {Filemenu} from "../src/comps/filemenu/Filemenu";
 import {FilemenuItem} from "../src/comps/filemenu/FilemenuItem";
 import {Logo} from "./comps/logo/Logo";
 import {Footer} from "./comps/footer/Footer";
 import {Consts} from "../src/Conts";
 import {StyleService} from "./styles/StyleService";
-// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from '@angular/router';
-// import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from '@angular/router';
-
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from '@angular/router';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-
+import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 import {AppStore} from "angular2-redux-util";
 import {Lib} from "./Lib";
 import {Observable} from "rxjs/Observable";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/fromEvent';
-import parts from "./comps/app3/starwars/reducers/parts-reducer"
-import cart from "./comps/app3/starwars/reducers/cart-reducer"
-import films from "./comps/app3/starwars/reducers/films-reducer"
-import users from "./comps/app3/starwars/reducers/users-reducer"
-import notify from "./reducers/NotifyReducer"
-import appdb from "./reducers/AppdbReducer"
-import {todos} from "./comps/app1/todos/reducers/TodoReducer"
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/observable/fromEvent";
+import parts from "./comps/app3/starwars/reducers/parts-reducer";
+import cart from "./comps/app3/starwars/reducers/cart-reducer";
+import films from "./comps/app3/starwars/reducers/films-reducer";
+import users from "./comps/app3/starwars/reducers/users-reducer";
+import notify from "./reducers/NotifyReducer";
+import appdb from "./reducers/AppdbReducer";
+import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {AppdbAction} from "./actions/AppdbAction";
 import {Welcome} from "./comps/welcome/Welcome";
+// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from '@angular/router';
+// import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from '@angular/router';
 
 /**
  Main application bootstrap

@@ -17,8 +17,7 @@ import {Subject} from "rxjs/Subject";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Observable} from "rxjs/Observable";
 import {AppStore} from "angular2-redux-util";
-
-var bootbox = require('bootbox');
+import * as bootbox from 'bootbox';
 
 export class User {
     public id:string;

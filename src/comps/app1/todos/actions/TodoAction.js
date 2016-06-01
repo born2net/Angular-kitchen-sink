@@ -21,11 +21,11 @@ var TodoService_1 = require("../TodoService");
 var http_1 = require("@angular/http");
 var TodoStatsModel_1 = require("../TodoStatsModel");
 var CommBroker_1 = require("../../../../services/CommBroker");
+var bootbox = require('bootbox');
 exports.ADD_TODO = 'ADD_TODO';
 exports.REMOVE_TODO = 'REMOVE_TODO';
 exports.EDIT_TODO = 'EDIT_TODO';
 exports.CLEAR_TODOS = 'CLEAR_TODOS';
-var bootbox = require('bootbox');
 var TodoAction = (function (_super) {
     __extends(TodoAction, _super);
     function TodoAction(appStore) {

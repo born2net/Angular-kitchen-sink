@@ -6,13 +6,13 @@ import {TodoService} from "../TodoService";
 import {HTTP_PROVIDERS} from "@angular/http";
 import TodoStatsModel from "../TodoStatsModel";
 import {CommBroker} from "../../../../services/CommBroker";
+import * as bootbox from 'bootbox';
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 export const CLEAR_TODOS = 'CLEAR_TODOS';
 
-var bootbox = require('bootbox');
 
 @Injectable()
 export class TodoAction extends Actions {

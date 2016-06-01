@@ -11,8 +11,7 @@ import {
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import {DisplayError} from "../../displayerror/DisplayError";
-
-var bootbox = require('bootbox');
+import * as bootbox from 'bootbox';
 
 
 @Component({
