@@ -11,7 +11,9 @@ SystemJS.config({
             "clean-css": "npm:clean-css@3.4.12",
             "https": "github:jspm/nodelibs-https@0.2.0-alpha",
             "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.9",
-            "reflect-metadata": "npm:reflect-metadata@0.1.2"
+            "reflect-metadata": "npm:reflect-metadata@0.1.2",
+            "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.6.0",
+            "tty": "github:jspm/nodelibs-tty@0.2.0-alpha"
         },
         "packages": {
             "npm:clean-css@3.4.12": {
@@ -65,6 +67,18 @@ SystemJS.config({
             "npm:source-map@0.4.4": {
                 "map": {
                     "amdefine": "npm:amdefine@1.0.0"
+                }
+            },
+            "github:capaj/systemjs-hot-reloader@0.6.0": {
+                "map": {
+                    "debug": "npm:debug@2.2.0",
+                    "weakee": "npm:weakee@1.0.0",
+                    "socket.io-client": "github:socketio/socket.io-client@1.4.6"
+                }
+            },
+            "npm:debug@2.2.0": {
+                "map": {
+                    "ms": "npm:ms@0.7.1"
                 }
             }
         }

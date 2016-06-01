@@ -131,7 +131,9 @@
       "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.9",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "router": "npm:@angular/router@^2.0.0-rc.1"
+      "router": "npm:@angular/router@^2.0.0-rc.1",
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
       "@angular/common": "npm:@angular/common@2.0.0-rc.1",
