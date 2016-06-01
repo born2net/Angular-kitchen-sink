@@ -63,9 +63,20 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                     NotesService.showConfigValue();
                     this.me = this;
                     this.slideRight = 'notes4';
-                    this.LoadComponentAsync("src/comps/app2/notes/NoteDynamic", "TestComponent", this.extensionAnchor);
                 }
                 Notes5.prototype.LoadComponentAsync = function (componentPath, componentName, locationAnchor) {
+                    var _this = this;
+                    System.import(componentPath)
+                        .then(function (fileContents) {
+                        console.log(fileContents);
+                        return fileContents[componentName];
+                    })
+                        .then(function (component) {
+                        _this.dynamicComponentLoader.loadNextToLocation(component, locationAnchor);
+                    });
+                };
+                Notes5.prototype.ngAfterViewInit = function () {
+                    this.LoadComponentAsync("src/comps/app2/notes/NoteDynamic", "NoteDynamic", this.extensionAnchor);
                 };
                 __decorate([
                     core_1.ViewChild('extensionAnchor', { read: core_1.ViewContainerRef }), 
@@ -79,7 +90,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                             NotesService,
                             core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'example of passing param to component via DI' } }),
                         ],
-                        template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <span #extensionAnchor></span>\n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n                "
+                        template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <span #extensionAnchor></span>\n                \n                \n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n                \n                \n                "
                     }), 
                     __metadata('design:paramtypes', [core_1.DynamicComponentLoader, NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes5);
