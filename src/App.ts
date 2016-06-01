@@ -1,7 +1,5 @@
 ///<reference path="../typings/app.d.ts"/>
 
-//import {enableProdMode} from '@angular/core';
-
 import "zone.js/dist/zone";
 import "zone.js/dist/long-stack-trace-zone";
 import "reflect-metadata";

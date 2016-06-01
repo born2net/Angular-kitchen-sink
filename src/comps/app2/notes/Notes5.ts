@@ -1,4 +1,7 @@
-import {Component, Inject, Injectable, provide} from '@angular/core';
+import {
+    Component, Inject, Injectable, provide, DynamicComponentLoader, ComponentRef,
+    ViewContainerRef, ViewChild
+} from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
@@ -16,7 +19,7 @@ import {CountDown} from "../../countdown/CountDown";
 @Injectable()
 class NotesService {
     constructor(@Inject("NotesConfigValue")
-                public config:{noteDefault: string}) {
+                public config:{noteDefault:string}) {
     }
 
     showConfigValue() {
@@ -50,6 +53,7 @@ class NotesService {
                 </button>
                 <hr/>
                 <small>I am notes5 component</small>
+                <span #extensionAnchor></span>
                 <!--<div>-->
                    <!--<small>I am CountDown component</small>-->
                     <!--<h2>CountDown</h2>-->
@@ -64,19 +68,31 @@ class NotesService {
                 <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->
                 <!--<br/>-->
                 <!--<label>Check the code to learn more...</label>-->
-
-
                 `
 })
-
 export class Notes5 extends NotesBase {
-    constructor(private NotesService:NotesService,
+    constructor(private dynamicComponentLoader:DynamicComponentLoader, private NotesService:NotesService,
                 protected sliderPanel:Sliderpanel,
                 protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
         NotesService.showConfigValue();
         this.me = this;
         this.slideRight = 'notes4';
+
+        this.LoadComponentAsync("src/comps/app2/notes/NoteDynamic", "TestComponent", this.extensionAnchor);
+    }
+
+    @ViewChild('extensionAnchor', {read: ViewContainerRef}) extensionAnchor:ViewContainerRef;
+
+    public LoadComponentAsync(componentPath:string, componentName:string, locationAnchor:ViewContainerRef) {
+        // System.import(componentPath)
+        //     .then(fileContents => {
+        //         console.log(fileContents);
+        //         return fileContents[componentName]
+        //     })
+        //     .then(component => {
+        //         this.dynamicComponentLoader.loadNextToLocation(component, locationAnchor)
+        //     });
     }
 }
 
