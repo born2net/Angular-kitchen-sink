@@ -11,7 +11,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var router_1, platform_browser_dynamic_1, core_1, CharCount_1, AuthService_1, AppInjService_1, http_1, App1_1, App2_1, App3_1, EntryPanel_1, AppManager_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, common_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, Welcome_1;
-    var App;
+    var App, modules;
     return {
         setters:[
             function (_1) {},
@@ -174,14 +174,25 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 return App;
             }());
             exports_1("App", App);
-            platform_browser_dynamic_1.bootstrap(App, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http_1.JSONP_PROVIDERS,
+            modules = [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, http_1.JSONP_PROVIDERS,
                 core_1.provide(angular2_redux_util_1.AppStore, { useFactory: Lib_1.Lib.StoreFactory({ notify: NotifyReducer_1.default, appdb: AppdbReducer_1.default, parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default, todos: TodoReducer_1.todos }) }),
                 core_1.provide(CommBroker_1.CommBroker, { useClass: CommBroker_1.CommBroker }),
                 core_1.provide(AuthService_1.AuthService, { useClass: AuthService_1.AuthService }),
                 core_1.provide(core_1.PLATFORM_PIPES, { useValue: CharCount_1.CharCount, multi: true }),
                 core_1.provide(Conts_1.Consts, { useClass: Conts_1.Consts }),
-                core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })]).then(function (appRef) {
+                core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })];
+            platform_browser_dynamic_1.bootstrap(App, modules).then(function (appRef) {
                 AppInjService_1.appInjService(appRef.injector);
+            });
+            window['hr'] && window['hr'].on('change', function (fileName) {
+                if (fileName.indexOf('html') !== -1) {
+                    var newBody = document.createElement('body');
+                    newBody.appendChild(document.createElement('app'));
+                    document.body = newBody;
+                    platform_browser_dynamic_1.bootstrap(App, modules).then(function (appRef) {
+                        AppInjService_1.appInjService(appRef.injector);
+                    });
+                }
             });
         }
     }

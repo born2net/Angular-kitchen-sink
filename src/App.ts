@@ -122,17 +122,30 @@ export class App {
     }
 }
 
-//enableProdMode();
-bootstrap(App, [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
+var modules = [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
     provide(AppStore, {useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})}),
     provide(CommBroker, {useClass: CommBroker}),
     provide(AuthService, {useClass: AuthService}),
-    provide(PLATFORM_PIPES, { useValue : CharCount, multi : true }),
+    provide(PLATFORM_PIPES, {useValue: CharCount, multi: true}),
     provide(Consts, {useClass: Consts}),
-    provide(LocationStrategy, {useClass: HashLocationStrategy})]).then((appRef:ComponentRef<any>) => {
+    provide(LocationStrategy, {useClass: HashLocationStrategy})];
+
+//enableProdMode();
+
+bootstrap(App, modules).then((appRef:ComponentRef<any>) => {
         appInjService(appRef.injector);
     }
 );
+window['hr'] && window['hr'].on('change', (fileName) => {
+    if (fileName.indexOf('html') !== -1) {
+        var newBody = document.createElement('body')
+        newBody.appendChild(document.createElement('app'))
+        document.body = newBody;
+        bootstrap(App, modules).then((appRef:ComponentRef<any>) => {
+            appInjService(appRef.injector);
+        });
+    }
+})
 
 
 
