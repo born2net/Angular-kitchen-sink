@@ -74,7 +74,7 @@ interface NodeModule {
 }
 
 declare var module: NodeModule;
-
+declare var __moduleName: string;
 declare var watch:any;
 
 

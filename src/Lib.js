@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var redux_1 = require("redux");
-var thunkMiddleware = require('redux-thunk');
+var redux_thunk_1 = require('redux-thunk');
 var angular2_redux_util_1 = require("angular2-redux-util");
 var Lib = (function () {
     function Lib() {
@@ -18,7 +18,7 @@ var Lib = (function () {
     Lib.StoreFactory = function (reducerList) {
         return function () {
             var reducers = redux_1.combineReducers(reducerList);
-            var middlewareEnhancer = redux_1.applyMiddleware(thunkMiddleware);
+            var middlewareEnhancer = redux_1.applyMiddleware(redux_thunk_1.default);
             var isDebug = window.devToolsExtension;
             var applyDevTools = function () { return isDebug ? window.devToolsExtension() : function (f) { return f; }; };
             var enhancers = redux_1.compose(middlewareEnhancer, applyDevTools());

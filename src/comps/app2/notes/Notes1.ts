@@ -16,7 +16,7 @@ import * as bootbox from 'bootbox';
 
 @Component({
     selector: 'Notes1',
-    moduleId: module.id,
+    moduleId: __moduleName,
     directives: [ModalDialog, FORM_DIRECTIVES, DisplayError],
     templateUrl: 'Notes1.html',
     styleUrls: ['Notes1.css']

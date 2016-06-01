@@ -2,10 +2,11 @@
 
 import {Injectable} from '@angular/core';
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
-import * as thunkMiddleware from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 import {AppStore} from "angular2-redux-util";
-
 import {LoggerMiddleware} from "angular2-redux-util";
+
+//import * as thunkMiddleware from 'redux-thunk';
 
 @Injectable()
 export class Lib {

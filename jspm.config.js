@@ -1,7 +1,77 @@
 SystemJS.config({
+    paths: {
+        "ng2Boilerplater/": "src/"
+    },
+    devConfig: {
+        "map": {
+            "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
+            "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
+            "router": "npm:@angular/router@2.0.0-rc.1",
+            "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
+            "clean-css": "npm:clean-css@3.4.12",
+            "https": "github:jspm/nodelibs-https@0.2.0-alpha",
+            "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.9",
+            "reflect-metadata": "npm:reflect-metadata@0.1.2"
+        },
+        "packages": {
+            "npm:clean-css@3.4.12": {
+                "map": {
+                    "commander": "npm:commander@2.8.1",
+                    "source-map": "npm:source-map@0.4.4"
+                }
+            },
+            "npm:ng2-bootstrap@1.0.16": {
+                "map": {
+                    "moment": "npm:moment@2.13.0"
+                }
+            },
+            "github:jspm/nodelibs-events@0.1.1": {
+                "map": {
+                    "events": "npm:events@1.0.2"
+                }
+            },
+            "github:jspm/nodelibs-path@0.1.0": {
+                "map": {
+                    "path-browserify": "npm:path-browserify@0.0.0"
+                }
+            },
+            "github:jspm/nodelibs-process@0.1.2": {
+                "map": {
+                    "process": "npm:process@0.11.3"
+                }
+            },
+            "npm:amdefine@1.0.0": {
+                "map": {}
+            },
+            "npm:commander@2.8.1": {
+                "map": {
+                    "child_process": "github:jspm/nodelibs-child_process@0.1.0",
+                    "events": "github:jspm/nodelibs-events@0.1.1",
+                    "fs": "github:jspm/nodelibs-fs@0.1.2",
+                    "graceful-readlink": "npm:graceful-readlink@1.0.1",
+                    "path": "github:jspm/nodelibs-path@0.1.0",
+                    "process": "github:jspm/nodelibs-process@0.1.2"
+                }
+            },
+            "npm:graceful-readlink@1.0.1": {
+                "map": {}
+            },
+            "npm:path-browserify@0.0.0": {
+                "map": {}
+            },
+            "npm:reflect-metadata@0.1.2": {
+                "map": {}
+            },
+            "npm:source-map@0.4.4": {
+                "map": {
+                    "amdefine": "npm:amdefine@1.0.0"
+                }
+            }
+        }
+    },
     transpiler: "plugin-typescript",
     typescriptOptions: {
-        "module": "commonjs",
+        "module": "system",
         "defaultExtension": "ts",
         "emitDecoratorMetadata": true,
         "tsconfig": true,
@@ -80,53 +150,45 @@ SystemJS.config({
         "github:*/*.json"
     ],
     map: {
-        "ng2-bs3-modal-born2net": "npm:ng2-bs3-modal-born2net@0.2.17",
-        "net": "github:jspm/nodelibs-net@0.2.0-alpha",
-        "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
-        "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
-        "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
-        "router": "npm:@angular/router@2.0.0-rc.1",
+        "redux-thunk": "npm:redux-thunk@2.1.0",
         "@angular/common": "npm:@angular/common@2.0.0-rc.1",
         "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
         "@angular/core": "npm:@angular/core@2.0.0-rc.1",
         "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+        "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
+        "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+        "os": "github:jspm/nodelibs-os@0.2.0-alpha",
+        "ng2-bs3-modal-born2net": "npm:ng2-bs3-modal-born2net@0.2.17",
+        "net": "github:jspm/nodelibs-net@0.2.0-alpha",
+        "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
         "angular-common": "npm:@angular/common@2.0.0-rc.1",
         "angular-compiler": "npm:@angular/compiler@2.0.0-rc.1",
         "angular-core": "npm:@angular/core@2.0.0-rc.1",
         "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
-        "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
         "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
         "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
         "angular2-uuid": "npm:angular2-uuid@1.0.7",
-        "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
         "bootbox": "npm:bootbox@4.4.0",
         "bootstrap": "github:twbs/bootstrap@3.3.6",
         "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@0.1.7",
         "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-        "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
-        "clean-css": "npm:clean-css@3.4.12",
         "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
         "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
         "css": "github:systemjs/plugin-css@0.1.21",
         "events": "github:jspm/nodelibs-events@0.2.0-alpha",
-        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
         "highcharts": "npm:highcharts@4.2.5",
         "http": "github:jspm/nodelibs-http@0.2.0-alpha",
-        "https": "github:jspm/nodelibs-https@0.2.0-alpha",
         "immutable": "npm:immutable@3.8.1",
         "is-equal": "npm:is-equal@1.5.1",
         "jquery": "npm:jquery@2.2.3",
         "lodash": "npm:lodash@4.2.1",
         "module": "github:jspm/nodelibs-module@0.2.0-alpha",
         "moment": "npm:moment@2.13.0",
-        "os": "github:jspm/nodelibs-os@0.2.0-alpha",
         "path": "github:jspm/nodelibs-path@0.2.0-alpha",
-        "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.9",
         "process": "github:jspm/nodelibs-process@0.2.0-alpha",
         "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
         "redux": "npm:redux@3.5.2",
-        "redux-thunk": "npm:redux-thunk@1.0.3",
-        "reflect-metadata": "npm:reflect-metadata@0.1.2",
         "reselect": "npm:reselect@2.5.1",
         "rxjs": "npm:rxjs@5.0.0-beta.6",
         "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
@@ -781,12 +843,6 @@ SystemJS.config({
                 "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
             }
         },
-        "npm:clean-css@3.4.12": {
-            "map": {
-                "commander": "npm:commander@2.8.1",
-                "source-map": "npm:source-map@0.4.4"
-            }
-        },
         "npm:readable-stream@2.1.2": {
             "map": {
                 "core-util-is": "npm:core-util-is@1.0.2",
@@ -814,11 +870,6 @@ SystemJS.config({
                 "xtend": "npm:xtend@4.0.1"
             }
         },
-        "npm:ng2-bootstrap@1.0.16": {
-            "map": {
-                "moment": "npm:moment@2.13.0"
-            }
-        },
         "github:frankwallis/plugin-typescript@4.0.9": {
             "map": {
                 "typescript": "npm:typescript@1.8.7"
@@ -832,26 +883,6 @@ SystemJS.config({
         "github:jspm/nodelibs-crypto@0.2.0-alpha": {
             "map": {
                 "crypto-browserify": "npm:crypto-browserify@3.11.0"
-            }
-        },
-        "github:jspm/nodelibs-events@0.1.1": {
-            "map": {
-                "events": "npm:events@1.0.2"
-            }
-        },
-        "github:jspm/nodelibs-os@0.2.0-alpha": {
-            "map": {
-                "os-browserify": "npm:os-browserify@0.2.1"
-            }
-        },
-        "github:jspm/nodelibs-path@0.1.0": {
-            "map": {
-                "path-browserify": "npm:path-browserify@0.0.0"
-            }
-        },
-        "github:jspm/nodelibs-process@0.1.2": {
-            "map": {
-                "process": "npm:process@0.11.3"
             }
         },
         "github:jspm/nodelibs-stream@0.2.0-alpha": {
@@ -904,9 +935,6 @@ SystemJS.config({
                 "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
                 "@angular/core": "npm:@angular/core@2.0.0-rc.1"
             }
-        },
-        "npm:amdefine@1.0.0": {
-            "map": {}
         },
         "npm:angular2-polyfill@0.0.2": {
             "map": {
@@ -981,16 +1009,6 @@ SystemJS.config({
         "npm:cipher-base@1.0.2": {
             "map": {
                 "inherits": "npm:inherits@2.0.1"
-            }
-        },
-        "npm:commander@2.8.1": {
-            "map": {
-                "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-                "events": "github:jspm/nodelibs-events@0.1.1",
-                "fs": "github:jspm/nodelibs-fs@0.1.2",
-                "graceful-readlink": "npm:graceful-readlink@1.0.1",
-                "path": "github:jspm/nodelibs-path@0.1.0",
-                "process": "github:jspm/nodelibs-process@0.1.2"
             }
         },
         "npm:core-util-is@1.0.2": {
@@ -1084,9 +1102,6 @@ SystemJS.config({
                 "create-hash": "npm:create-hash@1.1.2"
             }
         },
-        "npm:graceful-readlink@1.0.1": {
-            "map": {}
-        },
         "npm:has@1.0.1": {
             "map": {
                 "function-bind": "npm:function-bind@1.1.0"
@@ -1152,9 +1167,6 @@ SystemJS.config({
                 "systemjs-json": "github:systemjs/plugin-json@0.1.0"
             }
         },
-        "npm:path-browserify@0.0.0": {
-            "map": {}
-        },
         "npm:pbkdf2@3.0.4": {
             "map": {
                 "create-hmac": "npm:create-hmac@1.1.4",
@@ -1183,9 +1195,6 @@ SystemJS.config({
                 "loose-envify": "npm:loose-envify@1.1.0"
             }
         },
-        "npm:reflect-metadata@0.1.2": {
-            "map": {}
-        },
         "npm:ripemd160@1.0.1": {
             "map": {}
         },
@@ -1195,11 +1204,6 @@ SystemJS.config({
         "npm:sha.js@2.4.5": {
             "map": {
                 "inherits": "npm:inherits@2.0.1"
-            }
-        },
-        "npm:source-map@0.4.4": {
-            "map": {
-                "amdefine": "npm:amdefine@1.0.0"
             }
         },
         "npm:stream-browserify@2.0.1": {
@@ -1225,6 +1229,11 @@ SystemJS.config({
         },
         "npm:typescript@1.8.7": {
             "map": {}
+        },
+        "github:jspm/nodelibs-os@0.2.0-alpha": {
+            "map": {
+                "os-browserify": "npm:os-browserify@0.2.1"
+            }
         }
     }
 });

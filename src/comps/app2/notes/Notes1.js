@@ -93,7 +93,7 @@ var Notes1 = (function (_super) {
     Notes1 = __decorate([
         core_1.Component({
             selector: 'Notes1',
-            moduleId: module.id,
+            moduleId: __moduleName,
             directives: [ModalDialog_1.ModalDialog, common_1.FORM_DIRECTIVES, DisplayError_1.DisplayError],
             templateUrl: 'Notes1.html',
             styleUrls: ['Notes1.css']
