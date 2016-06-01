@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Ng2Highcharts} from '../../../ng2-highcharts/ng2-highcharts';
-
-window['Highcharts'] = require('highcharts');
+import * as Highcharts from 'highcharts';
+window['Highcharts'] = Highcharts;
 
 @Component({
     selector: 'MyChart',
