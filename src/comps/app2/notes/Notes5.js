@@ -54,9 +54,9 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
             }());
             Notes5 = (function (_super) {
                 __extends(Notes5, _super);
-                function Notes5(dynamicComponentLoader, NotesService, sliderPanel, commBroker) {
+                function Notes5(componentResolver, NotesService, sliderPanel, commBroker) {
                     _super.call(this, sliderPanel, commBroker);
-                    this.dynamicComponentLoader = dynamicComponentLoader;
+                    this.componentResolver = componentResolver;
                     this.NotesService = NotesService;
                     this.sliderPanel = sliderPanel;
                     this.commBroker = commBroker;
@@ -71,7 +71,9 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                         return fileContents[componentName];
                     })
                         .then(function (component) {
-                        _this.dynamicComponentLoader.loadNextToLocation(component, locationAnchor);
+                        _this.componentResolver.resolveComponent(component).then(function (factory) {
+                            locationAnchor.createComponent(factory, 0, locationAnchor.injector);
+                        });
                     });
                 };
                 Notes5.prototype.ngAfterViewInit = function () {
@@ -91,7 +93,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                         ],
                         template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <span #extensionAnchor></span>\n                \n                \n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n                \n                \n                "
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
+                    __metadata('design:paramtypes', [core_1.ComponentResolver, NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes5);
                 return Notes5;
             }(NotesBase_1.NotesBase));

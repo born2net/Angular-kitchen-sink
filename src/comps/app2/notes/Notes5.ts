@@ -1,5 +1,5 @@
 import {
-    Component, Inject, Injectable, provide, DynamicComponentLoader, ComponentRef,
+    Component, Inject, Injectable, provide, ComponentResolver, ComponentRef,
     ViewContainerRef, ViewChild
 } from '@angular/core';
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
@@ -75,7 +75,7 @@ class NotesService {
                 `
 })
 export class Notes5 extends NotesBase {
-    constructor(private dynamicComponentLoader:DynamicComponentLoader, private NotesService:NotesService,
+    constructor(private componentResolver:ComponentResolver, private NotesService:NotesService,
                 protected sliderPanel:Sliderpanel,
                 protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
@@ -94,8 +94,18 @@ export class Notes5 extends NotesBase {
                 return fileContents[componentName]
             })
             .then(component => {
-                this.dynamicComponentLoader.loadNextToLocation(component, locationAnchor)
+                this.componentResolver.resolveComponent(component).then(factory => {
+                    locationAnchor.createComponent(factory, 0,
+                        locationAnchor.injector);
+                });
             });
+
+        // ref: http://stackoverflow.com/questions/37578117/angular-2-trying-to-load-a-component-dynamically-getting-typeerror-cannot-re
+        // deprectaed dynamicComponentLoader
+        //
+        // .then(component => {
+        //     this.dynamicComponentLoader.loadNextToLocation(component, locationAnchor)
+        // });
     }
 
     ngAfterViewInit() {
