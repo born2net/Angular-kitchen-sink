@@ -4,8 +4,8 @@ import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {MyIp} from "../../myip/Myip";
-// import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
-import {MODAL_DIRECTIVES} from "ng2-bs3-modal-born2net/ng2-bs3-modal";
+import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
+// import {MODAL_DIRECTIVES} from "ng2-bs3-modal-born2net/ng2-bs3-modal";
 import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 
 @Component({

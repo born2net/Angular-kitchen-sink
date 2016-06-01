@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "./NotesBase", "../../myip/Myip", "ng2-bs3-modal-born2net/ng2-bs3-modal", "../../trimmedinput/TrimmedInput"], function(exports_1, context_1) {
+System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "./NotesBase", "../../myip/Myip", "ng2-bs3-modal/ng2-bs3-modal", "../../trimmedinput/TrimmedInput"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
