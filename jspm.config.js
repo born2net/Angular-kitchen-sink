@@ -104,7 +104,7 @@ SystemJS.config({
             "defaultExtension": "ts",
             "meta": {
                 "*.js": {
-                    "loader": "ts"
+                    "loader": false
                 },
                 "*.ts": {
                     "loader": "ts"
