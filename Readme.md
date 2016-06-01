@@ -31,12 +31,13 @@ npm install jspm -g
 npm install
 ```
 
-if you wish to use hot-reload so yon can reload components as soon as you save for super quick development process be sure to install the following:
+if you wish to use hot-reload so yon can reload components as soon as you save for super quick development process.
+be sure to install the following:
 reference: https://github.com/capaj/systemjs-hot-reloader
 ```
-npm install chokidar-socket-emitter --save-dev ;
-npm install http-server --save-dev ;
-jspm i --dev systemjs-hot-reloader
+npm install chokidar-socket-emitter --save-dev
+npm install http-server --save-dev
+jspm install systemjs-hot-reloader --dev
 ```
 
 development standard mode:
