@@ -61,6 +61,7 @@ gulp production
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - powered by the awesome (awesome awesome) jspm version 0.17 beta (http://jspm.io & http://jspm.io/0.17-beta-guide/)
+   - support hot-reload for the fastest component development cycle
    - in development TypeScript is compiled in real time in browser, best workflow
    - for production a jspm minified bundle is created
    - support multi version npm / github repositories
