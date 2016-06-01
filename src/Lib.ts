@@ -25,6 +25,14 @@ export class Lib {
         };
     }
 
+    static DevMode():boolean {
+        if (window.location.href.indexOf('localhost') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     static insertAt(immutable, item, index) {
         let first = immutable.slice(0, index - 1).push(item)
         let second = immutable.slice(index)

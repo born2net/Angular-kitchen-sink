@@ -181,6 +181,8 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 core_1.provide(core_1.PLATFORM_PIPES, { useValue: CharCount_1.CharCount, multi: true }),
                 core_1.provide(Conts_1.Consts, { useClass: Conts_1.Consts }),
                 core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })];
+            if (!Lib_1.Lib.DevMode())
+                enableProdMode();
             platform_browser_dynamic_1.bootstrap(App, modules).then(function (appRef) {
                 AppInjService_1.appInjService(appRef.injector);
             });

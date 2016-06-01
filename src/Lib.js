@@ -42,6 +42,14 @@ System.register(['@angular/core', "redux", 'redux-thunk', "angular2-redux-util"]
                         return new angular2_redux_util_1.AppStore(reduxAppStore);
                     };
                 };
+                Lib.DevMode = function () {
+                    if (window.location.href.indexOf('localhost') > -1) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                };
                 Lib.insertAt = function (immutable, item, index) {
                     var first = immutable.slice(0, index - 1).push(item);
                     var second = immutable.slice(index);

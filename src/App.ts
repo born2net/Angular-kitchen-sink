@@ -130,7 +130,8 @@ var modules = [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
     provide(Consts, {useClass: Consts}),
     provide(LocationStrategy, {useClass: HashLocationStrategy})];
 
-//enableProdMode();
+if (!Lib.DevMode())
+    enableProdMode();
 
 bootstrap(App, modules).then((appRef:ComponentRef<any>) => {
         appInjService(appRef.injector);
