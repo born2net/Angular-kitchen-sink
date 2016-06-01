@@ -60,6 +60,7 @@ gulp production
 <hr/>
 What features of Angular does this app cover? well pretty much all the core stuff:
 
+- Use System module mode in tsconfig and jspm.config.js for hot-reload, relative template / styles and production bundling
 - powered by the awesome (awesome awesome) jspm version 0.17 beta (http://jspm.io & http://jspm.io/0.17-beta-guide/)
    - support hot-reload for the fastest component development cycle
    - in development TypeScript is compiled in real time in browser, best workflow
@@ -95,7 +96,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Force change detection via ref.markForCheck();
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
-- use module.id inside component to be able to reference files paths locally (Notes1.ts)
+- use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)
 - use contentWrap.childNodes.length to provide a default template to component if not provided by consumer
 - Dependency injection and decorators such as @Host
 - Advanced decorators such as @HostListener @ContentChildren @Injectable and more
