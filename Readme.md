@@ -31,10 +31,16 @@ npm install jspm -g
 npm install
 ```
 
-development mode:
+development standard mode:
 ```
 gulp development
 ```
+
+development hot-reload mode:
+```
+npm run devserver
+```
+
 
 production mode:
 ```
