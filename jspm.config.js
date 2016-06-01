@@ -90,6 +90,11 @@ SystemJS.config({
         "tsconfig": true,
         "sourceMap": true
     },
+    packageConfigPaths: [
+        "npm:@*/*.json",
+        "npm:*.json",
+        "github:*/*.json"
+    ],
     packages: {
         "ng2Boilerplater": {
             "main": "ng2Boilerplater.js"
@@ -102,7 +107,7 @@ SystemJS.config({
         "src": {
             "main": "App",
             "defaultExtension": "ts",
-            "meta": {                
+            "meta": {
                 "*.ts": {
                     "loader": "ts"
                 },
@@ -138,82 +143,7 @@ SystemJS.config({
         "@angular/router": {
             "main": "index.js",
             "defaultExtension": "js"
-        }
-    },
-    meta: {
-        "angular2/core.js": {
-            "deps": []
-        }
-    },
-    map: {
-        "core-js": "npm:core-js@1.2.6",
-        "@angular": "node_modules/@angular",
-        "gulp-util": "npm:gulp-util@3.0.7",
-        "twbs/bootstrap": "github:twbs/bootstrap@3.3.6"
-    }
-});
-
-SystemJS.config({
-    packageConfigPaths: [
-        "npm:@*/*.json",
-        "npm:*.json",
-        "github:*/*.json"
-    ],
-    map: {
-        "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
-        "redux-thunk": "npm:redux-thunk@2.1.0",
-        "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-        "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
-        "@angular/core": "npm:@angular/core@2.0.0-rc.1",
-        "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
-        "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
-        "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
-        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
-        "os": "github:jspm/nodelibs-os@0.2.0-alpha",
-        "ng2-bs3-modal-born2net": "npm:ng2-bs3-modal-born2net@0.2.17",
-        "net": "github:jspm/nodelibs-net@0.2.0-alpha",
-        "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
-        "angular-common": "npm:@angular/common@2.0.0-rc.1",
-        "angular-compiler": "npm:@angular/compiler@2.0.0-rc.1",
-        "angular-core": "npm:@angular/core@2.0.0-rc.1",
-        "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
-        "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
-        "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
-        "angular2-uuid": "npm:angular2-uuid@1.0.7",
-        "bootbox": "npm:bootbox@4.4.0",
-        "bootstrap": "github:twbs/bootstrap@3.3.6",
-        "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@0.1.7",
-        "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-        "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
-        "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
-        "css": "github:systemjs/plugin-css@0.1.21",
-        "events": "github:jspm/nodelibs-events@0.2.0-alpha",
-        "highcharts": "npm:highcharts@4.2.5",
-        "http": "github:jspm/nodelibs-http@0.2.0-alpha",
-        "immutable": "npm:immutable@3.8.1",
-        "is-equal": "npm:is-equal@1.5.1",
-        "jquery": "npm:jquery@2.2.3",
-        "lodash": "npm:lodash@4.2.1",
-        "module": "github:jspm/nodelibs-module@0.2.0-alpha",
-        "moment": "npm:moment@2.13.0",
-        "path": "github:jspm/nodelibs-path@0.2.0-alpha",
-        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
-        "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
-        "redux": "npm:redux@3.5.2",
-        "reselect": "npm:reselect@2.5.1",
-        "rxjs": "npm:rxjs@5.0.0-beta.6",
-        "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
-        "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
-        "text": "github:systemjs/plugin-text@0.0.4",
-        "ts": "github:frankwallis/plugin-typescript@4.0.16",
-        "typescript": "npm:typescript@1.8.7",
-        "underscore": "npm:underscore@1.8.3",
-        "url": "github:jspm/nodelibs-url@0.2.0-alpha",
-        "util": "github:jspm/nodelibs-util@0.2.0-alpha",
-        "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
-        "zone.js": "npm:zone.js@0.6.12"
-    },
-    packages: {
+        },
         "github:jspm/nodelibs-timers@0.2.0-alpha": {
             "map": {
                 "timers-browserify": "npm:timers-browserify@1.4.2"
@@ -1246,5 +1176,68 @@ SystemJS.config({
                 "os-browserify": "npm:os-browserify@0.2.1"
             }
         }
+    },
+    meta: {
+        "angular2/core.js": {
+            "deps": []
+        }
+    },
+    map: {
+        "core-js": "npm:core-js@1.2.6",
+        "@angular": "node_modules/@angular",
+        "gulp-util": "npm:gulp-util@3.0.7",
+        "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
+        "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
+        "redux-thunk": "npm:redux-thunk@2.1.0",
+        "@angular/common": "npm:@angular/common@2.0.0-rc.1",
+        "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
+        "@angular/core": "npm:@angular/core@2.0.0-rc.1",
+        "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+        "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
+        "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
+        "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+        "os": "github:jspm/nodelibs-os@0.2.0-alpha",
+        "ng2-bs3-modal-born2net": "npm:ng2-bs3-modal-born2net@0.2.17",
+        "net": "github:jspm/nodelibs-net@0.2.0-alpha",
+        "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
+        "angular-common": "npm:@angular/common@2.0.0-rc.1",
+        "angular-compiler": "npm:@angular/compiler@2.0.0-rc.1",
+        "angular-core": "npm:@angular/core@2.0.0-rc.1",
+        "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+        "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
+        "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
+        "angular2-uuid": "npm:angular2-uuid@1.0.7",
+        "bootbox": "npm:bootbox@4.4.0",
+        "bootstrap": "github:twbs/bootstrap@3.3.6",
+        "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@0.1.7",
+        "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
+        "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
+        "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
+        "css": "github:systemjs/plugin-css@0.1.21",
+        "events": "github:jspm/nodelibs-events@0.2.0-alpha",
+        "highcharts": "npm:highcharts@4.2.5",
+        "http": "github:jspm/nodelibs-http@0.2.0-alpha",
+        "immutable": "npm:immutable@3.8.1",
+        "is-equal": "npm:is-equal@1.5.1",
+        "jquery": "npm:jquery@2.2.3",
+        "lodash": "npm:lodash@4.2.1",
+        "module": "github:jspm/nodelibs-module@0.2.0-alpha",
+        "moment": "npm:moment@2.13.0",
+        "path": "github:jspm/nodelibs-path@0.2.0-alpha",
+        "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+        "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
+        "redux": "npm:redux@3.5.2",
+        "reselect": "npm:reselect@2.5.1",
+        "rxjs": "npm:rxjs@5.0.0-beta.6",
+        "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
+        "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
+        "text": "github:systemjs/plugin-text@0.0.4",
+        "ts": "github:frankwallis/plugin-typescript@4.0.16",
+        "typescript": "npm:typescript@1.8.7",
+        "underscore": "npm:underscore@1.8.3",
+        "url": "github:jspm/nodelibs-url@0.2.0-alpha",
+        "util": "github:jspm/nodelibs-util@0.2.0-alpha",
+        "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
+        "zone.js": "npm:zone.js@0.6.12"
     }
 });
