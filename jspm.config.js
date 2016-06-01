@@ -10,7 +10,6 @@ SystemJS.config({
             "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
             "clean-css": "npm:clean-css@3.4.12",
             "https": "github:jspm/nodelibs-https@0.2.0-alpha",
-            "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.17",
             "reflect-metadata": "npm:reflect-metadata@0.1.2",
             "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.6.0",
             "tty": "github:jspm/nodelibs-tty@0.2.0-alpha"
@@ -164,6 +163,7 @@ SystemJS.config({
         "github:*/*.json"
     ],
     map: {
+        "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
         "redux-thunk": "npm:redux-thunk@2.1.0",
         "@angular/common": "npm:@angular/common@2.0.0-rc.1",
         "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
@@ -208,7 +208,7 @@ SystemJS.config({
         "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
         "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
         "text": "github:systemjs/plugin-text@0.0.4",
-        "ts": "github:frankwallis/plugin-typescript@4.0.17",
+        "ts": "github:frankwallis/plugin-typescript@4.0.16",
         "typescript": "npm:typescript@1.8.7",
         "underscore": "npm:underscore@1.8.3",
         "url": "github:jspm/nodelibs-url@0.2.0-alpha",
@@ -884,7 +884,7 @@ SystemJS.config({
                 "xtend": "npm:xtend@4.0.1"
             }
         },
-        "github:frankwallis/plugin-typescript@4.0.17": {
+        "github:frankwallis/plugin-typescript@4.0.16": {
             "map": {
                 "typescript": "npm:typescript@1.8.7"
             }
