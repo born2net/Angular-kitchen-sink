@@ -22,7 +22,7 @@ and built IMHO the perfect Angular2 setup...
    - strong modeling design via redux and immutable.js  
    - Power by commonly used components (sliders, bootstrap, charts, etc)
 
-
+<hr/>
 to install::
 ```             
 git clone https://github.com/born2net/ng2Boilerplate.git
@@ -51,13 +51,13 @@ development hot-reload mode:
 npm run devserver
 open browser to: http://localhost:9089/src/public/index.html#/Login/Login
 ```
-
+<hr/>
 
 production mode:
 ```
 gulp production
 ```
-
+<hr/>
 What features of Angular does this app cover? well pretty much all the core stuff:
 
 - powered by the awesome (awesome awesome) jspm version 0.17 beta (http://jspm.io & http://jspm.io/0.17-beta-guide/)
