@@ -23,7 +23,6 @@ export class MakeDraggable {
         // payload by stringifying the object first
         el.addEventListener('dragstart', (e) => {
             console.log('Start');
-
             el.classList.add('drag-src')
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.setData('text', this.data.getKey('modelId'));
