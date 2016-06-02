@@ -65,6 +65,7 @@ class NotesService {
                 <span #extensionAnchor></span>
                  <hr/>
                  <dynamic-html-outlet [src]="html"></dynamic-html-outlet>
+                
                 <!--<div>-->
                    <!--<small>I am CountDown component</small>-->
                     <!--<h2>CountDown</h2>-->
@@ -94,6 +95,7 @@ export class Notes5 extends NotesBase {
     }
 
     @ViewChild('extensionAnchor', {read: ViewContainerRef}) extensionAnchor:ViewContainerRef;
+
     private html = `
                   <div>
                     <h1>Dynamic HTML Fragment</h1>
