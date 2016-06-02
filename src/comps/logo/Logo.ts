@@ -35,10 +35,10 @@ export class Logo {
 
     listenMouse():void {
         var over:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseover').map(e=> {
-            return Observable.of(1)
+            return Observable.from([1])
         });
         var out:Observable<any> = Observable.fromEvent(this.elementRef.nativeElement, 'mouseout').map(e=> {
-            return Observable.of(0)
+            return Observable.from([0])
         });
         over.merge(out).distinctUntilChanged().subscribe(events => {
             if (events.value) {

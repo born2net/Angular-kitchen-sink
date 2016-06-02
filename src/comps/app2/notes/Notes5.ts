@@ -55,7 +55,6 @@ class NotesService {
                 <small>I am notes5 component</small>
                 <span #extensionAnchor></span>
                 
-                
                 <!--<div>-->
                    <!--<small>I am CountDown component</small>-->
                     <!--<h2>CountDown</h2>-->
@@ -82,8 +81,6 @@ export class Notes5 extends NotesBase {
         NotesService.showConfigValue();
         this.me = this;
         this.slideRight = 'notes4';
-
-
     }
 
     @ViewChild('extensionAnchor', {read: ViewContainerRef}) extensionAnchor:ViewContainerRef;
