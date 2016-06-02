@@ -22,7 +22,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
     template: `
                 <section class="todoapp" style="height: 500px">
                   <header class="header">
-                    <h5>your to-do's</h5>
+                    <h1>your to-do's</h1>
                     <input class="new-todo" placeholder="What needs to be done?"
                     autofocus [(ngModel)]="newItem" (keyup.enter)="addItem(newItem)">
                     <button class="btn btn-default btn-lg" (click)="addItem(newItem)">Add todo</button>
@@ -73,16 +73,27 @@ export class TodoList {
     //     return item.getKey('order');
     // }
 
-    onDrop(src:any, trg:any) {
+    onDrop(src:any, trg:TodoModel) {
         var todos:List<TodoModel> = this.appStore.getState().todos;
+        var trgOrder = trg.getKey('order');
+        var srcOrder = -1;
         todos.forEach((todo:TodoModel)=> {
-            if (todo.getModelId() == src) {
-                var task = todo.getKey('task');
-                var newTask = todo.setKey<TodoModel>(TodoModel, 'order', 100);
-                newTask['task'] = task;
-                this.editItem(newTask);
-            }
-        })
+            if (todo.getModelId() == src)
+                srcOrder = parseFloat(todo.getKey('order'));
+        });
+        this.moveRow(srcOrder, trgOrder);
+
+        // todos.forEach((todo:TodoModel)=> {
+        //     if (todo.getModelId() == src) {
+        //         var task = todo.getKey('task');
+        //
+        //         var oldOrder = parseFloat(todo.getKey('order'));
+        //         var order = oldOrder + 0.5;
+        //         var newTask = todo.setKey<TodoModel>(TodoModel, 'order', order);
+        //         newTask['task'] = task;
+        //         this.editItem(newTask);
+        //     }
+        // })
         //this.appRef.tick();
         //this._moveRow(src.order, trg.order);
     }
