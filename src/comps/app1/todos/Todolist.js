@@ -1,4 +1,4 @@
-System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "../../nodelogger/Nodelogger", "../../dragndrop/make-draggable.directive", "../../dragndrop/make-droppable.directive", "../../../pipes/SortBy"], function(exports_1, context_1) {
+System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "./TodoModel", "../../nodelogger/Nodelogger", "../../dragndrop/make-draggable.directive", "../../dragndrop/make-droppable.directive", "../../../pipes/SortBy"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Todoitem_1, TodoAction_1, index_1, TodoService_1, Nodelogger_1, make_draggable_directive_1, make_droppable_directive_1, SortBy_1;
+    var core_1, Todoitem_1, TodoAction_1, index_1, TodoService_1, TodoModel_1, Nodelogger_1, make_draggable_directive_1, make_droppable_directive_1, SortBy_1;
     var TodoList;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
             },
             function (TodoService_1_1) {
                 TodoService_1 = TodoService_1_1;
+            },
+            function (TodoModel_1_1) {
+                TodoModel_1 = TodoModel_1_1;
             },
             function (Nodelogger_1_1) {
                 Nodelogger_1 = Nodelogger_1_1;
@@ -76,6 +79,7 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
                     this.appRef.tick();
                 };
                 TodoList.prototype.moveRow = function (src, trg) {
+                    var _this = this;
                     src = parseInt(src);
                     trg = parseInt(trg);
                     var todos = this.appStore.getState().todos;
@@ -85,10 +89,31 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
                     }
                     if (src > trg) {
                         todos.forEach(function (todo) {
-                            var order = parseInt(todo.getKey('ordeer'));
+                            var curr = parseInt(todo.getKey('order'));
+                            if (curr >= trg) {
+                                todo = todo.setKey(TodoModel_1.TodoModel, 'order', curr + 1);
+                                todo['task'] = todo.getKey('task');
+                                _this.editItem(todo);
+                            }
                         });
+                        var todoSrc = getTodoModelByOrder(src);
+                        todoSrc = todoSrc.setKey(TodoModel_1.TodoModel, 'order', trg);
+                        todoSrc['task'] = todoSrc.getKey('task');
+                        this.editItem(todoSrc);
                     }
                     else {
+                        todos.forEach(function (todo) {
+                            var curr = parseInt(todo.getKey('order'));
+                            if (curr <= trg) {
+                                todo = todo.setKey(TodoModel_1.TodoModel, 'order', curr - 1);
+                                todo['task'] = todo.getKey('task');
+                                _this.editItem(todo);
+                            }
+                        });
+                        var todoSrc = getTodoModelByOrder(src);
+                        todoSrc = todoSrc.setKey(TodoModel_1.TodoModel, 'order', trg);
+                        todoSrc['task'] = todoSrc.getKey('task');
+                        this.editItem(todoSrc);
                     }
                 };
                 TodoList.prototype.identify = function (index, item) {
