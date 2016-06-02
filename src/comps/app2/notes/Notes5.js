@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "../../countdown/CountDown"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "../../countdown/CountDown", "./NoteDynamicOutlet"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -18,7 +18,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, CountDown_1;
+    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, CountDown_1, NoteDynamicOutlet_1;
     var NotesService, Notes5;
     return {
         setters:[
@@ -36,6 +36,9 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
             },
             function (CountDown_1_1) {
                 CountDown_1 = CountDown_1_1;
+            },
+            function (NoteDynamicOutlet_1_1) {
+                NoteDynamicOutlet_1 = NoteDynamicOutlet_1_1;
             }],
         execute: function() {
             NotesService = (function () {
@@ -60,11 +63,12 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                     this.NotesService = NotesService;
                     this.sliderPanel = sliderPanel;
                     this.commBroker = commBroker;
+                    this.html = "\n                  <div>\n                    <h1>Dynamic HTML Fragment</h1>\n                    <small>I am a dynamically created component with runtime injected HTML template</small>\n                  </div>\n      ";
                     NotesService.showConfigValue();
                     this.me = this;
                     this.slideRight = 'notes4';
                 }
-                Notes5.prototype.LoadComponentAsync = function (componentPath, componentName, locationAnchor) {
+                Notes5.prototype.LazyLoadComponentAsync = function (componentPath, componentName, locationAnchor) {
                     var _this = this;
                     System.import(componentPath)
                         .then(function (fileContents) {
@@ -77,7 +81,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                     });
                 };
                 Notes5.prototype.ngAfterViewInit = function () {
-                    this.LoadComponentAsync("src/comps/app2/notes/NoteLazyLoad", "NoteLazyLoad", this.extensionAnchor);
+                    this.LazyLoadComponentAsync("src/comps/app2/notes/NoteLazyLoad", "NoteLazyLoad", this.extensionAnchor);
                 };
                 __decorate([
                     core_1.ViewChild('extensionAnchor', { read: core_1.ViewContainerRef }), 
@@ -86,12 +90,12 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                 Notes5 = __decorate([
                     core_1.Component({
                         selector: 'Notes5',
-                        directives: [CountDown_1.CountDown],
+                        directives: [CountDown_1.CountDown, NoteDynamicOutlet_1.NoteDynamicOutlet],
                         providers: [
                             NotesService,
                             core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'example of passing param to component via DI' } }),
                         ],
-                        template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <span #extensionAnchor></span>\n                \n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n                \n                \n                "
+                        template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am notes5 component</small>\n                <span #extensionAnchor></span>\n                 <hr/>\n                 <dynamic-html-outlet [src]=\"html\"></dynamic-html-outlet>\n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n                \n                \n                "
                     }), 
                     __metadata('design:paramtypes', [core_1.ComponentResolver, NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes5);

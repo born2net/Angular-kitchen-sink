@@ -1,11 +1,20 @@
 import {
-    Component, Inject, Injectable, provide, ComponentResolver, ComponentRef,
-    ViewContainerRef, ViewChild
-} from '@angular/core';
+    Component,
+    Inject,
+    Injectable,
+    provide,
+    ComponentResolver,
+    ViewContainerRef,
+    ViewChild,
+    ComponentFactory,
+    ComponentMetadata
+} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {CountDown} from "../../countdown/CountDown";
+import {NoteDynamicOutlet} from "./NoteDynamicOutlet";
+
 
 /**
  * In this example I show to to pass parameters to a service that is being injected using
@@ -42,7 +51,7 @@ class NotesService {
 
 @Component({
     selector: 'Notes5',
-    directives: [CountDown],
+    directives: [CountDown, NoteDynamicOutlet],
     providers: [
         // NotesService get's provided with a noteDefault
         NotesService,
@@ -54,7 +63,8 @@ class NotesService {
                 <hr/>
                 <small>I am notes5 component</small>
                 <span #extensionAnchor></span>
-                
+                 <hr/>
+                 <dynamic-html-outlet [src]="html"></dynamic-html-outlet>
                 <!--<div>-->
                    <!--<small>I am CountDown component</small>-->
                     <!--<h2>CountDown</h2>-->
@@ -84,8 +94,14 @@ export class Notes5 extends NotesBase {
     }
 
     @ViewChild('extensionAnchor', {read: ViewContainerRef}) extensionAnchor:ViewContainerRef;
+    private html = `
+                  <div>
+                    <h1>Dynamic HTML Fragment</h1>
+                    <small>I am a dynamically created component with runtime injected HTML template</small>
+                  </div>
+      `;
 
-    public LoadComponentAsync(componentPath:string, componentName:string, locationAnchor:ViewContainerRef) {
+    public LazyLoadComponentAsync(componentPath:string, componentName:string, locationAnchor:ViewContainerRef) {
         System.import(componentPath)
             .then(fileContents => {
                 return fileContents[componentName]
@@ -106,8 +122,9 @@ export class Notes5 extends NotesBase {
     }
 
     ngAfterViewInit() {
-        this.LoadComponentAsync("src/comps/app2/notes/NoteLazyLoad", "NoteLazyLoad", this.extensionAnchor);
+        this.LazyLoadComponentAsync("src/comps/app2/notes/NoteLazyLoad", "NoteLazyLoad", this.extensionAnchor);
     }
 }
+
 
 

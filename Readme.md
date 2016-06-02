@@ -88,6 +88,7 @@ What features of Angular does this app cover? everything:
 - LocalStorage service
 - Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react)
+- Creation of a Component's Template from Dynamic HTML fragment (notes5)
 - RXjs powered CustomHTTP class that extends the default Http ng2 to add new behaviour 
 - Rxjs reactive operators and subscribers throughout the app (some random examples as well)
 - Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
