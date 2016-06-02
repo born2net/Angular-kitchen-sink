@@ -23,6 +23,10 @@ export function createComponentFactory(resolver:ComponentResolver, metadata:Comp
  *  insert HTML fragments into the component in runtime
  *  essentially creating the view template dynamically from a string: template: this.src
  *
+ * Decorators are just function
+ * You can create a component by using Component and ComponentResolver
+ * You can load a component by using ViewContainerRef and ComponentFactory
+ *
  * ref: http://blog.lacolaco.net/post/dynamic-component-creation-in-angular-2/
  *
  **/
