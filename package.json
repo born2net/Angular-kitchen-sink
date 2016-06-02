@@ -165,7 +165,7 @@
       "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zone.js": "npm:zone.js@^0.6.12"
+      "zone.js": "npm:zone.js@^0.6.6"
     },
     "overrides": {
       "github:twbs/bootstrap@3.3.6": {
@@ -342,5 +342,4 @@
     "rxjs": "^5.0.0-beta.6",
     "zone.js": "^0.6.12"
   }
-}
-
+}
