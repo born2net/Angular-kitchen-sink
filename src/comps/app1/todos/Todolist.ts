@@ -68,6 +68,7 @@ export class TodoList {
         this.editItem = todoAction.createDispatcher(todoAction.editTodo, appStore);
     }
 
+
     // getOrder(item:StoreModel):string{
     //     return item.getKey('order');
     // }
