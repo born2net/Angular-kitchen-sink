@@ -1,4 +1,4 @@
-System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "../../nodelogger/Nodelogger", "../../dragndrop/make-draggable.directive", "../../dragndrop/make-droppable.directive", "../../../pipes/SortBy"], function(exports_1, context_1) {
+System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "./TodoModel", "../../nodelogger/Nodelogger", "../../dragndrop/make-draggable.directive", "../../dragndrop/make-droppable.directive", "../../../pipes/SortBy"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Todoitem_1, TodoAction_1, index_1, TodoService_1, Nodelogger_1, make_draggable_directive_1, make_droppable_directive_1, SortBy_1;
+    var core_1, Todoitem_1, TodoAction_1, index_1, TodoService_1, TodoModel_1, Nodelogger_1, make_draggable_directive_1, make_droppable_directive_1, SortBy_1;
     var TodoList;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
             },
             function (TodoService_1_1) {
                 TodoService_1 = TodoService_1_1;
+            },
+            function (TodoModel_1_1) {
+                TodoModel_1 = TodoModel_1_1;
             },
             function (Nodelogger_1_1) {
                 Nodelogger_1 = Nodelogger_1_1;
@@ -70,13 +73,37 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
                     var srcOrder = -1;
                     todos.forEach(function (todo) {
                         if (todo.getModelId() == src)
-                            srcOrder = parseFloat(todo.getKey('order'));
+                            srcOrder = parseInt(todo.getKey('order'));
                     });
                     this.moveRow(srcOrder, trgOrder);
+                    this.appRef.tick();
                 };
                 TodoList.prototype.moveRow = function (src, trg) {
                     src = parseInt(src);
                     trg = parseInt(trg);
+                    var todos = this.appStore.getState().todos;
+                    function getTodoModelByOrder(order) {
+                        var index = todos.findIndex(function (i) { return i.getKey('order') === order; });
+                        return todos.get(index);
+                    }
+                    if (src > trg) {
+                        for (var i = trg; i < src; i++) {
+                            var todoModel = getTodoModelByOrder(i);
+                            var task = todoModel.getKey('task');
+                            var order = parseInt(todoModel.getKey('order'));
+                            todoModel = todoModel.setKey(TodoModel_1.TodoModel, 'order', order + 1);
+                            todoModel['task'] = task;
+                            this.editItem(todoModel);
+                        }
+                        var todoModel = getTodoModelByOrder(src);
+                        var task = todoModel.getKey('task');
+                        var order = parseInt(todoModel.getKey('order'));
+                        todoModel = todoModel.setKey(TodoModel_1.TodoModel, 'order', trg);
+                        todoModel['task'] = task;
+                        this.editItem(todoModel);
+                    }
+                    else {
+                    }
                 };
                 TodoList.prototype.identify = function (index, item) {
                     return item.getModelId();

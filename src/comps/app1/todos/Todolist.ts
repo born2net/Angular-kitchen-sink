@@ -79,9 +79,10 @@ export class TodoList {
         var srcOrder = -1;
         todos.forEach((todo:TodoModel)=> {
             if (todo.getModelId() == src)
-                srcOrder = parseFloat(todo.getKey('order'));
+                srcOrder = parseInt(todo.getKey('order'));
         });
         this.moveRow(srcOrder, trgOrder);
+        this.appRef.tick();
 
         // todos.forEach((todo:TodoModel)=> {
         //     if (todo.getModelId() == src) {
@@ -94,7 +95,6 @@ export class TodoList {
         //         this.editItem(newTask);
         //     }
         // })
-        //this.appRef.tick();
         //this._moveRow(src.order, trg.order);
     }
 
@@ -102,6 +102,36 @@ export class TodoList {
 
         src = parseInt(src);
         trg = parseInt(trg);
+        var todos:List<TodoModel> = this.appStore.getState().todos;
+
+        function getTodoModelByOrder(order:number) {
+            var index = todos.findIndex((i:TodoModel) => i.getKey('order') === order);
+            return todos.get(index);
+        }
+
+        // If the element was moved down
+        if (src > trg) {
+            for (let i = trg; i < src; i++) {
+                var todoModel:TodoModel = getTodoModelByOrder(i);
+                var task = todoModel.getKey('task');
+                var order = parseInt(todoModel.getKey('order'));
+                todoModel = todoModel.setKey<TodoModel>(TodoModel, 'order', order + 1);
+                todoModel['task'] = task;
+                this.editItem(todoModel);
+            }
+            var todoModel:TodoModel = getTodoModelByOrder(src);
+            var task = todoModel.getKey('task');
+            var order = parseInt(todoModel.getKey('order'));
+            todoModel = todoModel.setKey<TodoModel>(TodoModel, 'order', trg);
+            todoModel['task'] = task;
+            this.editItem(todoModel);
+        } else {  // if the element was moved up
+            // for (let i = src + 1; i <= trg; i++) {
+            //     this.todos[i].order--;
+            // }
+        }
+        // this.todos[src].order = trg;
+
 
         // If the element was moved down
         // if (src > trg) {
