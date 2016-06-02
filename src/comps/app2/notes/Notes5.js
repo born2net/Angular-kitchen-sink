@@ -77,7 +77,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                     });
                 };
                 Notes5.prototype.ngAfterViewInit = function () {
-                    this.LoadComponentAsync("src/comps/app2/notes/NoteDynamic", "NoteDynamic", this.extensionAnchor);
+                    this.LoadComponentAsync("src/comps/app2/notes/NoteLazyLoad", "NoteLazyLoad", this.extensionAnchor);
                 };
                 __decorate([
                     core_1.ViewChild('extensionAnchor', { read: core_1.ViewContainerRef }), 

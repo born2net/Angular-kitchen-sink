@@ -106,7 +106,7 @@ export class Notes5 extends NotesBase {
     }
 
     ngAfterViewInit() {
-        this.LoadComponentAsync("src/comps/app2/notes/NoteDynamic", "NoteDynamic", this.extensionAnchor);
+        this.LoadComponentAsync("src/comps/app2/notes/NoteLazyLoad", "NoteLazyLoad", this.extensionAnchor);
     }
 }
 

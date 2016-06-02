@@ -70,7 +70,7 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
                 TodoList.prototype.onDrop = function (src, trg) {
                     var todos = this.appStore.getState().todos;
                     var trgOrder = trg.getKey('order');
-                    var srcOrder = -1;
+                    var srcOrder;
                     todos.forEach(function (todo) {
                         if (todo.getModelId() == src)
                             srcOrder = parseInt(todo.getKey('order'));
@@ -83,7 +83,7 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
                     trg = parseInt(trg);
                     var todos = this.appStore.getState().todos;
                     function getTodoModelByOrder(order) {
-                        var index = todos.findIndex(function (i) { return i.getKey('order') === order; });
+                        var index = todos.findIndex(function (i) { return i.getKey('order') == order; });
                         return todos.get(index);
                     }
                     if (src > trg) {

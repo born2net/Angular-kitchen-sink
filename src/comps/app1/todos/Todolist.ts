@@ -71,7 +71,7 @@ export class TodoList {
     onDrop(src:any, trg:TodoModel) {
         var todos:List<TodoModel> = this.appStore.getState().todos;
         var trgOrder = trg.getKey('order');
-        var srcOrder = -1;
+        var srcOrder;
         todos.forEach((todo:TodoModel)=> {
             if (todo.getModelId() == src)
                 srcOrder = parseInt(todo.getKey('order'));
@@ -86,10 +86,9 @@ export class TodoList {
         var todos:List<TodoModel> = this.appStore.getState().todos;
 
         function getTodoModelByOrder(order:number) {
-            var index = todos.findIndex((i:TodoModel) => i.getKey('order') === order);
+            var index = todos.findIndex((i:TodoModel) => i.getKey('order') == order);
             return todos.get(index);
         }
-        // If the element was moved down
         if (src > trg) {
             todos.forEach((todo:TodoModel)=> {
                 var curr:number = parseInt(todo.getKey('order'));
@@ -104,7 +103,6 @@ export class TodoList {
             todoSrc['task'] = todoSrc.getKey('task');
             this.editItem(todoSrc);
         } else {
-            // if the element was moved up
             todos.forEach((todo:TodoModel)=> {
                 var curr:number = parseInt(todo.getKey('order'));
                 if (curr <= trg) {
