@@ -113,7 +113,7 @@ export class TodoList {
         if (src > trg) {
 
             todos.forEach((todo:TodoModel)=> {
-                var order:number = parseInt(todo.getKey('ordeer'));
+                var order:number = parseInt(todo.getKey('order'));
             });
 
             // for (let i = trg; i < src; i++) {
