@@ -56,6 +56,7 @@ System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../
                 function TodoAction(appStore) {
                     _super.call(this);
                     this.appStore = appStore;
+                    this.newOrderNumber = 9999;
                 }
                 TodoAction.prototype.factoryTodoService = function () {
                     if (this.service)
@@ -76,7 +77,7 @@ System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../
                     this.factoryTodoService();
                     return function (dispatch) {
                         var modelId = id || StoreModel_1.StoreModel.UniqueId();
-                        var todoModel = new TodoModel_1.TodoModel({ task: task, modelId: modelId });
+                        var todoModel = new TodoModel_1.TodoModel({ task: task, modelId: modelId, order: _this.newOrderNumber++ });
                         _this.service.saveTodoRemote(todoModel, function (status) {
                             if (status == -1) {
                                 bootbox.alert('problem saving to server 1');

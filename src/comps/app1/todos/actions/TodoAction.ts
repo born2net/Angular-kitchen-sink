@@ -18,6 +18,7 @@ export const CLEAR_TODOS = 'CLEAR_TODOS';
 export class TodoAction extends Actions {
 
     private service:TodoService;
+    private newOrderNumber:number = 9999
 
     constructor(private appStore:AppStore) {
         super();
@@ -76,7 +77,7 @@ export class TodoAction extends Actions {
         this.factoryTodoService();
         return (dispatch) => {
             let modelId = id || StoreModel.UniqueId();
-            var todoModel:TodoModel = new TodoModel({task, modelId});
+            var todoModel:TodoModel = new TodoModel({task, modelId, order: this.newOrderNumber++});
             this.service.saveTodoRemote(todoModel, (status:number)=> {
                 if (status == -1) {
                     bootbox.alert('problem saving to server 1');
