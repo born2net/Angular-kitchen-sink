@@ -111,20 +111,25 @@ export class TodoList {
 
         // If the element was moved down
         if (src > trg) {
-            for (let i = trg; i < src; i++) {
-                var todoModel:TodoModel = getTodoModelByOrder(i);
-                var task = todoModel.getKey('task');
-                var order = parseInt(todoModel.getKey('order'));
-                todoModel = todoModel.setKey<TodoModel>(TodoModel, 'order', order + 1);
-                todoModel['task'] = task;
-                this.editItem(todoModel);
-            }
-            var todoModel:TodoModel = getTodoModelByOrder(src);
-            var task = todoModel.getKey('task');
-            var order = parseInt(todoModel.getKey('order'));
-            todoModel = todoModel.setKey<TodoModel>(TodoModel, 'order', trg);
-            todoModel['task'] = task;
-            this.editItem(todoModel);
+
+            todos.forEach((todo:TodoModel)=> {
+                var order:number = parseInt(todo.getKey('ordeer'));
+            });
+
+            // for (let i = trg; i < src; i++) {
+            //     var todoModel:TodoModel = getTodoModelByOrder(i);
+            //     var task = todoModel.getKey('task');
+            //     var order = parseInt(todoModel.getKey('order'));
+            //     todoModel = todoModel.setKey<TodoModel>(TodoModel, 'order', order + 1);
+            //     todoModel['task'] = task;
+            //     this.editItem(todoModel);
+            // }
+            // var todoModel:TodoModel = getTodoModelByOrder(src);
+            // var task = todoModel.getKey('task');
+            // var order = parseInt(todoModel.getKey('order'));
+            // todoModel = todoModel.setKey<TodoModel>(TodoModel, 'order', trg);
+            // todoModel['task'] = task;
+            // this.editItem(todoModel);
         } else {  // if the element was moved up
             // for (let i = src + 1; i <= trg; i++) {
             //     this.todos[i].order--;
