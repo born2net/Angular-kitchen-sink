@@ -159,6 +159,10 @@ to release to production
 
 All this awesomeness tx to jspm, love it!!!
 
+Looking for even more? checkout this enterprise level angular 2 app:
+------------
+https://github.com/born2net/studioDashboard
+
 Notes:
 ------------
 all project (non dev) dependency modules are installed in jspm_packages, however we also install them as dev dependency modules under node_modules just to make Typescript / Intellisense happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.
