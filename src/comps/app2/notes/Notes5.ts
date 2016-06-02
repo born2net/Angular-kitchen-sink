@@ -60,7 +60,7 @@ class NotesService {
                     <span class="fa fa-arrow-left "></span>
                 </button>
                 <hr/>
-                <small>I am notes5 component</small>
+                <small>I am Notes5 component</small>
                 <span #extensionAnchor></span>
                  <hr/>
                  <dynamic-html-outlet [src]="html"></dynamic-html-outlet>
