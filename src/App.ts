@@ -6,7 +6,7 @@ import "reflect-metadata";
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef, enableProdMode} from "@angular/core";
-import "jspm_packages/github/twbs/bootstrap@3.3.6";
+import "twbs/bootstrap";
 import "twbs/bootstrap/dist/css/bootstrap.css!";
 import "./styles/style.css!";
 import {CharCount} from "./pipes/CharCount";
