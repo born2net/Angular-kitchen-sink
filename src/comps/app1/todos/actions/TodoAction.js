@@ -113,6 +113,7 @@ System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../
                     this.factoryTodoService();
                     return function (dispatch) {
                         dispatch(_this.editTodoDispatch(todoModel));
+                        dispatch(_this.editTodoOrderDispatch(todoModel));
                         _this.service.editTodoRemote(todoModel, function (status) {
                             if (status == -1) {
                                 bootbox.alert('problem saving to server 3');
@@ -123,6 +124,9 @@ System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../
                 };
                 TodoAction.prototype.editTodoDispatch = function (todoModel) {
                     return { type: EDIT_TODO, modelId: todoModel.getKey('modelId'), key: 'task', value: todoModel['task'] };
+                };
+                TodoAction.prototype.editTodoOrderDispatch = function (todoModel) {
+                    return { type: EDIT_TODO, modelId: todoModel.getKey('modelId'), key: 'order', value: todoModel.getKey('order') };
                 };
                 TodoAction = __decorate([
                     core_1.Injectable(), 

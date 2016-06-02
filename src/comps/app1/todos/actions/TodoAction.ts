@@ -117,6 +117,7 @@ export class TodoAction extends Actions {
         this.factoryTodoService();
         return (dispatch) => {
             dispatch(this.editTodoDispatch(todoModel));
+            dispatch(this.editTodoOrderDispatch(todoModel));
             this.service.editTodoRemote(todoModel, (status:number)=> {
                 if (status == -1) {
                     bootbox.alert('problem saving to server 3');
@@ -128,6 +129,9 @@ export class TodoAction extends Actions {
 
     public editTodoDispatch(todoModel:TodoModel) {
         return {type: EDIT_TODO, modelId: todoModel.getKey('modelId'), key: 'task', value: todoModel['task']};
+    }
+    public editTodoOrderDispatch(todoModel:TodoModel) {
+        return {type: EDIT_TODO, modelId: todoModel.getKey('modelId'), key: 'order', value: todoModel.getKey('order')};
     }
 
 }

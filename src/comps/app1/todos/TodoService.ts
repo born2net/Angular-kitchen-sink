@@ -78,7 +78,7 @@ export class TodoService {
                 return;
             }
             for (var i in data) {
-                var todoModel:TodoModel = new TodoModel({task: data[i]._data.task, modelId: data[i]._data.modelId});
+                var todoModel:TodoModel = new TodoModel({task: data[i]._data.task, modelId: data[i]._data.modelId, order: i});
                 this.m_addTodoDispatch(todoModel);
             }
         }, error => console.log(`Could not load todos ${error}`));

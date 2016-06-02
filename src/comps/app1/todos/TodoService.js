@@ -99,7 +99,7 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
                             return;
                         }
                         for (var i in data) {
-                            var todoModel = new TodoModel_1.TodoModel({ task: data[i]._data.task, modelId: data[i]._data.modelId });
+                            var todoModel = new TodoModel_1.TodoModel({ task: data[i]._data.task, modelId: data[i]._data.modelId, order: i });
                             _this.m_addTodoDispatch(todoModel);
                         }
                     }, function (error) { return console.log("Could not load todos " + error); });
