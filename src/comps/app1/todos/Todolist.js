@@ -76,7 +76,6 @@ System.register(['@angular/core', "./Todoitem", "./actions/TodoAction", "angular
                             srcOrder = parseInt(todo.getKey('order'));
                     });
                     this.moveRow(srcOrder, trgOrder);
-                    this.appRef.tick();
                 };
                 TodoList.prototype.moveRow = function (src, trg) {
                     var _this = this;

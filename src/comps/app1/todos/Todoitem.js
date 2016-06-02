@@ -68,7 +68,7 @@ System.register(['@angular/core', './TodoService'], function(exports_1, context_
                 TodoItem = __decorate([
                     core_1.Component({
                         selector: 'todo-item',
-                        template: "\n                <div class=\"view\">\n                    <input [(ngModel)]=\"_item.task\" class=\"editInput\" *ngIf=\"editMode\" value=\"{{_item.task}}\"/>\n                    <label  *ngIf=\"!editMode\">{{_item.getKey('task')}}</label>\n                    <button (click)=\"doneClicked()\"  class=\"fa fa-minus buttonsDone\"></button>\n                    <button (click)=\"editClicked()\" [ngClass]=\"{'fa-check-square': editMode}\" class=\"fa fa-edit buttonsEdit\"></button>\n                </div>\n    ",
+                        template: "\n                <div class=\"view\">\n                    <input [(ngModel)]=\"_item.task\" class=\"editInput\" *ngIf=\"editMode\" value=\"{{_item.task}}\"/>\n                    <label  *ngIf=\"!editMode\">{{_item.getKey('task')}}</label>\n                    <button (click)=\"doneClicked()\"  class=\"fa fa-minus buttonsDone\"></button>\n                    <button (click)=\"editClicked()\" [ngClass]=\"{'fa-check-square': editMode}\" class=\"fa fa-edit buttonsEdit\"></button>\n                    <button style=\"position: relative; left: -80px; top: -62px\" class=\"pull-right fa fa-arrows-v buttonsEdit\"></button>\n                </div>\n    ",
                         styleUrls: ['../comps/app1/todos/Todoitem.css'],
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush
                     }), 

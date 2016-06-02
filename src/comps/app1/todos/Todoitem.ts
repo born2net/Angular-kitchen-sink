@@ -13,6 +13,7 @@ import {TodoItemModel} from './TodoService';
                     <label  *ngIf="!editMode">{{_item.getKey('task')}}</label>
                     <button (click)="doneClicked()"  class="fa fa-minus buttonsDone"></button>
                     <button (click)="editClicked()" [ngClass]="{'fa-check-square': editMode}" class="fa fa-edit buttonsEdit"></button>
+                    <button style="position: relative; left: -80px; top: -62px" class="pull-right fa fa-arrows-v buttonsEdit"></button>
                 </div>
     `,
     styleUrls: ['../comps/app1/todos/Todoitem.css'],

@@ -68,11 +68,6 @@ export class TodoList {
         this.editItem = todoAction.createDispatcher(todoAction.editTodo, appStore);
     }
 
-
-    // getOrder(item:StoreModel):string{
-    //     return item.getKey('order');
-    // }
-
     onDrop(src:any, trg:TodoModel) {
         var todos:List<TodoModel> = this.appStore.getState().todos;
         var trgOrder = trg.getKey('order');
@@ -82,20 +77,7 @@ export class TodoList {
                 srcOrder = parseInt(todo.getKey('order'));
         });
         this.moveRow(srcOrder, trgOrder);
-        this.appRef.tick();
-
-        // todos.forEach((todo:TodoModel)=> {
-        //     if (todo.getModelId() == src) {
-        //         var task = todo.getKey('task');
-        //
-        //         var oldOrder = parseFloat(todo.getKey('order'));
-        //         var order = oldOrder + 0.5;
-        //         var newTask = todo.setKey<TodoModel>(TodoModel, 'order', order);
-        //         newTask['task'] = task;
-        //         this.editItem(newTask);
-        //     }
-        // })
-        //this._moveRow(src.order, trg.order);
+        // this.appRef.tick();
     }
 
     private moveRow(src, trg) {
