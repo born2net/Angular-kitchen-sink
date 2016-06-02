@@ -31,7 +31,7 @@ npm install jspm -g
 npm install
 ```
 <hr/>
-if you wish to use hot-reload so yon can reload components as soon as you save for super quick development process, be sure to install the following:
+if you wish to use hot-reload so you can reload components as soon as you save for super quick development process, be sure to install the following:
 ```
 npm install chokidar-socket-emitter --save-dev
 npm install http-server --save-dev
@@ -58,7 +58,7 @@ production mode:
 gulp production
 ```
 <hr/>
-What features of Angular does this app cover? well pretty much all the core stuff:
+What features of Angular does this app cover? everything:
 
 - Use System module mode in tsconfig and jspm.config.js for hot-reload, relative template / styles and production bundling
 - powered by the awesome (awesome awesome) jspm version 0.17 beta (http://jspm.io & http://jspm.io/0.17-beta-guide/)
@@ -98,7 +98,7 @@ What features of Angular does this app cover? well pretty much all the core stuf
 - Shared state (Side menu and file menu)
 - use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)
 - use contentWrap.childNodes.length to provide a default template to component if not provided by consumer
-- use dynamic component loading only when router enters its path (NoteDynamic)
+- use lazy loading of components when router enters path (NoteDynamic, kind of like require(...))
 - Dependency injection and decorators such as @Host
 - Advanced decorators such as @HostListener @ContentChildren @Injectable and more
 - Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)
