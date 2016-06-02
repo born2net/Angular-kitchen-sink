@@ -37,7 +37,7 @@ class NotesService {
     }
 }
 /**
- This is a powerful demonstrating that shows how to create a directive just like
+ Demonstrating that shows how to create a directive just like
  the *ngFor or *ngIf of ng2, and in our case *CountDown.
 
  What this means is that we are able to manually create a template
@@ -47,7 +47,6 @@ class NotesService {
  While in practicality we mostly use <ng-content> to achieve the same effect
  it still a great example into the inner workings of ng2.
  */
-
 
 @Component({
     selector: 'Notes5',
