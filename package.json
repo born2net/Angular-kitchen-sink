@@ -75,7 +75,7 @@
     "opn": "^4.0.0",
     "redux": "^3.0.5",
     "redux-thunk": "^2",
-    "redux-watch": "^1.1.0",
+    "redux-watch": "^1.1.1",
     "reflect-metadata": "0.1.2",
     "reselect": "^2.0.2",
     "rimraf": "^2.4.4",
