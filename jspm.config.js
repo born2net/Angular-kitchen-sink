@@ -11,7 +11,8 @@ SystemJS.config({
             "https": "github:jspm/nodelibs-https@0.2.0-alpha",
             "reflect-metadata": "npm:reflect-metadata@0.1.2",
             "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.6.0",
-            "tty": "github:jspm/nodelibs-tty@0.2.0-alpha"
+            "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
+            "bootstrap": "github:twbs/bootstrap@3.3.6"
         },
         "packages": {
             "npm:clean-css@3.4.12": {
@@ -78,6 +79,11 @@ SystemJS.config({
                 "map": {
                     "ms": "npm:ms@0.7.1"
                 }
+            },
+            "github:twbs/bootstrap@3.3.6": {
+                "map": {
+                    "jquery": "npm:jquery@2.2.4"
+                }
             }
         }
     },
@@ -137,11 +143,6 @@ SystemJS.config({
         "@angular/router": {
             "main": "index.js",
             "defaultExtension": "js"
-        },
-        "github:twbs/bootstrap@3.3.6": {
-            "map": {
-                "jquery": "npm:jquery@2.2.3"
-            }
         },
         "npm:beeper@1.1.0": {
             "map": {}
@@ -542,7 +543,6 @@ SystemJS.config({
         "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
         "angular2-uuid": "npm:angular2-uuid@1.0.7",
         "bootbox": "npm:bootbox@4.4.0",
-        "bootstrap": "npm:bootstrap@3.3.6",
         "born2net/ng2-bs3-modal": "github:born2net/ng2-bs3-modal@0.1.7",
         "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
         "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
@@ -553,7 +553,7 @@ SystemJS.config({
         "http": "github:jspm/nodelibs-http@0.2.0-alpha",
         "immutable": "npm:immutable@3.8.1",
         "is-equal": "npm:is-equal@1.5.1",
-        "jquery": "npm:jquery@2.2.3",
+        "jquery": "npm:jquery@2.2.4",
         "lodash": "npm:lodash@4.2.1",
         "module": "github:jspm/nodelibs-module@0.2.0-alpha",
         "moment": "npm:moment@2.13.0",

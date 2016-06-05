@@ -128,6 +128,7 @@
     },
     "devDependencies": {
       "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "clean-css": "npm:clean-css@^3.4.9",
       "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
       "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
@@ -143,7 +144,6 @@
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "bootstrap": "npm:bootstrap@3.3",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
@@ -277,7 +277,7 @@
           "test.js"
         ]
       },
-      "npm:jquery@2.2.3": {
+      "npm:jquery@2.2.4": {
         "format": "amd"
       },
       "npm:moment@2.13.0": {
@@ -342,5 +342,4 @@
     "rxjs": "^5.0.0-beta.6",
     "zone.js": "^0.6.12"
   }
-}
-
+}
