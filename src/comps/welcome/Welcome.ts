@@ -85,7 +85,6 @@ export class Welcome implements OnInit {
      * Also, the AfterXXXInit hooks are only called once during the directive lifecycle,
      * while the AfterXXXChecked hooks are called after every change detection cycle.
      */
-
     // ngAfterContentInit() {
     //    console.log(5);
     // }
