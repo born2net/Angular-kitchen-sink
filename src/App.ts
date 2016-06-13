@@ -3,7 +3,8 @@
 import "zone.js/dist/zone";
 import "zone.js/dist/long-stack-trace-zone";
 import "reflect-metadata";
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
+// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
+import {ROUTER_DIRECTIVES} from "@angular/router";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef, enableProdMode} from "@angular/core";
 import "twbs/bootstrap";
@@ -41,6 +42,7 @@ import appdb from "./reducers/AppdbReducer";
 import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {AppdbAction} from "./actions/AppdbAction";
 import {Welcome} from "./comps/welcome/Welcome";
+import {APP_ROUTER_PROVIDERS} from "./App.routes";
 // import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from '@angular/router';
 // import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from '@angular/router';
 
@@ -56,33 +58,6 @@ import {Welcome} from "./comps/welcome/Welcome";
     directives: [ROUTER_DIRECTIVES, Filemenu, FilemenuItem, Logo, Footer]
 })
 
-//todo: removed default and redirectToPah due to RC.X changes
-//{path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},
-//{path: "/", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},
-
-@Routes([
-    {path: '/', component: EntryPanel},
-    {path: '/AppManager', component: AppManager},
-    {path: '/Welcome', component: Welcome},
-    {path: '/EntryPanelNoId', component: EntryPanel},
-    {path: '/EntryPanel/:id', component: EntryPanel},
-    {path: '/Login', component: EntryPanel},
-    {path: '/ForgotPass', component: EntryPanel},
-    {path: '/App1', component: App1},
-    {path: '/App2', component: App2},
-    {path: '/App3', component: App3}
-    //new AsyncRoute({
-    //    path: '/App1',
-    //    loader: () => Lib.LoadComponentAsync('App1', '../comps/app1/App1'),
-    //    name: 'App1'
-    //}), /*systemjs*/
-    //new AsyncRoute({
-    //    path: '/App2',
-    //    loader: () => Lib.LoadComponentAsync('App2', '../comps/app2/App2'),
-    //    name: 'App2'
-    //})
-
-])
 export class App {
     private m_styleService:StyleService;
 
@@ -120,7 +95,7 @@ export class App {
     }
 }
 
-var modules = [ROUTER_PROVIDERS, HTTP_PROVIDERS, JSONP_PROVIDERS,
+var modules = [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS, JSONP_PROVIDERS,
     provide(AppStore, {useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})}),
     provide(CommBroker, {useClass: CommBroker}),
     provide(AuthService, {useClass: AuthService}),

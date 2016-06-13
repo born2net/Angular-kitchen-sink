@@ -121,6 +121,7 @@
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.16",
       "redux-thunk": "npm:redux-thunk@^2.1.0",
       "reselect": "npm:reselect@^2.0.3",
+      "router": "npm:@angular/router@3.0.0-alpha.3",
       "text": "github:systemjs/plugin-text@^0.0.4",
       "ts": "github:frankwallis/plugin-typescript@^4",
       "typescript": "npm:typescript@1.8.7",
@@ -133,7 +134,6 @@
       "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
       "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "router": "npm:@angular/router@^2.0.0-rc.1",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
       "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
@@ -251,16 +251,6 @@
           }
         }
       },
-      "npm:@angular/router@2.0.0-rc.1": {
-        "meta": {
-          "src/*.js": {
-            "deps": [
-              "reflect-metadata",
-              "zone.js"
-            ]
-          }
-        }
-      },
       "npm:angular@1.5.5": {
         "format": "global",
         "jspmNodeConversion": false,
@@ -338,8 +328,9 @@
     "@angular/http": "^2.0.0-rc.1",
     "@angular/platform-browser": "^2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
-    "@angular/router": "^2.0.0-rc.1",
+    "@angular/router": "@angular/router@3.0.0-alpha.3",
     "rxjs": "^5.0.0-beta.6",
     "zone.js": "^0.6.12"
   }
-}
+}
+

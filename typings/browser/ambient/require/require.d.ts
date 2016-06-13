@@ -1,4 +1,4 @@
-// Compiled using typings@0.6.8
+// Compiled using typings@0.6.10
 // Source: https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/853544cb7068af64bdb10ef1ae0c54d3aa3a80f6/requirejs/require.d.ts
 // Type definitions for RequireJS 2.1.20
 // Project: http://requirejs.org/

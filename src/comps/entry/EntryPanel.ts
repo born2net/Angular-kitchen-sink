@@ -1,18 +1,17 @@
 import {Component} from '@angular/core';
 import {ForgotPass} from '../../../src/comps/entry/ForgotPass';
 import {LoginPanel} from '../../../src/comps/entry/LoginPanel';
-import {ROUTER_DIRECTIVES, RouteSegment} from '@angular/router';
-import {Routes} from '@angular/router';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 
 
-@Routes([
-    {path: '/Another2', component: LoginPanel},
-    {path: '/Another3', component: ForgotPass},
-    {path: '/ForgotPass', component: ForgotPass},
-    {path: '/Login', component: LoginPanel}
-])
+// @Routes([
+//     {path: '/Another2', component: LoginPanel},
+//     {path: '/Another3', component: ForgotPass},
+//     {path: '/ForgotPass', component: ForgotPass},
+//     {path: '/Login', component: LoginPanel}
+// ])
 @Component({
     providers: [LoginPanel],
     directives: [ROUTER_DIRECTIVES],
@@ -25,12 +24,11 @@ import {Consts} from "../../Conts";
                 <router-outlet></router-outlet>`
 })
 export class EntryPanel {
-    constructor(params:RouteSegment, commBroker:CommBroker) {
-        if (params.getParam('id') != null) {
-            commBroker.setValue(Consts.Values().USER_NAME, params.getParam('id'));
-        } else {
-            commBroker.setValue(Consts.Values().USER_NAME, 'foo-bar');
-        }
-
-    }
+    // constructor(params:RouteSegment, commBroker:CommBroker) {
+    //     if (params.getParam('id') != null) {
+    //         commBroker.setValue(Consts.Values().USER_NAME, params.getParam('id'));
+    //     } else {
+    //         commBroker.setValue(Consts.Values().USER_NAME, 'foo-bar');
+    //     }
+    // }
 }

@@ -53,29 +53,29 @@ export class Filemenu {
         self.el = viewContainer.element.nativeElement;
         self.m_fileMenuWrap = self.dom.getElementsByClassName(self.el, 'm_fileMenuWrap');
 
-        router.changes.subscribe(function (currentRoute) {
-        //router.subscribe(function (currentRoute) {
-            self.m_renderedItems = [];
-            for (var item in self.m_items) {
-                if (self.m_items[item]['app'] == currentRoute)
-                    self.m_renderedItems.push(self.m_items[item]);
-            }
-            if (self.m_renderedItems.length == 0) {
-                jQuery(self.m_fileMenuWrap).fadeOut('slow', function () {
-                    //notify ng2 of the changes so we comply with change strategy
-                    self.dom.setStyle(self.el, 'opacity', '0');
-                });
-            } else {
-                jQuery(self.m_fileMenuWrap).fadeIn('slow', function () {
-                    //notify ng2 of the changes so we comply with change strategy
-                    self.dom.setStyle(self.el, 'opacity', '1');
-                });
-
-                let app:App = self.m_commBroker.getService(Consts.Services().App);
-                app.appResized();
-            }
-            //console.log(`Route ${currentRoute}`);
-        });
+        // router.changes.subscribe(function (currentRoute) {
+        // //router.subscribe(function (currentRoute) {
+        //     self.m_renderedItems = [];
+        //     for (var item in self.m_items) {
+        //         if (self.m_items[item]['app'] == currentRoute)
+        //             self.m_renderedItems.push(self.m_items[item]);
+        //     }
+        //     if (self.m_renderedItems.length == 0) {
+        //         jQuery(self.m_fileMenuWrap).fadeOut('slow', function () {
+        //             //notify ng2 of the changes so we comply with change strategy
+        //             self.dom.setStyle(self.el, 'opacity', '0');
+        //         });
+        //     } else {
+        //         jQuery(self.m_fileMenuWrap).fadeIn('slow', function () {
+        //             //notify ng2 of the changes so we comply with change strategy
+        //             self.dom.setStyle(self.el, 'opacity', '1');
+        //         });
+        //
+        //         let app:App = self.m_commBroker.getService(Consts.Services().App);
+        //         app.appResized();
+        //     }
+        //     //console.log(`Route ${currentRoute}`);
+        // });
 
         jQuery('.navbar-nav').css({
             display: 'block'

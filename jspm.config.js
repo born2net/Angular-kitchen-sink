@@ -5,7 +5,6 @@ SystemJS.config({
     devConfig: {
         "map": {
             "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
-            "router": "npm:@angular/router@2.0.0-rc.1",
             "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
             "clean-css": "npm:clean-css@3.4.12",
             "https": "github:jspm/nodelibs-https@0.2.0-alpha",
@@ -521,6 +520,7 @@ SystemJS.config({
         "github:*/*.json"
     ],
     map: {
+        "router": "npm:@angular/router@3.0.0-alpha.3",
         "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
         "ng2-bs3-modal": "npm:ng2-bs3-modal@0.6.1",
         "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",

@@ -1,4 +1,4 @@
-// Compiled using typings@0.6.8
+// Compiled using typings@0.6.10
 // Source: https://raw.githubusercontent.com/typed-typings/npm-moment/a4075cd50e63efbedd850f654594f293ab81a385/moment.d.ts
 declare module 'moment/moment' {
 // Type definitions for Moment.js 2.10.5

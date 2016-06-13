@@ -54,8 +54,8 @@ export class SimpleList {
     ngDoCheck():void {
         var changes = this.differ.diff(this.list);
         if (changes) {
-            changes.forEachAddedItem(r => console.log('Added to movie list', JSON.stringify(r.item)));
-            changes.forEachRemovedItem(r => console.log('Removed from list', JSON.stringify(r.item)));
+            //changes.forEachAddedItem(r => console.log('Added to movie list', JSON.stringify(r.item)));
+            //changes.forEachRemovedItem(r => console.log('Removed from list', JSON.stringify(r.item)));
         }
     }
 

@@ -131,7 +131,7 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
                 };
                 TodoService = __decorate([
                     core_1.Injectable(),
-                    __param(0, core_1.Inject(TodoAction_1.TodoAction)), 
+                    __param(0, core_1.Inject(core_1.forwardRef(function () { return TodoAction_1.TodoAction; }))), 
                     __metadata('design:paramtypes', [TodoAction_1.TodoAction, http_1.Http, TodoStatsModel_1.default, index_1.AppStore])
                 ], TodoService);
                 return TodoService;

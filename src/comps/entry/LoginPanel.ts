@@ -51,7 +51,7 @@ export class User {
                       Sign in
                     </button>
                     <hr class="hrThin"/>
-                    <a [routerLink]="['/ForgotPass', 'ForgotPass']">Forgot password</a>
+                    <a [routerLink]="['/ForgotPass']">Forgot password</a>
                     <div id="languageSelectionLogin"></div>
                   </form>
                 </div>

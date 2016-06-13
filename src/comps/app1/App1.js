@@ -94,14 +94,6 @@ System.register(['@angular/core', '@angular/router', "@angular/http", "../sideme
                     this.routerActive = true;
                     this.commBroker.getService(Conts_1.Consts.Services().App).appResized();
                 };
-                App1.prototype.routerOnActivate = function (segment, tree) {
-                    this.routerActive = true;
-                    return new Promise(function (resolve) {
-                        setTimeout(function () {
-                            resolve(false);
-                        }, 3000);
-                    });
-                };
                 App1.prototype.listenMenuChanges = function () {
                     var self = this;
                     var unsub = self.commBroker.onEvent(Conts_1.Consts.Events().MENU_SELECTION).subscribe(function (e) {
@@ -112,13 +104,6 @@ System.register(['@angular/core', '@angular/router', "@angular/http", "../sideme
                     });
                 };
                 App1 = __decorate([
-                    router_1.Routes([
-                        { path: '/Todos', component: Todos_1.Todos },
-                        { path: '/Digg', component: Digg_1.Digg },
-                        { path: '/Settings', component: Settings_1.Settings },
-                        { path: '/Help', component: Help_1.Help },
-                        { path: '/Logout', component: Logout_1.Logout }
-                    ]),
                     core_1.Component({
                         providers: [http_1.HTTP_PROVIDERS, TodoStatsModel_1.default, TodoService_1.TodoService, TodoAction_1.TodoAction],
                         templateUrl: '/src/comps/app1/App1.html',

@@ -34,8 +34,6 @@ System.register(['@angular/core', "@angular/common", "@angular/router"], functio
                 SimpleList.prototype.ngDoCheck = function () {
                     var changes = this.differ.diff(this.list);
                     if (changes) {
-                        changes.forEachAddedItem(function (r) { return console.log('Added to movie list', JSON.stringify(r.item)); });
-                        changes.forEachRemovedItem(function (r) { return console.log('Removed from list', JSON.stringify(r.item)); });
                     }
                 };
                 SimpleList.prototype.getContent = function (item) {

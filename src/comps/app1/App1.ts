@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES, Routes, Router, OnActivate, Tree, RouteSegment} from '@angular/router';
+import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {HTTP_PROVIDERS} from "@angular/http";
 import {Menu} from "../sidemenu/Menu";
 import {MenuItem} from "../sidemenu/MenuItem";
@@ -24,13 +24,13 @@ import {TodoAction} from "./todos/actions/TodoAction";
 import {Todos} from "./todos/Todos";
 
 
-@Routes([
-    {path: '/Todos', component: Todos},
-    {path: '/Digg', component: Digg},
-    {path: '/Settings', component: Settings},
-    {path: '/Help', component: Help},
-    {path: '/Logout', component: Logout}
-])
+// @Routes([
+//     {path: '/Todos', component: Todos},
+//     {path: '/Digg', component: Digg},
+//     {path: '/Settings', component: Settings},
+//     {path: '/Help', component: Help},
+//     {path: '/Logout', component: Logout}
+// ])
 
 //CanActivate example of how to allow conditional route access after 10ms of Promise resolution
 //@CanActivate(() => {
@@ -68,15 +68,15 @@ export class App1 {
     //     // console.log(to.urlPath ? to.urlPath : '' + ' ' + from.urlPath);
     // }
 
-    routerOnActivate(segment:RouteSegment, tree:Tree<RouteSegment>) {
-        this.routerActive = true;
-        // demonstrate delay on routing, maybe to load some server data first or show loading bar
-        return new Promise((resolve) => {
-            setTimeout(()=> {
-                resolve(false);
-            }, 3000)
-        });
-    }
+    // routerOnActivate(segment:RouteSegment, tree:Tree<RouteSegment>) {
+    //     this.routerActive = true;
+    //     // demonstrate delay on routing, maybe to load some server data first or show loading bar
+    //     return new Promise((resolve) => {
+    //         setTimeout(()=> {
+    //             resolve(false);
+    //         }, 3000)
+    //     });
+    // }
 
     public listenMenuChanges() {
         var self = this;
