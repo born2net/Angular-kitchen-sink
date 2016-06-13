@@ -89,6 +89,7 @@ System.register(['@angular/core', '@angular/router', "@angular/http", "../sideme
                     this.commBroker = commBroker;
                     this.router = router;
                     this.listenMenuChanges();
+                    router.navigate(['/App1/Todos']);
                 }
                 App1.prototype.ngOnInit = function () {
                     this.routerActive = true;

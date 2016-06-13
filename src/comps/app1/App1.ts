@@ -51,6 +51,9 @@ export class App1 {
 
     constructor(private commBroker:CommBroker, private router:Router) {
         this.listenMenuChanges();
+
+        // redirect to To do's
+        router.navigate(['/App1/Todos']);
     }
 
     ngOnInit() {

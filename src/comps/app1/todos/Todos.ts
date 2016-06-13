@@ -3,6 +3,7 @@ import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {Todo1} from "./Todo1";
 import {Todo2} from "./Todo2";
 import {TodoList} from "./Todolist";
+import {TodoService} from "./TodoService";
 
 @Component({
     selector: 'Todos',
