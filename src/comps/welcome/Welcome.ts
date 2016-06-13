@@ -15,7 +15,7 @@ import {Component, OnInit} from "@angular/core";
                     <h4>Direct router shortcut links:</h4>
                     <a [routerLink]="['/EntryPanelNoId/Login']">To Login screen</a><br/>
                     <a [routerLink]="['/Login', {id: 'Sean-Levy'}, 'Login']">To Login screen with demo user args</a><br/>
-                    <a [routerLink]="['/ForgotPass', 'ForgotPass']">To Forgot Password screen</a><br/>
+                    <a [routerLink]="['/ForgotPass']">To Forgot Password screen</a><br/>
                     <a [routerLink]="['/AppManager']">To App manager</a><br/>
                     <a [routerLink]="['/App1']">To App1</a><br/>
                     <a [routerLink]="['/App2']">To App2</a><br/>

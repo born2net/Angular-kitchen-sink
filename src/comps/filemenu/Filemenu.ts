@@ -1,9 +1,7 @@
-///<reference path="../../../typings/app.d.ts" />
-
 import {Component, ViewContainerRef} from '@angular/core';
 import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
 import {FilemenuItem} from "./FilemenuItem";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute, UrlTree, NavigationStart} from "@angular/router";
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 import {App} from "../../../src/App";
@@ -44,7 +42,7 @@ export class Filemenu {
     private viewContainer:ViewContainerRef;
     private dom = new BrowserDomAdapter();
 
-    constructor(viewContainer:ViewContainerRef, router:Router, commBroker:CommBroker) {
+    constructor(viewContainer:ViewContainerRef, private router:Router, private r:ActivatedRoute, commBroker:CommBroker) {
         var self = this;
         self.m_commBroker = commBroker;
         self.m_items = [];
@@ -52,6 +50,43 @@ export class Filemenu {
         self.viewContainer = viewContainer;
         self.el = viewContainer.element.nativeElement;
         self.m_fileMenuWrap = self.dom.getElementsByClassName(self.el, 'm_fileMenuWrap');
+
+        this.router.events.subscribe((navigationStart:NavigationStart)=>{
+            var currentRoute:string = this.router.serializeUrl(navigationStart.url);
+            currentRoute = currentRoute.replace(/\//,'');
+            self.m_renderedItems = [];
+            for (var item in self.m_items) {
+                if (self.m_items[item]['app'] == currentRoute)
+                    self.m_renderedItems.push(self.m_items[item]);
+            }
+            if (self.m_renderedItems.length == 0) {
+                jQuery(self.m_fileMenuWrap).fadeOut('slow', function () {
+                    //notify ng2 of the changes so we comply with change strategy
+                    self.dom.setStyle(self.el, 'opacity', '0');
+                });
+            } else {
+                jQuery(self.m_fileMenuWrap).fadeIn('slow', function () {
+                    //notify ng2 of the changes so we comply with change strategy
+                    self.dom.setStyle(self.el, 'opacity', '1');
+                });
+
+                let app:App = self.m_commBroker.getService(Consts.Services().App);
+                app.appResized();
+            }
+        })
+
+
+        // const teamActivatedRoute = router.routerState(activeRoute);
+        // var teamId = teamActivatedRoute.params.map(r => r.id);
+
+        // var sub = this.activeRoute
+        //     .params
+        //     .subscribe(params => {
+        //         let id = +params['id'];
+        //     });
+        // this.router.events.subscribe((urlTree:UrlTree)=>{
+        //     console.log(urlTree);
+        // })
 
         // router.changes.subscribe(function (currentRoute) {
         // //router.subscribe(function (currentRoute) {

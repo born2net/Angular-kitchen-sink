@@ -28,7 +28,6 @@ const routes:RouterConfig = [
             {path: '/Settings', component: Settings},
             {path: '/Help', component: Help},
             {path: '/Logout', component: Logout}
-
         ]
     },
     {path: '/App2', component: App2},

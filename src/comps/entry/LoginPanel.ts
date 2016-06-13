@@ -1,7 +1,5 @@
-///<reference path="../../../typings/app.d.ts" />
-
 import {Component, Injectable} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
+import {ROUTER_DIRECTIVES, UrlTree, UrlSegment} from '@angular/router';
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 import {Router} from "@angular/router";
@@ -68,8 +66,19 @@ export class LoginPanel {
     private unsub:Function;
 
     constructor(private appStore:AppStore, router:Router, private commBroker:CommBroker) {
+
+        const currentUrlTree: UrlTree = router.urlTree;
+        // root segment
+        const root: UrlSegment = currentUrlTree.root;
+        // you can get the first child or the list of children of a segment
+        const firstChild: UrlSegment = currentUrlTree.firstChild(root);
+        // matrix parameters of a segment
+        const params: {[key:string]:string} = firstChild.parameters;
+        const path: string = firstChild.path;
+        // You can also serialize the tree back into a string.
+        const url: string = router.serializeUrl(currentUrlTree);
+
         this.myRouter = router;
-        console.log('this is a test 4');
         var user = commBroker.getValue(Consts.Values().USER_NAME);
         this.user = user || '';
         this.pass = user || '';
