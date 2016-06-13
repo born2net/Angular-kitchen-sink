@@ -42,7 +42,7 @@ export class Filemenu {
     private viewContainer:ViewContainerRef;
     private dom = new BrowserDomAdapter();
 
-    constructor(viewContainer:ViewContainerRef, private router:Router, private r:ActivatedRoute, commBroker:CommBroker) {
+    constructor(viewContainer:ViewContainerRef, private router:Router, private activatedRoute:ActivatedRoute, commBroker:CommBroker) {
         var self = this;
         self.m_commBroker = commBroker;
         self.m_items = [];

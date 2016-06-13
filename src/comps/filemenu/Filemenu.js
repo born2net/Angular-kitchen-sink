@@ -31,10 +31,10 @@ System.register(['@angular/core', '@angular/platform-browser/src/browser/browser
             }],
         execute: function() {
             Filemenu = (function () {
-                function Filemenu(viewContainer, router, r, commBroker) {
+                function Filemenu(viewContainer, router, activatedRoute, commBroker) {
                     var _this = this;
                     this.router = router;
-                    this.r = r;
+                    this.activatedRoute = activatedRoute;
                     this.dom = new browser_adapter_1.BrowserDomAdapter();
                     var self = this;
                     self.m_commBroker = commBroker;
