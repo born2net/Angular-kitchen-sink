@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', "../sidemenu/MenuItem", "../sidemenu/Menu", "../../services/CommBroker", "../../../src/Conts", "../sliderpanel/Sliderpanel", "./notes/Notes", "./notes/Notes1", "./notes/Notes2", "./notes/Notes3", "./notes/Notes4", "./notes/Notes5", "../digg/Digg", "@angular/http", "../logout/Logout", "./contact/Contact", "../dividerpanel/DividerPanel", "../modaldialog/ModalDialog", "./properties/Properties", "./weather/Weather"], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', "../sidemenu/MenuItem", "../sidemenu/Menu", "../../services/CommBroker", "../../../src/Conts", "../sliderpanel/Sliderpanel", "./notes/Notes", "./notes/Notes1", "./notes/Notes2", "./notes/Notes3", "./notes/Notes4", "./notes/Notes5", "../digg/Digg", "@angular/http", "./contact/Contact", "../dividerpanel/DividerPanel", "../modaldialog/ModalDialog", "./properties/Properties", "./weather/Weather"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', "../sidemenu/MenuItem", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, MenuItem_1, Menu_1, CommBroker_1, Conts_1, Sliderpanel_1, Notes_1, Notes1_1, Notes2_1, Notes3_1, Notes4_1, Notes5_1, Digg_1, http_1, Logout_1, Contact_1, DividerPanel_1, ModalDialog_1, Properties_1, Weather_1;
+    var core_1, router_1, MenuItem_1, Menu_1, CommBroker_1, Conts_1, Sliderpanel_1, Notes_1, Notes1_1, Notes2_1, Notes3_1, Notes4_1, Notes5_1, Digg_1, http_1, Contact_1, DividerPanel_1, ModalDialog_1, Properties_1, Weather_1;
     var App2;
     return {
         setters:[
@@ -58,9 +58,6 @@ System.register(['@angular/core', '@angular/router', "../sidemenu/MenuItem", "..
             },
             function (http_1_1) {
                 http_1 = http_1_1;
-            },
-            function (Logout_1_1) {
-                Logout_1 = Logout_1_1;
             },
             function (Contact_1_1) {
                 Contact_1 = Contact_1_1;
@@ -114,7 +111,7 @@ System.register(['@angular/core', '@angular/router', "../sidemenu/MenuItem", "..
                         templateUrl: '/src/comps/app2/App2.html',
                         providers: [http_1.HTTP_PROVIDERS],
                         directives: [router_1.ROUTER_DIRECTIVES, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties,
-                            Weather_1.Weather, Logout_1.Logout, Contact_1.Contact, ModalDialog_1.ModalDialog, Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Contact_1.Contact, ModalDialog_1.ModalDialog]
+                            Weather_1.Weather, Contact_1.Contact, ModalDialog_1.ModalDialog, Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Contact_1.Contact, ModalDialog_1.ModalDialog]
                     }), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], App2);

@@ -1,4 +1,4 @@
-System.register(["@angular/core"], function(exports_1, context_1) {
+System.register(["rxjs/Observable", "@angular/core", "@angular/router", 'rxjs/add/observable/fromPromise', 'rxjs/add/observable/bindCallback', 'bootbox'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,60 @@ System.register(["@angular/core"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var Observable_1, core_1, router_1, bootbox;
     var Logout;
     return {
         setters:[
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (_1) {},
+            function (_2) {},
+            function (bootbox_1) {
+                bootbox = bootbox_1;
             }],
         execute: function() {
             Logout = (function () {
-                function Logout() {
-                    jQuery('body').fadeOut(3000, function () {
-                        window.location.replace("https://github.com/born2net/ng2Boilerplate");
-                    });
+                function Logout(router) {
+                    this.router = router;
+                    this.allowNavigateAway = true;
                 }
+                Logout.prototype.onCanDeactivate = function () {
+                    this.allowNavigateAway = false;
+                    this.router.navigate(['/']);
+                };
+                Logout.prototype.canDeactivate = function () {
+                    if (this.allowNavigateAway) {
+                        return true;
+                    }
+                    var cb = function (result) {
+                        if (result) {
+                            jQuery('body').fadeOut(3000, function () {
+                                window.location.replace("https://github.com/born2net/ng2Boilerplate");
+                                return true;
+                            });
+                        }
+                        else {
+                            bootbox.hideAll();
+                            return false;
+                        }
+                    };
+                    bootbox.confirm("Are you sure you want to logout?", cb);
+                    var o = Observable_1.Observable.bindCallback(cb);
+                    return o;
+                };
                 Logout = __decorate([
                     core_1.Component({
                         selector: 'Logout',
-                        template: "\n        <h1><Center>Goodbye</Center></h1>\n        <small>I am Logout component</small>\n        "
+                        template: "\n                <h1><Center>Goodbye</Center></h1>\n                <small>I am Logout component</small>\n                <h5>Demo canDeactivate by moving to a new route and locking in canDeactivate on url changes </h5>\n                <button (click)=\"onCanDeactivate($event)\" class=\"btn btn-default\">Logout now</button>\n        "
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], Logout);
                 return Logout;
             }());

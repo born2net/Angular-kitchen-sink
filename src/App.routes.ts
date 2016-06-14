@@ -12,6 +12,7 @@ import {Digg} from "./comps/digg/Digg";
 import {Help} from "./comps/app1/help/Help";
 import {Logout} from "./comps/logout/Logout";
 import {Settings} from "./comps/app1/settings/Settings";
+import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
 
 const routes:RouterConfig = [
     {path: '/', component: EntryPanel},
@@ -27,7 +28,7 @@ const routes:RouterConfig = [
             {path: '/Digg', component: Digg},
             {path: '/Settings', component: Settings},
             {path: '/Help', component: Help},
-            {path: '/Logout', component: Logout}
+            {path: '/Logout', component: Logout, canDeactivate: [LogoutDeactivate]}
         ]
     },
     {path: '/App2', component: App2},

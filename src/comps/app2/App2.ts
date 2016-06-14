@@ -17,7 +17,6 @@ import {Notes4} from "./notes/Notes4";
 import {Notes5} from "./notes/Notes5";
 import {Digg} from "../digg/Digg";
 import {HTTP_PROVIDERS} from "@angular/http";
-import {Logout} from "../logout/Logout";
 import {Contact} from "./contact/Contact";
 import {DividerPanel} from "../dividerpanel/DividerPanel";
 import {ModalDialog} from "../modaldialog/ModalDialog";
@@ -31,7 +30,7 @@ import {Weather} from "./weather/Weather";
     templateUrl: '/src/comps/app2/App2.html',
     providers: [HTTP_PROVIDERS],
     directives: [ROUTER_DIRECTIVES, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties,
-        Weather, Logout, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog]
+        Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog]
 })
 
 export class App2 {

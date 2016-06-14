@@ -3,7 +3,6 @@
 import "zone.js/dist/zone";
 import "zone.js/dist/long-stack-trace-zone";
 import "reflect-metadata";
-// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
 import {ROUTER_DIRECTIVES} from "@angular/router";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef, enableProdMode} from "@angular/core";
@@ -14,11 +13,6 @@ import {CharCount} from "./pipes/CharCount";
 import {AuthService} from "./services/AuthService";
 import {appInjService} from "./services/AppInjService";
 import {HTTP_PROVIDERS, JSONP_PROVIDERS} from "@angular/http";
-import {App1} from "../src/comps/app1/App1";
-import {App2} from "../src/comps/app2/App2";
-import {App3} from "../src/comps/app3/App3";
-import {EntryPanel} from "../src/comps/entry/EntryPanel";
-import {AppManager} from "../src/comps/appmanager/AppManager";
 import {CommBroker} from "../src/services/CommBroker";
 import {Filemenu} from "../src/comps/filemenu/Filemenu";
 import {FilemenuItem} from "../src/comps/filemenu/FilemenuItem";
@@ -41,8 +35,9 @@ import notify from "./reducers/NotifyReducer";
 import appdb from "./reducers/AppdbReducer";
 import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {AppdbAction} from "./actions/AppdbAction";
-import {Welcome} from "./comps/welcome/Welcome";
 import {APP_ROUTER_PROVIDERS} from "./App.routes";
+import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
+// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
 // import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from '@angular/router';
 // import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from '@angular/router';
 
@@ -99,6 +94,7 @@ var modules = [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS, JSONP_PROVIDERS,
     provide(AppStore, {useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})}),
     provide(CommBroker, {useClass: CommBroker}),
     provide(AuthService, {useClass: AuthService}),
+    provide(LogoutDeactivate, {useClass: LogoutDeactivate}),
     provide(PLATFORM_PIPES, {useValue: CharCount, multi: true}),
     provide(Consts, {useClass: Consts}),
     provide(LocationStrategy, {useClass: HashLocationStrategy})];
