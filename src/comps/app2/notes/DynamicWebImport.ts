@@ -16,7 +16,7 @@ export class DynamicWebImport {
     }
 
     ngAfterViewInit() {
-        const url = 'https://gist.githubusercontent.com/johnlindquist/90c0a12814939738809ae0dceacdcf93/raw/e95c3204af1335693a45d65dbb61162824ad5ab8/loadMe.ts';
+        const url = 'https://raw.githubusercontent.com/born2net/ng2Boilerplate/master/src/comps/app2/notes/LoadMe.ts';
         const importer = url => Observable.fromPromise(System.import(url));
         const resolve = comp => Observable.fromPromise(this.compResolver.resolveComponent(comp));
         importer(url)
