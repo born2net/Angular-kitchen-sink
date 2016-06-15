@@ -9,10 +9,11 @@ import {WikiSearch} from "./WikiSearch";
 import {InfinityScroll} from "./InfinityScroll";
 import {Clock} from "./Clock";
 import {MultiSlotTransclusion} from "./MultiSlotTransclusion";
+import {CompFactory} from "./CompFactory";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -50,9 +51,11 @@ import {MultiSlotTransclusion} from "./MultiSlotTransclusion";
                         <h3>This is a footer</h3>
                       </div>
                     </MultiSlotTransclusion>
-                     
                   </mini-tab>
-                  <mini-tab tabTitle="Code 6">Code 6 Content</mini-tab>
+                  <mini-tab [tabTitle]="'Code 6'">
+                    <h3>Dynamic component factory</h3>
+                    <CompFactory></CompFactory>
+                  </mini-tab>
                   <mini-tab tabTitle="Code 7">Code 7 Content</mini-tab>
                   <mini-tab tabTitle="Code 8">Code 8 Content</mini-tab>
                   <mini-tab tabTitle="Code 9">Code 9 Content</mini-tab>
