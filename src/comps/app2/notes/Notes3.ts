@@ -4,10 +4,14 @@ import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {Minitab} from "../../minitabs/Minitab";
 import {Minitabs} from "../../minitabs/Minitabs";
+import {StarWarsSearch} from "./StarWarsSearch";
+import {WikiSearch} from "./WikiSearch";
+import {InfinityScroll} from "./InfinityScroll";
+import {Clock} from "./Clock";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -18,11 +22,28 @@ import {Minitabs} from "../../minitabs/Minitabs";
                 <small>I am notes3 component</small>
                 <!-- style is really cool as we can externally style components via ngStyle -->
                  <mini-tabs [style]="{'color': '#333333', 'backgroundColor': 'dodgerblue'}">
-                  <mini-tab [tabTitle]="'Tab 1'">Tab 1 Content</mini-tab>
-                  <mini-tab tabTitle="Tab 2">Tab 2 Content</mini-tab>
-                  <mini-tab tabTitle="Tab 3">Tab 3 Content</mini-tab>
-                  <mini-tab tabTitle="Tab 4">Tab 4 Content</mini-tab>
-                  <mini-tab tabTitle="Tab 5">Tab 5 Content</mini-tab>
+                  <mini-tab [tabTitle]="'Code 1'">
+                    <h3>example of http search</h3>
+                    <StarWarsSearch></StarWarsSearch>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 2'">
+                    <h3>example of wiki search</h3>
+                     <WikiSearch></WikiSearch>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 3'">
+                    <h3>infinity scroll</h3>
+                     <InfinityScroll></InfinityScroll>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 4'">
+                    <h3>Clock</h3>
+                     <Clock></Clock>
+                  </mini-tab>
+                  <mini-tab tabTitle="Code 5">Code 5 Content</mini-tab>
+                  <mini-tab tabTitle="Code 6">Code 6 Content</mini-tab>
+                  <mini-tab tabTitle="Code 7">Code 7 Content</mini-tab>
+                  <mini-tab tabTitle="Code 8">Code 8 Content</mini-tab>
+                  <mini-tab tabTitle="Code 9">Code 9 Content</mini-tab>
+                  <mini-tab tabTitle="Code 10">Code 10 Content</mini-tab>
                 </mini-tabs>
                 <small>I am a Minitab component (@ContentChildren)</small>
                 <ng-content></ng-content>`

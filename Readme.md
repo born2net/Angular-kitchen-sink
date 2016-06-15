@@ -43,13 +43,13 @@ to learn more about hot-reload you can visit: https://github.com/capaj/systemjs-
 development standard mode:
 ```
 gulp development
-open browser to: http://localhost:8080/src/public/index.html#/Login/Login
+open browser to: http://localhost:8080/src/public/index.html#/Welcome
 ```
 <hr/>
 development hot-reload mode:
 ```
 npm run devserver
-open browser to: http://localhost:9089/src/public/index.html#/Login/Login
+open browser to: http://localhost:9089/src/public/index.html#/Welcome
 ```
 <hr/>
 

@@ -48,6 +48,10 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
                 </MyIp>
                 <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>
                 <input type="text" trimmed-input />
+                <hr/>
+                <h5>Press enter to jump to next input</h5>
+                <input (keyup.enter)="next.focus()">
+                <input #next>
                 `
 })
 

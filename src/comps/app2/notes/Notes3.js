@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "../../minitabs/Minitab", "../../minitabs/Minitabs"], function(exports_1, context_1) {
+System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "../../minitabs/Minitab", "../../minitabs/Minitabs", "./StarWarsSearch", "./WikiSearch", "./InfinityScroll", "./Clock"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,7 +15,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, Minitab_1, Minitabs_1;
+    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, Minitab_1, Minitabs_1, StarWarsSearch_1, WikiSearch_1, InfinityScroll_1, Clock_1;
     var Notes3;
     return {
         setters:[
@@ -36,6 +36,18 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
             },
             function (Minitabs_1_1) {
                 Minitabs_1 = Minitabs_1_1;
+            },
+            function (StarWarsSearch_1_1) {
+                StarWarsSearch_1 = StarWarsSearch_1_1;
+            },
+            function (WikiSearch_1_1) {
+                WikiSearch_1 = WikiSearch_1_1;
+            },
+            function (InfinityScroll_1_1) {
+                InfinityScroll_1 = InfinityScroll_1_1;
+            },
+            function (Clock_1_1) {
+                Clock_1 = Clock_1_1;
             }],
         execute: function() {
             Notes3 = (function (_super) {
@@ -51,8 +63,8 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                 Notes3 = __decorate([
                     core_1.Component({
                         selector: 'Notes3',
-                        directives: [Minitab_1.Minitab, Minitabs_1.Minitabs],
-                        template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes3 component</small>\n                <!-- style is really cool as we can externally style components via ngStyle -->\n                 <mini-tabs [style]=\"{'color': '#333333', 'backgroundColor': 'dodgerblue'}\">\n                  <mini-tab [tabTitle]=\"'Tab 1'\">Tab 1 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 2\">Tab 2 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 3\">Tab 3 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 4\">Tab 4 Content</mini-tab>\n                  <mini-tab tabTitle=\"Tab 5\">Tab 5 Content</mini-tab>\n                </mini-tabs>\n                <small>I am a Minitab component (@ContentChildren)</small>\n                <ng-content></ng-content>"
+                        directives: [Minitab_1.Minitab, Minitabs_1.Minitabs, StarWarsSearch_1.StarWarsSearch, WikiSearch_1.WikiSearch, InfinityScroll_1.InfinityScroll, Clock_1.Clock],
+                        template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes3 component</small>\n                <!-- style is really cool as we can externally style components via ngStyle -->\n                 <mini-tabs [style]=\"{'color': '#333333', 'backgroundColor': 'dodgerblue'}\">\n                  <mini-tab [tabTitle]=\"'Code 1'\">\n                    <h3>example of http search</h3>\n                    <StarWarsSearch></StarWarsSearch>\n                  </mini-tab>\n                  <mini-tab [tabTitle]=\"'Code 2'\">\n                    <h3>example of wiki search</h3>\n                     <WikiSearch></WikiSearch>\n                  </mini-tab>\n                  <mini-tab [tabTitle]=\"'Code 3'\">\n                    <h3>infinity scroll</h3>\n                     <InfinityScroll></InfinityScroll>\n                  </mini-tab>\n                  <mini-tab [tabTitle]=\"'Code 4'\">\n                    <h3>Clock</h3>\n                     <Clock></Clock>\n                  </mini-tab>\n                  <mini-tab tabTitle=\"Code 5\">Code 5 Content</mini-tab>\n                  <mini-tab tabTitle=\"Code 6\">Code 6 Content</mini-tab>\n                  <mini-tab tabTitle=\"Code 7\">Code 7 Content</mini-tab>\n                  <mini-tab tabTitle=\"Code 8\">Code 8 Content</mini-tab>\n                  <mini-tab tabTitle=\"Code 9\">Code 9 Content</mini-tab>\n                  <mini-tab tabTitle=\"Code 10\">Code 10 Content</mini-tab>\n                </mini-tabs>\n                <small>I am a Minitab component (@ContentChildren)</small>\n                <ng-content></ng-content>"
                     }), 
                     __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes3);
