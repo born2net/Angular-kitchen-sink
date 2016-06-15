@@ -70,6 +70,9 @@ export class Welcome implements OnInit {
      * If we run into one of these scenarios, we can use the DoCheck hook.
      * It’s important to note that the OnChanges hook gets overriden by DoCheck so
      * if we implement both, OnChanges will be ignored.
+     *
+     * great article on writing custom logic when things change
+     * http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html
      */
     //ngDoCheck(changes: {[propName: string]: SimpleChange}): void {
     //    console.log(3);

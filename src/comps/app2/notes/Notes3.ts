@@ -8,10 +8,11 @@ import {StarWarsSearch} from "./StarWarsSearch";
 import {WikiSearch} from "./WikiSearch";
 import {InfinityScroll} from "./InfinityScroll";
 import {Clock} from "./Clock";
+import {MultiSlotTransclusion} from "./MultiSlotTransclusion";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -37,8 +38,20 @@ import {Clock} from "./Clock";
                   <mini-tab [tabTitle]="'Code 4'">
                     <h3>Clock</h3>
                      <Clock></Clock>
+                  </mini-tab>       
+                  <mini-tab [tabTitle]="'Code 5'">
+                    <h3>Multi Slot Transclusion</h3>
+                    <MultiSlotTransclusion>
+                    <h1>THIS WILL NOT APPEAR ANYWHERE AS NO MATCHING TAG EXISTS ON H1</h1>
+                    <h1 header>This is a Heading</h1>
+                      <p body>This is body</p>
+                      <div footer>
+                        <hr>
+                        <h3>This is a footer</h3>
+                      </div>
+                    </MultiSlotTransclusion>
+                     
                   </mini-tab>
-                  <mini-tab tabTitle="Code 5">Code 5 Content</mini-tab>
                   <mini-tab tabTitle="Code 6">Code 6 Content</mini-tab>
                   <mini-tab tabTitle="Code 7">Code 7 Content</mini-tab>
                   <mini-tab tabTitle="Code 8">Code 8 Content</mini-tab>
