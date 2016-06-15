@@ -10,10 +10,12 @@ import {InfinityScroll} from "./InfinityScroll";
 import {Clock} from "./Clock";
 import {MultiSlotTransclusion} from "./MultiSlotTransclusion";
 import {CompFactory} from "./CompFactory";
+import {EmbedView} from "./EmbedView";
+import {DynamicWebImport} from "./DynamicWebImport";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -56,8 +58,14 @@ import {CompFactory} from "./CompFactory";
                     <h3>Dynamic component factory</h3>
                     <CompFactory></CompFactory>
                   </mini-tab>
-                  <mini-tab tabTitle="Code 7">Code 7 Content</mini-tab>
-                  <mini-tab tabTitle="Code 8">Code 8 Content</mini-tab>
+                  <mini-tab [tabTitle]="'Code 7'">
+                    <h3>Embed Template view</h3>
+                    <EmbedView></EmbedView>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 8'">
+                    <h3>Web Component import</h3>
+                    <DynamicWebImport></DynamicWebImport>
+                  </mini-tab>
                   <mini-tab tabTitle="Code 9">Code 9 Content</mini-tab>
                   <mini-tab tabTitle="Code 10">Code 10 Content</mini-tab>
                 </mini-tabs>

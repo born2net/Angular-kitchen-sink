@@ -29,8 +29,18 @@ import 'rxjs/add/operator/delay';
   `
 })
 export class InfinityScroll {
-    constructor(el:ElementRef) {
+    constructor(private elementRef:ElementRef) {
     }
+
+    // ngOnInit() {
+    //     const element = this.elementRef.nativeElement;
+    //     setInterval(()=>{
+    //         if(element.offsetParrent == null) {
+    //             console.log('off')
+    //         }
+    //     },2000)
+    //
+    // }
 
     show = false;
     items$:any = Observable
