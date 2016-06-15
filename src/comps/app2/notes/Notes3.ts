@@ -14,10 +14,11 @@ import {EmbedView} from "./EmbedView";
 import {DynamicWebImport} from "./DynamicWebImport";
 import {CompBuilder} from "./CompBuilder";
 import {CompElemBuilder} from "./CompElemBuilder";
+import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -76,7 +77,11 @@ import {CompElemBuilder} from "./CompElemBuilder";
                     <h3>Component builder</h3>
                     <CompElemBuilder></CompElemBuilder>
                   </mini-tab>
-                </mini-tabs>
+                   <mini-tab [tabTitle]="'Code 11'">
+                    <h3>Using a Differ to Dynamically create and Render Templates</h3>
+                    <CreateEmbedDiffer></CreateEmbedDiffer>
+                  </mini-tab>                   
+
                 <small>I am a Minitab component (@ContentChildren)</small>
                 <ng-content></ng-content>`
 })
