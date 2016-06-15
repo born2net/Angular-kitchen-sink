@@ -22,13 +22,13 @@ import {
     }
 `],
     template: `
-<template #word let-greeting="message">
-  <div>{{greeting}}</div>
-</template>
-
-<div #container class="container">
-  <div #target ></div>
-</div>
+        <template #word let-greeting="message">
+          <div>{{greeting}}</div>
+        </template>
+        
+        <div #container class="container">
+          <div #target ></div>
+        </div>
   `
 })
 export class CardComponent {
@@ -51,7 +51,6 @@ export class CardComponent {
         }
     }
 }
-
 
 @Component({
     selector: 'CreateEmbedDiffer',
