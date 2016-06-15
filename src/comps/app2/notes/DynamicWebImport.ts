@@ -16,11 +16,11 @@ export class DynamicWebImport {
     }
 
     ngAfterViewInit() {
-        const url = 'https://raw.githubusercontent.com/born2net/ng2Boilerplate/master/src/comps/app2/notes/LoadMe.ts';
+        const url = 'https://raw.githubusercontent.com/born2net/ng2Boilerplate/master/src/comps/app2/notes/LoadMeComp.ts';
         const importer = url => Observable.fromPromise(System.import(url));
         const resolve = comp => Observable.fromPromise(this.compResolver.resolveComponent(comp));
         importer(url)
-            .switchMap(comp => resolve(comp['LoadMe']))
+            .switchMap(comp => resolve(comp['LoadMeComp']))
             .subscribe(factory => this.putStuffHere.createComponent(factory))
     }
 }

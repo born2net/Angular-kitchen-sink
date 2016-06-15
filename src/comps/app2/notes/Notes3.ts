@@ -12,10 +12,12 @@ import {MultiSlotTransclusion} from "./MultiSlotTransclusion";
 import {CompFactory} from "./CompFactory";
 import {EmbedView} from "./EmbedView";
 import {DynamicWebImport} from "./DynamicWebImport";
+import {CompBuilder} from "./CompBuilder";
+import {CompElemBuilder} from "./CompElemBuilder";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -66,8 +68,14 @@ import {DynamicWebImport} from "./DynamicWebImport";
                     <h3>Web Component import</h3>
                     <DynamicWebImport></DynamicWebImport>
                   </mini-tab>
-                  <mini-tab tabTitle="Code 9">Code 9 Content</mini-tab>
-                  <mini-tab tabTitle="Code 10">Code 10 Content</mini-tab>
+                  <mini-tab [tabTitle]="'Code 9'">
+                    <h3>Component builder</h3>
+                    <CompBuilder></CompBuilder>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 10'">
+                    <h3>Component builder</h3>
+                    <CompElemBuilder></CompElemBuilder>
+                  </mini-tab>
                 </mini-tabs>
                 <small>I am a Minitab component (@ContentChildren)</small>
                 <ng-content></ng-content>`
