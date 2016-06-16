@@ -90,6 +90,7 @@ What features of Angular does this app cover? everything:
 - jQuery integration the Angular way via BrowserDomAdapter
 - Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)
 - CommBroker dependency service, value sharing / mediator design pattern
+- Custom @Decorator (@StyleDecorator) for components
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration

@@ -1,11 +1,28 @@
 import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import TodoStatsModel from "./TodoStatsModel";
+import {StyleDecorator} from '../../../comps/styledecorator/StyleDecorator';
+
+var backgroundColor = "#FFFFFF",
+    lightGray = "#EDEDED",
+    padding = "10px";
+
+/**
+ * A really cool example of using a custom decorator for a component, see  StyleDecorator source
+ * reference: https://github.com/cstefanache/ng2-styler
+ **/
+@StyleDecorator({
+    "div": {
+        padding: '1em',
+        backgroundColor: '#fff9f9',
+    }
+})
 
 @Component({
     selector: 'Todo2',
     styleUrls: ['../comps/app1/todos/TodoStatsModel.css'],
-    template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
+    template: ` <div>
+                     <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                     </button>
                     <small>I am todo2 component</small>
@@ -43,6 +60,7 @@ import TodoStatsModel from "./TodoStatsModel";
 
                         </div>
                     </div>
+                </div>
                     `
 })
 
