@@ -16,12 +16,13 @@ import {CompBuilder} from "./CompBuilder";
 import {CompElemBuilder} from "./CompElemBuilder";
 import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
 import {ToggleButtonApp} from "./ToggleButton";
+import {StreamButton} from "./StreamButton";
 
 @Component({
     selector: 'Notes3',
     directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
         Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
-        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp],
+        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -90,6 +91,10 @@ import {ToggleButtonApp} from "./ToggleButton";
                       [(on)]="state" // so you can use other banana in a box and not just [(ngModel)] 
                     ]]></pre>
                     <ToggleButtonApp></ToggleButtonApp>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 13'">
+                    <h3>Streaming buttons via BehaviorSubject</h3>
+                    <StreamButton></StreamButton>
                   </mini-tab>
                 </mini-tabs>
                     
