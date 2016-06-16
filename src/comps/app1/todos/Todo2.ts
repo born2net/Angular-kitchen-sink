@@ -22,6 +22,8 @@ var backgroundColor = "#FFFFFF",
     selector: 'Todo2',
     styleUrls: ['../comps/app1/todos/TodoStatsModel.css'],
     template: ` <div>
+                     <h5>this component is decorator using a custom @StyleDecorator({}) </h5>
+                     <hr>
                      <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                     </button>
