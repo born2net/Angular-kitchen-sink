@@ -43,9 +43,7 @@ export class StreamButton {
         this.toggleButton.on$.next(false);
 
         this.toggleButton.on$
-            .switchMap(bool => bool
-                ? Observable.interval(250)
-                : Observable.empty())
+            .switchMap(bool => bool ? Observable.interval(250) : Observable.empty())
             .startWith(0)
             .subscribe(this.incrementingDisplay.display$);
     }
