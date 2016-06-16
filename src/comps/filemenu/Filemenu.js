@@ -32,7 +32,6 @@ System.register(['@angular/core', '@angular/platform-browser/src/browser/browser
         execute: function() {
             Filemenu = (function () {
                 function Filemenu(viewContainer, router, activatedRoute, commBroker) {
-                    var _this = this;
                     this.router = router;
                     this.activatedRoute = activatedRoute;
                     this.dom = new browser_adapter_1.BrowserDomAdapter();
@@ -44,25 +43,7 @@ System.register(['@angular/core', '@angular/platform-browser/src/browser/browser
                     self.el = viewContainer.element.nativeElement;
                     self.m_fileMenuWrap = self.dom.getElementsByClassName(self.el, 'm_fileMenuWrap');
                     this.router.events.subscribe(function (navigationStart) {
-                        var currentRoute = _this.router.serializeUrl(navigationStart.url);
-                        currentRoute = currentRoute.replace(/\//, '');
-                        self.m_renderedItems = [];
-                        for (var item in self.m_items) {
-                            if (self.m_items[item]['app'] == currentRoute)
-                                self.m_renderedItems.push(self.m_items[item]);
-                        }
-                        if (self.m_renderedItems.length == 0) {
-                            jQuery(self.m_fileMenuWrap).fadeOut('slow', function () {
-                                self.dom.setStyle(self.el, 'opacity', '0');
-                            });
-                        }
-                        else {
-                            jQuery(self.m_fileMenuWrap).fadeIn('slow', function () {
-                                self.dom.setStyle(self.el, 'opacity', '1');
-                            });
-                            var app = self.m_commBroker.getService(Conts_1.Consts.Services().App);
-                            app.appResized();
-                        }
+                        return;
                     });
                     jQuery('.navbar-nav').css({
                         display: 'block'

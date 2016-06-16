@@ -24,6 +24,7 @@ const routes:RouterConfig = [
     {
         path: '/App1', component: App1,
         children: [
+            {path: '/', component: App1},
             {path: '/Todos', component: Todos},
             {path: '/Digg', component: Digg},
             {path: '/Settings', component: Settings},
@@ -36,7 +37,7 @@ const routes:RouterConfig = [
     {
         path: '/EntryPanelNoId', component: EntryPanel,
         children: [
-            {path: '/Another2', component: LoginPanel, index: true},
+            {path: '/Another2', component: LoginPanel},
             {path: '/Another3', component: ForgotPass},
             {path: '/Login', component: LoginPanel}
 
@@ -44,15 +45,15 @@ const routes:RouterConfig = [
     },
     {
         path: '/EntryPanel/:id', component: EntryPanel, children: [
-        {path: '/', component: AppManager, index: true},
+        {path: '/', component: AppManager},
         {path: '/:id', component: AppManager}
 
     ]
     },
     {
-        path: '/crisis-center', component: Welcome, index: true,
+        path: '/crisis-center', component: Welcome,
         children: [
-            {path: '/', component: AppManager, index: true},
+            {path: '/', component: AppManager},
             {path: '/:id', component: AppManager}
 
         ]
@@ -60,7 +61,7 @@ const routes:RouterConfig = [
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes)
+    provideRouter(routes, { enableTracing: true })
 ];
 
 

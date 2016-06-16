@@ -56,12 +56,6 @@ System.register(['@angular/core', '@angular/router', "../../services/CommBroker"
                 function LoginPanel(appStore, router, commBroker) {
                     this.appStore = appStore;
                     this.commBroker = commBroker;
-                    var currentUrlTree = router.urlTree;
-                    var root = currentUrlTree.root;
-                    var firstChild = currentUrlTree.firstChild(root);
-                    var params = firstChild.parameters;
-                    var path = firstChild.path;
-                    var url = router.serializeUrl(currentUrlTree);
                     this.myRouter = router;
                     var user = commBroker.getValue(Conts_1.Consts.Values().USER_NAME);
                     this.user = user || '';

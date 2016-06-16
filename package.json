@@ -19,11 +19,11 @@
   "devDependencies": {
     "http-server": "^0.9",
     "chokidar-socket-emitter": "^0.5",
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/platform-browser": "^2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "@angular/common": "^2.0.0-rc.2",
+    "@angular/compiler": "^2.0.0-rc.2",
+    "@angular/core": "^2.0.0-rc.2",
+    "@angular/platform-browser": "^2.0.0-rc.2",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.2",
     "angular-cli": "0.0.*",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
@@ -89,7 +89,7 @@
     "tslint": "^3.2.1",
     "tslint-loader": "^2.1.0",
     "typedoc": "^0.3.12",
-    "typescript": "^1.7.3",
+    "typescript": "^1.9.0-dev.20160615-1.0",
     "typings": "^0.6.8",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.16",
@@ -101,10 +101,11 @@
       "lib": "src"
     },
     "dependencies": {
-      "angular-common": "npm:@angular/common@^2.0.0-rc.1",
-      "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.1",
-      "angular-core": "npm:@angular/core@^2.0.0-rc.1",
-      "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.1",
+      "@angular/router@3.0.0-alpha.6": "npm:@angular/router@3.0.0-alpha.6",
+      "angular-common": "npm:@angular/common@^2.0.0-rc.2",
+      "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.2",
+      "angular-core": "npm:@angular/core@^2.0.0-rc.2",
+      "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.2",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -121,15 +122,14 @@
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.16",
       "redux-thunk": "npm:redux-thunk@^2.1.0",
       "reselect": "npm:reselect@^2.0.3",
-      "router": "npm:@angular/router@3.0.0-alpha.3",
+      "router": "npm:@angular/router@3.0.0-alpha.6",
       "text": "github:systemjs/plugin-text@^0.0.4",
       "ts": "github:frankwallis/plugin-typescript@^4",
-      "typescript": "npm:typescript@1.8.7",
+      "typescript": "npm:typescript@^1.9.0-dev.20160615-1.0",
       "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
-      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
-      "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.2",
       "clean-css": "npm:clean-css@^3.4.9",
       "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
       "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
@@ -138,12 +138,13 @@
       "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.1",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
+      "@angular/common": "npm:@angular/common@2.0.0-rc.2",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.2",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.2",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.2",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.2",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
@@ -201,7 +202,7 @@
           }
         }
       },
-      "npm:@angular/common@2.0.0-rc.1": {
+      "npm:@angular/common@2.0.0-rc.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -211,7 +212,7 @@
           }
         }
       },
-      "npm:@angular/compiler@2.0.0-rc.1": {
+      "npm:@angular/compiler@2.0.0-rc.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -221,7 +222,7 @@
           }
         }
       },
-      "npm:@angular/core@2.0.0-rc.1": {
+      "npm:@angular/core@2.0.0-rc.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -231,7 +232,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.0.0-rc.1": {
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -241,7 +242,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser@2.0.0-rc.1": {
+      "npm:@angular/platform-browser@2.0.0-rc.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -262,6 +263,20 @@
           }
         }
       },
+      "npm:debug@2.2.0": {
+        "main": "browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./browser.js": {
+            "node": "./node.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
       "npm:inherits@2.0.1": {
         "ignore": [
           "test.js"
@@ -272,6 +287,10 @@
       },
       "npm:moment@2.13.0": {
         "jspmNodeConversion": false
+      },
+      "npm:ms@0.7.1": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
       },
       "npm:readable-stream@1.0.34": {
         "map": {
@@ -322,15 +341,15 @@
     }
   },
   "dependencies": {
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/http": "^2.0.0-rc.1",
-    "@angular/platform-browser": "^2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
-    "@angular/router": "@angular/router@3.0.0-alpha.3",
+    "@angular/common": "^2.0.0-rc.2",
+    "@angular/compiler": "^2.0.0-rc.2",
+    "@angular/core": "^2.0.0-rc.2",
+    "@angular/http": "^2.0.0-rc.2",
+    "@angular/platform-browser": "^2.0.0-rc.2",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.2",
+    "@angular/router": "^3.0.0-alpha.6",
     "rxjs": "^5.0.0-beta.6",
+    "typescript": "^1.9.0-dev.20160615-1.0",
     "zone.js": "^0.6.12"
   }
 }
-
