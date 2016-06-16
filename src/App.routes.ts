@@ -61,9 +61,8 @@ const routes:RouterConfig = [
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes, { enableTracing: true })
+    provideRouter(routes, { enableTracing: false })
 ];
-
 
 // pre rc.2 router config
 //{path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},

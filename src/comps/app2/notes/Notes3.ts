@@ -15,10 +15,13 @@ import {DynamicWebImport} from "./DynamicWebImport";
 import {CompBuilder} from "./CompBuilder";
 import {CompElemBuilder} from "./CompElemBuilder";
 import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
+import {ToggleButtonApp} from "./ToggleButton";
 
 @Component({
     selector: 'Notes3',
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer],
+    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
+        Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
+        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -81,7 +84,15 @@ import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
                     <h3>Using a Differ to Dynamically create and Render Templates</h3>
                     <CreateEmbedDiffer></CreateEmbedDiffer>
                   </mini-tab>                   
-
+                  <mini-tab [tabTitle]="'Code 12'">
+                    <h3>Using two way binding into a component </h3>
+                    <pre><![CDATA[
+                      [(on)]="state" // so you can use other banana in a box and not just [(ngModel)] 
+                    ]]></pre>
+                    <ToggleButtonApp></ToggleButtonApp>
+                  </mini-tab>
+                </mini-tabs>
+                    
                 <small>I am a Minitab component (@ContentChildren)</small>
                 <ng-content></ng-content>`
 })
