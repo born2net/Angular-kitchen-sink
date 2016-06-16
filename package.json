@@ -349,7 +349,7 @@
     "@angular/platform-browser-dynamic": "^2.0.0-rc.2",
     "@angular/router": "^3.0.0-alpha.6",
     "rxjs": "^5.0.0-beta.6",
-    "typescript": "^1.9.0-dev.20160615-1.0",
+    "typescript": "^1.9",
     "zone.js": "^0.6.12"
   }
 }

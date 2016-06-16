@@ -4,6 +4,11 @@ import {Directive, HostListener, HostBinding} from "@angular/core";
     selector: 'a[data-footer]'
 })
 export class Footer {
+    // @HostListener('keyup', ['$event'])
+    // onHostKeyup($event){
+    //     console.log($event.target.value);
+    // }
+
     @HostListener('mouseover', ['$event.target'])
     onClick(link) {
         console.log("Let's go to Github...");
