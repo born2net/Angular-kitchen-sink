@@ -31,6 +31,10 @@ npm install jspm -g
 npm install
 ```
 <hr/>
+the project uses TypeScript 1.9+ since it is powered by ng2 latest router
+npm install typescript@next --save
+
+<hr/>
 if you wish to use hot-reload so you can reload components as soon as you save for super quick development process, be sure to install the following:
 ```
 npm install chokidar-socket-emitter --save-dev
