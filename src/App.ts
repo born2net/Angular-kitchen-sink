@@ -96,8 +96,7 @@ var modules = [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS, JSONP_PROVIDERS,
     provide(AuthService, {useClass: AuthService}),
     provide(LogoutDeactivate, {useClass: LogoutDeactivate}),
     provide(PLATFORM_PIPES, {useValue: CharCount, multi: true}),
-    provide(Consts, {useClass: Consts}),
-    provide(LocationStrategy, {useClass: HashLocationStrategy})];
+    provide(Consts, {useClass: Consts})];
 
 if (!Lib.DevMode())
     enableProdMode();
