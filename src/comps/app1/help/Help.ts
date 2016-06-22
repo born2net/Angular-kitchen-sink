@@ -14,7 +14,7 @@ import {Tab} from "../../tabs/tab";
                 <a href="https://github.com/valor-software/ng2-bootstrap" target="_blank">ng2-bootstrap</a></small>
                 <br/>
                 <alert type="info">Welcome to Angular2 Bootstrap starter pack!</alert>
-                <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" [titles]="['one','two','three']" ></rating>
+                <!--<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" [titles]="['one','two','three']" ></rating>-->
                 <br/>
                   <tabs>
                     <tab [tabtitle]="'About this app'">
@@ -23,7 +23,7 @@ import {Tab} from "../../tabs/tab";
                       as it focuses on key concepts of object oriented / component programming.</h4>
                       <hr/>
                       <h4>We also try and touch all the major aspects
-                      of the language to give new commers a sample code base to reference for help (well at least until Angular 2 takes over
+                      of the language to give new comments a sample code base to reference for help (well at least until Angular 2 takes over
                       the universe | Angular 2 - one framework baby!!!).</h4>
                       <hr/>
                       <h5>Want to help? visit me on Github</h5>
