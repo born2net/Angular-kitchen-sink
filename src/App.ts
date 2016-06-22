@@ -1,9 +1,8 @@
-///<reference path="../typings/app.d.ts"/>
-
 import "zone.js/dist/zone";
 import "zone.js/dist/long-stack-trace-zone";
 import "reflect-metadata";
 import {ROUTER_DIRECTIVES} from "@angular/router";
+import {disableDeprecatedForms, provideForms} from '@angular/forms';
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef, enableProdMode} from "@angular/core";
 import "twbs/bootstrap";
@@ -20,7 +19,6 @@ import {Logo} from "./comps/logo/Logo";
 import {Footer} from "./comps/footer/Footer";
 import {Consts} from "../src/Conts";
 import {StyleService} from "./styles/StyleService";
-import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 import {AppStore} from "angular2-redux-util";
 import {Lib} from "./Lib";
 import {Observable} from "rxjs/Observable";
@@ -37,9 +35,6 @@ import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {AppdbAction} from "./actions/AppdbAction";
 import {APP_ROUTER_PROVIDERS} from "./App.routes";
 import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
-// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from "@angular/router";
-// import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, AsyncRoute} from '@angular/router';
-// import {LocationStrategy, RouteParams, RouterLink, HashLocationStrategy, RouteConfig} from '@angular/router';
 
 /**
  Main application bootstrap
@@ -91,12 +86,14 @@ export class App {
 }
 
 var modules = [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS, JSONP_PROVIDERS,
-    provide(AppStore, {useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})}),
-    provide(CommBroker, {useClass: CommBroker}),
-    provide(AuthService, {useClass: AuthService}),
-    provide(LogoutDeactivate, {useClass: LogoutDeactivate}),
-    provide(PLATFORM_PIPES, {useValue: CharCount, multi: true}),
-    provide(Consts, {useClass: Consts})];
+    disableDeprecatedForms(),
+    provideForms(),
+    {provide: AppStore, useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})},
+    {provide: CommBroker, useClass: CommBroker},
+    {provide: AuthService, useClass: AuthService},
+    {provide: LogoutDeactivate, useClass: LogoutDeactivate},
+    {provide: PLATFORM_PIPES, useValue: CharCount, multi: true},
+    {provide: Consts, useClass: Consts}];
 
 if (!Lib.DevMode())
     enableProdMode();

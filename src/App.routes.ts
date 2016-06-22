@@ -15,46 +15,46 @@ import {Settings} from "./comps/app1/settings/Settings";
 import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
 
 const routes:RouterConfig = [
-    {path: '/', component: EntryPanel},
-    {path: '/AppManager', component: AppManager},
-    {path: '/Welcome', component: Welcome},
-    {path: '/Login', component: EntryPanel},
-    {path: '/Login/:id', component: LoginPanel},
-    {path: '/ForgotPass', component: ForgotPass},
+    {path: '', component: EntryPanel},
+    {path: 'AppManager', component: AppManager},
+    {path: 'Welcome', component: Welcome},
+    {path: 'Login', component: EntryPanel},
+    {path: 'Login/:id', component: LoginPanel},
+    {path: 'ForgotPass', component: ForgotPass},
     {
-        path: '/App1', component: App1,
+        path: 'App1', component: App1,
         children: [
-            {path: '/', component: App1},
-            {path: '/Todos', component: Todos},
-            {path: '/Digg', component: Digg},
-            {path: '/Settings', component: Settings},
-            {path: '/Help', component: Help},
-            {path: '/Logout', component: Logout, canDeactivate: [LogoutDeactivate]}
+            {path: '', component: App1},
+            {path: 'Todos', component: Todos},
+            {path: 'Digg', component: Digg},
+            {path: 'Settings', component: Settings},
+            {path: 'Help', component: Help},
+            {path: 'Logout', component: Logout, canDeactivate: [LogoutDeactivate]}
         ]
     },
-    {path: '/App2', component: App2},
-    {path: '/App3', component: App3},
+    {path: 'App2', component: App2},
+    {path: 'App3', component: App3},
     {
-        path: '/EntryPanelNoId', component: EntryPanel,
+        path: 'EntryPanelNoId', component: EntryPanel,
         children: [
-            {path: '/Another2', component: LoginPanel},
-            {path: '/Another3', component: ForgotPass},
-            {path: '/Login', component: LoginPanel}
+            {path: 'Another2', component: LoginPanel},
+            {path: 'Another3', component: ForgotPass},
+            {path: 'Login', component: LoginPanel}
 
         ]
     },
     {
-        path: '/EntryPanel/:id', component: EntryPanel, children: [
-        {path: '/', component: AppManager},
-        {path: '/:id', component: AppManager}
+        path: 'EntryPanel/:id', component: EntryPanel, children: [
+        {path: '', component: AppManager},
+        {path: ':id', component: AppManager}
 
     ]
     },
     {
-        path: '/crisis-center', component: Welcome,
+        path: 'crisis-center', component: Welcome,
         children: [
-            {path: '/', component: AppManager},
-            {path: '/:id', component: AppManager}
+            {path: '', component: AppManager},
+            {path: ':id', component: AppManager}
 
         ]
     }
