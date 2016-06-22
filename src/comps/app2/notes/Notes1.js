@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "../../../../src/Conts", "./NotesBase", "../../../models/MailModel", '@angular/common', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator", "../../displayerror/DisplayError", 'bootbox'], function(exports_1, context_1) {
+System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "../../../../src/Conts", "./NotesBase", "../../../models/MailModel", '@angular/forms', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator", "../../displayerror/DisplayError", "bootbox"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,7 +15,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modald
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, Conts_1, NotesBase_1, MailModel_1, common_1, StartCapValidator_1, NameTakenValidator_1, DisplayError_1, bootbox;
+    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, Conts_1, NotesBase_1, MailModel_1, forms_1, StartCapValidator_1, NameTakenValidator_1, DisplayError_1, bootbox;
     var Notes1;
     return {
         setters:[
@@ -40,8 +40,8 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modald
             function (MailModel_1_1) {
                 MailModel_1 = MailModel_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             },
             function (StartCapValidator_1_1) {
                 StartCapValidator_1 = StartCapValidator_1_1;
@@ -64,21 +64,23 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modald
                     this.commBroker = commBroker;
                     this.slideLeft = 'notes2';
                     this.notesForm = fb.group({
-                        'userName': ['', common_1.Validators.required],
-                        'reference': ['', common_1.Validators.required],
-                        'phone': ['(xxx)-xxxx-xxx', common_1.Validators.minLength(10)],
+                        'userName': ['', forms_1.Validators.required],
+                        'reference': ['', forms_1.Validators.required],
+                        'phone': ['(xxx)-xxxx-xxx', forms_1.Validators.minLength(10)],
                         'birthdate': ['',
-                            common_1.Validators.compose([
-                                common_1.Validators.required,
+                            forms_1.Validators.compose([
+                                forms_1.Validators.required,
                                 this.isOldEnough])],
                         'notesTextArea': ['enter text here',
-                            common_1.Validators.compose([
-                                common_1.Validators.required,
-                                StartCapValidator_1.default])],
+                            [
+                                forms_1.Validators.required,
+                                StartCapValidator_1.default]
+                        ],
                         'login': ['',
-                            common_1.Validators.compose([
-                                common_1.Validators.required,
-                                StartCapValidator_1.default]), NameTakenValidator_1.default]
+                            [
+                                forms_1.Validators.required,
+                                StartCapValidator_1.default],
+                            NameTakenValidator_1.default]
                     });
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
@@ -125,11 +127,12 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../modald
                     core_1.Component({
                         selector: 'Notes1',
                         moduleId: __moduleName,
-                        directives: [ModalDialog_1.ModalDialog, common_1.FORM_DIRECTIVES, DisplayError_1.DisplayError],
+                        providers: [forms_1.REACTIVE_FORM_DIRECTIVES],
+                        directives: [ModalDialog_1.ModalDialog, forms_1.REACTIVE_FORM_DIRECTIVES, DisplayError_1.DisplayError],
                         templateUrl: 'Notes1.html',
                         styleUrls: ['Notes1.css']
                     }), 
-                    __metadata('design:paramtypes', [common_1.FormBuilder, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
+                    __metadata('design:paramtypes', [forms_1.FormBuilder, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes1);
                 return Notes1;
             }(NotesBase_1.NotesBase));

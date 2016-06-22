@@ -1,23 +1,23 @@
-import {Component, provide} from '@angular/core';
+import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
-import {
-    FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control
-} from '@angular/common'
+// import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from "@angular/common";
+import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import {DisplayError} from "../../displayerror/DisplayError";
-import * as bootbox from 'bootbox';
+import * as bootbox from "bootbox";
 
 
 @Component({
     selector: 'Notes1',
     moduleId: __moduleName,
-    directives: [ModalDialog, FORM_DIRECTIVES, DisplayError],
+    providers: [REACTIVE_FORM_DIRECTIVES],
+    directives: [ModalDialog, REACTIVE_FORM_DIRECTIVES, DisplayError],
     templateUrl: 'Notes1.html',
     styleUrls: ['Notes1.css']
 })
@@ -28,13 +28,13 @@ import * as bootbox from 'bootbox';
  **/
 export class Notes1 extends NotesBase {
 
-    private notesForm:ControlGroup;
-    private notesTextArea:AbstractControl;
-    private userName:AbstractControl;
-    private reference:AbstractControl;
-    private phone:AbstractControl;
-    private birthdate:AbstractControl;
-    private login:AbstractControl;
+    private notesForm:FormGroup;
+    private notesTextArea:FormGroup;
+    private userName:FormGroup;
+    private reference:FormGroup;
+    private phone:FormGroup;
+    private birthdate:FormGroup;
+    private login:FormGroup;
     private model:MailModel;
     private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
 
@@ -52,13 +52,15 @@ export class Notes1 extends NotesBase {
                     Validators.required,
                     this.isOldEnough])],
             'notesTextArea': ['enter text here',
-                Validators.compose([
+                [
                     Validators.required,
-                    StartCapValidator])],
+                    StartCapValidator]
+            ],
             'login': ['',
-                Validators.compose([
+                [
                     Validators.required,
-                    StartCapValidator]), NameTakenValidator]
+                    StartCapValidator],
+                NameTakenValidator]
         });
 
         // map to instances from form
@@ -82,13 +84,13 @@ export class Notes1 extends NotesBase {
         this.commBroker.getService(Consts.Services().Properties).setPropView('notes1')
     }
 
-    isOldEnough(control:Control):any {
+    isOldEnough(control:FormControl):any {
         if (!control.value) {
             return null;
         }
         let birthDatePlus18 = new Date(control.value);
         let year = birthDatePlus18.getFullYear();
-        if (year<1925)
+        if (year < 1925)
             return {notValid: true};
 
         birthDatePlus18.setFullYear(birthDatePlus18.getFullYear() + 18);
