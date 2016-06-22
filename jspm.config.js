@@ -509,8 +509,7 @@ SystemJS.config({
         "core-js": "npm:core-js@1.2.6",
         "@angular": "node_modules/@angular",
         "gulp-util": "npm:gulp-util@3.0.7",
-        "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
-        "@angular-forms": "npm:@angular/forms@0.1.1"
+        "twbs/bootstrap": "github:twbs/bootstrap@3.3.6"
     }
 });
 
@@ -521,12 +520,10 @@ SystemJS.config({
         "github:*/*.json"
     ],
     map: {
-        "@angular/forms@0.1.1": "npm:@angular/forms@0.1.1",
-        "angular-forms": "npm:@angular/forms@0.1.1",
+        "router": "npm:@angular/router@3.0.0-alpha.7",
+        "@angular/forms": "npm:@angular/forms@0.1.1",
         "@angular/router@3.0.0-alpha.7": "npm:@angular/router@3.0.0-alpha.7",
         "bootstrap": "github:twbs/bootstrap@3.3.6",
-        "router": "npm:@angular/router@3.0.0-alpha.7",
-        "forms": "npm:@angular/forms@0.1.1",
         "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.3",
         "ng2-bs3-modal": "npm:ng2-bs3-modal@0.6.1",
         "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",

@@ -103,12 +103,10 @@
     "dependencies": {
       "@angular/router@3.0.0-alpha.7": "npm:@angular/router@3.0.0-alpha.7",
       "router": "npm:@angular/router@3.0.0-alpha.7",
-      "@angular/forms@0.1.1": "npm:@angular/forms@0.1.1",
-      "forms": "npm:@angular/forms@0.1.1",
+      "@angular/forms": "npm:@angular/forms@0.1.1",
       "angular-common": "npm:@angular/common@^2.0.0-rc.3",
       "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.3",
       "angular-core": "npm:@angular/core@^2.0.0-rc.3",
-      "angular-forms": "npm:@angular/forms@^0.1.1",
       "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.3",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
@@ -351,7 +349,7 @@
     "@angular/platform-browser": "^2.0.0-rc.3",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.3",
     "@angular/router": "^3.0.0-alpha.7",
-    "@angular/forms@": "^0.1.1",
+    "@angular/forms": "0.1.1",
     "rxjs": "^5.0.0-beta.6",
     "typescript": "1.9.0-dev.20160622-1.0",
     "zone.js": "^0.6.12"

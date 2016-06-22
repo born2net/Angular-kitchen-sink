@@ -85,9 +85,13 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
                     this.reference = this.notesForm.controls['reference'];
+                    ;
                     this.login = this.notesForm.controls['login'];
+                    ;
                     this.phone = this.notesForm.controls['phone'];
+                    ;
                     this.birthdate = this.notesForm.controls['birthdate'];
+                    ;
                     this.model = new MailModel_1.MailModel(0, '', true, '', '');
                     this.mapModel = new Map();
                     this.mapModel.set('my name', 'Sean Levy');

@@ -4,7 +4,7 @@ import "reflect-metadata";
 import {ROUTER_DIRECTIVES} from "@angular/router";
 import {disableDeprecatedForms, provideForms} from '@angular/forms';
 import {bootstrap} from "@angular/platform-browser-dynamic";
-import {Component, provide, ViewEncapsulation, PLATFORM_PIPES, ComponentRef, enableProdMode} from "@angular/core";
+import {Component, ViewEncapsulation, PLATFORM_PIPES, ComponentRef, enableProdMode} from "@angular/core";
 import "twbs/bootstrap";
 import "twbs/bootstrap/dist/css/bootstrap.css!";
 import "./styles/style.css!";

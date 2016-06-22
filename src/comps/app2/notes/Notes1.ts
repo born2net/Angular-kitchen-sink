@@ -64,12 +64,12 @@ export class Notes1 extends NotesBase {
         });
 
         // map to instances from form
-        this.notesTextArea = this.notesForm.controls['notesTextArea'];
-        this.userName = this.notesForm.controls['userName'];
-        this.reference = this.notesForm.controls['reference'];
-        this.login = this.notesForm.controls['login'];
-        this.phone = this.notesForm.controls['phone'];
-        this.birthdate = this.notesForm.controls['birthdate'];
+        this.notesTextArea = this.notesForm.controls['notesTextArea'] as FormGroup;
+        this.userName = this.notesForm.controls['userName'] as FormGroup;
+        this.reference = this.notesForm.controls['reference']  as FormGroup;;
+        this.login = this.notesForm.controls['login']  as FormGroup;;
+        this.phone = this.notesForm.controls['phone']  as FormGroup;;
+        this.birthdate = this.notesForm.controls['birthdate']  as FormGroup;;
 
         this.model = new MailModel(0, '', true, '', '');
 
