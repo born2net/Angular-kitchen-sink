@@ -131,7 +131,6 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                     core_1.Component({
                         selector: 'Notes1',
                         moduleId: __moduleName,
-                        providers: [forms_1.REACTIVE_FORM_DIRECTIVES],
                         directives: [ModalDialog_1.ModalDialog, forms_1.REACTIVE_FORM_DIRECTIVES, DisplayError_1.DisplayError],
                         templateUrl: 'Notes1.html',
                         styleUrls: ['Notes1.css']

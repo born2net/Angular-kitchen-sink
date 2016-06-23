@@ -5,7 +5,6 @@ import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
-// import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from "@angular/common";
 import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
@@ -16,7 +15,6 @@ import * as bootbox from "bootbox";
 @Component({
     selector: 'Notes1',
     moduleId: __moduleName,
-    providers: [REACTIVE_FORM_DIRECTIVES],
     directives: [ModalDialog, REACTIVE_FORM_DIRECTIVES, DisplayError],
     templateUrl: 'Notes1.html',
     styleUrls: ['Notes1.css']

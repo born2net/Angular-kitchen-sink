@@ -1,12 +1,12 @@
 import {Component} from "@angular/core";
 import {Consts} from "../../../../src/Conts";
-import {FORM_DIRECTIVES} from '@angular/common'
+import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {MailModel} from "../../../models/MailModel";
 import {CommBroker} from "../../../services/CommBroker";
 
 @Component({
     selector: 'Contact',
-    directives: [FORM_DIRECTIVES],
+    directives: [REACTIVE_FORM_DIRECTIVES],
     styles: [`
             .ng-invalid {
               border-left: 5px solid #a94442; /* red */
@@ -23,7 +23,29 @@ import {CommBroker} from "../../../services/CommBroker";
                 <ng-content></ng-content>
                 <div class="container">
                   <div [hidden]="submitted">
-                    <h1>Contact form</h1>
+                    <h1>TO DO: Update ths form to RC.X</h1>
+                    
+                    <form [formGroup]="registerForm">
+                      <label>Firstname:</label>
+                      <input type="text" formControlName="firstname">
+                    
+                      <label>Lastname:</label>
+                      <input type="text" formControlName="lastname">
+                    
+                     <fieldset formGroupName="address">
+                          <label>Street:</label>
+                          <input type="text" formControlName="street">
+                        
+                          <label>Zip:</label>
+                          <input type="text" formControlName="zip">
+                        
+                          <label>City:</label>
+                          <input type="text" formControlName="city">
+                       </fieldset>
+                      <button type="submit">Submit</button>
+                    </form>
+                 </div>
+                 </div>
 
                     <!-- special tx to ng2-book via http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/ -->
 
@@ -37,58 +59,58 @@ import {CommBroker} from "../../../services/CommBroker";
                     <!-- ngFormModel and -->
                     <!-- ngFormControl -->
 
-                    <form (ngSubmit)="onSubmit(contactForm.value)" #contactForm="ngForm">
-                      <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" required [(ngModel)]="model.name" (change)="onChange($event)" ngControl="name" #name="ngForm">
-                        <div [hidden]="name.valid" class="alert alert-danger">
-                          Name is required  field
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="form-control" (change)="onChange($event)" [(ngModel)]="model.subject" ngControl="subject" >
-                      </div>
-                      <div class="form-group">
-                        <label for="contactMethod">How should we contact you?</label>
-                        <select class="form-control" required (change)="onChange($event)" [(ngModel)]="model.contactMethod" ngControl="contactMethod" #contactMethod="ngForm" >
-                          <option *ngFor="let p of contacts" [value]="p">
-                            {{p}}
-                          </option>
-                        </select>
-                        <div [hidden]="contactMethod.valid" class="alert alert-danger">
-                          contact method is required
-                        </div>
-                      </div>
-                      <label class="pull-left">
-                      </label>
-                      <br/>
-                      <br/>
-                      <button type="submit" class="btn btn-default" [disabled]="!contactForm.form.valid">Submit</button>
-                    </form>
-                  </div>
-                  <div [hidden]="!submitted">
-                    <h2>You submitted the following:</h2>
-                    <div class="row">
-                      <div class="col-xs-3">Name</div>
-                      <div class="col-xs-9  pull-left">{{ model.name }}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">Subject</div>
-                      <div class="col-xs-9 pull-left">{{ model.subject }}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">Power</div>
-                      <div class="col-xs-9 pull-left">{{ model.contactMethod }}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">Gender Male</div>
-                      <div class="col-xs-9 pull-left">{{ model.male }}</div>
-                    </div>
-                    <br>
-                    <button class="btn btn-default" (click)="submitted=false">Edit</button>
-                  </div>
-                </div>
+                    <!--<form (ngSubmit)="onSubmit(contactForm.value)" #contactForm="ngForm">-->
+                      <!--<div class="form-group">-->
+                        <!--<label for="name">Name</label>-->
+                        <!--<input type="text" class="form-control" required [(ngModel)]="model.name" (change)="onChange($event)" ngControl="name" #name="ngForm">-->
+                        <!--<div [hidden]="name.valid" class="alert alert-danger">-->
+                          <!--Name is required  field-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group">-->
+                        <!--<label for="subject">Subject</label>-->
+                        <!--<input type="text" class="form-control" (change)="onChange($event)" [(ngModel)]="model.subject" ngControl="subject" >-->
+                      <!--</div>-->
+                      <!--<div class="form-group">-->
+                        <!--<label for="contactMethod">How should we contact you?</label>-->
+                        <!--<select class="form-control" required (change)="onChange($event)" [(ngModel)]="model.contactMethod" ngControl="contactMethod" #contactMethod="ngForm" >-->
+                          <!--<option *ngFor="let p of contacts" [value]="p">-->
+                            <!--{{p}}-->
+                          <!--</option>-->
+                        <!--</select>-->
+                        <!--<div [hidden]="contactMethod.valid" class="alert alert-danger">-->
+                          <!--contact method is required-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<label class="pull-left">-->
+                      <!--</label>-->
+                      <!--<br/>-->
+                      <!--<br/>-->
+                      <!--<button type="submit" class="btn btn-default" [disabled]="!contactForm.form.valid">Submit</button>-->
+                    <!--</form>-->
+                  <!--</div>-->
+                  <!--<div [hidden]="!submitted">-->
+                    <!--<h2>You submitted the following:</h2>-->
+                    <!--<div class="row">-->
+                      <!--<div class="col-xs-3">Name</div>-->
+                      <!--<div class="col-xs-9  pull-left">{{ model.name }}</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                      <!--<div class="col-xs-3">Subject</div>-->
+                      <!--<div class="col-xs-9 pull-left">{{ model.subject }}</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                      <!--<div class="col-xs-3">Power</div>-->
+                      <!--<div class="col-xs-9 pull-left">{{ model.contactMethod }}</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                      <!--<div class="col-xs-3">Gender Male</div>-->
+                      <!--<div class="col-xs-9 pull-left">{{ model.male }}</div>-->
+                    <!--</div>-->
+                    <!--<br>-->
+                    <!--<button class="btn btn-default" (click)="submitted=false">Edit</button>-->
+                  <!--</div>-->
+                <!--</div>-->
                 `
 })
 
@@ -104,8 +126,8 @@ export class Contact {
     private contacts = ['Call me', 'Email me', 'Page me (old school)'];
     model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
     submitted = false;
-
-    constructor(private commBroker:CommBroker){
+    registerForm: FormGroup;
+    constructor(private commBroker:CommBroker, private formBuilder: FormBuilder){
         this.commBroker.getService(Consts.Services().Properties).setPropView('Contact');
     }
     onSubmit(event) {
@@ -117,6 +139,18 @@ export class Contact {
         }
 
         this.submitted = true;
+    }
+    ;
+    ngOnInit() {
+        this.registerForm = this.formBuilder.group({
+            firstname: [],
+            lastname: [],
+            address: this.formBuilder.group({
+                street: [],
+                zip: [],
+                city: []
+            })
+        });
     }
 
     onChange(event) {
