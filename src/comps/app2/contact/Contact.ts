@@ -23,7 +23,7 @@ import {CommBroker} from "../../../services/CommBroker";
                 <ng-content></ng-content>
                 <div class="container">
                   <div [hidden]="submitted">
-                    <h1>TO DO: Update ths form to RC.X</h1>
+                    <h1>TO DO: Update form to RC.X</h1>
                     
                     <form [formGroup]="registerForm">
                       <label>Firstname:</label>
