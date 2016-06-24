@@ -1,14 +1,15 @@
-import {Component, Host, Input} from "@angular/core";
-import {REACTIVE_FORM_DIRECTIVES, FormGroup} from '@angular/forms';
+import {Component, Input, Inject, forwardRef, Host} from "@angular/core";
+import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl} from "@angular/forms";
 
 
 @Component({
     selector: 'display-error',
+    providers: [REACTIVE_FORM_DIRECTIVES],
     template: `<div *ngIf="isDisplayed()">
                     <ng-content></ng-content>
                </div>`
 })
-export class DisplayError  {
+export class DisplayError {
     @Input('control')
     controlName:string;
     @Input()
@@ -16,8 +17,10 @@ export class DisplayError  {
 
     control:any;
     // we inject the form model
-    constructor(@Host() private formModel:FormGroup) {
-
+    // constructor(@Inject(forwardRef(() => FormGroup)) private formModel:FormGroup) {
+    // constructor(@Host() @Inject(forwardRef(() => FormGroup)) private formModel:FormGroup) {
+    constructor(@Host() private formModel:FormControl) {
+        console.log(formModel);
     }
 
     // we then find the control

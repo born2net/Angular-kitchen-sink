@@ -1,11 +1,9 @@
-///<reference path="../../../../typings/app.d.ts"/>
-
 import {Component, ChangeDetectionStrategy, Renderer, ViewChild, ElementRef} from "@angular/core";
 import {Consts} from "../../../../src/Conts";
 import {IWeatherItem} from "./IWeather";
 import {WeatherService} from "./WeatherService";
 import {SortableHeader} from "./SortableHeader";
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators, AbstractControl, Control} from '@angular/common'
+import {REACTIVE_FORM_DIRECTIVES, FormGroup, Validators, FormControl, FormBuilder} from "@angular/forms";
 import {OrderBy} from "../../../pipes/OrderBy";
 import {COMMON_DIRECTIVES} from "@angular/common";
 import {Observable} from "rxjs/Observable";
@@ -22,11 +20,11 @@ import {CommBroker} from "../../../services/CommBroker";
     providers: [WeatherService, SortableHeader],
     changeDetection: ChangeDetectionStrategy.OnPush,
     pipes: [OrderBy],
-    directives: [COMMON_DIRECTIVES, SortableHeader],
+    directives: [COMMON_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, SortableHeader],
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
     <small>I am a weather component</small>
-    <input type="text" #anotherWayToGetInput class="form-control" placeholder="enter city or zip code" [ngFormControl]="zipControl">
+    <input type="text" #anotherWayToGetInput class="form-control" placeholder="enter city or zip code" [formControl]="zipControl">
     <table class="table">
       <thead>
         <tr>
@@ -52,7 +50,7 @@ import {CommBroker} from "../../../services/CommBroker";
 
 export class Weather {
     private weatherItems:Observable<IWeatherItem[]>;
-    private zipControl:Control = new Control();
+    private zipControl:FormControl = new FormControl();
 
     // the real magic here is that the sort variable is being used in several places
     // including here to set the pipe sorting, in the SortableHeader component to show and hide

@@ -65,33 +65,17 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                     this.slideLeft = 'notes2';
                     this.notesForm = fb.group({
                         'userName': ['', forms_1.Validators.required],
-                        'reference': ['', forms_1.Validators.required],
                         'phone': ['(xxx)-xxxx-xxx', forms_1.Validators.minLength(10)],
-                        'birthdate': ['',
-                            forms_1.Validators.compose([
-                                forms_1.Validators.required,
-                                this.isOldEnough])],
-                        'notesTextArea': ['enter text here',
-                            [
-                                forms_1.Validators.required,
-                                StartCapValidator_1.default]
-                        ],
-                        'login': ['',
-                            [
-                                forms_1.Validators.required,
-                                StartCapValidator_1.default],
-                            NameTakenValidator_1.default]
+                        'birthdate': ['', [forms_1.Validators.required, this.isOldEnough]],
+                        'notesTextArea': ['enter text here', [forms_1.Validators.required, StartCapValidator_1.default]],
+                        'login': ['', [forms_1.Validators.required, StartCapValidator_1.default], NameTakenValidator_1.default]
                     });
                     this.notesTextArea = this.notesForm.controls['notesTextArea'];
                     this.userName = this.notesForm.controls['userName'];
                     this.reference = this.notesForm.controls['reference'];
-                    ;
                     this.login = this.notesForm.controls['login'];
-                    ;
                     this.phone = this.notesForm.controls['phone'];
-                    ;
                     this.birthdate = this.notesForm.controls['birthdate'];
-                    ;
                     this.model = new MailModel_1.MailModel(0, '', true, '', '');
                     this.mapModel = new Map();
                     this.mapModel.set('my name', 'Sean Levy');

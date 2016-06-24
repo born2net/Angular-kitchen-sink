@@ -41,34 +41,23 @@ export class Notes1 extends NotesBase {
         super(sliderPanel, commBroker);
         this.slideLeft = 'notes2';
 
+        // 'reference': ['', Validators.required],
+
         this.notesForm = fb.group({
             'userName': ['', Validators.required],
-            'reference': ['', Validators.required],
             'phone': ['(xxx)-xxxx-xxx', Validators.minLength(10)],
-            'birthdate': ['',
-                Validators.compose([
-                    Validators.required,
-                    this.isOldEnough])],
-            'notesTextArea': ['enter text here',
-                [
-                    Validators.required,
-                    StartCapValidator]
-            ],
-            'login': ['',
-                [
-                    Validators.required,
-                    StartCapValidator],
-                NameTakenValidator]
+            'birthdate': ['', [Validators.required, this.isOldEnough]],
+            'notesTextArea': ['enter text here', [Validators.required, StartCapValidator]],
+            'login': ['', [Validators.required, StartCapValidator], NameTakenValidator]
         });
 
         // map to instances from form
         this.notesTextArea = this.notesForm.controls['notesTextArea'] as FormGroup;
         this.userName = this.notesForm.controls['userName'] as FormGroup;
-        this.reference = this.notesForm.controls['reference']  as FormGroup;;
-        this.login = this.notesForm.controls['login']  as FormGroup;;
-        this.phone = this.notesForm.controls['phone']  as FormGroup;;
-        this.birthdate = this.notesForm.controls['birthdate']  as FormGroup;;
-
+        this.reference = this.notesForm.controls['reference']  as FormGroup;
+        this.login = this.notesForm.controls['login']  as FormGroup;
+        this.phone = this.notesForm.controls['phone']  as FormGroup;
+        this.birthdate = this.notesForm.controls['birthdate']  as FormGroup;
         this.model = new MailModel(0, '', true, '', '');
 
         // unrelated, demonstrate usage of Map

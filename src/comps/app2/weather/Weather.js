@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "./SortableHeader", '@angular/common', "../../../pipes/OrderBy", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/catch', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "./SortableHeader", "@angular/forms", "../../../pipes/OrderBy", "@angular/common", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/catch', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Conts_1, WeatherService_1, SortableHeader_1, common_1, OrderBy_1, common_2, CommBroker_1;
+    var core_1, Conts_1, WeatherService_1, SortableHeader_1, forms_1, OrderBy_1, common_1, CommBroker_1;
     var Weather;
     return {
         setters:[
@@ -26,12 +26,14 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
             function (SortableHeader_1_1) {
                 SortableHeader_1 = SortableHeader_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
-                common_2 = common_1_1;
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             },
             function (OrderBy_1_1) {
                 OrderBy_1 = OrderBy_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             },
             function (_1) {},
             function (_2) {},
@@ -47,7 +49,7 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
                     this.renderer = renderer;
                     this.weatherService = weatherService;
                     this.commBroker = commBroker;
-                    this.zipControl = new common_1.Control();
+                    this.zipControl = new forms_1.FormControl();
                     this.sort = { field: null, desc: false };
                     this.listenWeatherInput();
                     this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Weather');
@@ -80,9 +82,9 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
                         providers: [WeatherService_1.WeatherService, SortableHeader_1.SortableHeader],
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush,
                         pipes: [OrderBy_1.OrderBy],
-                        directives: [common_2.COMMON_DIRECTIVES, SortableHeader_1.SortableHeader],
+                        directives: [common_1.COMMON_DIRECTIVES, forms_1.REACTIVE_FORM_DIRECTIVES, SortableHeader_1.SortableHeader],
                         styles: ["input {margin: 20px; width: 50%}"],
-                        template: "\n    <small>I am a weather component</small>\n    <input type=\"text\" #anotherWayToGetInput class=\"form-control\" placeholder=\"enter city or zip code\" [ngFormControl]=\"zipControl\">\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th sortableHeader=\"maxtempF\" [sort]=\"sort\">high</th>\n          <th sortableHeader=\"mintempF\" [sort]=\"sort\">low</th>\n        </tr>\n      </thead>\n      <tbody>\n      <!-- no need to subscribe to observable since async does this for us -->\n        <tr *ngFor=\"let item of weatherItems | async | OrderBy:sort.field:sort.desc\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",
+                        template: "\n    <small>I am a weather component</small>\n    <input type=\"text\" #anotherWayToGetInput class=\"form-control\" placeholder=\"enter city or zip code\" [formControl]=\"zipControl\">\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th sortableHeader=\"maxtempF\" [sort]=\"sort\">high</th>\n          <th sortableHeader=\"mintempF\" [sort]=\"sort\">low</th>\n        </tr>\n      </thead>\n      <tbody>\n      <!-- no need to subscribe to observable since async does this for us -->\n        <tr *ngFor=\"let item of weatherItems | async | OrderBy:sort.field:sort.desc\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",
                     }), 
                     __metadata('design:paramtypes', [core_1.Renderer, WeatherService_1.WeatherService, CommBroker_1.CommBroker])
                 ], Weather);
