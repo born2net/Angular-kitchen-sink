@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {Consts} from "../../../../src/Conts";
-import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import {REACTIVE_FORM_DIRECTIVES, FormGroup} from "@angular/forms";
 import {MailModel} from "../../../models/MailModel";
 import {CommBroker} from "../../../services/CommBroker";
 
@@ -40,7 +40,11 @@ import {CommBroker} from "../../../services/CommBroker";
 
 export class Contact {
 
-    public user: User = {
+    constructor(private commBroker:CommBroker) {
+        this.commBroker.getService(Consts.Services().Properties).setPropView('Contact');
+    }
+
+    public user:User = {
         name: 'John',
         address: {
             address1: '11, High Street',
@@ -48,20 +52,16 @@ export class Contact {
         }
     }
 
-    public save(form: User, isValid: boolean) {
+    public save(form:User, isValid:boolean) {
         alert(`status: ${isValid} ${JSON.stringify(form)}`);
 
     }
-
 
     private contacts = ['Call me', 'Email me', 'Page me (old school)'];
     model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
     submitted = false;
     registerForm:FormGroup;
 
-    constructor(private commBroker:CommBroker, private formBuilder:FormBuilder) {
-        this.commBroker.getService(Consts.Services().Properties).setPropView('Contact');
-    }
 
     // ngOnInit() {
     //     this.registerForm = this.formBuilder.group({
@@ -83,9 +83,9 @@ export class Contact {
 
 
 export interface User {
-    name: string;
-    address?: {
-        address1?: string;
-        postcode?: string;
+    name:string;
+    address?:{
+        address1?:string;
+        postcode?:string;
     }
 }
