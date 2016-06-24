@@ -41,10 +41,9 @@ export class Notes1 extends NotesBase {
         super(sliderPanel, commBroker);
         this.slideLeft = 'notes2';
 
-        // 'reference': ['', Validators.required],
-
         this.notesForm = fb.group({
             'userName': ['', Validators.required],
+            'reference': ['', Validators.required],
             'phone': ['(xxx)-xxxx-xxx', Validators.minLength(10)],
             'birthdate': ['', [Validators.required, this.isOldEnough]],
             'notesTextArea': ['enter text here', [Validators.required, StartCapValidator]],

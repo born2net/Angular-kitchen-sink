@@ -65,6 +65,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                     this.slideLeft = 'notes2';
                     this.notesForm = fb.group({
                         'userName': ['', forms_1.Validators.required],
+                        'reference': ['', forms_1.Validators.required],
                         'phone': ['(xxx)-xxxx-xxx', forms_1.Validators.minLength(10)],
                         'birthdate': ['', [forms_1.Validators.required, this.isOldEnough]],
                         'notesTextArea': ['enter text here', [forms_1.Validators.required, StartCapValidator_1.default]],
