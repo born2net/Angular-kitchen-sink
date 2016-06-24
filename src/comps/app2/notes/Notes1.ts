@@ -27,12 +27,12 @@ import * as bootbox from "bootbox";
 export class Notes1 extends NotesBase {
 
     private notesForm:FormGroup;
-    private notesTextArea:FormGroup;
-    private userName:FormGroup;
-    private reference:FormGroup;
-    private phone:FormGroup;
-    private birthdate:FormGroup;
-    private login:FormGroup;
+    private notesTextArea:FormControl;
+    private userName:FormControl;
+    private reference:FormControl;
+    private phone:FormControl;
+    private birthdate:FormControl;
+    private login:FormControl;
     private model:MailModel;
     private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
 
@@ -52,12 +52,12 @@ export class Notes1 extends NotesBase {
         });
 
         // map to instances from form
-        this.notesTextArea = this.notesForm.controls['notesTextArea'] as FormGroup;
-        this.userName = this.notesForm.controls['userName'] as FormGroup;
-        this.reference = this.notesForm.controls['reference']  as FormGroup;
-        this.login = this.notesForm.controls['login']  as FormGroup;
-        this.phone = this.notesForm.controls['phone']  as FormGroup;
-        this.birthdate = this.notesForm.controls['birthdate']  as FormGroup;
+        this.notesTextArea = this.notesForm.controls['notesTextArea'] as FormControl;
+        this.userName = this.notesForm.controls['userName'] as FormControl;
+        this.reference = this.notesForm.controls['reference']  as FormControl;
+        this.login = this.notesForm.controls['login']  as FormControl;
+        this.phone = this.notesForm.controls['phone']  as FormControl;
+        this.birthdate = this.notesForm.controls['birthdate']  as FormControl;
         this.model = new MailModel(0, '', true, '', '');
 
         // unrelated, demonstrate usage of Map
