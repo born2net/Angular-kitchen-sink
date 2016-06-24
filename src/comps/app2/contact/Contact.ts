@@ -26,8 +26,16 @@ import {CommBroker} from "../../../services/CommBroker";
  The Contact component demonstrates the usage of forms.
  Usage is implicit as done purely through the View.
 
+ this is a template-driven approach which allows us to build forms with very little code
+ to use reactive approach see Notes1 component
+
  Suggestion: I recommend you use explicit Form creation via
  manual instance creation of Controls
+
+ ref::
+ http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html
+ http://blog.thoughtram.io/angular/2016/06/22/model-driven-forms-in-angular-2.html
+
  **/
 
 export class Contact {
