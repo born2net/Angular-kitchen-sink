@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../../src/Conts", '@angular/forms', "../../../models/MailModel", "../../../services/CommBroker"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../../src/Conts", "@angular/forms", "../../../models/MailModel", "../../../services/CommBroker"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31,9 +31,8 @@ System.register(["@angular/core", "../../../../src/Conts", '@angular/forms', "..
             }],
         execute: function() {
             Contact = (function () {
-                function Contact(commBroker, formBuilder) {
+                function Contact(commBroker) {
                     this.commBroker = commBroker;
-                    this.formBuilder = formBuilder;
                     this.user = {
                         name: 'John',
                         address: {
@@ -61,7 +60,7 @@ System.register(["@angular/core", "../../../../src/Conts", '@angular/forms', "..
                         templateUrl: 'Contact.html',
                         styles: ["\n            .ng-invalid {\n              border-left: 5px solid #a94442; /* red */\n           }\n           .ng-valid[required] {\n                  border-left: 5px solid #42A948; /* green */\n           }\n           .form-control {\n                width: 20%;\n           }\n       "]
                     }), 
-                    __metadata('design:paramtypes', [CommBroker_1.CommBroker, forms_1.FormBuilder])
+                    __metadata('design:paramtypes', [CommBroker_1.CommBroker])
                 ], Contact);
                 return Contact;
             }());

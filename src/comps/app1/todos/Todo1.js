@@ -36,7 +36,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel"], function(exp
                 Todo1 = __decorate([
                     core_1.Component({
                         selector: 'Todo1',
-                        template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>                \n                <small>I am todo1 component</small>\n               <br/>\n                <br/>\n                 <button type=\"button\" (click)=\"onForceDetection()\" class=\"btn btn-default btn-sm goNext\">\n                    Force change detection on component;\n                </button>\n                <ng-content></ng-content>\n                "
+                        template: " <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm goNext\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>                \n                <small>I am the todo1 component</small>\n               <br/>\n                <br/>\n                 <button type=\"button\" (click)=\"onForceDetection()\" class=\"btn btn-default btn-sm goNext\">\n                    Force change detection on component;\n                </button>\n                <ng-content></ng-content>\n                "
                     }), 
                     __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, core_1.ChangeDetectorRef])
                 ], Todo1);
