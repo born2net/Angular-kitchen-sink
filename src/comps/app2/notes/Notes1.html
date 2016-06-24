@@ -37,7 +37,7 @@
 			 
 			 <!-- reference use a custom component to display required error message -->
 			 <input type="text" class="form-control" placeholder="reference" required [formControl]="notesForm.controls['reference']">
-			 <!--<display-error control="reference" error="required">how did you learn about us?</display-error>-->
+			 <display-error control="reference" [formGroup]="notesForm"	 error="required">how did you learn about us?</display-error>
 			 
 			 
 			 <!-- login name -->
