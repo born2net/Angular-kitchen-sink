@@ -1,27 +1,40 @@
 <small>I am Contact component</small>
 <ng-content></ng-content>
 <div class="container">
-  <div [hidden]="submitted">
-	 <h1>TO DO: Update form to RC.X</h1>
-	 <form [formGroup]="registerForm">
-		<label>Firstname:</label>
-		<input type="text" formControlName="firstname">
+  <div class="container">
+	 <h1>Add user</h1>
+	 <form #f="ngForm" (ngSubmit)="save(f.value, f.valid)" novalidate>
+		<div class="form-group">
+		  <label>Name</label>
+		  <input type="text" class="form-control"
+					required minlength="5" name="name"
+					[(ngModel)]="user.name" #name="ngModel">
+		  <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+			 Name is required (minimum 5 characters).
+		  </small>
+		  <pre>{{name.errors | json}}</pre>
+		</div>
+		<div ngModelGroup="address">
+		  <div class="form-group">
+			 <label>Address</label>
+			 <input type="text" class="form-control" name="address1"
+					  [(ngModel)]="user.address.address1" (change)="onChange($event)">
+		  </div>
+		  <div class="form-group">
+			 <label>Post code</label>
+			 <input type="text" class="form-control" name="postcode"
+					  [(ngModel)]="user.address.postcode">
+		  </div>
+		</div>
 		
-		<label>Lastname:</label>
-		<input type="text" formControlName="lastname">
-		
-		<fieldset formGroupName="address">
-		  <label>Street:</label>
-		  <input type="text" formControlName="street">
-		  
-		  <label>Zip:</label>
-		  <input type="text" formControlName="zip">
-		  
-		  <label>City:</label>
-		  <input type="text" formControlName="city">
-		</fieldset>
-		<button type="submit">Submit</button>
+		<button type="submit" class="btn btn-default">Submit</button>
 	 </form>
+	 <div style="margin-top: 20px" *ngIf="f.submitted">
+		<div>Form details:-</div>
+		<pre>Is form valid?: <br>{{f.valid | json}}</pre>
+		<pre>Is form submitted?: <br>{{f.submitted | json}}</pre>
+		<pre>submitted value: <br>{{f.value | json}}</pre>
+	 </div>
   </div>
 </div>
 

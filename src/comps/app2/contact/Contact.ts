@@ -29,7 +29,23 @@ import {CommBroker} from "../../../services/CommBroker";
  Suggestion: I recommend you use explicit Form creation via
  manual instance creation of Controls
  **/
+
 export class Contact {
+
+    public user: User = {
+        name: 'John',
+        address: {
+            address1: '11, High Street',
+            postcode: '1234'
+        }
+    }
+
+    public save(form: User, isValid: boolean) {
+        alert(`status: ${isValid} ${JSON.stringify(form)}`);
+
+    }
+
+
     private contacts = ['Call me', 'Email me', 'Page me (old school)'];
     model = new MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
     submitted = false;
@@ -39,32 +55,29 @@ export class Contact {
         this.commBroker.getService(Consts.Services().Properties).setPropView('Contact');
     }
 
-    onSubmit(event) {
-        console.log(event);
-        if (event.contactMethod.indexOf('Page') > -1) {
-            alert('Paging is really old, get a cell phone');
-            this.submitted = false;
-            return;
-        }
-
-        this.submitted = true;
-    }
-    ;
-
-    ngOnInit() {
-        this.registerForm = this.formBuilder.group({
-            firstname: [],
-            lastname: [],
-            address: this.formBuilder.group({
-                street: [],
-                zip: [],
-                city: []
-            })
-        });
-    }
+    // ngOnInit() {
+    //     this.registerForm = this.formBuilder.group({
+    //         firstname: [],
+    //         lastname: [],
+    //         address: this.formBuilder.group({
+    //             street: [],
+    //             zip: [],
+    //             city: []
+    //         })
+    //     });
+    // }
 
     onChange(event) {
         if (event.target.value.length < 3)
             alert('text too short for subject');
+    }
+}
+
+
+export interface User {
+    name: string;
+    address?: {
+        address1?: string;
+        postcode?: string;
     }
 }

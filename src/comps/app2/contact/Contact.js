@@ -34,31 +34,20 @@ System.register(["@angular/core", "../../../../src/Conts", '@angular/forms', "..
                 function Contact(commBroker, formBuilder) {
                     this.commBroker = commBroker;
                     this.formBuilder = formBuilder;
+                    this.user = {
+                        name: 'John',
+                        address: {
+                            address1: '11, High Street',
+                            postcode: '1234'
+                        }
+                    };
                     this.contacts = ['Call me', 'Email me', 'Page me (old school)'];
                     this.model = new MailModel_1.MailModel(1, 'your name', true, this.contacts[0], 'how can we help you?');
                     this.submitted = false;
                     this.commBroker.getService(Conts_1.Consts.Services().Properties).setPropView('Contact');
                 }
-                Contact.prototype.onSubmit = function (event) {
-                    console.log(event);
-                    if (event.contactMethod.indexOf('Page') > -1) {
-                        alert('Paging is really old, get a cell phone');
-                        this.submitted = false;
-                        return;
-                    }
-                    this.submitted = true;
-                };
-                ;
-                Contact.prototype.ngOnInit = function () {
-                    this.registerForm = this.formBuilder.group({
-                        firstname: [],
-                        lastname: [],
-                        address: this.formBuilder.group({
-                            street: [],
-                            zip: [],
-                            city: []
-                        })
-                    });
+                Contact.prototype.save = function (form, isValid) {
+                    alert("status: " + isValid + " " + JSON.stringify(form));
                 };
                 Contact.prototype.onChange = function (event) {
                     if (event.target.value.length < 3)
