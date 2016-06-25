@@ -46,13 +46,10 @@ class MyRepeatIf implements DoCheck {
                 console.log('template', this.template);
                 changes.forEachAddedItem((change) => {
                     let view = this.viewContainer.createEmbeddedView(this.template);
-
                     //pre rc.1
                     //view.setLocal('\$implicit', change.item);
-
                     // post rc.1
                     view.context.$implicit = change.item;
-
                     this.views.set(change.item, view);
                 });
                 changes.forEachRemovedItem((change) => {
