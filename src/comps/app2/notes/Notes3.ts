@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
@@ -17,12 +17,13 @@ import {CompElemBuilder} from "./CompElemBuilder";
 import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
 import {ToggleButtonApp} from "./ToggleButton";
 import {StreamButton} from "./StreamButton";
+import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
 
 @Component({
     selector: 'Notes3',
     directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
         Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
-        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton],
+        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -95,6 +96,10 @@ import {StreamButton} from "./StreamButton";
                   <mini-tab [tabTitle]="'Code 13'">
                     <h3>Streaming buttons via BehaviorSubject</h3>
                     <StreamButton></StreamButton>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 14'">
+                    <h3>Custom directive *ngBookRepeat</h3>
+                    <ngBookRepeatSample></ngBookRepeatSample>
                   </mini-tab>
                 </mini-tabs>
                     

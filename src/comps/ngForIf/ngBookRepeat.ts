@@ -1,5 +1,6 @@
 /**
  * Credits to: https://www.ng-book.com/2/ ng2-book
+ * plubkr: https://plnkr.co/edit/Wx2Q3OqbPcgIc5d8GoFT?p=preview
  **/
 
 import {
@@ -20,7 +21,7 @@ import {
     selector: '[ngBookRepeat]',
     inputs: ['ngBookRepeatOf']
 })
-class MyRepeatIf implements DoCheck {
+export class ngBookRepeat implements DoCheck {
     private items:any;
     private differ:IterableDiffer;
     private views:Map<any, ViewRef> = new Map<any, ViewRef>();
@@ -64,11 +65,11 @@ class MyRepeatIf implements DoCheck {
 }
 
 @Component({
-    selector: 'template-sample-app',
-    directives: [MyRepeatIf],
+    selector: 'ngBookRepeatSample',
+    directives: [ngBookRepeat],
     template: `
   <ul>
-    <li *ngBookRepeat="#p of people">
+    <li *ngBookRepeat="let p of people">
       {{ p.name }} is {{ p.age }}
       <a href (click)="remove(p)">Remove</a>
     </li>
@@ -92,7 +93,7 @@ class MyRepeatIf implements DoCheck {
   </div>
   `
 })
-export class ForTemplateSampleApp {
+export class ngBookRepeatSample {
     people:any[];
 
     constructor() {
