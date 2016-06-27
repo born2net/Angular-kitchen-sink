@@ -32,6 +32,14 @@ export class ngBookRepeat implements DoCheck {
                 private changeDetector:ChangeDetectorRef,
                 private differs:IterableDiffers) {
     }
+    private _context: Object;
+
+    @Input()
+    set ngOutletContext(context: Object) {
+        if (this._context !== context) {
+            this._context = context;
+        }
+    }
 
     set ngBookRepeatOf(items) {
         this.items = items;
@@ -46,10 +54,7 @@ export class ngBookRepeat implements DoCheck {
             if (changes) {
                 console.log('template', this.template);
                 changes.forEachAddedItem((change) => {
-                    let view = this.viewContainer.createEmbeddedView(this.template);
-                    //pre rc.1
-                    //view.setLocal('\$implicit', change.item);
-                    // post rc.1
+                    let view = this.viewContainer.createEmbeddedView(this.template, {$implicit: change.item}, change.currentIndex);
                     view.context.$implicit = change.item;
                     this.views.set(change.item, view);
                 });
