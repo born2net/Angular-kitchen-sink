@@ -98,7 +98,7 @@ import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
                     <StreamButton></StreamButton>
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 14'">
-                    <h3>Custom directive *ngBookRepeat</h3>
+                    <h3>Custom ng template directive *ngBookRepeat</h3>
                     <ngBookRepeatSample></ngBookRepeatSample>
                   </mini-tab>
                 </mini-tabs>

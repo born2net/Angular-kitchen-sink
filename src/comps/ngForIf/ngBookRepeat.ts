@@ -55,7 +55,7 @@ export class ngBookRepeat implements DoCheck {
                 console.log('template', this.template);
                 changes.forEachAddedItem((change) => {
                     let view = this.viewContainer.createEmbeddedView(this.template, {$implicit: change.item}, change.currentIndex);
-                    view.context.$implicit = change.item;
+                    // view.context.$implicit = change.item;  // removed as no need in rc.3+
                     this.views.set(change.item, view);
                 });
                 changes.forEachRemovedItem((change) => {
@@ -72,30 +72,33 @@ export class ngBookRepeat implements DoCheck {
 @Component({
     selector: 'ngBookRepeatSample',
     directives: [ngBookRepeat],
+    styles: [`
+        .ele {
+            width: 200px;
+        }
+    `],
     template: `
   <ul>
     <li *ngBookRepeat="let p of people">
       {{ p.name }} is {{ p.age }}
-      <a href (click)="remove(p)">Remove</a>
+      <a class="btn" href (click)="remove(p)">Remove</a>
     </li>
   </ul>
 
   <div class="ui form">
     <div class="fields">
       <div class="field">
-        <label>Name</label>
-        <input type="text" #name placeholder="Name">
+        <input type="text" class="ele" #name placeholder="Name">
       </div>
       <div class="field">
-        <label>Age</label>
-        <input type="text" #age placeholder="Age">
+        <input type="text" class="ele" #age placeholder="Age">
       </div>
     </div>
   </div>
-  <div class="ui submit button"
+  <button class="ele btn submit button"
        (click)="add(name, age)">
     Add
-  </div>
+  </button>
   `
 })
 export class ngBookRepeatSample {
