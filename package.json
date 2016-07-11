@@ -19,11 +19,11 @@
   "devDependencies": {
     "http-server": "^0.9",
     "chokidar-socket-emitter": "^0.5",
-    "@angular/common": "^2.0.0-rc.3",
-    "@angular/compiler": "^2.0.0-rc.3",
-    "@angular/core": "^2.0.0-rc.3",
-    "@angular/platform-browser": "^2.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.3",
+    "@angular/common": "^2.0.0-rc.4",
+    "@angular/compiler": "^2.0.0-rc.4",
+    "@angular/core": "^2.0.0-rc.4",
+    "@angular/platform-browser": "^2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
     "angular-cli": "0.0.*",
     "angular2-redux-util": "^0.5",
     "angular2-uuid": "^1.0.6",
@@ -101,13 +101,13 @@
       "lib": "src"
     },
     "dependencies": {
-      "@angular/router@3.0.0-alpha.7": "npm:@angular/router@3.0.0-alpha.7",
-      "router": "npm:@angular/router@3.0.0-alpha.7",
-      "@angular/forms": "npm:@angular/forms@0.1.1",
-      "angular-common": "npm:@angular/common@^2.0.0-rc.3",
-      "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.3",
-      "angular-core": "npm:@angular/core@^2.0.0-rc.3",
-      "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.3",
+      "@angular/router@3.0.0-beta.2": "npm:@angular/router@3.0.0-beta.2",
+      "router": "npm:@angular/router@3.0.0-beta.2",
+      "@angular/forms": "npm:@angular/forms@0.2.0",
+      "angular-common": "npm:@angular/common@^2.0.0-rc.4",
+      "angular-compiler": "npm:@angular/compiler@^2.0.0-rc.4",
+      "angular-core": "npm:@angular/core@^2.0.0-rc.4",
+      "angular-platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.4",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.5.38",
       "angular2-uuid": "npm:angular2-uuid@^1.0.6",
@@ -130,7 +130,7 @@
       "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
-      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.3",
+      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.4",
       "clean-css": "npm:clean-css@^3.4.9",
       "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
       "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
@@ -139,10 +139,10 @@
       "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@2.0.0-rc.3",
-      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.3",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.3",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.3",
+      "@angular/common": "npm:@angular/common@2.0.0-rc.4",
+      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.4",
+      "@angular/core": "npm:@angular/core@2.0.0-rc.4",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.4",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.2",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
@@ -203,7 +203,7 @@
           }
         }
       },
-      "npm:@angular/common@2.0.0-rc.3": {
+      "npm:@angular/common@2.0.0-rc.4": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -213,7 +213,7 @@
           }
         }
       },
-      "npm:@angular/compiler@2.0.0-rc.3": {
+      "npm:@angular/compiler@2.0.0-rc.4": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -223,7 +223,7 @@
           }
         }
       },
-      "npm:@angular/core@2.0.0-rc.3": {
+      "npm:@angular/core@2.0.0-rc.4": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -233,7 +233,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.0.0-rc.3": {
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.4": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -243,7 +243,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser@2.0.0-rc.3": {
+      "npm:@angular/platform-browser@2.0.0-rc.4": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -342,14 +342,14 @@
     }
   },
   "dependencies": {
-    "@angular/common": "^2.0.0-rc.3",
-    "@angular/compiler": "^2.0.0-rc.3",
-    "@angular/core": "^2.0.0-rc.3",
-    "@angular/http": "^2.0.0-rc.3",
-    "@angular/platform-browser": "^2.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.3",
-    "@angular/router": "^3.0.0-alpha.7",
-    "@angular/forms": "0.1.1",
+    "@angular/common": "^2.0.0-rc.4",
+    "@angular/compiler": "^2.0.0-rc.4",
+    "@angular/core": "^2.0.0-rc.4",
+    "@angular/http": "^2.0.0-rc.4",
+    "@angular/platform-browser": "^2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.4",
+    "@angular/router": "^3.0.0-beta.2",
+    "@angular/forms": "0.2.0",
     "rxjs": "^5.0.0-beta.6",
     "typescript": "1.9.0-dev.20160622-1.0",
     "zone.js": "^0.6.12"
