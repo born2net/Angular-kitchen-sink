@@ -48,7 +48,6 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 NotesDetailsItems = __decorate([
                     core_1.Component({
                         selector: 'notes-details-item',
-                        changeDetection: core_1.ChangeDetectionStrategy.CheckAlways,
                         template: "<br/>\n    <button (click)=\"onClick()\">click me</button>\n    <p>content from parent is: {{content(random)}}</p>\n    <ng-content></ng-content>"
                     }), 
                     __metadata('design:paramtypes', [core_1.NgZone])

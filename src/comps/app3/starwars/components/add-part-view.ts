@@ -9,8 +9,7 @@ import {Component, Output, EventEmitter, ChangeDetectionStrategy} from '@angular
             </div>
             <button type="submit" class="btn btn-default">Add</button>
         </form>
-    `,
-    changeDetection:ChangeDetectionStrategy.CheckOnce
+    `
 })
 export class AddPartsView {
 

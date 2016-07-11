@@ -2,7 +2,6 @@ import {Component, Output, EventEmitter, Input, NgZone, ChangeDetectionStrategy}
 
 @Component({
     selector: 'notes-details-item',
-    changeDetection: ChangeDetectionStrategy.CheckAlways,
     template: `<br/>
     <button (click)="onClick()">click me</button>
     <p>content from parent is: {{content(random)}}</p>
