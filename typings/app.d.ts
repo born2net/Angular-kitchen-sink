@@ -30,6 +30,9 @@ declare var assert:any;
 declare module 'highcharts' {
 }
 
+// as of typescript 2.0 you can also do:
+//declare module "highcharts/*";
+
 interface Window {
     devToolsExtension: any;
     devToolsExtensionDisabled: any;
