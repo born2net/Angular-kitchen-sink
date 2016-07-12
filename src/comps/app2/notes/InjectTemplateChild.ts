@@ -1,4 +1,5 @@
-// Import the core angular services.
+// for reference see: http://www.bennadel.com/blog/3116-using-an-item-template-with-an-html-dropdown-menu-component-in-angular-2-rc-3.htm
+
 import {Component} from "@angular/core";
 import {ContentChild} from "@angular/core";
 import {EventEmitter} from "@angular/core";
