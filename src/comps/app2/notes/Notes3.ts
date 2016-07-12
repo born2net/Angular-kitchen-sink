@@ -18,12 +18,14 @@ import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
 import {ToggleButtonApp} from "./ToggleButton";
 import {StreamButton} from "./StreamButton";
 import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
+import {InjectTemplateParent} from "./InjectTemplateParent";
 
 @Component({
     selector: 'Notes3',
     directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
         Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
-        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample],
+        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton,
+        ngBookRepeatSample, InjectTemplateParent],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -100,6 +102,11 @@ import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
                   <mini-tab [tabTitle]="'Code 14'">
                     <h3>Custom ng template directive *ngBookRepeat</h3>
                     <ngBookRepeatSample></ngBookRepeatSample>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 15'">
+                    <h3>Injecting template as string</h3>
+                    <InjectTemplateParent></InjectTemplateParent>
+                    
                   </mini-tab>
                 </mini-tabs>
                     
