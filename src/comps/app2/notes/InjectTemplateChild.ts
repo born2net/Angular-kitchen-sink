@@ -1,26 +1,28 @@
 // Import the core angular services.
-import { Component } from "@angular/core";
-import { ContentChild } from "@angular/core";
-import { EventEmitter } from "@angular/core";
-import { TemplateRef } from "@angular/core";
+import {Component} from "@angular/core";
+import {ContentChild} from "@angular/core";
+import {EventEmitter} from "@angular/core";
+import {TemplateRef} from "@angular/core";
 
 @Component({
     selector: "InjectTemplateChild",
-    inputs: [ "items", "value", "placeholder" ],
-    outputs: [ "valueChange" ],
-
+    inputs: ["items", "value", "placeholder"],
+    outputs: ["valueChange"],
+    styles: [`
+        * { 
+           cursor: pointer
+        }
+    `],
     // Query for the template being provided by the calling context.
     queries: {
-        itemTemplate: new ContentChild( TemplateRef )
+        itemTemplate: new ContentChild(TemplateRef)
     },
     host: {
         "[class.is-open]": "isShowingItems"
     },
-    template:
-        `
+    template: `
 		<div (click)="toggleItems()" class="dropdown-root" [ngSwitch]="!! value">
 			<div *ngSwitchCase="true" class="dropdown-item-content">
-
 				<template
 					[ngTemplateOutlet]="itemTemplate"
 					[ngOutletContext]="{ item: value, index: -1 }">
@@ -28,9 +30,9 @@ import { TemplateRef } from "@angular/core";
 
 			</div>
 			<div *ngSwitchCase="false" class="placeholder">
-
-				{{ placeholder || "Nothing Selected" }}
-
+                <button>
+			    	{{ placeholder || "Nothing Selected" }}
+               </button>
 			</div>
 		</div>
 
@@ -86,7 +88,7 @@ export class InjectTemplateChild {
 
 
     // I hide the dropdown items.
-    public hideItems() : void {
+    public hideItems(): void {
 
         this.isShowingItems = false;
 
@@ -97,16 +99,16 @@ export class InjectTemplateChild {
     // --
     // NOTE: Since this is a one-way data flow, the selection is being emitted rather
     // than applied directly to the value.
-    public selectItem( item: any ) : void {
+    public selectItem(item: any): void {
 
         this.hideItems();
-        this.valueChange.emit( item );
+        this.valueChange.emit(item);
 
     }
 
 
     // I show the dropdown items.
-    public showItems() : void {
+    public showItems(): void {
 
         this.isShowingItems = true;
 
@@ -114,7 +116,7 @@ export class InjectTemplateChild {
 
 
     // I show or hide the dropdown items depending on their current visibility.
-    public toggleItems() : void {
+    public toggleItems(): void {
 
         this.isShowingItems
             ? this.hideItems()

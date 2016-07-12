@@ -9,7 +9,6 @@ interface Friend {
     name: string;
     avatar: string;
 }
-
 @Component({
     selector: "InjectTemplateParent",
     directives: [InjectTemplateChild],
@@ -24,7 +23,7 @@ interface Friend {
 			<a (click)="clearSelection()">Clear selection</a>
 		</p>
 
-		<InjectTemplateChild [items]="friends" [(value)]="bestFriend" placeholder="Select Friend">
+		<InjectTemplateChild [items]="friends" [(value)]="bestFriend" placeholder="Select Angry bird">
 			<template let-friend="item">
 				<img [src]="( './assets/' + friend.avatar )" />
 				<span class="name">
