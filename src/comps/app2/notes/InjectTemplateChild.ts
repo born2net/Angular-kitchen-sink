@@ -1,9 +1,6 @@
 // for reference see: http://www.bennadel.com/blog/3116-using-an-item-template-with-an-html-dropdown-menu-component-in-angular-2-rc-3.htm
 
-import {Component} from "@angular/core";
-import {ContentChild} from "@angular/core";
-import {EventEmitter} from "@angular/core";
-import {TemplateRef} from "@angular/core";
+import {Component, ContentChild, EventEmitter, TemplateRef} from "@angular/core";
 
 @Component({
     selector: "InjectTemplateChild",
@@ -51,6 +48,11 @@ import {TemplateRef} from "@angular/core";
 })
 export class InjectTemplateChild {
 
+    constructor() {
+        this.isShowingItems = false;
+        this.valueChange = new EventEmitter();
+    }
+
     // I determine if the dropdown items are being shown.
     public isShowingItems: boolean;
 
@@ -66,24 +68,7 @@ export class InjectTemplateChild {
     // OUTPUT: I am the output event stream that emits the item selected by the user.
     public valueChange: EventEmitter<any>;
 
-
-    // I initialize the component.
-    constructor() {
-
-        this.isShowingItems = false;
-        this.valueChange = new EventEmitter();
-
-    }
-
-
-    // ---
-    // PUBLIC METHODS.
-    // ---
-
-
-    // I hide the dropdown items.
     public hideItems(): void {
-
         this.isShowingItems = false;
 
     }

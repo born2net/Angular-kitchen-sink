@@ -19,13 +19,20 @@ import {ToggleButtonApp} from "./ToggleButton";
 import {StreamButton} from "./StreamButton";
 import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
 import {InjectTemplateParent} from "./InjectTemplateParent";
+import {TooltipDirective} from "../../tooltip/tooltip.component";
 
 @Component({
     selector: 'Notes3',
+    styles: [
+        `
+        .colorBlue span {
+            color: blue;
+        }`
+    ],
     directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
         Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
         CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton,
-        ngBookRepeatSample, InjectTemplateParent],
+        ngBookRepeatSample, InjectTemplateParent, TooltipDirective],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -106,7 +113,36 @@ import {InjectTemplateParent} from "./InjectTemplateParent";
                   <mini-tab [tabTitle]="'Code 15'">
                     <h3>Injecting template as string</h3>
                     <InjectTemplateParent></InjectTemplateParent>
-                    
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 16'">
+                    <h3>Tooltip injecting template</h3>
+                    <h2 class="colorBlue">
+                        Hover for a tooltip on the
+                        <span [tooltip]="{position:'left'}">
+                            left
+                            <template #tooltipTemplate>
+                                I'm a popover box!
+                            </template>
+                        </span>,
+                        <span [tooltip]="{position:'right'}">
+                            right
+                            <template #tooltipTemplate>
+                                I'm a popover box!
+                            </template>
+                        </span>,
+                        <span [tooltip]="{position:'top'}">
+                            top
+                            <template #tooltipTemplate>
+                                I'm a popover box!
+                            </template>
+                        </span>, or 
+                        <span [tooltip]="{position:'bottom'}">
+                            bottom
+                            <template #tooltipTemplate>
+                                I'm a popover box!
+                            </template>
+                        </span>
+                    </h2>
                   </mini-tab>
                 </mini-tabs>
                     

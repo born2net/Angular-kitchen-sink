@@ -39,6 +39,7 @@ import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {AppdbAction} from "./actions/AppdbAction";
 import {APP_ROUTER_PROVIDERS} from "./App.routes";
 import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
+import {PositionService} from "./comps/tooltip/position.service";
 
 /**
  Main application bootstrap
@@ -93,6 +94,7 @@ var modules = [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS, JSONP_PROVIDERS,
     disableDeprecatedForms(),
     provideForms(),
     {provide: AppStore, useFactory: Lib.StoreFactory({notify, appdb, parts, cart, films, users, todos})},
+    {provide: PositionService, useClass: PositionService},
     {provide: CommBroker, useClass: CommBroker},
     {provide: AuthService, useClass: AuthService},
     {provide: LogoutDeactivate, useClass: LogoutDeactivate},

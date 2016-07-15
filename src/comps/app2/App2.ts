@@ -22,6 +22,7 @@ import {DividerPanel} from "../dividerpanel/DividerPanel";
 import {ModalDialog} from "../modaldialog/ModalDialog";
 import {Properties} from "./properties/Properties";
 import {Weather} from "./weather/Weather";
+import {PositionService} from "ng2-bootstrap";
 
 /**
  Application 2 lazy loaded

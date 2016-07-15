@@ -1,4 +1,4 @@
-System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "reflect-metadata", "@angular/router", '@angular/forms', "@angular/platform-browser-dynamic", "@angular/core", "twbs/bootstrap", "twbs/bootstrap/dist/css/bootstrap.css!", "./styles/style.css!", "./pipes/CharCount", "./services/AuthService", "./services/AppInjService", "@angular/http", "../src/services/CommBroker", "../src/comps/filemenu/Filemenu", "../src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./comps/footer/Footer", "../src/Conts", "./styles/StyleService", "angular2-redux-util", "./Lib", "rxjs/Observable", "rxjs/add/operator/map", "rxjs/add/operator/debounceTime", "rxjs/add/observable/fromEvent", "./comps/app3/starwars/reducers/parts-reducer", "./comps/app3/starwars/reducers/cart-reducer", "./comps/app3/starwars/reducers/films-reducer", "./comps/app3/starwars/reducers/users-reducer", "./reducers/NotifyReducer", "./reducers/AppdbReducer", "./comps/app1/todos/reducers/TodoReducer", "./actions/AppdbAction", "./App.routes", "./comps/logout/LogoutDeactivate"], function(exports_1, context_1) {
+System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "reflect-metadata", "@angular/router", '@angular/forms', "@angular/platform-browser-dynamic", "@angular/core", "twbs/bootstrap", "twbs/bootstrap/dist/css/bootstrap.css!", "./styles/style.css!", "./pipes/CharCount", "./services/AuthService", "./services/AppInjService", "@angular/http", "../src/services/CommBroker", "../src/comps/filemenu/Filemenu", "../src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./comps/footer/Footer", "../src/Conts", "./styles/StyleService", "angular2-redux-util", "./Lib", "rxjs/Observable", "rxjs/add/operator/map", "rxjs/add/operator/debounceTime", "rxjs/add/observable/fromEvent", "./comps/app3/starwars/reducers/parts-reducer", "./comps/app3/starwars/reducers/cart-reducer", "./comps/app3/starwars/reducers/films-reducer", "./comps/app3/starwars/reducers/users-reducer", "./reducers/NotifyReducer", "./reducers/AppdbReducer", "./comps/app1/todos/reducers/TodoReducer", "./actions/AppdbAction", "./App.routes", "./comps/logout/LogoutDeactivate", "./comps/tooltip/position.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1, forms_1, platform_browser_dynamic_1, core_1, CharCount_1, AuthService_1, AppInjService_1, http_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, App_routes_1, LogoutDeactivate_1;
+    var router_1, forms_1, platform_browser_dynamic_1, core_1, CharCount_1, AuthService_1, AppInjService_1, http_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, App_routes_1, LogoutDeactivate_1, position_service_1;
     var App, modules;
     return {
         setters:[
@@ -106,6 +106,9 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
             },
             function (LogoutDeactivate_1_1) {
                 LogoutDeactivate_1 = LogoutDeactivate_1_1;
+            },
+            function (position_service_1_1) {
+                position_service_1 = position_service_1_1;
             }],
         execute: function() {
             App = (function () {
@@ -154,6 +157,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 forms_1.disableDeprecatedForms(),
                 forms_1.provideForms(),
                 { provide: angular2_redux_util_1.AppStore, useFactory: Lib_1.Lib.StoreFactory({ notify: NotifyReducer_1.default, appdb: AppdbReducer_1.default, parts: parts_reducer_1.default, cart: cart_reducer_1.default, films: films_reducer_1.default, users: users_reducer_1.default, todos: TodoReducer_1.todos }) },
+                { provide: position_service_1.PositionService, useClass: position_service_1.PositionService },
                 { provide: CommBroker_1.CommBroker, useClass: CommBroker_1.CommBroker },
                 { provide: AuthService_1.AuthService, useClass: AuthService_1.AuthService },
                 { provide: LogoutDeactivate_1.LogoutDeactivate, useClass: LogoutDeactivate_1.LogoutDeactivate },

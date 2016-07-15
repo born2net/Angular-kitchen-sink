@@ -1,9 +1,9 @@
 // for reference see: http://www.bennadel.com/blog/3116-using-an-item-template-with-an-html-dropdown-menu-component-in-angular-2-rc-3.htm
 
 import {Component} from "@angular/core";
+import {InjectTemplateChild} from "./InjectTemplateChild";
 
 // Import the application components and services.
-import {InjectTemplateChild} from "./InjectTemplateChild";
 
 interface Friend {
     id: number;
@@ -20,8 +20,7 @@ interface Friend {
     template: `
 		<p>
 			<strong>Best Friend</strong>: {{ bestFriend?.name || "None selected" }}
-			&mdash;
-			<a (click)="clearSelection()">Clear selection</a>
+			&mdash; <a (click)="clearSelection()">Clear selection</a>
 		</p>
 
 		<InjectTemplateChild [items]="friends" [(value)]="bestFriend" placeholder="Select Angry bird">
