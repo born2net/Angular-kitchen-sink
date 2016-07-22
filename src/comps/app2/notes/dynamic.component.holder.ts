@@ -1,44 +1,41 @@
 import {Component, OnInit, ComponentFactory} from '@angular/core';
-import {ComponentResolver,ViewChild,ViewContainerRef} from '@angular/core';
+import {ComponentResolver, ViewChild, ViewContainerRef} from '@angular/core';
 import {FORM_DIRECTIVES} from "@angular/common";
 
-import { IHaveDynamicData, CustomComponentBuilder } from './custom.component.builder';
+import {IHaveDynamicData, CustomComponentBuilder} from './custom.component.builder';
 
 @Component({
     selector: 'dynamic-holder',
     template: `
-<div>
-  <h1>Dynamic content holder</h1>
-  <hr />
-  <div #dynamicContentPlaceHolder></div>
-  <hr />
-  change description <input [(ngModel)]="entity.description" style="width:500px" />
-</div>
-`,
+        <div>
+          <h1>Dynamic content holder</h1>
+          <hr />
+          <div #dynamicContentPlaceHolder></div>
+          <hr />
+          change description <input [(ngModel)]="entity.description" style="width:500px" />
+        </div>
+        `,
     providers: [CustomComponentBuilder],
 })
-export class DynamicHolder implements OnInit
-{
+
+export class DynamicHolder implements OnInit {
     public entity: { description: string };
     // reference for a <div> with #
     @ViewChild('dynamicContentPlaceHolder', {read: ViewContainerRef})
     protected dynamicComponentTarget: ViewContainerRef;
 
     // ng loader and our custom builder
-    constructor(
-        protected componentResolver: ComponentResolver,
-        protected customComponentBuilder: CustomComponentBuilder
-    )
-    {}
+    constructor(protected componentResolver: ComponentResolver, protected customComponentBuilder: CustomComponentBuilder) {
+    }
 
-    public ngOnInit(){
+    public ngOnInit() {
         // just init the entity for this example
         this.entity = {
             description: "The description of the user instance, passed as (shared) reference"
         };
 
 
-        // dynamic template built (TODO driven by some incoming settings)
+        // dynamic template built (
         var template = this.customComponentBuilder
             .CreateTemplate();
 
@@ -49,8 +46,7 @@ export class DynamicHolder implements OnInit
         // we have a component and its target
         this.componentResolver
             .resolveComponent(dynamicComponent)
-            .then((factory: ComponentFactory<IHaveDynamicData>) =>
-            {
+            .then((factory: ComponentFactory<IHaveDynamicData>) => {
                 // Instantiates a single {@link Component} and inserts its Host View
                 //   into this container at the specified `index`
                 let dynamicComponent = this.dynamicComponentTarget.createComponent(factory, 0);

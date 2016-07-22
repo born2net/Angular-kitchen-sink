@@ -6,22 +6,19 @@ export interface IHaveDynamicData {
 }
 
 export class CustomComponentBuilder {
-
     public CreateTemplate() {
-
         let template = `
-<div>
-    <h3>Dynamic component</h3>
-    
-    with dynamic data:
-    <dl>
-      <dt>string value 'name'</dt>
-      <dd><b>{{name}}</b></dd>
-      <dt>reference value 'entity' and its 'description'</dt>
-      <dd><b>{{entity?.description}}</b></dd>
-    </dl>
-</div>`;
-
+            <div>
+                <h3>Dynamic component</h3>
+                
+                with dynamic data:
+                <dl>
+                  <dt>string value 'name'</dt>
+                  <dd><b>{{name}}</b></dd>
+                  <dt>reference value 'entity' and its 'description'</dt>
+                  <dd><b>{{entity?.description}}</b></dd>
+                </dl>
+            </div>`;
         return template;
     }
 
