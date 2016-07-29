@@ -10,12 +10,13 @@ import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import {DisplayError} from "../../displayerror/DisplayError";
 import * as bootbox from "bootbox";
+import {CounterInputComponent} from "../../CounterInputComponent/CounterInputComponent";
 
 
 @Component({
     selector: 'Notes1',
     moduleId: __moduleName,
-    directives: [ModalDialog, REACTIVE_FORM_DIRECTIVES, DisplayError],
+    directives: [ModalDialog, REACTIVE_FORM_DIRECTIVES, DisplayError, CounterInputComponent],
     templateUrl: 'Notes1.html',
     styleUrls: ['Notes1.css']
 })
@@ -32,6 +33,7 @@ export class Notes1 extends NotesBase {
     private reference:FormControl;
     private phone:FormControl;
     private birthdate:FormControl;
+    private counter:FormControl;
     private login:FormControl;
     private model:MailModel;
     private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
@@ -46,6 +48,7 @@ export class Notes1 extends NotesBase {
             'reference': ['', Validators.required],
             'phone': ['(xxx)-xxxx-xxx', Validators.minLength(10)],
             'birthdate': ['', [Validators.required, this.isOldEnough]],
+            'counter': [''],
             'notesTextArea': ['enter text here', [Validators.required, StartCapValidator]],
             'login': ['', [Validators.required, StartCapValidator], NameTakenValidator]
         });
@@ -57,6 +60,7 @@ export class Notes1 extends NotesBase {
         this.login = this.notesForm.controls['login']  as FormControl;
         this.phone = this.notesForm.controls['phone']  as FormControl;
         this.birthdate = this.notesForm.controls['birthdate']  as FormControl;
+        this.counter = this.notesForm.controls['counter']  as FormControl;
         this.model = new MailModel(0, '', true, '', '');
 
         // unrelated, demonstrate usage of Map

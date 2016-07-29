@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "../../../../src/Conts", "./NotesBase", "../../../models/MailModel", '@angular/forms', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator", "../../displayerror/DisplayError", "bootbox"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modaldialog/ModalDialog", "../../../services/CommBroker", "../../../../src/Conts", "./NotesBase", "../../../models/MailModel", '@angular/forms', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator", "../../displayerror/DisplayError", "bootbox", "../../CounterInputComponent/CounterInputComponent"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,7 +15,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, Conts_1, NotesBase_1, MailModel_1, forms_1, StartCapValidator_1, NameTakenValidator_1, DisplayError_1, bootbox;
+    var core_1, Sliderpanel_1, ModalDialog_1, CommBroker_1, Conts_1, NotesBase_1, MailModel_1, forms_1, StartCapValidator_1, NameTakenValidator_1, DisplayError_1, bootbox, CounterInputComponent_1;
     var Notes1;
     return {
         setters:[
@@ -54,6 +54,9 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
             },
             function (bootbox_1) {
                 bootbox = bootbox_1;
+            },
+            function (CounterInputComponent_1_1) {
+                CounterInputComponent_1 = CounterInputComponent_1_1;
             }],
         execute: function() {
             Notes1 = (function (_super) {
@@ -68,6 +71,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                         'reference': ['', forms_1.Validators.required],
                         'phone': ['(xxx)-xxxx-xxx', forms_1.Validators.minLength(10)],
                         'birthdate': ['', [forms_1.Validators.required, this.isOldEnough]],
+                        'counter': [''],
                         'notesTextArea': ['enter text here', [forms_1.Validators.required, StartCapValidator_1.default]],
                         'login': ['', [forms_1.Validators.required, StartCapValidator_1.default], NameTakenValidator_1.default]
                     });
@@ -77,6 +81,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                     this.login = this.notesForm.controls['login'];
                     this.phone = this.notesForm.controls['phone'];
                     this.birthdate = this.notesForm.controls['birthdate'];
+                    this.counter = this.notesForm.controls['counter'];
                     this.model = new MailModel_1.MailModel(0, '', true, '', '');
                     this.mapModel = new Map();
                     this.mapModel.set('my name', 'Sean Levy');
@@ -116,7 +121,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../modald
                     core_1.Component({
                         selector: 'Notes1',
                         moduleId: __moduleName,
-                        directives: [ModalDialog_1.ModalDialog, forms_1.REACTIVE_FORM_DIRECTIVES, DisplayError_1.DisplayError],
+                        directives: [ModalDialog_1.ModalDialog, forms_1.REACTIVE_FORM_DIRECTIVES, DisplayError_1.DisplayError, CounterInputComponent_1.CounterInputComponent],
                         templateUrl: 'Notes1.html',
                         styleUrls: ['Notes1.css']
                     }), 
