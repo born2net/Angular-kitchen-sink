@@ -6,7 +6,7 @@ import {Component, Input, OnDestroy} from '@angular/core';
   <ng-content></ng-content>
           `,
   host: {
-    'class': 'panel-group'
+    'class': 'panel-group' //add panel-group class to our component's view
   }
 })
 export class Accordion {
