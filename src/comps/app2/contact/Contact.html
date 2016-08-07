@@ -38,6 +38,23 @@
   </div>
 </div>
 
+<!-- special notes on [hidden] tag, it may get overwritten
+for reference see: http://www.talkingdotnet.com/dont-use-hidden-attribute-angularjs-2/
+so possible options are to add at end of global css:
+[hidden] {
+  display: none !important;
+}
+
+OR
+
+instead you may use:
+
+<p [style.display]="myHideVariable?'none':'inherit'">
+   I am using hidden.
+</p>
+
+-->
+
 <!-- special tx to ng2-book via http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/ -->
 
 <!-- To create a new ControlGroup and Controls implicitly use: -->
