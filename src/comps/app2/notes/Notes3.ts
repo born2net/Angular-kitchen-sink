@@ -21,6 +21,7 @@ import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
 import {InjectTemplateParent} from "./InjectTemplateParent";
 import {TooltipDirective} from "../../tooltip/tooltip.component";
 import {DynamicHolder} from "./dynamic.component.holder";
+import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent";
 
 @Component({
     selector: 'Notes3',
@@ -33,7 +34,7 @@ import {DynamicHolder} from "./dynamic.component.holder";
     directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
         Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
         CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton,
-        ngBookRepeatSample, InjectTemplateParent, TooltipDirective, DynamicHolder],
+        ngBookRepeatSample, InjectTemplateParent, TooltipDirective, DynamicHolder, OptionListComponent],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -147,6 +148,9 @@ import {DynamicHolder} from "./dynamic.component.holder";
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 17'">
                     <dynamic-holder></dynamic-holder>
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 18'">
+                    <optionsList></optionsList> 
                   </mini-tab>
                 </mini-tabs>
                     
