@@ -1,6 +1,7 @@
 <ul>
     <li *ngFor="let option of options">
-        <input type="radio" name="price" [checked]="option.id == selectedOption.id" (click)="getValue(option.id)" value= {{option.id}}>{{option.name}}
+        <input type="radio" name="price" [checked]="option.id == selectedOption.id" (click)="setValue(option.id)"
+               value={{option.id}}>{{option.name}}
     </li>
 </ul>
 <p>Selected Option : <strong>{{selectedOption.name}}</strong></p>

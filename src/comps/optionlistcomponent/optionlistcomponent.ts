@@ -23,7 +23,7 @@ export class OptionListComponent {
         new Options(7, 'Shoes')
     ];
 
-    getValue(optionid) {
+    setValue(optionid) {
         this.selectedOption = this.options.filter((item)=> item.id == optionid)[0];
     }
 }
