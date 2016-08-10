@@ -10,9 +10,6 @@ import {BehaviorSubject, Observable, Subject} from "rxjs/Rx";
 `
 })
 export class IncrementingDisplay {
-    constructor(){
-        alert('id')
-    }
     @Output() display$ = new Subject()
         .scan((acc:number) => acc + 1)
 }
@@ -25,13 +22,11 @@ export class IncrementingDisplay {
 })
 export class ToggleBut {
     constructor(){
-        alert(111)
         this.on$ =  new BehaviorSubject(true)
             .scan(acc =>!acc);
     }
     @Output() on$;
 }
-
 
 @Component({
     selector: 'StreamButton',
@@ -49,7 +44,6 @@ export class StreamButton {
 
     ngAfterViewInit() {
         this.toggleButton.on$.next(false);
-
         this.toggleButton.on$
             .switchMap(bool => bool ? Observable.interval(250) : Observable.empty())
             .startWith(0)
