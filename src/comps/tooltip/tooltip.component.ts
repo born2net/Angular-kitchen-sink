@@ -10,7 +10,8 @@ import {
     ElementRef,
     OnInit,
     OnChanges,
-    ComponentResolver} from "@angular/core";
+    Compiler
+} from "@angular/core";
 import {PositionService} from "./position.service";
 
 let $: any = window["$"];
@@ -54,9 +55,9 @@ export class TooltipDirective implements OnInit, OnChanges {
     private tooltipId: string;
 
     constructor (
+        private compiler:Compiler,
         private viewContainer: ViewContainerRef,
         public elementRef: ElementRef,
-        private componentResolver: ComponentResolver,
         private position: PositionService) {
         this.tooltipId = _.uniqueId("tooltip");
     }
@@ -96,7 +97,7 @@ export class TooltipDirective implements OnInit, OnChanges {
 
     private showTooltip () {
         if (this.tooltipTemplate) {
-            this.componentResolver.resolveComponent(Tooltip)
+            this.compiler.compileComponentAsync(Tooltip)
                 .then(factory => {
                     this.tooltip = this.viewContainer.createComponent(factory);
                     this.tooltip.instance["content"] = this.tooltipTemplate;
