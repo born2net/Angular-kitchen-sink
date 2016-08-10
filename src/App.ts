@@ -5,23 +5,18 @@
 import "zone.js/dist/zone";
 import "zone.js/dist/long-stack-trace-zone";
 import "reflect-metadata";
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic'
-// import {
-//     ROUTER_DIRECTIVES
-// } from "@angular/router";
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {
-    disableDeprecatedForms,
-    provideForms,
     FormsModule,
     ReactiveFormsModule
-} from '@angular/forms';
+} from "@angular/forms";
 import {
     Component,
     ViewEncapsulation,
     PLATFORM_PIPES,
-    ComponentRef,
     enableProdMode,
-    NgModuleRef
+    NgModuleRef,
+    NgModule
 } from "@angular/core";
 import "twbs/bootstrap";
 import "twbs/bootstrap/dist/css/bootstrap.css!";
@@ -30,7 +25,6 @@ import {CharCount} from "./pipes/CharCount";
 import {AuthService} from "./services/AuthService";
 import {appInjService} from "./services/AppInjService";
 import {
-    HTTP_PROVIDERS,
     JSONP_PROVIDERS,
     HttpModule
 } from "@angular/http";
@@ -61,10 +55,9 @@ import {
 } from "./App.routes";
 import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
 import {PositionService} from "./comps/tooltip/position.service";
-import {NgModule}       from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule} from "@angular/platform-browser";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
-
+import {ToggleButton} from "./comps/app2/notes/ToggleButton";
 
 
 var modules = [JSONP_PROVIDERS, {
