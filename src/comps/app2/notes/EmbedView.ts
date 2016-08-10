@@ -1,4 +1,8 @@
-import {Component, ViewChild, ViewContainerRef, ComponentResolver} from '@angular/core';
+import {
+    Component,
+    ViewChild,
+    ViewContainerRef
+} from "@angular/core";
 
 @Component({
     selector: 'EmbedView',
@@ -15,8 +19,7 @@ export class EmbedView {
 
     @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
 
-    constructor(public view:ViewContainerRef,
-                public compResolve:ComponentResolver) {
+    constructor(public view:ViewContainerRef) {
     }
 
     ngAfterViewInit() {

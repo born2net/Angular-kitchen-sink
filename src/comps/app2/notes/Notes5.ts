@@ -3,11 +3,8 @@ import {
     Inject,
     Injectable,
     provide,
-    ComponentResolver,
     ViewContainerRef,
     ViewChild,
-    ComponentFactory,
-    ComponentMetadata,
     Compiler
 } from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
