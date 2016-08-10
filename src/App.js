@@ -115,7 +115,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 modal_1 = modal_1_1;
             }],
         execute: function() {
-            modules = [http_1.HTTP_PROVIDERS, http_1.JSONP_PROVIDERS, forms_1.disableDeprecatedForms(), forms_1.provideForms(), {
+            modules = [http_1.JSONP_PROVIDERS, {
                     provide: angular2_redux_util_1.AppStore,
                     useFactory: Lib_1.Lib.StoreFactory({
                         notify: NotifyReducer_1.default,
@@ -204,7 +204,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 }
                 App = __decorate([
                     core_2.NgModule({
-                        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, App_routes_1.routing],
+                        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, forms_1.ReactiveFormsModule, App_routes_1.routing],
                         providers: [App_routes_1.appRoutingProviders],
                         declarations: [Main],
                         bootstrap: [Main],

@@ -12,7 +12,8 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic'
 import {
     disableDeprecatedForms,
     provideForms,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 } from '@angular/forms';
 import {
     Component,
@@ -30,7 +31,8 @@ import {AuthService} from "./services/AuthService";
 import {appInjService} from "./services/AppInjService";
 import {
     HTTP_PROVIDERS,
-    JSONP_PROVIDERS
+    JSONP_PROVIDERS,
+    HttpModule
 } from "@angular/http";
 import {CommBroker} from "../src/services/CommBroker";
 import {Filemenu} from "../src/comps/filemenu/Filemenu";
@@ -65,7 +67,7 @@ import {ModalComponent} from "ng2-bs3-modal/components/modal";
 
 
 
-var modules = [HTTP_PROVIDERS, JSONP_PROVIDERS, disableDeprecatedForms(), provideForms(), {
+var modules = [JSONP_PROVIDERS, {
     provide: AppStore,
     useFactory: Lib.StoreFactory({
         notify,
@@ -167,7 +169,7 @@ if (!Lib.DevMode())
 // rc.5
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, routing],
+    imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
     declarations: [Main],
     bootstrap: [Main],
