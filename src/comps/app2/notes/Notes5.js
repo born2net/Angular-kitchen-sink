@@ -57,9 +57,9 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
             }());
             Notes5 = (function (_super) {
                 __extends(Notes5, _super);
-                function Notes5(componentResolver, NotesService, sliderPanel, commBroker) {
+                function Notes5(compiler, NotesService, sliderPanel, commBroker) {
                     _super.call(this, sliderPanel, commBroker);
-                    this.componentResolver = componentResolver;
+                    this.compiler = compiler;
                     this.NotesService = NotesService;
                     this.sliderPanel = sliderPanel;
                     this.commBroker = commBroker;
@@ -75,9 +75,8 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
                         return fileContents[componentName];
                     })
                         .then(function (component) {
-                        _this.componentResolver.resolveComponent(component).then(function (factory) {
-                            locationAnchor.createComponent(factory, 0, locationAnchor.injector);
-                        });
+                        var factory = _this.compiler.compileComponentSync(component);
+                        locationAnchor.createComponent(factory, 0, locationAnchor.injector);
                     });
                 };
                 Notes5.prototype.ngAfterViewInit = function () {
@@ -92,12 +91,10 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
                         selector: 'Notes5',
                         directives: [CountDown_1.CountDown, NoteDynamicOutlet_1.NoteDynamicOutlet],
                         providers: [
-                            NotesService,
-                            core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'example of passing param to component via DI' } }),
-                        ],
+                            NotesService, core_1.provide("NotesConfigValue", { useValue: { noteDefault: 'example of passing param to component via DI' } }),],
                         template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am Notes5 component..</small>\n                <span #extensionAnchor></span>\n                 <hr/>\n                 <dynamic-html-outlet [src]=\"html\"></dynamic-html-outlet>\n                \n                <!--<div>-->\n                   <!--<small>I am CountDown component</small>-->\n                    <!--<h2>CountDown</h2>-->\n                    <!--<div class=\"timer\" *CountDown=\"let timer=timerApi\">-->\n                      <!--<div class=\"time\">{{ timer.getTime() }}</div>-->\n                      <!--<div class=\"controls\">-->\n                        <!--<button (click)=\"timer.toggle()\">Toggle</button>-->\n                        <!--<button (click)=\"timer.reset()\">Reset</button>-->\n                      <!--</div>-->\n                    <!--</div>-->\n                <!--</div>-->\n                <!--<label>A unique example of how to <u>manually</u> create and bind a Template to a view using our very own *CountDown directive (note that asterisk)</label>-->\n                <!--<br/>-->\n                <!--<label>Check the code to learn more...</label>-->\n                \n                \n                "
                     }), 
-                    __metadata('design:paramtypes', [core_1.ComponentResolver, NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
+                    __metadata('design:paramtypes', [core_1.Compiler, NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes5);
                 return Notes5;
             }(NotesBase_1.NotesBase));

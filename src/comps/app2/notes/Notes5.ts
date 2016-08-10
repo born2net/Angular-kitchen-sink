@@ -7,7 +7,8 @@ import {
     ViewContainerRef,
     ViewChild,
     ComponentFactory,
-    ComponentMetadata
+    ComponentMetadata,
+    Compiler
 } from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
@@ -27,8 +28,7 @@ import {NoteDynamicOutlet} from "./NoteDynamicOutlet";
 
 @Injectable()
 class NotesService {
-    constructor(@Inject("NotesConfigValue")
-                public config:{noteDefault:string}) {
+    constructor(@Inject("NotesConfigValue") public config: {noteDefault: string}) {
     }
 
     showConfigValue() {
@@ -51,11 +51,8 @@ class NotesService {
 @Component({
     selector: 'Notes5',
     directives: [CountDown, NoteDynamicOutlet],
-    providers: [
-        // NotesService get's provided with a noteDefault
-        NotesService,
-        provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),
-    ],
+    providers: [// NotesService get's provided with a noteDefault
+        NotesService, provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),],
     template: `<button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                 </button>
@@ -84,16 +81,14 @@ class NotesService {
                 `
 })
 export class Notes5 extends NotesBase {
-    constructor(private componentResolver:ComponentResolver, private NotesService:NotesService,
-                protected sliderPanel:Sliderpanel,
-                protected commBroker:CommBroker) {
+    constructor(private compiler: Compiler, private NotesService: NotesService, protected sliderPanel: Sliderpanel, protected commBroker: CommBroker) {
         super(sliderPanel, commBroker);
         NotesService.showConfigValue();
         this.me = this;
         this.slideRight = 'notes4';
     }
 
-    @ViewChild('extensionAnchor', {read: ViewContainerRef}) extensionAnchor:ViewContainerRef;
+    @ViewChild('extensionAnchor', {read: ViewContainerRef}) extensionAnchor: ViewContainerRef;
 
     private html = `
                   <div>
@@ -102,24 +97,21 @@ export class Notes5 extends NotesBase {
                   </div>
       `;
 
-    public LazyLoadComponentAsync(componentPath:string, componentName:string, locationAnchor:ViewContainerRef) {
+    public LazyLoadComponentAsync(componentPath: string, componentName: string, locationAnchor: ViewContainerRef) {
         System.import(componentPath)
             .then(fileContents => {
                 return fileContents[componentName]
             })
             .then(component => {
-                this.componentResolver.resolveComponent(component).then(factory => {
-                    locationAnchor.createComponent(factory, 0,
-                        locationAnchor.injector);
-                });
+                var factory = this.compiler.compileComponentSync(component);
+                locationAnchor.createComponent(factory, 0, locationAnchor.injector);
+                // rc.4 deprecated
+                // ref: http://stackoverflow.com/questions/37578117/angular-2-trying-to-load-a-component-dynamically-getting-typeerror-cannot-re
+                // this.componentResolver.resolveComponent(component).then(factory => {
+                //     locationAnchor.createComponent(factory, 0,
+                //         locationAnchor.injector);
+                // });
             });
-
-        // ref: http://stackoverflow.com/questions/37578117/angular-2-trying-to-load-a-component-dynamically-getting-typeerror-cannot-re
-        // deprectaed dynamicComponentLoader
-        //
-        // .then(component => {
-        //     this.dynamicComponentLoader.loadNextToLocation(component, locationAnchor)
-        // });
     }
 
     ngAfterViewInit() {
