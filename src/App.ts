@@ -58,6 +58,19 @@ import {PositionService} from "./comps/tooltip/position.service";
 import {BrowserModule} from "@angular/platform-browser";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {ToggleButton} from "./comps/app2/notes/ToggleButton";
+import {Welcome} from "./comps/welcome/Welcome";
+import {Digg} from "./comps/digg/Digg";
+import {Todos} from "./comps/app1/todos/Todos";
+import {Settings} from "./comps/app1/settings/Settings";
+import {LoginPanel} from "./comps/entry/LoginPanel";
+import {Help} from "./comps/app1/help/Help";
+import {App1} from "./comps/app1/App1";
+import {App2} from "./comps/app2/App2";
+import {App3} from "./comps/app3/App3";
+import {ForgotPass} from "./comps/entry/ForgotPass";
+import {AppManager} from "./comps/appmanager/AppManager";
+import {EntryPanel} from "./comps/entry/EntryPanel";
+import {Logout} from "./comps/logout/Logout";
 
 
 var modules = [JSONP_PROVIDERS, {
@@ -164,7 +177,7 @@ if (!Lib.DevMode())
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
-    declarations: [Main],
+    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout],
     bootstrap: [Main],
 })
 export class App {

@@ -1,9 +1,6 @@
-import {Component} from '@angular/core';
-import {ForgotPass} from '../../../src/comps/entry/ForgotPass';
-import {LoginPanel} from '../../../src/comps/entry/LoginPanel';
-import {ROUTER_DIRECTIVES} from '@angular/router';
-import {CommBroker} from "../../services/CommBroker";
-import {Consts} from "../../Conts";
+import {Component} from "@angular/core";
+import {LoginPanel} from "../../../src/comps/entry/LoginPanel";
+import {ROUTER_DIRECTIVES} from "@angular/router";
 
 @Component({
     providers: [LoginPanel],
