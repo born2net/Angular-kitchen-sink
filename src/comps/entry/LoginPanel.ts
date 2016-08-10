@@ -36,7 +36,6 @@ export class User {
     selector: 'LoginPanel',
     directives: [ROUTER_DIRECTIVES],
     template: `
-                <MyChart></MyChart>
                 <div id="appLogin" style="">
                   <form class="form-signin" role="form">
                     <h2 class="form-signin-heading"></h2>

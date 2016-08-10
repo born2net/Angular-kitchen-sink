@@ -32,7 +32,7 @@ System.register(['@angular/core', '../../../src/comps/entry/LoginPanel', '@angul
                         providers: [LoginPanel_1.LoginPanel],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         selector: 'EntryPanel',
-                        template: "\n                <!--<a [routerLink]=\"['/App1']\">And back to Test1</a><br/>-->\n                <!--<a [routerLink]=\"['/EntryPanel', {id: 1111}]\">Login {{someId}}</a><br/>-->\n                <!--<a [routerLink]=\"['/EntryPanel', {id: 1111}]\">Forgot pass {{someId}}</a><br/>-->\n                <small>I am entrypanel component and I am inside main App</small>\n                <router-outlet></router-outlet>"
+                        template: "\n                <small>I am entrypanel component and I am inside main App</small>\n                <router-outlet></router-outlet>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], EntryPanel);

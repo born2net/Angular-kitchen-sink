@@ -1,4 +1,4 @@
-import {provideRouter, RouterConfig} from "@angular/router";
+import { Routes, RouterModule } from '@angular/router';
 import {EntryPanel} from "./comps/entry/EntryPanel";
 import {AppManager} from "./comps/appmanager/AppManager";
 import {Welcome} from "./comps/welcome/Welcome";
@@ -14,7 +14,7 @@ import {Logout} from "./comps/logout/Logout";
 import {Settings} from "./comps/app1/settings/Settings";
 import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
 
-const routes:RouterConfig = [
+const appRoutes:Routes = [
     {path: '', component: EntryPanel},
     {path: 'AppManager', component: AppManager},
     {path: 'Welcome', component: Welcome},
@@ -60,35 +60,12 @@ const routes:RouterConfig = [
     }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes, { enableTracing: false })
+export const appRoutingProviders: any[] = [
+
 ];
 
-// pre rc.2 router config
-//{path: "/", name: "root", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},
-//{path: "/", redirectTo: ["/EntryPanelNoId/Login"], useAsDefault: true},
-//{path: '/:id', component: AppManager, canDeactivate: [CrisisDetailGuard]}
+export const routing = RouterModule.forRoot(appRoutes);
 
-// @Routes([
-//     {path: '/', component: EntryPanel},
-//     {path: '/AppManager', component: AppManager},
-//     {path: '/Welcome', component: Welcome},
-//     {path: '/EntryPanelNoId', component: EntryPanel},
-//     {path: '/EntryPanel/:id', component: EntryPanel},
-//     {path: '/Login', component: EntryPanel},
-//     {path: '/ForgotPass', component: EntryPanel},
-//     {path: '/App1', component: App1},
-//     {path: '/App2', component: App2},
-//     {path: '/App3', component: App3}
-//     //new AsyncRoute({
-//     //    path: '/App1',
-//     //    loader: () => Lib.LoadComponentAsync('App1', '../comps/app1/App1'),
-//     //    name: 'App1'
-//     //}), /*systemjs*/
-//     //new AsyncRoute({
-//     //    path: '/App2',
-//     //    loader: () => Lib.LoadComponentAsync('App2', '../comps/app2/App2'),
-//     //    name: 'App2'
-//     //})
-//
-// ])
+// export const APP_ROUTER_PROVIDERS = [
+//     provideRouter(routes, { enableTracing: false })
+// ];

@@ -1,4 +1,7 @@
-import {Component, ApplicationRef} from '@angular/core';
+import {
+    Component,
+    ApplicationRef
+} from "@angular/core";
 import {TodoItem} from "./Todoitem";
 import {Observable} from "rxjs/Observable";
 import {TodoAction} from "./actions/TodoAction";
@@ -9,9 +12,7 @@ import {Nodelogger} from "../../nodelogger/Nodelogger";
 import {MakeDraggable} from "../../dragndrop/make-draggable.directive";
 import {MakeDroppable} from "../../dragndrop/make-droppable.directive";
 import {SortBy} from "../../../pipes/SortBy";
-import {List} from 'Immutable';
-import {StoreModel} from "../../../models/StoreModel";
-import {Todo} from "./Todo";
+import {List} from "Immutable";
 
 type channelTodoObservable = Observable<TodoItem>;
 type channelTodosObservable = Observable<Array<channelTodoObservable>>;

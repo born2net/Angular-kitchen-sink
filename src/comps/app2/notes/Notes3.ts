@@ -105,8 +105,8 @@ import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent
                     <ToggleButtonApp></ToggleButtonApp>
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 13'">
-                    <h3>Streaming buttons via BehaviorSubject</h3>
-                    <StreamButton></StreamButton>
+                    <!--<h3>Streaming buttons via BehaviorSubject</h3>-->
+                    <!--<StreamButton></StreamButton>-->   
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 14'">
                     <h3>Custom ng template directive *ngBookRepeat</h3>
