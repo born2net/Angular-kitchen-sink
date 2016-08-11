@@ -1,6 +1,11 @@
-System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/operator/share', "./TodoStatsModel", "./TodoModel", "angular2-redux-util/dist/index", "./actions/TodoAction"], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "../../../Lib", "rxjs/add/operator/share", "./TodoStatsModel", "./TodoModel", "angular2-redux-util/dist/index", "../../../services/CommBroker"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var __extends = (this && this.__extends) || function (d, b) {
+        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,11 +15,8 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __param = (this && this.__param) || function (paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); }
-    };
-    var core_1, http_1, Lib_1, TodoStatsModel_1, TodoModel_1, index_1, TodoAction_1;
-    var url, TodoItemModel, TodoService;
+    var core_1, http_1, Lib_1, TodoStatsModel_1, TodoModel_1, index_1, CommBroker_1;
+    var ADD_TODO, REMOVE_TODO, EDIT_TODO, CLEAR_TODOS, url, TodoItemModel, TodoService;
     return {
         setters:[
             function (core_1_1) {
@@ -36,10 +38,14 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
             function (index_1_1) {
                 index_1 = index_1_1;
             },
-            function (TodoAction_1_1) {
-                TodoAction_1 = TodoAction_1_1;
+            function (CommBroker_1_1) {
+                CommBroker_1 = CommBroker_1_1;
             }],
         execute: function() {
+            exports_1("ADD_TODO", ADD_TODO = 'ADD_TODO');
+            exports_1("REMOVE_TODO", REMOVE_TODO = 'REMOVE_TODO');
+            exports_1("EDIT_TODO", EDIT_TODO = 'EDIT_TODO');
+            exports_1("CLEAR_TODOS", CLEAR_TODOS = 'CLEAR_TODOS');
             url = 'http://secure.digitalsignage.com';
             TodoItemModel = (function () {
                 function TodoItemModel(text, id) {
@@ -63,16 +69,27 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
                 return TodoItemModel;
             }());
             exports_1("TodoItemModel", TodoItemModel);
-            TodoService = (function () {
-                function TodoService(m_todoAction, _http, todoStatsModel, appStore) {
-                    this.m_todoAction = m_todoAction;
+            TodoService = (function (_super) {
+                __extends(TodoService, _super);
+                function TodoService(_http, todoStatsModel, appStore) {
+                    _super.call(this);
                     this._http = _http;
                     this.todoStatsModel = todoStatsModel;
                     this.appStore = appStore;
+                    this.newOrderNumber = 9999;
                     this.m_dataStore = { todos: [] };
-                    this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.addTodoDispatch, this.appStore);
-                    this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.clearTodoDispatch, this.appStore);
+                    this.m_addTodoDispatch = this.createDispatcher(this.addTodoDispatch, this.appStore);
+                    this.m_clearTodoDispatch = this.createDispatcher(this.clearTodoDispatch, this.appStore);
                 }
+                TodoService.prototype.factoryTodoService = function () {
+                    var injector = core_1.ReflectiveInjector.resolveAndCreate([
+                        TodoService,
+                        TodoStatsModel_1.default,
+                        { provide: CommBroker_1.CommBroker, useClass: CommBroker_1.CommBroker },
+                        { provide: index_1.AppStore, useValue: this.appStore }
+                    ]);
+                    return injector.get(TodoService);
+                };
                 TodoService.prototype.saveTodoRemote = function (todo, cb) {
                     this.todoStatsModel.creates++;
                     var sendData = JSON.stringify(todo);
@@ -88,7 +105,6 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
                     var _this = this;
                     this.m_clearTodoDispatch();
                     this.todoStatsModel.reads++;
-                    console.log(url + "/todos");
                     this._http.get(url + "/todos").map(function (response) { return response.json(); }).subscribe(function (data) {
                         try {
                             data = JSON.parse(data);
@@ -99,7 +115,11 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
                             return;
                         }
                         for (var i in data) {
-                            var todoModel = new TodoModel_1.TodoModel({ task: data[i]._data.task, modelId: data[i]._data.modelId, order: i });
+                            var todoModel = new TodoModel_1.TodoModel({
+                                task: data[i]._data.task,
+                                modelId: data[i]._data.modelId,
+                                order: i
+                            });
                             _this.m_addTodoDispatch(todoModel);
                         }
                     }, function (error) { return console.log("Could not load todos " + error); });
@@ -129,13 +149,86 @@ System.register(['@angular/core', '@angular/http', "../../../Lib", 'rxjs/add/ope
                         }
                     }, function (error) { return console.log('Could not update todo.'); });
                 };
+                TodoService.prototype.addTodo = function (task, id) {
+                    var _this = this;
+                    return function (dispatch) {
+                        var modelId = id || _.uniqueId();
+                        var todoModel = new TodoModel_1.TodoModel({
+                            task: task,
+                            modelId: modelId,
+                            order: _this.newOrderNumber++
+                        });
+                        _this.saveTodoRemote(todoModel, function (status) {
+                            if (status == -1) {
+                                bootbox.alert('problem saving to server 1');
+                                return;
+                            }
+                            dispatch(_this.addTodoDispatch(todoModel));
+                        });
+                    };
+                };
+                TodoService.prototype.addTodoDispatch = function (todoModel) {
+                    return {
+                        type: ADD_TODO,
+                        todoModel: todoModel
+                    };
+                };
+                TodoService.prototype.clearTodoDispatch = function () {
+                    return { type: CLEAR_TODOS };
+                };
+                TodoService.prototype.removeTodo = function (todoModel) {
+                    var _this = this;
+                    return function (dispatch) {
+                        _this.removeTodoRemote(todoModel, function (status) {
+                            if (status == -1) {
+                                bootbox.alert('problem saving to server 2');
+                                return;
+                            }
+                            dispatch(_this.removeTodoDispatch(todoModel));
+                        });
+                    };
+                };
+                TodoService.prototype.removeTodoDispatch = function (todoModel) {
+                    return {
+                        type: REMOVE_TODO,
+                        modelId: todoModel.getKey('modelId')
+                    };
+                };
+                TodoService.prototype.editTodo = function (todoModel) {
+                    var _this = this;
+                    return function (dispatch) {
+                        dispatch(_this.editTodoDispatch(todoModel));
+                        dispatch(_this.editTodoOrderDispatch(todoModel));
+                        _this.editTodoRemote(todoModel, function (status) {
+                            if (status == -1) {
+                                bootbox.alert('problem saving to server 3');
+                                return;
+                            }
+                        });
+                    };
+                };
+                TodoService.prototype.editTodoDispatch = function (todoModel) {
+                    return {
+                        type: EDIT_TODO,
+                        modelId: todoModel.getKey('modelId'),
+                        key: 'task',
+                        value: todoModel['task']
+                    };
+                };
+                TodoService.prototype.editTodoOrderDispatch = function (todoModel) {
+                    return {
+                        type: EDIT_TODO,
+                        modelId: todoModel.getKey('modelId'),
+                        key: 'order',
+                        value: todoModel.getKey('order')
+                    };
+                };
                 TodoService = __decorate([
-                    core_1.Injectable(),
-                    __param(0, core_1.Inject(core_1.forwardRef(function () { return TodoAction_1.TodoAction; }))), 
-                    __metadata('design:paramtypes', [TodoAction_1.TodoAction, http_1.Http, TodoStatsModel_1.default, index_1.AppStore])
+                    core_1.Injectable(), 
+                    __metadata('design:paramtypes', [http_1.Http, TodoStatsModel_1.default, index_1.AppStore])
                 ], TodoService);
                 return TodoService;
-            }());
+            }(index_1.Actions));
             exports_1("TodoService", TodoService);
         }
     }

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "./TodoModel"], function(exports_1, context_1) {
+System.register(["@angular/core", "angular2-redux-util/dist/index", "./TodoService", "./TodoModel"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(["@angular/core", "./actions/TodoAction", "angular2-redux-util/d
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, TodoAction_1, index_1, TodoService_1, TodoModel_1;
+    var core_1, index_1, TodoService_1, TodoModel_1;
     var TodoList;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (TodoAction_1_1) {
-                TodoAction_1 = TodoAction_1_1;
             },
             function (index_1_1) {
                 index_1 = index_1_1;
@@ -31,10 +28,9 @@ System.register(["@angular/core", "./actions/TodoAction", "angular2-redux-util/d
             }],
         execute: function() {
             TodoList = (function () {
-                function TodoList(todoService, todoAction, appStore, appRef) {
+                function TodoList(todoService, appStore, appRef) {
                     var _this = this;
                     this.todoService = todoService;
-                    this.todoAction = todoAction;
                     this.appStore = appStore;
                     this.appRef = appRef;
                     this.newItem = '';
@@ -48,9 +44,9 @@ System.register(["@angular/core", "./actions/TodoAction", "angular2-redux-util/d
                         _this.m_dataStore = store;
                         _this.newItem = '';
                     }, 'todos', true);
-                    this.addItem = todoAction.createDispatcher(todoAction.addTodo, appStore);
-                    this.removeItem = todoAction.createDispatcher(todoAction.removeTodo, appStore);
-                    this.editItem = todoAction.createDispatcher(todoAction.editTodo, appStore);
+                    this.addItem = todoService.createDispatcher(todoService.addTodo, appStore);
+                    this.removeItem = todoService.createDispatcher(todoService.removeTodo, appStore);
+                    this.editItem = todoService.createDispatcher(todoService.editTodo, appStore);
                 }
                 TodoList.prototype.onDrop = function (src, trg) {
                     var todos = this.appStore.getState().todos;
@@ -109,7 +105,7 @@ System.register(["@angular/core", "./actions/TodoAction", "angular2-redux-util/d
                         template: "\n                <section class=\"todoapp\" style=\"height: 500px\">\n                  <header class=\"header\">\n                    <h1>your to-do's</h1>\n                    <input class=\"new-todo\" placeholder=\"What needs to be done?\"\n                    autofocus [(ngModel)]=\"newItem\" (keyup.enter)=\"addItem(newItem)\">\n                    <button class=\"btn btn-default btn-lg\" (click)=\"addItem(newItem)\">Add todo</button>\n                  </header>\n                  <section class=\"main\">\n                    <ul class=\"todo-list\">\n                      <li *ngFor=\"let item of m_dataStore | sortBy;  let i=index;trackBy:identify\" nodeLogger=\"{{item}}\"> \n                        <todo-item [item]=\"item\" (done)=\"removeItem($event)\"\n                             [makeDraggable]=\"item\" makeDroppable (dropped)=\"onDrop($event, item)\"\n                            (edit)=\"editItem($event)\">\n                        </todo-item>\n                      </li>\n                    </ul>\n                  </section>\n                </section>\n    ",
                         styleUrls: ['../comps/app1/todos/Todolist.css']
                     }), 
-                    __metadata('design:paramtypes', [TodoService_1.TodoService, TodoAction_1.TodoAction, index_1.AppStore, core_1.ApplicationRef])
+                    __metadata('design:paramtypes', [TodoService_1.TodoService, index_1.AppStore, core_1.ApplicationRef])
                 ], TodoList);
                 return TodoList;
             }());

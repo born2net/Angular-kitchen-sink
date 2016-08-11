@@ -7,7 +7,6 @@ import {
 import {Consts} from "../../../src/Conts";
 import TodoStatsModel from "./todos/TodoStatsModel";
 import {TodoService} from "./todos/TodoService";
-import {TodoAction} from "./todos/actions/TodoAction";
 
 
 // @Routes([
@@ -27,7 +26,7 @@ import {TodoAction} from "./todos/actions/TodoAction";
 //    })
 //})
 @Component({
-    providers: [TodoStatsModel, TodoService, TodoAction],
+    providers: [TodoStatsModel, TodoService],
     templateUrl: '/src/comps/app1/App1.html'
 
 })

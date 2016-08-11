@@ -1,5 +1,5 @@
 import {List} from 'immutable';
-import * as TodoAction from "../actions/TodoAction";
+import * as TodoService from "../TodoService";
 import {TodoModel} from "../TodoModel";
 
 export interface ITodoAction {
@@ -18,13 +18,13 @@ export function todos(state:List<TodoModel> = List<TodoModel>(), action:ITodoAct
     }
 
     switch (action.type) {
-        case TodoAction.ADD_TODO:
+        case TodoService.ADD_TODO:
             return state.push(action.todoModel);
-        case TodoAction.REMOVE_TODO:
+        case TodoService.REMOVE_TODO:
             return List<TodoModel>(state.filter((i:TodoModel) => i.getKey('modelId') !== action.modelId));
-        case TodoAction.CLEAR_TODOS:
+        case TodoService.CLEAR_TODOS:
             return List<TodoModel>();
-        case TodoAction.EDIT_TODO:
+        case TodoService.EDIT_TODO:
             return state.update(indexOf(action.modelId), (todoModel:TodoModel) => {
                 return todoModel.setKey<TodoModel>(TodoModel, action.key, action.value)
             });

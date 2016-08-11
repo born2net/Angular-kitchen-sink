@@ -1,21 +1,63 @@
-import {Injectable, Inject, forwardRef} from '@angular/core';
-import {Http} from '@angular/http';
+/** An example of how to provide a service manually that depends on other services
+ as well as example of factory, use providers: [ ... when inside a component
+ or via a pure provide (... if not!
+
+ while this may not be the best way to architect your application, we still use
+ it here as code sample:
+
+ examples 1 via component decoration:
+ ====================================
+ providers: [
+ provide (TodoService, {
+                useFactory: (todoAction, http, todoStatsModel, appStore) => {
+                    return new todoAction(TodoAction, http, todoStatsModel, appStore)
+                },
+                deps: [TodoAction, Http, TodoStatsModel, AppStore]
+            })
+ ]
+
+ examples 2 in controller
+ ====================================
+ var p = provide (TodoService, {
+            useFactory: (todoAction, http, todoStatsModel, appStore) => {
+                return new todoAction(TodoAction, http, todoStatsModel, appStore)
+            },
+            deps: [TodoAction, HTTP_PROVIDERS, TodoStatsModel, AppStore]
+        })
+
+ examples 3 in controller
+ ====================================
+ **/
+
+import {
+    Injectable,
+    ReflectiveInjector
+} from "@angular/core";
+import {Http} from "@angular/http";
 import {Lib} from "../../../Lib";
-import 'rxjs/add/operator/share';
+import "rxjs/add/operator/share";
 import TodoStatsModel from "./TodoStatsModel";
 import {TodoModel} from "./TodoModel";
-import {AppStore} from "angular2-redux-util/dist/index";
-import {TodoAction} from "./actions/TodoAction";
+import {
+    AppStore,
+    Actions
+} from "angular2-redux-util/dist/index";
+import {CommBroker} from "../../../services/CommBroker";
+
+export const ADD_TODO = 'ADD_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+export const CLEAR_TODOS = 'CLEAR_TODOS';
 
 // debug server
 //const url:string = 'http://secure.digitalsignage.com:8080';
-const url:string = 'http://secure.digitalsignage.com';
+const url: string = 'http://secure.digitalsignage.com';
 
 export class TodoItemModel {
-    private task:String;
-    private id:string;
+    private task: String;
+    private id: string;
 
-    constructor(text:String, id?:string) {
+    constructor(text: String, id?: string) {
         this.task = text;
         this.id = id || Lib.guid();
     }
@@ -39,39 +81,50 @@ export interface IDataStore {
 }
 
 @Injectable()
-export class TodoService {
-    private m_dataStore:IDataStore;
-    private m_addTodoDispatch:Function;
-    private m_clearTodoDispatch:Function;
+export class TodoService extends Actions {
+    private m_dataStore: IDataStore;
+    private m_addTodoDispatch: Function;
+    private m_clearTodoDispatch: Function;
+    private newOrderNumber: number = 9999
 
-    // example of how to inject a dependency (TodoAction) using a Token instead of a Type (in our case token and type names are the same)
-    constructor(@Inject(forwardRef(() => TodoAction)) private m_todoAction:TodoAction,
-                private _http:Http,
-                private todoStatsModel:TodoStatsModel,
-                private appStore:AppStore) {
+    constructor(private _http: Http, private todoStatsModel: TodoStatsModel, private appStore: AppStore) {
+        super();
         this.m_dataStore = {todos: []};
-        this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.addTodoDispatch, this.appStore);
-        this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.clearTodoDispatch, this.appStore);
+        this.m_addTodoDispatch = this.createDispatcher(this.addTodoDispatch, this.appStore);
+        this.m_clearTodoDispatch = this.createDispatcher(this.clearTodoDispatch, this.appStore);
     }
 
-    public saveTodoRemote(todo:TodoModel, cb:(status:number)=>void) {
+    /**
+     *  factoryTodoService
+     *  example of todo service creator
+     * @returns {any}
+     */
+    private factoryTodoService():TodoService {
+        var injector = ReflectiveInjector.resolveAndCreate(
+            [
+                TodoService,
+                TodoStatsModel,
+                {provide: CommBroker, useClass: CommBroker},
+                {provide: AppStore, useValue: this.appStore}
+            ]);
+        return injector.get(TodoService);
+    }
+
+    public saveTodoRemote(todo: TodoModel, cb: (status: number)=>void) {
         this.todoStatsModel.creates++;
         let sendData = JSON.stringify(todo);
         this._http.post(`${url}/todos`, sendData)
-            .map(response => response.json()).subscribe(
-            sendData => {
-                cb(1);
-            },
-            error => {
-                console.log('Could not create todo.');
-                cb(-1);
-            });
+            .map(response => response.json()).subscribe(sendData => {
+            cb(1);
+        }, error => {
+            console.log('Could not create todo.');
+            cb(-1);
+        });
     }
 
-    public loadTodosRemote(cb:(status:number)=>void) {
+    public loadTodosRemote(cb: (status: number)=>void) {
         this.m_clearTodoDispatch();
         this.todoStatsModel.reads++;
-        console.log(`${url}/todos`);
         this._http.get(`${url}/todos`).map(response => response.json()).subscribe(data => {
             try {
                 data = JSON.parse(data);
@@ -81,13 +134,17 @@ export class TodoService {
                 return;
             }
             for (var i in data) {
-                var todoModel:TodoModel = new TodoModel({task: data[i]._data.task, modelId: data[i]._data.modelId, order: i});
+                var todoModel: TodoModel = new TodoModel({
+                    task: data[i]._data.task,
+                    modelId: data[i]._data.modelId,
+                    order: i
+                });
                 this.m_addTodoDispatch(todoModel);
             }
         }, error => console.log(`Could not load todos ${error}`));
     }
 
-    public removeTodoRemote(todoModel:TodoModel, cb:(status:number)=>void) {
+    public removeTodoRemote(todoModel: TodoModel, cb: (status: number)=>void) {
         this.todoStatsModel.deletes++;
         var modelId = todoModel.getKey('modelId');
         this._http.delete(`${url}/todos/${modelId}`).subscribe(response => {
@@ -99,7 +156,7 @@ export class TodoService {
         }, error => console.log('Could not delete todo.'));
     }
 
-    public editTodoRemote(todoModel:TodoModel, cb:(status:number)=>void) {
+    public editTodoRemote(todoModel: TodoModel, cb: (status: number)=>void) {
         this.todoStatsModel.updates++;
         var modelId = todoModel.getKey('modelId');
         var data = JSON.stringify(todoModel);
@@ -110,5 +167,85 @@ export class TodoService {
                 cb(-1);
             }
         }, error => console.log('Could not update todo.'));
+    }
+
+    public addTodo(task: string, id?: string) {
+        return (dispatch) => {
+            let modelId = id || _.uniqueId();
+            var todoModel: TodoModel = new TodoModel({
+                task,
+                modelId,
+                order: this.newOrderNumber++
+            });
+            this.saveTodoRemote(todoModel, (status: number)=> {
+                if (status == -1) {
+                    bootbox.alert('problem saving to server 1');
+                    return;
+                }
+                //dispatch({type: ADD_TODO, todoModel: todoModel});
+                dispatch(this.addTodoDispatch(todoModel));
+            });
+        }
+    }
+
+    public addTodoDispatch(todoModel: TodoModel) {
+        return {
+            type: ADD_TODO,
+            todoModel: todoModel
+        };
+    }
+
+    public clearTodoDispatch() {
+        return {type: CLEAR_TODOS};
+    }
+
+    public removeTodo(todoModel: TodoModel) {
+        return (dispatch) => {
+            this.removeTodoRemote(todoModel, (status: number)=> {
+                if (status == -1) {
+                    bootbox.alert('problem saving to server 2');
+                    return;
+                }
+                dispatch(this.removeTodoDispatch(todoModel));
+            });
+        }
+    }
+
+    public removeTodoDispatch(todoModel: TodoModel) {
+        return {
+            type: REMOVE_TODO,
+            modelId: todoModel.getKey('modelId')
+        };
+    }
+
+    public editTodo(todoModel: TodoModel) {
+        return (dispatch) => {
+            dispatch(this.editTodoDispatch(todoModel));
+            dispatch(this.editTodoOrderDispatch(todoModel));
+            this.editTodoRemote(todoModel, (status: number)=> {
+                if (status == -1) {
+                    bootbox.alert('problem saving to server 3');
+                    return;
+                }
+            });
+        }
+    }
+
+    public editTodoDispatch(todoModel: TodoModel) {
+        return {
+            type: EDIT_TODO,
+            modelId: todoModel.getKey('modelId'),
+            key: 'task',
+            value: todoModel['task']
+        };
+    }
+
+    public editTodoOrderDispatch(todoModel: TodoModel) {
+        return {
+            type: EDIT_TODO,
+            modelId: todoModel.getKey('modelId'),
+            key: 'order',
+            value: todoModel.getKey('order')
+        };
     }
 }

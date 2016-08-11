@@ -4,7 +4,6 @@ import {
 } from "@angular/core";
 import {TodoItem} from "./Todoitem";
 import {Observable} from "rxjs/Observable";
-import {TodoAction} from "./actions/TodoAction";
 import {AppStore} from "angular2-redux-util/dist/index";
 import {TodoService} from "./TodoService";
 import {TodoModel} from "./TodoModel";
@@ -45,7 +44,7 @@ export class TodoList {
     private editItem:Function;
     private removeItem:Function;
 
-    constructor(private todoService:TodoService, private todoAction:TodoAction, private appStore:AppStore, private appRef:ApplicationRef) {
+    constructor(private todoService:TodoService, private appStore:AppStore, private appRef:ApplicationRef) {
 
         this.todoService.loadTodosRemote((status:number)=> {
             if (status == -1) {
@@ -59,9 +58,9 @@ export class TodoList {
             this.newItem = '';
         }, 'todos', true);
 
-        this.addItem = todoAction.createDispatcher(todoAction.addTodo, appStore);
-        this.removeItem = todoAction.createDispatcher(todoAction.removeTodo, appStore);
-        this.editItem = todoAction.createDispatcher(todoAction.editTodo, appStore);
+        this.addItem = todoService.createDispatcher(todoService.addTodo, appStore);
+        this.removeItem = todoService.createDispatcher(todoService.removeTodo, appStore);
+        this.editItem = todoService.createDispatcher(todoService.editTodo, appStore);
     }
 
     onDrop(src:any, trg:TodoModel) {
