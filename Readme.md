@@ -170,7 +170,7 @@ to release to production
    2. your server should have the structure emitted in the 'dist' folder that is created by 
    ```gulp production```
    3. server hosting root is assumed to be same as dist folder (where dist/ROOT_HERE) 
-   4. all Typescript files are bundles where css and html are copied raw to dist folder for bets performance / size ratio
+   4. all Typescript files are bundles where css and html are copied raw to dist folder for best performance / size ratio
 
 All this awesomeness tx to jspm, love it!!!
 
