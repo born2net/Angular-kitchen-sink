@@ -71,6 +71,12 @@ import {ForgotPass} from "./comps/entry/ForgotPass";
 import {AppManager} from "./comps/appmanager/AppManager";
 import {EntryPanel} from "./comps/entry/EntryPanel";
 import {Logout} from "./comps/logout/Logout";
+import {MakeDraggable} from "./comps/dragndrop/make-draggable.directive";
+import {MakeDroppable} from "./comps/dragndrop/make-droppable.directive";
+import {Sliderpanel} from "./comps/sliderpanel/Sliderpanel";
+import {Todo1} from "./comps/app1/todos/Todo1";
+import {Todo2} from "./comps/app1/todos/Todo2";
+import {TodoList} from "./comps/app1/todos/Todolist";
 
 
 var modules = [JSONP_PROVIDERS, {
@@ -177,7 +183,8 @@ if (!Lib.DevMode())
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
-    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout],
+    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout,
+        MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList],
     bootstrap: [Main],
 })
 export class App {

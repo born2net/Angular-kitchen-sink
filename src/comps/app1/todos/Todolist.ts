@@ -41,7 +41,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                 </section>
     `,
     styleUrls: ['../comps/app1/todos/Todolist.css'],
-    directives: [TodoItem, Nodelogger, MakeDraggable, MakeDroppable],
+    directives: [TodoItem, Nodelogger],
 })
 export class TodoList {
     newItem = '';

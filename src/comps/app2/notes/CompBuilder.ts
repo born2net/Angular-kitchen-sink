@@ -1,37 +1,54 @@
-import {Component, ViewChild, ViewContainerRef, ComponentResolver} from '@angular/core';
+import {
+    Component,
+    ViewChild,
+    ComponentFactory,
+    Compiler,
+    ViewContainerRef
+} from '@angular/core';
+
 
 //pass in whatever you need
-function componentBuilder(template){
+function componentBuilder(template) {
     @Component({
         selector: 'my-component',
         template
     })
-    class CustomComponent{}
+    class CustomComponent {
+    }
 
     return CustomComponent;
 }
+
+@Component({
+    selector: 'MyComponent',
+    template: `<h3 style="background-color: #00b0e8">Hello, I was created dynamically via compiler</h3>`
+})
+class MyComponent {
+}
+
 @Component({
     selector: 'CompBuilder',
     template: `
     <h2>Above</h2>
-    <div #putStuffHere></div>
+     <div>
+      <h2>Dynamicaly Add Elements</h2>
+      <button (click)="addItem()">add hello</button>
+      <div #placeholder></div>
+    </div>
     <h2>Below</h2>
   `
 })
 export class CompBuilder {
-    @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
+    constructor(private  view: ViewContainerRef, compiler: Compiler) {
+        var myComponent = componentBuilder(`<h3 style="background-color: #00b0e8">My {{message}} Component</h3>`)
+        this.componentFactory = compiler.compileComponentSync(myComponent);
+    }
 
-    constructor(
-        public view:ViewContainerRef,
-        public compResolver:ComponentResolver
-    ){}
+    @ViewChild('placeholder', {read: ViewContainerRef}) viewContainerRef;
+    private componentFactory: ComponentFactory<any>;
 
-    ngAfterViewInit(){
-        this.compResolver.resolveComponent(componentBuilder(`<h3 style="background-color: #00b0e8">My {{message}} Component</h3>`))
-            .then(factory => {
-                const ref = this.putStuffHere.createComponent(factory);
-                ref.instance.message = 'Awesome';
-            })
-
+    addItem() {
+        var ref = this.view.createComponent(this.componentFactory, 0);
+        ref.instance.message = 'Awesome!';
     }
 }

@@ -1,32 +1,39 @@
-import {Component, ViewChild, ViewContainerRef, ComponentResolver} from '@angular/core';
+import {
+    Component,
+    ViewChild,
+    ComponentFactory,
+    Compiler,
+    ViewContainerRef
+} from '@angular/core';
 
 @Component({
     selector: 'MyComponent',
-    template: `<h3 style="background-color: #00b0e8">Hello, I was created dynamically via ComponentResolver</h3>`
+    template: `<h3 style="background-color: #00b0e8">Hello, I was created dynamically via compiler</h3>`
 })
-class MyComponent{}
+class MyComponent {
+}
 
 @Component({
     selector: 'CompFactory',
     template: `
     <h2>Above</h2>
-    <div #putStuffHere></div>
+     <div>
+      <h2>Dynamicaly Add Elements</h2>
+      <button (click)="addItem()">add hello</button>
+      <div #placeholder></div>
+    </div>
     <h2>Below</h2>
   `
 })
 export class CompFactory {
-    @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
+    constructor(private  view: ViewContainerRef, compiler: Compiler) {
+        this.componentFactory = compiler.compileComponentSync(MyComponent);
+    }
 
-    constructor(
-        public view:ViewContainerRef,
-        public compResolver:ComponentResolver
-    ){}
+    @ViewChild('placeholder', {read: ViewContainerRef}) viewContainerRef;
+    private componentFactory: ComponentFactory<any>;
 
-    ngAfterViewInit(){
-        this.compResolver.resolveComponent(MyComponent)
-            .then(factory => {
-                this.putStuffHere.createComponent(factory);
-            })
-
+    addItem() {
+        this.view.createComponent(this.componentFactory, 0);
     }
 }

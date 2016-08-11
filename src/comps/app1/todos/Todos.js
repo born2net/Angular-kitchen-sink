@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "./Todo1", "./Todo2", "./Todolist"], function(exports_1, context_1) {
+System.register(["@angular/core"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,12 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "./Todo1", ".
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, Todo1_1, Todo2_1, Todolist_1;
+    var core_1;
     var Todos;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (Sliderpanel_1_1) {
-                Sliderpanel_1 = Sliderpanel_1_1;
-            },
-            function (Todo1_1_1) {
-                Todo1_1 = Todo1_1_1;
-            },
-            function (Todo2_1_1) {
-                Todo2_1 = Todo2_1_1;
-            },
-            function (Todolist_1_1) {
-                Todolist_1 = Todolist_1_1;
             }],
         execute: function() {
             Todos = (function () {
@@ -36,7 +24,6 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "./Todo1", ".
                 Todos = __decorate([
                     core_1.Component({
                         selector: 'Todos',
-                        directives: [Sliderpanel_1.Sliderpanel, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList],
                         template: "\n        <br/>\n        <br/>\n        <br/>\n        <br/>\n        <Sliderpanel>\n            <div class=\"campaignSlider noScroll\">\n              <Todo1 class=\"page center todo1 selected\">\n                <div class=\"yScroll\">\n                  <hr/>\n                  <h3>To do sample application with remote server save</h3>\n                  <h5>uses your ip address as unique token and keeps data on server for 2 days</h5>\n                  <hr/>\n                  <todo-list>\n                  </todo-list>\n                </div>\n              </Todo1>\n              <Todo2 class=\"page right todo2\">\n                <hr/>\n                <h3>To do remote server statistics</h3>\n                <h5>display your total CRUD operations to remote node server</h5>\n                <hr/>\n              </Todo2>\n            </div>\n          </Sliderpanel>\n    "
                     }), 
                     __metadata('design:paramtypes', [])

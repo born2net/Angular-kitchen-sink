@@ -7,7 +7,6 @@ import {TodoService} from "./TodoService";
 
 @Component({
     selector: 'Todos',
-    directives: [Sliderpanel, Todo1, Todo2, TodoList],
     template: `
         <br/>
         <br/>

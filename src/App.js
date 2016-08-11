@@ -1,4 +1,4 @@
-System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "reflect-metadata", "@angular/platform-browser-dynamic", "@angular/forms", "@angular/core", "twbs/bootstrap", "twbs/bootstrap/dist/css/bootstrap.css!", "./styles/style.css!", "./pipes/CharCount", "./services/AuthService", "./services/AppInjService", "@angular/http", "../src/services/CommBroker", "../src/comps/filemenu/Filemenu", "../src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./comps/footer/Footer", "../src/Conts", "./styles/StyleService", "angular2-redux-util", "./Lib", "rxjs/Observable", "rxjs/add/operator/map", "rxjs/add/operator/debounceTime", "rxjs/add/observable/fromEvent", "./comps/app3/starwars/reducers/parts-reducer", "./comps/app3/starwars/reducers/cart-reducer", "./comps/app3/starwars/reducers/films-reducer", "./comps/app3/starwars/reducers/users-reducer", "./reducers/NotifyReducer", "./reducers/AppdbReducer", "./comps/app1/todos/reducers/TodoReducer", "./actions/AppdbAction", "./App.routes", "./comps/logout/LogoutDeactivate", "./comps/tooltip/position.service", "@angular/platform-browser", "ng2-bs3-modal/components/modal", "./comps/welcome/Welcome", "./comps/digg/Digg", "./comps/app1/todos/Todos", "./comps/app1/settings/Settings", "./comps/entry/LoginPanel", "./comps/app1/help/Help", "./comps/app1/App1", "./comps/app2/App2", "./comps/app3/App3", "./comps/entry/ForgotPass", "./comps/appmanager/AppManager", "./comps/entry/EntryPanel", "./comps/logout/Logout"], function(exports_1, context_1) {
+System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "reflect-metadata", "@angular/platform-browser-dynamic", "@angular/forms", "@angular/core", "twbs/bootstrap", "twbs/bootstrap/dist/css/bootstrap.css!", "./styles/style.css!", "./pipes/CharCount", "./services/AuthService", "./services/AppInjService", "@angular/http", "../src/services/CommBroker", "../src/comps/filemenu/Filemenu", "../src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./comps/footer/Footer", "../src/Conts", "./styles/StyleService", "angular2-redux-util", "./Lib", "rxjs/Observable", "rxjs/add/operator/map", "rxjs/add/operator/debounceTime", "rxjs/add/observable/fromEvent", "./comps/app3/starwars/reducers/parts-reducer", "./comps/app3/starwars/reducers/cart-reducer", "./comps/app3/starwars/reducers/films-reducer", "./comps/app3/starwars/reducers/users-reducer", "./reducers/NotifyReducer", "./reducers/AppdbReducer", "./comps/app1/todos/reducers/TodoReducer", "./actions/AppdbAction", "./App.routes", "./comps/logout/LogoutDeactivate", "./comps/tooltip/position.service", "@angular/platform-browser", "ng2-bs3-modal/components/modal", "./comps/welcome/Welcome", "./comps/digg/Digg", "./comps/app1/todos/Todos", "./comps/app1/settings/Settings", "./comps/entry/LoginPanel", "./comps/app1/help/Help", "./comps/app1/App1", "./comps/app2/App2", "./comps/app3/App3", "./comps/entry/ForgotPass", "./comps/appmanager/AppManager", "./comps/entry/EntryPanel", "./comps/logout/Logout", "./comps/dragndrop/make-draggable.directive", "./comps/dragndrop/make-droppable.directive", "./comps/sliderpanel/Sliderpanel", "./comps/app1/todos/Todo1", "./comps/app1/todos/Todo2", "./comps/app1/todos/Todolist"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var platform_browser_dynamic_1, forms_1, core_1, CharCount_1, AuthService_1, AppInjService_1, http_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, App_routes_1, LogoutDeactivate_1, position_service_1, platform_browser_1, modal_1, Welcome_1, Digg_1, Todos_1, Settings_1, LoginPanel_1, Help_1, App1_1, App2_1, App3_1, ForgotPass_1, AppManager_1, EntryPanel_1, Logout_1;
+    var platform_browser_dynamic_1, forms_1, core_1, CharCount_1, AuthService_1, AppInjService_1, http_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, App_routes_1, LogoutDeactivate_1, position_service_1, platform_browser_1, modal_1, Welcome_1, Digg_1, Todos_1, Settings_1, LoginPanel_1, Help_1, App1_1, App2_1, App3_1, ForgotPass_1, AppManager_1, EntryPanel_1, Logout_1, make_draggable_directive_1, make_droppable_directive_1, Sliderpanel_1, Todo1_1, Todo2_1, Todolist_1;
     var modules, Main, App;
     return {
         setters:[
@@ -151,6 +151,24 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
             },
             function (Logout_1_1) {
                 Logout_1 = Logout_1_1;
+            },
+            function (make_draggable_directive_1_1) {
+                make_draggable_directive_1 = make_draggable_directive_1_1;
+            },
+            function (make_droppable_directive_1_1) {
+                make_droppable_directive_1 = make_droppable_directive_1_1;
+            },
+            function (Sliderpanel_1_1) {
+                Sliderpanel_1 = Sliderpanel_1_1;
+            },
+            function (Todo1_1_1) {
+                Todo1_1 = Todo1_1_1;
+            },
+            function (Todo2_1_1) {
+                Todo2_1 = Todo2_1_1;
+            },
+            function (Todolist_1_1) {
+                Todolist_1 = Todolist_1_1;
             }],
         execute: function() {
             modules = [http_1.JSONP_PROVIDERS, {
@@ -244,7 +262,8 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                     core_1.NgModule({
                         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, forms_1.ReactiveFormsModule, App_routes_1.routing],
                         providers: [App_routes_1.appRoutingProviders],
-                        declarations: [Main, Welcome_1.Welcome, Digg_1.Digg, Todos_1.Todos, Settings_1.Settings, LoginPanel_1.LoginPanel, Help_1.Help, App1_1.App1, App2_1.App2, App3_1.App3, ForgotPass_1.ForgotPass, AppManager_1.AppManager, EntryPanel_1.EntryPanel, Logout_1.Logout],
+                        declarations: [Main, Welcome_1.Welcome, Digg_1.Digg, Todos_1.Todos, Settings_1.Settings, LoginPanel_1.LoginPanel, Help_1.Help, App1_1.App1, App2_1.App2, App3_1.App3, ForgotPass_1.ForgotPass, AppManager_1.AppManager, EntryPanel_1.EntryPanel, Logout_1.Logout,
+                            make_draggable_directive_1.MakeDraggable, make_droppable_directive_1.MakeDroppable, Sliderpanel_1.Sliderpanel, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList],
                         bootstrap: [Main],
                     }), 
                     __metadata('design:paramtypes', [])
