@@ -413,11 +413,12 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                     useClass: Conts_1.Consts
                 }];
             Main = (function () {
-                function Main(appStore, commBroker, styleService, appdbAction) {
+                function Main(appStore, commBroker, styleService, appdbAction, _http) {
                     var _this = this;
                     this.appStore = appStore;
                     this.commBroker = commBroker;
                     this.appdbAction = appdbAction;
+                    this._http = _http;
                     appStore.dispatch(appdbAction.appStartTime());
                     this.m_styleService = styleService;
                     this.commBroker.setService(Conts_1.Consts.Services().App, this);
@@ -454,7 +455,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                         providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction, modules],
                         templateUrl: '/src/App.html'
                     }), 
-                    __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction])
+                    __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction, http_1.Http])
                 ], Main);
                 return Main;
             }());

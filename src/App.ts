@@ -26,7 +26,8 @@ import {AuthService} from "./services/AuthService";
 import {appInjService} from "./services/AppInjService";
 import {
     JSONP_PROVIDERS,
-    HttpModule
+    HttpModule,
+    Http
 } from "@angular/http";
 import {CommBroker} from "../src/services/CommBroker";
 import {Filemenu} from "../src/comps/filemenu/Filemenu";
@@ -215,7 +216,7 @@ var modules = [JSONP_PROVIDERS, {
 export class Main {
     private m_styleService: StyleService;
 
-    constructor(private appStore: AppStore, private commBroker: CommBroker, styleService: StyleService, private appdbAction: AppdbAction) {
+    constructor(private appStore: AppStore, private commBroker: CommBroker, styleService: StyleService, private appdbAction: AppdbAction, private _http:Http) {
         appStore.dispatch(appdbAction.appStartTime());
         this.m_styleService = styleService;
         this.commBroker.setService(Consts.Services().App, this);
@@ -242,7 +243,6 @@ export class Main {
             height: appHeight,
             width: appWidth
         });
-
         this.commBroker.fire({
             fromInstance: self,
             event: Consts.Events().WIN_SIZED,

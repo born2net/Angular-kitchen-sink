@@ -45,7 +45,10 @@ export class TodoService {
     private m_clearTodoDispatch:Function;
 
     // example of how to inject a dependency (TodoAction) using a Token instead of a Type (in our case token and type names are the same)
-    constructor(@Inject(forwardRef(() => TodoAction)) private m_todoAction:TodoAction, private _http:Http, private todoStatsModel:TodoStatsModel, private appStore:AppStore) {
+    constructor(@Inject(forwardRef(() => TodoAction)) private m_todoAction:TodoAction,
+                private _http:Http,
+                private todoStatsModel:TodoStatsModel,
+                private appStore:AppStore) {
         this.m_dataStore = {todos: []};
         this.m_addTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.addTodoDispatch, this.appStore);
         this.m_clearTodoDispatch = this.m_todoAction.createDispatcher(this.m_todoAction.clearTodoDispatch, this.appStore);

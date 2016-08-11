@@ -1,4 +1,4 @@
-System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../../../models/StoreModel", "../TodoService", "@angular/http", "../TodoStatsModel", "../../../../services/CommBroker", 'bootbox'], function(exports_1, context_1) {
+System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../../../models/StoreModel", "../TodoService", "@angular/http", "../TodoStatsModel", "../../../../services/CommBroker", "bootbox"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {

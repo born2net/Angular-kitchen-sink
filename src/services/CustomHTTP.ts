@@ -11,17 +11,21 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 import {
-    RequestOptionsArgs, RequestOptions, ConnectionBackend, Http, HTTP_PROVIDERS, Request,
+    RequestOptionsArgs,
+    RequestOptions,
+    ConnectionBackend,
+    Http,
+    Request,
     Response
 } from "@angular/http";
 
 @Injectable()
 export class CustomHttp extends Http {
-    constructor(private backend:ConnectionBackend, private defaultOptions:RequestOptions, private errorService:ErrorNotifierService) {
+    constructor(private backend: ConnectionBackend, private defaultOptions: RequestOptions, private errorService: ErrorNotifierService) {
         super(backend, defaultOptions);
     }
 
-    request(url:string | Request, options?:RequestOptionsArgs):Observable<any> {
+    request(url: string | Request, options?: RequestOptionsArgs): Observable<any> {
         console.log('Before the request...');
         return super.request(url, options)
             .retryWhen(error => error.delay(500))
@@ -38,7 +42,7 @@ export class CustomHttp extends Http {
             });
     }
 
-    get(url:string, options?:RequestOptionsArgs):Observable<any> {
+    get(url: string, options?: RequestOptionsArgs): Observable<any> {
         console.log('Before the request...');
         return super.get(url, options)
             .catch((err) => {
@@ -52,20 +56,20 @@ export class CustomHttp extends Http {
 }
 
 export class ErrorNotifierService {
-    private errorObservable:Observable<any>;
-    private errorObserver:Observer<any>;
+    private errorObservable: Observable<any>;
+    private errorObserver: Observer<any>;
 
     constructor() {
-        this.errorObservable = Observable.create((observer:Observer<any>) => {
+        this.errorObservable = Observable.create((observer: Observer<any>) => {
             this.errorObserver = observer;
         }).share();
     }
 
-    notifyError(error:any) {
+    notifyError(error: any) {
         this.errorObserver.next(error);
     }
 
-    onError(callback:(err:any) => void) {
+    onError(callback: (err: any) => void) {
         this.errorObservable.subscribe(callback);
     }
 }

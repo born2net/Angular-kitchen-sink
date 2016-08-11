@@ -1,5 +1,4 @@
 import {Component, Inject} from '@angular/core';
-import {HTTP_PROVIDERS, Http} from '@angular/http';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/merge';
@@ -13,6 +12,7 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/startWith';
+import {Http} from "@angular/http";
 
 @Component({
     selector: 'StarWarsSearch',
@@ -40,7 +40,7 @@ import 'rxjs/add/operator/startWith';
     <h3 *ngIf="noResults$ | async">No one matched your search</h3>
   </div>
   `,
-    providers: [HTTP_PROVIDERS, {provide:'API', useValue: 'https://swapi-json-server-vlhfwhtpic.now.sh'}],
+    providers: [{provide:'API', useValue: 'https://swapi-json-server-vlhfwhtpic.now.sh'}],
 })
 export class StarWarsSearch {
     input$ = new Subject();
