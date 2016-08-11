@@ -184,7 +184,7 @@ if (!Lib.DevMode())
     imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
     declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout,
-        MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList],
+        MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount],
     bootstrap: [Main],
 })
 export class App {
