@@ -134,7 +134,10 @@ import {
     IncrementingDisplay,
     ToggleBut
 } from "./comps/app2/notes/StreamButton";
-import {ngBookRepeatSample} from "./comps/ngForIf/ngBookRepeat";
+import {
+    ngBookRepeatSample,
+    ngBookRepeat
+} from "./comps/ngForIf/ngBookRepeat";
 import {InjectTemplateParent} from "./comps/app2/notes/InjectTemplateParent";
 import {OptionListComponent} from "./comps/optionlistcomponent/optionlistcomponent";
 import {NotesDetailsItems} from "./comps/app2/notes/NotesDetailsItems";
@@ -259,7 +262,7 @@ if (!Lib.DevMode())
     imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
     declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup,
-        ButtonCheckbox, ButtonRadio],
+        ButtonCheckbox, ButtonRadio, ngBookRepeat],
     bootstrap: [Main],
 })
 export class App {

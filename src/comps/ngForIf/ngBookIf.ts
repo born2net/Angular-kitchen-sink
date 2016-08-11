@@ -35,7 +35,6 @@ class NgBookIf {
 
 @Component({
     selector: 'template-sample-app',
-    directives: [NgBookIf],
     template: `
   <button class="ui primary button" (click)="toggle()">
     Toggle

@@ -22,8 +22,7 @@ import {Component, OnInit} from "@angular/core";
                     <a [routerLink]="['/App3']">To App3</a><br/>
                     <br/><small>I am Welcome component</small>
                 </div>
-                `,
-    directives: [ROUTER_DIRECTIVES]
+                `
 })
 export class Welcome implements OnInit {
     private someId:string;

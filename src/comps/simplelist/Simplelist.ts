@@ -21,8 +21,7 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
                 </tbody>
             </table>
         </div>
-    `,
-    directives: [ROUTER_DIRECTIVES, COMMON_DIRECTIVES]
+    `
 })
 export class SimpleList {
 

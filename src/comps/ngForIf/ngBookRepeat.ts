@@ -71,7 +71,6 @@ export class ngBookRepeat implements DoCheck {
 
 @Component({
     selector: 'ngBookRepeatSample',
-    directives: [ngBookRepeat],
     styles: [`
         .ele {
             width: 200px;
