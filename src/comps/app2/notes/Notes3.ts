@@ -20,7 +20,6 @@ import {StreamButton} from "./StreamButton";
 import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
 import {InjectTemplateParent} from "./InjectTemplateParent";
 import {TooltipDirective} from "../../tooltip/tooltip.component";
-import {DynamicHolder} from "./dynamic.component.holder";
 import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent";
 
 @Component({
@@ -34,7 +33,7 @@ import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent
     directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
         Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
         CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton,
-        ngBookRepeatSample, InjectTemplateParent, TooltipDirective, DynamicHolder, OptionListComponent],
+        ngBookRepeatSample, InjectTemplateParent, TooltipDirective, OptionListComponent],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>
@@ -145,11 +144,8 @@ import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent
                             </template>
                         </span>
                     </h2>
-                  </mini-tab>
+                  </mini-tab>                  
                   <mini-tab [tabTitle]="'Code 17'">
-                    <dynamic-holder></dynamic-holder>
-                  </mini-tab>
-                  <mini-tab [tabTitle]="'Code 18'">
                     <optionsList></optionsList> 
                   </mini-tab>
                 </mini-tabs>

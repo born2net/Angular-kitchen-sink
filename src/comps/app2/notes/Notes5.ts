@@ -11,7 +11,6 @@ import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {CountDown} from "../../countdown/CountDown";
-import {NoteDynamicOutlet} from "./NoteDynamicOutlet";
 
 
 /**
@@ -47,7 +46,7 @@ class NotesService {
 
 @Component({
     selector: 'Notes5',
-    directives: [CountDown, NoteDynamicOutlet],
+    directives: [CountDown],
     providers: [// NotesService get's provided with a noteDefault
         NotesService, provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),],
     template: `<button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
@@ -57,8 +56,6 @@ class NotesService {
                 <small>I am Notes5 component..</small>
                 <span #extensionAnchor></span>
                  <hr/>
-                 <dynamic-html-outlet [src]="html"></dynamic-html-outlet>
-                
                 <!--<div>-->
                    <!--<small>I am CountDown component</small>-->
                     <!--<h2>CountDown</h2>-->
