@@ -6,7 +6,6 @@ import {CommBroker} from "../../../services/CommBroker";
 
 @Component({
     selector: 'Contact',
-    directives: [REACTIVE_FORM_DIRECTIVES],
     moduleId: __moduleName,
     templateUrl: 'Contact.html',
     styles: [`

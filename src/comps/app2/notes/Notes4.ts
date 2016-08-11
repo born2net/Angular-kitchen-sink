@@ -12,7 +12,6 @@ import {NotesDetailsItems} from "./NotesDetailsItems";
  **/
 @Component({
     selector: 'Notes4',
-    directives: [NotesDetails, NotesDetailsItems],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                 </button>

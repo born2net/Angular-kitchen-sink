@@ -13,8 +13,7 @@ import {AppStore} from "angular2-redux-util";
             <film [data]="currentFilm" [loading]="isFetchingCurrentFilm"></film>
         </div>
 
-    `,
-    directives: [FilmSelectionView, FilmView]
+    `
 })
 export class FilmsComponent {
 

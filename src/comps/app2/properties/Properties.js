@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../../src/Conts", "../../../services/CommBroker", "../notes/Notes1Props"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../../src/Conts", "../../../services/CommBroker"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../../../../src/Conts", "../../../services/Co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Conts_1, CommBroker_1, Notes1Props_1;
+    var core_1, Conts_1, CommBroker_1;
     var Properties;
     return {
         setters:[
@@ -22,9 +22,6 @@ System.register(["@angular/core", "../../../../src/Conts", "../../../services/Co
             },
             function (CommBroker_1_1) {
                 CommBroker_1 = CommBroker_1_1;
-            },
-            function (Notes1Props_1_1) {
-                Notes1Props_1 = Notes1Props_1_1;
             }],
         execute: function() {
             Properties = (function () {
@@ -40,7 +37,6 @@ System.register(["@angular/core", "../../../../src/Conts", "../../../services/Co
                 Properties = __decorate([
                     core_1.Component({
                         selector: 'Properties',
-                        directives: [Notes1Props_1.Notes1Props],
                         template: "      \n                <h4>Properties</h4>\n                <hr/>\n                 <ul [ngSwitch]=\"value\">\n                  <li *ngSwitchCase=\"'notes1'\">\n                    <Notes1Props></Notes1Props>\n                  </li>\n                  <li *ngSwitchCase=\"'notes2'\"><h1>Notes 2</h1></li>\n                  <li *ngSwitchCase=\"'notes3'\"><h1>Notes 3</h1></li>\n                  <li *ngSwitchCase=\"'notes4'\"><h1>Notes 4</h1></li>\n                  <li *ngSwitchCase=\"'notes5'\"><h1>Notes 5</h1></li>\n                  <li *ngSwitchCase=\"'Digg'\"><h1>Digg</h1></li>\n                  <li *ngSwitchCase=\"'Weather'\"><h1>Weather</h1></li>\n                  <li *ngSwitchCase=\"'Contact'\"><h1>Contact</h1></li>\n                  <li *ngSwitchCase=\"'Logout'\"><h1>Logout</h1></li>\n                </ul>\n                <ng-content></ng-content>\n              "
                     }), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker])

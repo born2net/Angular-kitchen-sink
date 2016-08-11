@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../actions/film-actions", "../components/film-selection-view", "../components/film-view", "angular2-redux-util"], function(exports_1, context_1) {
+System.register(['@angular/core', "../actions/film-actions", "angular2-redux-util"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "../actions/film-actions", "../components/film
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, film_actions_1, film_selection_view_1, film_view_1, angular2_redux_util_1;
+    var core_1, film_actions_1, angular2_redux_util_1;
     var FilmsComponent;
     return {
         setters:[
@@ -19,12 +19,6 @@ System.register(['@angular/core', "../actions/film-actions", "../components/film
             },
             function (film_actions_1_1) {
                 film_actions_1 = film_actions_1_1;
-            },
-            function (film_selection_view_1_1) {
-                film_selection_view_1 = film_selection_view_1_1;
-            },
-            function (film_view_1_1) {
-                film_view_1 = film_view_1_1;
             },
             function (angular2_redux_util_1_1) {
                 angular2_redux_util_1 = angular2_redux_util_1_1;
@@ -51,8 +45,7 @@ System.register(['@angular/core', "../actions/film-actions", "../components/film
                 FilmsComponent = __decorate([
                     core_1.Component({
                         selector: 'films-component',
-                        template: "\n        <h3>Films</h3>\n        <film-selection [count]=\"filmsCount\" (current)=\"setCurrentFilm($event)\"></film-selection>\n        <div [ngClass]=\"{'text-muted':isFetchingCurrentFilm,'text-primary':!isFetchingCurrentFilm}\" style=\"margin-top:20px;\">\n            <film [data]=\"currentFilm\" [loading]=\"isFetchingCurrentFilm\"></film>\n        </div>\n\n    ",
-                        directives: [film_selection_view_1.FilmSelectionView, film_view_1.FilmView]
+                        template: "\n        <h3>Films</h3>\n        <film-selection [count]=\"filmsCount\" (current)=\"setCurrentFilm($event)\"></film-selection>\n        <div [ngClass]=\"{'text-muted':isFetchingCurrentFilm,'text-primary':!isFetchingCurrentFilm}\" style=\"margin-top:20px;\">\n            <film [data]=\"currentFilm\" [loading]=\"isFetchingCurrentFilm\"></film>\n        </div>\n\n    "
                     }), 
                     __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, film_actions_1.FilmActions])
                 ], FilmsComponent);

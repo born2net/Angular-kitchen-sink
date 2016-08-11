@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', "./starwars/Starwars"], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,12 @@ System.register(['@angular/core', '@angular/router', "./starwars/Starwars"], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Starwars_1;
+    var core_1;
     var App3;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (Starwars_1_1) {
-                Starwars_1 = Starwars_1_1;
             }],
         execute: function() {
             App3 = (function () {
@@ -29,8 +23,7 @@ System.register(['@angular/core', '@angular/router', "./starwars/Starwars"], fun
                 }
                 App3 = __decorate([
                     core_1.Component({
-                        templateUrl: '/src/comps/app3/App3.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, Starwars_1.Starwars]
+                        templateUrl: '/src/comps/app3/App3.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], App3);

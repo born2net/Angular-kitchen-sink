@@ -3,10 +3,6 @@ import * as moment from 'moment';
 /**
  reference: https://www.dunebook.com/create-a-commenting-application-with-angular-2
  to use:
-  @Componrny({
-    pipes: [FromNow]
-  })
- ...
  <div>
     {{someDateObject | fromNow}}
  </div>

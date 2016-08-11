@@ -34,7 +34,6 @@ export class User {
 @Injectable()
 @Component({
     selector: 'LoginPanel',
-    directives: [ROUTER_DIRECTIVES],
     template: `
                 <div id="appLogin" style="">
                   <form class="form-signin" role="form">

@@ -31,8 +31,7 @@ import {Lib} from "../../Lib";
                 </div>
                 <!-- <a [routerLink]="['/App1']">And back to Test1</a> -->
                 <br/>
-                <small>ForgotPass component and I am inside EntryPanel</small>`,
-    directives: [ROUTER_DIRECTIVES]
+                <small>ForgotPass component and I am inside EntryPanel</small>`
 })
 export class ForgotPass {
     private clickStream:EventEmitter<any> = new EventEmitter();

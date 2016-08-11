@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../src/comps/entry/LoginPanel", "@angular/router"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../src/comps/entry/LoginPanel"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../../../src/comps/entry/LoginPanel", "@angul
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, LoginPanel_1, router_1;
+    var core_1, LoginPanel_1;
     var EntryPanel;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(["@angular/core", "../../../src/comps/entry/LoginPanel", "@angul
             },
             function (LoginPanel_1_1) {
                 LoginPanel_1 = LoginPanel_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }],
         execute: function() {
             EntryPanel = (function () {
@@ -30,7 +27,6 @@ System.register(["@angular/core", "../../../src/comps/entry/LoginPanel", "@angul
                 EntryPanel = __decorate([
                     core_1.Component({
                         providers: [LoginPanel_1.LoginPanel],
-                        directives: [router_1.ROUTER_DIRECTIVES],
                         selector: 'EntryPanel',
                         template: "\n                <small>I am entrypanel component and I am inside main App</small>\n                <router-outlet></router-outlet>"
                     }), 

@@ -45,8 +45,8 @@ import {ButtonRadio} from './button-radio.component';
                       <label class="btn btn-success" [(ngModel)]="radioButtonModel" btnRadio="Opel" uncheckable>Opel</label>
                     </div>
 
-             `,
-    directives: [ ButtonCheckbox, ButtonRadio, CORE_DIRECTIVES, REACTIVE_FORM_DIRECTIVES ]
+             `
+
 })
 export class Angular2Button {
     //Switch button or toggle button contains 1 or 0

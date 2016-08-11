@@ -33,7 +33,6 @@ export class ToggleButton {
 
 @Component({
     selector: 'ToggleButtonApp',
-    directives: [ToggleButton],
     template: `
       <toggle-button [(on)]="state">
         {{state ? 'On' : 'Off'}}  

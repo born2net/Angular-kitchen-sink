@@ -30,10 +30,6 @@ import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent
             color: blue;
         }`
     ],
-    directives: [Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll,
-        Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport,
-        CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton,
-        ngBookRepeatSample, InjectTemplateParent, TooltipDirective, OptionListComponent],
     template: ` <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
                 </button>

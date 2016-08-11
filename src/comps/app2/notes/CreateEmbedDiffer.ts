@@ -54,7 +54,6 @@ export class CardComponent {
 
 @Component({
     selector: 'CreateEmbedDiffer',
-    directives: [CardComponent],
     template: `
   <h2>Type stuff here</h2>
   <input type="text" [(ngModel)]="note.greeting">

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../../src/Conts", "@angular/forms", "../../../models/MailModel", "../../../services/CommBroker"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../../src/Conts", "../../../models/MailModel", "../../../services/CommBroker"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../../../../src/Conts", "@angular/forms", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Conts_1, forms_1, MailModel_1, CommBroker_1;
+    var core_1, Conts_1, MailModel_1, CommBroker_1;
     var Contact;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(["@angular/core", "../../../../src/Conts", "@angular/forms", "..
             },
             function (Conts_1_1) {
                 Conts_1 = Conts_1_1;
-            },
-            function (forms_1_1) {
-                forms_1 = forms_1_1;
             },
             function (MailModel_1_1) {
                 MailModel_1 = MailModel_1_1;
@@ -55,7 +52,6 @@ System.register(["@angular/core", "../../../../src/Conts", "@angular/forms", "..
                 Contact = __decorate([
                     core_1.Component({
                         selector: 'Contact',
-                        directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
                         moduleId: __moduleName,
                         templateUrl: 'Contact.html',
                         styles: ["\n            .ng-invalid {\n              border-left: 5px solid #a94442; /* red */\n           }\n           .ng-valid[required] {\n                  border-left: 5px solid #42A948; /* green */\n           }\n           .form-control {\n                width: 20%;\n           }\n       "]

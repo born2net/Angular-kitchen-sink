@@ -12,7 +12,6 @@ interface Friend {
 }
 @Component({
     selector: "InjectTemplateParent",
-    directives: [InjectTemplateChild],
 
     // I our view, notice that we are providing a TemplateRef as a child element of the
     // HtmlDropdownComponent. The dropdown component will query for this template and

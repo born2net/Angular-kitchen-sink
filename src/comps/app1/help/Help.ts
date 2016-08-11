@@ -1,15 +1,11 @@
 import {Component} from "@angular/core";
 import {Contributors} from "./contributors/contributors";
-import {RatingComponent, AlertComponent} from 'ng2-bootstrap/ng2-bootstrap';
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../Conts";
-import {Tabs} from "../../tabs/tabs";
-import {Tab} from "../../tabs/tab";
 
 @Component({
     selector: 'Help',
     providers: [Contributors],
-    directives: [AlertComponent, RatingComponent, Tab, Tabs, Contributors],
     template: ` <small>I am Help component and using
                 <a href="https://github.com/valor-software/ng2-bootstrap" target="_blank">ng2-bootstrap</a></small>
                 <br/>

@@ -9,7 +9,6 @@ import {SimpleList} from "../../../simplelist/Simplelist";
             [content]="getContent"
             (current)="current.next($event)"></simple-list>
     `,
-    directives: [SimpleList],
     changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class UsersView {

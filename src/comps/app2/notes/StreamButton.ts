@@ -30,7 +30,6 @@ export class ToggleBut {
 
 @Component({
     selector: 'StreamButton',
-    directives: [IncrementingDisplay, ToggleBut],
     template: `
         <my-toggle-button #tb>
           {{(tb.on$ | async) ? "ON" : "OFF"}}

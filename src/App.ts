@@ -57,7 +57,6 @@ import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
 import {PositionService} from "./comps/tooltip/position.service";
 import {BrowserModule} from "@angular/platform-browser";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
-import {ToggleButton} from "./comps/app2/notes/ToggleButton";
 import {Welcome} from "./comps/welcome/Welcome";
 import {Digg} from "./comps/digg/Digg";
 import {Todos} from "./comps/app1/todos/Todos";
@@ -79,7 +78,90 @@ import {Todo2} from "./comps/app1/todos/Todo2";
 import {TodoList} from "./comps/app1/todos/Todolist";
 import {SortBy} from "./pipes/SortBy";
 import {OrderBy} from "./pipes/OrderBy";
-
+import {Menu} from "./comps/sidemenu/Menu";
+import {MenuItem} from "./comps/sidemenu/MenuItem";
+import {Contributors} from "./comps/app1/help/contributors/contributors";
+import {TodoItem} from "./comps/app1/todos/Todoitem";
+import {Tabs} from "./comps/tabs/tabs";
+import {Tab} from "./comps/tabs/tab";
+import {
+    AlertComponent,
+    RatingComponent,
+    TooltipDirective
+} from "ng2-bootstrap";
+import {MyChart} from "./comps/app1/help/contributors/MyChart";
+import {Ng2Highcharts} from "./comps/ng2-highcharts/src/directives/ng2-highcharts";
+import {Nodelogger} from "./comps/nodelogger/Nodelogger";
+import {DividerPanel} from "./comps/dividerpanel/DividerPanel";
+import {Properties} from "./comps/app2/properties/Properties";
+import {Weather} from "./comps/app2/weather/Weather";
+import {Contact} from "./comps/app2/contact/Contact";
+import {ModalDialog} from "./comps/modaldialog/ModalDialog";
+import {Notes} from "./comps/app2/notes/Notes";
+import {Notes3} from "./comps/app2/notes/Notes3";
+import {Notes4} from "./comps/app2/notes/Notes4";
+import {Notes5} from "./comps/app2/notes/Notes5";
+import {Notes1} from "./comps/app2/notes/Notes1";
+import {Notes2} from "./comps/app2/notes/Notes2";
+import {
+    CardComponent,
+    CreateEmbedDiffer
+} from "./comps/app2/notes/CreateEmbedDiffer";
+import {InjectTemplateChild} from "./comps/app2/notes/InjectTemplateChild";
+import {DisplayError} from "./comps/displayerror/DisplayError";
+import {CounterInputComponent} from "./comps/CounterInputComponent/CounterInputComponent";
+import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
+import {MyIp} from "./comps/myip/Myip";
+import {TrimmedInput} from "./comps/trimmedinput/TrimmedInput";
+import {Minitab} from "./comps/minitabs/Minitab";
+import {Minitabs} from "./comps/minitabs/Minitabs";
+import {StarWarsSearch} from "./comps/app2/notes/StarWarsSearch";
+import {WikiSearch} from "./comps/app2/notes/WikiSearch";
+import {InfinityScroll} from "./comps/app2/notes/InfinityScroll";
+import {DynamicWebImport} from "./comps/app2/notes/DynamicWebImport";
+import {MultiSlotTransclusion} from "./comps/app2/notes/MultiSlotTransclusion";
+import {CompFactory} from "./comps/app2/notes/CompFactory";
+import {Clock} from "./comps/app2/notes/Clock";
+import {CompBuilder} from "./comps/app2/notes/CompBuilder";
+import {CompElemBuilder} from "./comps/app2/notes/CompElemBuilder";
+import {EmbedView} from "./comps/app2/notes/EmbedView";
+import {
+    ToggleButtonApp,
+    ToggleButton
+} from "./comps/app2/notes/ToggleButton";
+import {
+    StreamButton,
+    IncrementingDisplay,
+    ToggleBut
+} from "./comps/app2/notes/StreamButton";
+import {ngBookRepeatSample} from "./comps/ngForIf/ngBookRepeat";
+import {InjectTemplateParent} from "./comps/app2/notes/InjectTemplateParent";
+import {OptionListComponent} from "./comps/optionlistcomponent/optionlistcomponent";
+import {NotesDetailsItems} from "./comps/app2/notes/NotesDetailsItems";
+import {NotesDetails} from "./comps/app2/notes/NotesDetails";
+import {CountDown} from "./comps/countdown/CountDown";
+import {Notes1Props} from "./comps/app2/notes/Notes1Props";
+import {SortableHeader} from "./comps/app2/weather/SortableHeader";
+import {FilmsComponent} from "./comps/app3/starwars/components/films-component";
+import {AdminComponent} from "./comps/app3/starwars/components/admin-component";
+import {ShoppingComponent} from "./comps/app3/starwars/components/shopping-component";
+import {Starwars} from "./comps/app3/starwars/Starwars";
+import {UsersView} from "./comps/app3/starwars/components/users-view";
+import {CartView} from "./comps/app3/starwars/components/cart-view";
+import {AddPartsView} from "./comps/app3/starwars/components/add-part-view";
+import {SimpleList} from "./comps/simplelist/Simplelist";
+import {UserView} from "./comps/app3/starwars/components/user-view";
+import {FilmSelectionView} from "./comps/app3/starwars/components/film-selection-view";
+import {FilmView} from "./comps/app3/starwars/components/film-view";
+import {Ng2Highstocks} from "./comps/ng2-highcharts/src/directives/ng2-highstocks";
+import {Ng2Highmaps} from "./comps/ng2-highcharts/src/directives/ng2-highmaps";
+import {PartsView} from "./comps/app3/starwars/components/parts-view";
+import {
+    AccordionGroup,
+    Accordion
+} from "./comps/ng2Accordion/accordion";
+import {ButtonCheckbox} from "./comps/ng2button/button-checkbox.component";
+import {ButtonRadio} from "./comps/ng2button/button-radio.component";
 
 var modules = [JSONP_PROVIDERS, {
     provide: AppStore,
@@ -98,7 +180,7 @@ var modules = [JSONP_PROVIDERS, {
 }, {
     provide: ModalComponent,
     useClass: ModalComponent
-},{
+}, {
     provide: CommBroker,
     useClass: CommBroker
 }, {
@@ -124,11 +206,8 @@ var modules = [JSONP_PROVIDERS, {
     selector: 'app',
     encapsulation: ViewEncapsulation.Emulated,
     providers: [StyleService, AppdbAction, modules],
-    templateUrl: '/src/App.html',
-    directives: [Filemenu, FilemenuItem, Logo, Footer]
+    templateUrl: '/src/App.html'
 })
-
-//directives: [ROUTER_DIRECTIVES, Filemenu, FilemenuItem, Logo, Footer]
 
 export class Main {
     private m_styleService: StyleService;
@@ -179,8 +258,8 @@ if (!Lib.DevMode())
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
-    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout,
-        MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy],
+    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup,
+        ButtonCheckbox, ButtonRadio],
     bootstrap: [Main],
 })
 export class App {

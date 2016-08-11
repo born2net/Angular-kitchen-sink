@@ -1,4 +1,4 @@
-System.register(['@angular/core', "angular2-redux-util", "../actions/user-actions", "../components/users-view", "../components/user-view", 'reselect'], function(exports_1, context_1) {
+System.register(['@angular/core', "angular2-redux-util", "../actions/user-actions", 'reselect'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "angular2-redux-util", "../actions/user-action
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2_redux_util_1, user_actions_1, users_view_1, user_view_1, reselect_1;
+    var core_1, angular2_redux_util_1, user_actions_1, reselect_1;
     var AdminComponent;
     return {
         setters:[
@@ -22,12 +22,6 @@ System.register(['@angular/core', "angular2-redux-util", "../actions/user-action
             },
             function (user_actions_1_1) {
                 user_actions_1 = user_actions_1_1;
-            },
-            function (users_view_1_1) {
-                users_view_1 = users_view_1_1;
-            },
-            function (user_view_1_1) {
-                user_view_1 = user_view_1_1;
             },
             function (reselect_1_1) {
                 reselect_1 = reselect_1_1;
@@ -68,8 +62,7 @@ System.register(['@angular/core', "angular2-redux-util", "../actions/user-action
                 AdminComponent = __decorate([
                     core_1.Component({
                         selector: 'admin',
-                        template: "\n        <h3>Users</h3>\n        <a href=\"\" (click)=\"$event.preventDefault(); setFilmFilter(!filmFilter)\" [class.hidden]=\"!usersToShow\">\n            Turn filter {{filmFilter?\"off\":\"on\"}}\n        </a>\n        <users [data]=\"usersToShow\" (current)=\"setCurrentUser($event)\">\n        </users>\n        <hr/>\n        <h3>Current User</h3>\n        <br/>\n        <user [data]=\"currentUser\"></user>\n    ",
-                        directives: [users_view_1.UsersView, user_view_1.UserView]
+                        template: "\n        <h3>Users</h3>\n        <a href=\"\" (click)=\"$event.preventDefault(); setFilmFilter(!filmFilter)\" [class.hidden]=\"!usersToShow\">\n            Turn filter {{filmFilter?\"off\":\"on\"}}\n        </a>\n        <users [data]=\"usersToShow\" (current)=\"setCurrentUser($event)\">\n        </users>\n        <hr/>\n        <h3>Current User</h3>\n        <br/>\n        <user [data]=\"currentUser\"></user>\n    "
                     }), 
                     __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, user_actions_1.UserActions])
                 ], AdminComponent);

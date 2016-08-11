@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../actions/cart-actions", "../actions/part-actions", "../components/parts-view", "../components/cart-view", "./add-part-view", 'reselect', "angular2-redux-util"], function(exports_1, context_1) {
+System.register(['@angular/core', "../actions/cart-actions", "../actions/part-actions", 'reselect', "angular2-redux-util"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "../actions/cart-actions", "../actions/part-ac
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cart_actions_1, part_actions_1, parts_view_1, cart_view_1, add_part_view_1, reselect_1, angular2_redux_util_1;
+    var core_1, cart_actions_1, part_actions_1, reselect_1, angular2_redux_util_1;
     var partsInCartSelector, ShoppingComponent;
     return {
         setters:[
@@ -22,15 +22,6 @@ System.register(['@angular/core', "../actions/cart-actions", "../actions/part-ac
             },
             function (part_actions_1_1) {
                 part_actions_1 = part_actions_1_1;
-            },
-            function (parts_view_1_1) {
-                parts_view_1 = parts_view_1_1;
-            },
-            function (cart_view_1_1) {
-                cart_view_1 = cart_view_1_1;
-            },
-            function (add_part_view_1_1) {
-                add_part_view_1 = add_part_view_1_1;
             },
             function (reselect_1_1) {
                 reselect_1 = reselect_1_1;
@@ -65,8 +56,7 @@ System.register(['@angular/core', "../actions/cart-actions", "../actions/part-ac
                 ShoppingComponent = __decorate([
                     core_1.Component({
                         selector: 'shopping',
-                        template: "\n        <h3>Parts</h3>\n        <add-part (add)=\"addPart($event)\"></add-part>\n        <parts [parts]=\"parts\" [partsInCart]=\"partsInCart\" (addToCart)=\"addPartToCart($event)\"></parts>\n        <hr/>\n        <h3>Cart</h3>\n        <cart [parts]=\"partsInCart\" (removeFromCart)=\"removePartFromCart($event)\"></cart>\n    ",
-                        directives: [parts_view_1.PartsView, cart_view_1.CartView, add_part_view_1.AddPartsView]
+                        template: "\n        <h3>Parts</h3>\n        <add-part (add)=\"addPart($event)\"></add-part>\n        <parts [parts]=\"parts\" [partsInCart]=\"partsInCart\" (addToCart)=\"addPartToCart($event)\"></parts>\n        <hr/>\n        <h3>Cart</h3>\n        <cart [parts]=\"partsInCart\" (removeFromCart)=\"removePartFromCart($event)\"></cart>\n    "
                     }), 
                     __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, part_actions_1.PartActions, cart_actions_1.CartActions])
                 ], ShoppingComponent);

@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "./NotesDetails", "./NotesDetailsItems"], function(exports_1, context_1) {
+System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,7 +15,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, NotesDetails_1, NotesDetailsItems_1;
+    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1;
     var Notes4;
     return {
         setters:[
@@ -30,12 +30,6 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
             },
             function (NotesBase_1_1) {
                 NotesBase_1 = NotesBase_1_1;
-            },
-            function (NotesDetails_1_1) {
-                NotesDetails_1 = NotesDetails_1_1;
-            },
-            function (NotesDetailsItems_1_1) {
-                NotesDetailsItems_1 = NotesDetailsItems_1_1;
             }],
         execute: function() {
             Notes4 = (function (_super) {
@@ -60,7 +54,6 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                 Notes4 = __decorate([
                     core_1.Component({
                         selector: 'Notes4',
-                        directives: [NotesDetails_1.NotesDetails, NotesDetailsItems_1.NotesDetailsItems],
                         template: " <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes4 component</small>\n                <hr/>\n                <button (click)=\"show = !show\">Toggle one item</button>\n                <notes-details>\n                  <notes-details-item [content]=\"getContent\" [myValue]=\"'One'\"\n                        (select)=\"itemDetailsClicked($event)\"> noted details item 1 </notes-details-item>\n                  <notes-details-item [content]=\"getContent\" [myValue]=\"'Two'\"\n                        (select)=\"itemDetailsClicked($event)\" *ngIf=\"show\"> noted details item 2 </notes-details-item>\n                </notes-details>\n                <ng-content></ng-content>"
                     }), 
                     __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])

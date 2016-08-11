@@ -5,7 +5,6 @@ import {COMMON_DIRECTIVES} from '@angular/common';
 
 @Component({
     selector: 'th[sortableHeader]',
-    directives: [COMMON_DIRECTIVES],
     template: `
     <div (click)="headerClicked()">
       <i class="fa fa-sort" [hidden]="sort.field === fieldName"></i>

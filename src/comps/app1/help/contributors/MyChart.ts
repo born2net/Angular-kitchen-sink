@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Ng2Highcharts} from '../../../ng2-highcharts/ng2-highcharts';
-import * as Highcharts from 'highcharts';
+import {
+    Component,
+    OnInit
+} from "@angular/core";
+import * as Highcharts from "highcharts";
 window['Highcharts'] = Highcharts;
 
 @Component({
     selector: 'MyChart',
-    directives: [Ng2Highcharts],
     template: `
         <div style="width: 100%; height: 80%">
             <!-- <div [ng2-highcharts]="chartOptions" class="graph"></div> -->

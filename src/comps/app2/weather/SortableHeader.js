@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
+    var core_1;
     var SortableHeader;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (common_1_1) {
-                common_1 = common_1_1;
             }],
         execute: function() {
             SortableHeader = (function () {
@@ -50,7 +47,6 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                 SortableHeader = __decorate([
                     core_1.Component({
                         selector: 'th[sortableHeader]',
-                        directives: [common_1.COMMON_DIRECTIVES],
                         template: "\n    <div (click)=\"headerClicked()\">\n      <i class=\"fa fa-sort\" [hidden]=\"sort.field === fieldName\"></i>\n      <i class=\"fa fa-sort-asc\" [hidden]=\"sort.field !== fieldName || sort.desc\"></i>\n      <i class=\"fa fa-sort-desc\" [hidden]=\"sort.field !== fieldName || !sort.desc\"></i>\n      <ng-content></ng-content>\n    </div>\n  ",
                         styles: ["\n        div {\n          cursor: pointer;\n          width: 80px;\n        }\n  "]
                     }), 

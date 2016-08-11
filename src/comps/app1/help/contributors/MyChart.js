@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../../../ng2-highcharts/ng2-highcharts', 'highcharts'], function(exports_1, context_1) {
+System.register(["@angular/core", "highcharts"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', '../../../ng2-highcharts/ng2-highcharts', 'hig
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, ng2_highcharts_1, Highcharts;
+    var core_1, Highcharts;
     var MyChart;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (ng2_highcharts_1_1) {
-                ng2_highcharts_1 = ng2_highcharts_1_1;
             },
             function (Highcharts_1) {
                 Highcharts = Highcharts_1;
@@ -100,7 +97,6 @@ System.register(['@angular/core', '../../../ng2-highcharts/ng2-highcharts', 'hig
                 MyChart = __decorate([
                     core_1.Component({
                         selector: 'MyChart',
-                        directives: [ng2_highcharts_1.Ng2Highcharts],
                         template: "\n        <div style=\"width: 100%; height: 80%\">\n            <!-- <div [ng2-highcharts]=\"chartOptions\" class=\"graph\"></div> -->\n             <div [ng2-highcharts]=\"chartBar\" class=\"graph\"></div>\n        </div>\n\n    "
                     }), 
                     __metadata('design:paramtypes', [])

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../simplelist/Simplelist"], function(exports_1, context_1) {
+System.register(["@angular/core"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(["@angular/core", "../../../simplelist/Simplelist"], function(ex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Simplelist_1;
+    var core_1;
     var UsersView;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (Simplelist_1_1) {
-                Simplelist_1 = Simplelist_1_1;
             }],
         execute: function() {
             UsersView = (function () {
@@ -39,7 +36,6 @@ System.register(["@angular/core", "../../../simplelist/Simplelist"], function(ex
                     core_1.Component({
                         selector: 'users',
                         template: "\n        <simple-list\n            [list]=\"data\"\n            [content]=\"getContent\"\n            (current)=\"current.next($event)\"></simple-list>\n    ",
-                        directives: [Simplelist_1.SimpleList],
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush
                     }), 
                     __metadata('design:paramtypes', [])

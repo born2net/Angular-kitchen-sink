@@ -8,10 +8,6 @@ import {TodoAction} from "./actions/TodoAction";
 import {AppStore} from "angular2-redux-util/dist/index";
 import {TodoService} from "./TodoService";
 import {TodoModel} from "./TodoModel";
-import {Nodelogger} from "../../nodelogger/Nodelogger";
-import {MakeDraggable} from "../../dragndrop/make-draggable.directive";
-import {MakeDroppable} from "../../dragndrop/make-droppable.directive";
-import {SortBy} from "../../../pipes/SortBy";
 import {List} from "Immutable";
 
 type channelTodoObservable = Observable<TodoItem>;
@@ -39,8 +35,8 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   </section>
                 </section>
     `,
-    styleUrls: ['../comps/app1/todos/Todolist.css'],
-    directives: [TodoItem, Nodelogger],
+    styleUrls: ['../comps/app1/todos/Todolist.css']
+
 })
 export class TodoList {
     newItem = '';

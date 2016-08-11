@@ -5,7 +5,6 @@ import {Notes1Props} from "../notes/Notes1Props";
 
 @Component({
     selector: 'Properties',
-    directives: [Notes1Props],
     template: `      
                 <h4>Properties</h4>
                 <hr/>

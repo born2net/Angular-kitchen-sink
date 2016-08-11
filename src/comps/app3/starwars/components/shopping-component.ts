@@ -35,8 +35,7 @@ export interface IAppStore {
         <hr/>
         <h3>Cart</h3>
         <cart [parts]="partsInCart" (removeFromCart)="removePartFromCart($event)"></cart>
-    `,
-    directives: [PartsView, CartView, AddPartsView]
+    `
 })
 
 export class ShoppingComponent {

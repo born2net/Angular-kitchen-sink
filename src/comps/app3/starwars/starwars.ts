@@ -9,7 +9,6 @@ import {FilmActions} from "./actions/film-actions";
 
 @Component({
     selector: 'Starwars',
-    directives: [ShoppingComponent, AdminComponent, FilmsComponent],
     template: ` <div class="row">
             <div class="col-md-6">
                 <admin></admin>

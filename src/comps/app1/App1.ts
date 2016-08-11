@@ -42,9 +42,8 @@ import {Todos} from "./todos/Todos";
 //})
 @Component({
     providers: [HTTP_PROVIDERS, TodoStatsModel, TodoService, TodoAction],
-    templateUrl: '/src/comps/app1/App1.html',
-    directives: [ROUTER_DIRECTIVES, Menu, MenuItem, Sliderpanel, Digg, Contributors,
-        Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help]
+    templateUrl: '/src/comps/app1/App1.html'
+
 })
 export class App1 {
     private routerActive:boolean;

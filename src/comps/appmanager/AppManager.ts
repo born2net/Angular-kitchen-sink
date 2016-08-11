@@ -36,8 +36,7 @@ import {AuthService} from "../../services/AuthService";
         <div id="appEverNodesContent" class="noScroll container" style="display: none">
         </div>
     </div>
-    `,
-    directives: [ROUTER_DIRECTIVES]
+    `
 })
 
 // An example of how we can allow or deny access to a Route

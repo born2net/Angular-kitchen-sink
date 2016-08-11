@@ -18,8 +18,7 @@ import {createSelector} from 'reselect';
         <h3>Current User</h3>
         <br/>
         <user [data]="currentUser"></user>
-    `,
-    directives: [UsersView, UserView]
+    `
 })
 export class AdminComponent {
 

@@ -16,7 +16,6 @@ import {CounterInputComponent} from "../../CounterInputComponent/CounterInputCom
 @Component({
     selector: 'Notes1',
     moduleId: __moduleName,
-    directives: [ModalDialog, REACTIVE_FORM_DIRECTIVES, DisplayError, CounterInputComponent],
     templateUrl: 'Notes1.html',
     styleUrls: ['Notes1.css']
 })

@@ -11,7 +11,6 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 @Component({
     selector: 'Notes2',
     providers: [MyIp],
-    directives: [TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES],
     template: `     
                 <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
