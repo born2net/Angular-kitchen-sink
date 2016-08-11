@@ -8,7 +8,7 @@ import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@
             <tr *ngFor="let part of parts">
                 <td>
                     <button style="margin-right:10px;margin-bottom:3px;margin-top:3px"
-                        (click)="removeFromCart.next(part.id)">remove
+                        (click)="removeFromCart.emit(part.id)">remove
                     </button>
                 </td>
                 <td>{{part.name}}</td>

@@ -35,7 +35,7 @@ System.register(["@angular/core"], function(exports_1, context_1) {
                 UsersView = __decorate([
                     core_1.Component({
                         selector: 'users',
-                        template: "\n        <simple-list\n            [list]=\"data\"\n            [content]=\"getContent\"\n            (current)=\"current.next($event)\"></simple-list>\n    ",
+                        template: "\n        <simple-list\n            [list]=\"data\"\n            [content]=\"getContent\"\n            (current)=\"current.emit($event)\"></simple-list>\n    ",
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush
                     }), 
                     __metadata('design:paramtypes', [])

@@ -29,7 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 };
                 FilmSelectionView.prototype.select = function (item) {
                     this.currentSelection = item;
-                    this.current.next(item);
+                    this.current.emit(item);
                 };
                 __decorate([
                     core_1.Input(), 

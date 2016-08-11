@@ -54,13 +54,13 @@ export class TodoItem {
     edit = new EventEmitter();
 
     doneClicked() {
-        this.done.next(this._item);
+        this.done.emit(this._item);
     }
 
     editClicked() {
         this.editMode = !this.editMode;
         if (this.editMode)
             return;
-        this.edit.next(this._item);
+        this.edit.emit(this._item);
     }
 }

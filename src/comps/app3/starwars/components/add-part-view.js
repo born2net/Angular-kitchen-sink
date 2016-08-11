@@ -24,7 +24,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 }
                 AddPartsView.prototype.onSubmit = function ($event, value) {
                     $event.preventDefault();
-                    this.add.next(value);
+                    this.add.emit(value);
                 };
                 __decorate([
                     core_1.Output(), 

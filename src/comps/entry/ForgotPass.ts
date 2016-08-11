@@ -60,7 +60,7 @@ export class ForgotPass {
     }
 
     private onForgotPass(event) {
-        this.clickStream.next('click');
+        this.clickStream.emit('click');
     }
 }
 

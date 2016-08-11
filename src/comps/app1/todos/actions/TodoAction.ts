@@ -1,18 +1,12 @@
-import {
-    Injectable,
-    ReflectiveInjector
-} from "@angular/core";
-import {
-    Actions,
-    AppStore
-} from "angular2-redux-util";
+import {Injectable, Component, Injector, provide, ReflectiveInjector} from "@angular/core";
+import {Actions, AppStore} from "angular2-redux-util";
 import {TodoModel} from "../TodoModel";
 import {StoreModel} from "../../../../models/StoreModel";
 import {TodoService} from "../TodoService";
 import {HTTP_PROVIDERS} from "@angular/http";
 import TodoStatsModel from "../TodoStatsModel";
 import {CommBroker} from "../../../../services/CommBroker";
-import * as bootbox from "bootbox";
+import * as bootbox from 'bootbox';
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';

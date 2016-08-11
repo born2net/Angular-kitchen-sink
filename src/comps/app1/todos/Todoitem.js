@@ -44,13 +44,13 @@ System.register(['@angular/core', './TodoService'], function(exports_1, context_
                     configurable: true
                 });
                 TodoItem.prototype.doneClicked = function () {
-                    this.done.next(this._item);
+                    this.done.emit(this._item);
                 };
                 TodoItem.prototype.editClicked = function () {
                     this.editMode = !this.editMode;
                     if (this.editMode)
                         return;
-                    this.edit.next(this._item);
+                    this.edit.emit(this._item);
                 };
                 __decorate([
                     core_1.Input(), 

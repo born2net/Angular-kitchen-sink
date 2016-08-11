@@ -17,6 +17,6 @@ export class AddPartsView {
 
     private onSubmit($event, value) {
         $event.preventDefault();
-        this.add.next(value);
+        this.add.emit(value);
     }
 }

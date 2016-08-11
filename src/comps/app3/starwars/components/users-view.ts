@@ -7,7 +7,7 @@ import {SimpleList} from "../../../simplelist/Simplelist";
         <simple-list
             [list]="data"
             [content]="getContent"
-            (current)="current.next($event)"></simple-list>
+            (current)="current.emit($event)"></simple-list>
     `,
     changeDetection:ChangeDetectionStrategy.OnPush
 })

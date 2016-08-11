@@ -2,25 +2,6 @@ import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
-import {Minitab} from "../../minitabs/Minitab";
-import {Minitabs} from "../../minitabs/Minitabs";
-import {StarWarsSearch} from "./StarWarsSearch";
-import {WikiSearch} from "./WikiSearch";
-import {InfinityScroll} from "./InfinityScroll";
-import {Clock} from "./Clock";
-import {MultiSlotTransclusion} from "./MultiSlotTransclusion";
-import {CompFactory} from "./CompFactory";
-import {EmbedView} from "./EmbedView";
-import {DynamicWebImport} from "./DynamicWebImport";
-import {CompBuilder} from "./CompBuilder";
-import {CompElemBuilder} from "./CompElemBuilder";
-import {CreateEmbedDiffer} from "./CreateEmbedDiffer";
-import {ToggleButtonApp} from "./ToggleButton";
-import {StreamButton} from "./StreamButton";
-import {ngBookRepeatSample} from "../../ngForIf/ngBookRepeat";
-import {InjectTemplateParent} from "./InjectTemplateParent";
-import {TooltipDirective} from "../../tooltip/tooltip.component";
-import {OptionListComponent} from "../../optionlistcomponent/optionlistcomponent";
 
 @Component({
     selector: 'Notes3',

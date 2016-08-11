@@ -51,7 +51,7 @@ System.register(['@angular/core', 'rxjs/add/observable/from', 'rxjs/add/observab
                     });
                 };
                 ForgotPass.prototype.onForgotPass = function (event) {
-                    this.clickStream.next('click');
+                    this.clickStream.emit('click');
                 };
                 ForgotPass = __decorate([
                     core_1.Component({
