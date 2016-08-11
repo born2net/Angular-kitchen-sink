@@ -66,8 +66,8 @@ System.register(["@angular/core", "angular2-redux-util", "../TodoModel", "../../
                         TodoAction,
                         http_1.HTTP_PROVIDERS,
                         TodoStatsModel_1.default,
-                        core_1.provide(CommBroker_1.CommBroker, { useClass: CommBroker_1.CommBroker }),
-                        core_1.provide(angular2_redux_util_1.AppStore, { useValue: this.appStore })
+                        { provide: CommBroker_1.CommBroker, useClass: CommBroker_1.CommBroker },
+                        { provide: angular2_redux_util_1.AppStore, useValue: this.appStore }
                     ]);
                     this.service = injector.get(TodoService_1.TodoService);
                     return this.service;

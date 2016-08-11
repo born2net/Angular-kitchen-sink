@@ -13,13 +13,16 @@ function validateEmailFactory() {
     };
 }
 
+// rc.4
+//provide (NG_VALIDATORS, {useExisting: forwardRef(() => EmailValidator),  multi: true  })
+
 @Directive({
     selector: '[validateEmail][ngControl],[validateEmail][ngModel],[validateEmail][ngFormControl]',
     providers: [
-        provide(NG_VALIDATORS, {
-            useExisting: forwardRef(() => EmailValidator),
-            multi: true
-        })
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => EmailValidator), multi: true
+        }
     ]
 })
 export class EmailValidator {

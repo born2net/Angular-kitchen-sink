@@ -28,7 +28,6 @@ class NotesService {
     }
 
     showConfigValue() {
-        // show the passed in param via provide("NotesConfigValue",asterisklue: {noteDefault: 'example of passing param to component via DI'}}),
         console.log(this.config.noteDefault);
     }
 }
@@ -47,7 +46,10 @@ class NotesService {
 @Component({
     selector: 'Notes5',
     providers: [// NotesService get's provided with a noteDefault
-        NotesService, provide("NotesConfigValue", {useValue: {noteDefault: 'example of passing param to component via DI'}}),],
+        NotesService, {
+            provide: 'NotesConfigValue',
+            useValue: {noteDefault: 'example of passing param to component via DI'}
+        }],
     template: `<button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                 </button>

@@ -1,27 +1,13 @@
-import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
-import {HTTP_PROVIDERS} from "@angular/http";
-import {Menu} from "../sidemenu/Menu";
-import {MenuItem} from "../sidemenu/MenuItem";
-import {CommBroker} from "../../services/CommBroker";
+import {Component} from "@angular/core";
+import {Router} from "@angular/router";
+import {
+    CommBroker,
+    IMessage
+} from "../../services/CommBroker";
 import {Consts} from "../../../src/Conts";
-import {IMessage} from "../../services/CommBroker";
-import {Sliderpanel} from "../sliderpanel/Sliderpanel";
-import {Digg} from "../digg/Digg";
-import {Tabs} from "../tabs/tabs";
-import {Tab} from "../tabs/tab";
-import {Logout} from "../logout/Logout";
-import {Settings} from "./settings/Settings";
-import {Help} from "./help/Help";
-import {Todo1} from "./todos/Todo1";
-import {Todo2} from "./todos/Todo2";
-import {TodoList} from "./todos/Todolist";
-import {TodoItem} from "./todos/Todoitem";
 import TodoStatsModel from "./todos/TodoStatsModel";
-import {Contributors} from "./help/contributors/contributors";
 import {TodoService} from "./todos/TodoService";
 import {TodoAction} from "./todos/actions/TodoAction";
-import {Todos} from "./todos/Todos";
 
 
 // @Routes([
@@ -41,7 +27,7 @@ import {Todos} from "./todos/Todos";
 //    })
 //})
 @Component({
-    providers: [HTTP_PROVIDERS, TodoStatsModel, TodoService, TodoAction],
+    providers: [TodoStatsModel, TodoService, TodoAction],
     templateUrl: '/src/comps/app1/App1.html'
 
 })

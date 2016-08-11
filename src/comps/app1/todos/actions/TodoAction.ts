@@ -29,7 +29,7 @@ export class TodoAction extends Actions {
 
         /** An example of how to provide a service manually that depends on other services
          as well as example of factory, use providers: [ ... when inside a component
-         or via a pure provide(... if not!
+         or via a pure provide (... if not!
 
          while this may not be the best way to architect your application, we still use
          it here as code sample:
@@ -37,7 +37,7 @@ export class TodoAction extends Actions {
          examples 1 via component decoration:
          ====================================
          providers: [
-         provide(TodoService, {
+         provide (TodoService, {
                 useFactory: (todoAction, http, todoStatsModel, appStore) => {
                     return new todoAction(TodoAction, http, todoStatsModel, appStore)
                 },
@@ -47,7 +47,7 @@ export class TodoAction extends Actions {
 
          examples 2 in controller
          ====================================
-         var p = provide(TodoService, {
+         var p = provide (TodoService, {
             useFactory: (todoAction, http, todoStatsModel, appStore) => {
                 return new todoAction(TodoAction, http, todoStatsModel, appStore)
             },
@@ -66,8 +66,8 @@ export class TodoAction extends Actions {
                 TodoAction,
                 HTTP_PROVIDERS,
                 TodoStatsModel,
-                provide(CommBroker, {useClass: CommBroker}),
-                provide(AppStore, {useValue: this.appStore})
+                {provide: CommBroker, useClass: CommBroker},
+                {provide: AppStore, useValue: this.appStore}
             ]);
         this.service = injector.get(TodoService);
         return this.service;

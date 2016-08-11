@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', "@angular/http", "../../services/CommBroker", "../../../src/Conts", "./todos/TodoStatsModel", "./todos/TodoService", "./todos/actions/TodoAction"], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../../services/CommBroker", "../../../src/Conts", "./todos/TodoStatsModel", "./todos/TodoService", "./todos/actions/TodoAction"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', "@angular/http", "../../ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, http_1, CommBroker_1, Conts_1, TodoStatsModel_1, TodoService_1, TodoAction_1;
+    var core_1, router_1, CommBroker_1, Conts_1, TodoStatsModel_1, TodoService_1, TodoAction_1;
     var App1;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(['@angular/core', '@angular/router', "@angular/http", "../../ser
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
             },
             function (CommBroker_1_1) {
                 CommBroker_1 = CommBroker_1_1;
@@ -61,7 +58,7 @@ System.register(['@angular/core', '@angular/router', "@angular/http", "../../ser
                 };
                 App1 = __decorate([
                     core_1.Component({
-                        providers: [http_1.HTTP_PROVIDERS, TodoStatsModel_1.default, TodoService_1.TodoService, TodoAction_1.TodoAction],
+                        providers: [TodoStatsModel_1.default, TodoService_1.TodoService, TodoAction_1.TodoAction],
                         templateUrl: '/src/comps/app1/App1.html'
                     }), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker, router_1.Router])

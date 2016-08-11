@@ -77,7 +77,7 @@ export class ErrorNotifierService {
  **/
 // bootstrap(AppComponent, [
 //     HTTP_PROVIDERS,
-//     provide(Http, {
+//     provide (Http, {
 //         useFactory: (backend:XHRBackend, defaultOptions:RequestOptions,
 //                      errorService:ErrorNotifierService) => {
 //             return new CustomHttp(backend, defaultOptions, errorService);
