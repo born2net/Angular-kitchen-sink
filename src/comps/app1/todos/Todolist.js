@@ -1,4 +1,4 @@
-System.register(["@angular/core", "./Todoitem", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "./TodoModel", "../../nodelogger/Nodelogger", "../../../pipes/SortBy"], function(exports_1, context_1) {
+System.register(["@angular/core", "./Todoitem", "./actions/TodoAction", "angular2-redux-util/dist/index", "./TodoService", "./TodoModel", "../../nodelogger/Nodelogger"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "./Todoitem", "./actions/TodoAction", "angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Todoitem_1, TodoAction_1, index_1, TodoService_1, TodoModel_1, Nodelogger_1, SortBy_1;
+    var core_1, Todoitem_1, TodoAction_1, index_1, TodoService_1, TodoModel_1, Nodelogger_1;
     var TodoList;
     return {
         setters:[
@@ -34,9 +34,6 @@ System.register(["@angular/core", "./Todoitem", "./actions/TodoAction", "angular
             },
             function (Nodelogger_1_1) {
                 Nodelogger_1 = Nodelogger_1_1;
-            },
-            function (SortBy_1_1) {
-                SortBy_1 = SortBy_1_1;
             }],
         execute: function() {
             TodoList = (function () {
@@ -115,7 +112,6 @@ System.register(["@angular/core", "./Todoitem", "./actions/TodoAction", "angular
                 TodoList = __decorate([
                     core_1.Component({
                         selector: 'todo-list',
-                        pipes: [SortBy_1.SortBy],
                         template: "\n                <section class=\"todoapp\" style=\"height: 500px\">\n                  <header class=\"header\">\n                    <h1>your to-do's</h1>\n                    <input class=\"new-todo\" placeholder=\"What needs to be done?\"\n                    autofocus [(ngModel)]=\"newItem\" (keyup.enter)=\"addItem(newItem)\">\n                    <button class=\"btn btn-default btn-lg\" (click)=\"addItem(newItem)\">Add todo</button>\n                  </header>\n                  <section class=\"main\">\n                    <ul class=\"todo-list\">\n                      <li *ngFor=\"let item of m_dataStore | sortBy;  let i=index;trackBy:identify\" nodeLogger=\"{{item}}\"> \n                        <todo-item [item]=\"item\" (done)=\"removeItem($event)\"\n                             [makeDraggable]=\"item\" makeDroppable (dropped)=\"onDrop($event, item)\"\n                            (edit)=\"editItem($event)\">\n                        </todo-item>\n                      </li>\n                    </ul>\n                  </section>\n                </section>\n    ",
                         styleUrls: ['../comps/app1/todos/Todolist.css'],
                         directives: [Todoitem_1.TodoItem, Nodelogger_1.Nodelogger],

@@ -19,7 +19,6 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
 
 @Component({
     selector: 'todo-list',
-    pipes: [SortBy],
     template: `
                 <section class="todoapp" style="height: 500px">
                   <header class="header">

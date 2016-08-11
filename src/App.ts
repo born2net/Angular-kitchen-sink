@@ -77,6 +77,8 @@ import {Sliderpanel} from "./comps/sliderpanel/Sliderpanel";
 import {Todo1} from "./comps/app1/todos/Todo1";
 import {Todo2} from "./comps/app1/todos/Todo2";
 import {TodoList} from "./comps/app1/todos/Todolist";
+import {SortBy} from "./pipes/SortBy";
+import {OrderBy} from "./pipes/OrderBy";
 
 
 var modules = [JSONP_PROVIDERS, {
@@ -174,17 +176,11 @@ export class Main {
 if (!Lib.DevMode())
     enableProdMode();
 
-// rc.4
-// bootstrap(App, modules).then((appRef: ComponentRef<any>) => {
-//     appInjService(appRef.injector);
-// });
-// rc.5
-
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
     providers: [appRoutingProviders],
     declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout,
-        MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount],
+        MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy],
     bootstrap: [Main],
 })
 export class App {
@@ -198,11 +194,6 @@ window['hr'] && window['hr'].on('change', (fileName) => {
         var newBody = document.createElement('body')
         newBody.appendChild(document.createElement('app'))
         document.body = newBody;
-        // rc.4
-        // bootstrap(App, modules).then((appRef: ComponentRef<any>) => {
-        //     appInjService(appRef.injector);
-        // });
-        // rc.5
         platformBrowserDynamic().bootstrapModule(App, modules).then((appRef: NgModuleRef<any>) => {
             appInjService(appRef.injector);
         });

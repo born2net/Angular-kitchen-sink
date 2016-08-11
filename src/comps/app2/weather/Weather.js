@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "./SortableHeader", "@angular/forms", "../../../pipes/OrderBy", "@angular/common", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/catch', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "./SortableHeader", "@angular/forms", "@angular/common", 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/catch', 'rxjs/add/operator/do', "../../../services/CommBroker"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Conts_1, WeatherService_1, SortableHeader_1, forms_1, OrderBy_1, common_1, CommBroker_1;
+    var core_1, Conts_1, WeatherService_1, SortableHeader_1, forms_1, common_1, CommBroker_1;
     var Weather;
     return {
         setters:[
@@ -28,9 +28,6 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
             },
             function (forms_1_1) {
                 forms_1 = forms_1_1;
-            },
-            function (OrderBy_1_1) {
-                OrderBy_1 = OrderBy_1_1;
             },
             function (common_1_1) {
                 common_1 = common_1_1;
@@ -81,7 +78,6 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
                         selector: 'Weather',
                         providers: [WeatherService_1.WeatherService, SortableHeader_1.SortableHeader],
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-                        pipes: [OrderBy_1.OrderBy],
                         directives: [common_1.COMMON_DIRECTIVES, forms_1.REACTIVE_FORM_DIRECTIVES, SortableHeader_1.SortableHeader],
                         styles: ["input {margin: 20px; width: 50%}"],
                         template: "\n    <small>I am a weather component</small>\n    <input type=\"text\" #anotherWayToGetInput class=\"form-control\" placeholder=\"enter city or zip code\" [formControl]=\"zipControl\">\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>day</th>\n          <th>icon</th>\n          <th sortableHeader=\"maxtempF\" [sort]=\"sort\">high</th>\n          <th sortableHeader=\"mintempF\" [sort]=\"sort\">low</th>\n        </tr>\n      </thead>\n      <tbody>\n      <!-- no need to subscribe to observable since async does this for us -->\n        <tr *ngFor=\"let item of weatherItems | async | OrderBy:sort.field:sort.desc\">\n          <td>{{ item.day }}</td>\n          <td><img src=\"{{ item.iconPath }}\" style=\"width: 40px; height: 40px\"/></td>\n          <td>{{ item.maxtempF }}</td>\n          <td>{{ item.mintempF }}</td>\n          <!-- <td [innerHtml]=\"item.day\"></td> -->\n        </tr>\n      </tbody>\n    </table>\n  ",

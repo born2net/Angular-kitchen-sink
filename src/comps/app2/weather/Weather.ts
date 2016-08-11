@@ -19,7 +19,6 @@ import {CommBroker} from "../../../services/CommBroker";
     selector: 'Weather',
     providers: [WeatherService, SortableHeader],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    pipes: [OrderBy],
     directives: [COMMON_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, SortableHeader],
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
