@@ -9,22 +9,6 @@ import TodoStatsModel from "./todos/TodoStatsModel";
 import {TodoService} from "./todos/TodoService";
 
 
-// @Routes([
-//     {path: '/Todos', component: Todos},
-//     {path: '/Digg', component: Digg},
-//     {path: '/Settings', component: Settings},
-//     {path: '/Help', component: Help},
-//     {path: '/Logout', component: Logout}
-// ])
-
-//CanActivate example of how to allow conditional route access after 10ms of Promise resolution
-//@CanActivate(() => {
-//    return new Promise(resolve => {
-//        setTimeout(e=> {
-//            resolve(true)
-//        }, 10)
-//    })
-//})
 @Component({
     providers: [TodoStatsModel, TodoService],
     templateUrl: '/src/comps/app1/App1.html'

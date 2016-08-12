@@ -84,6 +84,7 @@ What features of Angular does this app cover? everything:
    - Extend Base class StoreModel makes working with Immutable.js a breeze and use the power of Typing
    - Using factory to always create immutable typed instances of a class
 - Advanced Routing (also support async routing if jspm bundling is not used)
+- Lazy loading with router (ngModules)
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
 - Pass custom styles to components via ngStyle and custom properties
@@ -167,7 +168,7 @@ Production:
 jspm is also great for release as it bundles and minifies.
 to release to production
    1. change the gulp sync to your method of rsync of ftp 
-   2. your server should have the structure emitted in the 'dist' folder that is created by 
+   2. your serve    r should have the structure emitted in the 'dist' folder that is created by 
    ```gulp production```
    3. server hosting root is assumed to be same as dist folder (where dist/ROOT_HERE) 
    4. all Typescript files are bundles where css and html are copied raw to dist folder for best performance / size ratio

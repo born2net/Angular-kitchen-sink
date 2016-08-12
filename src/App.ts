@@ -166,6 +166,7 @@ import {
 import {ButtonCheckbox} from "./comps/ng2button/button-checkbox.component";
 import {ButtonRadio} from "./comps/ng2button/button-radio.component";
 import {TooltipDirective} from "./comps/tooltip/tooltip.component";
+import LazyOneModule from "./comps/app1/lazyone/LazyOneModule";
 
 var modules = [JSONP_PROVIDERS, {
     provide: AppStore,
