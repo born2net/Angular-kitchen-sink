@@ -7,7 +7,7 @@ import {
     selector: 'orderDetails',
     moduleId: __moduleName,
     template: `
-                <h2>Hello world, I was lazzzzzzy loaded...</h2>
+                <h2>Hello world, I was lazzzzy loaded...</h2>
                 <h3>Examples for lazy loading: </h3>
                 <h4><a href="http://plnkr.co/edit/mXSjnUtN7CM6ZqtOicE2?p=preview">plnkr 1</a></h4>
                 <h4><a href="http://plnkr.co/edit/TU73YA7kD7ZMyD8wEsUd?p=preview">plnkr 2</a></h4>
@@ -20,6 +20,7 @@ import {
 
 export class LazyComponent {
     constructor() {
+        console.log('LazyLoading on every navigation ' + Math.random());
     }
 
 }
