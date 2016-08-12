@@ -1,3 +1,5 @@
+// for routing examples see: http://plnkr.co/edit/TU73YA7kD7ZMyD8wEsUd?p=preview
+
 import { Routes, RouterModule } from '@angular/router';
 import {EntryPanel} from "./comps/entry/EntryPanel";
 import {AppManager} from "./comps/appmanager/AppManager";
