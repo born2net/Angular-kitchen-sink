@@ -50,7 +50,7 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
                 }
                 Weather.prototype.ngAfterViewInit = function () {
                     var _this = this;
-                    this.zipControl.updateValue('91301');
+                    this.zipControl.setValue('91301');
                     setTimeout(function () {
                         _this.renderer.invokeElementMethod(_this.myWeatherInput.nativeElement, 'focus', []);
                     }, 1000);

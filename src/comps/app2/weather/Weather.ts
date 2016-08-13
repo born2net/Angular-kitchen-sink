@@ -100,7 +100,7 @@ export class Weather {
     }
 
     ngAfterViewInit() {
-        this.zipControl.updateValue('91301');
+        this.zipControl.setValue('91301');
 
         // now we can access a native input element and set its focus
         setTimeout(()=> {
