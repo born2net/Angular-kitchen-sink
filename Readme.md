@@ -108,6 +108,7 @@ What features of Angular does this app cover? everything:
 - Import template into a component as a runtime string
 - Create your own custom \*NgBookIf and \*ngBookRepeat directives with createEmbeddedView
 - Force change detection via ref.markForCheck();
+- Embedded SVG component
 - Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
 - Shared state (Side menu and file menu)
 - use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)
