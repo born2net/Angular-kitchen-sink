@@ -74,19 +74,3 @@ export class ErrorNotifierService {
     }
 }
 
-/**
- * To Bootstrap the custom HTTP service at
- * the startup of the application append
- * the following code:
- **/
-// bootstrap(AppComponent, [
-//     HTTP_PROVIDERS,
-//     provide (Http, {
-//         useFactory: (backend:XHRBackend, defaultOptions:RequestOptions,
-//                      errorService:ErrorNotifierService) => {
-//             return new CustomHttp(backend, defaultOptions, errorService);
-//         },
-//         deps: [XHRBackend, RequestOptions, ErrorNotifierService]
-//     }),
-//     ErrorNotifierService
-// ]);

@@ -2,8 +2,6 @@ import {
     Component, Input, Output, EventEmitter, IterableDiffer, Inject, IterableDiffers,
     ChangeDetectorRef
 } from '@angular/core';
-import {COMMON_DIRECTIVES} from "@angular/common";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 
 @Component({
     selector: 'simple-list',

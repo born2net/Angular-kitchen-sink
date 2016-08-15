@@ -1,7 +1,6 @@
 ///<reference path="../../../typings/app.d.ts"/>
 
 import {Component, EventEmitter} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/buffer';

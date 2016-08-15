@@ -1,4 +1,3 @@
-import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Component, OnInit} from "@angular/core";
 /**
  General route links

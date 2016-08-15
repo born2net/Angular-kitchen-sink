@@ -13,7 +13,6 @@ import {
 import {
     Component,
     ViewEncapsulation,
-    PLATFORM_PIPES,
     enableProdMode,
     NgModuleRef,
     NgModule
@@ -25,7 +24,7 @@ import {CharCount} from "./pipes/CharCount";
 import {AuthService} from "./services/AuthService";
 import {appInjService} from "./services/AppInjService";
 import {
-    JSONP_PROVIDERS,
+    JsonpModule,
     HttpModule,
     Http
 } from "@angular/http";
@@ -50,10 +49,7 @@ import notify from "./reducers/NotifyReducer";
 import appdb from "./reducers/AppdbReducer";
 import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {AppdbAction} from "./actions/AppdbAction";
-import {
-    routing,
-    appRoutingProviders
-} from "./App.routes";
+import {routing} from "./App.routes";
 import {LogoutDeactivate} from "./comps/logout/LogoutDeactivate";
 import {PositionService} from "./comps/tooltip/position.service";
 import {BrowserModule} from "@angular/platform-browser";
@@ -166,9 +162,8 @@ import {
 import {ButtonCheckbox} from "./comps/ng2button/button-checkbox.component";
 import {ButtonRadio} from "./comps/ng2button/button-radio.component";
 import {TooltipDirective} from "./comps/tooltip/tooltip.component";
-import LazyOneModule from "./comps/app1/lazyone/LazyOneModule";
 
-var modules = [JSONP_PROVIDERS, {
+var modules = [{
     provide: AppStore,
     useFactory: Lib.StoreFactory({
         notify,
@@ -195,9 +190,7 @@ var modules = [JSONP_PROVIDERS, {
     provide: LogoutDeactivate,
     useClass: LogoutDeactivate
 }, {
-    provide: PLATFORM_PIPES,
-    useValue: CharCount,
-    multi: true
+    provide: CharCount
 }, {
     provide: Consts,
     useClass: Consts
@@ -260,10 +253,9 @@ if (!Lib.DevMode())
     enableProdMode();
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule, routing],
-    providers: [appRoutingProviders],
-    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent,
-        TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat],
+    imports: [BrowserModule, FormsModule, HttpModule, JsonpModule, ReactiveFormsModule, routing],
+    providers: [],
+    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat],
     bootstrap: [Main],
 })
 export class App {

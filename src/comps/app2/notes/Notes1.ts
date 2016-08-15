@@ -5,7 +5,7 @@ import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
-import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import {DisplayError} from "../../displayerror/DisplayError";

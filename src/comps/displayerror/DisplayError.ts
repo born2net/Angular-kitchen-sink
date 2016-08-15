@@ -1,5 +1,5 @@
 import {Component, Input, Inject, forwardRef, Host} from "@angular/core";
-import {REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl} from "@angular/forms";
+import {FormGroup, FormControl} from "@angular/forms";
 
 
 @Component({

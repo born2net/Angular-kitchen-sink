@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
-import {Jsonp, JSONP_PROVIDERS} from '@angular/http';
+import {Jsonp} from '@angular/http';
 
 @Component({
     selector: 'WikiSearch',

@@ -22,7 +22,7 @@
             useFactory: (todoAction, http, todoStatsModel, appStore) => {
                 return new todoAction(TodoAction, http, todoStatsModel, appStore)
             },
-            deps: [TodoAction, HTTP_PROVIDERS, TodoStatsModel, AppStore]
+            deps: [TodoAction, TodoStatsModel, AppStore]
         })
 
  examples 3 in controller

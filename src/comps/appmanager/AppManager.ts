@@ -1,8 +1,5 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 import {Router} from '@angular/router';
-import {appInjService} from "../../services/AppInjService";
-import {AuthService} from "../../services/AuthService";
 
 @Component({
     providers: [AppManager],

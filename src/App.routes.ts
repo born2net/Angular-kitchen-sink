@@ -116,10 +116,4 @@ const appRoutes: Routes = [{
     ]
 }];
 
-export const appRoutingProviders: any[] = [];
-
 export const routing = RouterModule.forRoot(appRoutes);
-
-// export const APP_ROUTER_PROVIDERS = [
-//     provideRouter(routes, { enableTracing: false })
-// ];

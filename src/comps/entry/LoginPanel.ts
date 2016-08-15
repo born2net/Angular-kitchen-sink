@@ -1,5 +1,4 @@
 import {Component, Injectable} from '@angular/core';
-import {ROUTER_DIRECTIVES, UrlTree} from '@angular/router';
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 import {Router} from "@angular/router";

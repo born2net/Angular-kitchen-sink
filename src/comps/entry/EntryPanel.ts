@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {LoginPanel} from "../../../src/comps/entry/LoginPanel";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 
 @Component({
     providers: [LoginPanel],

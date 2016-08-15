@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {Consts} from "../../../../src/Conts";
-import {REACTIVE_FORM_DIRECTIVES, FormGroup} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 import {MailModel} from "../../../models/MailModel";
 import {CommBroker} from "../../../services/CommBroker";
 

@@ -2,8 +2,7 @@
  * Created by Tareq Boulakjar. from angulartypescript.com
  */
 import {Component} from '@angular/core';
-import {CORE_DIRECTIVES } from '@angular/common';
-import {REACTIVE_FORM_DIRECTIVES, FormGroup, Validators, FormControl, FormBuilder} from "@angular/forms";
+import {FormGroup, Validators, FormControl, FormBuilder} from "@angular/forms";
 import {ButtonCheckbox} from './button-checkbox.component';
 import {ButtonRadio} from './button-radio.component';
 /*Angular 2 Button*/
