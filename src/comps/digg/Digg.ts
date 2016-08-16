@@ -46,7 +46,10 @@ import 'rxjs/add/operator/distinctUntilChanged';
     `],
     template: `
         <h1>Digg</h1>
-        <div class="appHeight">
+        <div class="appHeight" HeightDirective (resizing)="smallHeight = $event">
+                 <h5>
+                    component height: {{smallHeight}}px
+                </h5>
              <form (submit)="$event.preventDefault();">
                 <br/>
                 <div class="input-group">
