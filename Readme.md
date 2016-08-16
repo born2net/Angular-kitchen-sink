@@ -8,7 +8,7 @@ I have mastered the perfect workflow with in browser Typescript compilation for 
 just in-time browser reloads on saves, and production ready via bundling, all powered by the awesome jspm, so enjoy the fruits of my labor!
 
 
-![Image of Yaktocat](http://www.digitalsignage.com/_images/kitchensink.png)
+-> ![Angular2 Kitchen Sink](http://www.digitalsignage.com/_images/kitchensink.png) <-
 
 Check this working demo: http://ng2.javascriptninja.io
 ====
