@@ -1,4 +1,10 @@
-import {Directive, ElementRef, EventEmitter, Output, OnInit} from "@angular/core";
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Output,
+    OnInit
+} from "@angular/core";
 
 @Directive({
     selector: "[HeightDirective]",
@@ -9,9 +15,7 @@ import {Directive, ElementRef, EventEmitter, Output, OnInit} from "@angular/core
 export class HeightDirective implements OnInit {
     @Output() resizing = new EventEmitter<number>(false);
 
-    constructor(
-        private el: ElementRef
-    ) {
+    constructor(private el: ElementRef) {
     }
 
     ngOnInit() {
