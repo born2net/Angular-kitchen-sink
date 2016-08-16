@@ -10,6 +10,10 @@ just in-time browser reloads on saves, and production ready via bundling, all po
 
 ->![Angular2 Kitchen Sink](http://www.digitalsignage.com/_images/kitchensink.png)<-
 
+<p align="center">  
+  <img src="http://www.digitalsignage.com/_images/kitchensink.png">
+</p>
+
 Check this working demo: http://ng2.javascriptninja.io
 ====
 
