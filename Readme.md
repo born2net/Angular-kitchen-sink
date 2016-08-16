@@ -1,4 +1,4 @@
-ng2Boilerplate
+Angular2 kitchen sink
 =====================
 
 The Ultimate Angular 2 kitchen sink Single Page App, because code samples are always better than docs! 
