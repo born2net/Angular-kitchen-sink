@@ -7,9 +7,6 @@ The Ultimate Angular 2 kitchen sink Single Page App, because code samples are al
 I have mastered the perfect workflow with in browser Typescript compilation for development, 
 just in-time browser reloads on saves, and production ready via bundling, all powered by the awesome jspm, so enjoy the fruits of my labor!
 
-
-->![Angular2 Kitchen Sink](http://www.digitalsignage.com/_images/kitchensink.png)<-
-
 <p align="center">  
   <img src="http://www.digitalsignage.com/_images/kitchensink.png">
 </p>
