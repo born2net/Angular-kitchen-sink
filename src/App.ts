@@ -21,7 +21,6 @@ import "twbs/bootstrap";
 import "twbs/bootstrap/dist/css/bootstrap.css!";
 import "./styles/style.css!";
 import {CharCount} from "./pipes/CharCount";
-import {AuthService} from "./services/AuthService";
 import {appInjService} from "./services/AppInjService";
 import {
     JsonpModule,
@@ -163,6 +162,7 @@ import {ButtonCheckbox} from "./comps/ng2button/button-checkbox.component";
 import {ButtonRadio} from "./comps/ng2button/button-radio.component";
 import {TooltipDirective} from "./comps/tooltip/tooltip.component";
 import {HeightDirective} from "./comps/heightdirective/HeightDirective";
+import {SharedModule} from "./comps/app1/lazyone/SharedModule";
 
 var modules = [{
     provide: AppStore,
@@ -184,9 +184,6 @@ var modules = [{
 }, {
     provide: CommBroker,
     useClass: CommBroker
-}, {
-    provide: AuthService,
-    useClass: AuthService
 }, {
     provide: LogoutDeactivate,
     useClass: LogoutDeactivate
@@ -254,7 +251,7 @@ if (!Lib.DevMode())
     enableProdMode();
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, JsonpModule, ReactiveFormsModule, routing],
+    imports: [BrowserModule, SharedModule.forRoot(), routing],
     providers: [],
     declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat, HeightDirective],
     bootstrap: [Main],

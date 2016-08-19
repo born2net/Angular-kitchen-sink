@@ -88,6 +88,7 @@ What features of Angular does this app cover? everything:
    - Using factory to always create immutable typed instances of a class
 - Advanced Routing (also support async routing if jspm bundling is not used)
 - Lazy loading with router (ngModules)
+- Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
 - Pass custom styles to components via ngStyle and custom properties
