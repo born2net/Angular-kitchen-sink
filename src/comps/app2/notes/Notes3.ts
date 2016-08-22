@@ -2,9 +2,11 @@ import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
+import {DynaFactoryResService} from "./DynaFactoryResService";
 
 @Component({
     selector: 'Notes3',
+    providers: [DynaFactoryResService],
     styles: [
         `
         .colorBlue span {
@@ -122,8 +124,12 @@ import {NotesBase} from "./NotesBase";
                         </span>
                     </h2>
                   </mini-tab>                  
-                  <mini-tab [tabTitle]="'Code 17'">
+                  <mini-tab [tabTitle]="'Code 17'">                  
                     <optionsList></optionsList> 
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 18'">
+                    <h3>Dynamic factory resolver</h3>
+                    <DynaFactoryRes></DynaFactoryRes>  
                   </mini-tab>
                 </mini-tabs>
                     

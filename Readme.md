@@ -108,7 +108,7 @@ What features of Angular does this app cover? everything:
 - Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
 - Rxjs Node server side CRUD for Observable client to server calls
 - Rxjs... lots more of it...
-- Dynamic component factory
+- Different ways to load and inject dynamic components (see Notes3 component)
 - Import template into a component as a runtime string
 - Create your own custom \*NgBookIf and \*ngBookRepeat directives with createEmbeddedView
 - Force change detection via ref.markForCheck();

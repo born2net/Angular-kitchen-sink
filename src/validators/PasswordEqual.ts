@@ -37,8 +37,9 @@ export class PasswordEqual implements Validator {
         // self value
         let v = c.value;
 
-        // control vlaue
-        let e = c.root.find(this.validateEqual);
+        // control value
+        // let e = c.root.find(this.validateEqual); find deprecated
+        let e = c.root.get(this.validateEqual);
 
         // value not equal
         if (e && v !== e.value && !this.isReverse) {
