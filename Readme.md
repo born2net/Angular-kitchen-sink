@@ -127,7 +127,8 @@ What features of Angular does this app cover? everything:
 - Dependency sharing
 - ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles
-- Form and validation (both via FormBuilder and manual creating Control Groups)
+- Form and validation (both via FormBuilder and manual creating Control Groups) 
+- Custom validators such as PasswordMatch (@Attribute)
 - Form observables and operations including Async piping and more
 - Form promised based field validation
 - Form custom counter component compatible with both template and model forms
