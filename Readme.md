@@ -118,6 +118,7 @@ What features of Angular does this app cover? everything:
 - use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)
 - use contentWrap.childNodes.length to provide a default template to component if not provided by consumer
 - use lazy loading of components when router enters path (NoteDynamic, kind of like require(...))
+- Extend the http service with an Http interceptor service
 - Dependency injection and decorators such as @Host
 - Advanced decorators such as @HostListener @ContentChildren @Injectable and more
 - Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)
