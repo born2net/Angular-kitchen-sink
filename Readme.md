@@ -1,4 +1,4 @@
-Angular2 kitchen sink
+Angular2 kitchen sink (RC.5)
 =====================
 
 The Ultimate Angular 2 kitchen sink Single Page App, because code samples are always better than docs! 
