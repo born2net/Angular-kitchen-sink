@@ -1,16 +1,20 @@
-import {Component} from '@angular/core';
+import {
+    Component,
+    ViewChild,
+    ComponentRef
+} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
-import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {MyIp} from "../../myip/Myip";
-import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
+import {PureDialog} from "../../puredialog/PureDialog";
+import {PureDialogDirective} from "../../puredialog/PureDialogDirective";
 // import {MODAL_DIRECTIVES} from "ng2-bs3-modal-born2net/ng2-bs3-modal";
-import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 
 @Component({
     selector: 'Notes2',
     providers: [MyIp],
+    entryComponents: [PureDialog],
     template: `     
                 <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left"></span>
@@ -36,7 +40,10 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
                     </modal-body>
                     <modal-footer [show-default-buttons]="true"></modal-footer>
                 </modal>
-
+                <hr/>
+                <div dialogAnchor></div>
+                <button type="button" class="btn btn-default" (click)="openDialogBox()">Pure ng2 Modal</button>
+                <hr/>
                 <MyIp>
                     <!-- remove entire snippet including this comment to have component inject default template -->
                     <hr/>
@@ -55,11 +62,22 @@ import {TrimmedInput} from "../../trimmedinput/TrimmedInput";
 })
 
 export class Notes2 extends NotesBase {
-    constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
+    constructor(protected sliderPanel: Sliderpanel, protected commBroker: CommBroker) {
         super(sliderPanel, commBroker);
         this.me = this;
         this.slideLeft = 'notes3';
         this.slideRight = 'notes1';
+    }
+
+    @ViewChild(PureDialogDirective)
+    pureDialogDirective: PureDialogDirective;
+
+    openDialogBox() {
+        var pureDialog:ComponentRef<PureDialog> = this.pureDialogDirective.createDialog(PureDialog);
+        setTimeout(()=>{
+            pureDialog.instance.onClickedExit();
+        },3000)
+
     }
 }
 

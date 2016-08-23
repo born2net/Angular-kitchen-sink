@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "../../myip/Myip"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "./NotesBase", "../../myip/Myip", "../../puredialog/PureDialog", "../../puredialog/PureDialogDirective"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,7 +15,7 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, Myip_1;
+    var core_1, Sliderpanel_1, CommBroker_1, NotesBase_1, Myip_1, PureDialog_1, PureDialogDirective_1;
     var Notes2;
     return {
         setters:[
@@ -33,6 +33,12 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
             },
             function (Myip_1_1) {
                 Myip_1 = Myip_1_1;
+            },
+            function (PureDialog_1_1) {
+                PureDialog_1 = PureDialog_1_1;
+            },
+            function (PureDialogDirective_1_1) {
+                PureDialogDirective_1 = PureDialogDirective_1_1;
             }],
         execute: function() {
             Notes2 = (function (_super) {
@@ -45,11 +51,22 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
                     this.slideLeft = 'notes3';
                     this.slideRight = 'notes1';
                 }
+                Notes2.prototype.openDialogBox = function () {
+                    var pureDialog = this.pureDialogDirective.createDialog(PureDialog_1.PureDialog);
+                    setTimeout(function () {
+                        pureDialog.instance.onClickedExit();
+                    }, 3000);
+                };
+                __decorate([
+                    core_1.ViewChild(PureDialogDirective_1.PureDialogDirective), 
+                    __metadata('design:type', PureDialogDirective_1.PureDialogDirective)
+                ], Notes2.prototype, "pureDialogDirective", void 0);
                 Notes2 = __decorate([
                     core_1.Component({
                         selector: 'Notes2',
                         providers: [Myip_1.MyIp],
-                        template: "     \n                <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes2 component</small>\n                <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n                  <button (click)=\"openModal()\" type=\"button\" class=\"btn btn-default\">Bootstrap 3 wrapped Modal</button>\n                </div>\n                <ModalDialog title=\"My owner is Notes2\" content=\"I am here to serve Notes2\" [owner]=\"me\">\n                </ModalDialog>\n                <hr/>\n                <button type=\"button\" class=\"btn btn-default\" (click)=\"modal.open()\">Bootstrap 3 pure ng2 Modal</button>\n                <modal #modal>\n                    <modal-header [show-close]=\"true\">\n                        <h4 class=\"modal-title\">I'm a pure Angular2 modal!</h4>\n                    </modal-header>\n                    <modal-body>\n                        Hello World!\n                    </modal-body>\n                    <modal-footer [show-default-buttons]=\"true\"></modal-footer>\n                </modal>\n\n                <MyIp>\n                    <!-- remove entire snippet including this comment to have component inject default template -->\n                    <hr/>\n                      <div>\n                          <h4>Example of providing a default ng-content template if not provided by the consumer of the component</h4>\n                      </div>\n                    <hr/>\n                </MyIp>\n                <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>\n                <input type=\"text\" trimmed-input />\n                <hr/>\n                <h5>Press enter to jump to next input</h5>\n                <input (keyup.enter)=\"next.focus()\">\n                <input #next>\n                "
+                        entryComponents: [PureDialog_1.PureDialog],
+                        template: "     \n                <button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left\"></span>\n                </button>\n                <button type=\"button\" (click)=\"onNext($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-right\"></span>\n                </button>\n                <hr/>\n                <small>I am notes2 component</small>\n                <div class=\"btn-group\" role=\"group\" aria-label=\"...\">\n                  <button (click)=\"openModal()\" type=\"button\" class=\"btn btn-default\">Bootstrap 3 wrapped Modal</button>\n                </div>\n                <ModalDialog title=\"My owner is Notes2\" content=\"I am here to serve Notes2\" [owner]=\"me\">\n                </ModalDialog>\n                <hr/>\n                <button type=\"button\" class=\"btn btn-default\" (click)=\"modal.open()\">Bootstrap 3 pure ng2 Modal</button>\n                <modal #modal>\n                    <modal-header [show-close]=\"true\">\n                        <h4 class=\"modal-title\">I'm a pure Angular2 modal!</h4>\n                    </modal-header>\n                    <modal-body>\n                        Hello World!\n                    </modal-body>\n                    <modal-footer [show-default-buttons]=\"true\"></modal-footer>\n                </modal>\n                <hr/>\n                <div dialogAnchor></div>\n                <button type=\"button\" class=\"btn btn-default\" (click)=\"openDialogBox()\">Pure ng2 Modal</button>\n                <hr/>\n                <MyIp>\n                    <!-- remove entire snippet including this comment to have component inject default template -->\n                    <hr/>\n                      <div>\n                          <h4>Example of providing a default ng-content template if not provided by the consumer of the component</h4>\n                      </div>\n                    <hr/>\n                </MyIp>\n                <small>Example of @HostBinding / @HostListener print console.log() and add underscores</small>\n                <input type=\"text\" trimmed-input />\n                <hr/>\n                <h5>Press enter to jump to next input</h5>\n                <input (keyup.enter)=\"next.focus()\">\n                <input #next>\n                "
                     }), 
                     __metadata('design:paramtypes', [Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes2);
