@@ -117,6 +117,7 @@ export class Weather {
                 // as well as it unsubscribes from all previous / pending calls to server and only
                 // listen to to newly created Observable
             }).switchMap(zip => {
+                console.log(zip);
                 return this.weatherService.search(`${zip}/1`)
             })
     }

@@ -63,6 +63,7 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
                         .filter(function (zip) {
                         return zip.length > 3;
                     }).switchMap(function (zip) {
+                        console.log(zip);
                         return _this.weatherService.search(zip + "/1");
                     });
                 };
