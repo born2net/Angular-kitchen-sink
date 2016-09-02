@@ -1,12 +1,11 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
-
 /** Form custom counter component compatible with both template and model forms
     References:
         http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel
         http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html
-
 **/
+import { Component, OnInit, forwardRef, Input, OnChanges } from '@angular/core';
+import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
+
 
 export function createCounterRangeValidator(maxValue, minValue) {
     return (c: FormControl) => {
@@ -17,10 +16,7 @@ export function createCounterRangeValidator(maxValue, minValue) {
                 min: minValue || 0
             }
         };
-        //todo: open issues https://plnkr.co/edit/jZLDynQjwgbuW4k8rG5s?p=preview
-        //todo: waiting on fix http://stackoverflow.com/questions/39297609/angular2-rc-6-custom-form-validator-form-value-not-getting-updated
-
-        console.log(c.value);
+        console.log('value not updating: ' + c.value);
         return (c.value > +maxValue || c.value < +minValue) ? err: null;
     }
 }
@@ -28,27 +24,37 @@ export function createCounterRangeValidator(maxValue, minValue) {
 @Component({
     selector: 'counter-input',
     template: `
-        <div (click)="$event.preventDefault()">
-            <button (click)="increase()">+</button> {{counterValue}} <button (click)="decrease()">-</button>
-        </div>
+<div (click)="$event.preventDefault()">
+    <button (click)="increase()">+</button> {{counterValue}} <button (click)="decrease()">-</button>
+    </div>
   `,
     providers: [
         { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => CounterInputComponent), multi: true },
         { provide: NG_VALIDATORS, useExisting: forwardRef(() => CounterInputComponent), multi: true }
     ]
 })
+export class CounterInputComponent implements ControlValueAccessor, OnChanges {
 
-export class CounterInputComponent implements ControlValueAccessor {
-
-    counterValue = 0;
-    propagateChange:any = () => {};
+    propagateChange: any[] = [];
     validateFn:any = () => {};
 
+    @Input('counterValue') _counterValue = 0;
     @Input() counterRangeMax;
     @Input() counterRangeMin;
 
-    ngOnInit() {
-        this.validateFn = createCounterRangeValidator(this.counterRangeMax, this.counterRangeMin);
+    get counterValue() {
+        return this._counterValue;
+    }
+
+    set counterValue(val) {
+        this._counterValue = val;
+        this.propagateChange.forEach(fn => fn(val));
+    }
+
+    ngOnChanges(inputs) {
+        if (inputs.counterRangeMax || inputs.counterRangeMin) {
+            this.validateFn = createCounterRangeValidator(this.counterRangeMax, this.counterRangeMin);
+        }
     }
 
     writeValue(value) {
@@ -58,19 +64,18 @@ export class CounterInputComponent implements ControlValueAccessor {
     }
 
     registerOnChange(fn) {
-        this.propagateChange = fn;
+        this.propagateChange.push(fn);
     }
 
-    registerOnTouched() {}
+    registerOnTouched(fn) {
+    }
 
     increase() {
         this.counterValue++;
-        this.propagateChange(this.counterValue);
     }
 
     decrease() {
         this.counterValue--;
-        this.propagateChange(this.counterValue);
     }
 
     validate(c: FormControl) {
