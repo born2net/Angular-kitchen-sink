@@ -1,5 +1,6 @@
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, ViewContainerRef, Inject} from '@angular/core';
 import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+import {DOCUMENT} from '@angular/platform-browser';
 
 /**
  @class Sliderpanel
@@ -14,29 +15,34 @@ export class Sliderpanel {
     private el:any;
     private viewContainer:ViewContainerRef;
     private dom = new BrowserDomAdapter();
+    private dom2:any;
 
-    constructor(viewContainer:ViewContainerRef) {
+    constructor(viewContainer:ViewContainerRef, @Inject(DOCUMENT) private doc) {
         var self = this;
         self.viewContainer = viewContainer;
         self.el = viewContainer.element.nativeElement;
+        self.dom2 = doc.body;
     }
 
     private getElementByClass(element:string) {
         var self = this;
-        return self.dom.getElementsByClassName(self.el, element)[0];
+        var a = self.dom.getElementsByClassName(self.el, element)[0];
+        var b = jQuery(self.dom2).find('.'+element,self.el)[0];
+        return a;
+        //return self.dom.getElementsByClassName(self.el, element)[0];
     }
 
     private removeAllClassesFrom(elementClass:any, selected?:boolean) {
         var self = this;
         var element = self.getElementByClass(elementClass);
         if (selected){
-            self.dom.removeClass(element, 'selected');
+            jQuery(element).removeClass('selected');
             return;
         }
-        self.dom.removeClass(element, 'left');
-        self.dom.removeClass(element, 'right');
-        self.dom.removeClass(element, 'center');
-        self.dom.removeClass(element, 'transition');
+        jQuery(element).removeClass('left');
+        jQuery(element).removeClass('right');
+        jQuery(element).removeClass('center');
+        jQuery(element).removeClass('transition');
     }
 
     private addClassesTo(elementClass:any, classesToAdd:string[]) {
