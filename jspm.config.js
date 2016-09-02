@@ -6,8 +6,8 @@ SystemJS.config({
     },
     devConfig: {
         "map": {
-            "ng2-bootstrap": "npm:ng2-bootstrap@1.0.16",
-            "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.5",
+            "ng2-bootstrap": "npm:ng2-bootstrap@1.1.1",
+            "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.6",
             "clean-css": "npm:clean-css@3.4.12",
             "https": "github:jspm/nodelibs-https@0.2.0-alpha",
             "reflect-metadata": "npm:reflect-metadata@0.1.2",
@@ -21,7 +21,7 @@ SystemJS.config({
                     "source-map": "npm:source-map@0.4.4"
                 }
             },
-            "npm:ng2-bootstrap@1.0.16": {
+            "npm:ng2-bootstrap@1.1.1": {
                 "map": {
                     "moment": "npm:moment@2.13.0"
                 }
@@ -510,7 +510,7 @@ SystemJS.config({
         "@angular": "node_modules/@angular",
         "gulp-util": "npm:gulp-util@3.0.7",
         "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
-        "@angular/router@3.0.0-rc.1": "npm:@angular/router@3.0.0-rc.1"
+        "@angular/router@3.0.0-rc.2": "npm:@angular/router@3.0.0-rc.2"
     }
 });
 
@@ -521,28 +521,28 @@ SystemJS.config({
         "github:*/*.json"
     ],
     map: {
-        "@angular/router@3.0.0-rc.1": "npm:@angular/router@3.0.0-rc.1",
-        "router": "npm:@angular/router@3.0.0-rc.1",
-        "@angular/forms": "npm:@angular/forms@0.3.0",
+        "@angular/router@3.0.0-rc.2": "npm:@angular/router@3.0.0-rc.2",
+        "router": "npm:@angular/router@3.0.0-rc.2",
+        "@angular/forms": "npm:@angular/forms@2.0.0-rc.6",
         "bootstrap": "github:twbs/bootstrap@3.3.6",
-        "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.5",
+        "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.6",
         "ng2-bs3-modal": "npm:ng2-bs3-modal@0.6.1",
         "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
         "redux-thunk": "npm:redux-thunk@2.1.0",
-        "@angular/common": "npm:@angular/common@2.0.0-rc.5",
-        "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
-        "@angular/core": "npm:@angular/core@2.0.0-rc.5",
-        "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.5",
+        "@angular/common": "npm:@angular/common@2.0.0-rc.6",
+        "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.6",
+        "@angular/core": "npm:@angular/core@2.0.0-rc.6",
+        "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.6",
         "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
         "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
         "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
         "os": "github:jspm/nodelibs-os@0.2.0-alpha",
         "net": "github:jspm/nodelibs-net@0.2.0-alpha",
         "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
-        "angular-common": "npm:@angular/common@2.0.0-rc.5",
-        "angular-compiler": "npm:@angular/compiler@2.0.0-rc.5",
-        "angular-core": "npm:@angular/core@2.0.0-rc.5",
-        "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.5",
+        "angular-common": "npm:@angular/common@2.0.0-rc.6",
+        "angular-compiler": "npm:@angular/compiler@2.0.0-rc.6",
+        "angular-core": "npm:@angular/core@2.0.0-rc.6",
+        "angular-platform-browser": "npm:@angular/platform-browser@2.0.0-rc.6",
         "angular2-polyfill": "npm:angular2-polyfill@0.0.2",
         "angular2-redux-util": "npm:angular2-redux-util@0.5.51",
         "angular2-uuid": "npm:angular2-uuid@1.0.7",
@@ -571,7 +571,7 @@ SystemJS.config({
         "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
         "text": "github:systemjs/plugin-text@0.0.4",
         "ts": "github:frankwallis/plugin-typescript@4.0.16",
-        "typescript": "npm:typescript@1.8.7",
+        "typescript": "npm:typescript@2.0.2",
         "underscore": "npm:underscore@1.8.3",
         "url": "github:jspm/nodelibs-url@0.2.0-alpha",
         "util": "github:jspm/nodelibs-util@0.2.0-alpha",
@@ -630,7 +630,7 @@ SystemJS.config({
         },
         "github:frankwallis/plugin-typescript@4.0.16": {
             "map": {
-                "typescript": "npm:typescript@1.8.7"
+                "typescript": "npm:typescript@2.0.2"
             }
         },
         "github:jspm/nodelibs-buffer@0.2.0-alpha": {
@@ -658,35 +658,35 @@ SystemJS.config({
                 "url-browserify": "npm:url@0.11.0"
             }
         },
-        "npm:@angular/common@2.0.0-rc.5": {
+        "npm:@angular/common@2.0.0-rc.6": {
             "map": {
-                "@angular/core": "npm:@angular/core@2.0.0-rc.5"
+                "@angular/core": "npm:@angular/core@2.0.0-rc.6"
             }
         },
-        "npm:@angular/compiler@2.0.0-rc.5": {
+        "npm:@angular/compiler@2.0.0-rc.6": {
             "map": {
-                "@angular/core": "npm:@angular/core@2.0.0-rc.5"
+                "@angular/core": "npm:@angular/core@2.0.0-rc.6"
             }
         },
-        "npm:@angular/core@2.0.0-rc.5": {
+        "npm:@angular/core@2.0.0-rc.6": {
             "map": {
                 "rxjs": "npm:rxjs@5.0.0-beta.6",
                 "zone.js": "npm:zone.js@0.6.12"
             }
         },
-        "npm:@angular/platform-browser-dynamic@2.0.0-rc.5": {
+        "npm:@angular/platform-browser-dynamic@2.0.0-rc.6": {
             "map": {
-                "@angular/common": "npm:@angular/common@2.0.0-rc.5",
-                "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
-                "@angular/core": "npm:@angular/core@2.0.0-rc.5",
-                "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.5"
+                "@angular/common": "npm:@angular/common@2.0.0-rc.6",
+                "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.6",
+                "@angular/core": "npm:@angular/core@2.0.0-rc.6",
+                "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.6"
             }
         },
-        "npm:@angular/platform-browser@2.0.0-rc.5": {
+        "npm:@angular/platform-browser@2.0.0-rc.6": {
             "map": {
-                "@angular/common": "npm:@angular/common@2.0.0-rc.5",
-                "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
-                "@angular/core": "npm:@angular/core@2.0.0-rc.5"
+                "@angular/common": "npm:@angular/common@2.0.0-rc.6",
+                "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.6",
+                "@angular/core": "npm:@angular/core@2.0.0-rc.6"
             }
         },
         "npm:angular2-polyfill@0.0.2": {
@@ -980,7 +980,7 @@ SystemJS.config({
         "npm:zone.js@0.6.12": {
             "map": {}
         },
-        "npm:typescript@1.8.7": {
+        "npm:typescript@2.0.2": {
             "map": {}
         },
         "github:jspm/nodelibs-os@0.2.0-alpha": {

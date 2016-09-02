@@ -61,7 +61,7 @@ System.register(["rxjs/Observable", "@angular/core", "@angular/router", 'rxjs/ad
                 Logout = __decorate([
                     core_1.Component({
                         selector: 'Logout',
-                        template: "\n                <h1><Center>Goodbye</Center></h1>\n                <small>I am Logout component</small>\n                <h5>Demo canDeactivate by moving to a new route and locking in canDeactivate on url changes </h5>\n                <button (click)=\"onCanDeactivate($event)\" class=\"btn btn-default\">Logout now</button>\n        "
+                        template: "\n                <h1>Goodbye</h1>\n                <small>I am Logout component</small>\n                <h5>Demo canDeactivate by moving to a new route and locking in canDeactivate on url changes </h5>\n                <button (click)=\"onCanDeactivate($event)\" class=\"btn btn-default\">Logout now</button>\n        "
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], Logout);

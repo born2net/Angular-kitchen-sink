@@ -23,10 +23,7 @@ import {Consts} from "../../../Conts";
                       the universe | Angular 2 - one framework baby!!!).</h4>
                       <hr/>
                       <h5>Want to help? visit me on Github</h5>
-                      <center>
                         <a id="largeGit" href="https://github.com/born2net/ng2Boilerplate" target="_blank" class="fa fa-github"></a>
-                      </center>
-
                     </tab>
                     <tab [tabtitle]="'Contributors'" >
                       <Contributors></Contributors>

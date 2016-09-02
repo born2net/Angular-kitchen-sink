@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser/src/browser/browser_adapter'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,30 +10,17 @@ System.register(['@angular/core', '@angular/platform-browser/src/browser/browser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, browser_adapter_1;
+    var core_1;
     var ModalDialog;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (browser_adapter_1_1) {
-                browser_adapter_1 = browser_adapter_1_1;
             }],
         execute: function() {
             ModalDialog = (function () {
-                function ModalDialog(viewContainer) {
-                    this.dom = new browser_adapter_1.BrowserDomAdapter();
-                    this.viewContainer = viewContainer;
-                    this.el = this.viewContainer.element.nativeElement;
+                function ModalDialog() {
                 }
-                ModalDialog.prototype.ngAfterViewInit = function () {
-                    this.owner.registerCaller(this);
-                };
-                ModalDialog.prototype.openModal = function () {
-                    var modal = this.dom.getElementsByClassName(this.el, 'modal')[0];
-                    jQuery(modal).modal();
-                };
                 ModalDialog = __decorate([
                     core_1.Component({
                         selector: 'ModalDialog',
@@ -42,7 +29,7 @@ System.register(['@angular/core', '@angular/platform-browser/src/browser/browser
                         encapsulation: core_1.ViewEncapsulation.Emulated,
                         template: "\n         <div class=\"modal modal-static fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\"\n             aria-hidden=\"true\">\n            <div class=\"modal-dialog\">\n                <div class=\"modal-content\">\n                    <div class=\"modal-header\">\n                        <button id=\"toggleProperties\" type=\"button\" class=\"close\" data-dismiss=\"modal\"\n                                aria-hidden=\"true\">&times;</button>\n                        <h4 class=\"modal-title\" id=\"myModalLabel\" data-localize=\"ModalTitle\">{{title}}</h4>\n                    </div>\n                    <div class=\"modal-body\">\n                        {{content}}\n                        <small>I am ModalDialog component</small>\n                        <ng-content></ng-content>\n                    </div>\n                    <div class=\"modal-footer\">\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" data-localize=\"close\">Close</button>\n                        <button type=\"button\" class=\"btn btn-primary\" data-localize=\"saveChanges\">Save changes</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    "
                     }), 
-                    __metadata('design:paramtypes', [core_1.ViewContainerRef])
+                    __metadata('design:paramtypes', [])
                 ], ModalDialog);
                 return ModalDialog;
             }());

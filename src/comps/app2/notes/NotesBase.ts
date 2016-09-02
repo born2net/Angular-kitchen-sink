@@ -16,7 +16,7 @@ export class NotesBase implements IRegisterCaller {
     }
 
     protected openModal(){
-        this.modalDialog.openModal();
+        // this.modalDialog.openModal();
     }
 
     protected onPrev(event) {

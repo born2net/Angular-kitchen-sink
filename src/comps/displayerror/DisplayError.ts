@@ -28,7 +28,7 @@ export class DisplayError {
 
     // we then find the control
     ngOnInit() {
-        this.control = this.formGroup.find(this.controlName);
+        this.control = this.formGroup.get(this.controlName);
     }
 
     // the div in the template will only be added if

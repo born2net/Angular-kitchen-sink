@@ -1,10 +1,13 @@
-import {Component, ViewContainerRef, Inject} from '@angular/core';
-import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+import {
+    Component,
+    ViewContainerRef,
+    Inject
+} from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 
 /**
  @class Sliderpanel
- example: self.slideToPage('campaignNameSelectorView', 'left')
+ example: this.slideToPage('campaignNameSelectorView', 'left')
  **/
 @Component({
     selector: 'Sliderpanel',
@@ -12,30 +15,23 @@ import {DOCUMENT} from '@angular/platform-browser';
 })
 
 export class Sliderpanel {
-    private el:any;
-    private viewContainer:ViewContainerRef;
-    private dom = new BrowserDomAdapter();
-    private dom2:any;
+    private el: any;
+    private viewContainer: ViewContainerRef;
+    private dom: any;
 
-    constructor(viewContainer:ViewContainerRef, @Inject(DOCUMENT) private doc) {
-        var self = this;
-        self.viewContainer = viewContainer;
-        self.el = viewContainer.element.nativeElement;
-        self.dom2 = doc.body;
+    constructor(viewContainer: ViewContainerRef, @Inject(DOCUMENT) private doc) {
+        this.dom = doc.body;
+        this.viewContainer = viewContainer;
+        this.el = viewContainer.element.nativeElement;
     }
 
-    private getElementByClass(element:string) {
-        var self = this;
-        var a = self.dom.getElementsByClassName(self.el, element)[0];
-        var b = jQuery(self.dom2).find('.'+element,self.el)[0];
-        return a;
-        //return self.dom.getElementsByClassName(self.el, element)[0];
+    private getElementByClass(element: string) {
+        return jQuery(this.dom).find('.' + element, this.el)[0];
     }
 
-    private removeAllClassesFrom(elementClass:any, selected?:boolean) {
-        var self = this;
-        var element = self.getElementByClass(elementClass);
-        if (selected){
+    private removeAllClassesFrom(elementClass: any, selected?: boolean) {
+        var element = this.getElementByClass(elementClass);
+        if (selected) {
             jQuery(element).removeClass('selected');
             return;
         }
@@ -45,30 +41,28 @@ export class Sliderpanel {
         jQuery(element).removeClass('transition');
     }
 
-    private addClassesTo(elementClass:any, classesToAdd:string[]) {
-        var self = this;
-        var element = self.getElementByClass(elementClass);
+    private addClassesTo(elementClass: any, classesToAdd: string[]) {
+        var element = this.getElementByClass(elementClass);
         for (var i = 0; i < classesToAdd.length; i++) {
-            self.dom.addClass(element, classesToAdd[i]);
+            jQuery(element).addClass(classesToAdd[i])
         }
     }
 
-    public slideToPage(toClassName:string, i_direction:string):void {
-        var self = this;
+    public slideToPage(toClassName: string, i_direction: string): void {
         if (toClassName == 'selected')
             return;
         // Position the new page at the starting position of the animation
-        self.removeAllClassesFrom(toClassName);
-        self.addClassesTo(toClassName, ["page", i_direction]);
+        this.removeAllClassesFrom(toClassName);
+        this.addClassesTo(toClassName, ["page", i_direction]);
         // Position the new page and the current page at the ending position of their animation with a transition class indicating the duration of the animation and force reflow of page so it renders
-        var parent = self.dom.parentElement(self.getElementByClass(toClassName));
-        var grandparent = self.dom.parentElement(parent);
-        self.dom.getProperty(grandparent, 'offsetWidth');
-        self.removeAllClassesFrom(toClassName);
-        self.addClassesTo(toClassName, ['page', 'transition', 'center']);
-        self.removeAllClassesFrom('selected');
-        self.addClassesTo('selected', ['page', 'transition', i_direction === 'left' ? 'right' : 'left']);
-        self.removeAllClassesFrom('selected',true);
-        self.addClassesTo(toClassName, ['selected']);
+        var parent = jQuery(this.getElementByClass(toClassName)).parent();
+        var grandparent = jQuery(parent).parent();
+        var offsetWidth = jQuery(grandparent).prop('offsetWidth');
+        this.removeAllClassesFrom(toClassName);
+        this.addClassesTo(toClassName, ['page', 'transition', 'center']);
+        this.removeAllClassesFrom('selected');
+        this.addClassesTo('selected', ['page', 'transition', i_direction === 'left' ? 'right' : 'left']);
+        this.removeAllClassesFrom('selected', true);
+        this.addClassesTo(toClassName, ['selected']);
     }
 }

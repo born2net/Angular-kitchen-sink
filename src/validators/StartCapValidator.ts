@@ -1,6 +1,6 @@
-import {Control} from '@angular/common'
+import {NgControl} from '@angular/forms'
 
-export default function StartCapValidator(control: Control): { [s: string]: boolean } {
+export default function StartCapValidator(control: NgControl): { [s: string]: boolean } {
     if (!control.value.match(/^[A-Z]/)) {
         return {notCapped: true};
     } else {

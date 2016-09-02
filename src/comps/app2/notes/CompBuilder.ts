@@ -41,7 +41,8 @@ class MyComponent {
 export class CompBuilder {
     constructor(private  view: ViewContainerRef, compiler: Compiler) {
         var myComponent = componentBuilder(`<h3 style="background-color: #00b0e8">My {{message}} Component</h3>`)
-        this.componentFactory = compiler.compileComponentSync(myComponent);
+        //todo: rc.6
+        ///this.componentFactory = compiler.compileComponentSync(myComponent);
     }
 
     @ViewChild('placeholder', {read: ViewContainerRef}) viewContainerRef;

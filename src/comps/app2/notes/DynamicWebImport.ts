@@ -24,9 +24,10 @@ export class DynamicWebImport {
     constructor(public compiler:Compiler) {
         const url = 'https://raw.githubusercontent.com/born2net/ng2Boilerplate/master/src/comps/app2/notes/LoadMeComp.ts';
         const importer = url => Observable.fromPromise(System.import(url));
-        importer(url).subscribe((component) => {
-            this.componentFactory = this.compiler.compileComponentSync(component['LoadMeComp']);
-        });
+        //todo: rc.6
+        // importer(url).subscribe((component) => {
+        //     this.componentFactory = this.compiler.compileComponentSync(component['LoadMeComp']);
+        // });
     }
 
     addItem () {

@@ -63,14 +63,11 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
                     this.slideRight = 'notes4';
                 }
                 Notes5.prototype.LazyLoadComponentAsync = function (componentPath, componentName, locationAnchor) {
-                    var _this = this;
                     System.import(componentPath)
                         .then(function (fileContents) {
                         return fileContents[componentName];
                     })
                         .then(function (component) {
-                        var factory = _this.compiler.compileComponentSync(component);
-                        locationAnchor.createComponent(factory, 0, locationAnchor.injector);
                     });
                 };
                 Notes5.prototype.ngAfterViewInit = function () {

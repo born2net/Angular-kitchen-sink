@@ -26,9 +26,8 @@ export class CustomComponentBuilder {
 
         @Component({
             selector: 'dynamic-component',
-            template: tmpl,
-            directives: injectDirectives,
-        })
+            template: tmpl
+        }) //directives: injectDirectives,
         class CustomDynamicComponent implements IHaveDynamicData {
 
             public name: string;

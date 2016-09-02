@@ -16,7 +16,6 @@ System.register(["../../../../src/Conts"], function(exports_1, context_1) {
                     this.me = this;
                 }
                 NotesBase.prototype.openModal = function () {
-                    this.modalDialog.openModal();
                 };
                 NotesBase.prototype.onPrev = function (event) {
                     this.sliderPanel.slideToPage(this.slideRight, 'right');

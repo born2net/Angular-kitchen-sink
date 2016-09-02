@@ -11,7 +11,7 @@
  *******************************************/
 
 import {Component, ViewContainerRef, ViewEncapsulation} from '@angular/core';
-import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+//import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
 import {Consts} from "../../../src/Conts";
 import {Observable} from "rxjs/Observable";
 import {DiggLoader} from "../../../src/comps/digg/DiggLoader";
@@ -81,50 +81,50 @@ export class Digg {
     private diggs:IDigg[];
     private el:any;
     private viewContainer:ViewContainerRef;
-    private dom = new BrowserDomAdapter();
+    //private dom = new BrowserDomAdapter();
 
-    constructor(private commBroker:CommBroker, diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
-        var self = this;
-        self.mode = 'list';
-        this.diggs = [];
-        self.viewContainer = viewContainer;
-        self.el = viewContainer.element.nativeElement;
-
-        self.channel = new Observable(observer => {
-            self.stream = observer;
-        }).share();
-
-        // for a cleaner approach to Observable endpoint server calls see Weather component
-        self.channel.debounceTime(1000).distinctUntilChanged().subscribe((e)=> {
-            self.diggs = [];
-            diggLoader.loadDiggs(e, self.diggs)
-        });
-        this.listenWinResize();
-        var propView = this.commBroker.getService(Consts.Services().Properties);
-        if (propView)
-            propView.setPropView('Digg');
-    }
-
-    private listenWinResize() {
-        var self = this;
-        self.m_commBroker.onEvent(Consts.Events().WIN_SIZED).subscribe((e:IMessage)=> {
-            self.setSize(e.message.height)
-        });
-    }
-
-    ngAfterContentInit() {
-        this.tileStyle = this.mode == "tiles" ? true : false;
-        this.setSize(this.m_commBroker.getValue(Consts.Values().APP_SIZE).height);
-    }
-
-    private setSize(height) {
-        var h:any = height - 400;
-        //var el = this.dom.getElementsByClassName(this.el, this.mode)[0];
-        var el = this.dom.getElementsByClassName(this.el, 'diggContainer')[0];
-        this.dom.setStyle(el, 'height', h);
-    }
-
-    private onSearch(event) {
-        this.stream.next(event.target.value);
-    }
+    // constructor(private commBroker:CommBroker, diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
+    //     var self = this;
+    //     self.mode = 'list';
+    //     this.diggs = [];
+    //     self.viewContainer = viewContainer;
+    //     self.el = viewContainer.element.nativeElement;
+    //
+    //     self.channel = new Observable(observer => {
+    //         self.stream = observer;
+    //     }).share();
+    //
+    //     // for a cleaner approach to Observable endpoint server calls see Weather component
+    //     self.channel.debounceTime(1000).distinctUntilChanged().subscribe((e)=> {
+    //         self.diggs = [];
+    //         diggLoader.loadDiggs(e, self.diggs)
+    //     });
+    //     this.listenWinResize();
+    //     var propView = this.commBroker.getService(Consts.Services().Properties);
+    //     if (propView)
+    //         propView.setPropView('Digg');
+    // }
+    //
+    // private listenWinResize() {
+    //     var self = this;
+    //     self.m_commBroker.onEvent(Consts.Events().WIN_SIZED).subscribe((e:IMessage)=> {
+    //         self.setSize(e.message.height)
+    //     });
+    // }
+    //
+    // ngAfterContentInit() {
+    //     this.tileStyle = this.mode == "tiles" ? true : false;
+    //     this.setSize(this.m_commBroker.getValue(Consts.Values().APP_SIZE).height);
+    // }
+    //
+    // private setSize(height) {
+    //     var h:any = height - 400;
+    //     //var el = this.dom.getElementsByClassName(this.el, this.mode)[0];
+    //     var el = this.dom.getElementsByClassName(this.el, 'diggContainer')[0];
+    //     this.dom.setStyle(el, 'height', h);
+    // }
+    //
+    // private onSearch(event) {
+    //     this.stream.next(event.target.value);
+    // }
 }

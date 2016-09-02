@@ -7,7 +7,7 @@ import * as bootbox from 'bootbox';
 @Component({
     selector: 'Logout',
     template: `
-                <h1><Center>Goodbye</Center></h1>
+                <h1>Goodbye</h1>
                 <small>I am Logout component</small>
                 <h5>Demo canDeactivate by moving to a new route and locking in canDeactivate on url changes </h5>
                 <button (click)="onCanDeactivate($event)" class="btn btn-default">Logout now</button>

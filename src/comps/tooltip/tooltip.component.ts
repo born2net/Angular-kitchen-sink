@@ -97,23 +97,24 @@ export class TooltipDirective implements OnInit, OnChanges {
 
     private showTooltip () {
         if (this.tooltipTemplate) {
-            this.compiler.compileComponentAsync(Tooltip)
-                .then(factory => {
-                    this.tooltip = this.viewContainer.createComponent(factory);
-                    this.tooltip.instance["content"] = this.tooltipTemplate;
-                    this.tooltip.instance["parentEl"] = this.elementRef;
-                    this.tooltip.instance["tooltipOptions"] = this.options;
-
-                    if (this.options.dismissable) {
-                        $("html").on("click." + this.tooltipId, (event:any) => {
-                            let $target = $(event.target);
-                            if (!$target.closest(this.tooltip.instance.elementRef.nativeElement).length &&
-                                !$target.closest(this.elementRef.nativeElement).length) {
-                                this.hideTooltip();
-                            }
-                        });
-                    }
-                });
+            //todo: rc.6
+            // this.compiler.compileComponentAsync(Tooltip)
+            //     .then(factory => {
+            //         this.tooltip = this.viewContainer.createComponent(factory);
+            //         this.tooltip.instance["content"] = this.tooltipTemplate;
+            //         this.tooltip.instance["parentEl"] = this.elementRef;
+            //         this.tooltip.instance["tooltipOptions"] = this.options;
+            //
+            //         if (this.options.dismissable) {
+            //             $("html").on("click." + this.tooltipId, (event:any) => {
+            //                 let $target = $(event.target);
+            //                 if (!$target.closest(this.tooltip.instance.elementRef.nativeElement).length &&
+            //                     !$target.closest(this.elementRef.nativeElement).length) {
+            //                     this.hideTooltip();
+            //                 }
+            //             });
+            //         }
+            //     });
         }
     }
 
