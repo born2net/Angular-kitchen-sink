@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "../../../../src/Conts", "./NotesBase", "../../../models/MailModel", '@angular/forms', "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator", "bootbox"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../services/CommBroker", "../../../../src/Conts", "./NotesBase", "../../../models/MailModel", "@angular/forms", "../../../validators/StartCapValidator", "../../../validators/NameTakenValidator", "bootbox"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {

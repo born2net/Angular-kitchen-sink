@@ -5,6 +5,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } f
     References:
         http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel
         http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html
+
 **/
 
 export function createCounterRangeValidator(maxValue, minValue) {
@@ -16,7 +17,10 @@ export function createCounterRangeValidator(maxValue, minValue) {
                 min: minValue || 0
             }
         };
+        //todo: open issues https://plnkr.co/edit/jZLDynQjwgbuW4k8rG5s?p=preview
+        //http://stackoverflow.com/questions/39297609/angular2-rc-6-custom-form-validator-form-value-not-getting-updated
 
+        console.log(c.value);
         return (c.value > +maxValue || c.value < +minValue) ? err: null;
     }
 }
@@ -33,6 +37,7 @@ export function createCounterRangeValidator(maxValue, minValue) {
         { provide: NG_VALIDATORS, useExisting: forwardRef(() => CounterInputComponent), multi: true }
     ]
 })
+
 export class CounterInputComponent implements ControlValueAccessor {
 
     counterValue = 0;

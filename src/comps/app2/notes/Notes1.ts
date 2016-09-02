@@ -1,16 +1,18 @@
 import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
-import {ModalDialog} from "../../modaldialog/ModalDialog";
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../../src/Conts";
 import {NotesBase} from "./NotesBase";
 import {MailModel} from "../../../models/MailModel";
-import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import {
+    FormGroup,
+    FormControl,
+    FormBuilder,
+    Validators
+} from "@angular/forms";
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
-import {DisplayError} from "../../displayerror/DisplayError";
 import * as bootbox from "bootbox";
-import {CounterInputComponent} from "../../CounterInputComponent/CounterInputComponent";
 
 
 @Component({
@@ -23,22 +25,21 @@ import {CounterInputComponent} from "../../CounterInputComponent/CounterInputCom
 /**
  The first Note1 slider component in a series of sliders / notes.
  Demonstrates the usage of explicit form configuration.
- **/
-export class Notes1 extends NotesBase {
+ **/ export class Notes1 extends NotesBase {
 
-    private notesForm:FormGroup;
-    private notesTextArea:FormControl;
-    private userName:FormControl;
-    private reference:FormControl;
-    private phone:FormControl;
-    private birthdate:FormControl;
-    private counter:FormControl;
-    private login:FormControl;
-    private model:MailModel;
-    private mapModel:Map<any, any>; // demonstrates map although we are not using it for anything
+    private notesForm: FormGroup;
+    private notesTextArea: FormControl;
+    private userName: FormControl;
+    private reference: FormControl;
+    private phone: FormControl;
+    private birthdate: FormControl;
+    private counter: FormControl;
+    private login: FormControl;
+    private model: MailModel;
+    private mapModel: Map<any, any>; // demonstrates map although we are not using it for anything
 
 
-    constructor(fb:FormBuilder, protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
+    constructor(fb: FormBuilder, protected sliderPanel: Sliderpanel, protected commBroker: CommBroker) {
         super(sliderPanel, commBroker);
         this.slideLeft = 'notes2';
 
@@ -73,7 +74,7 @@ export class Notes1 extends NotesBase {
         this.commBroker.getService(Consts.Services().Properties).setPropView('notes1')
     }
 
-    isOldEnough(control:FormControl):any {
+    isOldEnough(control: FormControl): any {
         if (!control.value) {
             return null;
         }
@@ -92,19 +93,15 @@ export class Notes1 extends NotesBase {
      * the number of events emitted per milliseconds
      **/
     observeNameChange() {
-        this.userName.valueChanges.debounceTime(100).subscribe(
-            (value:string) => {
-                console.log('name changed, notified via observable: ', value);
-            }
-        );
+        this.userName.valueChanges.debounceTime(100).subscribe((value: string) => {
+            console.log('name changed, notified via observable: ', value);
+        });
     }
 
     observeFormChange() {
-        this.notesForm.valueChanges.debounceTime(100).subscribe(
-            (value:string) => {
-                console.log('forum changed, notified via observable: ', value);
-            }
-        );
+        this.notesForm.valueChanges.debounceTime(100).subscribe((value: string) => {
+            console.log('forum changed, notified via observable: ', value);
+        });
     }
 
     onSubmit(event) {
