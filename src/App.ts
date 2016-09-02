@@ -113,11 +113,8 @@ import {Minitabs} from "./comps/minitabs/Minitabs";
 import {StarWarsSearch} from "./comps/app2/notes/StarWarsSearch";
 import {WikiSearch} from "./comps/app2/notes/WikiSearch";
 import {InfinityScroll} from "./comps/app2/notes/InfinityScroll";
-import {DynamicWebImport} from "./comps/app2/notes/DynamicWebImport";
 import {MultiSlotTransclusion} from "./comps/app2/notes/MultiSlotTransclusion";
-import {CompFactory} from "./comps/app2/notes/CompFactory";
 import {Clock} from "./comps/app2/notes/Clock";
-import {CompBuilder} from "./comps/app2/notes/CompBuilder";
 import {CompElemBuilder} from "./comps/app2/notes/CompElemBuilder";
 import {EmbedView} from "./comps/app2/notes/EmbedView";
 import {
@@ -256,8 +253,8 @@ if (!Lib.DevMode())
 @NgModule({
     imports: [BrowserModule, SharedModule.forRoot(), routing],
     providers: [LogoutDeactivate],
-    // entryComponents: [DynaFactoryResHelloWorld],
-    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, CompFactory, EmbedView, DynamicWebImport, CompBuilder, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat, HeightDirective, DynaFactoryRes, PureDialog, PureDialogDirective],
+    entryComponents: [DynaFactoryResHelloWorld],
+    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, EmbedView, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat, HeightDirective, DynaFactoryRes, PureDialog, PureDialogDirective, DynaFactoryResHelloWorld],
     bootstrap: [Main],
 })
 export class App {

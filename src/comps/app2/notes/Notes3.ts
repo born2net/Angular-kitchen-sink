@@ -51,21 +51,11 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                       </div>
                     </MultiSlotTransclusion>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 6'">
-                    <h3>Dynamic component factory</h3>
-                    <CompFactory></CompFactory>
-                  </mini-tab>
                   <mini-tab [tabTitle]="'Code 7'">
                     <h3>Embed Template view</h3>
                     <EmbedView></EmbedView>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 8'">
-                    <h3>Web Component import</h3>
-                    <DynamicWebImport></DynamicWebImport>
-                  </mini-tab>
-                  <mini-tab [tabTitle]="'Code 9'">
-                    <h3>Component builder</h3>
-                    <CompBuilder></CompBuilder>
+                  <mini-tab [tabTitle]="'Code 9'">                    
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 10'">
                     <h3>Component builder</h3>
