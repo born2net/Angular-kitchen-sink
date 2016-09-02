@@ -18,7 +18,7 @@ export function createCounterRangeValidator(maxValue, minValue) {
             }
         };
         //todo: open issues https://plnkr.co/edit/jZLDynQjwgbuW4k8rG5s?p=preview
-        //http://stackoverflow.com/questions/39297609/angular2-rc-6-custom-form-validator-form-value-not-getting-updated
+        //todo: waiting on fix http://stackoverflow.com/questions/39297609/angular2-rc-6-custom-form-validator-form-value-not-getting-updated
 
         console.log(c.value);
         return (c.value > +maxValue || c.value < +minValue) ? err: null;
