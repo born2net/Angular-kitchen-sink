@@ -1,10 +1,17 @@
-import {Component, ViewContainerRef} from '@angular/core';
-import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+import {
+    Component,
+    ViewContainerRef,
+    Inject
+} from "@angular/core";
 import {FilemenuItem} from "./FilemenuItem";
-import {Router, ActivatedRoute, UrlTree, NavigationStart} from "@angular/router";
+import {
+    Router,
+    ActivatedRoute,
+    NavigationStart
+} from "@angular/router";
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
-import {App} from "../../../src/App";
+import {DOCUMENT} from "@angular/platform-browser";
 
 /**
  Filemenu manages the top header file menu per application as it mutates it's content depending
@@ -34,15 +41,14 @@ import {App} from "../../../src/App";
     `
 })
 export class Filemenu {
-    private m_items:FilemenuItem[];
-    private m_renderedItems:any[];
-    private m_fileMenuWrap:any;
-    private m_commBroker:CommBroker;
-    private el:any;
-    private viewContainer:ViewContainerRef;
-    private dom = new BrowserDomAdapter();
+    private m_items: FilemenuItem[];
+    private m_renderedItems: any[];
+    private m_fileMenuWrap: any;
+    private m_commBroker: CommBroker;
+    private el: any;
+    private viewContainer: ViewContainerRef;
 
-    constructor(viewContainer:ViewContainerRef, private router:Router, private activatedRoute:ActivatedRoute, commBroker:CommBroker) {
+    constructor(viewContainer: ViewContainerRef, @Inject(DOCUMENT) private dom, private router: Router, private activatedRoute: ActivatedRoute, commBroker: CommBroker) {
         var self = this;
         self.m_commBroker = commBroker;
         self.m_items = [];
@@ -51,7 +57,7 @@ export class Filemenu {
         self.el = viewContainer.element.nativeElement;
         self.m_fileMenuWrap = self.dom.getElementsByClassName(self.el, 'm_fileMenuWrap');
 
-        this.router.events.subscribe((navigationStart:NavigationStart)=>{
+        this.router.events.subscribe((navigationStart: NavigationStart) => {
             return;
             // var currentRoute:string = this.router.serializeUrl(navigationStart.url);
             // currentRoute = currentRoute.replace(/\//,'');
@@ -154,7 +160,7 @@ export class Filemenu {
         return false;
     }
 
-    public addFileMenuItem(i_item:FilemenuItem):void {
+    public addFileMenuItem(i_item: FilemenuItem): void {
         this.m_items.push(i_item);
     }
 }

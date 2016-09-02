@@ -27,7 +27,8 @@ class MyComponent {
 })
 export class CompFactory {
     constructor(private  view: ViewContainerRef, compiler: Compiler) {
-        this.componentFactory = compiler.compileComponentSync(MyComponent);
+        //todo: rc.6
+        //this.componentFactory = compiler.compileComponentSync(MyComponent);
     }
 
     @ViewChild('placeholder', {read: ViewContainerRef}) viewContainerRef;

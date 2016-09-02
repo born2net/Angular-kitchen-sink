@@ -1,8 +1,8 @@
-import {provide, Directive, forwardRef} from '@angular/core';
-import {Control, NG_VALIDATORS} from '@angular/common';
+import {Directive, forwardRef} from '@angular/core';
+import {NgControl, NG_VALIDATORS} from '@angular/forms';
 
 function validateEmailFactory() {
-    return (c: Control) => {
+    return (c: NgControl) => {
         let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
         return EMAIL_REGEXP.test(c.value) ? null : {
@@ -33,7 +33,7 @@ export class EmailValidator {
         this.validator = validateEmailFactory();
     }
 
-    validate(c: Control) {
+    validate(c: NgControl) {
         return this.validator(c);
     }
 }

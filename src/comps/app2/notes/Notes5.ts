@@ -2,7 +2,6 @@ import {
     Component,
     Inject,
     Injectable,
-    provide,
     ViewContainerRef,
     ViewChild,
     Compiler
@@ -97,15 +96,10 @@ export class Notes5 extends NotesBase {
             .then(fileContents => {
                 return fileContents[componentName]
             })
+            //todo: rc.6
             .then(component => {
-                var factory = this.compiler.compileComponentSync(component);
-                locationAnchor.createComponent(factory, 0, locationAnchor.injector);
-                // rc.4 deprecated
-                // ref: http://stackoverflow.com/questions/37578117/angular-2-trying-to-load-a-component-dynamically-getting-typeerror-cannot-re
-                // this.componentResolver.resolveComponent(component).then(factory => {
-                //     locationAnchor.createComponent(factory, 0,
-                //         locationAnchor.injector);
-                // });
+                // var factory = this.compiler.compileComponentSync(component);
+                // locationAnchor.createComponent(factory, 0, locationAnchor.injector);
             });
     }
 

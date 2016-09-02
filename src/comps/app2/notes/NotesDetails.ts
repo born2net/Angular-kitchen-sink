@@ -1,4 +1,4 @@
-import {Component, Query, QueryList} from '@angular/core';
+import {Component, QueryList} from '@angular/core';
 import {NotesDetailsItems} from "./NotesDetailsItems";
 
 // notice the optional {{items?.length}} deceleration
@@ -11,18 +11,19 @@ import {NotesDetailsItems} from "./NotesDetailsItems";
                 `
 })
 export class NotesDetails {
-    items:QueryList<NotesDetailsItems>;
-
-    constructor(@Query(NotesDetailsItems) items:QueryList<NotesDetailsItems>) {
-        this.items = items;
-    }
-
-    ngAfterContentInit() {
-        var self = this;
-        // act upon changes in hide/show of my children
-        self.items.changes.subscribe((e)=> {
-            console.log(`I see ${self.items.length} items`)
-        })
-    }
+    //todo: rc.6
+    // items:QueryList<NotesDetailsItems>;
+    //
+    // constructor(@Query(NotesDetailsItems) items:QueryList<NotesDetailsItems>) {
+    //     this.items = items;
+    // }
+    //
+    // ngAfterContentInit() {
+    //     var self = this;
+    //     // act upon changes in hide/show of my children
+    //     self.items.changes.subscribe((e)=> {
+    //         console.log(`I see ${self.items.length} items`)
+    //     })
+    // }
 }
 

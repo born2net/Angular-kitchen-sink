@@ -1,9 +1,6 @@
-import {Component, Injector, provide} from "@angular/core";
-import {ShoppingComponent} from "./components/shopping-component";
+import {Component} from "@angular/core";
 import {PartActions} from "./actions/part-actions";
 import {CartActions} from "./actions/cart-actions";
-import {AdminComponent} from "./components/admin-component";
-import {FilmsComponent} from "./components/films-component";
 import {UserActions} from "./actions/user-actions";
 import {FilmActions} from "./actions/film-actions";
 

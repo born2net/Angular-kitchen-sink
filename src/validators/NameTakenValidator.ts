@@ -1,12 +1,10 @@
-///<reference path="../../typings/app.d.ts"/>
-
-import {Control} from '@angular/common'
+import {NgControl} from "@angular/forms";
 
 interface ValidationResult {
     [key:string]:boolean;
 }
 
-export default function NameTakenValidator(control:Control):Promise<ValidationResult> {
+export default function NameTakenValidator(control:NgControl):Promise<ValidationResult> {
     let q = new Promise((resolve, reject) => {
         setTimeout(() => {
             if (control.value === 'Sean') {

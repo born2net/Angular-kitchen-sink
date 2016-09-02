@@ -2936,6 +2936,7 @@ interface JQuery {
      * @param element An element to match elements against.
      */
     find(element:Element): JQuery;
+    find(element:Element, className:string): JQuery;
     /**
      * Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.
      *
