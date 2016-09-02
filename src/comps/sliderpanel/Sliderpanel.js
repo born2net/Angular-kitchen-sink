@@ -27,50 +27,44 @@ System.register(['@angular/core', '@angular/platform-browser'], function(exports
             Sliderpanel = (function () {
                 function Sliderpanel(viewContainer, doc) {
                     this.doc = doc;
-                    var self = this;
-                    self.dom = doc.body;
-                    self.viewContainer = viewContainer;
-                    self.el = viewContainer.element.nativeElement;
+                    this.dom = doc.body;
+                    this.viewContainer = viewContainer;
+                    this.el = viewContainer.element.nativeElement;
                 }
-                Sliderpanel.prototype.getElementByClass = function (className) {
-                    var self = this;
-                    var res = jQuery(self.dom).find(self.el, '.' + className)[0];
-                    return res;
+                Sliderpanel.prototype.getElementByClass = function (element) {
+                    return jQuery(this.dom).find('.' + element, this.el)[0];
                 };
                 Sliderpanel.prototype.removeAllClassesFrom = function (elementClass, selected) {
-                    var self = this;
-                    var element = self.getElementByClass(elementClass);
+                    var element = this.getElementByClass(elementClass);
                     if (selected) {
                         jQuery(element).removeClass('selected');
                         return;
                     }
                     jQuery(element).removeClass('left');
                     jQuery(element).removeClass('right');
-                    jQuery(element).removeClass('right');
+                    jQuery(element).removeClass('center');
                     jQuery(element).removeClass('transition');
                 };
                 Sliderpanel.prototype.addClassesTo = function (elementClass, classesToAdd) {
-                    var self = this;
-                    var element = self.getElementByClass(elementClass);
+                    var element = this.getElementByClass(elementClass);
                     for (var i = 0; i < classesToAdd.length; i++) {
                         jQuery(element).addClass(classesToAdd[i]);
                     }
                 };
                 Sliderpanel.prototype.slideToPage = function (toClassName, i_direction) {
-                    var self = this;
                     if (toClassName == 'selected')
                         return;
-                    self.removeAllClassesFrom(toClassName);
-                    self.addClassesTo(toClassName, ["page", i_direction]);
-                    var parent = jQuery(self.getElementByClass(toClassName)).parent();
+                    this.removeAllClassesFrom(toClassName);
+                    this.addClassesTo(toClassName, ["page", i_direction]);
+                    var parent = jQuery(this.getElementByClass(toClassName)).parent();
                     var grandparent = jQuery(parent).parent();
                     var offsetWidth = jQuery(grandparent).prop('offsetWidth');
-                    self.removeAllClassesFrom(toClassName);
-                    self.addClassesTo(toClassName, ['page', 'transition', 'center']);
-                    self.removeAllClassesFrom('selected');
-                    self.addClassesTo('selected', ['page', 'transition', i_direction === 'left' ? 'right' : 'left']);
-                    self.removeAllClassesFrom('selected', true);
-                    self.addClassesTo(toClassName, ['selected']);
+                    this.removeAllClassesFrom(toClassName);
+                    this.addClassesTo(toClassName, ['page', 'transition', 'center']);
+                    this.removeAllClassesFrom('selected');
+                    this.addClassesTo('selected', ['page', 'transition', i_direction === 'left' ? 'right' : 'left']);
+                    this.removeAllClassesFrom('selected', true);
+                    this.addClassesTo(toClassName, ['selected']);
                 };
                 Sliderpanel = __decorate([
                     core_1.Component({
