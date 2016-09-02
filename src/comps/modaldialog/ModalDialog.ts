@@ -3,9 +3,9 @@ import {
     ViewContainerRef,
     ViewEncapsulation,
     Inject
-} from '@angular/core';
+} from "@angular/core";
 import {IRegisterCaller} from "../../interfaces/IRegisterCaller";
-import { DOCUMENT } from '@angular/platform-browser';
+import {DOCUMENT} from "@angular/platform-browser";
 
 @Component({
     selector: 'ModalDialog',
@@ -48,12 +48,12 @@ import { DOCUMENT } from '@angular/platform-browser';
     `
 })
 export class ModalDialog {
-    private el:HTMLElement;
-    private viewContainer:ViewContainerRef;
+    private el: HTMLElement;
+    private viewContainer: ViewContainerRef;
     private dom: HTMLBodyElement;
-    private owner:any;
+    private owner: any;
 
-    constructor(viewContainer:ViewContainerRef, @Inject(DOCUMENT) private doc) {
+    constructor(viewContainer: ViewContainerRef, @Inject(DOCUMENT) private doc) {
         this.viewContainer = viewContainer;
         this.dom = doc.body;
         this.el = this.viewContainer.element.nativeElement;
@@ -64,7 +64,7 @@ export class ModalDialog {
     }
 
     openModal() {
-        var modal = jQuery(this.dom).find('.modal',this.el)[0];
+        var modal = jQuery(this.dom).find('.modal', this.el)[0];
         jQuery(modal).modal();
     }
 }
