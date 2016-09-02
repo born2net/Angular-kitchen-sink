@@ -1,27 +1,23 @@
-/*******************************************
- ng2Boilerplate application
-
- Get up and running quickly with a working
- application with solid foundation for
- Google's Angular 2
-
- GitHub: https://github.com/born2net/ng2Boilerplate
-
- Licence: MIT
- *******************************************/
-
-import {Component, ViewContainerRef, ViewEncapsulation} from '@angular/core';
-//import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+import {
+    Component,
+    ViewContainerRef,
+    ViewEncapsulation,
+    Inject
+} from "@angular/core";
+import {DOCUMENT} from "@angular/platform-browser";
 import {Consts} from "../../../src/Conts";
 import {Observable} from "rxjs/Observable";
 import {DiggLoader} from "../../../src/comps/digg/DiggLoader";
 import {Observer} from "rxjs/Observer";
 import {IDigg} from "./DiggLoader";
-import {CommBroker, IMessage} from "../../services/CommBroker";
-import 'rxjs/add/observable/from';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
+import {
+    CommBroker,
+    IMessage
+} from "../../services/CommBroker";
+import "rxjs/add/observable/from";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/distinctUntilChanged";
 
 @Component({
     selector: 'Digg',
@@ -74,57 +70,57 @@ import 'rxjs/add/operator/distinctUntilChanged';
 })
 
 export class Digg {
-    private mode:string;
-    private tileStyle:boolean;
-    private channel:Observable<any>;
-    private stream:Observer<any[]>;
-    private diggs:IDigg[];
-    private el:any;
-    private viewContainer:ViewContainerRef;
-    //private dom = new BrowserDomAdapter();
+    private mode: string;
+    private tileStyle: boolean;
+    private channel: Observable<any>;
+    private stream: Observer<any[]>;
+    private diggs: IDigg[];
+    private el: any;
+    private viewContainer: ViewContainerRef;
+    private dom: HTMLBodyElement;
 
-    // constructor(private commBroker:CommBroker, diggLoader:DiggLoader, private m_commBroker:CommBroker, viewContainer:ViewContainerRef) {
-    //     var self = this;
-    //     self.mode = 'list';
-    //     this.diggs = [];
-    //     self.viewContainer = viewContainer;
-    //     self.el = viewContainer.element.nativeElement;
-    //
-    //     self.channel = new Observable(observer => {
-    //         self.stream = observer;
-    //     }).share();
-    //
-    //     // for a cleaner approach to Observable endpoint server calls see Weather component
-    //     self.channel.debounceTime(1000).distinctUntilChanged().subscribe((e)=> {
-    //         self.diggs = [];
-    //         diggLoader.loadDiggs(e, self.diggs)
-    //     });
-    //     this.listenWinResize();
-    //     var propView = this.commBroker.getService(Consts.Services().Properties);
-    //     if (propView)
-    //         propView.setPropView('Digg');
-    // }
-    //
-    // private listenWinResize() {
-    //     var self = this;
-    //     self.m_commBroker.onEvent(Consts.Events().WIN_SIZED).subscribe((e:IMessage)=> {
-    //         self.setSize(e.message.height)
-    //     });
-    // }
-    //
-    // ngAfterContentInit() {
-    //     this.tileStyle = this.mode == "tiles" ? true : false;
-    //     this.setSize(this.m_commBroker.getValue(Consts.Values().APP_SIZE).height);
-    // }
-    //
-    // private setSize(height) {
-    //     var h:any = height - 400;
-    //     //var el = this.dom.getElementsByClassName(this.el, this.mode)[0];
-    //     var el = this.dom.getElementsByClassName(this.el, 'diggContainer')[0];
-    //     this.dom.setStyle(el, 'height', h);
-    // }
-    //
-    // private onSearch(event) {
-    //     this.stream.next(event.target.value);
-    // }
+    constructor(private commBroker: CommBroker, diggLoader: DiggLoader, @Inject(DOCUMENT) private doc, private m_commBroker: CommBroker, viewContainer: ViewContainerRef) {
+        var self = this;
+        self.mode = 'list';
+        this.dom = this.doc.body;
+        this.diggs = [];
+        self.viewContainer = viewContainer;
+        self.el = viewContainer.element.nativeElement;
+
+        self.channel = new Observable(observer => {
+            self.stream = observer;
+        }).share();
+
+        // for a cleaner approach to Observable endpoint server calls see Weather component
+        self.channel.debounceTime(1000).distinctUntilChanged().subscribe((e) => {
+            self.diggs = [];
+            diggLoader.loadDiggs(e, self.diggs)
+        });
+        this.listenWinResize();
+        var propView = this.commBroker.getService(Consts.Services().Properties);
+        if (propView)
+            propView.setPropView('Digg');
+    }
+
+    private listenWinResize() {
+        var self = this;
+        self.m_commBroker.onEvent(Consts.Events().WIN_SIZED).subscribe((e: IMessage) => {
+            self.setSize(e.message.height)
+        });
+    }
+
+    ngAfterContentInit() {
+        this.tileStyle = this.mode == "tiles" ? true : false;
+        this.setSize(this.m_commBroker.getValue(Consts.Values().APP_SIZE).height);
+    }
+
+    private setSize(height) {
+        var h: any = height - 400;
+        var el = jQuery(this.dom).find('diggContainer', this.el)[0];
+        jQuery(this.dom).find(el).css({height: h});
+    }
+
+    private onSearch(event) {
+        this.stream.next(event.target.value);
+    }
 }

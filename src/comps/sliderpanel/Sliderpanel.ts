@@ -17,7 +17,7 @@ import {DOCUMENT} from '@angular/platform-browser';
 export class Sliderpanel {
     private el: any;
     private viewContainer: ViewContainerRef;
-    private dom: any;
+    private dom: HTMLBodyElement;
 
     constructor(viewContainer: ViewContainerRef, @Inject(DOCUMENT) private doc) {
         this.dom = doc.body;

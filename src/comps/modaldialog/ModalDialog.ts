@@ -1,6 +1,11 @@
-import {Component, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {
+    Component,
+    ViewContainerRef,
+    ViewEncapsulation,
+    Inject
+} from '@angular/core';
 import {IRegisterCaller} from "../../interfaces/IRegisterCaller";
-//import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
     selector: 'ModalDialog',
@@ -45,20 +50,21 @@ import {IRegisterCaller} from "../../interfaces/IRegisterCaller";
 export class ModalDialog {
     private el:HTMLElement;
     private viewContainer:ViewContainerRef;
-    //private dom = new BrowserDomAdapter();
+    private dom: HTMLBodyElement;
     private owner:any;
 
-    // constructor(viewContainer:ViewContainerRef) {
-    //     this.viewContainer = viewContainer;
-    //     this.el = this.viewContainer.element.nativeElement;
-    // }
-    //
-    // ngAfterViewInit() {
-    //     (this.owner as IRegisterCaller).registerCaller(this);
-    // }
-    //
-    // openModal() {
-    //     var modal = this.dom.getElementsByClassName(this.el, 'modal')[0];
-    //     jQuery(modal).modal();
-    // }
+    constructor(viewContainer:ViewContainerRef, @Inject(DOCUMENT) private doc) {
+        this.viewContainer = viewContainer;
+        this.dom = doc.body;
+        this.el = this.viewContainer.element.nativeElement;
+    }
+
+    ngAfterViewInit() {
+        (this.owner as IRegisterCaller).registerCaller(this);
+    }
+
+    openModal() {
+        var modal = jQuery(this.dom).find('.modal',this.el)[0];
+        jQuery(modal).modal();
+    }
 }
