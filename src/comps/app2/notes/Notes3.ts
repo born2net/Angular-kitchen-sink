@@ -51,40 +51,38 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                       </div>
                     </MultiSlotTransclusion>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 7'">
+                  <mini-tab [tabTitle]="'Code 6'">
                     <h3>Embed Template view</h3>
                     <EmbedView></EmbedView>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 9'">                    
-                  </mini-tab>
-                  <mini-tab [tabTitle]="'Code 10'">
+                  <mini-tab [tabTitle]="'Code 7'">
                     <h3>Component builder</h3>
                     <CompElemBuilder></CompElemBuilder>
                   </mini-tab>
-                   <mini-tab [tabTitle]="'Code 11'">
+                   <mini-tab [tabTitle]="'Code 8'">
                     <h3>Using a Differ to Dynamically create and Render Templates</h3>
                     <CreateEmbedDiffer></CreateEmbedDiffer>
                   </mini-tab>                   
-                  <mini-tab [tabTitle]="'Code 12'">
+                  <mini-tab [tabTitle]="'Code 9'">
                     <h3>Using two way binding into a component </h3>
                     <pre><![CDATA[
                       [(on)]="state" // so you can use other banana in a box and not just [(ngModel)] 
                     ]]></pre>
                     <ToggleButtonApp></ToggleButtonApp>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 13'">
+                  <mini-tab [tabTitle]="'Code 10'">
                     <h3>Streaming buttons via BehaviorSubject</h3>
                     <StreamButton></StreamButton>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 14'">
+                  <mini-tab [tabTitle]="'Code 11'">
                     <h3>Custom ng template directive *ngBookRepeat</h3>
                     <ngBookRepeatSample></ngBookRepeatSample>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 15'">
+                  <mini-tab [tabTitle]="'Code 12'">
                     <h3>Injecting template as string</h3>
                     <InjectTemplateParent></InjectTemplateParent>
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 16'">
+                  <mini-tab [tabTitle]="'Code 13'">
                     <h3>Tooltip injecting template</h3>
                     <h2 class="colorBlue">
                         Hover for a tooltip on the
@@ -114,10 +112,10 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                         </span>
                     </h2>
                   </mini-tab>                  
-                  <mini-tab [tabTitle]="'Code 17'">                  
+                  <mini-tab [tabTitle]="'Code 14'">                  
                     <optionsList></optionsList> 
                   </mini-tab>
-                  <mini-tab [tabTitle]="'Code 18'">
+                  <mini-tab [tabTitle]="'Code 15'">
                     <h3>Dynamic factory resolver</h3>
                     <DynaFactoryRes></DynaFactoryRes>  
                   </mini-tab>
