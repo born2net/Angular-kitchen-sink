@@ -101,6 +101,15 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
                         console.log('forum changed, notified via observable: ', value);
                     });
                 };
+                Notes1.prototype.onReset = function (event) {
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                    try {
+                        this.notesForm.reset();
+                    }
+                    catch (e) { }
+                    return false;
+                };
                 Notes1.prototype.onSubmit = function (event) {
                     bootbox.alert("sent " + event.notesTextArea);
                 };

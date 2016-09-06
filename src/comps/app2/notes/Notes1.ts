@@ -104,6 +104,16 @@ import * as bootbox from "bootbox";
         });
     }
 
+    onReset(event:MouseEvent){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        try {
+            this.notesForm.reset();
+        } catch (e){}
+        return false;
+
+    }
+
     onSubmit(event) {
         bootbox.alert(`sent ${event.notesTextArea}`);
     }
