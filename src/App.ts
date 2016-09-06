@@ -166,6 +166,11 @@ import {PureDialog} from "./comps/puredialog/PureDialog";
 import {
     PureDialogDirective
 } from "./comps/puredialog/PureDialogDirective";
+import {
+    LOGGING_ERROR_HANDLER_OPTIONS,
+    LOGGING_ERROR_HANDLER_PROVIDERS
+} from "./services/errorhandler/LoggingErrorHandlerOptions";
+import {ErrorLogService} from "./services/errorhandler/ErrorLogService";
 
 var modules = [{
     provide: AppStore,
@@ -212,7 +217,7 @@ export class Main {
         appStore.dispatch(appdbAction.appStartTime());
         this.m_styleService = styleService;
         this.commBroker.setService(Consts.Services().App, this);
-        Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(()=> {
+        Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(() => {
             this.appResized();
         });
     }
@@ -252,13 +257,33 @@ if (!Lib.DevMode())
 
 @NgModule({
     imports: [BrowserModule, SharedModule.forRoot(), routing],
-    providers: [LogoutDeactivate],
+    providers: [
+        LogoutDeactivate,
+        ErrorLogService,
+
+        // CAUTION: This providers collection overrides the CORE ErrorHandler with our
+        // custom version of the service that logs errors to the ErrorLogService.
+        LOGGING_ERROR_HANDLER_PROVIDERS,
+
+        // OPTIONAL: By default, our custom LoggingErrorHandler has behavior around
+        // rethrowing and / or unwrapping errors. In order to facilitate dependency-
+        // injection instead of resorting to the use of a Factory for instantiation,
+        // these options can be overridden in the providers collection.
+        {
+            provide: LOGGING_ERROR_HANDLER_OPTIONS,
+            useValue: {
+                rethrowError: false,
+                unwrapError: false
+            }
+        }],
     entryComponents: [DynaFactoryResHelloWorld],
     declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, ModalDialog, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, ModalDialog, MODAL_DIRECTIVES, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, EmbedView, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat, HeightDirective, DynaFactoryRes, PureDialog, PureDialogDirective, DynaFactoryResHelloWorld],
     bootstrap: [Main],
 })
+
 export class App {
 }
+
 platformBrowserDynamic().bootstrapModule(App, modules).then((appRef: NgModuleRef<any>) => {
     appInjService(appRef.injector);
 });
