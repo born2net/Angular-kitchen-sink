@@ -104,7 +104,7 @@ import {
 } from "./comps/app2/notes/CreateEmbedDiffer";
 import {InjectTemplateChild} from "./comps/app2/notes/InjectTemplateChild";
 import {DisplayError} from "./comps/displayerror/DisplayError";
-import {CounterInputComponent} from "./comps/CounterInputComponent/CounterInputComponent";
+import {CounterInputComponent} from "./comps/counterinputcomponent/CounterInputComponent";
 import {MODAL_DIRECTIVES} from "ng2-bs3-modal/ng2-bs3-modal";
 import {MyIp} from "./comps/myip/Myip";
 import {TrimmedInput} from "./comps/trimmedinput/TrimmedInput";
