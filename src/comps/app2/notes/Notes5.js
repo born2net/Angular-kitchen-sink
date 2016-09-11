@@ -72,7 +72,7 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
                                 provide: 'NotesConfigValue',
                                 useValue: { noteDefault: 'example of passing param to component via DI' }
                             }],
-                        template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am Notes5 component..</small>\n                <span #extensionAnchor></span>\n                 <hr/>\n                "
+                        template: "<button type=\"button\" (click)=\"onPrev($event)\" class=\"btn btn-default btn-sm\">\n                    <span class=\"fa fa-arrow-left \"></span>\n                </button>\n                <hr/>\n                <small>I am Notes5 component..</small>\n                <span #extensionAnchor></span>\n                <hr/>\n                <h5>Example of ngAnimate with enter / leave states</h5>\n                <AnimateCards></AnimateCards>\n                 <hr/>\n                "
                     }), 
                     __metadata('design:paramtypes', [NotesService, Sliderpanel_1.Sliderpanel, CommBroker_1.CommBroker])
                 ], Notes5);

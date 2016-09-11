@@ -53,6 +53,9 @@ class NotesService {
                 <hr/>
                 <small>I am Notes5 component..</small>
                 <span #extensionAnchor></span>
+                <hr/>
+                <h5>Example of ngAnimate with enter / leave states</h5>
+                <AnimateCards></AnimateCards>
                  <hr/>
                 `
 })
