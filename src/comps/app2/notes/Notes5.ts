@@ -56,6 +56,9 @@ class NotesService {
                 <hr/>
                 <h5>Example of ngAnimate with enter / leave states</h5>
                 <AnimateCards></AnimateCards>
+                <hr/>
+                <h5>Example of ngAnimate with default state animations</h5>
+                <AnimateBox></AnimateBox>
                  <hr/>
                 `
 })
