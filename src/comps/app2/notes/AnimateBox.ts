@@ -99,13 +99,12 @@ import { trigger } from "@angular/core";
 		</p>
 
 		<div class="container">
-			<template [ngIf]="isShowingBox">
-
+			<div *ngIf="isShowingBox">
 				<div @boxAnimation class="box">
 					Box
 				</div>
 
-			</template>
+			</div>
 		</div>
 	`
 })
