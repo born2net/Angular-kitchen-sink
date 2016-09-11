@@ -137,7 +137,7 @@ What features of Angular does this app cover? everything:
 - Form observables and operations including Async piping and more
 - Form promised based field validation
 - Form custom counter component compatible with both template and model forms
-- Todo data model persistence and sync to node server via CRUD
+- Todo data model persistence and sync to node server via CRUD (node CRUD end point server side included)
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file
 - Theme service (supports 3 themes including Lite, Dark and Polymer)
