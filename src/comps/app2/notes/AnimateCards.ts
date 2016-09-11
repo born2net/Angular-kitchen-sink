@@ -102,8 +102,7 @@ type Orientation = ( "prev" | "next" | "none" );
     template:
         `
 		<div class="container">
-			<template ngFor let-friend [ngForOf]="[ selectedFriend ]">
-
+            <div *ngFor="let friend of selectedFriend">
 				<div [@friendAnimation]="orientation" class="friend">
 
 					<div class="name">
@@ -117,8 +116,7 @@ type Orientation = ( "prev" | "next" | "none" );
 					</div>
 
 				</div>
-
-			</template>
+            </div>
 		</div>
 
 		<p class="controls">
@@ -133,7 +131,7 @@ type Orientation = ( "prev" | "next" | "none" );
 export class AnimateCards {
 
     public orientation: Orientation;
-    public selectedFriend: Friend;
+    public selectedFriend: Array<Friend> = [];
 
     private changeDetectorRef: ChangeDetectorRef;
     private friends: Friend[];
@@ -170,7 +168,8 @@ export class AnimateCards {
         ];
 
         // Randomly(ish) select the initial friend to display.
-        this.selectedFriend = this.friends[ Math.floor( Math.random() * this.friends.length ) ];
+        this.selectedFriend = [];
+        this.selectedFriend.push(this.friends[ Math.floor( Math.random() * this.friends.length ) ]);
 
     }
 
@@ -193,15 +192,17 @@ export class AnimateCards {
         this.changeDetectorRef.detectChanges();
 
         // Find the currently selected index.
-        var index = this.friends.indexOf( this.selectedFriend );
+        var index = this.friends.indexOf( this.selectedFriend[0] );
 
         // Move the rendered element to the next index - this will cause the current item
         // to enter the ( "next" => "void" ) transition and this new item to enter the
         // ( "void" => "next" ) transition.
-        this.selectedFriend = this.friends[ index + 1 ]
+        var res = this.friends[ index + 1 ]
             ? this.friends[ index + 1 ]
             : this.friends[ 0 ]
         ;
+        this.selectedFriend = [];
+        this.selectedFriend.push(res);
 
     }
 
@@ -219,15 +220,17 @@ export class AnimateCards {
         this.changeDetectorRef.detectChanges();
 
         // Find the currently selected index.
-        var index = this.friends.indexOf( this.selectedFriend );
+        var index = this.friends.indexOf( this.selectedFriend[0] );
 
         // Move the rendered element to the previous index - this will cause the current
         // item to enter the ( "prev" => "void" ) transition and this new item to enter
         // the ( "void" => "prev" ) transition.
-        this.selectedFriend = this.friends[ index - 1 ]
+        var res = this.friends[ index - 1 ]
             ? this.friends[ index - 1 ]
-            : this.friends[ this.friends.length - 1 ]
-        ;
+            : this.friends[ this.friends.length - 1 ];
+        this.selectedFriend = [];
+        this.selectedFriend.push(res)
+
 
     }
 
