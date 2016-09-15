@@ -174,7 +174,7 @@ import {ErrorLogService} from "./services/errorhandler/ErrorLogService";
 import {AnimateCards} from "./comps/app2/notes/AnimateCards";
 import {AnimateBox} from "./comps/app2/notes/AnimateBox";
 
-var modules = [{
+var providing = [{
     provide: AppStore,
     useFactory: Lib.StoreFactory({
         notify,
@@ -208,7 +208,7 @@ var modules = [{
 @Component({
     selector: 'app',
     encapsulation: ViewEncapsulation.Emulated,
-    providers: [StyleService, AppdbAction, modules],
+    providers: [StyleService, AppdbAction, providing],
     templateUrl: '/src/App.html'
 })
 
@@ -286,7 +286,7 @@ if (!Lib.DevMode())
 export class App {
 }
 
-platformBrowserDynamic().bootstrapModule(App, modules).then((appRef: NgModuleRef<any>) => {
+platformBrowserDynamic().bootstrapModule(App, providing).then((appRef: NgModuleRef<any>) => {
     appInjService(appRef.injector);
 });
 
@@ -295,7 +295,7 @@ window['hr'] && window['hr'].on('change', (fileName) => {
         var newBody = document.createElement('body')
         newBody.appendChild(document.createElement('app'))
         document.body = newBody;
-        platformBrowserDynamic().bootstrapModule(App, modules).then((appRef: NgModuleRef<any>) => {
+        platformBrowserDynamic().bootstrapModule(App, providing).then((appRef: NgModuleRef<any>) => {
             appInjService(appRef.injector);
         });
     }

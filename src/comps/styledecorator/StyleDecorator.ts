@@ -1,6 +1,8 @@
-import {ComponentMetadata} from '@angular/core';
+import {
+    Component
+} from "@angular/core";
 
-export function StyleDecorator(value:Object) {
+export function StyleDecorator(value: Object) {
 
 
     function toDash(str) {
@@ -9,15 +11,17 @@ export function StyleDecorator(value:Object) {
         });
     }
 
-    var __ref__ = window['Reflect'],
-        builtStyles = goInto("", value);
+    var __ref__ = window['Reflect'], builtStyles = goInto("", value);
 
-    function goInto(prefix, def:Object) {
+    function goInto(prefix, def: Object) {
         var queue = [];
         var result = (prefix && prefix !== "") ? prefix + " { " : "";
         for (var key in def) {
             if (typeof def[key] === "object") {
-                queue.push({key: key, value: def[key]});
+                queue.push({
+                    key: key,
+                    value: def[key]
+                });
             } else {
                 result += toDash(key) + ":" + def[key] + ";";
             }
@@ -33,7 +37,7 @@ export function StyleDecorator(value:Object) {
 
     function parseMeta(metaInformation) {
         for (var metadata of metaInformation) {
-            if (metadata instanceof ComponentMetadata) {
+            if (metadata instanceof Component) {
                 metadata.styles = [builtStyles];
             }
         }

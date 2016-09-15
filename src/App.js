@@ -11,7 +11,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var platform_browser_dynamic_1, core_1, CharCount_1, AppInjService_1, http_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, App_routes_1, LogoutDeactivate_1, position_service_1, platform_browser_1, modal_1, Welcome_1, Digg_1, Todos_1, Settings_1, LoginPanel_1, Help_1, App1_1, App2_1, App3_1, ForgotPass_1, AppManager_1, EntryPanel_1, Logout_1, make_draggable_directive_1, make_droppable_directive_1, Sliderpanel_1, Todo1_1, Todo2_1, Todolist_1, SortBy_1, OrderBy_1, Menu_1, MenuItem_1, contributors_1, Todoitem_1, tabs_1, tab_1, ng2_bootstrap_1, MyChart_1, ng2_highcharts_1, Nodelogger_1, DividerPanel_1, Properties_1, Weather_1, Contact_1, ModalDialog_1, Notes_1, Notes3_1, Notes4_1, Notes5_1, Notes1_1, Notes2_1, CreateEmbedDiffer_1, InjectTemplateChild_1, DisplayError_1, CounterInputComponent_1, ng2_bs3_modal_1, Myip_1, TrimmedInput_1, Minitab_1, Minitabs_1, StarWarsSearch_1, WikiSearch_1, InfinityScroll_1, MultiSlotTransclusion_1, Clock_1, CompElemBuilder_1, EmbedView_1, ToggleButton_1, StreamButton_1, ngBookRepeat_1, InjectTemplateParent_1, optionlistcomponent_1, NotesDetailsItems_1, NotesDetails_1, CountDown_1, Notes1Props_1, SortableHeader_1, films_component_1, admin_component_1, shopping_component_1, Starwars_1, users_view_1, cart_view_1, add_part_view_1, Simplelist_1, user_view_1, film_selection_view_1, film_view_1, ng2_highstocks_1, ng2_highmaps_1, parts_view_1, accordion_1, button_checkbox_component_1, button_radio_component_1, tooltip_component_1, HeightDirective_1, SharedModule_1, DynaFactoryRes_1, DynaFactoryResHelloWorld_1, PureDialog_1, PureDialogDirective_1, LoggingErrorHandlerOptions_1, ErrorLogService_1, AnimateCards_1, AnimateBox_1;
-    var modules, Main, App;
+    var providing, Main, App;
     return {
         setters:[
             function (_1) {},
@@ -396,7 +396,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 AnimateBox_1 = AnimateBox_1_1;
             }],
         execute: function() {
-            modules = [{
+            providing = [{
                     provide: angular2_redux_util_1.AppStore,
                     useFactory: Lib_1.Lib.StoreFactory({
                         notify: NotifyReducer_1.default,
@@ -462,7 +462,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                     core_1.Component({
                         selector: 'app',
                         encapsulation: core_1.ViewEncapsulation.Emulated,
-                        providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction, modules],
+                        providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction, providing],
                         templateUrl: '/src/App.html'
                     }), 
                     __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction, http_1.Http])
@@ -498,7 +498,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 return App;
             }());
             exports_1("App", App);
-            platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, modules).then(function (appRef) {
+            platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, providing).then(function (appRef) {
                 AppInjService_1.appInjService(appRef.injector);
             });
             window['hr'] && window['hr'].on('change', function (fileName) {
@@ -506,7 +506,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                     var newBody = document.createElement('body');
                     newBody.appendChild(document.createElement('app'));
                     document.body = newBody;
-                    platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, modules).then(function (appRef) {
+                    platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, providing).then(function (appRef) {
                         AppInjService_1.appInjService(appRef.injector);
                     });
                 }
