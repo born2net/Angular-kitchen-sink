@@ -1,0 +1,11 @@
+boiler prod
+http://ng2.javascriptninja.io/public/index.html
+
+boiler_dev persist redux
+http://localhost:8080/src/public/index.html?debug_session=my_session
+
+boiler_hot
+http://localhost:9089/src/public/index.html
+
+boiler_cold
+http://localhost:8080/src/public/index.html
