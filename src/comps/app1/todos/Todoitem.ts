@@ -3,10 +3,13 @@ import {
     KeyValueDiffer
 } from '@angular/core';
 import {TodoItemModel} from './TodoService';
+import TodoItemTemplate from './Todoitem.css!text';
+
 //import './Todoitem.css';
 
 @Component({
     selector: 'todo-item',
+    moduleId: __moduleName,
     template: `
                 <div class="view">
                     <input [(ngModel)]="_item.task" class="editInput" *ngIf="editMode" value="{{_item.task}}"/>
@@ -16,7 +19,7 @@ import {TodoItemModel} from './TodoService';
                     <button style="position: relative; left: -80px; top: -62px" class="pull-right fa fa-arrows-v buttonsEdit"></button>
                 </div>
     `,
-    styleUrls: ['../comps/app1/todos/Todoitem.css'],
+    styles: [TodoItemTemplate],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItem {

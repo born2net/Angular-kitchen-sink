@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import TodoStatsModel from "./TodoStatsModel";
 import {StyleDecorator} from '../../../comps/styledecorator/StyleDecorator';
+import TodoStatsModelStyle from './TodoStatsModel.css!text';
 
 var backgroundColor = "#FFFFFF",
     lightGray = "#EDEDED",
@@ -20,7 +21,8 @@ var backgroundColor = "#FFFFFF",
 
 @Component({
     selector: 'Todo2',
-    styleUrls: ['../comps/app1/todos/TodoStatsModel.css'],
+    moduleId: __moduleName,
+    styles: [TodoStatsModelStyle],
     template: ` <div>
                      <h5>this component is decorator using a custom StyleDecorator </h5>
                      <hr>

@@ -1,7 +1,7 @@
 // reference: http://www.talkingdotnet.com/bind-radiobutton-list-in-angular-2/
 
 import {Component} from '@angular/core';
-
+import OptionlistComponentTemplate from './optionlistcomponent.html!text';
 export class Options {
     constructor(public id: number, public name: string) { }
 }
@@ -9,7 +9,7 @@ export class Options {
 @Component({
     selector: 'optionsList',
     moduleId: __moduleName,
-    templateUrl: 'optionlistcomponent.html'
+    template: OptionlistComponentTemplate
 })
 export class OptionListComponent {
     selectedOption:Options = new Options(2, 'T-Shirts');

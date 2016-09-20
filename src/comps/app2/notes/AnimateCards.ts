@@ -9,6 +9,7 @@ import { Component } from "@angular/core";
 import { style } from "@angular/core";
 import { transition } from "@angular/core";
 import { trigger } from "@angular/core";
+import AnimateCardsStyle from './AnimateCards.css!text';
 
 interface Friend {
     id: number;
@@ -21,7 +22,7 @@ type Orientation = ( "prev" | "next" | "none" );
 @Component({
     selector: "AnimateCards",
     moduleId: __moduleName,
-    styleUrls: ['AnimateCards.css'],
+    styles: [AnimateCardsStyle],
     animations: [
         trigger(
             "friendAnimation",

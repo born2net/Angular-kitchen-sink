@@ -1,5 +1,5 @@
 /* */ 
-var lang_1 = require('angular2/src/facade/lang');
+// var lang_1 = require('angular2/src/facade/lang');
 // Import all services
 //import {SampleService} from './services/sample.service';
 // Export all services

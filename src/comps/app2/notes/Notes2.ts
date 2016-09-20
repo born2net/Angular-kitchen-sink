@@ -31,15 +31,15 @@ import {PureDialogDirective} from "../../puredialog/PureDialogDirective";
                 </ModalDialog>
                 <hr/>
                 <button type="button" class="btn btn-default" (click)="modal.open()">Bootstrap 3 pure ng2 Modal</button>
-                <modal #modal>
-                    <modal-header [show-close]="true">
-                        <h4 class="modal-title">I'm a pure Angular2 modal!</h4>
-                    </modal-header>
-                    <modal-body>
-                        Hello World!
-                    </modal-body>
-                    <modal-footer [show-default-buttons]="true"></modal-footer>
-                </modal>
+                <!--<modal #modal>-->
+                    <!--<modal-header [show-close]="true">-->
+                        <!--<h4 class="modal-title">I'm a pure Angular2 modal!</h4>-->
+                    <!--</modal-header>-->
+                    <!--<modal-body>-->
+                        <!--Hello World!-->
+                    <!--</modal-body>-->
+                    <!--<modal-footer [show-default-buttons]="true"></modal-footer>-->
+                <!--</modal>-->
                 <hr/>
                 <div dialogAnchor></div>
                 <button type="button" class="btn btn-default" (click)="openDialogBox()">Pure ng2 Modal</button>

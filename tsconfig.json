@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES5",
+    "inlineSources": true,
     "module": "system",
     "moduleResolution": "node",
     "removeComments": true,
@@ -8,15 +9,42 @@
     "experimentalDecorators": true,
     "noEmitHelpers": false,
     "sourceMap": true,
-    "noResolve": false
+    "noResolve": false,
+    "baseUrl": "./",
+    "paths": {
+      "angular2-redux-util": [
+        "jspm_packages/npm/angular2-redux-util@0.8.64"
+      ],
+      "@angular/forms": [
+        "jspm_packages/npm/@angular/forms@2.0.0"
+      ],
+      "@angular/router": [
+        "jspm_packages/npm/@angular/router@3.0.0"
+      ],
+      "@angular/*": [
+        "jspm_packages/npm/@angular/*@2.0.0"
+      ],
+      "redux-thunk": [
+        "jspm_packages/npm/redux-thunk@2.1.0"
+      ],
+      "angular2-google-maps/core/core.umd.js": [
+        "jspm_packages/npm/angular2-google-maps@0.14.0/core"
+      ],
+      "rxjs/*": [
+        "jspm_packages/npm/rxjs@5.0.0-beta.12/*"
+      ]
+    }
   },
   "filesGlob": [
     "./**/*.ts",
-    "!./node_modules"
+    "!./node_modules",
+    "/src/typings/app.d.ts"
   ],
   "exclude": [
-    "src/comps/app4/in_dev",
+    "src/public/world_data.ts",
+    "temp",
     "node_modules",
+    "node_modules/*",
     "jspm_packages",
     "typings",
     "dist",
@@ -24,6 +52,6 @@
     "typings/main.d.ts",
     "typings/main"
   ],
-  "compileOnSave": true,
+  "compileOnSave": false,
   "buildOnSave": true
 }

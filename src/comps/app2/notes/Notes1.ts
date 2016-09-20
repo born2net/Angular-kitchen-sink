@@ -13,13 +13,15 @@ import {
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
 import * as bootbox from "bootbox";
+import Notes1Template from "./Notes1.html!text";
+import Notes1Styles from "./Notes1.css!text";
 
 
 @Component({
     selector: 'Notes1',
     moduleId: __moduleName,
-    templateUrl: 'Notes1.html',
-    styleUrls: ['Notes1.css']
+    template: Notes1Template,
+    styles: [Notes1Styles]
 })
 
 /**
@@ -104,12 +106,13 @@ import * as bootbox from "bootbox";
         });
     }
 
-    onReset(event:MouseEvent){
+    onReset(event: MouseEvent) {
         event.stopImmediatePropagation();
         event.preventDefault();
         try {
             this.notesForm.reset();
-        } catch (e){}
+        } catch (e) {
+        }
         return false;
 
     }

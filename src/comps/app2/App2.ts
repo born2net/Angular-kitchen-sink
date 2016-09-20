@@ -6,20 +6,21 @@ import {
     IMessage
 } from "../../services/CommBroker";
 import {Consts} from "../../../src/Conts";
-//import {RouterLink, RouteParams} from '@angular/router';
+import App2Template from "./App2.html!text";
 
 /**
  Application 2 lazy loaded
  **/
 @Component({
-    templateUrl: '/src/comps/app2/App2.html'
+    moduleId: __moduleName,
+    template: App2Template
 })
 
 export class App2 {
-    private screens:any;
-    private commBroker:CommBroker;
+    private screens: any;
+    private commBroker: CommBroker;
 
-    constructor(commBroker:CommBroker) {
+    constructor(commBroker: CommBroker) {
         var self = this;
         jQuery(".navbar-header .navbar-toggle").trigger("click");
         jQuery('.navbar-nav').css({
@@ -44,7 +45,7 @@ export class App2 {
 
     private listenMenuChanges() {
         var self = this;
-        self.commBroker.onEvent(Consts.Events().MENU_SELECTION).subscribe((e:IMessage)=> {
+        self.commBroker.onEvent(Consts.Events().MENU_SELECTION).subscribe((e: IMessage) => {
             var screen = (e.message).toLowerCase();
             if (!self.screens.hasOwnProperty(screen))
                 return;

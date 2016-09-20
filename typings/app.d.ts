@@ -27,6 +27,21 @@
 
 declare var assert:any;
 
+declare module '*!text' {
+    var _: string;
+    export default  _;
+}
+
+// declare module '*!css' {
+//     var _: string;
+//     export default  _;
+// }
+//
+// declare module '*!' {
+//     var _: string;
+//     export default  _;
+// }
+
 declare module 'highcharts' {
 }
 

@@ -2,9 +2,11 @@
 
 import {Component} from '@angular/core';
 import {Starwars} from "./starwars/Starwars";
+import App3Template from './App3.html!text';
 
 @Component({
-    templateUrl: '/src/comps/app3/App3.html'
+    moduleId: __moduleName,
+    template: App3Template
 })
 export class App3 {
 

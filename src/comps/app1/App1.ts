@@ -7,11 +7,13 @@ import {
 import {Consts} from "../../../src/Conts";
 import TodoStatsModel from "./todos/TodoStatsModel";
 import {TodoService} from "./todos/TodoService";
+import App1Template from './App1.html!text'
 
 
 @Component({
+    moduleId: __moduleName,
     providers: [TodoStatsModel, TodoService],
-    templateUrl: '/src/comps/app1/App1.html'
+    template: App1Template
 
 })
 export class App1 {

@@ -1,16 +1,15 @@
+.idea/
+.git/
+dist/
+jspm_packages/
+docs/
+node_modules/
+temp/
 src/**/*.map
 src/**/*.js
 src/*.js
 src/*.map
 /src/*.js
-/docs
-/docs/*
-/docs/*.html
 /src/*.map
-/temp/*.js
-/temp/*.map
-node_modules
-/node_modules
-jspm_packages
-dist
+
 

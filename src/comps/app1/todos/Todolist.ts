@@ -4,16 +4,18 @@ import {
 } from "@angular/core";
 import {TodoItem} from "./Todoitem";
 import {Observable} from "rxjs/Observable";
-import {AppStore} from "angular2-redux-util/dist/index";
+import {AppStore} from "angular2-redux-util";
 import {TodoService} from "./TodoService";
 import {TodoModel} from "./TodoModel";
 import {List} from "Immutable";
+import TodolistStyle from './Todolist.css!text'
 
 type channelTodoObservable = Observable<TodoItem>;
 type channelTodosObservable = Observable<Array<channelTodoObservable>>;
 
 @Component({
     selector: 'todo-list',
+    moduleId: __moduleName,
     template: `
                 <section class="todoapp" style="height: 500px">
                   <header class="header">
@@ -34,7 +36,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                   </section>
                 </section>
     `,
-    styleUrls: ['../comps/app1/todos/Todolist.css']
+    styles: [TodolistStyle]
 
 })
 export class TodoList {

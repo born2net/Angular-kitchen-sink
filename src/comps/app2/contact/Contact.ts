@@ -3,11 +3,12 @@ import {Consts} from "../../../../src/Conts";
 import {FormGroup} from "@angular/forms";
 import {MailModel} from "../../../models/MailModel";
 import {CommBroker} from "../../../services/CommBroker";
+import  ContactTemplate from './Contact.html!text';
 
 @Component({
     selector: 'Contact',
     moduleId: __moduleName,
-    templateUrl: 'Contact.html',
+    template: ContactTemplate,
     styles: [`
             .ng-invalid {
               border-left: 5px solid #a94442; /* red */

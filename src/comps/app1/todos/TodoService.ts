@@ -41,7 +41,7 @@ import {TodoModel} from "./TodoModel";
 import {
     AppStore,
     Actions
-} from "angular2-redux-util/dist/index";
+} from "angular2-redux-util";
 import {CommBroker} from "../../../services/CommBroker";
 
 export const ADD_TODO = 'ADD_TODO';
