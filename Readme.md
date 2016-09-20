@@ -198,7 +198,7 @@ All this awesomeness tx to jspm, love it!!!
 
 Looking for even more?
 ------------
-checkout this enterprise level angular 2 app: https://github.com/born2net/studioDashboard
+checkout this enterprise level angular 2 app that's forked off this project: https://github.com/born2net/studioDashboard
 
 
 
