@@ -34,9 +34,9 @@ npm install jspm -g
 npm install
 ```
 <hr/>
-the project uses TypeScript 1.9+ since it is powered by ng2 latest router
+the project uses TypeScript 2.0
 ```
-npm install typescript@next --save
+npm install typescript@2.0.2
 ```
 
 <hr/>
@@ -73,7 +73,7 @@ What features of Angular does this app cover? everything:
 - powered by the awesome (awesome awesome) jspm version 0.17 beta (http://jspm.io & http://jspm.io/0.17-beta-guide/)
    - support hot-reload for the fastest component development cycle
    - in development TypeScript is compiled in real time in browser, best workflow
-   - for production a jspm minified bundle is created
+   - for production a jspm minified bundle is created with all css / html inline
    - support multi version npm / github repositories
 - Gulp tasks for dev / prod, doc gen and more
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
@@ -131,7 +131,6 @@ What features of Angular does this app cover? everything:
    - use nodeLogger to show ToDo items are only updated and not re-created when using our own identifier method
 - Error handler service overrides ng2 error handling and provide custom options
 - Dependency sharing
-- ES6 such as arrow functions, Map, let and more
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups) 
 - Custom validators such as PasswordMatch (@Attribute)
@@ -141,7 +140,7 @@ What features of Angular does this app cover? everything:
 - Todo data model persistence and sync to node server via CRUD (node CRUD end point server side included)
 - Subclass / Inheritance ES6 (Notes component) 
 - Static shared lib and single reference file
-- Theme service (supports 3 themes including Lite, Dark and Polymer)
+- Theme service (supports 2 themes including Lite and Dark)
 - Pipes including grid sort and character counter
 - Interfaces
 - UI data binding / uni and 2 way
