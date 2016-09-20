@@ -14,6 +14,14 @@ just in-time browser reloads on saves, and production ready via bundling, all po
 Check this working demo: http://ng2.javascriptninja.io
 ====
 
+Latest update 9-20-216
+====
+- now supports TypeScript path mapping to remove lib duplication in node_modules
+- better production bundling with inline css and templates
+- enhanced server side lazy loading 
+
+
+
 The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
 I spent countless hours reading every Angular2 book and article I could get my hands on (so you don't have to),
 and built IMHO the perfect Angular2 setup... 
@@ -74,7 +82,7 @@ What features of Angular does this app cover? everything:
    - support hot-reload for the fastest component development cycle
    - in development TypeScript is compiled in real time in browser, best workflow
    - for production a jspm minified bundle is created with all css / html inline
-   - Use tsconfig.json ```paths``` key to be able and remove lib duplication in both node_modules and jspm_packages (using it for @angular)   
+   - TypeScript tsconfig.json ```paths``` key to be able and remove lib duplication in both node_modules and jspm_packages (using it for @angular)   
    - support multi version npm / github repositories
 - Gulp tasks for dev / prod, doc gen and more
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
@@ -122,6 +130,7 @@ What features of Angular does this app cover? everything:
 - use lazy loading of components when router enters path (NoteDynamic, kind of like require(...))
 - Extend the http service with an Http interceptor service
 - ng2Animation
+    - router animation
     - enter / leave states
     - default any / void animations 
 - Dependency injection and decorators such as @Host
