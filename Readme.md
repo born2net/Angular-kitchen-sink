@@ -19,7 +19,7 @@ Latest update 9-20-216
 - now supports TypeScript path mapping to remove lib duplication in node_modules
 - better production bundling with inline css and templates
 - enhanced server side lazy loading 
-
+- released new demo version  http://ng2.javascriptninja.io
 
 
 The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
