@@ -5,11 +5,10 @@ import {lazyOneRouting} from "./LazyOneRouting";
 import {MoodRatingSvg} from "./MoodRatingSvg";
 import {AuthService} from "../../../services/AuthService";
 import {SharedModule} from "./SharedModule";
-import {AAAA} from "./aa";
 
 @NgModule({
     imports: [SharedModule, CommonModule, lazyOneRouting], // we import the modules this module will need like CommonModule for ngIf etc
-    declarations: [LazyComponent, AAAA, MoodRatingSvg], // we declare so this module can use the components listed
+    declarations: [LazyComponent, MoodRatingSvg], // we declare so this module can use the components listed
     exports: [LazyComponent], // we export components so other importing modules of this module can use the components exported
     providers: [] // list any providers, keep in mind these will be available as NEW INSTANCE provider as this is a lazy loaded module (compared to global if not lazy loaded)
 })

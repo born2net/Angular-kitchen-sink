@@ -2,13 +2,9 @@ import {
     Routes,
     RouterModule
 }  from '@angular/router';
-
-import {AAAA} from './aa';
-
-import {Component, ChangeDetectionStrategy} from "@angular/core";
-// import {Lib} from "src/Lib";
-
-
+import {LazyComponent} from './LazyComponent';
+//import {Component, ChangeDetectionStrategy} from "@angular/core";
+//import {Lib} from "src/Lib";
 
 const routes: Routes = [{
     path: '',
@@ -16,10 +12,10 @@ const routes: Routes = [{
     pathMatch: 'full'
 }, {
     path: 'list',
-    component: AAAA
+    component: LazyComponent
 }, {
     path: ':id',
-    component: AAAA
+    component: LazyComponent
 }];
 
 export const lazyOneRouting = RouterModule.forChild(routes);
