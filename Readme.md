@@ -74,6 +74,7 @@ What features of Angular does this app cover? everything:
    - support hot-reload for the fastest component development cycle
    - in development TypeScript is compiled in real time in browser, best workflow
    - for production a jspm minified bundle is created with all css / html inline
+   - Use tsconfig.json ```paths``` key to be able and remove lib duplication in both node_modules and jspm_packages (using it for @angular)   
    - support multi version npm / github repositories
 - Gulp tasks for dev / prod, doc gen and more
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
