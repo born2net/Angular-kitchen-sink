@@ -418,7 +418,7 @@ SystemJS.config({
         "core-js": "npm:core-js@2.4.1",
         "gulp-util": "npm:gulp-util@3.0.7",
         "twbs/bootstrap": "github:twbs/bootstrap@3.3.6",
-        "@angular/http": "npm:@angular/http@2.0.0/bundles/http.umd",
+        "@angular/http": "npm:@angular/http@2.0.0",
         "@angular/router": "npm:@angular/router@3.0.0",
         "angular-router": "npm:@angular/router@3.0.0",
         "ts": "npm:plugin-typescript@5.1.2",
