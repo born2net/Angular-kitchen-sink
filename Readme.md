@@ -110,6 +110,7 @@ What features of Angular does this app cover? everything:
 - Rxjs... lots more of it...
 - Different ways to load and inject dynamic components (see Notes3 component)
 - Import template into a component as a runtime string
+- Embedding inline of templates and styles via !text jspm plugin
 - Create your own custom \*NgBookIf and \*ngBookRepeat directives with createEmbeddedView
 - Force change detection via ref.markForCheck();
 - Embedded SVG component

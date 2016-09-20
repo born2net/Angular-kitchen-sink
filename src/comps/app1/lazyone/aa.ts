@@ -1,3 +1,11 @@
+import {Component} from "@angular/core";
+import {AuthService} from "../../../services/AuthService";
+
+
+@Component({
+    selector: 'AAAA',
+    template: `<h1>FOO BAR</h1>
+           
 <small>I am Lazy load component loaded via router</small>
 <h2>Hello world, I was lazy loaded...</h2>
 <h3>Examples for lazy loading: </h3>
@@ -19,3 +27,11 @@
 <mood-rating [(value)]="rating" [size]="90" style="color: #FF0099 ;"></mood-rating>
 
 <h1>Hellow world</h1>
+
+`,
+})
+export class AAAA {
+    constructor(auth:AuthService){
+        alert('AAAA ' + auth)
+    }
+}
