@@ -483,6 +483,7 @@ SystemJS.config({
         "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
         "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
         "text": "github:systemjs/plugin-text@0.0.9",
+        "css": "github:systemjs/plugin-css@0.1.27",
         "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
         "typescript": "npm:typescript@1.8.10",
         "underscore": "npm:underscore@1.8.3",
