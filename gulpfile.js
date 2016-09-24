@@ -41,7 +41,8 @@ var paths = {
     targetHTML: "./src/public/index.html",
     bundleHTML: "./dist/public",
     targetJS: "index.js",
-    targetMinifiedJS: "index.min.js"
+    targetMinifiedJS: "index.min.js",
+    server: "example.com"
 };
 
 /**********************
@@ -60,9 +61,9 @@ gulp.task("production", function (callback) {
         "x_bundle",
         "x_minify",
         "x_target",
-        "x_clear_remote",
-        "x_rsync",
-        "x_rsync",
+        //"x_clear_remote",
+        //"x_rsync",
+        //"x_rsync",
         function (error) {
             if (error) {
                 console.log(error.message);
@@ -96,11 +97,10 @@ gulp.task('typedocs', function (done) {
     runSequence('x_typedocs', 'x_docs_rsync', 'x_docs_chown1', 'x_docs_chown2', done);
 });
 
-/** secure.digitalsignage.com **/
 gulp.task('x_rsync', function () {
     var rsync = Rsync.build({
         source: '/cygdrive/c/msweb/ng2Boilerplate/dist/',
-        destination: 'Sean@digitalsignage.com:/var/www/sites/dynasite/htdocs/_msportal/_js/_node/_boiler/',
+        destination: 'Sean@' + paths.server + ':/var/www/sites/dynasite/htdocs/_msportal/_js/_node/_boiler/',
         exclude: ['*.bat', '*.iml', '.gitignore', '.git', 'node_modules/', '.idea/']
     });
     rsync.set('progress');
@@ -117,29 +117,6 @@ gulp.task('x_rsync', function () {
         console.log('completed ' + error + ' ' + stdout + ' ' + stderr)
     });
 });
-
-
-/** Monster Signage **/
-// gulp.task('_rsync', function () {
-//     var rsync = Rsync.build({
-//         source: '/cygdrive/c/msweb/ng2Boilerplate/dist/',
-//         destination: 'Sean@digitalsignage.com:/var/www/sites/monstersignage/htdocs',
-//         exclude: ['*.bat', '*.iml', '.gitignore', '.git', '.idea/']
-//     });
-//     rsync.set('progress');
-//     rsync.flags('avzp');
-//     console.log('running the command ' + rsync.command());
-//     rsync.output(
-//         function (data) {
-//             console.log('sync: ' + data);
-//         }, function (data) {
-//             console.log('sync: ' + data);
-//         }
-//     );
-//     rsync.execute(function (error, stdout, stderr) {
-//         console.log('completed ' + error + ' ' + stdout + ' ' + stderr)
-//     });
-// });
 
 
 /** Dangerous, this will wipe your current source and sync with GitHub **/
@@ -197,7 +174,7 @@ gulp.task("x_bundle",
 );
 
 gulp.task("x_clear_remote",
-    shell.task(["ssh root@digitalsignage.com rm -r -f /var/www/sites/dynasite/htdocs/_msportal/_js/_node/_boiler/src"])
+    shell.task(["ssh root@" + paths.server + " rm -r -f /var/www/sites/dynasite/htdocs/_msportal/_js/_node/_boiler/src"])
 );
 
 
@@ -230,7 +207,7 @@ gulp.task('x_open_server_bundle', function () {
 //         proxy: 'localhost:8003',
 //         reloadDelay: '1000'
 //     });
-//     opn('https://secure.digitalsignage.com/_boiler...');
+//     opn('https://secure.example.com/_boiler...');
 // });
 
 // , '**/*.ts','**/*.html','**/*.css'
