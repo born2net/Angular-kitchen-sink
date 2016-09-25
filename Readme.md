@@ -14,14 +14,6 @@ just in-time browser reloads on saves, and production ready via bundling, all po
 Check this working demo: http://ng2.javascriptninja.io
 ====
 
-Latest update 9-20-216
-====
-- now supports TypeScript path mapping to remove lib duplication in node_modules
-- better production bundling with inline css and templates
-- enhanced server side lazy loading 
-- released new demo version  http://ng2.javascriptninja.io
-
-
 The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
 I spent countless hours reading every Angular2 book and article I could get my hands on (so you don't have to),
 and built IMHO the perfect Angular2 setup... 
