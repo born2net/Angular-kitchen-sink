@@ -31,6 +31,7 @@ to install::
 git clone https://github.com/born2net/ng2Boilerplate.git
 cd ng2Boilerplate
 npm install -g jspm@beta
+npm install gulp -g
 npm install
 ```
 <hr/>
