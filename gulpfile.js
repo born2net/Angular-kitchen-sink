@@ -10,7 +10,6 @@ var shell = require("gulp-shell");
 var Rsync = require('rsync');
 var opn = require('opn');
 var ts = require('gulp-typescript');
-// var tsProject = ts.createProject('tsconfig.json');
 var tsProject = ts.createProject('tsconfig.json');
 var sourcemaps = require('gulp-sourcemaps');
 var rimraf = require("gulp-rimraf");
