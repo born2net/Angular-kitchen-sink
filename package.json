@@ -254,6 +254,20 @@
           }
         }
       },
+      "npm:@angular/router@3.0.0": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/router": ".",
+          "./testing": "./bundles/router-testing.umd.js"
+        }
+      },
       "npm:angular@1.5.6": {
         "format": "global",
         "jspmNodeConversion": false,

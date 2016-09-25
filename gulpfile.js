@@ -9,8 +9,9 @@ var superstatic = require('superstatic');
 var shell = require("gulp-shell");
 var Rsync = require('rsync');
 var opn = require('opn');
-var typescript = require('gulp-typescript');
-var tsProject = typescript.createProject('tsconfig.json');
+var ts = require('gulp-typescript');
+// var tsProject = ts.createProject('tsconfig.json');
+var tsProject = ts.createProject('tsconfig.json');
 var sourcemaps = require('gulp-sourcemaps');
 var rimraf = require("gulp-rimraf");
 var replace = require("gulp-replace");
@@ -61,9 +62,9 @@ gulp.task("production", function (callback) {
         "x_bundle",
         "x_minify",
         "x_target",
-        //"x_clear_remote",
-        //"x_rsync",
-        //"x_rsync",
+        // "x_clear_remote",
+        // "x_rsync",
+        // "x_rsync",
         function (error) {
             if (error) {
                 console.log(error.message);
@@ -157,12 +158,19 @@ gulp.task("x_typedocs", function () {
 
 /** Transpile TypeScript files **/
 gulp.task('x_build-ts', function () {
-    return gulp.src('./src/**/*.ts')
-        .pipe(sourcemaps.init())
-        .pipe(typescript(tsProject))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./src'));
+    var tsResult = tsProject.src()
+        .pipe(tsProject());
+    return tsResult.js.pipe(gulp.dest('./src'));
 });
+
+// previous typescript-gulp version command
+// gulp.task('x_build-ts', function () {
+//     return gulp.src('./src/**/*.ts')
+//         .pipe(sourcemaps.init())
+//         .pipe(typescript(tsProject))
+//         .pipe(sourcemaps.write())
+//         .pipe(gulp.dest('./src'));
+// });
 
 /** bundle the app with jspm **/
 // 0.16 jspm: bundle-sfx src/App.js ./dist/index.js --skip-source-maps
@@ -321,7 +329,6 @@ gulp.task("x_copy", function () {
 });
 
 
-
 gulp.task("x_minify", function () {
     gulp.src(paths.targetJS, {cwd: paths.dist})
         .pipe(concat("index.min.js"))
@@ -354,7 +361,7 @@ gulp.task("x_target", function () {
 });
 
 // make sure we set to production in online mode
-gulp.task('x_removeOffline', function(){
+gulp.task('x_removeOffline', function () {
     gulp.src([paths.appTsFile])
         .pipe(replace(/\{provide: "OFFLINE_ENV", useValue: true},/, "{provide: \"OFFLINE_ENV\", useValue: false},"))
         .pipe(gulp.dest(paths.src))
