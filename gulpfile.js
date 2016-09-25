@@ -162,15 +162,6 @@ gulp.task('x_build-ts', function () {
     return tsResult.js.pipe(gulp.dest('./src'));
 });
 
-// previous typescript-gulp version command
-// gulp.task('x_build-ts', function () {
-//     return gulp.src('./src/**/*.ts')
-//         .pipe(sourcemaps.init())
-//         .pipe(typescript(tsProject))
-//         .pipe(sourcemaps.write())
-//         .pipe(gulp.dest('./src'));
-// });
-
 /** bundle the app with jspm **/
 // 0.16 jspm: bundle-sfx src/App.js ./dist/index.js --skip-source-maps
 // 0.17 jspm: bundle src/App.js ./dist/index.js --skip-source-maps
