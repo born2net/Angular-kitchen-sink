@@ -38,13 +38,13 @@ to install::
 ```             
 git clone https://github.com/born2net/ng2Boilerplate.git
 cd ng2Boilerplate
-npm install jspm -g
+npm install -g jspm@beta
 npm install
 ```
 <hr/>
-the project uses TypeScript 2.0
+the project uses TypeScript ^2.0
 ```
-npm install typescript@2.0.2
+npm install typescript
 ```
 
 <hr/>
