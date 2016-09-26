@@ -27,7 +27,8 @@ System.register([], function(exports_1, context_1) {
                 Consts.Events = function () {
                     return {
                         WIN_SIZED: 'winSized',
-                        MENU_SELECTION: 'menuSelection'
+                        MENU_SELECTION: 'menuSelection',
+                        LAZYLOAD_COMPLETED: 'lazyLoadedCompleted'
                     };
                 };
                 Consts.Values = function () {

@@ -42,7 +42,7 @@ var paths = {
     bundleHTML: "./dist/public",
     targetJS: "index.js",
     targetMinifiedJS: "index.min.js",
-    server: "example.com"
+    server: "digitalsignage.com"
 };
 
 /**********************
@@ -61,9 +61,9 @@ gulp.task("production", function (callback) {
         "x_bundle",
         "x_minify",
         "x_target",
-        // "x_clear_remote",
-        // "x_rsync",
-        // "x_rsync",
+        "x_clear_remote",
+        "x_rsync",
+        "x_rsync",
         function (error) {
             if (error) {
                 console.log(error.message);

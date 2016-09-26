@@ -5,6 +5,8 @@ import {lazyOneRouting} from "./LazyOneRouting";
 import {MoodRatingSvg} from "./MoodRatingSvg";
 import {AuthService} from "../../../services/AuthService";
 import {SharedModule} from "./SharedModule";
+import {CommBroker} from "../../../services/CommBroker";
+import {Consts} from "../../../Conts";
 
 @NgModule({
     imports: [SharedModule, CommonModule, lazyOneRouting], // we import the modules this module will need like CommonModule for ngIf etc
@@ -17,7 +19,13 @@ export default class LazyOneModule {
     // notice that it is not a new instance but shared among the entire app since we
     // used in SharedModule forRoot()... to make sure we ONLY PROVIDE AuthService when SharedModule is loaded
     // via main App, but when loaded via lazyloading, we DO NO provide it as we want the global AuthService.
-    constructor(authService:AuthService){
-        alert('I am shared global AuthService ' + authService);
+    constructor(authService: AuthService, private commBroker: CommBroker) {
+        console.log('I am shared global AuthService ' + authService + ' ' + commBroker);
+        this.commBroker.fire({
+            fromInstance: self,
+            event: Consts.Events().LAZYLOAD_COMPLETED,
+            context: '',
+            message: {}
+        })
     }
 }

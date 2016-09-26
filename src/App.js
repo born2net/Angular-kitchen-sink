@@ -408,21 +408,19 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                     provide: position_service_1.PositionService,
                     useClass: position_service_1.PositionService
                 }, {
-                    provide: CommBroker_1.CommBroker,
-                    useClass: CommBroker_1.CommBroker
-                }, {
                     provide: CharCount_1.CharCount
                 }, {
                     provide: Conts_1.Consts,
                     useClass: Conts_1.Consts
                 }];
             Main = (function () {
-                function Main(appStore, commBroker, styleService, appdbAction, _http) {
+                function Main(appStore, commBroker, styleService, appdbAction, _http, viewContainerRef) {
                     var _this = this;
                     this.appStore = appStore;
                     this.commBroker = commBroker;
                     this.appdbAction = appdbAction;
                     this._http = _http;
+                    this.viewContainerRef = viewContainerRef;
                     appStore.dispatch(appdbAction.appStartTime());
                     this.m_styleService = styleService;
                     this.commBroker.setService(Conts_1.Consts.Services().App, this);
@@ -460,7 +458,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                         providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction, providing],
                         template: App_html_text_1.default
                     }), 
-                    __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction, http_1.Http])
+                    __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction, http_1.Http, core_1.ViewContainerRef])
                 ], Main);
                 return Main;
             }());
@@ -472,7 +470,7 @@ System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "ref
                 }
                 App = __decorate([
                     core_1.NgModule({
-                        imports: [platform_browser_1.BrowserModule, SharedModule_1.SharedModule.forRoot(), App_routes_1.routing],
+                        imports: [platform_browser_1.BrowserModule, ng2_bootstrap_1.ModalModule, SharedModule_1.SharedModule.forRoot(), App_routes_1.routing],
                         providers: [
                             LogoutDeactivate_1.LogoutDeactivate,
                             ErrorLogService_1.ErrorLogService,

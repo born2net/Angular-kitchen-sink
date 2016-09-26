@@ -15,7 +15,8 @@ import {
     ViewEncapsulation,
     enableProdMode,
     NgModuleRef,
-    NgModule
+    NgModule,
+    ViewContainerRef
 } from "@angular/core";
 import "twbs/bootstrap";
 import "twbs/bootstrap/dist/css/bootstrap.css!";
@@ -82,7 +83,8 @@ import {Tabs} from "./comps/tabs/tabs";
 import {Tab} from "./comps/tabs/tab";
 import {
     AlertComponent,
-    RatingComponent
+    RatingComponent,
+    ModalModule
 } from "ng2-bootstrap";
 import {MyChart} from "./comps/app1/help/contributors/MyChart";
 import {Ng2Highcharts} from "./comps/ng2-highcharts/src/directives/ng2-highcharts";
@@ -189,9 +191,6 @@ var providing = [{
     provide: PositionService,
     useClass: PositionService
 }, {
-    provide: CommBroker,
-    useClass: CommBroker
-}, {
     provide: CharCount
 }, {
     provide: Consts,
@@ -213,7 +212,7 @@ var providing = [{
 export class Main {
     private m_styleService: StyleService;
 
-    constructor(private appStore: AppStore, private commBroker: CommBroker, styleService: StyleService, private appdbAction: AppdbAction, private _http: Http) {
+    constructor(private appStore: AppStore, private commBroker: CommBroker, styleService: StyleService, private appdbAction: AppdbAction, private _http: Http, private viewContainerRef :ViewContainerRef) {
         appStore.dispatch(appdbAction.appStartTime());
         this.m_styleService = styleService;
         this.commBroker.setService(Consts.Services().App, this);
@@ -256,7 +255,7 @@ if (!Lib.DevMode())
     enableProdMode();
 
 @NgModule({
-    imports: [BrowserModule, SharedModule.forRoot(), routing],
+    imports: [BrowserModule, ModalModule, SharedModule.forRoot(), routing],
     providers: [
         LogoutDeactivate,
         ErrorLogService,
