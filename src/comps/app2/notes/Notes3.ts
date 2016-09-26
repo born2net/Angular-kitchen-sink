@@ -116,8 +116,11 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <optionsList></optionsList> 
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 15'">
-                    <h3>Dynamic factory resolver</h3>
+                    <h3>Dynamic actory resolver</h3>
                     <DynaFactoryRes></DynaFactoryRes>  
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 16'">
+                    <dynamic-app></dynamic-app>  
                   </mini-tab>
                 </mini-tabs>
                     
