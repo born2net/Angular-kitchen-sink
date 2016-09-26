@@ -15,7 +15,7 @@ Check this working demo: http://ng2.javascriptninja.io
 ====
 
 The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that you can mess with and it includes the basis around what any solid single page application requires.
-The project is not intended to be a seed project per se, instead the idea is that to help you cherry pick the pieces you like; especially the jspm production and development runtime environments with the different components.
+The project is not intended to be a seed project per se, instead the idea is that it will help you cherry pick the pieces you like; especially the jspm production and development runtime environments with the different components.
 
 I spent countless hours reading every Angular2 book and article I could get my hands on (so you don't have to),
 and built IMHO the perfect Angular2 setup... 
