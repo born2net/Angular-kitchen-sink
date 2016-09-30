@@ -141,7 +141,7 @@ import {SortableHeader} from "./comps/app2/weather/SortableHeader";
 import {FilmsComponent} from "./comps/app3/starwars/components/films-component";
 import {AdminComponent} from "./comps/app3/starwars/components/admin-component";
 import {ShoppingComponent} from "./comps/app3/starwars/components/shopping-component";
-import {Starwars} from "./comps/app3/starwars/Starwars";
+import {Starwars} from "./comps/app3/starwars/starwars";
 import {UsersView} from "./comps/app3/starwars/components/users-view";
 import {CartView} from "./comps/app3/starwars/components/cart-view";
 import {AddPartsView} from "./comps/app3/starwars/components/add-part-view";
