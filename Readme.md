@@ -196,6 +196,15 @@ Looking for even more?
 ------------
 checkout this enterprise level angular 2 app that's forked off this project: https://github.com/born2net/studioDashboard
 
+Recommended:
+------------------------------------------------------------------------
+
+for the ultimate store solution for angular2 watch:
+
+[![The Ultimate redux typed store implementation for angular](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=bEkPEnudm7s&feature=youtu.be "The Ultimate redux typed store implementation for angular")
+
+
+
 
 
 
