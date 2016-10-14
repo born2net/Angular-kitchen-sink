@@ -179,6 +179,10 @@ import HelloWorldComponent from "./comps/dynmiaccomp/hello-world-component";
 import WorldHelloComponent from "./comps/dynmiaccomp/world-hello-component";
 import DynamicComponent from "./comps/dynmiaccomp/dynamic-component";
 import {DynamicApp} from "./comps/dynmiaccomp/dynamic-app";
+import {
+    ContentHero,
+    ContentHeroes
+} from "./comps/app2/notes/ContentHeros";
 
 var providing = [{
     provide: AppStore,
@@ -280,7 +284,7 @@ if (!Lib.DevMode())
             }
         }],
     entryComponents: [DynaFactoryResHelloWorld],
-    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, EmbedView, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat, HeightDirective, DynaFactoryRes, PureDialog, PureDialogDirective, DynaFactoryResHelloWorld, AnimateCards, AnimateBox, DynamicApp, HelloWorldComponent, WorldHelloComponent, DynamicComponent],
+    declarations: [Main, Welcome, Digg, Todos, Settings, LoginPanel, Help, App1, App2, App3, ForgotPass, AppManager, EntryPanel, Logout, MakeDraggable, MakeDroppable, Sliderpanel, Todo1, Todo2, TodoList, CharCount, SortBy, OrderBy, Filemenu, FilemenuItem, Logo, Footer, Menu, MenuItem, Sliderpanel, Digg, Contributors, Todos, Todo1, Todo2, TodoList, TodoItem, Logout, Settings, Tabs, Tab, Help, MyChart, AlertComponent, RatingComponent, Tab, Tabs, Contributors, Ng2Highcharts, TodoItem, Nodelogger, DividerPanel, Menu, MenuItem, Sliderpanel, Digg, Properties, Weather, Contact, ModalDialog, Notes, Notes1, Notes2, Notes3, Notes4, Notes5, Contact, ModalDialog, CardComponent, InjectTemplateChild, DisplayError, CounterInputComponent, TrimmedInput, MyIp, ModalDialog, Minitab, Minitabs, StarWarsSearch, WikiSearch, InfinityScroll, Clock, MultiSlotTransclusion, EmbedView, CompElemBuilder, CreateEmbedDiffer, ToggleButtonApp, StreamButton, ngBookRepeatSample, CountDown, InjectTemplateParent, TooltipDirective, OptionListComponent, NotesDetails, NotesDetailsItems, IncrementingDisplay, ToggleBut, ToggleButton, Notes1Props, SortableHeader, Starwars, ShoppingComponent, AdminComponent, FilmsComponent, UsersView, UserView, Ng2Highcharts, Ng2Highstocks, Ng2Highmaps, FilmSelectionView, FilmView, PartsView, CartView, AddPartsView, SimpleList, Accordion, AccordionGroup, ButtonCheckbox, ButtonRadio, ngBookRepeat, HeightDirective, DynaFactoryRes, PureDialog, PureDialogDirective, DynaFactoryResHelloWorld, AnimateCards, AnimateBox, DynamicApp, HelloWorldComponent, WorldHelloComponent, DynamicComponent, ContentHero, ContentHeroes],
     bootstrap: [Main],
 })
 

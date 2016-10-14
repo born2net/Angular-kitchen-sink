@@ -14,7 +14,7 @@ just in-time browser reloads on saves, and production ready via bundling, all po
 Check this working demo: http://ng2.javascriptninja.io
 ====
 
-The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that you can mess with and it includes the basis around what any solid single page application requires.
+The goal behind Angular-kitchen-sink is to deliver an easy to start Angular 2 base application that you can mess with and it includes the basis around what any solid single page application requires.
 The project is not intended to be a seed project per se, instead the idea is that it will help you cherry pick the pieces you like; especially the jspm production and development runtime environments with the different components.
 
 I spent countless hours reading every Angular2 book and article I could get my hands on (so you don't have to),
@@ -30,8 +30,8 @@ and built IMHO the perfect Angular2 setup...
 <hr/>
 to install::
 ```             
-git clone https://github.com/born2net/ng2Boilerplate.git
-cd ng2Boilerplate
+git clone https://github.com/born2net/Angular-kitchen-sink.git
+cd Angular-kitchen-sink
 npm install -g jspm@beta
 npm install -g gulp
 npm install
@@ -131,6 +131,7 @@ What features of Angular does this app cover? everything:
     - default any / void animations 
 - Dependency injection and decorators such as @Host
 - Advanced decorators such as @HostListener @ContentChildren @Injectable and more
+- Provide data to *ngFor declaratively using @ContentChildren
 - Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)
 - Using @CanDeactivate to demo user prompting when navigating away from a url route segment
 - trackBy to create a custom identifier for *ngFor (trackBy:identify)

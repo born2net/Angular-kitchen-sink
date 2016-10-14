@@ -116,11 +116,22 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <optionsList></optionsList> 
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 15'">
-                    <h3>Dynamic actory resolver</h3>
+                    <h3>Dynamic factory resolver</h3>
                     <DynaFactoryRes></DynaFactoryRes>  
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 16'">
                     <dynamic-app></dynamic-app>  
+                  </mini-tab>
+                  <mini-tab [tabTitle]="'Code 17'">
+                        <h3>provide data to ngFor declaratively via contentChildren</h3>
+                        <ContentHeroes>
+                            <ContentHero id="1" name="Superman"></ContentHero>
+                            <ContentHero id="2" name="Batman"></ContentHero>
+                            <ContentHero id="3" name="Batgirl"></ContentHero>
+                            <ContentHero id="3" name="Robin"></ContentHero>
+                            <ContentHero id="4" name="Flash"></ContentHero>
+                            <ContentHero id="5" name="Green Lantern"></ContentHero>
+                        </ContentHeroes>
                   </mini-tab>
                 </mini-tabs>
                     
