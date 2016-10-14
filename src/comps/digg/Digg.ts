@@ -18,6 +18,7 @@ import "rxjs/add/observable/from";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged";
+import {Lib} from "../../Lib";
 
 @Component({
     selector: 'Digg',
@@ -42,6 +43,10 @@ import "rxjs/add/operator/distinctUntilChanged";
     `],
     template: `
         <h1>Digg</h1>
+        <h6>Automatically show Component name using Reflection:
+            <small class="debug">component name: {{me}}</small>
+        </h6>
+        
         <div class="appHeight" HeightDirective (resizing)="smallHeight = $event">
                  <h5>
                     component height: {{smallHeight}}px
@@ -86,6 +91,8 @@ export class Digg {
         this.diggs = [];
         self.viewContainer = viewContainer;
         self.el = viewContainer.element.nativeElement;
+        self['me'] = Lib.GetCompSelector(this.constructor)
+
 
         self.channel = new Observable(observer => {
             self.stream = observer;

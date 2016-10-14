@@ -149,6 +149,7 @@ What features of Angular does this app cover? everything:
 - Static shared lib and single reference file
 - Theme service (supports 2 themes including Lite and Dark)
 - Pipes including grid sort and character counter
+- Use reflection to automatically show a component's name, super useful for debugging component location in page
 - Interfaces
 - UI data binding / uni and 2 way
 - Document generation

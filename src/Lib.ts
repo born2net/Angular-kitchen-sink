@@ -1,6 +1,9 @@
 /** Common Library **/
 
-import {Injectable} from '@angular/core';
+import {
+    Injectable,
+    Component
+} from '@angular/core';
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import thunkMiddleware from 'redux-thunk';
 import {AppStore} from "angular2-redux-util";
@@ -31,6 +34,16 @@ export class Lib {
         } else {
             return false;
         }
+    }
+
+    static GetCompSelector(i_constructor) {
+        if (!Lib.DevMode())
+            return;
+        var annotations = Reflect.getMetadata('annotations', i_constructor);
+        var componentMetadata = annotations.find(annotation => {
+            return (annotation instanceof Component);
+        });
+        return componentMetadata.selector;
     }
 
     static insertAt(immutable, item, index) {
