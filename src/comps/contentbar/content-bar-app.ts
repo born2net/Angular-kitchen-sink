@@ -1,3 +1,8 @@
+/**
+ *  Document reference:
+ *      http://www.mcrook.com/2016/10/angular-2-contentchildren-with-abstract.html?showComment=1476555775543#c1385775057527422601
+ **/
+
 import { Component } from '@angular/core';
 
 @Component({
