@@ -1,5 +1,8 @@
-import { Component, forwardRef } from '@angular/core';
-import { BaseEditor } from './base-editor';
+import {
+    Component,
+    forwardRef
+} from "@angular/core";
+import {BaseEditor} from "./base-editor";
 
 @Component({
     selector: 'bar-editor',
@@ -9,7 +12,10 @@ import { BaseEditor } from './base-editor';
     <input [(ngModel)]="value">
   </div>
   `,
-    providers: [{provide: BaseEditor, useExisting: forwardRef(() => BarEditorComponent)}]
+    providers: [{
+        provide: BaseEditor,
+        useExisting: forwardRef(() => BarEditorComponent)
+    }]
 })
 export class BarEditorComponent extends BaseEditor {
     constructor() {

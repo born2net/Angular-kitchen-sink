@@ -1,5 +1,8 @@
-import { Component, forwardRef } from '@angular/core';
-import { BaseEditor } from './base-editor';
+import {
+    Component,
+    forwardRef
+} from '@angular/core';
+import {BaseEditor} from './base-editor';
 
 @Component({
     selector: 'foo-editor',
@@ -12,7 +15,10 @@ import { BaseEditor } from './base-editor';
     </select>
   </div>
   `,
-    providers: [{provide: BaseEditor, useExisting: forwardRef(() => FooEditorComponent)}]
+    providers: [{
+        provide: BaseEditor,
+        useExisting: forwardRef(() => FooEditorComponent)
+    }]
 })
 export class FooEditorComponent extends BaseEditor {
     constructor() {
