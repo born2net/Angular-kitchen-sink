@@ -45,7 +45,7 @@ System.register(["rxjs/Observable", "@angular/core", "@angular/router", 'rxjs/ad
                     var cb = function (result) {
                         if (result) {
                             jQuery('body').fadeOut(3000, function () {
-                                window.location.replace("https://github.com/born2net/ng2Boilerplate");
+                                window.location.replace("https://github.com/born2net/Angular-kitchen-sink");
                                 return true;
                             });
                         }

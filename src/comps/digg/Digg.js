@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "../../../src/Conts", "rxjs/Observable", "../../../src/comps/digg/DiggLoader", "../../services/CommBroker", "rxjs/add/observable/from", "rxjs/add/operator/do", "rxjs/add/operator/debounceTime", "rxjs/add/operator/distinctUntilChanged"], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "../../../src/Conts", "rxjs/Observable", "../../../src/comps/digg/DiggLoader", "../../services/CommBroker", "rxjs/add/observable/from", "rxjs/add/operator/do", "rxjs/add/operator/debounceTime", "rxjs/add/operator/distinctUntilChanged", "../../Lib"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(["@angular/core", "@angular/platform-browser", "../../../src/Con
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, platform_browser_1, Conts_1, Observable_1, DiggLoader_1, CommBroker_1;
+    var core_1, platform_browser_1, Conts_1, Observable_1, DiggLoader_1, CommBroker_1, Lib_1;
     var Digg;
     return {
         setters:[
@@ -38,7 +38,10 @@ System.register(["@angular/core", "@angular/platform-browser", "../../../src/Con
             function (_1) {},
             function (_2) {},
             function (_3) {},
-            function (_4) {}],
+            function (_4) {},
+            function (Lib_1_1) {
+                Lib_1 = Lib_1_1;
+            }],
         execute: function() {
             Digg = (function () {
                 function Digg(commBroker, diggLoader, doc, m_commBroker, viewContainer) {
@@ -51,6 +54,7 @@ System.register(["@angular/core", "@angular/platform-browser", "../../../src/Con
                     this.diggs = [];
                     self.viewContainer = viewContainer;
                     self.el = viewContainer.element.nativeElement;
+                    self['me'] = Lib_1.Lib.GetCompSelector(this.constructor);
                     self.channel = new Observable_1.Observable(function (observer) {
                         self.stream = observer;
                     }).share();
@@ -88,7 +92,7 @@ System.register(["@angular/core", "@angular/platform-browser", "../../../src/Con
                         encapsulation: core_1.ViewEncapsulation.Emulated,
                         providers: [DiggLoader_1.DiggLoader],
                         styles: ["\n        .diggContainer {\n            overflow-y: scroll;\n            height: 300px;\n        };\n        .largeImage {\n           max-width: 100px;\n           max-height: 60px;\n        }\n        .smallImage {\n           width: 70px;\n           height: 40px;\n        }\n        .grow { transition: all .2s ease-in-out; }\n        .grow:hover { transform: scale(1.1); opacity: 0.7}\n    "],
-                        template: "\n        <h1>Digg</h1>\n        <div class=\"appHeight\" HeightDirective (resizing)=\"smallHeight = $event\">\n                 <h5>\n                    component height: {{smallHeight}}px\n                </h5>\n             <form (submit)=\"$event.preventDefault();\">\n                <br/>\n                <div class=\"input-group\">\n                      <span class=\"input-group-addon\" id=\"symbol-input\">Digg filter</span>\n                      <input type=\"text\" class=\"form-control\" (keyup)=\"onSearch($event)\" placeholder=\"press [ENTER] for unfiltered result\">\n                    </div>\n              </form>\n              <div class=\"diggContainer list\">\n                  <table class=\"table table-striped\">\n                  <tbody>\n                    <tr *ngFor=\"let digg of diggs\" [ngClass]=\"{'col-xs-4': tileStyle, 'col-lg-3': tileStyle}\">\n                      <td>\n                      <img class=\"img-responsive grow\" [ngClass]=\"{'largeImage': tileStyle, 'smallImage': !tileStyle}\" src=\"{{digg.link}}\"/>\n                      <span>{{digg.title}}</span>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n        </div>\n  "
+                        template: "\n        <h1>Digg</h1>\n        <h6>Automatically show Component name using Reflection:\n            <small class=\"debug\">component name: {{me}}</small>\n        </h6>\n        \n        <div class=\"appHeight\" HeightDirective (resizing)=\"smallHeight = $event\">\n                 <h5>\n                    component height: {{smallHeight}}px\n                </h5>\n             <form (submit)=\"$event.preventDefault();\">\n                <br/>\n                <div class=\"input-group\">\n                      <span class=\"input-group-addon\" id=\"symbol-input\">Digg filter</span>\n                      <input type=\"text\" class=\"form-control\" (keyup)=\"onSearch($event)\" placeholder=\"press [ENTER] for unfiltered result\">\n                    </div>\n              </form>\n              <div class=\"diggContainer list\">\n                  <table class=\"table table-striped\">\n                  <tbody>\n                    <tr *ngFor=\"let digg of diggs\" [ngClass]=\"{'col-xs-4': tileStyle, 'col-lg-3': tileStyle}\">\n                      <td>\n                      <img class=\"img-responsive grow\" [ngClass]=\"{'largeImage': tileStyle, 'smallImage': !tileStyle}\" src=\"{{digg.link}}\"/>\n                      <span>{{digg.title}}</span>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n        </div>\n  "
                     }),
                     __param(2, core_1.Inject(platform_browser_1.DOCUMENT)), 
                     __metadata('design:paramtypes', [CommBroker_1.CommBroker, DiggLoader_1.DiggLoader, Object, CommBroker_1.CommBroker, core_1.ViewContainerRef])

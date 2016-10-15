@@ -50,6 +50,15 @@ System.register(['@angular/core', "redux", 'redux-thunk', "angular2-redux-util"]
                         return false;
                     }
                 };
+                Lib.GetCompSelector = function (i_constructor) {
+                    if (!Lib.DevMode())
+                        return;
+                    var annotations = Reflect.getMetadata('annotations', i_constructor);
+                    var componentMetadata = annotations.find(function (annotation) {
+                        return (annotation instanceof core_1.Component);
+                    });
+                    return componentMetadata.selector;
+                };
                 Lib.insertAt = function (immutable, item, index) {
                     var first = immutable.slice(0, index - 1).push(item);
                     var second = immutable.slice(index);
