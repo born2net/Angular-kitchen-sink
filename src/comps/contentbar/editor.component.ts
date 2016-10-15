@@ -13,6 +13,8 @@ import { BaseEditor } from './base-editor';
             <ng-content></ng-content>
         </div>
         <div>
+            <hr/>
+            <small>EditorComponent</small>
             <button (click)="onClickSubmit()">submit</button>
         </div>
     `,
