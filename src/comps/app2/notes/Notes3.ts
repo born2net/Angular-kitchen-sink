@@ -135,6 +135,7 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 18'">
                     <h3>provide components to ngFor declaratively via contentChildren</h3>
+                    <h6>Polymorphic Component Container using ContentChildren</h6>
                     <content-bar-app></content-bar-app>
                   </mini-tab>
                 </mini-tabs>
