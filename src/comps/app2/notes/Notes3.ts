@@ -133,6 +133,10 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                             <ContentHero id="5" name="Green Lantern"></ContentHero>
                         </ContentHeroes>
                   </mini-tab>
+                  <mini-tab [tabTitle]="'Code 18'">
+                    <h3>provide components to ngFor declaratively via contentChildren</h3>
+                    <content-bar-app></content-bar-app>
+                  </mini-tab>
                 </mini-tabs>
                     
                 <small>I am a Minitab component (@ContentChildren)</small>

@@ -131,7 +131,8 @@ What features of Angular does this app cover? everything:
     - default any / void animations 
 - Dependency injection and decorators such as @Host
 - Advanced decorators such as @HostListener @ContentChildren @Injectable and more
-- Provide data to *ngFor declaratively using @ContentChildren
+- Provide data to *ngFor declaratively via @ContentChildren
+- Provide components to *ngFor declaratively via @ContentChildren
 - Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)
 - Using @CanDeactivate to demo user prompting when navigating away from a url route segment
 - trackBy to create a custom identifier for *ngFor (trackBy:identify)
