@@ -6,7 +6,9 @@ import { BaseEditor } from './base-editor';
     template: `
         <div>
             <select (change)="onQuestionChange($event.target.value)">
-                <option *ngFor="let editor of editors" [value]="editor.editorName">{{ editor.editorName }}</option>
+                <option *ngFor="let editor of editors" [value]="editor.editorName">
+                    {{ editor.editorName }}
+                </option>
             </select>
         </div>
         <div>
