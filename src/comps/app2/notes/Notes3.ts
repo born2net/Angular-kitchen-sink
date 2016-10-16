@@ -64,7 +64,7 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <CreateEmbedDiffer></CreateEmbedDiffer>
                   </mini-tab>                   
                   <mini-tab [tabTitle]="'Code 9'">
-                    <h3>Using two way binding into a component </h3>
+                    <h3>Using two way binding into a component (custom banana in a box)</h3>
                     <pre><![CDATA[
                       [(on)]="state" // so you can use other banana in a box and not just [(ngModel)] 
                     ]]></pre>
