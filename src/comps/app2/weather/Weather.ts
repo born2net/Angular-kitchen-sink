@@ -21,6 +21,9 @@ import {CommBroker} from "../../../services/CommBroker";
     styles: [`input {margin: 20px; width: 50%}`],
     template: `
     <small>I am a weather component</small>
+    <hr/>
+    <label style="padding-top: 5px; font-size: 1.4em">Auto updated</label>
+    <SwitchComponent [label]="'My Switch'"></SwitchComponent>
     <input type="text" #anotherWayToGetInput class="form-control" placeholder="enter city or zip code" [formControl]="zipControl">
     <table class="table">
       <thead>
