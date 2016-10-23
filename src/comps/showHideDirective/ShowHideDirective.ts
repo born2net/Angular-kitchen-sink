@@ -1,3 +1,7 @@
+/**
+ * ref: https://medium.com/@NetanelBasal/angular-2-making-your-component-auth-aware-982054048c8a#.hrvwe440i
+ */
+
 import {
     Directive,
     Input
