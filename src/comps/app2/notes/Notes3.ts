@@ -138,6 +138,13 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <h6>Polymorphic Component Container using ContentChildren</h6>
                     <content-bar-app></content-bar-app>
                   </mini-tab>
+                  <mini-tab [tabTitle]="'Code 19'">
+                    <h3>Show / hide powered by *showIfLoggedIn directive</h3>
+                    <div *showHideDirective="show"d>
+                        <h6>now you can see me</h6>
+                    </div>
+                    <button class="btn" (click)="toggleShowHide()" >toggle</button>
+                  </mini-tab>
                 </mini-tabs>
                     
                 <small>I am a Minitab component (@ContentChildren)</small>
@@ -145,11 +152,17 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
 })
 
 export class Notes3 extends NotesBase {
+
+    private show = true;
     constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
         this.me = this;
         this.slideLeft = 'notes4';
         this.slideRight = 'notes2';
+    }
+
+    toggleShowHide(){
+        this.show = !this.show;
     }
 }
 
