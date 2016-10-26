@@ -104,7 +104,30 @@ export class Weather {
     ngAfterViewInit() {
         this.zipControl.setValue('91301');
 
-        // now we can access a native input element and set its focus
+        /**
+        now we can access a native input element and set its focus in the proper way so we can
+        use this code in server side and other non-dom environments
+
+         examples include:
+         constructor( private renderer : Renderer, private element : ElementRef ) {
+                this.nativeElement = element.nativeElement;
+          }
+         let inputElement = this.renderer.createElement(this.nativeElement, “input”);
+         this.renderer.setElementAttribute(inputElement, “value”, “Hello from renderer”);
+         this.renderer.invokeElementMethod(inputElement, “focus”, []);
+         this.renderer.listenGlobal("body", "click", () => console.log("Global event"));
+
+         const pEleOne = this.renderer.createElement(this.nativeElement, "p");
+         const pEleTwo = this.renderer.createElement(this.nativeElement, "p");
+         this.renderer.createText(pEleOne, "Element one");
+         this.renderer.createText(pEleTwo, "Element two");
+         this.renderer.projectNodes(this.nativeElement, [pEleOne, pEleTwo]);
+
+         to see more options on render see:
+         https://medium.com/@NetanelBasal/angular-2-explore-the-renderer-service-e43ef673b26c#.1n66gf47q
+
+         **/
+
         setTimeout(()=> {
             this.renderer.invokeElementMethod(this.myWeatherInput.nativeElement, 'focus', [])
         }, 1000);
