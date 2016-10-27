@@ -92,13 +92,13 @@
       "lib": "src"
     },
     "dependencies": {
-      "angular-common": "npm:@angular/common@2.0.0",
-      "angular-compiler": "npm:@angular/compiler@2.0.0",
-      "angular-core": "npm:@angular/core@2.0.0",
-      "angular-http": "npm:@angular/http@2.0.0",
-      "angular-platform-browser": "npm:@angular/platform-browser@2.0.0",
-      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0",
-      "@angular/forms": "npm:@angular/forms@2.0.0",
+      "angular-common": "npm:@angular/common@2.1.2",
+      "angular-compiler": "npm:@angular/compiler@2.1.2",
+      "angular-core": "npm:@angular/core@2.1.2",
+      "angular-http": "npm:@angular/http@2.1.2",
+      "angular-platform-browser": "npm:@angular/platform-browser@2.1.2",
+      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.1.2",
+      "@angular/forms": "npm:@angular/forms@2.1.2",
       "angular2-google-maps": "npm:angular2-google-maps@^0.14.0",
       "angular2-polyfill": "npm:angular2-polyfill@^0.0.2",
       "angular2-redux-util": "npm:angular2-redux-util@^0.8.64",
@@ -116,7 +116,7 @@
       "plugin-typescript": "npm:plugin-typescript@5.1.2",
       "redux-thunk": "npm:redux-thunk@2.1.0",
       "reselect": "npm:reselect@^2.0.3",
-      "router": "npm:@angular/router@3.0.0",
+      "router": "npm:@angular/router@3.1.2",
       "text": "github:systemjs/plugin-text@^0.0.9",
       "typescript": "npm:typescript@^1.9",
       "underscore": "npm:underscore@^1.8.3",
@@ -130,11 +130,11 @@
       "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@^2.0.0",
-      "@angular/compiler": "npm:@angular/compiler@^2.0.0",
-      "@angular/core": "npm:@angular/core@^2.0.0",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0",
+      "@angular/common": "npm:@angular/common@2.1.2",
+      "@angular/compiler": "npm:@angular/compiler@^2.1.2",
+      "@angular/core": "npm:@angular/core@2.1.2",
+      "@angular/platform-browser": "npm:@angular/platform-browser@2.1.2",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.1.2",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
@@ -194,7 +194,7 @@
           }
         }
       },
-      "npm:@angular/common@2.0.0": {
+      "npm:@angular/common@2.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -204,7 +204,7 @@
           }
         }
       },
-      "npm:@angular/compiler@2.0.0": {
+      "npm:@angular/compiler@2.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -214,7 +214,7 @@
           }
         }
       },
-      "npm:@angular/core@2.0.0": {
+      "npm:@angular/core@2.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -224,7 +224,7 @@
           }
         }
       },
-      "npm:@angular/http@2.0.0": {
+      "npm:@angular/http@2.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -234,7 +234,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.0.0": {
+      "npm:@angular/platform-browser-dynamic@2.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -244,7 +244,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser@2.0.0": {
+      "npm:@angular/platform-browser@2.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -254,7 +254,7 @@
           }
         }
       },
-      "npm:@angular/router@3.0.0": {
+      "npm:@angular/router@3.1.2": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -391,4 +391,4 @@
     "typescript": "^2.0.2",
     "zone.js": "^0.6.21"
   }
-}
+}
