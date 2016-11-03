@@ -10,9 +10,12 @@ import {
     ElementRef,
     OnInit,
     OnChanges,
-    Compiler
+    Compiler,
+    ModuleWithComponentFactories
 } from "@angular/core";
 import {PositionService} from "./position.service";
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
 let $: any = window["$"];
 let _: any = window["_"];
@@ -41,98 +44,10 @@ let defaultTooltipOptions: TooltipOptions = {
     active: true
 };
 
-@Directive({
-    selector: "[tooltip]"
-})
-export class TooltipDirective implements OnInit, OnChanges {
-    @Input("tooltip")
-    private tooltipOptions: any;
-
-    @ContentChild( "tooltipTemplate" )
-    private tooltipTemplate: TemplateRef <Object>;
-
-    private tooltip: ComponentRef<Tooltip>;
-    private tooltipId: string;
-
-    constructor (
-        private compiler:Compiler,
-        private viewContainer: ViewContainerRef,
-        public elementRef: ElementRef,
-        private position: PositionService) {
-        this.tooltipId = _.uniqueId("tooltip");
-    }
-
-    ngOnInit () {
-        let element = $(this.elementRef.nativeElement);
-
-        if (!this.options.trigger.off) {
-            element.on(this.options.trigger.on, () => {
-                if (this.tooltip) {
-                    this.hideTooltip();
-                } else if (this.options.active === true) {
-                    this.showTooltip();
-                }
-            });
-        }
-        else {
-            element.on(this.options.trigger.on, () => {
-                if (!this.tooltip && this.options.active === true) {
-                    this.showTooltip();
-                }
-            });
-
-            element.on(this.options.trigger.off, () => {
-                if (this.tooltip) {
-                    this.hideTooltip();
-                }
-            });
-        }
-    }
-
-    ngOnChanges() {
-        if (this.options.active === false && this.tooltip) {
-            this.hideTooltip();
-        }
-    }
-
-    private showTooltip () {
-        if (this.tooltipTemplate) {
-            //todo: rc.6
-            // this.compiler.compileComponentAsync(Tooltip)
-            //     .then(factory => {
-            //         this.tooltip = this.viewContainer.createComponent(factory);
-            //         this.tooltip.instance["content"] = this.tooltipTemplate;
-            //         this.tooltip.instance["parentEl"] = this.elementRef;
-            //         this.tooltip.instance["tooltipOptions"] = this.options;
-            //
-            //         if (this.options.dismissable) {
-            //             $("html").on("click." + this.tooltipId, (event:any) => {
-            //                 let $target = $(event.target);
-            //                 if (!$target.closest(this.tooltip.instance.elementRef.nativeElement).length &&
-            //                     !$target.closest(this.elementRef.nativeElement).length) {
-            //                     this.hideTooltip();
-            //                 }
-            //             });
-            //         }
-            //     });
-        }
-    }
-
-    private hideTooltip () {
-        this.tooltip.destroy();
-        $("html").off("click." + this.tooltipId);
-        this.tooltip = undefined;
-    }
-
-    private get options (): TooltipOptions {
-        return _.defaults({}, this.tooltipOptions || {}, defaultTooltipOptions);
-    }
-}
 
 @Component({
     selector: "tooltip",
-    template:
-        `<div class="inner">
+    template: `<div class="inner">
             <template [ngTemplateOutlet]="content"></template>
          </div>
          <div class="arrow"></div>`,
@@ -239,10 +154,9 @@ class Tooltip implements AfterViewInit {
     @Input() private parentEl: ElementRef;
     @Input() private tooltipOptions: TooltipOptions;
 
-    constructor (
-        private positionService: PositionService,
-        public elementRef: ElementRef)
-    {}
+    constructor(private positionService: PositionService,
+                public elementRef: ElementRef) {
+    }
 
     private position() {
         // Class and style are added directly to the rendered components
@@ -269,5 +183,108 @@ class Tooltip implements AfterViewInit {
 
     ngAfterViewInit(): void {
         this.position();
+    }
+}
+
+@NgModule({
+    imports: [BrowserModule],
+    declarations: [Tooltip],
+    exports: [Tooltip]
+})
+export class TooltipModule {
+}
+
+@Directive({
+    selector: "[tooltip]"
+})
+export class TooltipDirective implements OnInit, OnChanges {
+    @Input("tooltip")
+    private tooltipOptions: any;
+
+    @ContentChild("tooltipTemplate")
+    private tooltipTemplate: TemplateRef <Object>;
+
+    private tooltip: ComponentRef<Tooltip>;
+    private tooltipId: string;
+    private tooltipFactory: ModuleWithComponentFactories<any>;
+
+    constructor(private compiler: Compiler,
+                private viewContainer: ViewContainerRef,
+                public elementRef: ElementRef,
+                private position: PositionService) {
+
+        this.tooltipId = _.uniqueId("tooltip");
+        this.tooltipFactory = compiler.compileModuleAndAllComponentsSync(TooltipModule);
+
+    }
+
+    ngOnInit() {
+        let element = $(this.elementRef.nativeElement);
+
+        if (!this.options.trigger.off) {
+            element.on(this.options.trigger.on, () => {
+                if (this.tooltip) {
+                    this.hideTooltip();
+                } else if (this.options.active === true) {
+                    this.showTooltip();
+                }
+            });
+        }
+        else {
+            element.on(this.options.trigger.on, () => {
+                if (!this.tooltip && this.options.active === true) {
+                    this.showTooltip();
+                }
+            });
+
+            element.on(this.options.trigger.off, () => {
+                if (this.tooltip) {
+                    this.hideTooltip();
+                }
+            });
+        }
+    }
+
+    ngOnChanges() {
+        if (this.options.active === false && this.tooltip) {
+            this.hideTooltip();
+        }
+    }
+
+    private showTooltip() {
+        if (this.tooltipTemplate) {
+
+            this.destroyView();
+            this.tooltip = this.viewContainer.createComponent(this.tooltipFactory.componentFactories[0], 0);
+            this.tooltip.instance["content"] = this.tooltipTemplate;
+            this.tooltip.instance["parentEl"] = this.elementRef;
+            this.tooltip.instance["tooltipOptions"] = this.options;
+
+            if (this.options.dismissable) {
+                $("html").on("click." + this.tooltipId, (event: any) => {
+                    let $target = $(event.target);
+                    if (!$target.closest(this.tooltip.instance.elementRef.nativeElement).length && !$target.closest(this.elementRef.nativeElement).length) {
+                        this.hideTooltip();
+                    }
+                });
+            }
+        }
+    }
+
+    private destroyView() {
+        if (this.viewContainer.length > 0) {
+            this.viewContainer.remove(0);
+        }
+
+    }
+
+    private hideTooltip() {
+        this.tooltip.destroy();
+        $("html").off("click." + this.tooltipId);
+        this.tooltip = undefined;
+    }
+
+    private get options(): TooltipOptions {
+        return _.defaults({}, this.tooltipOptions || {}, defaultTooltipOptions);
     }
 }

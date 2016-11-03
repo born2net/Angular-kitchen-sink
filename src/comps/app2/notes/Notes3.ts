@@ -79,7 +79,7 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <ngBookRepeatSample></ngBookRepeatSample>
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 12'">
-                    <h3>Injecting template as string</h3>
+                    <h3>Injecting compileModuleAndAllComponentsSync component</h3>
                     <InjectTemplateParent></InjectTemplateParent>
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 13'">
