@@ -105,7 +105,8 @@ What features of Angular does this app cover? everything:
 - Global Consts for event and vars registration
 - Responsive design (on size change Angular components will react)
 - Creation of a Component's Template from Dynamic HTML fragment (notes5)
-- Create component dynamically in runtime and pass in template (tooltip)
+- Create module dynamically and its declared components at runtime via compileModuleAndAllComponentsSync
+- Create component dynamically at runtime and pass in template (tooltip)
 - Multi slot transclusion
 - RXjs powered Custom HTTP class that extends the default Http ng2 to add new behaviour
 - Rxjs reactive operators and subscribers throughout the app (some random examples as well)
