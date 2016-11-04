@@ -2,6 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from "@angular/router";
 import "rxjs/add/operator/filter";
 
+/**
+ *  reference: http://brianflove.com/2016/10/23/angular2-breadcrumb-using-router/
+ **/
+
 interface IBreadcrumb {
     label: string;
     params?: Params;
