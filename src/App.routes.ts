@@ -30,7 +30,10 @@ const appRoutes: Routes = [{
     component: EntryPanel
 }, {
     path: 'AppManager',
-    component: AppManager
+    component: AppManager,
+    data: {
+        breadcrumb: "AppManager"
+    }
 }, {
     path: 'Welcome',
     component: Welcome
@@ -54,10 +57,16 @@ const appRoutes: Routes = [{
         component: Todos
     }, {
         path: 'Digg',
-        component: Digg
+        component: Digg,
+        data: {
+            breadcrumb: "Digg"
+        }
     }, {
         path: 'Settings',
-        component: Settings
+        component: Settings,
+        data: {
+            breadcrumb: "Settings"
+        }
     }, {
         path: 'LazyLoad',
         loadChildren: '/src/comps/app1/lazyone/LazyOneModule'
