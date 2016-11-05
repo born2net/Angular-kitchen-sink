@@ -28,8 +28,7 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <StarWarsSearch></StarWarsSearch>
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 2'">
-                    <h3>example of wiki search</h3>
-                     <WikiSearch></WikiSearch>
+                    <h3>example of wiki search</h3>directive             <WikiSearch></WikiSearch>
                   </mini-tab>
                   <mini-tab [tabTitle]="'Code 3'">
                     <h3>infinity scroll</h3>
@@ -38,6 +37,12 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                   <mini-tab [tabTitle]="'Code 4'">
                     <h3>Clock</h3>
                      <Clock></Clock>
+                     <hr/>
+                     <h4>MouseWheel directive</h4>
+                     <h5>Scroll with mouse wheel to show direction</h5>
+                     <div mouseWheel (mouseWheelUp)="mouseWheel('up',$event)" (mouseWheelDown)="mouseWheel('down',$event)">
+                        <textarea>{{wheelDirection}}</textarea>                    
+                     </div>
                   </mini-tab>       
                   <mini-tab [tabTitle]="'Code 5'">
                     <h3>Multi Slot Transclusion</h3>
@@ -154,6 +159,7 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
 export class Notes3 extends NotesBase {
 
     private show = true;
+    private wheelDirection = 'wheel me in';
     constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
         this.me = this;
@@ -163,6 +169,10 @@ export class Notes3 extends NotesBase {
 
     toggleShowHide(){
         this.show = !this.show;
+    }
+
+    mouseWheel(direction, event){
+        this.wheelDirection = direction;
     }
 }
 
