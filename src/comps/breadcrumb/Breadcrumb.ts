@@ -1,6 +1,7 @@
 /**
  *  reference: http://brianflove.com/2016/10/23/angular2-breadcrumb-using-router/
  **/
+
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from "@angular/router";
 import "rxjs/add/operator/filter";
@@ -57,7 +58,7 @@ export class BreadcrumbComponent implements OnInit {
         }
 
         //iterate over each children
-        for (var child of children) {
+        for (let child of children) {
             //verify primary route
             if (child.outlet !== PRIMARY_OUTLET) {
                 continue;
@@ -82,11 +83,12 @@ export class BreadcrumbComponent implements OnInit {
             };
             breadcrumbs.push(breadcrumb);
 
-            break;
+            //recursive
+            return this.getBreadcrumbs(child, url, breadcrumbs);
         }
 
-        //recursive
-        return this.getBreadcrumbs(child, url, breadcrumbs);
+        //we should never get here, but just in case
+        return breadcrumbs;
     }
 
 }
