@@ -71,3 +71,4 @@ System.register(["@angular/core", "../../services/CommBroker", "../../../src/Con
         }
     }
 });
+//# sourceMappingURL=App2.js.map

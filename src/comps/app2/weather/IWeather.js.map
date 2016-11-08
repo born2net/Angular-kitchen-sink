@@ -1,1 +1,1 @@
-{"version":3,"file":"IWeather.js","sourceRoot":"","sources":["IWeather.ts"],"names":[],"mappings":""}
+{"version":3,"file":"IWeather.js","sourceRoot":"","sources":["IWeather.ts"],"names":[],"mappings":"","sourcesContent":["export interface IWeatherItem {\r\n    day: string;\r\n    iconPath: string;\r\n    maxtempC: string;\r\n    maxtempF: string;\r\n    mintempC: string;\r\n    mintempF: string;\r\n}\r\n\r\n"]}

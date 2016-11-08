@@ -19,3 +19,4 @@ System.register([], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=MailModel.js.map

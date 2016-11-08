@@ -139,3 +139,4 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
         }
     }
 });
+//# sourceMappingURL=Notes1.js.map

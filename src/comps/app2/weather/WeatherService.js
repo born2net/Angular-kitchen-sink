@@ -56,3 +56,4 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
         }
     }
 });
+//# sourceMappingURL=WeatherService.js.map

@@ -56,3 +56,4 @@ System.register(['@angular/core', 'lodash'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=OrderBy.js.map

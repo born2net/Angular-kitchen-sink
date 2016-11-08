@@ -58,3 +58,4 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=SortableHeader.js.map

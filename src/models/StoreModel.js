@@ -42,3 +42,4 @@ System.register(['immutable', 'angular2-uuid'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=StoreModel.js.map

@@ -44,3 +44,4 @@ System.register(["@angular/core", "./Menu"], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=MenuItem.js.map

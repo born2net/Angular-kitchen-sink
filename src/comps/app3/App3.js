@@ -37,3 +37,4 @@ System.register(["@angular/core", "./App3.html!text"], function(exports_1, conte
         }
     }
 });
+//# sourceMappingURL=App3.js.map

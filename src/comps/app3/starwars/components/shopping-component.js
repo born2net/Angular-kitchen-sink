@@ -66,3 +66,4 @@ System.register(['@angular/core', "../actions/cart-actions", "../actions/part-ac
         }
     }
 });
+//# sourceMappingURL=shopping-component.js.map

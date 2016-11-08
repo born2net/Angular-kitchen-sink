@@ -78,3 +78,4 @@ System.register(['@angular/core', './Minitab'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=Minitabs.js.map

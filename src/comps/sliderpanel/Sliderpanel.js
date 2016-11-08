@@ -80,3 +80,4 @@ System.register(['@angular/core', '@angular/platform-browser'], function(exports
         }
     }
 });
+//# sourceMappingURL=Sliderpanel.js.map

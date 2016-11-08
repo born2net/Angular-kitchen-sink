@@ -65,3 +65,4 @@ System.register(["@angular/core", 'rxjs/Observable', 'rxjs/add/operator/do', "rx
         }
     }
 });
+//# sourceMappingURL=Myip.js.map

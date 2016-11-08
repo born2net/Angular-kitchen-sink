@@ -61,3 +61,4 @@ System.register(["@angular/core", "../../Conts"], function(exports_1, context_1)
         }
     }
 });
+//# sourceMappingURL=DividerPanel.js.map

@@ -1,278 +1,549 @@
-/**
- * License MIT
- **/
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-require("zone.js/dist/zone");
-require("zone.js/dist/long-stack-trace-zone");
-require("reflect-metadata");
-var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
-var core_1 = require("@angular/core");
-require("twbs/bootstrap");
-require("twbs/bootstrap/dist/css/bootstrap.css!");
-require("./styles/style.css!");
-var CharCount_1 = require("./pipes/CharCount");
-var AppInjService_1 = require("./services/AppInjService");
-var Filemenu_1 = require("../src/comps/filemenu/Filemenu");
-var FilemenuItem_1 = require("../src/comps/filemenu/FilemenuItem");
-var Logo_1 = require("./comps/logo/Logo");
-var Footer_1 = require("./comps/footer/Footer");
-var Conts_1 = require("../src/Conts");
-var StyleService_1 = require("./styles/StyleService");
-var angular2_redux_util_1 = require("angular2-redux-util");
-var Lib_1 = require("./Lib");
-var Observable_1 = require("rxjs/Observable");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/debounceTime");
-require("rxjs/add/observable/fromEvent");
-var parts_reducer_1 = require("./comps/app3/starwars/reducers/parts-reducer");
-var cart_reducer_1 = require("./comps/app3/starwars/reducers/cart-reducer");
-var films_reducer_1 = require("./comps/app3/starwars/reducers/films-reducer");
-var users_reducer_1 = require("./comps/app3/starwars/reducers/users-reducer");
-var NotifyReducer_1 = require("./reducers/NotifyReducer");
-var AppdbReducer_1 = require("./reducers/AppdbReducer");
-var TodoReducer_1 = require("./comps/app1/todos/reducers/TodoReducer");
-var AppdbAction_1 = require("./actions/AppdbAction");
-var App_routes_1 = require("./App.routes");
-var LogoutDeactivate_1 = require("./comps/logout/LogoutDeactivate");
-var position_service_1 = require("./comps/tooltip/position.service");
-var platform_browser_1 = require("@angular/platform-browser");
-// import {ModalComponent} from "ng2-bs3-modal/components/modal";
-var Welcome_1 = require("./comps/welcome/Welcome");
-var Digg_1 = require("./comps/digg/Digg");
-var Todos_1 = require("./comps/app1/todos/Todos");
-var Settings_1 = require("./comps/app1/settings/Settings");
-var LoginPanel_1 = require("./comps/entry/LoginPanel");
-var Help_1 = require("./comps/app1/help/Help");
-var App1_1 = require("./comps/app1/App1");
-var App2_1 = require("./comps/app2/App2");
-var App3_1 = require("./comps/app3/App3");
-var ForgotPass_1 = require("./comps/entry/ForgotPass");
-var AppManager_1 = require("./comps/appmanager/AppManager");
-var EntryPanel_1 = require("./comps/entry/EntryPanel");
-var Logout_1 = require("./comps/logout/Logout");
-var make_draggable_directive_1 = require("./comps/dragndrop/make-draggable.directive");
-var make_droppable_directive_1 = require("./comps/dragndrop/make-droppable.directive");
-var Sliderpanel_1 = require("./comps/sliderpanel/Sliderpanel");
-var Todo1_1 = require("./comps/app1/todos/Todo1");
-var Todo2_1 = require("./comps/app1/todos/Todo2");
-var Todolist_1 = require("./comps/app1/todos/Todolist");
-var SortBy_1 = require("./pipes/SortBy");
-var OrderBy_1 = require("./pipes/OrderBy");
-var Menu_1 = require("./comps/sidemenu/Menu");
-var MenuItem_1 = require("./comps/sidemenu/MenuItem");
-var contributors_1 = require("./comps/app1/help/contributors/contributors");
-var Todoitem_1 = require("./comps/app1/todos/Todoitem");
-var tabs_1 = require("./comps/tabs/tabs");
-var tab_1 = require("./comps/tabs/tab");
-var ng2_bootstrap_1 = require("ng2-bootstrap");
-var MyChart_1 = require("./comps/app1/help/contributors/MyChart");
-var ng2_highcharts_1 = require("./comps/ng2-highcharts/src/directives/ng2-highcharts");
-var Nodelogger_1 = require("./comps/nodelogger/Nodelogger");
-var DividerPanel_1 = require("./comps/dividerpanel/DividerPanel");
-var Properties_1 = require("./comps/app2/properties/Properties");
-var Weather_1 = require("./comps/app2/weather/Weather");
-var Contact_1 = require("./comps/app2/contact/Contact");
-var ModalDialog_1 = require("./comps/modaldialog/ModalDialog");
-var Notes_1 = require("./comps/app2/notes/Notes");
-var Notes3_1 = require("./comps/app2/notes/Notes3");
-var Notes4_1 = require("./comps/app2/notes/Notes4");
-var Notes5_1 = require("./comps/app2/notes/Notes5");
-var Notes1_1 = require("./comps/app2/notes/Notes1");
-var Notes2_1 = require("./comps/app2/notes/Notes2");
-var CreateEmbedDiffer_1 = require("./comps/app2/notes/CreateEmbedDiffer");
-var InjectTemplateChild_1 = require("./comps/app2/notes/InjectTemplateChild");
-var DisplayError_1 = require("./comps/displayerror/DisplayError");
-var CounterInputComponent_1 = require("./comps/counterinputcomponent/CounterInputComponent");
-var Myip_1 = require("./comps/myip/Myip");
-var TrimmedInput_1 = require("./comps/trimmedinput/TrimmedInput");
-var Minitab_1 = require("./comps/minitabs/Minitab");
-var Minitabs_1 = require("./comps/minitabs/Minitabs");
-var StarWarsSearch_1 = require("./comps/app2/notes/StarWarsSearch");
-var WikiSearch_1 = require("./comps/app2/notes/WikiSearch");
-var InfinityScroll_1 = require("./comps/app2/notes/InfinityScroll");
-var MultiSlotTransclusion_1 = require("./comps/app2/notes/MultiSlotTransclusion");
-var Clock_1 = require("./comps/app2/notes/Clock");
-var CompElemBuilder_1 = require("./comps/app2/notes/CompElemBuilder");
-var EmbedView_1 = require("./comps/app2/notes/EmbedView");
-var ToggleButton_1 = require("./comps/app2/notes/ToggleButton");
-var StreamButton_1 = require("./comps/app2/notes/StreamButton");
-var ngBookRepeat_1 = require("./comps/ngForIf/ngBookRepeat");
-var InjectTemplateParent_1 = require("./comps/app2/notes/InjectTemplateParent");
-var optionlistcomponent_1 = require("./comps/optionlistcomponent/optionlistcomponent");
-var NotesDetailsItems_1 = require("./comps/app2/notes/NotesDetailsItems");
-var NotesDetails_1 = require("./comps/app2/notes/NotesDetails");
-var CountDown_1 = require("./comps/countdown/CountDown");
-var Notes1Props_1 = require("./comps/app2/notes/Notes1Props");
-var SortableHeader_1 = require("./comps/app2/weather/SortableHeader");
-var films_component_1 = require("./comps/app3/starwars/components/films-component");
-var admin_component_1 = require("./comps/app3/starwars/components/admin-component");
-var shopping_component_1 = require("./comps/app3/starwars/components/shopping-component");
-var starwars_1 = require("./comps/app3/starwars/starwars");
-var users_view_1 = require("./comps/app3/starwars/components/users-view");
-var cart_view_1 = require("./comps/app3/starwars/components/cart-view");
-var add_part_view_1 = require("./comps/app3/starwars/components/add-part-view");
-var Simplelist_1 = require("./comps/simplelist/Simplelist");
-var user_view_1 = require("./comps/app3/starwars/components/user-view");
-var film_selection_view_1 = require("./comps/app3/starwars/components/film-selection-view");
-var film_view_1 = require("./comps/app3/starwars/components/film-view");
-var ng2_highstocks_1 = require("./comps/ng2-highcharts/src/directives/ng2-highstocks");
-var ng2_highmaps_1 = require("./comps/ng2-highcharts/src/directives/ng2-highmaps");
-var parts_view_1 = require("./comps/app3/starwars/components/parts-view");
-var accordion_1 = require("./comps/ng2Accordion/accordion");
-var button_checkbox_component_1 = require("./comps/ng2button/button-checkbox.component");
-var button_radio_component_1 = require("./comps/ng2button/button-radio.component");
-var tooltip_component_1 = require("./comps/tooltip/tooltip.component");
-var HeightDirective_1 = require("./comps/heightdirective/HeightDirective");
-var SharedModule_1 = require("./comps/app1/lazyone/SharedModule");
-var DynaFactoryRes_1 = require("./comps/app2/notes/DynaFactoryRes");
-var DynaFactoryResHelloWorld_1 = require("./comps/app2/notes/DynaFactoryResHelloWorld");
-var PureDialog_1 = require("./comps/puredialog/PureDialog");
-var PureDialogDirective_1 = require("./comps/puredialog/PureDialogDirective");
-var LoggingErrorHandlerOptions_1 = require("./services/errorhandler/LoggingErrorHandlerOptions");
-var ErrorLogService_1 = require("./services/errorhandler/ErrorLogService");
-var AnimateCards_1 = require("./comps/app2/notes/AnimateCards");
-var AnimateBox_1 = require("./comps/app2/notes/AnimateBox");
-var App_html_text_1 = require('./App.html!text');
-var hello_world_component_1 = require("./comps/dynmiaccomp/hello-world-component");
-var world_hello_component_1 = require("./comps/dynmiaccomp/world-hello-component");
-var dynamic_component_1 = require("./comps/dynmiaccomp/dynamic-component");
-var dynamic_app_1 = require("./comps/dynmiaccomp/dynamic-app");
-var ContentHeros_1 = require("./comps/app2/notes/ContentHeros");
-var content_bar_app_1 = require("./comps/contentbar/content-bar-app");
-var bar_editor_component_1 = require("./comps/contentbar/bar-editor.component");
-var editor_component_1 = require("./comps/contentbar/editor.component");
-var foo_editor_component_1 = require("./comps/contentbar/foo-editor.component");
-var SwitchComponent_1 = require("./comps/switchcomponent/SwitchComponent");
-var ShowHideDirective_1 = require("./comps/showHideDirective/ShowHideDirective");
-var Breadcrumb_1 = require("./comps/breadcrumb/Breadcrumb");
-var Mousewheel_1 = require("./comps/Mousewheel/Mousewheel");
-var providing = [{
-        provide: angular2_redux_util_1.AppStore,
-        useFactory: Lib_1.Lib.StoreFactory({
-            notify: NotifyReducer_1.default,
-            appdb: AppdbReducer_1.default,
-            parts: parts_reducer_1.default,
-            cart: cart_reducer_1.default,
-            films: films_reducer_1.default,
-            users: users_reducer_1.default,
-            todos: TodoReducer_1.todos
-        })
-    }, {
-        provide: position_service_1.PositionService,
-        useClass: position_service_1.PositionService
-    }, {
-        provide: CharCount_1.CharCount
-    }, {
-        provide: Conts_1.Consts,
-        useClass: Conts_1.Consts
-    }];
-/**
- Main application bootstrap
- @class Main
- **/
-var Main = (function () {
-    function Main(appStore, commBroker, styleService, appdbAction, _http, viewContainerRef) {
-        var _this = this;
-        this.appStore = appStore;
-        this.commBroker = commBroker;
-        this.appdbAction = appdbAction;
-        this._http = _http;
-        this.viewContainerRef = viewContainerRef;
-        appStore.dispatch(appdbAction.appStartTime());
-        this.m_styleService = styleService;
-        this.commBroker.setService(Conts_1.Consts.Services().App, this);
-        Observable_1.Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(function () {
-            _this.appResized();
-        });
-    }
-    /**
-     On application resize deal with height changes
-     @method appResized
-     **/
-    Main.prototype.appResized = function () {
-        var appHeight = document.body.clientHeight;
-        var appWidth = document.body.clientWidth;
-        //console.log('resized ' + appHeight);
-        jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_EVER).height(appHeight - 115);
-        jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_WASP).height(appHeight - 115);
-        jQuery(Conts_1.Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 420);
-        jQuery('#mainPanelWrap').height(appHeight - 115);
-        jQuery('#propPanel').height(appHeight - 130);
-        this.commBroker.setValue(Conts_1.Consts.Values().APP_SIZE, {
-            height: appHeight,
-            width: appWidth
-        });
-        this.commBroker.fire({
-            fromInstance: self,
-            event: Conts_1.Consts.Events().WIN_SIZED,
-            context: '',
-            message: {
-                height: appHeight,
-                width: appWidth
-            }
-        });
+System.register(["zone.js/dist/zone", "zone.js/dist/long-stack-trace-zone", "reflect-metadata", "@angular/platform-browser-dynamic", "@angular/core", "twbs/bootstrap", "twbs/bootstrap/dist/css/bootstrap.css!", "./styles/style.css!", "./pipes/CharCount", "./services/AppInjService", "@angular/http", "../src/services/CommBroker", "../src/comps/filemenu/Filemenu", "../src/comps/filemenu/FilemenuItem", "./comps/logo/Logo", "./comps/footer/Footer", "../src/Conts", "./styles/StyleService", "angular2-redux-util", "./Lib", "rxjs/Observable", "rxjs/add/operator/map", "rxjs/add/operator/debounceTime", "rxjs/add/observable/fromEvent", "./comps/app3/starwars/reducers/parts-reducer", "./comps/app3/starwars/reducers/cart-reducer", "./comps/app3/starwars/reducers/films-reducer", "./comps/app3/starwars/reducers/users-reducer", "./reducers/NotifyReducer", "./reducers/AppdbReducer", "./comps/app1/todos/reducers/TodoReducer", "./actions/AppdbAction", "./App.routes", "./comps/logout/LogoutDeactivate", "./comps/tooltip/position.service", "@angular/platform-browser", "./comps/welcome/Welcome", "./comps/digg/Digg", "./comps/app1/todos/Todos", "./comps/app1/settings/Settings", "./comps/entry/LoginPanel", "./comps/app1/help/Help", "./comps/app1/App1", "./comps/app2/App2", "./comps/app3/App3", "./comps/entry/ForgotPass", "./comps/appmanager/AppManager", "./comps/entry/EntryPanel", "./comps/logout/Logout", "./comps/dragndrop/make-draggable.directive", "./comps/dragndrop/make-droppable.directive", "./comps/sliderpanel/Sliderpanel", "./comps/app1/todos/Todo1", "./comps/app1/todos/Todo2", "./comps/app1/todos/Todolist", "./pipes/SortBy", "./pipes/OrderBy", "./comps/sidemenu/Menu", "./comps/sidemenu/MenuItem", "./comps/app1/help/contributors/contributors", "./comps/app1/todos/Todoitem", "./comps/tabs/tabs", "./comps/tabs/tab", "ng2-bootstrap", "./comps/app1/help/contributors/MyChart", "./comps/ng2-highcharts/src/directives/ng2-highcharts", "./comps/nodelogger/Nodelogger", "./comps/dividerpanel/DividerPanel", "./comps/app2/properties/Properties", "./comps/app2/weather/Weather", "./comps/app2/contact/Contact", "./comps/modaldialog/ModalDialog", "./comps/app2/notes/Notes", "./comps/app2/notes/Notes3", "./comps/app2/notes/Notes4", "./comps/app2/notes/Notes5", "./comps/app2/notes/Notes1", "./comps/app2/notes/Notes2", "./comps/app2/notes/CreateEmbedDiffer", "./comps/app2/notes/InjectTemplateChild", "./comps/displayerror/DisplayError", "./comps/counterinputcomponent/CounterInputComponent", "./comps/myip/Myip", "./comps/trimmedinput/TrimmedInput", "./comps/minitabs/Minitab", "./comps/minitabs/Minitabs", "./comps/app2/notes/StarWarsSearch", "./comps/app2/notes/WikiSearch", "./comps/app2/notes/InfinityScroll", "./comps/app2/notes/MultiSlotTransclusion", "./comps/app2/notes/Clock", "./comps/app2/notes/CompElemBuilder", "./comps/app2/notes/EmbedView", "./comps/app2/notes/ToggleButton", "./comps/app2/notes/StreamButton", "./comps/ngForIf/ngBookRepeat", "./comps/app2/notes/InjectTemplateParent", "./comps/optionlistcomponent/optionlistcomponent", "./comps/app2/notes/NotesDetailsItems", "./comps/app2/notes/NotesDetails", "./comps/countdown/CountDown", "./comps/app2/notes/Notes1Props", "./comps/app2/weather/SortableHeader", "./comps/app3/starwars/components/films-component", "./comps/app3/starwars/components/admin-component", "./comps/app3/starwars/components/shopping-component", "./comps/app3/starwars/starwars", "./comps/app3/starwars/components/users-view", "./comps/app3/starwars/components/cart-view", "./comps/app3/starwars/components/add-part-view", "./comps/simplelist/Simplelist", "./comps/app3/starwars/components/user-view", "./comps/app3/starwars/components/film-selection-view", "./comps/app3/starwars/components/film-view", "./comps/ng2-highcharts/src/directives/ng2-highstocks", "./comps/ng2-highcharts/src/directives/ng2-highmaps", "./comps/app3/starwars/components/parts-view", "./comps/ng2Accordion/accordion", "./comps/ng2button/button-checkbox.component", "./comps/ng2button/button-radio.component", "./comps/tooltip/tooltip.component", "./comps/heightdirective/HeightDirective", "./comps/app1/lazyone/SharedModule", "./comps/app2/notes/DynaFactoryRes", "./comps/app2/notes/DynaFactoryResHelloWorld", "./comps/puredialog/PureDialog", "./comps/puredialog/PureDialogDirective", "./services/errorhandler/LoggingErrorHandlerOptions", "./services/errorhandler/ErrorLogService", "./comps/app2/notes/AnimateCards", "./comps/app2/notes/AnimateBox", './App.html!text', "./comps/dynmiaccomp/hello-world-component", "./comps/dynmiaccomp/world-hello-component", "./comps/dynmiaccomp/dynamic-component", "./comps/dynmiaccomp/dynamic-app", "./comps/app2/notes/ContentHeros", "./comps/contentbar/content-bar-app", "./comps/contentbar/bar-editor.component", "./comps/contentbar/editor.component", "./comps/contentbar/foo-editor.component", "./comps/switchcomponent/SwitchComponent", "./comps/showHideDirective/ShowHideDirective", "./comps/breadcrumb/Breadcrumb", "./comps/Mousewheel/Mousewheel"], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    Main = __decorate([
-        core_1.Component({
-            selector: 'app',
-            moduleId: __moduleName,
-            encapsulation: core_1.ViewEncapsulation.Emulated,
-            providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction, providing],
-            template: App_html_text_1.default
-        })
-    ], Main);
-    return Main;
-}());
-exports.Main = Main;
-if (!Lib_1.Lib.DevMode())
-    core_1.enableProdMode();
-var App = (function () {
-    function App() {
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var platform_browser_dynamic_1, core_1, CharCount_1, AppInjService_1, http_1, CommBroker_1, Filemenu_1, FilemenuItem_1, Logo_1, Footer_1, Conts_1, StyleService_1, angular2_redux_util_1, Lib_1, Observable_1, parts_reducer_1, cart_reducer_1, films_reducer_1, users_reducer_1, NotifyReducer_1, AppdbReducer_1, TodoReducer_1, AppdbAction_1, App_routes_1, LogoutDeactivate_1, position_service_1, platform_browser_1, Welcome_1, Digg_1, Todos_1, Settings_1, LoginPanel_1, Help_1, App1_1, App2_1, App3_1, ForgotPass_1, AppManager_1, EntryPanel_1, Logout_1, make_draggable_directive_1, make_droppable_directive_1, Sliderpanel_1, Todo1_1, Todo2_1, Todolist_1, SortBy_1, OrderBy_1, Menu_1, MenuItem_1, contributors_1, Todoitem_1, tabs_1, tab_1, ng2_bootstrap_1, MyChart_1, ng2_highcharts_1, Nodelogger_1, DividerPanel_1, Properties_1, Weather_1, Contact_1, ModalDialog_1, Notes_1, Notes3_1, Notes4_1, Notes5_1, Notes1_1, Notes2_1, CreateEmbedDiffer_1, InjectTemplateChild_1, DisplayError_1, CounterInputComponent_1, Myip_1, TrimmedInput_1, Minitab_1, Minitabs_1, StarWarsSearch_1, WikiSearch_1, InfinityScroll_1, MultiSlotTransclusion_1, Clock_1, CompElemBuilder_1, EmbedView_1, ToggleButton_1, StreamButton_1, ngBookRepeat_1, InjectTemplateParent_1, optionlistcomponent_1, NotesDetailsItems_1, NotesDetails_1, CountDown_1, Notes1Props_1, SortableHeader_1, films_component_1, admin_component_1, shopping_component_1, starwars_1, users_view_1, cart_view_1, add_part_view_1, Simplelist_1, user_view_1, film_selection_view_1, film_view_1, ng2_highstocks_1, ng2_highmaps_1, parts_view_1, accordion_1, button_checkbox_component_1, button_radio_component_1, tooltip_component_1, HeightDirective_1, SharedModule_1, DynaFactoryRes_1, DynaFactoryResHelloWorld_1, PureDialog_1, PureDialogDirective_1, LoggingErrorHandlerOptions_1, ErrorLogService_1, AnimateCards_1, AnimateBox_1, App_html_text_1, hello_world_component_1, world_hello_component_1, dynamic_component_1, dynamic_app_1, ContentHeros_1, content_bar_app_1, bar_editor_component_1, editor_component_1, foo_editor_component_1, SwitchComponent_1, ShowHideDirective_1, Breadcrumb_1, Mousewheel_1;
+    var providing, Main, App;
+    return {
+        setters:[
+            function (_1) {},
+            function (_2) {},
+            function (_3) {},
+            function (platform_browser_dynamic_1_1) {
+                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
+            },
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (_4) {},
+            function (_5) {},
+            function (_6) {},
+            function (CharCount_1_1) {
+                CharCount_1 = CharCount_1_1;
+            },
+            function (AppInjService_1_1) {
+                AppInjService_1 = AppInjService_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (CommBroker_1_1) {
+                CommBroker_1 = CommBroker_1_1;
+            },
+            function (Filemenu_1_1) {
+                Filemenu_1 = Filemenu_1_1;
+            },
+            function (FilemenuItem_1_1) {
+                FilemenuItem_1 = FilemenuItem_1_1;
+            },
+            function (Logo_1_1) {
+                Logo_1 = Logo_1_1;
+            },
+            function (Footer_1_1) {
+                Footer_1 = Footer_1_1;
+            },
+            function (Conts_1_1) {
+                Conts_1 = Conts_1_1;
+            },
+            function (StyleService_1_1) {
+                StyleService_1 = StyleService_1_1;
+            },
+            function (angular2_redux_util_1_1) {
+                angular2_redux_util_1 = angular2_redux_util_1_1;
+            },
+            function (Lib_1_1) {
+                Lib_1 = Lib_1_1;
+            },
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            },
+            function (_7) {},
+            function (_8) {},
+            function (_9) {},
+            function (parts_reducer_1_1) {
+                parts_reducer_1 = parts_reducer_1_1;
+            },
+            function (cart_reducer_1_1) {
+                cart_reducer_1 = cart_reducer_1_1;
+            },
+            function (films_reducer_1_1) {
+                films_reducer_1 = films_reducer_1_1;
+            },
+            function (users_reducer_1_1) {
+                users_reducer_1 = users_reducer_1_1;
+            },
+            function (NotifyReducer_1_1) {
+                NotifyReducer_1 = NotifyReducer_1_1;
+            },
+            function (AppdbReducer_1_1) {
+                AppdbReducer_1 = AppdbReducer_1_1;
+            },
+            function (TodoReducer_1_1) {
+                TodoReducer_1 = TodoReducer_1_1;
+            },
+            function (AppdbAction_1_1) {
+                AppdbAction_1 = AppdbAction_1_1;
+            },
+            function (App_routes_1_1) {
+                App_routes_1 = App_routes_1_1;
+            },
+            function (LogoutDeactivate_1_1) {
+                LogoutDeactivate_1 = LogoutDeactivate_1_1;
+            },
+            function (position_service_1_1) {
+                position_service_1 = position_service_1_1;
+            },
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (Welcome_1_1) {
+                Welcome_1 = Welcome_1_1;
+            },
+            function (Digg_1_1) {
+                Digg_1 = Digg_1_1;
+            },
+            function (Todos_1_1) {
+                Todos_1 = Todos_1_1;
+            },
+            function (Settings_1_1) {
+                Settings_1 = Settings_1_1;
+            },
+            function (LoginPanel_1_1) {
+                LoginPanel_1 = LoginPanel_1_1;
+            },
+            function (Help_1_1) {
+                Help_1 = Help_1_1;
+            },
+            function (App1_1_1) {
+                App1_1 = App1_1_1;
+            },
+            function (App2_1_1) {
+                App2_1 = App2_1_1;
+            },
+            function (App3_1_1) {
+                App3_1 = App3_1_1;
+            },
+            function (ForgotPass_1_1) {
+                ForgotPass_1 = ForgotPass_1_1;
+            },
+            function (AppManager_1_1) {
+                AppManager_1 = AppManager_1_1;
+            },
+            function (EntryPanel_1_1) {
+                EntryPanel_1 = EntryPanel_1_1;
+            },
+            function (Logout_1_1) {
+                Logout_1 = Logout_1_1;
+            },
+            function (make_draggable_directive_1_1) {
+                make_draggable_directive_1 = make_draggable_directive_1_1;
+            },
+            function (make_droppable_directive_1_1) {
+                make_droppable_directive_1 = make_droppable_directive_1_1;
+            },
+            function (Sliderpanel_1_1) {
+                Sliderpanel_1 = Sliderpanel_1_1;
+            },
+            function (Todo1_1_1) {
+                Todo1_1 = Todo1_1_1;
+            },
+            function (Todo2_1_1) {
+                Todo2_1 = Todo2_1_1;
+            },
+            function (Todolist_1_1) {
+                Todolist_1 = Todolist_1_1;
+            },
+            function (SortBy_1_1) {
+                SortBy_1 = SortBy_1_1;
+            },
+            function (OrderBy_1_1) {
+                OrderBy_1 = OrderBy_1_1;
+            },
+            function (Menu_1_1) {
+                Menu_1 = Menu_1_1;
+            },
+            function (MenuItem_1_1) {
+                MenuItem_1 = MenuItem_1_1;
+            },
+            function (contributors_1_1) {
+                contributors_1 = contributors_1_1;
+            },
+            function (Todoitem_1_1) {
+                Todoitem_1 = Todoitem_1_1;
+            },
+            function (tabs_1_1) {
+                tabs_1 = tabs_1_1;
+            },
+            function (tab_1_1) {
+                tab_1 = tab_1_1;
+            },
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
+            },
+            function (MyChart_1_1) {
+                MyChart_1 = MyChart_1_1;
+            },
+            function (ng2_highcharts_1_1) {
+                ng2_highcharts_1 = ng2_highcharts_1_1;
+            },
+            function (Nodelogger_1_1) {
+                Nodelogger_1 = Nodelogger_1_1;
+            },
+            function (DividerPanel_1_1) {
+                DividerPanel_1 = DividerPanel_1_1;
+            },
+            function (Properties_1_1) {
+                Properties_1 = Properties_1_1;
+            },
+            function (Weather_1_1) {
+                Weather_1 = Weather_1_1;
+            },
+            function (Contact_1_1) {
+                Contact_1 = Contact_1_1;
+            },
+            function (ModalDialog_1_1) {
+                ModalDialog_1 = ModalDialog_1_1;
+            },
+            function (Notes_1_1) {
+                Notes_1 = Notes_1_1;
+            },
+            function (Notes3_1_1) {
+                Notes3_1 = Notes3_1_1;
+            },
+            function (Notes4_1_1) {
+                Notes4_1 = Notes4_1_1;
+            },
+            function (Notes5_1_1) {
+                Notes5_1 = Notes5_1_1;
+            },
+            function (Notes1_1_1) {
+                Notes1_1 = Notes1_1_1;
+            },
+            function (Notes2_1_1) {
+                Notes2_1 = Notes2_1_1;
+            },
+            function (CreateEmbedDiffer_1_1) {
+                CreateEmbedDiffer_1 = CreateEmbedDiffer_1_1;
+            },
+            function (InjectTemplateChild_1_1) {
+                InjectTemplateChild_1 = InjectTemplateChild_1_1;
+            },
+            function (DisplayError_1_1) {
+                DisplayError_1 = DisplayError_1_1;
+            },
+            function (CounterInputComponent_1_1) {
+                CounterInputComponent_1 = CounterInputComponent_1_1;
+            },
+            function (Myip_1_1) {
+                Myip_1 = Myip_1_1;
+            },
+            function (TrimmedInput_1_1) {
+                TrimmedInput_1 = TrimmedInput_1_1;
+            },
+            function (Minitab_1_1) {
+                Minitab_1 = Minitab_1_1;
+            },
+            function (Minitabs_1_1) {
+                Minitabs_1 = Minitabs_1_1;
+            },
+            function (StarWarsSearch_1_1) {
+                StarWarsSearch_1 = StarWarsSearch_1_1;
+            },
+            function (WikiSearch_1_1) {
+                WikiSearch_1 = WikiSearch_1_1;
+            },
+            function (InfinityScroll_1_1) {
+                InfinityScroll_1 = InfinityScroll_1_1;
+            },
+            function (MultiSlotTransclusion_1_1) {
+                MultiSlotTransclusion_1 = MultiSlotTransclusion_1_1;
+            },
+            function (Clock_1_1) {
+                Clock_1 = Clock_1_1;
+            },
+            function (CompElemBuilder_1_1) {
+                CompElemBuilder_1 = CompElemBuilder_1_1;
+            },
+            function (EmbedView_1_1) {
+                EmbedView_1 = EmbedView_1_1;
+            },
+            function (ToggleButton_1_1) {
+                ToggleButton_1 = ToggleButton_1_1;
+            },
+            function (StreamButton_1_1) {
+                StreamButton_1 = StreamButton_1_1;
+            },
+            function (ngBookRepeat_1_1) {
+                ngBookRepeat_1 = ngBookRepeat_1_1;
+            },
+            function (InjectTemplateParent_1_1) {
+                InjectTemplateParent_1 = InjectTemplateParent_1_1;
+            },
+            function (optionlistcomponent_1_1) {
+                optionlistcomponent_1 = optionlistcomponent_1_1;
+            },
+            function (NotesDetailsItems_1_1) {
+                NotesDetailsItems_1 = NotesDetailsItems_1_1;
+            },
+            function (NotesDetails_1_1) {
+                NotesDetails_1 = NotesDetails_1_1;
+            },
+            function (CountDown_1_1) {
+                CountDown_1 = CountDown_1_1;
+            },
+            function (Notes1Props_1_1) {
+                Notes1Props_1 = Notes1Props_1_1;
+            },
+            function (SortableHeader_1_1) {
+                SortableHeader_1 = SortableHeader_1_1;
+            },
+            function (films_component_1_1) {
+                films_component_1 = films_component_1_1;
+            },
+            function (admin_component_1_1) {
+                admin_component_1 = admin_component_1_1;
+            },
+            function (shopping_component_1_1) {
+                shopping_component_1 = shopping_component_1_1;
+            },
+            function (starwars_1_1) {
+                starwars_1 = starwars_1_1;
+            },
+            function (users_view_1_1) {
+                users_view_1 = users_view_1_1;
+            },
+            function (cart_view_1_1) {
+                cart_view_1 = cart_view_1_1;
+            },
+            function (add_part_view_1_1) {
+                add_part_view_1 = add_part_view_1_1;
+            },
+            function (Simplelist_1_1) {
+                Simplelist_1 = Simplelist_1_1;
+            },
+            function (user_view_1_1) {
+                user_view_1 = user_view_1_1;
+            },
+            function (film_selection_view_1_1) {
+                film_selection_view_1 = film_selection_view_1_1;
+            },
+            function (film_view_1_1) {
+                film_view_1 = film_view_1_1;
+            },
+            function (ng2_highstocks_1_1) {
+                ng2_highstocks_1 = ng2_highstocks_1_1;
+            },
+            function (ng2_highmaps_1_1) {
+                ng2_highmaps_1 = ng2_highmaps_1_1;
+            },
+            function (parts_view_1_1) {
+                parts_view_1 = parts_view_1_1;
+            },
+            function (accordion_1_1) {
+                accordion_1 = accordion_1_1;
+            },
+            function (button_checkbox_component_1_1) {
+                button_checkbox_component_1 = button_checkbox_component_1_1;
+            },
+            function (button_radio_component_1_1) {
+                button_radio_component_1 = button_radio_component_1_1;
+            },
+            function (tooltip_component_1_1) {
+                tooltip_component_1 = tooltip_component_1_1;
+            },
+            function (HeightDirective_1_1) {
+                HeightDirective_1 = HeightDirective_1_1;
+            },
+            function (SharedModule_1_1) {
+                SharedModule_1 = SharedModule_1_1;
+            },
+            function (DynaFactoryRes_1_1) {
+                DynaFactoryRes_1 = DynaFactoryRes_1_1;
+            },
+            function (DynaFactoryResHelloWorld_1_1) {
+                DynaFactoryResHelloWorld_1 = DynaFactoryResHelloWorld_1_1;
+            },
+            function (PureDialog_1_1) {
+                PureDialog_1 = PureDialog_1_1;
+            },
+            function (PureDialogDirective_1_1) {
+                PureDialogDirective_1 = PureDialogDirective_1_1;
+            },
+            function (LoggingErrorHandlerOptions_1_1) {
+                LoggingErrorHandlerOptions_1 = LoggingErrorHandlerOptions_1_1;
+            },
+            function (ErrorLogService_1_1) {
+                ErrorLogService_1 = ErrorLogService_1_1;
+            },
+            function (AnimateCards_1_1) {
+                AnimateCards_1 = AnimateCards_1_1;
+            },
+            function (AnimateBox_1_1) {
+                AnimateBox_1 = AnimateBox_1_1;
+            },
+            function (App_html_text_1_1) {
+                App_html_text_1 = App_html_text_1_1;
+            },
+            function (hello_world_component_1_1) {
+                hello_world_component_1 = hello_world_component_1_1;
+            },
+            function (world_hello_component_1_1) {
+                world_hello_component_1 = world_hello_component_1_1;
+            },
+            function (dynamic_component_1_1) {
+                dynamic_component_1 = dynamic_component_1_1;
+            },
+            function (dynamic_app_1_1) {
+                dynamic_app_1 = dynamic_app_1_1;
+            },
+            function (ContentHeros_1_1) {
+                ContentHeros_1 = ContentHeros_1_1;
+            },
+            function (content_bar_app_1_1) {
+                content_bar_app_1 = content_bar_app_1_1;
+            },
+            function (bar_editor_component_1_1) {
+                bar_editor_component_1 = bar_editor_component_1_1;
+            },
+            function (editor_component_1_1) {
+                editor_component_1 = editor_component_1_1;
+            },
+            function (foo_editor_component_1_1) {
+                foo_editor_component_1 = foo_editor_component_1_1;
+            },
+            function (SwitchComponent_1_1) {
+                SwitchComponent_1 = SwitchComponent_1_1;
+            },
+            function (ShowHideDirective_1_1) {
+                ShowHideDirective_1 = ShowHideDirective_1_1;
+            },
+            function (Breadcrumb_1_1) {
+                Breadcrumb_1 = Breadcrumb_1_1;
+            },
+            function (Mousewheel_1_1) {
+                Mousewheel_1 = Mousewheel_1_1;
+            }],
+        execute: function() {
+            providing = [{
+                    provide: angular2_redux_util_1.AppStore,
+                    useFactory: Lib_1.Lib.StoreFactory({
+                        notify: NotifyReducer_1.default,
+                        appdb: AppdbReducer_1.default,
+                        parts: parts_reducer_1.default,
+                        cart: cart_reducer_1.default,
+                        films: films_reducer_1.default,
+                        users: users_reducer_1.default,
+                        todos: TodoReducer_1.todos
+                    })
+                }, {
+                    provide: position_service_1.PositionService,
+                    useClass: position_service_1.PositionService
+                }, {
+                    provide: CharCount_1.CharCount
+                }, {
+                    provide: Conts_1.Consts,
+                    useClass: Conts_1.Consts
+                }];
+            Main = (function () {
+                function Main(appStore, commBroker, styleService, appdbAction, _http, viewContainerRef) {
+                    var _this = this;
+                    this.appStore = appStore;
+                    this.commBroker = commBroker;
+                    this.appdbAction = appdbAction;
+                    this._http = _http;
+                    this.viewContainerRef = viewContainerRef;
+                    appStore.dispatch(appdbAction.appStartTime());
+                    this.m_styleService = styleService;
+                    this.commBroker.setService(Conts_1.Consts.Services().App, this);
+                    Observable_1.Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(function () {
+                        _this.appResized();
+                    });
+                }
+                Main.prototype.appResized = function () {
+                    var appHeight = document.body.clientHeight;
+                    var appWidth = document.body.clientWidth;
+                    jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_EVER).height(appHeight - 115);
+                    jQuery(Conts_1.Consts.Elems().APP_NAVIGATOR_WASP).height(appHeight - 115);
+                    jQuery(Conts_1.Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 420);
+                    jQuery('#mainPanelWrap').height(appHeight - 115);
+                    jQuery('#propPanel').height(appHeight - 130);
+                    this.commBroker.setValue(Conts_1.Consts.Values().APP_SIZE, {
+                        height: appHeight,
+                        width: appWidth
+                    });
+                    this.commBroker.fire({
+                        fromInstance: self,
+                        event: Conts_1.Consts.Events().WIN_SIZED,
+                        context: '',
+                        message: {
+                            height: appHeight,
+                            width: appWidth
+                        }
+                    });
+                };
+                Main = __decorate([
+                    core_1.Component({
+                        selector: 'app',
+                        moduleId: __moduleName,
+                        encapsulation: core_1.ViewEncapsulation.Emulated,
+                        providers: [StyleService_1.StyleService, AppdbAction_1.AppdbAction, providing],
+                        template: App_html_text_1.default
+                    }), 
+                    __metadata('design:paramtypes', [angular2_redux_util_1.AppStore, CommBroker_1.CommBroker, StyleService_1.StyleService, AppdbAction_1.AppdbAction, http_1.Http, core_1.ViewContainerRef])
+                ], Main);
+                return Main;
+            }());
+            exports_1("Main", Main);
+            if (!Lib_1.Lib.DevMode())
+                core_1.enableProdMode();
+            App = (function () {
+                function App() {
+                }
+                App = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule, ng2_bootstrap_1.ModalModule, SharedModule_1.SharedModule.forRoot(), App_routes_1.routing],
+                        providers: [
+                            LogoutDeactivate_1.LogoutDeactivate,
+                            ErrorLogService_1.ErrorLogService,
+                            LoggingErrorHandlerOptions_1.LOGGING_ERROR_HANDLER_PROVIDERS,
+                            {
+                                provide: LoggingErrorHandlerOptions_1.LOGGING_ERROR_HANDLER_OPTIONS,
+                                useValue: {
+                                    rethrowError: false,
+                                    unwrapError: false
+                                }
+                            }],
+                        entryComponents: [DynaFactoryResHelloWorld_1.DynaFactoryResHelloWorld],
+                        declarations: [Main, Welcome_1.Welcome, Digg_1.Digg, Todos_1.Todos, Settings_1.Settings, LoginPanel_1.LoginPanel, Help_1.Help, App1_1.App1, App2_1.App2, App3_1.App3, ForgotPass_1.ForgotPass, AppManager_1.AppManager, EntryPanel_1.EntryPanel, Logout_1.Logout, make_draggable_directive_1.MakeDraggable, make_droppable_directive_1.MakeDroppable, Sliderpanel_1.Sliderpanel, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, CharCount_1.CharCount, SortBy_1.SortBy, OrderBy_1.OrderBy, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, contributors_1.Contributors, Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, tabs_1.Tabs, tab_1.Tab, Help_1.Help, MyChart_1.MyChart, ng2_bootstrap_1.AlertComponent, ng2_bootstrap_1.RatingComponent, tab_1.Tab, tabs_1.Tabs, contributors_1.Contributors, ng2_highcharts_1.Ng2Highcharts, Todoitem_1.TodoItem, Nodelogger_1.Nodelogger, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties, Weather_1.Weather, Contact_1.Contact, ModalDialog_1.ModalDialog, Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Contact_1.Contact, ModalDialog_1.ModalDialog, CreateEmbedDiffer_1.CardComponent, InjectTemplateChild_1.InjectTemplateChild, DisplayError_1.DisplayError, CounterInputComponent_1.CounterInputComponent, TrimmedInput_1.TrimmedInput, Myip_1.MyIp, ModalDialog_1.ModalDialog, Minitab_1.Minitab, Minitabs_1.Minitabs, StarWarsSearch_1.StarWarsSearch, WikiSearch_1.WikiSearch, InfinityScroll_1.InfinityScroll, Clock_1.Clock, MultiSlotTransclusion_1.MultiSlotTransclusion, EmbedView_1.EmbedView, CompElemBuilder_1.CompElemBuilder, CreateEmbedDiffer_1.CreateEmbedDiffer, ToggleButton_1.ToggleButtonApp, StreamButton_1.StreamButton, ngBookRepeat_1.ngBookRepeatSample, CountDown_1.CountDown, InjectTemplateParent_1.InjectTemplateParent, tooltip_component_1.TooltipDirective, optionlistcomponent_1.OptionListComponent, NotesDetails_1.NotesDetails, NotesDetailsItems_1.NotesDetailsItems, StreamButton_1.IncrementingDisplay, StreamButton_1.ToggleBut, ToggleButton_1.ToggleButton, Notes1Props_1.Notes1Props, SortableHeader_1.SortableHeader, starwars_1.Starwars, shopping_component_1.ShoppingComponent, admin_component_1.AdminComponent, films_component_1.FilmsComponent, users_view_1.UsersView, user_view_1.UserView, ng2_highcharts_1.Ng2Highcharts, ng2_highstocks_1.Ng2Highstocks, ng2_highmaps_1.Ng2Highmaps, film_selection_view_1.FilmSelectionView, film_view_1.FilmView, parts_view_1.PartsView, cart_view_1.CartView, add_part_view_1.AddPartsView, Simplelist_1.SimpleList, accordion_1.Accordion, accordion_1.AccordionGroup, button_checkbox_component_1.ButtonCheckbox, button_radio_component_1.ButtonRadio, ngBookRepeat_1.ngBookRepeat, HeightDirective_1.HeightDirective, DynaFactoryRes_1.DynaFactoryRes, PureDialog_1.PureDialog, PureDialogDirective_1.PureDialogDirective, DynaFactoryResHelloWorld_1.DynaFactoryResHelloWorld, AnimateCards_1.AnimateCards, AnimateBox_1.AnimateBox, dynamic_app_1.DynamicApp, hello_world_component_1.default, world_hello_component_1.default, dynamic_component_1.default, ContentHeros_1.ContentHero, ContentHeros_1.ContentHeroes, content_bar_app_1.ContentBarApp, bar_editor_component_1.BarEditorComponent, editor_component_1.EditorComponent, foo_editor_component_1.FooEditorComponent, SwitchComponent_1.SwitchComponent, ShowHideDirective_1.ShowHideDirective, Breadcrumb_1.BreadcrumbComponent, Mousewheel_1.MouseWheelDirective],
+                        bootstrap: [Main],
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], App);
+                return App;
+            }());
+            exports_1("App", App);
+            platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, providing).then(function (appRef) {
+                AppInjService_1.appInjService(appRef.injector);
+            });
+            window['hr'] && window['hr'].on('change', function (fileName) {
+                if (fileName.indexOf('html') !== -1) {
+                    var newBody = document.createElement('body');
+                    newBody.appendChild(document.createElement('app'));
+                    document.body = newBody;
+                    platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, providing).then(function (appRef) {
+                        AppInjService_1.appInjService(appRef.injector);
+                    });
+                }
+            });
+        }
     }
-    App = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, ng2_bootstrap_1.ModalModule, SharedModule_1.SharedModule.forRoot(), App_routes_1.routing],
-            providers: [
-                LogoutDeactivate_1.LogoutDeactivate,
-                ErrorLogService_1.ErrorLogService,
-                // CAUTION: This providers collection overrides the CORE ErrorHandler with our
-                // custom version of the service that logs errors to the ErrorLogService.
-                LoggingErrorHandlerOptions_1.LOGGING_ERROR_HANDLER_PROVIDERS,
-                // OPTIONAL: By default, our custom LoggingErrorHandler has behavior around
-                // rethrowing and / or unwrapping errors. In order to facilitate dependency-
-                // injection instead of resorting to the use of a Factory for instantiation,
-                // these options can be overridden in the providers collection.
-                {
-                    provide: LoggingErrorHandlerOptions_1.LOGGING_ERROR_HANDLER_OPTIONS,
-                    useValue: {
-                        rethrowError: false,
-                        unwrapError: false
-                    }
-                }],
-            entryComponents: [DynaFactoryResHelloWorld_1.DynaFactoryResHelloWorld],
-            declarations: [Main, Welcome_1.Welcome, Digg_1.Digg, Todos_1.Todos, Settings_1.Settings, LoginPanel_1.LoginPanel, Help_1.Help, App1_1.App1, App2_1.App2, App3_1.App3, ForgotPass_1.ForgotPass, AppManager_1.AppManager, EntryPanel_1.EntryPanel, Logout_1.Logout, make_draggable_directive_1.MakeDraggable, make_droppable_directive_1.MakeDroppable, Sliderpanel_1.Sliderpanel, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, CharCount_1.CharCount, SortBy_1.SortBy, OrderBy_1.OrderBy, Filemenu_1.Filemenu, FilemenuItem_1.FilemenuItem, Logo_1.Logo, Footer_1.Footer, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, contributors_1.Contributors, Todos_1.Todos, Todo1_1.Todo1, Todo2_1.Todo2, Todolist_1.TodoList, Todoitem_1.TodoItem, Logout_1.Logout, Settings_1.Settings, tabs_1.Tabs, tab_1.Tab, Help_1.Help, MyChart_1.MyChart, ng2_bootstrap_1.AlertComponent, ng2_bootstrap_1.RatingComponent, tab_1.Tab, tabs_1.Tabs, contributors_1.Contributors, ng2_highcharts_1.Ng2Highcharts, Todoitem_1.TodoItem, Nodelogger_1.Nodelogger, DividerPanel_1.DividerPanel, Menu_1.Menu, MenuItem_1.MenuItem, Sliderpanel_1.Sliderpanel, Digg_1.Digg, Properties_1.Properties, Weather_1.Weather, Contact_1.Contact, ModalDialog_1.ModalDialog, Notes_1.Notes, Notes1_1.Notes1, Notes2_1.Notes2, Notes3_1.Notes3, Notes4_1.Notes4, Notes5_1.Notes5, Contact_1.Contact, ModalDialog_1.ModalDialog, CreateEmbedDiffer_1.CardComponent, InjectTemplateChild_1.InjectTemplateChild, DisplayError_1.DisplayError, CounterInputComponent_1.CounterInputComponent, TrimmedInput_1.TrimmedInput, Myip_1.MyIp, ModalDialog_1.ModalDialog, Minitab_1.Minitab, Minitabs_1.Minitabs, StarWarsSearch_1.StarWarsSearch, WikiSearch_1.WikiSearch, InfinityScroll_1.InfinityScroll, Clock_1.Clock, MultiSlotTransclusion_1.MultiSlotTransclusion, EmbedView_1.EmbedView, CompElemBuilder_1.CompElemBuilder, CreateEmbedDiffer_1.CreateEmbedDiffer, ToggleButton_1.ToggleButtonApp, StreamButton_1.StreamButton, ngBookRepeat_1.ngBookRepeatSample, CountDown_1.CountDown, InjectTemplateParent_1.InjectTemplateParent, tooltip_component_1.TooltipDirective, optionlistcomponent_1.OptionListComponent, NotesDetails_1.NotesDetails, NotesDetailsItems_1.NotesDetailsItems, StreamButton_1.IncrementingDisplay, StreamButton_1.ToggleBut, ToggleButton_1.ToggleButton, Notes1Props_1.Notes1Props, SortableHeader_1.SortableHeader, starwars_1.Starwars, shopping_component_1.ShoppingComponent, admin_component_1.AdminComponent, films_component_1.FilmsComponent, users_view_1.UsersView, user_view_1.UserView, ng2_highcharts_1.Ng2Highcharts, ng2_highstocks_1.Ng2Highstocks, ng2_highmaps_1.Ng2Highmaps, film_selection_view_1.FilmSelectionView, film_view_1.FilmView, parts_view_1.PartsView, cart_view_1.CartView, add_part_view_1.AddPartsView, Simplelist_1.SimpleList, accordion_1.Accordion, accordion_1.AccordionGroup, button_checkbox_component_1.ButtonCheckbox, button_radio_component_1.ButtonRadio, ngBookRepeat_1.ngBookRepeat, HeightDirective_1.HeightDirective, DynaFactoryRes_1.DynaFactoryRes, PureDialog_1.PureDialog, PureDialogDirective_1.PureDialogDirective, DynaFactoryResHelloWorld_1.DynaFactoryResHelloWorld, AnimateCards_1.AnimateCards, AnimateBox_1.AnimateBox, dynamic_app_1.DynamicApp, hello_world_component_1.default, world_hello_component_1.default, dynamic_component_1.default, ContentHeros_1.ContentHero, ContentHeros_1.ContentHeroes, content_bar_app_1.ContentBarApp, bar_editor_component_1.BarEditorComponent, editor_component_1.EditorComponent, foo_editor_component_1.FooEditorComponent, SwitchComponent_1.SwitchComponent, ShowHideDirective_1.ShowHideDirective, Breadcrumb_1.BreadcrumbComponent, Mousewheel_1.MouseWheelDirective],
-            bootstrap: [Main],
-        })
-    ], App);
-    return App;
-}());
-exports.App = App;
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, providing).then(function (appRef) {
-    AppInjService_1.appInjService(appRef.injector);
 });
-window['hr'] && window['hr'].on('change', function (fileName) {
-    if (fileName.indexOf('html') !== -1) {
-        var newBody = document.createElement('body');
-        newBody.appendChild(document.createElement('app'));
-        document.body = newBody;
-        platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(App, providing).then(function (appRef) {
-            AppInjService_1.appInjService(appRef.injector);
-        });
-    }
-});
+//# sourceMappingURL=App.js.map

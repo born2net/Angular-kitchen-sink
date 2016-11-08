@@ -42,3 +42,4 @@ System.register(['@angular/core', "./Filemenu"], function(exports_1, context_1) 
         }
     }
 });
+//# sourceMappingURL=FilemenuItem.js.map

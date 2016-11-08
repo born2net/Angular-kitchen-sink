@@ -67,3 +67,4 @@ System.register(['@angular/core', 'rxjs/add/observable/from', 'rxjs/add/observab
         }
     }
 });
+//# sourceMappingURL=ForgotPass.js.map

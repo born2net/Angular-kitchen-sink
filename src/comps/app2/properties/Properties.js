@@ -47,3 +47,4 @@ System.register(["@angular/core", "../../../../src/Conts", "../../../services/Co
         }
     }
 });
+//# sourceMappingURL=Properties.js.map

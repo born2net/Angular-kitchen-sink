@@ -71,3 +71,4 @@ System.register(["rxjs/Observable", "@angular/core", "@angular/router", 'rxjs/ad
         }
     }
 });
+//# sourceMappingURL=Logout.js.map

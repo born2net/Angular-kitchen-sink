@@ -76,3 +76,4 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "../../../ser
         }
     }
 });
+//# sourceMappingURL=Notes2.js.map

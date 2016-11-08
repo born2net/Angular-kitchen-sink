@@ -55,3 +55,4 @@ System.register(['@angular/core', "../actions/film-actions", "angular2-redux-uti
         }
     }
 });
+//# sourceMappingURL=films-component.js.map

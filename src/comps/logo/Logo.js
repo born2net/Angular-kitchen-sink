@@ -60,3 +60,4 @@ System.register(['@angular/core', "rxjs/Observable", 'rxjs/add/observable/fromEv
         }
     }
 });
+//# sourceMappingURL=Logo.js.map

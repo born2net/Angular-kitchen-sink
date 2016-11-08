@@ -107,3 +107,4 @@ System.register(["@angular/core", "highcharts"], function(exports_1, context_1) 
         }
     }
 });
+//# sourceMappingURL=MyChart.js.map

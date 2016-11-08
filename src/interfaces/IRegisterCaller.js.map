@@ -1,1 +1,1 @@
-{"version":3,"file":"IRegisterCaller.js","sourceRoot":"","sources":["IRegisterCaller.ts"],"names":[],"mappings":""}
+{"version":3,"file":"IRegisterCaller.js","sourceRoot":"","sources":["IRegisterCaller.ts"],"names":[],"mappings":"","sourcesContent":["export interface IRegisterCaller {\r\n    registerCaller(caller:any):void;\r\n}"]}

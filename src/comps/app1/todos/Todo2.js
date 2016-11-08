@@ -60,3 +60,4 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel", "./TodoStatsM
         }
     }
 });
+//# sourceMappingURL=Todo2.js.map

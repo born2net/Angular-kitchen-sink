@@ -42,3 +42,4 @@ System.register(["@angular/core", "../../../models/StyleModel", "../../../styles
         }
     }
 });
+//# sourceMappingURL=Settings.js.map

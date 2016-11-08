@@ -27,3 +27,4 @@ System.register(['../actions/user-actions'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=users-reducer.js.map

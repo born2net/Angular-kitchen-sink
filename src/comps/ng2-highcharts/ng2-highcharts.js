@@ -24,3 +24,4 @@ System.register(['./src/directives/ng2-highcharts', './src/directives/ng2-highst
         }
     }
 });
+//# sourceMappingURL=ng2-highcharts.js.map

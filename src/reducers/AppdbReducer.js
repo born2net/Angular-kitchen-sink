@@ -24,3 +24,4 @@ System.register(['immutable', "../actions/AppdbAction"], function(exports_1, con
         }
     }
 });
+//# sourceMappingURL=AppdbReducer.js.map

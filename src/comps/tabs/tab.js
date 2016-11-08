@@ -48,3 +48,4 @@ System.register(['@angular/core', '../tabs/tabs'], function(exports_1, context_1
         }
     }
 });
+//# sourceMappingURL=tab.js.map

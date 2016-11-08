@@ -24,3 +24,4 @@ System.register(['../actions/part-actions', "./part-reducer"], function(exports_
         }
     }
 });
+//# sourceMappingURL=parts-reducer.js.map

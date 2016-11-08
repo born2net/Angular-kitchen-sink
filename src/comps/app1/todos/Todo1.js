@@ -46,3 +46,4 @@ System.register(["@angular/core", "../../sliderpanel/Sliderpanel"], function(exp
         }
     }
 });
+//# sourceMappingURL=Todo1.js.map

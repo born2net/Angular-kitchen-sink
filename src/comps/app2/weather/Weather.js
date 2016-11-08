@@ -87,3 +87,4 @@ System.register(["@angular/core", "../../../../src/Conts", "./WeatherService", "
         }
     }
 });
+//# sourceMappingURL=Weather.js.map

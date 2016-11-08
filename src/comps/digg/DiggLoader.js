@@ -57,3 +57,4 @@ System.register(["@angular/core", "@angular/http", 'rxjs/add/operator/map', 'rxj
         }
     }
 });
+//# sourceMappingURL=DiggLoader.js.map

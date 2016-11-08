@@ -72,3 +72,4 @@ System.register(['@angular/core', "angular2-redux-util", "../actions/user-action
         }
     }
 });
+//# sourceMappingURL=admin-component.js.map

@@ -64,3 +64,4 @@ System.register(['@angular/core', "../../sliderpanel/Sliderpanel", "../../../ser
         }
     }
 });
+//# sourceMappingURL=Notes4.js.map
