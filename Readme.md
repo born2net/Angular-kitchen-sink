@@ -113,7 +113,7 @@ What features of Angular does this app cover? everything:
 - Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
 - Rxjs Node server side CRUD for Observable client to server calls
 - Rxjs... lots more of it...
-- Use ANALYZE_FOR_ENTRY_COMPONENTS as part of ngModule provider so we can skip entryComponents in main app module
+- Use ANALYZE_FOR_ENTRY_COMPONENTS as part of ngModule provider so we can skip entryComponents
 - Different ways to load and inject dynamic components (see Notes3 component)
 - Import template into a component as a runtime string
 - Embedding inline of templates and styles via !text jspm plugin
