@@ -191,6 +191,7 @@ import {SwitchComponent} from "./comps/switchcomponent/SwitchComponent";
 import {ShowHideDirective} from "./comps/showHideDirective/ShowHideDirective";
 import {BreadcrumbComponent} from "./comps/breadcrumb/Breadcrumb";
 import {MouseWheelDirective} from "./comps/Mousewheel/Mousewheel";
+import {ModuleExample} from "./modules/ModuleExample";
 
 var providing = [{
     provide: AppStore,
@@ -271,7 +272,7 @@ if (!Lib.DevMode())
     enableProdMode();
 
 @NgModule({
-    imports: [BrowserModule, ModalModule, SharedModule.forRoot(), routing],
+    imports: [BrowserModule, ModalModule, ModuleExample.withComponents([DynamicComponent]), SharedModule.forRoot(), routing],
     providers: [
         LogoutDeactivate,
         ErrorLogService,
