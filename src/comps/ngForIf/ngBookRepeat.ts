@@ -126,3 +126,75 @@ export class ngBookRepeatSample {
 }
 
 
+/**
+ * Another example from Rob Wormald
+ *
+ * reference: https://plnkr.co/edit/VRhXXvVdq55Jy1GCQUK6?p=info
+ *
+ **/
+
+
+// import * as ng from '@angular/core'
+//
+// @ng.Directive({
+//     selector: '[rxContext][rxContextOn]'
+// })
+// export class ReactiveContext {
+//     @ng.Input() rxContext;
+//     @ng.Input() rxContextOn;
+//     @ng.Input() rxContextSelect;
+//
+//     private _subscription;
+//     private _viewRef;
+//     constructor(
+//         public templateRef:ng.TemplateRef,
+//         public cdr:ng.ChangeDetectorRef,
+//         public vcr:ng.ViewContainerRef
+//     ){
+//
+//     }
+//     ngOnInit(){
+//         this._viewRef = this.vcr.createEmbeddedView(this.templateRef);
+//         this._context = this.rxContextOn
+//         if(this._context){
+//             this.connect(this._context);
+//         }
+//     }
+//     connect(contextStream){
+//         if(this._subscription){
+//             this._subscription.unsubscribe();
+//         }
+//         this._context = contextStream;
+//         let stateStream;
+//         if(this.rxContextSelect){
+//             stateStream = contextStream
+//                 .map(state => this.rxContextSelect(state))
+//         } else {
+//             stateStream = contextStream;
+//         }
+//         this._subscription = stateStream.subscribe(
+//             (context) => this.update(context)
+//         )
+//     }
+//     update(context){
+//         this._viewRef.context.$implicit = context;
+//         this._viewRef.detectChanges();
+//     }
+//     ngDoCheck(){
+//         if(this.rxContextOn && this.rxContextOn !== this._context){
+//             this._subscription.unsubscribe();
+//             this.connect(this.rxContextOn);
+//         }
+//     }
+// }
+//
+//
+// @ng.NgModule({
+//     declarations: [
+//         ReactiveContext
+//     ],
+//     exports: [
+//         ReactiveContext
+//     ]
+// })
+// export class ReactiveModule {}
