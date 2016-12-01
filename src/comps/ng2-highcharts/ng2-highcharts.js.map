@@ -1,1 +1,0 @@
-{"version":3,"file":"ng2-highcharts.js","sourceRoot":"","sources":["ng2-highcharts.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;YAMA,oBAAe,EAAE,EAAA","sourcesContent":["export * from './src/directives/ng2-highcharts';\r\n\r\nexport * from './src/directives/ng2-highstocks';\r\n\r\nexport * from './src/directives/ng2-highmaps';\r\n\r\nexport default {}\r\n"]}
