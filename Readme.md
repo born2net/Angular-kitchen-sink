@@ -1,217 +1,31 @@
-Angular 2 kitchen sink
-======================
+# NgKitchenSink
 
-The Ultimate Angular 2 kitchen sink Single Page App, because code samples are always better than docs! 
-----------------
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
 
-I have mastered the perfect workflow with in browser Typescript compilation for development, 
-just in-time browser reloads on saves, and production ready via bundling, all powered by the awesome jspm, so enjoy the fruits of my labor!
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-<p align="center">  
-  <img src="http://www.digitalsignage.com/_images/kitchensink.png">
-</p>
+## Code scaffolding
 
-Check this working demo: http://ng2.javascriptninja.io
-====
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-The goal behind Angular-kitchen-sink is to deliver an easy to start Angular 2 base application that you can mess with and it includes the basis around what any solid single page application requires.
-The project is not intended to be a seed project per se, instead the idea is that it will help you cherry pick the pieces you like; especially the jspm production and development runtime environments with the different components.
+## Build
 
-I spent countless hours reading every Angular2 book and article I could get my hands on (so you don't have to),
-and built IMHO the perfect Angular2 setup... 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-- The goals are
-   - Best workflow for development
-   - Best production process
-   - Touch as many ng2 areas as possible so you can use this project as examples for source code that actually works!
-   - strong modeling design via redux and immutable.js  
-   - Power by commonly used components (sliders, bootstrap, charts, etc)
+## Running unit tests
 
-<hr/>
-to install::
-```             
-git clone https://github.com/born2net/Angular-kitchen-sink.git
-cd Angular-kitchen-sink
-npm install -g jspm@beta
-npm install -g gulp
-npm install
-```
-<hr/>
-the project uses TypeScript ^2.0
-```
-npm install typescript
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-<hr/>
-if you wish to use hot-reload so you can reload components as soon as you save for super quick development process, be sure to install the following:
-```
-npm install chokidar-socket-emitter --save-dev
-npm install http-server --save-dev
-jspm install systemjs-hot-reloader --dev
-```
-to learn more about hot-reload you can visit: https://github.com/capaj/systemjs-hot-reloader
+## Running end-to-end tests
 
-<hr/>
-development standard mode:
-```
-gulp development
-open browser to: http://localhost:8080/src/public/index.html
-```
-<hr/>
-development hot-reload mode:
-```
-npm run devserver
-open browser to: http://localhost:9089/src/public/index.html
-```
-<hr/>
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
-production mode:
-```
-gulp production
-```
-<hr/>
-What features of Angular does this app cover? everything:
+## Deploying to Github Pages
 
-- Use System module mode in tsconfig and jspm.config.js for hot-reload, relative template / styles and production bundling
-- powered by the awesome (awesome awesome) jspm version 0.17 beta (http://jspm.io & http://jspm.io/0.17-beta-guide/)
-   - support hot-reload for the fastest component development cycle
-   - in development TypeScript is compiled in real time in browser, best workflow
-   - for production a jspm minified bundle is created with all css / html inline
-   - TypeScript tsconfig.json ```paths``` key to be able and remove lib duplication in both node_modules and jspm_packages (using it for @angular)   
-   - support multi version npm / github repositories
-- Gulp tasks for dev / prod, doc gen and more
-   - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
-   - use: gulp development --restart (see below on details for best performance debugging)
-   - use: gulp production (see below on details for server directory setup)
-- ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
-- Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
-- Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
-   - backend server sync
-   - local redux store (https://github.com/rackt/redux)
-   - Extend Base class StoreModel makes working with Immutable.js a breeze and use the power of Typing
-   - Using factory to always create immutable typed instances of a class
-- Advanced Routing (also support async routing if jspm bundling is not used)
-- Lazy loading with router (ngModules)
-- Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route
-- Highcharts ng2 directive wrapper (http://www.highcharts.com) 
-- StarWars movie shop powered by Redux store
-- Pass custom styles to components via ngStyle and custom properties
-- jQuery integration the Angular way via BrowserDomAdapter
-- Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)
-- CommBroker dependency service, value sharing / mediator design pattern
-- Custom @Decorator (@StyleDecorator) for components
-- Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
-- LocalStorage service
-- Global Consts for event and vars registration
-- Responsive design (on size change Angular components will react)
-- Creation of a Component's Template from Dynamic HTML fragment (notes5)
-- Create module dynamically and its declared components at runtime via compileModuleAndAllComponentsSync
-- Create component dynamically at runtime and pass in template (tooltip)
-- Multi slot transclusion
-- RXjs powered Custom HTTP class that extends the default Http ng2 to add new behaviour
-- Rxjs reactive operators and subscribers throughout the app (some random examples as well)
-- Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
-- Rxjs Node server side CRUD for Observable client to server calls
-- Rxjs... lots more of it...
-- Use ANALYZE_FOR_ENTRY_COMPONENTS as part of ngModule provider so we can skip entryComponents
-- Different ways to load and inject dynamic components (see Notes3 component)
-- Import template into a component as a runtime string
-- Embedding inline of templates and styles via !text jspm plugin
-- Create your own custom \*NgBookIf and \*ngBookRepeat directives with createEmbeddedView
-- Force change detection via ref.markForCheck();
-- Embedded SVG component
-- Lots of standalone components such as Modal, Sliders, Todo, Tabs and more
-- Shared state (Side menu and file menu)
-- use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)
-- use contentWrap.childNodes.length to provide a default template to component if not provided by consumer
-- use lazy loading of components when router enters path (NoteDynamic, kind of like require(...))
-- Extend the Date pipe with custom implementation
-- Extend the http service with an Http interceptor service
-- ng2Animation
-    - router animation
-    - enter / leave states
-    - default any / void animations 
-- Dependency injection and decorators such as @Host
-- Advanced decorators such as @HostListener @ContentChildren @Injectable and more
-- Provide data to *ngFor declaratively via @ContentChildren
-- Provide components to *ngFor declaratively via @ContentChildren
-- Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)
-- Using @CanDeactivate to demo user prompting when navigating away from a url route segment
-- trackBy to create a custom identifier for *ngFor (trackBy:identify)
-   - use nodeLogger to show ToDo items are only updated and not re-created when using our own identifier method
-- Error handler service overrides ng2 error handling and provide custom options
-- Dependency sharing
-- Hook into application lifecycles
-- Form and validation (both via FormBuilder and manual creating Control Groups) 
-- Custom validators such as PasswordMatch (@Attribute)
-- Form observables and operations including Async piping and more
-- Form promised based field validation
-- Form custom counter component compatible with both template and model forms
-- Todo data model persistence and sync to node server via CRUD (node CRUD end point server side included)
-- Subclass / Inheritance ES6 (Notes component) 
-- Static shared lib and single reference file
-- Theme service (supports 2 themes including Lite and Dark)
-- Pipes including grid sort and character counter
-- Use reflection to automatically show a component's name, super useful for debugging component location in page
-- Interfaces
-- UI data binding / uni and 2 way
-- Document generation
-- and much more...
+Run `ng github-pages:deploy` to deploy to Github Pages.
 
-Debugging:
----------
-jspm is great as you get to debug close to the metal (not like Webpack all bundled up and hard to reason about)
-for best performance I find it's great to restart the web dev server every 30min, hence gulp + forever:
-```
-gulp development --restart
-forever stopall ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development --restart ; tail -f ~/.forever/f.log
-open browser to: http://localhost:8080/src/public/index.html
-alias stop='forever stopall'
-```
-this above will create a process that restarts every 30 minutes but it's transparent to you.
+## Further help
 
-Another handy command to shortcut kill chrome sessions to start a fresh one is:
-```
-alias kill_chrome='ps -W | awk '\''/chrome/,NF=1'\'' | xargs kill -f'
-```
-
-and if you are on a Windows environment I highly recommend you work with:
-http://cmder.net for the ultimate windows terminal
-as well as Cygwin for Linux look and feel
-https://www.cygwin.com
-
-just my 2 cents, I spent a lot of time mastering my dev environment, so figured I will share ;)
-
-
-
-
-Production: 
-------------
-jspm is also great for release as it bundles and minifies.
-to release to production
-   1. change the gulp sync to your method of rsync of ftp 
-   2. your serve    r should have the structure emitted in the 'dist' folder that is created by 
-   ```gulp production```
-   3. server hosting root is assumed to be same as dist folder (where dist/ROOT_HERE) 
-   4. all Typescript files are bundles where css and html are copied raw to dist folder for best performance / size ratio
-
-All this awesomeness tx to jspm, love it!!!
-
-Looking for even more?
-------------
-checkout this enterprise level angular 2 app that's forked off this project: https://github.com/born2net/studioDashboard
-
-Recommended:
-------------------------------------------------------------------------
-
-for the ultimate store solution for angular2 watch:
-
-[![The Ultimate redux typed store implementation for angular](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=bEkPEnudm7s&feature=youtu.be "The Ultimate redux typed store implementation for angular")
-
-
-
-
-
-
-
-
+To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

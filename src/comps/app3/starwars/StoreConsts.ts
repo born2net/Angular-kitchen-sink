@@ -1,7 +1,0 @@
-export const APP_STORE = 'APP_STORE';
-export const ADD_TODO = 'ADD_TODO';
-export const EDIT_TODO = 'EDIT_TODO';
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
-export const TOGGLE_ALL_COMPLETED = 'TOGGLE_ALL_COMPLETED';
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
