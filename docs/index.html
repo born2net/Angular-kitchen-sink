@@ -1,0 +1,740 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>kitechDocs</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script src="assets/js/modernizr.js"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">kitechDocs</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> kitechDocs</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="angular2-kitchen-sink">Angular2 kitchen sink</h1>
+				<h2 id="the-ultimate-angular-2-kitchen-sink-single-page-app-because-code-samples-are-always-better-than-docs-">The Ultimate Angular 2 kitchen sink Single Page App, because code samples are always better than docs! </h2>
+				<p>I have mastered the perfect workflow with in browser Typescript compilation for development,
+				just in-time browser reloads on saves, and production ready via bundling, all powered by the awesome jspm, so enjoy the fruits of my labor!</p>
+				<p align="center"><br>  <img src="http://www.digitalsignage.com/_images/kitchensink.png">
+				</p>
+				<h1 id="check-this-working-demo-http-ng2-javascriptninja-io">Check this working demo: <a href="http://ng2.javascriptninja.io">http://ng2.javascriptninja.io</a></h1>
+				<p>The goal behind ng2Boilerplate is to deliver an easy to start Angular 2 base application that includes the basis around what any solid single page application requires.
+					I spent countless hours reading every Angular2 book and article I could get my hands on (so you don&#39;t have to),
+				and built IMHO the perfect Angular2 setup... </p>
+				<ul>
+					<li>The goals are<ul>
+							<li>Best workflow for development</li>
+							<li>Best production process</li>
+							<li>Touch as many ng2 areas as possible so you can use this project as examples for source code that actually works!</li>
+							<li>strong modeling design via redux and immutable.js  </li>
+							<li>Power by commonly used components (sliders, bootstrap, charts, etc)</li>
+						</ul>
+					</li>
+				</ul>
+				<p><hr/>
+				to install::</p>
+				<pre><code>git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/born2net/ng2Boilerplate.git
+cd ng2Boilerplate
+npm install jspm -g
+npm install
+</code></pre><p><hr/>
+				the project uses TypeScript 1.9+ since it is powered by ng2 latest router</p>
+				<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> typescript@<span class="hljs-keyword">next</span> <span class="hljs-comment">--save</span></span>
+</code></pre><p><hr/>
+				if you wish to use hot-reload so you can reload components as soon as you save for super quick development process, be sure to install the following:</p>
+				<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> chokidar-socket-emitter <span class="hljs-comment">--save-dev</span>
+npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">http</span>-<span class="hljs-keyword">server</span> <span class="hljs-comment">--save-dev</span>
+jspm <span class="hljs-keyword">install</span> systemjs-hot-reloader <span class="hljs-comment">--dev</span></span>
+</code></pre><p>to learn more about hot-reload you can visit: <a href="https://github.com/capaj/systemjs-hot-reloader">https://github.com/capaj/systemjs-hot-reloader</a></p>
+				<p><hr/>
+				development standard mode:</p>
+				<pre><code>gulp development
+<span class="hljs-keyword">open</span> browser <span class="hljs-keyword">to</span>: http:<span class="hljs-comment">//localhost:8080/src/public/index.html</span>
+</code></pre><p><hr/>
+				development hot-reload mode:</p>
+				<pre><code>npm run devserver
+<span class="hljs-keyword">open</span> browser <span class="hljs-keyword">to</span>: http:<span class="hljs-comment">//localhost:9089/src/public/index.html</span>
+</code></pre><hr/>
+				<p>production mode:</p>
+				<pre><code><span class="hljs-title">gulp</span> production
+</code></pre><p><hr/>
+				What features of Angular does this app cover? everything:</p>
+				<ul>
+					<li>Use System module mode in tsconfig and jspm.config.js for hot-reload, relative template / styles and production bundling</li>
+					<li>powered by the awesome (awesome awesome) jspm version 0.17 beta (<a href="http://jspm.io">http://jspm.io</a> &amp; <a href="http://jspm.io/0.17-beta-guide/">http://jspm.io/0.17-beta-guide/</a>)<ul>
+							<li>support hot-reload for the fastest component development cycle</li>
+							<li>in development TypeScript is compiled in real time in browser, best workflow</li>
+							<li>for production a jspm minified bundle is created</li>
+							<li>support multi version npm / github repositories</li>
+						</ul>
+					</li>
+					<li>Gulp tasks for dev / prod, doc gen and more<ul>
+							<li>use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)</li>
+							<li>use: gulp development --restart (see below on details for best performance debugging)</li>
+							<li>use: gulp production (see below on details for server directory setup)</li>
+						</ul>
+					</li>
+					<li>ng2-bootstrap components (<a href="https://github.com/valor-software/ng2-bootstrap">https://github.com/valor-software/ng2-bootstrap</a>)</li>
+					<li>Support the awesomeness of Redux DevTool with live time travel (<a href="http://goo.gl/PNG5nV">http://goo.gl/PNG5nV</a>)</li>
+					<li>Immutable.js (<a href="https://facebook.github.io/immutable-js/">https://facebook.github.io/immutable-js/</a>) Todo component with: <ul>
+							<li>backend server sync</li>
+							<li>local redux store (<a href="https://github.com/rackt/redux">https://github.com/rackt/redux</a>)</li>
+							<li>Extend Base class StoreModel makes working with Immutable.js a breeze and use the power of Typing</li>
+							<li>Using factory to always create immutable typed instances of a class</li>
+						</ul>
+					</li>
+					<li>Advanced Routing (also support async routing if jspm bundling is not used)</li>
+					<li>Lazy loading with router (ngModules)</li>
+					<li>Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route</li>
+					<li>Highcharts ng2 directive wrapper (<a href="http://www.highcharts.com">http://www.highcharts.com</a>) </li>
+					<li>StarWars movie shop powered by Redux store</li>
+					<li>Pass custom styles to components via ngStyle and custom properties</li>
+					<li>jQuery integration the Angular way via BrowserDomAdapter</li>
+					<li>Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)</li>
+					<li>CommBroker dependency service, value sharing / mediator design pattern</li>
+					<li>Custom @Decorator (@StyleDecorator) for components</li>
+					<li>Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed</li>
+					<li>LocalStorage service</li>
+					<li>Global Consts for event and vars registration</li>
+					<li>Responsive design (on size change Angular components will react)</li>
+					<li>Creation of a Component&#39;s Template from Dynamic HTML fragment (notes5)</li>
+					<li>Create component dynamically in runtime and pass in template (tooltip)</li>
+					<li>Multi slot transclusion</li>
+					<li>RXjs powered Custom HTTP class that extends the default Http ng2 to add new behaviour</li>
+					<li>Rxjs reactive operators and subscribers throughout the app (some random examples as well)</li>
+					<li>Rxjs Change detection strategy for improved rendering of page (OnPushObserve)</li>
+					<li>Rxjs Node server side CRUD for Observable client to server calls</li>
+					<li>Rxjs... lots more of it...</li>
+					<li>Different ways to load and inject dynamic components (see Notes3 component)</li>
+					<li>Import template into a component as a runtime string</li>
+					<li>Create your own custom *NgBookIf and *ngBookRepeat directives with createEmbeddedView</li>
+					<li>Force change detection via ref.markForCheck();</li>
+					<li>Embedded SVG component</li>
+					<li>Lots of standalone components such as Modal, Sliders, Todo, Tabs and more</li>
+					<li>Shared state (Side menu and file menu)</li>
+					<li>use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)</li>
+					<li>use contentWrap.childNodes.length to provide a default template to component if not provided by consumer</li>
+					<li>use lazy loading of components when router enters path (NoteDynamic, kind of like require(...))</li>
+					<li>Extend the http service with an Http interceptor service</li>
+					<li>ng2Animation<ul>
+							<li>enter / leave states</li>
+							<li>default any / void animations </li>
+						</ul>
+					</li>
+					<li>Dependency injection and decorators such as @Host</li>
+					<li>Advanced decorators such as @HostListener @ContentChildren @Injectable and more</li>
+					<li>Using @CanActivate we prevent user from accessing routes if not authenticated (checkout AppInjService)</li>
+					<li>Using @CanDeactivate to demo user prompting when navigating away from a url route segment</li>
+					<li>trackBy to create a custom identifier for *ngFor (trackBy:identify)<ul>
+							<li>use nodeLogger to show ToDo items are only updated and not re-created when using our own identifier method</li>
+						</ul>
+					</li>
+					<li>Error handler service overrides ng2 error handling and provide custom options</li>
+					<li>Dependency sharing</li>
+					<li>ES6 such as arrow functions, Map, let and more</li>
+					<li>Hook into application lifecycles</li>
+					<li>Form and validation (both via FormBuilder and manual creating Control Groups) </li>
+					<li>Custom validators such as PasswordMatch (@Attribute)</li>
+					<li>Form observables and operations including Async piping and more</li>
+					<li>Form promised based field validation</li>
+					<li>Form custom counter component compatible with both template and model forms</li>
+					<li>Todo data model persistence and sync to node server via CRUD (node CRUD end point server side included)</li>
+					<li>Subclass / Inheritance ES6 (Notes component) </li>
+					<li>Static shared lib and single reference file</li>
+					<li>Theme service (supports 3 themes including Lite, Dark and Polymer)</li>
+					<li>Pipes including grid sort and character counter</li>
+					<li>Interfaces</li>
+					<li>UI data binding / uni and 2 way</li>
+					<li>Document generation</li>
+					<li>and much more...</li>
+				</ul>
+				<h2 id="debugging-">Debugging:</h2>
+				<p>jspm is great as you get to debug close to the metal (not like Webpack all bundled up and hard to reason about)
+				for best performance I find it&#39;s great to restart the web dev server every 30min, hence gulp + forever:</p>
+				<pre><code>gulp development <span class="hljs-comment">--restart</span>
+forever stopall ; forever <span class="hljs-operator"><span class="hljs-keyword">start</span> -a -<span class="hljs-keyword">l</span> <span class="hljs-keyword">f</span>.<span class="hljs-keyword">log</span> node_modules/gulp/<span class="hljs-keyword">bin</span>/gulp.js development <span class="hljs-comment">--restart ; tail -f ~/.forever/f.log</span>
+<span class="hljs-keyword">open</span> browser <span class="hljs-keyword">to</span>: <span class="hljs-keyword">http</span>://localhost:<span class="hljs-number">8080</span>/src/<span class="hljs-keyword">public</span>/<span class="hljs-keyword">index</span>.html
+<span class="hljs-keyword">alias</span> <span class="hljs-keyword">stop</span>=<span class="hljs-string">'forever stopall'</span></span>
+</code></pre><p>this above will create a process that restarts every 30 minutes but it&#39;s transparent to you.</p>
+				<p>Another handy command to shortcut kill chrome sessions to start a fresh one is:</p>
+				<pre><code><span class="hljs-built_in">alias</span> <span class="hljs-built_in">kill</span>_chrome=<span class="hljs-string">'ps -W | awk '</span>\<span class="hljs-string">''</span>/chrome/,NF=<span class="hljs-number">1</span><span class="hljs-string">'\'</span><span class="hljs-string">' | xargs kill -f'</span>
+</code></pre><p>and if you are on a Windows environment I highly recommend you work with:
+					<a href="http://cmder.net">http://cmder.net</a> for the ultimate windows terminal
+					as well as Cygwin for Linux look and feel
+				<a href="https://www.cygwin.com">https://www.cygwin.com</a></p>
+				<p>just my 2 cents, I spent a lot of time mastering my dev environment, so figured I will share ;)</p>
+				<h2 id="production-">Production: </h2>
+				<p>jspm is also great for release as it bundles and minifies.
+				to release to production</p>
+				<ol>
+					<li>change the gulp sync to your method of rsync of ftp </li>
+					<li>your serve    r should have the structure emitted in the &#39;dist&#39; folder that is created by
+					<code>gulp production</code></li>
+					<li>server hosting root is assumed to be same as dist folder (where dist/ROOT_HERE) </li>
+					<li>all Typescript files are bundles where css and html are copied raw to dist folder for best performance / size ratio</li>
+				</ol>
+				<p>All this awesomeness tx to jspm, love it!!!</p>
+				<h2 id="looking-for-even-more-">Looking for even more?</h2>
+				<p>checkout this enterprise level angular 2 app: <a href="https://github.com/born2net/studioDashboard">https://github.com/born2net/studioDashboard</a></p>
+				<h2 id="notes-">Notes:</h2>
+				<p>all project (non dev) dependency modules are installed in jspm_packages, however we also install them as dev dependency modules under node_modules just to make Typescript / Intellisense happy; that is until Typescript 2.0 comes out and we can get rid of non dev modules in node_modules all together.</p>
+				<p>Docs: Generated docs are@ <a href="http://ng2.javascriptninja.io/docs/globals.html">http://ng2.javascriptninja.io/docs/globals.html</a></p>
+				<p>Contributors are welcome!</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_.html">"<wbr>App"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_routes_.html">"<wbr>App.routes"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_conts_.html">"<wbr>Conts"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_.html">"<wbr>Lib"</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_actions_appdbaction_.html">"actions/<wbr>Appdb<wbr>Action"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_app1_.html">"comps/app1/<wbr>App1"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_help_help_.html">"comps/app1/help/<wbr>Help"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_help_contributors_mychart_.html">"comps/app1/help/contributors/<wbr>MyChart"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_help_contributors_contributors_.html">"comps/app1/help/contributors/contributors"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_lazyone_sharedmodule_.html">"comps/app1/lazyone/<wbr>Shared<wbr>Module"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_settings_settings_.html">"comps/app1/settings/<wbr>Settings"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todo1_.html">"comps/app1/todos/<wbr>Todo1"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todo2_.html">"comps/app1/todos/<wbr>Todo2"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todomodel_.html">"comps/app1/todos/<wbr>Todo<wbr>Model"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todoservice_.html">"comps/app1/todos/<wbr>Todo<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todostatsmodel_.html">"comps/app1/todos/<wbr>Todo<wbr>Stats<wbr>Model"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todoitem_.html">"comps/app1/todos/<wbr>Todoitem"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todolist_.html">"comps/app1/todos/<wbr>Todolist"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_todos_.html">"comps/app1/todos/<wbr>Todos"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app1_todos_reducers_todoreducer_.html">"comps/app1/todos/reducers/<wbr>Todo<wbr>Reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_app2_.html">"comps/app2/<wbr>App2"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_contact_contact_.html">"comps/app2/contact/<wbr>Contact"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_animatebox_.html">"comps/app2/notes/<wbr>Animate<wbr>Box"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_animatecards_.html">"comps/app2/notes/<wbr>Animate<wbr>Cards"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_clock_.html">"comps/app2/notes/<wbr>Clock"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_compelembuilder_.html">"comps/app2/notes/<wbr>Comp<wbr>Elem<wbr>Builder"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_createembeddiffer_.html">"comps/app2/notes/<wbr>Create<wbr>Embed<wbr>Differ"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_dynafactoryres_.html">"comps/app2/notes/<wbr>Dyna<wbr>Factory<wbr>Res"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_dynafactoryreshelloworld_.html">"comps/app2/notes/<wbr>Dyna<wbr>Factory<wbr>Res<wbr>Hello<wbr>World"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_dynafactoryresservice_.html">"comps/app2/notes/<wbr>Dyna<wbr>Factory<wbr>Res<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_embedview_.html">"comps/app2/notes/<wbr>Embed<wbr>View"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_infinityscroll_.html">"comps/app2/notes/<wbr>Infinity<wbr>Scroll"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_injecttemplatechild_.html">"comps/app2/notes/<wbr>Inject<wbr>Template<wbr>Child"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_injecttemplateparent_.html">"comps/app2/notes/<wbr>Inject<wbr>Template<wbr>Parent"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_multislottransclusion_.html">"comps/app2/notes/<wbr>Multi<wbr>Slot<wbr>Transclusion"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes_.html">"comps/app2/notes/<wbr>Notes"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes1_.html">"comps/app2/notes/<wbr>Notes1"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes1props_.html">"comps/app2/notes/<wbr>Notes1<wbr>Props"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes2_.html">"comps/app2/notes/<wbr>Notes2"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes3_.html">"comps/app2/notes/<wbr>Notes3"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes4_.html">"comps/app2/notes/<wbr>Notes4"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notes5_.html">"comps/app2/notes/<wbr>Notes5"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notesbase_.html">"comps/app2/notes/<wbr>Notes<wbr>Base"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notesdetails_.html">"comps/app2/notes/<wbr>Notes<wbr>Details"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_notesdetailsitems_.html">"comps/app2/notes/<wbr>Notes<wbr>Details<wbr>Items"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_starwarssearch_.html">"comps/app2/notes/<wbr>Star<wbr>Wars<wbr>Search"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_streambutton_.html">"comps/app2/notes/<wbr>Stream<wbr>Button"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_togglebutton_.html">"comps/app2/notes/<wbr>Toggle<wbr>Button"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_notes_wikisearch_.html">"comps/app2/notes/<wbr>Wiki<wbr>Search"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_properties_properties_.html">"comps/app2/properties/<wbr>Properties"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_weather_iweather_.html">"comps/app2/weather/IWeather"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_weather_sortableheader_.html">"comps/app2/weather/<wbr>Sortable<wbr>Header"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_weather_weather_.html">"comps/app2/weather/<wbr>Weather"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app2_weather_weatherservice_.html">"comps/app2/weather/<wbr>Weather<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_app3_.html">"comps/app3/<wbr>App3"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_starwars_.html">"comps/app3/starwars/<wbr>Starwars"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_actions_cart_actions_.html">"comps/app3/starwars/actions/cart-<wbr>actions"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_actions_film_actions_.html">"comps/app3/starwars/actions/film-<wbr>actions"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_actions_part_actions_.html">"comps/app3/starwars/actions/part-<wbr>actions"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_actions_user_actions_.html">"comps/app3/starwars/actions/user-<wbr>actions"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_add_part_view_.html">"comps/app3/starwars/components/add-<wbr>part-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_admin_component_.html">"comps/app3/starwars/components/admin-<wbr>component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_cart_view_.html">"comps/app3/starwars/components/cart-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_film_selection_view_.html">"comps/app3/starwars/components/film-<wbr>selection-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_film_view_.html">"comps/app3/starwars/components/film-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_films_component_.html">"comps/app3/starwars/components/films-<wbr>component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_parts_view_.html">"comps/app3/starwars/components/parts-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_shopping_component_.html">"comps/app3/starwars/components/shopping-<wbr>component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_user_view_.html">"comps/app3/starwars/components/user-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_components_users_view_.html">"comps/app3/starwars/components/users-<wbr>view"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_reducers_cart_reducer_.html">"comps/app3/starwars/reducers/cart-<wbr>reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_reducers_films_reducer_.html">"comps/app3/starwars/reducers/films-<wbr>reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_reducers_part_reducer_.html">"comps/app3/starwars/reducers/part-<wbr>reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_reducers_parts_reducer_.html">"comps/app3/starwars/reducers/parts-<wbr>reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_app3_starwars_reducers_users_reducer_.html">"comps/app3/starwars/reducers/users-<wbr>reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_appmanager_appmanager_.html">"comps/appmanager/<wbr>App<wbr>Manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_countdown_countdown_.html">"comps/countdown/<wbr>Count<wbr>Down"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_counterinputcomponent_counterinputcomponent_.html">"comps/counterinputcomponent/<wbr>Counter<wbr>Input<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_digg_digg_.html">"comps/digg/<wbr>Digg"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_digg_diggloader_.html">"comps/digg/<wbr>Digg<wbr>Loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_displayerror_displayerror_.html">"comps/displayerror/<wbr>Display<wbr>Error"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_dividerpanel_dividerpanel_.html">"comps/dividerpanel/<wbr>Divider<wbr>Panel"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_dragndrop_make_draggable_directive_.html">"comps/dragndrop/make-<wbr>draggable.directive"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_dragndrop_make_droppable_directive_.html">"comps/dragndrop/make-<wbr>droppable.directive"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_entry_entrypanel_.html">"comps/entry/<wbr>Entry<wbr>Panel"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_entry_forgotpass_.html">"comps/entry/<wbr>Forgot<wbr>Pass"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_entry_loginpanel_.html">"comps/entry/<wbr>Login<wbr>Panel"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_filemenu_filemenu_.html">"comps/filemenu/<wbr>Filemenu"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_filemenu_filemenuitem_.html">"comps/filemenu/<wbr>Filemenu<wbr>Item"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_footer_footer_.html">"comps/footer/<wbr>Footer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_heightdirective_heightdirective_.html">"comps/heightdirective/<wbr>Height<wbr>Directive"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_logo_logo_.html">"comps/logo/<wbr>Logo"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_logout_logout_.html">"comps/logout/<wbr>Logout"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_logout_logoutdeactivate_.html">"comps/logout/<wbr>Logout<wbr>Deactivate"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_minitabs_minitab_.html">"comps/minitabs/<wbr>Minitab"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_minitabs_minitabs_.html">"comps/minitabs/<wbr>Minitabs"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_modaldialog_modaldialog_.html">"comps/modaldialog/<wbr>Modal<wbr>Dialog"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_myip_myip_.html">"comps/myip/<wbr>Myip"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ng2_highcharts_src_directives_ng2_highcharts_.html">"comps/ng2-<wbr>highcharts/src/directives/ng2-<wbr>highcharts"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ng2_highcharts_src_directives_ng2_highmaps_.html">"comps/ng2-<wbr>highcharts/src/directives/ng2-<wbr>highmaps"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ng2_highcharts_src_directives_ng2_highstocks_.html">"comps/ng2-<wbr>highcharts/src/directives/ng2-<wbr>highstocks"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ng2accordion_accordion_.html">"comps/ng2<wbr>Accordion/accordion"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ng2button_button_checkbox_component_.html">"comps/ng2button/button-<wbr>checkbox.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ng2button_button_radio_component_.html">"comps/ng2button/button-<wbr>radio.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_ngforif_ngbookrepeat_.html">"comps/ng<wbr>For<wbr>If/ng<wbr>Book<wbr>Repeat"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_nodelogger_nodelogger_.html">"comps/nodelogger/<wbr>Nodelogger"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_optionlistcomponent_optionlistcomponent_.html">"comps/optionlistcomponent/optionlistcomponent"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_puredialog_puredialog_.html">"comps/puredialog/<wbr>Pure<wbr>Dialog"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_puredialog_puredialogdirective_.html">"comps/puredialog/<wbr>Pure<wbr>Dialog<wbr>Directive"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_sidemenu_menu_.html">"comps/sidemenu/<wbr>Menu"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_sidemenu_menuitem_.html">"comps/sidemenu/<wbr>Menu<wbr>Item"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_simplelist_simplelist_.html">"comps/simplelist/<wbr>Simplelist"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_sliderpanel_sliderpanel_.html">"comps/sliderpanel/<wbr>Sliderpanel"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_styledecorator_styledecorator_.html">"comps/styledecorator/<wbr>Style<wbr>Decorator"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_tabs_tab_.html">"comps/tabs/tab"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_tabs_tabs_.html">"comps/tabs/tabs"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_tooltip_position_service_.html">"comps/tooltip/position.service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_tooltip_tooltip_component_.html">"comps/tooltip/tooltip.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_trimmedinput_trimmedinput_.html">"comps/trimmedinput/<wbr>Trimmed<wbr>Input"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_comps_welcome_welcome_.html">"comps/welcome/<wbr>Welcome"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_interfaces_iregistercaller_.html">"interfaces/IRegister<wbr>Caller"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_models_mailmodel_.html">"models/<wbr>Mail<wbr>Model"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_models_storemodel_.html">"models/<wbr>Store<wbr>Model"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_models_stylemodel_.html">"models/<wbr>Style<wbr>Model"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_pipes_charcount_.html">"pipes/<wbr>Char<wbr>Count"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_pipes_orderby_.html">"pipes/<wbr>Order<wbr>By"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_pipes_sortby_.html">"pipes/<wbr>Sort<wbr>By"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_reducers_appdbreducer_.html">"reducers/<wbr>Appdb<wbr>Reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_reducers_notifyreducer_.html">"reducers/<wbr>Notify<wbr>Reducer"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_services_appinjservice_.html">"services/<wbr>App<wbr>Inj<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_services_authservice_.html">"services/<wbr>Auth<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_services_commbroker_.html">"services/<wbr>Comm<wbr>Broker"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_services_localstorage_.html">"services/<wbr>Local<wbr>Storage"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_services_errorhandler_errorlogservice_.html">"services/errorhandler/<wbr>Error<wbr>Log<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_services_errorhandler_loggingerrorhandleroptions_.html">"services/errorhandler/<wbr>Logging<wbr>Error<wbr>Handler<wbr>Options"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_styles_styleservice_.html">"styles/<wbr>Style<wbr>Service"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_validators_nametakenvalidator_.html">"validators/<wbr>Name<wbr>Taken<wbr>Validator"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_validators_startcapvalidator_.html">"validators/<wbr>Start<wbr>Cap<wbr>Validator"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
