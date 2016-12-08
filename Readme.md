@@ -10,7 +10,7 @@ Powered by angular-cli
   <img src="http://www.digitalsignage.com/_images/kitchensink.png">
 </p>
 
-Check this working demo: http://ng2.javascriptninja.io
+Check this working demo: http://secure.digitalsignage.com/boiler/
 ====
 
 Cherry pick the snippets you like and use the code to see just what's possible with the awesomeness of Angular
