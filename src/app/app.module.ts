@@ -10,6 +10,12 @@ import thunkMiddleware from 'redux-thunk';
 import 'hammerjs';
 import notify from '../reducers/NotifyReducer'
 import sample_reducer from '../reducers/SampleReducer'
+import parts from "../comps/app3/starwars/reducers/parts-reducer";
+import cart from "../comps/app3/starwars/reducers/cart-reducer";
+import films from "../comps/app3/starwars/reducers/films-reducer";
+import users from "../comps/app3/starwars/reducers/users-reducer";
+import appdb from "../reducers/AppdbReducer";
+// import {todos} from "./comps/app1/todos/reducers/TodoReducer";
 import {MyComp} from "./sample2";
 import {LocalStorage} from "../services/LocalStorage";
 
@@ -20,9 +26,10 @@ import {ToastModule} from "ng2-toastr";
 import {SampleActions} from "../actions/SampleActions"; //toggle
 
 
+
 var providing = [{
     provide: AppStore, useFactory: (ngRedux: NgRedux<any>, devTools: DevToolsExtension) => {
-        const reducers = combineReducers({notify, sample_reducer});
+        const reducers = combineReducers({parts, cart, films, users, appdb, notify, sample_reducer});
         const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware);
         const applyDevTools = () => devTools.isEnabled() ? devTools.enhancer : f => f;
         const enhancers: any = compose(middlewareEnhancer, applyDevTools);
