@@ -62,10 +62,4 @@ export class ModalDialog {
     ngAfterViewInit() {
         (this.owner as IRegisterCaller).registerCaller(this);
     }
-
-    openModal() {
-        var jq:any = jQuery;
-        var modal = jq(this.dom).find('.modal', this.el)[0];
-        jQuery(modal).modal();
-    }
 }

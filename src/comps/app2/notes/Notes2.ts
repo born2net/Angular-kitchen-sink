@@ -23,13 +23,9 @@ import {PureDialogDirective} from "../../puredialog/PureDialogDirective";
                     <span class="fa fa-arrow-right"></span>
                 </button>
                 <hr/>
-                <small>I am notes2 component</small>
-                <div class="btn-group" role="group" aria-label="...">
-                  <button (click)="openModal()" type="button" class="btn btn-default">Bootstrap 3 wrapped Modal</button>
-                </div>
+                <small>I am notes2 component</small>                
                 <ModalDialog title="My owner is Notes2" content="I am here to serve Notes2" [owner]="me">
                 </ModalDialog>
-                <hr/>
                 <hr/>
                 <div dialogAnchor></div>
                 <button type="button" class="btn btn-default" (click)="openDialogBox()">Pure ng2 Modal</button>
