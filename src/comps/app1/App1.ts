@@ -69,7 +69,7 @@ export class App1 {
             if (screen == 'LazyLoad')
                 if (!this.loading) {
                     this.loading = true;
-                    this.lgModal.show();
+                    //this.lgModal.show();
                 }
             self.router.navigate([`/App1/${screen}`]);
         });
