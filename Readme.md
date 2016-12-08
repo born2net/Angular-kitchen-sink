@@ -102,9 +102,7 @@ What features of Angular does this app cover? everything:
 - Document generation
 - and much more...
 
-
 if you are on a Windows environment I highly recommend you work with: http://cmder.net as well as https://www.cygwin.com
-
 
 Looking for even more?
 ------------
