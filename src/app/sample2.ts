@@ -6,7 +6,7 @@ import {Ngmslib} from "ng-mslib";
 import {SampleActions} from "../actions/SampleActions";
 
 @Component({
-  selector: 'my-comp',
+  selector: 'sample2',
   template: `
       I am : {{me}}
       <p>1 {{obs$ | async | json }}</p>

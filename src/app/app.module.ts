@@ -16,7 +16,8 @@ import {LocalStorage} from "../services/LocalStorage";
 
 import {NgReduxModule, DevToolsExtension, NgRedux, select} from 'ng2-redux'
 import {MsLibModule} from "ng-mslib/dist/mslib.module";
-import {ToastModule} from "ng2-toastr"; //toggle
+import {ToastModule} from "ng2-toastr";
+import {SampleActions} from "../actions/SampleActions"; //toggle
 
 /**
  /// No ng2-redux ///
@@ -56,6 +57,9 @@ var providing = [{
 },  {
     provide: LocalStorage,
     useClass: LocalStorage
+},{
+    provide: SampleActions,
+    useClass: SampleActions
 },];
 
 @NgModule({
@@ -77,8 +81,6 @@ var providing = [{
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor() {
-    }
 }
 
 
