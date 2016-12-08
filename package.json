@@ -9,7 +9,8 @@
     "debug ng-mslib": "cp ./node_modules/ng-mslib/src/myng-component.ts ./node_modules/ng-mslib/dist/",
     "build": "ng build --target=production --base-href ./",
     "rsync": "rsync --progress  --chmod=ug=rwx --chmod=o=rx -av --stats -e ssh /cygdrive/c/msweb/msbarcode/dist/ Sean@digitalsignage.com:/var/www/sites/dynasite/htdocs/_msportal/_js/_node/_invmanager",
-    "release": "npm run build && npm run rsync"
+    "release": "npm run build && npm run rsync",
+    "postinstall": "ng serve"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
