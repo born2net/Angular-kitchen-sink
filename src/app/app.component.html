@@ -1,3 +1,65 @@
-<h1>
-  {{title}}
-</h1>
+<form novalidate autocomplete="off" [formGroup]="contGroup">
+    <div *ngIf!="loggedIn">
+        <md-input type="text" [formControl]="contGroup.controls['user']"  #nickname1 placeholder="user" value="david" maxlength="50">
+            <md-hint align="end">
+                {{nickname1.characterCount}} / 50
+            </md-hint>
+        </md-input>
+        <md-input type="password" (change)="onPasswordEntered($event)" [formControl]="contGroup.controls['password']"  #nickname2 placeholder="password" maxlength="50">
+            <md-hint align="end">
+                {{nickname2.characterCount}} / 50
+            </md-hint>
+        </md-input>
+    </div>
+    <div *ngIf="loggedIn">
+        <md-toolbar color="primary">
+            inventory tracker v1.04
+            <span class="app-toolbar-filler"></span>
+        </md-toolbar>
+        <div class="app-content">
+            <md-card>
+                <button md-raised-button style="float: right" (click)="logout()">Logout</button>
+                <md-tab-group>
+                    <md-tab label="Manager">
+                        <md-card>
+                            <div *ngIf="department!='shipping'">
+                                <md-radio-group [formControl]="contGroup.controls['location']" (change)="onSelect($event)" [(ngModel)]="data.default">
+                                    <md-radio-button value="storage" name="symbol">receive at storage</md-radio-button>
+                                    <md-radio-button value="shipper" name="symbol">giving to shipper</md-radio-button>
+                                </md-radio-group>
+                            </div>
+                        </md-card>
+                        <md-card *ngIf="department=='shipping'" class="app-input-section">
+                            <md-input type="number" [formControl]="contGroup.controls['orderNumber']" #nickname placeholder="Order# " maxlength="50">
+                            </md-input>
+                        </md-card>
+                        <md-card>
+                            <button md-raised-button style="background-color: red; width: 200px" (click)="onSave()">Save</button>
+                            <p>Serials</p>
+                            <textarea [formControl]="contGroup.controls['serials']" style="height: 400px; width: 400px"></textarea>
+                        </md-card>
+                    </md-tab>
+                    <md-tab *ngIf="department!='shipping'" label="Reports">
+                        <br/>
+                        <button md-raised-button style="width: 200px" (click)="runReport()">load</button>
+                        <table border="0" width="100%" cellpadding="4" cellspacing="3">
+                            <tr>
+                                <th align="left">barcode <hr/></th>
+                                <th align="left">current location<hr/></th>
+                                <th align="left">date storage<hr/></th>
+                                <th align="left">date shipper<hr/></th>
+                            </tr>
+                            <tr *ngFor="let item of report">
+                                <td>{{item.barcode}}</td>
+                                <td>{{item.current_location}}</td>
+                                <td>{{item.date_storage  | date:'dd-MM-yy HH:mm'}}</td>
+                                <td>{{item.date_shipper  | date:'dd-MM-yy HH:mm'}}</td>
+                            </tr>
+                        </table>
+                    </md-tab>
+                </md-tab-group>
+            </md-card>
+        </div>
+    </div>
+
+</form>

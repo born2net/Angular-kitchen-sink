@@ -10,7 +10,6 @@ describe('AppComponent', () => {
         AppComponent
       ],
     });
-    TestBed.compileComponents();
   });
 
   it('should create the app', async(() => {
