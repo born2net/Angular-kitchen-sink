@@ -28,6 +28,7 @@ testem.log
 
 # js/map
 src/**/*.js
+*prod.js
 src/**/*.map
 
 #System Files
