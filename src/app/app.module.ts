@@ -19,27 +19,6 @@ import {MsLibModule} from "ng-mslib/dist/mslib.module";
 import {ToastModule} from "ng2-toastr";
 import {SampleActions} from "../actions/SampleActions"; //toggle
 
-/**
- /// No ng2-redux ///
- var providing = [{
-  provide: AppStore, useFactory: () => {
-    const reducers = combineReducers({notify, sample_reducer});
-    const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware);
-    const isDebug = window['devToolsExtension']
-    const applyDevTools = () => isDebug ? window['devToolsExtension']() : f => f;
-    const enhancers: any = compose(middlewareEnhancer, applyDevTools());
-    const store = createStore(reducers, enhancers);
-    return new AppStore(store);
-  }, deps: []
-}, {
-  provide: "OFFLINE_ENV",
-  useValue: false
-}, {
-  provide: SampleActions,
-  useClass: SampleActions
-}];
- **/
-
 
 var providing = [{
     provide: AppStore, useFactory: (ngRedux: NgRedux<any>, devTools: DevToolsExtension) => {
@@ -83,6 +62,3 @@ var providing = [{
 export class AppModule {
 }
 
-
-// const createStoreWithEnhancers = enhancers(createStore);
-// const store = createStoreWithEnhancers(reducers);
