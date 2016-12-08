@@ -69,7 +69,7 @@ const appRoutes: Routes = [{
         }
     }, {
         path: 'LazyLoad',
-        loadChildren: '/src/comps/app1/lazyone/LazyOneModule'
+        loadChildren: './LazyOneModule'
     }, {
         path: 'Help',
         component: Help
