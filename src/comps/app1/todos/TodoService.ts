@@ -44,6 +44,7 @@ import {
 } from "angular2-redux-util";
 import {CommBroker} from "../../../services/CommBroker";
 import {Ngmslib} from "ng-mslib";
+import {ToastsManager} from "ng2-toastr";
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
@@ -88,7 +89,7 @@ export class TodoService extends Actions {
     private m_clearTodoDispatch: Function;
     private newOrderNumber: number = 9999
 
-    constructor(private _http: Http, private todoStatsModel: TodoStatsModel, private appStore: AppStore) {
+    constructor(private _http: Http, private todoStatsModel: TodoStatsModel, private appStore: AppStore, public toastr: ToastsManager) {
         super();
         this.m_dataStore = {todos: []};
         this.m_addTodoDispatch = this.createDispatcher(this.addTodoDispatch, this.appStore);
@@ -180,7 +181,7 @@ export class TodoService extends Actions {
             });
             this.saveTodoRemote(todoModel, (status: number)=> {
                 if (status == -1) {
-                    bootbox.alert('problem saving to server 1');
+                    this.toastr.warning('problem saving to server 1');
                     return;
                 }
                 //dispatch({type: ADD_TODO, todoModel: todoModel});
@@ -204,7 +205,7 @@ export class TodoService extends Actions {
         return (dispatch) => {
             this.removeTodoRemote(todoModel, (status: number)=> {
                 if (status == -1) {
-                    bootbox.alert('problem saving to server 2');
+                    this.toastr.warning('problem saving to server 2');
                     return;
                 }
                 dispatch(this.removeTodoDispatch(todoModel));
@@ -225,7 +226,7 @@ export class TodoService extends Actions {
             dispatch(this.editTodoOrderDispatch(todoModel));
             this.editTodoRemote(todoModel, (status: number)=> {
                 if (status == -1) {
-                    bootbox.alert('problem saving to server 3');
+                    this.toastr.warning('problem saving to server 3');
                     return;
                 }
             });

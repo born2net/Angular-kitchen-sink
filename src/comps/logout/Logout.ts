@@ -3,7 +3,6 @@ import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/bindCallback';
-import * as bootbox from 'bootbox';
 @Component({
     selector: 'Logout',
     template: `
@@ -37,11 +36,14 @@ export class Logout {
                     return true;
                 });
             } else {
-                bootbox.hideAll();
                 return false;
             }
         }
-        bootbox.confirm("Are you sure you want to logout?", cb);
+        if (confirm('Are you sure you want to save this thing into the database?')) {
+            cb(true);
+        } else {
+            cb(false);
+        }
         let o = Observable.bindCallback(cb)
         return o;
     }

@@ -2,8 +2,8 @@ import {Injectable, Injector} from '@angular/core';
 import {Router} from "@angular/router";
 import {appInjService} from "./AppInjService";
 import Map = Immutable.Map;
-import * as bootbox from 'bootbox';
 import * as Immutable from "immutable";
+import {ToastsManager} from "ng2-toastr";
 
 export enum FlagsAuth {
     AuthPass,
@@ -16,6 +16,9 @@ export enum FlagsAuth {
 @Injectable()
 export class AuthService {
 
+    constructor(public toastr: ToastsManager){
+
+    }
     private ubsub:()=>void;
     private m_authenticated:boolean = false;
 
@@ -37,7 +40,7 @@ export class AuthService {
         // here is an example of auth that failed and we nabigate to default route
         // and resolve false so a calling component's @CanActivate will not load
         if (!this.m_authenticated) {
-            bootbox.alert('Sorry user or password are incorrect');
+            this.toastr.error('Sorry user or password are incorrect');
             router.navigate(target);
             return Promise.resolve(false);
         }

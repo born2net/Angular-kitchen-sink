@@ -1,5 +1,5 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import {NgModule, enableProdMode} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {MaterialModule} from "@angular/material";
@@ -35,7 +35,6 @@ import {Nodelogger} from "../comps/nodelogger/Nodelogger";
 import {MakeDraggable} from "../comps/dragndrop/make-draggable.directive";
 import {TodoService} from "../comps/app1/todos/TodoService";
 import TodoStatsModel from "../comps/app1/todos/TodoStatsModel";
-import * as jQuery from "jquery";
 import {Starwars} from "../comps/app3/starwars/starwars";
 import {AdminComponent} from "../comps/app3/starwars/components/admin-component";
 import {ShoppingComponent} from "../comps/app3/starwars/components/shopping-component";
@@ -79,7 +78,7 @@ import {Contributors} from "../comps/app1/help/contributors/contributors";
 import {Tabs} from "../comps/tabs/tabs";
 import {Tab} from "../comps/tabs/tab";
 import {MyChart} from "../comps/app1/help/contributors/MyChart";
-import {Ng2Highcharts} from "../comps/ng2-highcharts/src/directives/ng2-highcharts";
+import {Ng2Bs3ModalModule} from 'ng2-bs3-modal/ng2-bs3-modal';
 import {DividerPanel} from "../comps/dividerpanel/DividerPanel";
 import {Properties} from "../comps/app2/properties/Properties";
 import {Weather} from "../comps/app2/weather/Weather";
@@ -136,6 +135,11 @@ import {SwitchComponent} from "../comps/switchcomponent/SwitchComponent";
 import {ShowHideDirective} from "../comps/showHideDirective/ShowHideDirective";
 import {BreadcrumbComponent} from "../comps/breadcrumb/Breadcrumb";
 import {MouseWheelDirective} from "../comps/Mousewheel/Mousewheel";
+import * as jQuery from "jquery";
+import {Ngmslib} from "ng-mslib";
+import {LogoutDeactivate} from "../comps/logout/LogoutDeactivate";
+import {ErrorLogService} from "../services/errorhandler/ErrorLogService";
+import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "../services/errorhandler/LoggingErrorHandlerOptions";
 window['jQuery'] = jQuery;
 
 
@@ -165,6 +169,9 @@ var providing = [{
     provide: TodoStatsModel,
     useClass: TodoStatsModel
 }];
+
+if (!Ngmslib.DevMode())
+    enableProdMode();
 
 @NgModule({
     declarations: [
@@ -305,7 +312,26 @@ var providing = [{
         NgReduxModule.forRoot(), //toggle
         MaterialModule.forRoot()
     ],
-    providers: [providing],
+    entryComponents: [DynaFactoryResHelloWorld],
+    providers: [...providing,
+        LogoutDeactivate,
+        ErrorLogService,
+
+        // CAUTION: This providers collection overrides the CORE ErrorHandler with our
+        // custom version of the service that logs errors to the ErrorLogService.
+        LOGGING_ERROR_HANDLER_PROVIDERS,
+
+        // OPTIONAL: By default, our custom LoggingErrorHandler has behavior around
+        // rethrowing and / or unwrapping errors. In order to facilitate dependency-
+        // injection instead of resorting to the use of a Factory for instantiation,
+        // these options can be overridden in the providers collection.
+        {
+            provide: LOGGING_ERROR_HANDLER_OPTIONS,
+            useValue: {
+                rethrowError: false,
+                unwrapError: false
+            }
+        }],
     bootstrap: [AppComponent]
 })
 export class AppModule {

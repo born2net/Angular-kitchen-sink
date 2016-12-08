@@ -12,7 +12,7 @@ import {
 } from "@angular/forms";
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
-import * as bootbox from "bootbox";
+import {ToastsManager} from "ng2-toastr";
 
 @Component({
     selector: 'Notes1',
@@ -37,7 +37,7 @@ import * as bootbox from "bootbox";
     private mapModel: Map<any, any>; // demonstrates map although we are not using it for anything
 
 
-    constructor(fb: FormBuilder, protected sliderPanel: Sliderpanel, protected commBroker: CommBroker) {
+    constructor(fb: FormBuilder, protected sliderPanel: Sliderpanel, protected commBroker: CommBroker, public toastr: ToastsManager) {
         super(sliderPanel, commBroker);
         this.slideLeft = 'notes2';
 
@@ -114,7 +114,7 @@ import * as bootbox from "bootbox";
     }
 
     onSubmit(event) {
-        bootbox.alert(`sent ${event.notesTextArea}`);
+        this.toastr.success(`sent ${event.notesTextArea}`);
     }
 
     onChange(event) {

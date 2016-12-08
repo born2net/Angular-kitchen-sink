@@ -14,15 +14,15 @@ import {Subject} from "rxjs/Subject";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Observable} from "rxjs/Observable";
 import {AppStore} from "angular2-redux-util";
-import * as bootbox from 'bootbox';
+import {ToastsManager} from "ng2-toastr";
 
 export class User {
-    public id:string;
-    public name:string;
-    public pass:string;
-    public gender:string;
+    public id: string;
+    public name: string;
+    public pass: string;
+    public gender: string;
 
-    constructor(obj?:any) {
+    constructor(obj?: any) {
         this.id = obj && obj.id || Math.random();
         this.name = obj && obj.name || 'anonymous';
         this.pass = obj && obj.pass || '';
@@ -57,12 +57,12 @@ export class User {
                 <small>I am Login component and I am inside EntryPanel</small>`
 })
 export class LoginPanel {
-    private user:string;
-    private pass:string;
-    private myRouter:Router;
-    private unsub:Function;
+    private user: string;
+    private pass: string;
+    private myRouter: Router;
+    private unsub: Function;
 
-    constructor(private appStore:AppStore, router:Router, private commBroker:CommBroker) {
+    constructor(private appStore: AppStore, router: Router, private commBroker: CommBroker, public toastr: ToastsManager) {
 
         // // const currentUrlTree: UrlTree = router.urlTree;
         // root segment
@@ -115,25 +115,20 @@ export class LoginPanel {
 
     }
 
-    private authUser(i_user:string, i_pass:string){
+    private authUser(i_user: string, i_pass: string) {
         this.onLogin();
     }
 
     private onLogin() {
-        bootbox.dialog({
-            closeButton: false,
-            title: "Please wait, Authenticating...",
-            message: " "
-        });
-        setTimeout((e)=> {
+        this.toastr.warning("Please wait, Authenticating...");
+        setTimeout((e) => {
             this.myRouter.navigate(['/AppManager']);
-            bootbox.hideAll();
-        }, 200);
+        }, 2000);
         event.preventDefault();
         return false;
     }
 
-    public set loginName(name:string) {
+    public set loginName(name: string) {
         this.user = name;
     }
 

@@ -3,14 +3,14 @@ import {LocalStorage} from "../services/LocalStorage";
 import {StyleModel} from "../models/StyleModel";
 import {CommBroker} from "../services/CommBroker";
 import {Consts} from "../Conts";
-import * as bootbox from 'bootbox';
+import {ToastsManager} from "ng2-toastr";
 
 @Injectable()
 export class StyleService {
     private localStorage:LocalStorage;
     private styleModel:StyleModel;
 
-    constructor(private commBroker:CommBroker) {
+    constructor(private commBroker:CommBroker, public toastr: ToastsManager) {
         this.model = new StyleModel();
         this.localStorage = new LocalStorage();
         this.commBroker.setService(Consts.Services().StyleService, this);
@@ -80,7 +80,7 @@ export class StyleService {
             });
             this.loadTheme(self.model.theme);
             if (self.model.remember)
-                bootbox.alert('reload the application to see the full effect of the theme...');
+                this.toastr.success('reload the application to see the full effect of the theme...');
         }, 10)
     }
 
