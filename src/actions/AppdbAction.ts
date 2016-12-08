@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Actions} from "angular2-redux-util";
+import {Actions, AppStore} from "angular2-redux-util";
 
 export const APP_START_TIME = 'APP_START_TIME';
 
@@ -7,7 +7,9 @@ export const APP_START_TIME = 'APP_START_TIME';
 
 @Injectable()
 export class AppdbAction extends Actions {
-
+    constructor(i_appStore:AppStore){
+        super(i_appStore);
+    }
     public appStartTime() {
         return {type: APP_START_TIME, value: Date.now()};
     }

@@ -13,14 +13,14 @@
     "postinstall": "ng serve"
   },
   "dependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/core": "2.2.1",
-    "@angular/forms": "2.2.1",
-    "@angular/http": "2.2.1",
+    "@angular/common": "2.3",
+    "@angular/compiler": "2.3",
+    "@angular/core": "2.3",
+    "@angular/forms": "2.3",
+    "@angular/http": "2.3",
     "@angular/material": "^2.0.0-alpha.10",
-    "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-browser": "2.3",
+    "@angular/platform-browser-dynamic": "2.3",
     "@angular/router": "3.2.1",
     "@types/immutable": "^3.8.6",
     "@types/lodash": "^4.14.41",
@@ -52,7 +52,7 @@
     "zone.js": "^0.7.1"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "2.2.1",
+    "@angular/compiler-cli": "2.3",
     "@types/hammerjs": "^2.0.33",
     "@types/immutable": "^3.8.6",
     "@types/jasmine": "2.5.38",

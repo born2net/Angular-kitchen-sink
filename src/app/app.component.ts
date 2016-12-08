@@ -20,10 +20,10 @@ import {Consts} from "../Conts";
     providers: [StyleService, AppdbAction],
 })
 export class AppComponent {
-    constructor(private commBroker: CommBroker,
+    constructor(@Inject(forwardRef(() => AppStore)) private i_appStore:AppStore,
+                private commBroker: CommBroker,
                 private styleService: StyleService,
                 private http: Http,
-                @Inject(forwardRef(() => AppStore)) private i_appStore:AppStore,
                 private fb: FormBuilder,
                 private toastr: ToastsManager, 
                 private vRef: ViewContainerRef, 
