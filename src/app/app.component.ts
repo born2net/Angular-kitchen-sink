@@ -1,4 +1,4 @@
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, ViewContainerRef, forwardRef, Inject} from '@angular/core';
 import {Ngmslib} from "ng-mslib";
 import {ToastsManager, ToastOptions} from "ng2-toastr";
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -20,20 +20,26 @@ import {Consts} from "../Conts";
     providers: [StyleService, AppdbAction],
 })
 export class AppComponent {
-    constructor(private commBroker: CommBroker, styleService: StyleService, private http: Http, private fb: FormBuilder, private appdbAction: AppdbAction, private toastr: ToastsManager, private vRef: ViewContainerRef, private appStore: AppStore, private localStorage: LocalStorage) {
+    constructor(private commBroker: CommBroker,
+                private styleService: StyleService,
+                private http: Http,
+                @Inject(forwardRef(() => AppStore)) private i_appStore:AppStore,
+                private fb: FormBuilder,
+                private toastr: ToastsManager, 
+                private vRef: ViewContainerRef, 
+                private appStore: AppStore,
+                private appdbAction:AppdbAction,
+                private localStorage: LocalStorage) {
         this.toastr.setRootViewContainerRef(vRef);
         Ngmslib.GlobalizeStringJS();
         console.log(StringJS('string-js-is-init').humanize().s);
 
         appStore.dispatch(appdbAction.appStartTime());
-        this.m_styleService = styleService;
         this.commBroker.setService(Consts.Services().App, this);
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(() => {
             this.appResized();
         });
     }
-
-    private m_styleService: StyleService;
 
     /**
      On application resize deal with height changes

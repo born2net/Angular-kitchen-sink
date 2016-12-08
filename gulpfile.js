@@ -1,16 +1,17 @@
+// var superstatic = require('superstatic');
+// var opn = require('opn');
+// var browserSync = require('browser-sync');
+
 var gulp = require('gulp');
 var git = require('gulp-git');
 var express = require('express');
-var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var tslint = require('gulp-tslint');
 var typedoc = require("gulp-typedoc");
-var superstatic = require('superstatic');
 var shell = require("gulp-shell");
 var Rsync = require('rsync');
-var opn = require('opn');
 var ts = require('gulp-typescript');
-var tsProject = ts.createProject('tsconfig.json');
+var tsProject = ts.createProject('./src/tsconfig.json');
 var sourcemaps = require('gulp-sourcemaps');
 var rimraf = require("gulp-rimraf");
 var replace = require("gulp-replace");
@@ -27,7 +28,6 @@ var util = require('gulp-util');
 // jspm bundle src/App.js ./dist/index.js --skip-source-maps
 // jspm bundle App.ts dev-bundle.js --watch
 // https://github.com/jspm/jspm.io/pull/43/files?short_path=4cea63c#diff-4cea63c9d39d3e90a68b25b0030e90aa
-
 
 /** Typescript configuration **/
 var paths = {
@@ -190,9 +190,9 @@ gulp.task('x_gitPull', function () {
     });
 });
 
-gulp.task('x_open_server_bundle', function () {
-    opn('http://monstersignage.com/public/index.html');
-});
+// gulp.task('x_open_server_bundle', function () {
+//     opn('http://monstersignage.com/public/index.html');
+// });
 
 
 // gulp.task('x_open_server_bundle', function () {
@@ -209,59 +209,59 @@ gulp.task('x_open_server_bundle', function () {
 // });
 
 // , '**/*.ts','**/*.html','**/*.css'
-gulp.task('x_open_server_development', ['x_watch_source'], function () {
-    process.stdout.write('Starting browserSync and superstatic...\n');
-    browserSync({
-        port: 8080,
-        open: false,
-        files: ['index.html'],
-        notify: true,
-        reloadDebounce: 400,
-        server: {
-            baseDir: './',
-            directory: true
-        }
-    });
-    opn('http://localhost:8080/src/public/index.html')
-});
+// gulp.task('x_open_server_development', ['x_watch_source'], function () {
+//     process.stdout.write('Starting browserSync and superstatic...\n');
+//     browserSync({
+//         port: 8080,
+//         open: false,
+//         files: ['index.html'],
+//         notify: true,
+//         reloadDebounce: 400,
+//         server: {
+//             baseDir: './',
+//             directory: true
+//         }
+//     });
+//     opn('http://localhost:8080/src/public/index.html')
+// });
 
 /**
  * to get a fresh server every x minutes for better dev performance run:
  * forever stop 0 ; forever start -a -l f.log node_modules/gulp/bin/gulp.js development_auto ; tail -f ~/.forever/f.log
  **/
 //files: ['index.html', '**/*.ts','**/*.html','**/*.css'],
-gulp.task('x_open_server_development_auto', ['x_watch_source'], function () {
-    process.stdout.write('Starting browserSync and superstatic...\n');
-    browserSync({
-        port: 8080,
-        open: false,
-        files: ['index.html', '**/*.ts'],
-        notify: true,
-        reloadDebounce: 400,
-        server: {
-            baseDir: './',
-            directory: true
-        },
-        middleware: [
-            function (req, res, next) {
-                console.log('url: ' + req.url);
-                if (/\/src\/public\/App[0-9]+\/?/.test(req.url)) {
-                    var match = req.url.match(/\/src\/public\/(.*)/);
-                    var redirect = '/src/public/index.html#/' + match[1];
-                    console.log('RedirectTo:: ' + redirect);
-                    res.writeHead(302, {'Location': redirect});
-                    res.end();
-                }
-                next();
-            }
-        ]
-
-    });
-    // exit every 20 minutes so forever will restart it
-    setTimeout(function () {
-        process.exit()
-    }, 3200000);
-});
+// gulp.task('x_open_server_development_auto', ['x_watch_source'], function () {
+//     process.stdout.write('Starting browserSync and superstatic...\n');
+//     browserSync({
+//         port: 8080,
+//         open: false,
+//         files: ['index.html', '**/*.ts'],
+//         notify: true,
+//         reloadDebounce: 400,
+//         server: {
+//             baseDir: './',
+//             directory: true
+//         },
+//         middleware: [
+//             function (req, res, next) {
+//                 console.log('url: ' + req.url);
+//                 if (/\/src\/public\/App[0-9]+\/?/.test(req.url)) {
+//                     var match = req.url.match(/\/src\/public\/(.*)/);
+//                     var redirect = '/src/public/index.html#/' + match[1];
+//                     console.log('RedirectTo:: ' + redirect);
+//                     res.writeHead(302, {'Location': redirect});
+//                     res.end();
+//                 }
+//                 next();
+//             }
+//         ]
+//
+//     });
+//     // exit every 20 minutes so forever will restart it
+//     setTimeout(function () {
+//         process.exit()
+//     }, 3200000);
+// });
 
 gulp.task('x_assets', function () {
     return gulp.src([

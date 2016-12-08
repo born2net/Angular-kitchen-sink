@@ -1,5 +1,3 @@
-console.clear();
-
 import {Component, Output, ViewChild} from "@angular/core";
 import {BehaviorSubject, Observable, Subject} from "rxjs/Rx";
 
