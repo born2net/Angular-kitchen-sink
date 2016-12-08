@@ -42,7 +42,9 @@ declare module 'redux-thunk' {
 }
 
 
-
+interface JQuery {
+  modal:any;
+}
 
 
 

@@ -1,9 +1,10 @@
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnChanges, SimpleChange} from '@angular/core'
+
 import {createSelector} from 'reselect';
 
-const partsInCartLookupSelector = createSelector((changeRecord: any) => changeRecord.partsInCart.currentValue,
-    (partsInCart: any) => {
-        var red = partsInCart.reduce((map, part: any) => (map[part.id] = true) && map, {});
+const partsInCartLookupSelector = createSelector((changeRecord:any) => changeRecord.partsInCart.currentValue,
+    (partsInCart:any) => {
+        var red = partsInCart.reduce((map, part:any) => (map[part.id] = true) && map, {});
         return red;
     });
 
@@ -32,9 +33,9 @@ export class PartsView implements OnChanges {
     partsInCartLookup = {};
 
     @Output()
-    addToCart: EventEmitter<any> = new EventEmitter();
+    addToCart:EventEmitter<any> = new EventEmitter();
 
-    ngOnChanges(changeRecord: {[propName: string]: SimpleChange}) {
+    ngOnChanges(changeRecord:{[propName: string]: SimpleChange}) {
         this.partsInCartLookup = partsInCartLookupSelector(changeRecord);
     }
 

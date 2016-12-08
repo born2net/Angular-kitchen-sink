@@ -1,7 +1,9 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core'
 import {AppStore} from "angular2-redux-util";
 import {UserActions} from "../actions/user-actions";
-import {createSelector} from "reselect";
+import {UsersView} from "../components/users-view";
+import {UserView} from "../components/user-view";
+import {createSelector} from 'reselect';
 
 @Component({
     selector: 'admin',
@@ -27,10 +29,10 @@ export class AdminComponent {
     private setCurrentUser;
     private setFilmFilter;
 
-    constructor(appStore: AppStore, userActions: UserActions) {
+    constructor(appStore:AppStore, userActions:UserActions) {
         var self = this;
         this.setCurrentUser = userActions.createDispatcher(userActions.setCurrentUser, appStore);
-        this.setFilmFilter = userActions.createDispatcher(userActions.setFilmFilter, appStore);
+        this.setFilmFilter  = userActions.createDispatcher(userActions.setFilmFilter, appStore);
 
         const usersToShowSelector = AdminComponent.createUsersToShowSelector();
 
@@ -45,7 +47,7 @@ export class AdminComponent {
     }
 
     private static createUsersToShowSelector() {
-        const currentFilmSelector = createSelector((state: any) => state.users.filmFilter, state => state.films.currentFilm,
+        const currentFilmSelector = createSelector((state:any) => state.users.filmFilter, state => state.films.currentFilm,
             (filmFilter, currentFilm) => filmFilter && currentFilm ? currentFilm : null
         );
         return createSelector(state => state.users.list, currentFilmSelector,
@@ -56,7 +58,7 @@ export class AdminComponent {
     private static getFilter(film) {
         const ids = film.characters
             .map(url => AdminComponent.getId(url))
-            .reduce((idsMap, id) => (idsMap[id] = true) && idsMap, {});
+            .reduce((idsMap, id)=> (idsMap[id] = true) && idsMap, {});
         return user => ids[AdminComponent.getId(user.url)];
     };
 
