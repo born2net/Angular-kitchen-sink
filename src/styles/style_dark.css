@@ -1,0 +1,186 @@
+
+
+
+
+/* Dark theme */
+html, body
+{
+    background-color	: #262626;
+}
+body
+{
+    color				: #ccc;
+}
+a
+{
+    color				: #ccc;
+}
+h2
+{
+    color				: #fff;
+}
+hr
+{
+    border-top			: 1px solid #6a6a6a;
+}
+
+#fileMenu {
+    background-color: #151515;
+}
+
+#headerPad
+{
+    background-color	: #ec7c66;
+}
+.navbar-inverse
+{
+    background-color	: #535353;
+    border-color		: #535353;
+}
+
+#propPanelWrap
+{
+    background-color	: #535353;
+}
+#mainPanelWrap
+{
+    border-right		: 1px solid #6a6a6a;
+}
+.btn-default
+{
+    color				: #ccc;
+    background-color	: #535353;
+    border-color		: #6a6a6a;
+}
+.btn-default:hover
+{
+    background-color	: #4c4c4c;
+}
+.list-group-item
+{
+    background-color	: #535353;
+    border				: 1px solid #6a6a6a;
+}
+a:hover, a:focus
+{
+    color				: #ccc;
+}
+
+#footer
+{
+    background-color	: #151515;
+    border-top			: 1px solid #6a6a6a;
+    padding				: 21px 10px;
+}
+#footerText
+{
+    color				: #ccc;
+}
+#footer br
+{
+    display				: none;
+}
+.btn-primary
+{
+    color				: #fff;
+    background-color	: #535353;
+    border-color		: #6a6a6a;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary
+{
+    background-color	: #4c4c4c;
+    border-color		: #6a6a6a;
+}
+li:hover a
+{
+    color				: #ccc;
+}
+.alert-danger
+{
+    color				: #FFF;
+    background-color	: #ec7c66;
+    border-color		: #ec7c66;
+}
+button, select
+{
+    text-transform		: none;
+    border				: 1px solid #6a6a6a;
+    background			: #535353;
+}
+.panel
+{
+    background-color	: #535353;
+}
+.panel-default > .panel-heading
+{
+    color				: #fff;
+    background-color	: #535353;
+    border-color		: #6a6a6a;
+}
+.panel-default
+{
+    border-color		: #6a6a6a;
+}
+.installs
+{
+    color				: #ccc !important;
+}
+
+
+@media (min-width: 768px)
+{
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #777777 !important;
+    border-color: #eb7c66 !important;
+}
+
+input {
+    background-color: #262626 !important;
+    color: #cbcbcb !important;
+    border-color: #eb7c66 !important;
+}
+
+.panel {
+    border-color: #dcdcdc !important;
+}
+
+.navActiveSel {
+    background-color: #454545 !important;
+}
+
+#headerPad {
+    background-color: #eb7c66 !important;
+}
+
+.channelHeadSelected {
+    background-color: #eb7c66 !important;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #eb7c66 !important;
+}
+
+.activated {
+    background-color: #eb7c66 !important;
+}
+
+
+.space {
+    background-color: #b14117;
+}
+
+::-webkit-scrollbar-track
+{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: rgba(66, 66, 66, 0.5);
+}
+
+.modal-body {
+    color: darkslategray !important;;
+}
