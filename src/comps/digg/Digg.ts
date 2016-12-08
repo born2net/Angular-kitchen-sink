@@ -91,7 +91,7 @@ export class Digg {
         this.diggs = [];
         self.viewContainer = viewContainer;
         self.el = viewContainer.element.nativeElement;
-        self['me'] = Ngmslib.GetCompSelector(this.constructor, this)
+        this['me'] = 'Digg'
 
 
         self.channel = new Observable(observer => {

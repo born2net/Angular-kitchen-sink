@@ -45,11 +45,12 @@
     "rxjs": "5.0.0-beta.12",
     "string": "^3.3.3",
     "ts-helpers": "^1.1.1",
+    "font-awesome": "~4.7.0",
+    "angular2-fontawesome": "~0.8.0",
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.2.1",
-    "@types/bootbox": "^4.4.30",
     "@types/hammerjs": "^2.0.33",
     "@types/immutable": "^3.8.6",
     "@types/jasmine": "2.5.38",
