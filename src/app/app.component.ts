@@ -7,18 +7,61 @@ import 'rxjs/add/operator/catch';
 import {Observable} from "rxjs";
 import {LocalStorage} from "../services/LocalStorage";
 import {AppStore} from "angular2-redux-util";
+import {AppdbAction} from "../actions/AppdbAction";
+import {CommBroker} from "../services/CommBroker";
+import {StyleService} from "../styles/StyleService";
+import {Consts} from "../Conts";
 
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    providers: [StyleService, AppdbAction],
 })
 export class AppComponent {
-    constructor(private http: Http, private fb: FormBuilder, private toastr: ToastsManager, private vRef: ViewContainerRef, private appStore: AppStore, private localStorage: LocalStorage) {
+    constructor(private commBroker: CommBroker, styleService: StyleService, private http: Http, private fb: FormBuilder, private appdbAction: AppdbAction, private toastr: ToastsManager, private vRef: ViewContainerRef, private appStore: AppStore, private localStorage: LocalStorage) {
         this.toastr.setRootViewContainerRef(vRef);
         Ngmslib.GlobalizeStringJS();
         console.log(StringJS('string-js-is-init').humanize().s);
+
+        appStore.dispatch(appdbAction.appStartTime());
+        this.m_styleService = styleService;
+        this.commBroker.setService(Consts.Services().App, this);
+        Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(() => {
+            this.appResized();
+        });
+    }
+
+    private m_styleService: StyleService;
+
+    /**
+     On application resize deal with height changes
+     @method appResized
+     **/
+    public appResized(): void {
+        var appHeight = document.body.clientHeight;
+        var appWidth = document.body.clientWidth;
+        //console.log('resized ' + appHeight);
+        jQuery(Consts.Elems().APP_NAVIGATOR_EVER).height(appHeight - 115);
+        jQuery(Consts.Elems().APP_NAVIGATOR_WASP).height(appHeight - 115);
+        jQuery(Consts.Clas().CLASS_APP_HEIGHT).height(appHeight - 420);
+        jQuery('#mainPanelWrap').height(appHeight - 115);
+        jQuery('#propPanel').height(appHeight - 130);
+
+        this.commBroker.setValue(Consts.Values().APP_SIZE, {
+            height: appHeight,
+            width: appWidth
+        });
+        this.commBroker.fire({
+            fromInstance: self,
+            event: Consts.Events().WIN_SIZED,
+            context: '',
+            message: {
+                height: appHeight,
+                width: appWidth
+            }
+        })
     }
 }
 
