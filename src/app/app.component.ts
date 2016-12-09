@@ -20,21 +20,19 @@ import {Consts} from "../Conts";
     providers: [StyleService, AppdbAction],
 })
 export class AppComponent {
-    constructor(@Inject(forwardRef(() => AppStore)) private i_appStore:AppStore,
+    constructor(private appStore:AppStore,
                 private commBroker: CommBroker,
                 private styleService: StyleService,
                 private http: Http,
                 private fb: FormBuilder,
                 private toastr: ToastsManager, 
                 private vRef: ViewContainerRef, 
-                private appStore: AppStore,
                 private appdbAction:AppdbAction,
                 private localStorage: LocalStorage) {
         this.toastr.setRootViewContainerRef(vRef);
         Ngmslib.GlobalizeStringJS();
         console.log(StringJS('string-js-is-init').humanize().s);
-
-        appStore.dispatch(appdbAction.appStartTime());
+        // this.appStore.dispatch(appdbAction.appStartTime());
         this.commBroker.setService(Consts.Services().App, this);
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(() => {
             this.appResized();

@@ -8,7 +8,8 @@
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "debug ng-mslib": "cp ./node_modules/ng-mslib/src/myng-component.ts ./node_modules/ng-mslib/dist/",
-    "build": "ng build --target=production --base-href ./",
+    "build_prod": "ng build --target=production --base-href ./",
+    "build_dev": "ng build --base-href ./",
     "rsync": "rsync --progress  --chmod=ug=rwx --chmod=o=rx -av --stats -e ssh /cygdrive/c/msweb/ng2Boilerplate/dist/ Sean@digitalsignage.com:/var/www/sites/dynasite/htdocs/_msportal/_js/_node/_boiler",
     "release": "npm run build && npm run rsync"
   },
