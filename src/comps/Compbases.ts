@@ -16,7 +16,7 @@ export class Compbaser {
   protected me = '';
 
   constructor() {
-    this.me = Ngmslib.GetCompSelector(this.constructor, Component)
+    this.me = Ngmslib.GetCompSelector(this.constructor)
   }
 
   protected cancelOnDestroy(i_function: any): void {
