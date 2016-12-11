@@ -10,8 +10,8 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <style>
-    #loading {
-        padding-top: 130px;
+    .padSpinner {
+        padding-top: 250px;
     }
     .spinner {
         display: inline-block;
@@ -30,14 +30,17 @@
     @-webkit-keyframes spin {
         to { -webkit-transform: rotate(360deg); }
     }
-    .center {
+    .centerSpinner {
         text-align: center
     }
 </style>
 <body>
 <app-root>
-    <div id="loading">
-        <div class="center spinner"></div>
+    <div id="loading" class="padSpinner">
+        <div class="centerSpinner spinner"></div>
+        <!--<label class="center" style="font-family: Arial,Verdana">StudioDashboard loading...</label>-->
+        <!--<br/>-->
+        <!--<img id="appLoader" src="assets/loading.svg" alt="Loading icon"/>-->
     </div>
 </app-root>
 </body>
