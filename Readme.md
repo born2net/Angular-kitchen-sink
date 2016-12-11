@@ -21,6 +21,7 @@ to install::
 git clone https://github.com/born2net/Angular-kitchen-sink.git
 cd Angular-kitchen-sink
 npm install
+open browser to http://localhost:4200/
 ```
 
 <hr/>
