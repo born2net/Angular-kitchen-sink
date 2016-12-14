@@ -7,7 +7,7 @@ The Ultimate Angular 2 kitchen sink Single Page App, because code samples are al
 Powered by angular-cli
 
 <p align="center">  
-  <img src="http://www.digitalsignage.com/_images/kitchensink_logo.png">
+  <img src="http://www.digitalsignage.com/_images/kitchensinklogo.png">
 </p>
 
 Check this working demo: http://secure.digitalsignage.com/boiler/
