@@ -47,7 +47,8 @@ What features of Angular does this app cover? everything:
 - Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)
 - CommBroker dependency service, value sharing / mediator design pattern
 - Custom @Decorator (@StyleDecorator) for components
-- Stlying component using the CSS deep selector
+- Component is passed in style via inputs and evaluates (light class)
+- Component is styled using deep css selector from parent component (border)
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration
