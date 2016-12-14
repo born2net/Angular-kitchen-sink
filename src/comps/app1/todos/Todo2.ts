@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import TodoStatsModel from "./TodoStatsModel";
 import {StyleDecorator} from '../../../comps/styledecorator/StyleDecorator';
@@ -28,16 +28,16 @@ var backgroundColor = "#FFFFFF",
         'style': 'font-size: 1.1em',
         'class': 'some_class_to_add',
     },
-    template: ` <div>                     
-                     <hr>
+    template: ` <div>
+                    <small>I am todo2 component</small>
                      <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
                     <span class="fa fa-arrow-left "></span>
                     </button>
                     <h5>1. component decorated using a custom @StyleDecorator (padding)</h5>
-                     <h5>2. component is passed in style via inputs and evaluates (light class)</h5>
-                     <h5>3. component is styled using deep css selector from parent component (border)</h5>
-                     <hr/>
-                    <small>I am todo2 component</small>
+                    <h5>2. component is passed in style via inputs and evaluates (light class)</h5>
+                    <h5>3. component is styled using deep css selector from parent component (border)</h5>
+                    <h5>4. component height is styled externally via [style.height.px]="boxWidth"</h5>
+                    <h2 *ngIf="okClick.observers.length">Someone is bound to my onClick... yay...</h2>                    
                     <ng-content></ng-content>
                     <div class="update-text">Total To-Do updates from server: {{todoStatModel.updates}}</div>
                     <div class="update-text">Total To-Do reads from server: {{todoStatModel.reads}}</div>
@@ -60,8 +60,11 @@ export class Todo2 {
 
     @Input() show_border;
     @Input() large;
+    @Output() okClick = new EventEmitter<any>();
 
-    private input (attr) {
+    public okIsVisible = false;
+
+    private input(attr) {
         return attr !== undefined;
     }
 
@@ -69,7 +72,7 @@ export class Todo2 {
     private myColorValue;
 
 
-    colorInput (color: string) {
+    colorInput(color: string) {
         switch (this.color) {
             case 'blue':
                 return '#00ffe1';
