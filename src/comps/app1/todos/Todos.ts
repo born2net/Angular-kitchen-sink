@@ -30,7 +30,7 @@ import {TodoService} from "./TodoService";
                   </todo-list>
                 </div>
               </Todo1>
-              <Todo2 [style.height.px]="boxWidth" style="overflow-y: scroll !important;" class="page right todo2" [color]="'gray'" [show_border]="true" (okClick)="doSomething($event)">
+              <Todo2 [style.height.px]="boxWidth" style="overflow-y: scroll !important;" class="page right todo2" [color]="'gray'" [show_border]="true" (onMyEvent)="doSomething($event)">
                 <hr/>
                 <h3>To do remote server statistics</h3>
                 <h5>display your total CRUD operations to remote node server</h5>

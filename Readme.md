@@ -7,7 +7,7 @@ The Ultimate Angular 2 kitchen sink Single Page App, because code samples are al
 Powered by angular-cli
 
 <p align="center">  
-  <img src="http://www.digitalsignage.com/_images/kitchensink.png">
+  <img src="http://www.digitalsignage.com/_images/kitchensink_logo.png">
 </p>
 
 Check this working demo: http://secure.digitalsignage.com/boiler/
@@ -49,7 +49,7 @@ What features of Angular does this app cover? everything:
 - Custom @Decorator (@StyleDecorator) for components
 - Component is passed in style via inputs and evaluates (light class)
 - Component is styled using deep css selector from parent component (border)
-- Use EventEmitter.observers and show element only when (okClick) is bound to
+- Use EventEmitter.observers and show element only when (onMyEvent) is bound to
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration

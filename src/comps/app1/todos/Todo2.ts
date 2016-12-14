@@ -37,7 +37,7 @@ var backgroundColor = "#FFFFFF",
                     <h5>2. component is passed in style via inputs and evaluates (light class)</h5>
                     <h5>3. component is styled using deep css selector from parent component (border)</h5>
                     <h5>4. component height is styled externally via [style.height.px]="boxWidth"</h5>
-                    <h2 *ngIf="okClick.observers.length">Someone is bound to my onClick... yay...</h2>                    
+                    <h2 *ngIf="onMyEvent.observers.length">Someone is bound to my onMyEvent... yay...</h2>                    
                     <ng-content></ng-content>
                     <div class="update-text">Total To-Do updates from server: {{todoStatModel.updates}}</div>
                     <div class="update-text">Total To-Do reads from server: {{todoStatModel.reads}}</div>
@@ -60,7 +60,7 @@ export class Todo2 {
 
     @Input() show_border;
     @Input() large;
-    @Output() okClick = new EventEmitter<any>();
+    @Output() onMyEvent = new EventEmitter<any>();
 
     public okIsVisible = false;
 
