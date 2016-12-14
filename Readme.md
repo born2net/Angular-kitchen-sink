@@ -42,10 +42,12 @@ What features of Angular does this app cover? everything:
 - Highcharts ng2 directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
 - Pass custom styles to components via ngStyle and custom properties
+- Pass in custom stylles via input and evaluate in component
 - jQuery integration the Angular way via BrowserDomAdapter
 - Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)
 - CommBroker dependency service, value sharing / mediator design pattern
 - Custom @Decorator (@StyleDecorator) for components
+- Stlying component using the CSS deep selector
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration
