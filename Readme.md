@@ -1,7 +1,7 @@
-Angular 2 kitchen sink
+Angular kitchen sink
 ======================
 
-The Ultimate Angular 2 kitchen sink Single Page App, because code samples are always better than docs! 
+The Ultimate Angular 2 (3,4,5...) kitchen sink Single Page App, because code samples are always better than docs! 
 ----------------
 
 Powered by angular-cli
@@ -111,7 +111,7 @@ if you are on a Windows environment I highly recommend you work with: http://cmd
 
 Looking for even more?
 ------------
-checkout this enterprise level angular 2 app that's forked off this project: https://github.com/born2net/studioDashboard
+checkout this enterprise level angular app that's forked off this project: https://github.com/born2net/studioDashboard
 
 Recommended:
 ------------------------------------------------------------------------
