@@ -11,6 +11,7 @@ import {AppdbAction} from "../actions/AppdbAction";
 import {CommBroker} from "../services/CommBroker";
 import {StyleService} from "../styles/StyleService";
 import {Consts} from "../Conts";
+import {VERSION} from '@angular/core';
 
 
 @Component({
@@ -29,15 +30,23 @@ export class AppComponent {
                 private vRef: ViewContainerRef, 
                 private appdbAction:AppdbAction,
                 private localStorage: LocalStorage) {
-        this.toastr.setRootViewContainerRef(vRef);
+
         Ngmslib.GlobalizeStringJS();
+        this.kitchenSink = '4.65';
+        this.ngVersion = VERSION.full
+
+        this.toastr.setRootViewContainerRef(vRef);
         console.log(StringJS('string-js-is-init').humanize().s);
         // this.appStore.dispatch(appdbAction.appStartTime());
         this.commBroker.setService(Consts.Services().App, this);
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(() => {
             this.appResized();
         });
+
     }
+
+    private kitchenSink:string;
+    private ngVersion:string;
 
     /**
      On application resize deal with height changes
