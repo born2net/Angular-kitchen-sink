@@ -11,8 +11,9 @@ export class ButtonCheckbox implements ControlValueAccessor, OnInit {
     private state:boolean = false;
 
     // view -> model
-    @HostListener('click')
-    private onClick() {
+    @HostListener('click', ['$event.target']  )
+    private onClick(target) {
+        var target = target.classList; // grab the dom classes of the target element
         this.toggle(!this.state);
         this.cd.viewToModelUpdate(this.value);
     }

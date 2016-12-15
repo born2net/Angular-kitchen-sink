@@ -44,6 +44,7 @@ let defaultTooltipOptions: TooltipOptions = {
     active: true
 };
 
+// note: we :host to style the hosting the container of this component
 
 @Component({
     selector: "tooltip",

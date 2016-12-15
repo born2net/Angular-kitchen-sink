@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from "@angular/core";
+import {Component, Input, Output, EventEmitter, HostBinding, HostListener} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import TodoStatsModel from "./TodoStatsModel";
 import {StyleDecorator} from '../../../comps/styledecorator/StyleDecorator';
@@ -43,6 +43,8 @@ var backgroundColor = "#FFFFFF",
                     <div class="update-text">Total To-Do reads from server: {{todoStatModel.reads}}</div>
                     <div class="update-text">Total To-Do creates from server: {{todoStatModel.creates}}</div>
                     <div class="update-text">Total To-Do deletes from server: {{todoStatModel.deletes}}</div>
+                    <p>Width is {{boxWidth}} percent </p><pre>@HostBinding('style.width.%')</pre>
+                    <p>Windows width size is (resize window width to see @HostBinding take effect): {{winSize}}</p>
                 </div>
                     `
 })
@@ -62,7 +64,21 @@ export class Todo2 {
     @Input() large;
     @Output() onMyEvent = new EventEmitter<any>();
 
+    // automatically bind the style width of the parent hosting element to our default input boxWidth member
+    // if you set a value to boxWidth, that will be the width of your containing host element
+    // @HostBinding('style.width.px')
+    // @HostBinding('style.width.em')
+    @HostBinding('style.width.%')
+    @Input()
+    boxWidth: number = 50;
+
+    @HostListener('window:resize', ['$event.target.innerWidth'])
+    onResize(val) {
+       this.winSize = val + 'px';
+    }
+
     public okIsVisible = false;
+    public winSize;
 
     private input(attr) {
         return attr !== undefined;
