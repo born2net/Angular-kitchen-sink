@@ -150,6 +150,10 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     </div>
                     <button class="btn" (click)="toggleShowHide()" >toggle</button>
                   </mini-tab>
+                  <mini-tab [tabTitle]="'Code 20'">
+                    <h3>Passing template to a component to re-render</h3>
+                  <MyTemplateExample></MyTemplateExample>
+                  </mini-tab>
                 </mini-tabs>
                     
                 <small>I am a Minitab component (@ContentChildren)</small>

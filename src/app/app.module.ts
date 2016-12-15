@@ -140,6 +140,7 @@ import {Ngmslib} from "ng-mslib";
 import {LogoutDeactivate} from "../comps/logout/LogoutDeactivate";
 import {ErrorLogService} from "../services/errorhandler/ErrorLogService";
 import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "../services/errorhandler/LoggingErrorHandlerOptions";
+import {MyTemplateExample, MyTemplate} from "../comps/mytemplate/MyTemplate";
 window['jQuery'] = jQuery;
 
 
@@ -296,7 +297,10 @@ if (!Ngmslib.DevMode())
         SwitchComponent,
         ShowHideDirective,
         BreadcrumbComponent,
-        MouseWheelDirective
+        MouseWheelDirective,
+        MyTemplateExample,
+        MyTemplate
+
     ],
     imports: [
         BrowserModule,
