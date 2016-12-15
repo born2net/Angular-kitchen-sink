@@ -2,6 +2,23 @@
  *  Custom HTTP class extending the default ng2 Http service and using Observables
  *
  *  credit to: http://restlet.com/blog/2016/04/18/interacting-efficiently-with-a-restful-service-with-angular2-and-rxjs-part-3/
+ *  and: https://www.illucit.com/blog/2016/03/angular2-http-authentication-interceptor/
+ *
+ *
+ *
+ * to connect:
+
+ bootstrap(MyApp, [
+ HTTP_PROVIDERS,
+ ROUTER_PROVIDERS,
+ provide(LocationStrategy, { useClass: HashLocationStrategy }),
+ provide(Http, {
+            useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router) => new HttpInterceptor(xhrBackend, requestOptions, router),
+            deps: [XHRBackend, RequestOptions, Router]
+        })
+ ])
+ .catch(err => console.error(err));
+
  **/
 
 import {Injectable} from '@angular/core';

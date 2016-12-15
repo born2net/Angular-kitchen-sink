@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Output, EventEmitter} from "@angular/core";
 import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
@@ -154,6 +154,11 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
                     <h3>Passing template to a component to re-render</h3>
                   <MyTemplateExample></MyTemplateExample>
                   </mini-tab>
+                  <mini-tab [tabTitle]="'Code 21'">
+                    <h3>shorthand to bind and emit declaratively from a simple input</h3>
+                  <input class="" #myInput (keyup)="myKeyUp.emit(myInput.value)" (keydown)="myInputText = myInput.value">
+                  {{myInputText}}
+                  </mini-tab>
                 </mini-tabs>
                     
                 <small>I am a Minitab component (@ContentChildren)</small>
@@ -162,14 +167,20 @@ import {DynaFactoryResService} from "./DynaFactoryResService";
 
 export class Notes3 extends NotesBase {
 
-    private show = true;
-    private wheelDirection = 'wheel me in';
+
+
     constructor(protected sliderPanel:Sliderpanel, protected commBroker:CommBroker) {
         super(sliderPanel, commBroker);
         this.me = this;
         this.slideLeft = 'notes4';
         this.slideRight = 'notes2';
     }
+
+    private myInputText:string= '';
+    private show = true;
+    private wheelDirection = 'wheel me in';
+
+    @Output() myKeyUp:EventEmitter<any> = new EventEmitter<any>();
 
     toggleShowHide(){
         this.show = !this.show;
