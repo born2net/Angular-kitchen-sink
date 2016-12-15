@@ -30,7 +30,7 @@ export class NotifyService {
         this.announce$.share().subscribe();
 
         /** example of how to subscribe externally into this class service **/
-        // this.noify().subscribe((d: {notifyServiceType: string, response?: Response}): any => {
+        // this.notify().subscribe((d: {notifyServiceType: string, response?: Response}): any => {
         //     console.log(d.notifyServiceType, d.response);
         // })
     }
@@ -42,7 +42,7 @@ export class NotifyService {
         this.prod.next({notifyServiceType: i_type, response: i_response})
     }
 
-    public noify(): Observable<any> {
+    public notify(): Observable<any> {
         return this.announce$;
     }
 }
@@ -89,7 +89,7 @@ export class HttpAuth {
         options = !!options ? Object.assign({}, options) : {};
         let headers = options.headers || new Headers();
         if (headers.keys().indexOf(this.authToken) === -1) {
-            headers.append(this.authToken, this.userService.getAuthToken())
+            headers.append(this.authToken , this.userService.getAuthToken())
         }
         headers.append('Content-Type', 'application/json');
         options.headers = headers;
