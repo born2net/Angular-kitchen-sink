@@ -32,7 +32,7 @@ export class AppComponent {
                 private localStorage: LocalStorage) {
 
         Ngmslib.GlobalizeStringJS();
-        this.kitchenSink = '4.65';
+        this.kitchenSink = '4.66';
         this.ngVersion = VERSION.full
 
         this.toastr.setRootViewContainerRef(vRef);

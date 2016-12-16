@@ -1,0 +1,24 @@
+svg {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.left, .shield {
+    fill: #DD0031;
+}
+
+.right {
+    fill: #C3002F;
+}
+
+.a {
+    fill: #FFFFFF;
+    cursor: pointer;
+    transform-origin: 125px 115px;
+
+}
+
+a:hover {
+    fill: #f3f3f3;
+}
