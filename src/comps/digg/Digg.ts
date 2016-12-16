@@ -98,8 +98,13 @@ export class Digg {
             self.stream = observer;
         }).share();
 
-        // for a cleaner approach to Observable endpoint server calls see Weather component
-        self.channel.debounceTime(1000).distinctUntilChanged().subscribe((e) => {
+        /** For a cleaner approach to Observable endpoint server calls see Weather component
+         * The publishReplay operator takes care of caching all emitted values from the
+         * observable stream and replaying them to any subscribers no matter when they subscribe.
+         * Passing in a value of 1 ensures that only the last emitted value is cached and refcount()
+         * simply takes care of connecting to/from the observable.
+        **/
+        self.channel.debounceTime(1000).distinctUntilChanged().publishReplay(1).refCount().subscribe((e) => {
             self.diggs = [];
             diggLoader.loadDiggs(e, self.diggs)
         });
