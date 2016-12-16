@@ -12,6 +12,7 @@ import {CommBroker} from "../services/CommBroker";
 import {StyleService} from "../styles/StyleService";
 import {Consts} from "../Conts";
 import {VERSION} from '@angular/core';
+import * as packageJson from '../../package.json'
 
 
 @Component({
@@ -31,7 +32,7 @@ export class AppComponent {
                 private localStorage: LocalStorage) {
 
         Ngmslib.GlobalizeStringJS();
-        this.kitchenSink = '4.68';
+        this.kitchenSink = packageJson.version;
         this.ngVersion = VERSION.full
 
         this.toastr.setRootViewContainerRef(vRef);
@@ -44,7 +45,7 @@ export class AppComponent {
 
     }
 
-    private kitchenSink:string;
+    private kitchenSink:any;
     private ngVersion:string;
 
     /**

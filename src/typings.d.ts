@@ -39,6 +39,12 @@ declare module 'redux-thunk' {
 
 }
 
+declare module "*.json" {
+  export var name;
+  export var version;
+  const value: any;
+  export default value;
+}
 
 interface JQuery {
   modal:any;
