@@ -1,3 +1,31 @@
+@keyframes oscillate-enlarge {
+    from {
+        transform: scale(1)
+    }
+    to {
+        transform: scale(8)
+    }
+}
+
+@keyframes oscillate-reduce {
+    from {
+        transform: scale(1)
+    }
+    to {
+        transform: scale(0.125)
+    }
+}
+
+.group {
+    animation: oscillate-enlarge 3s ease-in-out 0s infinite alternate;
+    transform-origin: 125px 115px;
+}
+
+.shield {
+    animation: oscillate-reduce 3.2s ease-in-out 0s infinite alternate-reverse;
+    transform-origin: 125px 115px;
+}
+
 svg {
     display: block;
     max-width: 300px;
@@ -19,6 +47,29 @@ svg {
 
 }
 
-a:hover {
+b:hover {
     fill: #f3f3f3;
+}
+
+@keyframes oscillate-enlarge {
+    from { transform: scale(1) }
+    to { transform: scale(8)}
+}
+
+@keyframes oscillate-reduce {
+    from { transform: scale(1) }
+    to { transform: scale(0.125)}
+}
+
+.group {
+    animation: oscillate-enlarge 3s ease-in-out 0s infinite alternate;
+    transform-origin: 125px 115px;
+}
+.shield {
+    animation: oscillate-reduce 3.2s ease-in-out 0s infinite alternate-reverse;
+    transform-origin: 125px 115px;
+}
+.b {
+    animation: oscillate-reduce 3.1s ease-in-out 0s infinite alternate;
+    transform-origin: 125px 115px;
 }

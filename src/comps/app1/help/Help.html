@@ -15,9 +15,6 @@
             <svg:path class="a" d="M125,52.1L66.8,182.6h0h21.7h0l11.7-29.2h49.4l11.7,29.2h0h21.7h0L125,52.1L125,52.1L125,52.1L125,52.1
                         L125,52.1z M142,135.4H108l17-40.9L142,135.4z"/>
         </svg>
-        <hr/>
-        <h5>Pure CSS animation still works in Angular</h5>
-        <a id="largeGit" href="https://github.com/born2net/Angular-kitchen-sink" target="_blank" class="fa fa-github"></a>
     </tab>
     <tab [tabtitle]="'ngAnimate SVG animation'">
         <h2>SVG Animated With NgAnimate</h2>
@@ -38,6 +35,23 @@
                       d="M125,52.1L66.8,182.6h0h21.7h0l11.7-29.2h49.4l11.7,29.2h0h21.7h0L125,52.1L125,52.1L125,52.1L125,52.1
                             L125,52.1z M142,135.4H108l17-40.9L142,135.4z"/>
         </svg>
+    </tab>
+    <tab [tabtitle]="'CSS SVG animation'">
+        <h2>SVG Animated With CSS</h2>
+
+        <p>You can animate basic SVG attributes and transforms with CSS just like you can HTML. But you can only animate those things that are CSS styleable, or so-called <a
+                href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute#Presentation_attributes">presentation attributes</a> like strokes, fills. Not regular attributes like x, y, or points.</p>
+
+        <svg viewBox="0 0 250 250">
+            <svg:g class="group">
+                <svg:polygon class="shield" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2"/>
+                <svg:path class="a" d="M125,52.1L66.8,182.6h0h21.7h0l11.7-29.2h49.4l11.7,29.2h0h21.7h0L125,52.1L125,52.1L125,52.1L125,52.1
+      L125,52.1z M142,135.4H108l17-40.9L142,135.4z"/>
+            </svg:g>
+        </svg>
+        <hr/>
+        <h5>Pure CSS animation still works in Angular</h5>
+        <a id="largeGit" href="https://github.com/born2net/Angular-kitchen-sink" target="_blank" class="fa fa-github"></a>
     </tab>
     <tab tabtitle="Angular 2 Resources">
         <div class="container">
