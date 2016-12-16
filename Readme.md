@@ -38,6 +38,7 @@ What features of Angular does this app cover? everything:
    - Extend Base class StoreModel makes working with Immutable.js a breeze and use the power of Typing
    - Using factory to always create immutable typed instances of a class
 - Lazy loading with router (ngModules)
+- Use modules with ANALYZE_FOR_ENTRY_COMPONENTS to allow for AOT component registration
 - Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route
 - Highcharts directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
