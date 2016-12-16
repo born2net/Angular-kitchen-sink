@@ -25,14 +25,13 @@ export class AppComponent {
                 private commBroker: CommBroker,
                 private styleService: StyleService,
                 private http: Http,
-                private fb: FormBuilder,
-                private toastr: ToastsManager, 
+                private toastr: ToastsManager,
                 private vRef: ViewContainerRef, 
                 private appdbAction:AppdbAction,
                 private localStorage: LocalStorage) {
 
         Ngmslib.GlobalizeStringJS();
-        this.kitchenSink = '4.66';
+        this.kitchenSink = '4.67';
         this.ngVersion = VERSION.full
 
         this.toastr.setRootViewContainerRef(vRef);

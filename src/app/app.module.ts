@@ -144,16 +144,22 @@ import {MyTemplateExample, MyTemplate} from "../comps/mytemplate/MyTemplate";
 window['jQuery'] = jQuery;
 
 
+export function appStoreFactory(ngRedux: NgRedux<any>, devTools: DevToolsExtension) {
+    const reducers = combineReducers({
+        parts, cart, films, users, appdb, notify, todos, sample_reducer
+    });
+    const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware);
+    const isDebug = window['devToolsExtension']
+    const applyDevTools = () => isDebug ? window['devToolsExtension']() : f => f;
+    const enhancers: any = compose(middlewareEnhancer, applyDevTools());
+    const store = createStore(reducers, enhancers);
+    ngRedux.provideStore(store);
+    return new AppStore(store);
+}
+
+
 var providing = [{
-    provide: AppStore, useFactory: (ngRedux: NgRedux<any>, devTools: DevToolsExtension) => {
-        const reducers = combineReducers({parts, cart, films, users, appdb, notify, todos, sample_reducer});
-        const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware);
-        const applyDevTools = () => devTools.isEnabled() ? devTools.enhancer : f => f;
-        const enhancers: any = compose(middlewareEnhancer, applyDevTools);
-        const store = createStore(reducers, enhancers);
-        ngRedux.provideStore(store);
-        return new AppStore(store);
-    }, deps: [NgRedux, DevToolsExtension]
+    provide: AppStore, useFactory: appStoreFactory, deps: [NgRedux, DevToolsExtension]
 }, {
     provide: "OFFLINE_ENV",
     useValue: false
@@ -339,7 +345,7 @@ if (!Ngmslib.DevMode())
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor() {
+    constructor(private appStore:AppStore) {
     }
 }
 

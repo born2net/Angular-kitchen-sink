@@ -1,5 +1,4 @@
 import {Component, ViewChild, ElementRef, animate, keyframes, state, style, transition, trigger} from "@angular/core";
-import {Contributors} from "./contributors/contributors";
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../Conts";
 
@@ -9,7 +8,6 @@ import {Consts} from "../../../Conts";
 
 @Component({
     selector: 'Help',
-    providers: [Contributors],
     styleUrls: ['./Help.css'],
     templateUrl: './Help.html',
     animations: [
