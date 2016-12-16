@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "postinstall": "ng serve",
+    "postinstall": "npm run dev",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "debug ng-mslib": "cp ./node_modules/ng-mslib/src/myng-component.ts ./node_modules/ng-mslib/dist/",
