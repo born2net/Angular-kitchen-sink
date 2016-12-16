@@ -29,7 +29,7 @@ import {Ngmslib} from "ng-mslib";
         .diggContainer {
             overflow-y: scroll;
             height: 300px;
-        };
+        }
         .largeImage {
            max-width: 100px;
            max-height: 60px;
