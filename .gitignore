@@ -35,3 +35,4 @@ src/**/*.map
 .DS_Store
 Thumbs.db
 *.log.*
+*.xml.*
