@@ -3,6 +3,10 @@ import {Contributors} from "./contributors/contributors";
 import {CommBroker} from "../../../services/CommBroker";
 import {Consts} from "../../../Conts";
 
+/**
+ * reference: http://teropa.info/blog/2016/12/12/graphics-in-angular-2.html
+ */
+
 @Component({
     selector: 'Help',
     providers: [Contributors],
