@@ -30,7 +30,7 @@ What features of Angular does this app cover? everything:
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
    - use: gulp development --restart (see below on details for best performance debugging)
    - use: gulp production (see below on details for server directory setup)
-- ng2-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
+- ng-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
 - Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
    - backend server sync
@@ -39,7 +39,7 @@ What features of Angular does this app cover? everything:
    - Using factory to always create immutable typed instances of a class
 - Lazy loading with router (ngModules)
 - Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route
-- Highcharts ng2 directive wrapper (http://www.highcharts.com) 
+- Highcharts directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
 - Pass custom styles to components via ngStyle and custom properties
 - Pass in custom stylles via input and evaluate in component
@@ -58,7 +58,7 @@ What features of Angular does this app cover? everything:
 - Create module dynamically and its declared components at runtime via compileModuleAndAllComponentsSync
 - Create component dynamically at runtime and pass in template (tooltip)
 - Multi slot transclusion
-- RXjs powered Custom HTTP class that extends the default Http ng2 to add new behaviour
+- RXjs powered Custom HTTP class that extends the default Http ng to add new behaviour
 - Rxjs reactive operators and subscribers throughout the app (some random examples as well)
 - Rxjs Change detection strategy for improved rendering of page (OnPushObserve)
 - Rxjs Node server side CRUD for Observable client to server calls
@@ -90,7 +90,7 @@ What features of Angular does this app cover? everything:
 - Using @CanDeactivate to demo user prompting when navigating away from a url route segment
 - trackBy to create a custom identifier for *ngFor (trackBy:identify)
    - use nodeLogger to show ToDo items are only updated and not re-created when using our own identifier method
-- Error handler service overrides ng2 error handling and provide custom options
+- Error handler service overrides ng error handling and provide custom options
 - Dependency sharing
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups) 
