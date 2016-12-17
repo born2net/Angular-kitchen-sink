@@ -6,7 +6,32 @@ import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'ExampleHex',
-  templateUrl: './example-hex.html',
+  template: `
+      <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+        <form-text
+          required
+          hexadecimal
+          name="hexadecimalValue"
+          label="Value 1"
+          placeholder="Enter a hexadecimal value"
+          [(ngModel)]="hexadecimalValue">
+        </form-text>
+      
+        <form-select
+          required
+          name="dropdownValue"
+          label="Value 2"
+          placeholder="Select a dropdown value"
+          [(ngModel)]="dropdownValue">
+          <option [value]="1">Option One</option>
+          <option [value]="2">Option Two</option>
+          <option [value]="3">Option Three</option>
+          <option [value]="4">Option Four</option>
+        </form-select>
+      
+        <button type="Submit" [disabled]="!form.valid">Submit</button>
+      </form>
+    `,
   styleUrls: ['./example-hex.css'],
   encapsulation: ViewEncapsulation.None,
 })
