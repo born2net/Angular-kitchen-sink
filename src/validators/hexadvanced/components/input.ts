@@ -1,23 +1,23 @@
 import {
-  Component,
-  Optional,
-  Inject,
-  Input,
-  ViewChild,
+    Component,
+    Optional,
+    Inject,
+    Input,
+    ViewChild,
 } from '@angular/core';
 
 import {
-  NgModel,
-  NG_VALUE_ACCESSOR,
-  NG_VALIDATORS,
-  NG_ASYNC_VALIDATORS,
+    NgModel,
+    NG_VALUE_ACCESSOR,
+    NG_VALIDATORS,
+    NG_ASYNC_VALIDATORS,
 } from '@angular/forms';
 
 import {ElementBase, animations} from '../form';
 
 @Component({
-  selector: 'form-text',
-  template: `
+    selector: 'form-text',
+    template: `
     <div>
       <label *ngIf="label" [attr.for]="identifier">{{label}}</label>
       <input
@@ -34,27 +34,24 @@ import {ElementBase, animations} from '../form';
       </validation>
     </div>
   `,
-  animations,
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: FormTextComponent,
-    multi: true,
-  }],
+    animations,
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: FormTextComponent,
+        multi: true,
+    }],
 })
 export class FormTextComponent extends ElementBase<string> {
-  @Input() public label: string;
-  @Input() public placeholder: string;
+    @Input() public label: string;
+    @Input() public placeholder: string;
 
-  @ViewChild(NgModel) model: NgModel;
+    @ViewChild(NgModel) model: NgModel;
 
-  public identifier = `form-text-${identifier++}`;
+    public identifier = `form-text-${identifier++}`;
 
-  constructor(
-    @Optional() @Inject(NG_VALIDATORS) validators: Array<any>,
-    @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
-  ) {
-    super(validators, asyncValidators);
-  }
+    constructor(@Optional() @Inject(NG_VALIDATORS) validators: Array<any>, @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,) {
+        super(validators, asyncValidators);
+    }
 }
 
 let identifier = 0;
