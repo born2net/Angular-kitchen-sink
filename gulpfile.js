@@ -1,3 +1,12 @@
+var gulp = require('gulp');
+var bump = require('gulp-bump');
+
+gulp.task('bump', function(){
+    gulp.src('./package.json')
+        .pipe(bump({type:'PATCH', indent: 4 }))
+        .pipe(gulp.dest('./'));
+});
+
 // // var superstatic = require('superstatic');
 // // var opn = require('opn');
 // // var browserSync = require('browser-sync');
