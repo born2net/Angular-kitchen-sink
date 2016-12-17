@@ -143,6 +143,11 @@ import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "..
 import {MyTemplateExample, MyTemplate} from "../comps/mytemplate/MyTemplate";
 import {TListComponent} from "../comps/dynmiaccomp/tlist.component";
 import {DynamicContentComponent, DynamicSample1Component, DynamicSample2Component, UnknownDynamicComponent} from "../comps/dynmiaccomp/dynamic-content.component";
+import {ExampleHex} from "../validators/hexadvanced/example-hex";
+import {HexadecimalValueValidator} from "../validators/hexadvanced/validators/hexadecimal-validator";
+import {FormSelectComponent} from "../validators/hexadvanced/components/select";
+import {FormTextComponent} from "../validators/hexadvanced/components/input";
+import {ValidationComponent} from "../validators/hexadvanced/components/validation";
 window['jQuery'] = jQuery;
 
 
@@ -312,7 +317,12 @@ if (!Ngmslib.DevMode())
         DynamicContentComponent,
         DynamicSample1Component,
         DynamicSample2Component,
-        UnknownDynamicComponent
+        UnknownDynamicComponent,
+        ExampleHex,
+        HexadecimalValueValidator,
+        FormSelectComponent,
+        FormTextComponent,
+        ValidationComponent
 
 
     ],

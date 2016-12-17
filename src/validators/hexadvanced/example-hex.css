@@ -1,0 +1,97 @@
+/*button {*/
+  /*margin-top: 10px;*/
+  /*-webkit-appearance: none;*/
+  /*padding: 14px;*/
+  /*background-color: white;*/
+  /*border: 1px solid powderblue;*/
+  /*background-color: cornsilk;*/
+  /*float: right;*/
+  /*margin-right: 6%;*/
+  /*text-shadow: 1px 1px 10px #888;*/
+/*}*/
+/*button[disabled] {*/
+  /*border: 1px solid powderblue;*/
+  /*background-color: gray;*/
+  /*float: right;*/
+  /*color: white;*/
+  /*margin-right: 6%;*/
+/*}*/
+
+form > * > div {
+  display: flex;
+  margin: 6%;
+  padding-bottom: 22px;
+  position: relative;
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+form > * > div label {
+  display: block;
+  margin: 10px;
+}
+form > * > div input[type="text"],
+form > * > div input[type="email"],
+form > * > div input[type="password"],
+form > * > div select {
+  flex-grow: 1;
+  border: 0;
+  padding: 12px;
+  margin-left: 12px;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  color: #333;
+  background-color: #eee;
+}
+form > * > div input[type="text"]:focus,
+form > * > div input[type="email"]:focus,
+form > * > div input[type="password"]:focus,
+form > * > div select:focus {
+  background: white;
+  outline: none;
+  border: 1px solid #aaa;
+}
+form > * > div input[type="text"]:focus + label,
+form > * > div input[type="email"]:focus + label,
+form > * > div input[type="password"]:focus + label,
+form > * > div select:focus + label {
+  opacity: 0;
+}
+form > * > div input[type="text"].invalid,
+form > * > div input[type="email"].invalid,
+form > * > div input[type="password"].invalid,
+form > * > div select.invalid {
+  border: 1px solid red;
+}
+form > * > div input[type="text"]:not(.invalid),
+form > * > div input[type="email"]:not(.invalid),
+form > * > div input[type="password"]:not(.invalid),
+form > * > div select:not(.invalid) {
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+form > * > div input[type="text"]:not(.invalid) + label,
+form > * > div input[type="email"]:not(.invalid) + label,
+form > * > div input[type="password"]:not(.invalid) + label,
+form > * > div select:not(.invalid) + label {
+  opacity: 0;
+}
+form > * > div input[type="text"].invalid:not(:placeholder-shown),
+form > * > div input[type="email"].invalid:not(:placeholder-shown),
+form > * > div input[type="password"].invalid:not(:placeholder-shown),
+form > * > div select.invalid:not(:placeholder-shown) {
+  color: #666;
+}
+form > * > div input[type="text"].invalid:not(:placeholder-shown) + label,
+form > * > div input[type="email"].invalid:not(:placeholder-shown) + label,
+form > * > div input[type="password"].invalid:not(:placeholder-shown) + label,
+form > * > div select.invalid:not(:placeholder-shown) + label {
+  opacity: 0;
+}
+form > * > div input[type="text"].invalid ~ .validation,
+form > * > div input[type="email"].invalid ~ .validation,
+form > * > div input[type="password"].invalid ~ .validation,
+form > * > div select.invalid ~ .validation {
+  padding: 0px 30px 12px 15px;
+}

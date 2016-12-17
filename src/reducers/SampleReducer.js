@@ -1,5 +1,5 @@
 "use strict";
-var immutable_1 = require('immutable');
+var immutable_1 = require("immutable");
 var SampleActions = require("../actions/SampleActions");
 var ServerModel_1 = require("../models/ServerModel");
 function sample_reducer(state, action) {

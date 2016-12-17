@@ -1,5 +1,5 @@
 "use strict";
-var immutable_1 = require('immutable');
+var immutable_1 = require("immutable");
 /**
  * register in store each call so we can filter
  * if we wish on a per component action basis using:

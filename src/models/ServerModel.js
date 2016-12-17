@@ -12,7 +12,7 @@ var ServerModel = (function (_super) {
     __extends(ServerModel, _super);
     function ServerModel(data) {
         if (data === void 0) { data = {}; }
-        _super.call(this, data);
+        return _super.call(this, data) || this;
     }
     ServerModel.prototype.getConnection = function () {
         return this.getKey('connection');

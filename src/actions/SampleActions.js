@@ -15,12 +15,12 @@ require("rxjs/add/operator/merge");
 require("rxjs/add/operator/debounceTime");
 exports.APP_INIT = 'APP_INIT';
 exports.SERVERS_STATUS = 'SERVERS_STATUS';
+var AuthState;
 (function (AuthState) {
     AuthState[AuthState["FAIL"] = 0] = "FAIL";
     AuthState[AuthState["PASS"] = 1] = "PASS";
     AuthState[AuthState["TWO_FACTOR"] = 2] = "TWO_FACTOR";
-})(exports.AuthState || (exports.AuthState = {}));
-var AuthState = exports.AuthState;
+})(AuthState = exports.AuthState || (exports.AuthState = {}));
 var SampleActions = (function () {
     function SampleActions(offlineEnv, appStore, _http) {
         this.offlineEnv = offlineEnv;
@@ -47,10 +47,10 @@ var SampleActions = (function () {
             return;
         };
     };
-    SampleActions = __decorate([
-        core_1.Injectable(),
-        __param(0, core_1.Inject('OFFLINE_ENV'))
-    ], SampleActions);
     return SampleActions;
 }());
+SampleActions = __decorate([
+    core_1.Injectable(),
+    __param(0, core_1.Inject('OFFLINE_ENV'))
+], SampleActions);
 exports.SampleActions = SampleActions;

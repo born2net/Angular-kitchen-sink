@@ -33,22 +33,6 @@ var StoreModel = (function () {
     StoreModel.prototype.getData = function () {
         return this._data;
     };
-    /**
-     * Create a List or update a list if one exists, with the Map key provided and the value to push to the new/updated list
-     * @param ClassName
-     * @param i_key
-     * @param i_value
-     * @returns {T}
-     */
-    StoreModel.prototype.listPush = function (ClassName, i_key, i_value) {
-        var value = this.getKey(i_key);
-        var model = this;
-        if (!value)
-            model = this.setKey(ClassName, i_key, immutable_1.List());
-        var list = model.getKey(i_key);
-        list = list.push(i_value);
-        return model.setKey(ClassName, i_key, list);
-    };
     return StoreModel;
 }());
 exports.StoreModel = StoreModel;

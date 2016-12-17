@@ -96,7 +96,8 @@ What features of Angular does this app cover? everything:
 - Error handler service overrides ng error handling and provide custom options
 - Dependency sharing
 - Hook into application lifecycles
-- Form and validation (both via FormBuilder and manual creating Control Groups) 
+- Form and validation (both via FormBuilder and manual creating Control Groups)
+- Generic implemntation, based classed of a form NG_VALUE_ACCESSOR (hexadecimal  form component)
 - Custom validators such as PasswordMatch (@Attribute)
 - Form observables and operations including Async piping and more
 - Form promised based field validation
