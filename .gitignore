@@ -28,6 +28,7 @@ testem.log
 
 # js/map
 src/**/*.js
+!index.js
 *prod.js
 src/**/*.map
 
