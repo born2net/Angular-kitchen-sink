@@ -141,6 +141,8 @@ import {LogoutDeactivate} from "../comps/logout/LogoutDeactivate";
 import {ErrorLogService} from "../services/errorhandler/ErrorLogService";
 import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "../services/errorhandler/LoggingErrorHandlerOptions";
 import {MyTemplateExample, MyTemplate} from "../comps/mytemplate/MyTemplate";
+import {TListComponent} from "../comps/dynmiaccomp/tlist.component";
+import {DynamicContentComponent, DynamicSample1Component, DynamicSample2Component, UnknownDynamicComponent} from "../comps/dynmiaccomp/dynamic-content.component";
 window['jQuery'] = jQuery;
 
 
@@ -305,7 +307,13 @@ if (!Ngmslib.DevMode())
         BreadcrumbComponent,
         MouseWheelDirective,
         MyTemplateExample,
-        MyTemplate
+        MyTemplate,
+        TListComponent,
+        DynamicContentComponent,
+        DynamicSample1Component,
+        DynamicSample2Component,
+        UnknownDynamicComponent
+
 
     ],
     imports: [
@@ -322,7 +330,12 @@ if (!Ngmslib.DevMode())
         NgReduxModule.forRoot(), //toggle
         MaterialModule.forRoot()
     ],
-    entryComponents: [DynaFactoryResHelloWorld],
+    entryComponents: [
+        DynaFactoryResHelloWorld,
+        DynamicSample1Component,
+        DynamicSample2Component,
+        UnknownDynamicComponent
+    ],
     providers: [...providing,
         LogoutDeactivate,
         ErrorLogService,
@@ -345,7 +358,7 @@ if (!Ngmslib.DevMode())
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor(private appStore:AppStore) {
+    constructor(private appStore: AppStore) {
     }
 }
 
