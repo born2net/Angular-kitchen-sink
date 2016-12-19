@@ -98,14 +98,15 @@ import { trigger } from "@angular/core";
 			<a (click)="removeBox()">Remove Box</a>
 		</p>
 
-		<div class="container">
+        <!-- ng-container will not create any unnecessary dom elements -->
+		<ng-container class="container">
 			<div *ngIf="isShowingBox">
 				<div @boxAnimation class="box">
 					Box
 				</div>
 
 			</div>
-		</div>
+		</ng-container>
 	`
 })
 export class AnimateBox {

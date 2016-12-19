@@ -99,6 +99,7 @@ What features of Angular does this app cover? everything:
 - Hook into application lifecycles
 - Form and validation (both via FormBuilder and manual creating Control Groups)
 - Generic implemntation, based classed of a form NG_VALUE_ACCESSOR (hexadecimal  form component)
+- Use ng-container is a generic substitute to a none element (like template)
 - Custom validators such as PasswordMatch (@Attribute)
 - Form observables and operations including Async piping and more
 - Form promised based field validation
