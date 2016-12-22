@@ -1,7 +1,6 @@
 import {Component, Input, Output, EventEmitter, HostBinding, HostListener} from "@angular/core";
-import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import TodoStatsModel from "./TodoStatsModel";
-import {StyleDecorator} from '../../../comps/styledecorator/StyleDecorator';
+import {StyleDecorator} from "../../../comps/styledecorator/StyleDecorator";
 
 var backgroundColor = "#FFFFFF",
     lightGray = "#EDEDED",
@@ -29,10 +28,7 @@ var backgroundColor = "#FFFFFF",
         'class': 'some_class_to_add',
     },
     template: ` <div>
-                    <small>I am todo2 component</small>
-                     <button type="button" (click)="onPrev($event)" class="btn btn-default btn-sm">
-                    <span class="fa fa-arrow-left "></span>
-                    </button>
+                    <small>I am todo2 component</small>                     
                     <h5>1. component decorated using a custom @StyleDecorator (padding)</h5>
                     <h5>2. component is passed in style via inputs and evaluates (light class)</h5>
                     <h5>3. component is styled using deep css selector from parent component (border)</h5>
@@ -50,14 +46,11 @@ var backgroundColor = "#FFFFFF",
 })
 
 export class Todo2 {
-    private sliderPanel: Sliderpanel;
 
-    constructor(sliderPanel: Sliderpanel, private todoStatModel: TodoStatsModel) {
-        this.sliderPanel = sliderPanel;
+    constructor(private todoStatModel: TodoStatsModel) {
     }
 
-    private onPrev(event) {
-        this.sliderPanel.slideToPage('todo1', 'right')
+    ngOnInit() {
     }
 
     @Input() show_border;
@@ -74,7 +67,7 @@ export class Todo2 {
 
     @HostListener('window:resize', ['$event.target.innerWidth'])
     onResize(val) {
-       this.winSize = val + 'px';
+        this.winSize = val + 'px';
     }
 
     public okIsVisible = false;

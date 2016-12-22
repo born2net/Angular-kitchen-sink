@@ -4,11 +4,13 @@ import {
     Inject
 } from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
+import {Slideritem} from "./Slideritem";
 
 /**
  @class Sliderpanel
  example: this.slideToPage('campaignNameSelectorView', 'left')
  **/
+
 @Component({
     selector: 'Sliderpanel',
     template: `<ng-content></ng-content>`
@@ -18,6 +20,7 @@ export class Sliderpanel {
     private el: any;
     private viewContainer: ViewContainerRef;
     private dom: HTMLBodyElement;
+    private sliders: Array<any> = [];
 
     constructor(viewContainer: ViewContainerRef, @Inject(DOCUMENT) private doc) {
         this.dom = doc.body;
@@ -26,7 +29,7 @@ export class Sliderpanel {
     }
 
     private getElementByClass(element: string) {
-        var jq:any = jQuery;
+        var jq: any = jQuery;
         return jq(this.dom).find('.' + element, this.el)[0];
     }
 
@@ -65,5 +68,9 @@ export class Sliderpanel {
         this.addClassesTo('selected', ['page', 'transition', i_direction === 'left' ? 'right' : 'left']);
         this.removeAllClassesFrom('selected', true);
         this.addClassesTo(toClassName, ['selected']);
+    }
+
+    public addSlider(i_slider) {
+        this.sliders.push(i_slider);
     }
 }

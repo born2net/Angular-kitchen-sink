@@ -1,36 +1,26 @@
 import {Component, ChangeDetectorRef} from "@angular/core";
-import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 
 @Component({
     selector: 'Todo1',
-    template: ` <button type="button" (click)="onNext($event)" class="btn btn-default btn-sm goNext">
-                    <span class="fa fa-arrow-right"></span>
-                </button>                
-                <small>I am the todo1 component</small>
-               <br/>
-                <br/>
-                 <button type="button" (click)="onForceDetection()" class="btn btn-default btn-sm goNext">
-                    Force change detection on component;
-                </button>
-                <ng-content></ng-content>
+    template: ` <div>
+                    <small>I am the todo1 component</small>
+                   <br/>
+                    <br/>
+                     <button type="button" (click)="onForceDetection()" class="btn btn-default btn-sm goNext">
+                        Force change detection on component;
+                    </button>
+                    <ng-content></ng-content>
+                    </div>
                 `
 
 })
 
 export class Todo1 {
-
-    private sliderPanel:Sliderpanel;
-
-    constructor(sliderPanel:Sliderpanel, private ref:ChangeDetectorRef) {
-        this.sliderPanel = sliderPanel;
+    constructor(private cd:ChangeDetectorRef){
     }
 
     private onForceDetection() {
-        this.ref.markForCheck();
-        console.log('cd completed')
+        this.cd.markForCheck();
     }
 
-    private onNext(event) {
-        this.sliderPanel.slideToPage('todo2', 'left')
-    }
 }

@@ -24,9 +24,11 @@ import {MsLibModule} from "ng-mslib/dist/mslib.module";
 import {ToastModule} from "ng2-toastr";
 import {SampleActions} from "../actions/SampleActions";
 import {Sliderpanel} from "../comps/sliderpanel/Sliderpanel";
+import {Slideritem} from "../comps/sliderpanel/Slideritem";
 import {Todo} from "../comps/app1/todos/Todo";
 import {Todo1} from "../comps/app1/todos/Todo1";
 import {Todo2} from "../comps/app1/todos/Todo2";
+import {Todo3} from "../comps/app1/todos/Todo3";
 import {TodoItem} from "../comps/app1/todos/Todoitem";
 import {Todos} from "../comps/app1/todos/Todos";
 import {ModalModule, AlertComponent, RatingComponent, TooltipDirective} from "ng2-bootstrap";
@@ -197,6 +199,7 @@ if (!Ngmslib.DevMode())
         Todo,
         Todo1,
         Todo2,
+        Todo3,
         TodoItem,
         SortBy,
         Nodelogger,
@@ -247,6 +250,7 @@ if (!Ngmslib.DevMode())
         Menu,
         MenuItem,
         Sliderpanel,
+        Slideritem,
         Properties,
         Weather,
         Contact,
