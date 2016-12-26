@@ -14,6 +14,7 @@ import {setTimeout} from "timers";
     selector: 'obs-redux',
     template: `
       I am : {{me}}
+      <br/>
       <button (click)="startStream()" class="btn">Start stream</button>
       <h5>StringJSPipe pipe: {{selectedReportNameLong | StringJSPipe:stringJSPipeArgs}}</h5>
       <hr/>
