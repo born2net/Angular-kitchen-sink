@@ -12,7 +12,14 @@ export default function sample_reducer(state:Map<string,any> = Map<string,any>()
     case SampleActions.GENERAL_STATUS: {
       return state.setIn(['general'], action.payload);
     }
+    case SampleActions.PING: {
+      return state.setIn(['pings'], true);
+    }
+    case SampleActions.PONG: {
+      return state.setIn(['pings'], false);
+    }
     default:
       return state;
   }
 }
+

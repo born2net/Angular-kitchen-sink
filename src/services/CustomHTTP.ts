@@ -46,7 +46,7 @@ export class CustomHttp extends Http {
         console.log('Before the request...');
         return super.request(url, options)
             .retryWhen(error => error.delay(500))
-            .timeout(2000, 'Timeout has occurred')
+            .timeout(2000)
             .catch((err) => {
                 if (err.status === 400 || err.status === 422) {
                     return Observable.throw(err);

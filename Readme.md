@@ -41,7 +41,8 @@ What features of Angular does this app cover? everything:
 - Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route
 - Highcharts directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
-- ng-redux using multiple examples of deep selection to bind to specific  reducer / values 
+- ng-redux using multiple examples of deep selection to bind to specific  reducer / values
+- ng-redux with epics and switching streams on the fly (ping/pong) 
 - Pass custom styles to components via ngStyle and custom properties
 - Pass in custom stylles via input and evaluate in component
 - jQuery integration the Angular way via BrowserDomAdapter

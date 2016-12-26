@@ -5,7 +5,6 @@ import {Ngmslib} from "ng-mslib";
 import {Compbaser} from "../Compbases";
 import * as SampleActionTypes from "../../actions/SampleActions";
 import {SampleActions} from "../../actions/SampleActions";
-import {Map} from 'immutable';
 import * as _ from "lodash";
 import {Observable} from "rxjs";
 import {setTimeout} from "timers";
@@ -16,6 +15,7 @@ import {setTimeout} from "timers";
       I am : {{me}}
       <br/>
       <button (click)="startStream()" class="btn">Start stream</button>
+      <button (click)="startPings()" class="btn">Start pings</button>
       <h5>StringJSPipe pipe: {{selectedReportNameLong | StringJSPipe:stringJSPipeArgs}}</h5>
       <hr/>
       <h5>example of ng-redux and AppStore redux store</h5>
@@ -25,11 +25,16 @@ import {setTimeout} from "timers";
       <p>{{obs2$ | async }}</p>
       <h4>async subscription using AppStore subscription</h4>
       <p>{{none_obs_value}}</p>
+      <h4>pings</h4>
+      <p>pings: {{obs3$ | async }}</p>
     `,
 })
 export class ObsRedux extends Compbaser {
     // constructor(private appStore: AppStore, @Inject('OFFLINE_ENV') private offlineEnv) {
-    constructor(private store: NgRedux<any>, private appStore: AppStore, @Inject('OFFLINE_ENV') private offlineEnv, private action: SampleActions) { //toggle
+    constructor(private store: NgRedux<any>,
+                private appStore: AppStore,
+                @Inject('OFFLINE_ENV') private offlineEnv,
+                private action: SampleActions) { //toggle
         super();
 
         // example of using external lib Ngmslib
@@ -53,7 +58,12 @@ export class ObsRedux extends Compbaser {
         this.obs2$ = this.store.select(['sample_reducer', 'general']).map(e => e);
     }
 
+    private startPings(){
+        this.store.dispatch({type: 'PING'});
+    }
+
     private startStream() {
+
         // doing dispatch through the ng-redux instance
         this.store.dispatch({type: SampleActionTypes.GENERAL_STATUS, payload: _.uniqueId()})
 
@@ -84,6 +94,8 @@ export class ObsRedux extends Compbaser {
 
     // dive deep into immutable tree
     @select(['sample_reducer', 'general']) obs1$: Observable<number>
+
+    @select(['sample_reducer', 'pings']) obs3$: Observable<number>
 
     private obs2$: Observable<number>;
 

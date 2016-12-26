@@ -8,7 +8,7 @@ import {AppStore} from "angular2-redux-util";
 import {applyMiddleware, createStore, compose, combineReducers} from "redux";
 import thunkMiddleware from "redux-thunk";
 import "hammerjs";
-import 'gsap';
+import "gsap";
 import notify from "../reducers/NotifyReducer";
 import sample_reducer from "../reducers/SampleReducer";
 import parts from "../comps/app3/starwars/reducers/parts-reducer";
@@ -19,9 +19,10 @@ import appdb from "../reducers/AppdbReducer";
 import {todos} from "../comps/app1/todos/reducers/TodoReducer";
 import {LocalStorage} from "../services/LocalStorage";
 import {NgReduxModule, DevToolsExtension, NgRedux} from "ng2-redux";
+import {createEpicMiddleware, combineEpics} from 'redux-observable';
 import {MsLibModule} from "ng-mslib/dist/mslib.module";
 import {ToastModule} from "ng2-toastr";
-import {SampleActions} from "../actions/SampleActions";
+import {SampleActions, pingEpic, pongEpic2} from "../actions/SampleActions";
 import {Sliderpanel} from "../comps/sliderpanel/Sliderpanel";
 import {Slideritem} from "../comps/sliderpanel/Slideritem";
 import {Todo} from "../comps/app1/todos/Todo";
@@ -157,7 +158,9 @@ export function appStoreFactory(ngRedux: NgRedux<any>, devTools: DevToolsExtensi
     const reducers = combineReducers({
         parts, cart, films, users, appdb, notify, todos, sample_reducer
     });
-    const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware);
+    const rootEpic = combineEpics(pingEpic, pongEpic2);
+    const epicMiddleware = createEpicMiddleware(rootEpic)
+    const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware, epicMiddleware);
     const isDebug = window['devToolsExtension']
     const applyDevTools = () => isDebug ? window['devToolsExtension']() : f => f;
     const enhancers: any = compose(middlewareEnhancer, applyDevTools());
