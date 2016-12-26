@@ -8,6 +8,6 @@ import {Map} from 'immutable';
  *      return;
  */
 export default function notify(state:Map<string, any> = Map<string, any>({}), action:any) {
-    console.log('ACTION: ' + action.type);
+    // console.log('ACTION: ' + action.type);
     return {data: Map({currentAction: action.type})};
 }

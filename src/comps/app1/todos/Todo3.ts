@@ -13,6 +13,7 @@ import {StyleDecorator} from "../../../comps/styledecorator/StyleDecorator";
     styleUrls: ['./TodoStatsModel.css'],
     template: ` <div>
                     <h3>I am Todo3 component</h3>
+                    <obs-redux></obs-redux>
                 </div>
                     `
 })

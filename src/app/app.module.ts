@@ -17,7 +17,6 @@ import films from "../comps/app3/starwars/reducers/films-reducer";
 import users from "../comps/app3/starwars/reducers/users-reducer";
 import appdb from "../reducers/AppdbReducer";
 import {todos} from "../comps/app1/todos/reducers/TodoReducer";
-import {MyComp} from "./sample2";
 import {LocalStorage} from "../services/LocalStorage";
 import {NgReduxModule, DevToolsExtension, NgRedux} from "ng2-redux";
 import {MsLibModule} from "ng-mslib/dist/mslib.module";
@@ -150,6 +149,7 @@ import {HexadecimalValueValidator} from "../validators/hexadvanced/validators/he
 import {FormSelectComponent} from "../validators/hexadvanced/components/select";
 import {FormTextComponent} from "../validators/hexadvanced/components/input";
 import {ValidationComponent} from "../validators/hexadvanced/components/validation";
+import {ObsRedux} from "../comps/obsredux/obs-redux";
 window['jQuery'] = jQuery;
 
 
@@ -192,7 +192,6 @@ if (!Ngmslib.DevMode())
 @NgModule({
     declarations: [
         AppComponent,
-        MyComp,
         Sliderpanel,
         Todos,
         TodoList,
@@ -202,6 +201,7 @@ if (!Ngmslib.DevMode())
         Todo3,
         TodoItem,
         SortBy,
+        ObsRedux,
         Nodelogger,
         MakeDraggable,
         Starwars,

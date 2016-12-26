@@ -9,6 +9,9 @@ export default function sample_reducer(state:Map<string,any> = Map<string,any>()
       var model = new ServerModel(action.payload);
       return state.setIn(['servers'], model);
     }
+    case SampleActions.GENERAL_STATUS: {
+      return state.setIn(['general'], action.payload);
+    }
     default:
       return state;
   }

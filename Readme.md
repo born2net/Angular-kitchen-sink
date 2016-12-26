@@ -33,8 +33,7 @@ What features of Angular does this app cover? everything:
 - ng-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
 - Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
-   - backend server sync
-   - local redux store (https://github.com/rackt/redux)
+   - backend server sync   
    - Extend Base class StoreModel makes working with Immutable.js a breeze and use the power of Typing
    - Using factory to always create immutable typed instances of a class
 - Lazy loading with router (ngModules)
@@ -42,6 +41,7 @@ What features of Angular does this app cover? everything:
 - Sharing a global AuthService when loading via Feature module as well as when loading via Lazy route
 - Highcharts directive wrapper (http://www.highcharts.com) 
 - StarWars movie shop powered by Redux store
+- ng-redux using multiple examples of deep selection to bind to specific  reducer / values 
 - Pass custom styles to components via ngStyle and custom properties
 - Pass in custom stylles via input and evaluate in component
 - jQuery integration the Angular way via BrowserDomAdapter

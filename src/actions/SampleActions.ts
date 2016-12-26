@@ -15,6 +15,7 @@ import {Observable} from "rxjs/Observable";
 
 export const APP_INIT = 'APP_INIT';
 export const SERVERS_STATUS = 'SERVERS_STATUS';
+export const GENERAL_STATUS = 'GENERAL_STATUS';
 
 export enum AuthState {
   FAIL,
