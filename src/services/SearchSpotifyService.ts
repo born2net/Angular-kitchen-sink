@@ -26,7 +26,7 @@ export class SearchEpic {
                     .map((res) => ({type: 'SEARCH_RESULTS', payload: res.json()}))
                     .takeUntil(action$.ofType('SEARCH_CANCELLED'))
                     .catch((err: any, b: any) => {
-                        return Observable.of({type: 'SEARCH_ERROR'});
+                        return Observable.of({type: 'SEARCH_ERROR', payload: err});
                     })
             })
     }

@@ -1,6 +1,6 @@
 {
   "name": "angularKitchenSink",
-  "version": "0.3.18",
+  "version": "0.3.22",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -11,7 +11,7 @@
     "build_prod": "ng build --target=production --base-href ./",
     "dev": "ng serve --port 4201 --aot false",
     "rsync": "rsync --progress  --chmod=ug=rwx --chmod=o=rx -av --stats -e ssh /cygdrive/c/msweb/Angular-kitchen-sink/dist/ Sean@digitalsignage.com:/var/www/sites/dynasite/htdocs/_msportal/_js/_node/_boiler",
-    "release": "gulp bump && npm run build_prod && npm run rsync"
+    "release": "gulp bump && npm run build_prod && sleep 10 && npm run rsync"
   },
   "dependencies": {
     "@angular/common": "2.4.1",

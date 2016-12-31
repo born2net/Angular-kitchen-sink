@@ -120,6 +120,7 @@ if you are on a Windows environment I highly recommend you work with: http://cmd
 
 Looking for even more?
 ------------
+ng-skeleton, the ultimate angular seed project: https://github.com/born2net/ng-skeleton
 checkout this enterprise level angular app that's forked off this project: https://github.com/born2net/studioDashboard
 
 Recommended:
