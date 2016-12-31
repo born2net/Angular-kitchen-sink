@@ -33,7 +33,7 @@ export class User {
 @Injectable()
 @Component({
     selector: 'LoginPanel',
-    template: `
+    template: `                
                 <div id="appLogin" style="">
                   <form class="form-signin" role="form">
                     <h2 class="form-signin-heading"></h2>

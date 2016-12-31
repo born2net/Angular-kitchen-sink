@@ -138,7 +138,7 @@ import {ShowHideDirective} from "../comps/showHideDirective/ShowHideDirective";
 import {BreadcrumbComponent} from "../comps/breadcrumb/Breadcrumb";
 import {MouseWheelDirective} from "../comps/Mousewheel/Mousewheel";
 import * as jQuery from "jquery";
-import {Ngmslib} from "ng-mslib";
+import {Ngmslib,MyNgComp} from "ng-mslib";
 import {LogoutDeactivate} from "../comps/logout/LogoutDeactivate";
 import {ErrorLogService} from "../services/errorhandler/ErrorLogService";
 import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "../services/errorhandler/LoggingErrorHandlerOptions";

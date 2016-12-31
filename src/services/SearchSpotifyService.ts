@@ -4,9 +4,9 @@ import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {ActionsObservable} from "redux-observable";
-import Action = Redux.Action;
+// import Action = Redux.Action;
 
-export interface IPayloadAction extends Action {
+export interface IPayloadAction  {
     payload?: any;
 }
 

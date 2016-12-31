@@ -13,7 +13,10 @@ import {Notes1Props} from "../notes/Notes1Props";
                     <Notes1Props></Notes1Props>
                   </li>
                   <li *ngSwitchCase="'notes2'"><h1>Notes 2</h1></li>
-                  <li *ngSwitchCase="'notes3'"><h1>Notes 3</h1></li>
+                  <li *ngSwitchCase="'notes3'">
+                    <h1>Notes 3</h1>
+                    <MyNgComp>Hello</MyNgComp>
+                    </li>
                   <li *ngSwitchCase="'notes4'"><h1>Notes 4</h1></li>
                   <li *ngSwitchCase="'notes5'"><h1>Notes 5</h1></li>
                   <li *ngSwitchCase="'Digg'"><h1>Digg</h1></li>
