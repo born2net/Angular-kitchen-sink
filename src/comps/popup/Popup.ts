@@ -1,4 +1,4 @@
-import {Directive, ElementRef} from '@angular/core'
+import {Directive, ElementRef} from "@angular/core";
 
 /**
  * Example of directive exporting its instance variable to the entire template it's hosted
@@ -7,21 +7,21 @@ import {Directive, ElementRef} from '@angular/core'
  * https://plnkr.co/edit/IlLtBY7Ic9yKiRIpjukf?p=preview
  */
 @Directive({
-    selector: ' [ popup ] ',
+    selector: '[popup]',
     inputs: ['message'],
     exportAs: 'popup',
     host: {
         '(click)': 'displayMessage()'
-    }
+    }         
 })
-class Popup {
-    message:String;
+export class Popup {
+    message:String = 'hello';
 
     constructor(_elementRef:ElementRef) {
         console .log(_elementRef);
     }
 
-    displayMessage():void {
+    public displayMessage():void {
         alert(this.message);
     }
 }

@@ -146,6 +146,9 @@
         {{myInputText}}
     </mini-tab>
     <mini-tab [tabTitle]="'Code 22'">
+        <h3 #popup="popup" popup>pop me</h3>
+        <span (click)="popup.displayMessage()">pop me too</span>
+        <hr/>
         <div>
             <h2>Passing template to component from the calling component content</h2>
             <h3> no synthetic sugar</h3>

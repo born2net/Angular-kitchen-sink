@@ -29,11 +29,13 @@ export class ContentHero {
             <th>Name</th>
         </thead>
         <tbody>
-        <!-- you can also use the speicla variable first and last -->
+        
+        <!-- you can also use the special variable first and last -->
         <!--<tr *ngFor="let hero of heroes; let first = first; let last = last" -->
             <!--[ngClass]="{ first: first, last: last }">-->
             <!--<td>{{hero.name}}</td>-->
         <!--</tr>-->
+        
         <tr *ngFor="let hero of heroes; let even = even; let odd = odd" 
             [ngClass]="{ odd: odd, even: even }">
             <td>{{hero.name}}</td>

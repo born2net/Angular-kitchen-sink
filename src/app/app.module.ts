@@ -151,6 +151,7 @@ import {FormSelectComponent} from "../validators/hexadvanced/components/select";
 import {FormTextComponent} from "../validators/hexadvanced/components/input";
 import {ValidationComponent} from "../validators/hexadvanced/components/validation";
 import {ObsRedux} from "../comps/obsredux/obs-redux";
+import {Popup} from "../comps/popup/Popup";
 window['jQuery'] = jQuery;
 
 
@@ -209,6 +210,7 @@ if (!Ngmslib.DevMode())
         MakeDraggable,
         Starwars,
         AdminComponent,
+        Popup,
         ShoppingComponent,
         PartsView,
         UserView,
