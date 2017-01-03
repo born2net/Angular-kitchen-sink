@@ -8,12 +8,25 @@ import {IWeatherItem} from "./IWeather";
 
 @Injectable()
 export class WeatherService {
-    static BASE_URL:string = 'https://secure.digitalsignage.com/Weather/';
+    static BASE_URL: string = 'https://secure.digitalsignage.com/Weather/';
 
-    constructor(private http:Http) {
+    constructor(private http: Http) {
     }
 
-    search(query:string):Observable<any> {
+    search(query: string): Observable<any> {
+
+        function processWeather(showToConsole) {
+            return (source) =>
+                source
+                    .do(() => {
+                        if (showToConsole)
+                            console.log(`Showing weather`)
+                    }).map((e) => {
+                    var items: Array<IWeatherItem> = e[0].data.weather;
+                    return items;
+                })
+        }
+
         // if you wish to use ?q=param_here you can use
         //const search:URLSearchParams = new URLSearchParams();
         //search.set('q', query);
@@ -22,14 +35,8 @@ export class WeatherService {
         // do is a great way to trace for debugging Observables
         return this.http
             .get(`${WeatherService.BASE_URL}${query}`)
-            .do(x => {
-                console.log(`Weather response: ${x.status}`)
-            })
-            .map((res:any) => res.json())
-            .map((e) => {
-                var items:Array<IWeatherItem> = e[0].data.weather;
-                return items;
-            })
+            .map((res: any) => res.json())
+            .let(processWeather(true))
             .catch(function (e) {
                 return Observable.empty();
             });
