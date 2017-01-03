@@ -15,6 +15,7 @@ export class WeatherService {
 
     search(query: string): Observable<any> {
 
+        // use .let() as a way to reuse Observable functions
         function processWeather(showToConsole) {
             return (source) =>
                 source
