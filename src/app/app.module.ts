@@ -152,6 +152,7 @@ import {FormTextComponent} from "../validators/hexadvanced/components/input";
 import {ValidationComponent} from "../validators/hexadvanced/components/validation";
 import {ObsRedux} from "../comps/obsredux/obs-redux";
 import {Popup} from "../comps/popup/Popup";
+import {ngTemplateOutletExample, TempRefContentExample, NestedComponent} from "../comps/ngtemplateoutlet/ngTemplateOutlet";
 window['jQuery'] = jQuery;
 
 
@@ -331,9 +332,10 @@ if (!Ngmslib.DevMode())
         HexadecimalValueValidator,
         FormSelectComponent,
         FormTextComponent,
-        ValidationComponent
-
-
+        ValidationComponent,
+        ngTemplateOutletExample,
+        TempRefContentExample,
+        NestedComponent
     ],
     imports: [
         BrowserModule,
