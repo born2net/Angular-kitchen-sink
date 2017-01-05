@@ -2,6 +2,19 @@
  * Reference:
  * https://blog.tomasandtomas.com/angular-2-http-interceptors-7e2d74b7f14e#.ph17wjbiu
  */
+
+
+// bootstrap(MyApp, [
+//     HTTP_PROVIDERS,
+//     ROUTER_PROVIDERS,
+//     provide(LocationStrategy, { useClass: HashLocationStrategy }),
+//     provide(Http, {
+//         useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router) => new HttpInterceptor(xhrBackend, requestOptions, router),
+//         deps: [XHRBackend, RequestOptions, Router]
+//     })
+// ]).catch(err => console.error(err));
+
+
 import { Injectable } from '@angular/core';
 import {
     Http,

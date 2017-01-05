@@ -121,14 +121,3 @@ export class HttpAuth {
 
     }
 }
-
-// bootstrap(MyApp, [
-//     HTTP_PROVIDERS,
-//     ROUTER_PROVIDERS,
-//     provide(LocationStrategy, { useClass: HashLocationStrategy }),
-//     provide(Http, {
-//         useFactory: (xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router) => new HttpInterceptor(xhrBackend, requestOptions, router),
-//         deps: [XHRBackend, RequestOptions, Router]
-//     })
-// ])
-//     .catch(err => console.error(err));

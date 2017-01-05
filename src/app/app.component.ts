@@ -32,6 +32,7 @@ export class AppComponent {
                 private localStorage: LocalStorage) {
 
         Ngmslib.GlobalizeStringJS();
+
         this.kitchenSink = packageJson.version;
         this.ngVersion = VERSION.full
 
