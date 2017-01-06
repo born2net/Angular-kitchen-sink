@@ -123,12 +123,12 @@ Looking for even more?
 - ng-skeleton, the ultimate angular seed project: https://github.com/born2net/ng-skeleton
 - checkout this enterprise level angular app that's forked off this project: https://github.com/born2net/studioDashboard
 
-Recommended:
+Videos:
 ------------------------------------------------------------------------
 
-for the ultimate store solution for angular2 watch:
+- [![Advanced angular tips and tricks](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=vyiyJCLlGwo&feature=youtu.be "Advanced angular tips and tricks")
 
-[![The Ultimate redux typed store implementation for angular](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=bEkPEnudm7s&feature=youtu.be "The Ultimate redux typed store implementation for angular")
+- [![The Ultimate redux typed store implementation for angular](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=bEkPEnudm7s&feature=youtu.be "The Ultimate redux typed store implementation for angular")
 
 
 
