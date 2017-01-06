@@ -27,6 +27,13 @@ import {Consts} from "../../Conts";
     `],
     template: `
                 <button id="togglePanel" (click)="onToggleSidePanel($event)" class="propPanelIsOpen btn btn-default btn-sm hidden-lg">
+                <!--
+                     some ngClass examples:
+                     <h3 [ngClass]="['bold-text', 'green-color']">Angular 2 Ng Class works with an array of classes</h3>
+                     <h3 [ngClass]="'large-text blue-color'">Angular 2 Ng Class works with string of classes</h3>
+                     <h3 [ngClass]="{'large-text': false, 'red-color': true}">Angular 2 Ng Class works with object/map of classes</h3>
+                -->
+  
                     <span [ngClass]="{'fa-arrow-circle-right': panelOpen, 'fa-arrow-circle-left': !panelOpen}"  class="fa"></span>
                   </button>
                 <ng-content></ng-content>
