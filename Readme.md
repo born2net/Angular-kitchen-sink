@@ -126,9 +126,9 @@ Looking for even more?
 Videos:
 ------------------------------------------------------------------------
 
-- [![Advanced angular tips and tricks](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=vyiyJCLlGwo&feature=youtu.be "Advanced angular tips and tricks")
+[![Advanced angular tips and tricks](http://img.youtube.com/vi/vyiyJCLlGwo/0.jpg)](https://www.youtube.com/watch?v=vyiyJCLlGwo&feature=youtu.be "Advanced angular tips and tricks")
 
-- [![The Ultimate redux typed store implementation for angular](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=bEkPEnudm7s&feature=youtu.be "The Ultimate redux typed store implementation for angular")
+[![The Ultimate redux typed store implementation for angular](http://img.youtube.com/vi/bEkPEnudm7s/0.jpg)](https://www.youtube.com/watch?v=bEkPEnudm7s&feature=youtu.be "The Ultimate redux typed store implementation for angular")
 
 
 
