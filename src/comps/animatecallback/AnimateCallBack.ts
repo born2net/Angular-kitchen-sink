@@ -16,7 +16,6 @@ import {Component, Input, trigger, state, style, transition, keyframes, animate}
             (@flyInOut.start)="animationStarted($event, item)"
             (@flyInOut.done)="animationDone($event, item)"
             [@flyInOut]="'in'">
-            
             {{ item }}
           </li>
         </ul>
