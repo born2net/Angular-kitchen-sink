@@ -31,7 +31,7 @@ import {Todo2} from "../comps/app1/todos/Todo2";
 import {Todo3} from "../comps/app1/todos/Todo3";
 import {TodoItem} from "../comps/app1/todos/Todoitem";
 import {Todos} from "../comps/app1/todos/Todos";
-import {ModalModule, AlertComponent, RatingComponent, TooltipDirective} from "ng2-bootstrap";
+import {ModalModule, AlertModule, RatingModule, TooltipModule} from "ng2-bootstrap";
 import {TodoList} from "../comps/app1/todos/Todolist";
 import {SortBy} from "../pipes/SortBy";
 import {Nodelogger} from "../comps/nodelogger/Nodelogger";
@@ -201,7 +201,6 @@ if (!Ngmslib.DevMode())
         AccordionGroup,
         AddPartsView,
         AdminComponent,
-        AlertComponent,
         AnimateBox,
         AnimateCallBack,
         AnimateCards,
@@ -297,7 +296,6 @@ if (!Ngmslib.DevMode())
         Properties,
         PureDialog,
         PureDialogDirective,
-        RatingComponent,
         Settings,
         ShoppingComponent,
         ShowHideDirective,
@@ -325,7 +323,6 @@ if (!Ngmslib.DevMode())
         ToggleBut,
         ToggleButton,
         ToggleButtonApp,
-        TooltipDirective,
         TrimmedInput,
         UnknownDynamicComponent,
         UserView,
@@ -343,7 +340,10 @@ if (!Ngmslib.DevMode())
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        ModalModule,
+        ModalModule.forRoot(),
+        AlertModule.forRoot(),
+        RatingModule.forRoot(),
+        TooltipModule.forRoot(),
         ModuleExample.withComponents([DynamicComponent]),
         SharedModule.forRoot(),
         routing,
