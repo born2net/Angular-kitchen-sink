@@ -1,3 +1,7 @@
+//blog:
+// https://medium.com/@MichalCafe/angular-create-tabs-with-template-outlet-46b60eb64edf#.r6o6px33h
+// https://medium.com/@MichalCafe/angulars-content-projection-trap-and-why-you-should-consider-using-template-outlet-instead-cc3c4cad87c9#.kg8b6diko
+
 import {Component, Input, ContentChildren, AfterContentInit, TemplateRef, QueryList} from "@angular/core";
 
 @Component({
