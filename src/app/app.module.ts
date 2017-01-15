@@ -349,7 +349,7 @@ if (!Ngmslib.DevMode())
         routing,
         HttpModule,
         ToastModule,
-        MsLibModule.forRoot(),
+        MsLibModule.forRoot({a:1}),
         NgReduxModule.forRoot(), //toggle
         MaterialModule.forRoot()
     ],

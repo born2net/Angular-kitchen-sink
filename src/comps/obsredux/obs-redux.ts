@@ -37,15 +37,6 @@ export class ObsRedux extends Compbaser {
                 private action: SampleActions) { //toggle
         super();
 
-        // example of using external lib Ngmslib
-        var a = new Ngmslib(1);
-        console.log(Ngmslib.Testing('I am static'));
-        console.log(a.replaceReducer(2));
-        console.log(StringJS('/a/a/a/a/a').fileTailName(3).s);
-        StringJS('a').capitalize()
-
-        console.log('>>> offline: ' + this.offlineEnv + ' ' + this.obs2$);
-
         this.cancelOnDestroy(
             this.appStore.sub((i_value) => {
                 this.none_obs_value = i_value;
