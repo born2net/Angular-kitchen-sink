@@ -64,7 +64,7 @@
     "@types/jasmine": "2.5.38",
     "@types/jquery": "^2.0.34",
     "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.21",
+    "angular-cli": "1.0.0-beta.25.5",
     "codelyzer": "~1.0.0-beta.3",
     "gulp": "^3.9.1",
     "gulp-comment-swap": "0.0.10",
