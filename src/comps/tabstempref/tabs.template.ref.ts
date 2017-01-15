@@ -76,7 +76,9 @@ export class TabComponent {
     >
       {{tab.name}}
     </span>
-    <div><template [ngTemplateOutlet]="currentTab.templateRef"></template></div>
+    <div>
+        <template [ngTemplateOutlet]="currentTab.templateRef"></template>
+    </div>
   `,
 })
 export class TabsComponent implements AfterContentInit {
