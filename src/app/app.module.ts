@@ -154,6 +154,7 @@ import {ObsRedux} from "../comps/obsredux/obs-redux";
 import {Popup} from "../comps/popup/Popup";
 import {ngTemplateOutletExample, TempRefContentExample, NestedComponent} from "../comps/ngtemplateoutlet/ngTemplateOutlet";
 import {AnimateCallBack} from "../comps/animatecallback/AnimateCallBack";
+import {TabsComponent, TabComponent, TabsTemplateRef} from "../comps/tabstempref/tabs.template.ref";
 window['jQuery'] = jQuery;
 
 
@@ -312,6 +313,9 @@ if (!Ngmslib.DevMode())
         TListComponent,
         Tab,
         Tabs,
+        TabsTemplateRef,
+        TabsComponent,
+        TabComponent,
         TempRefContentExample,
         Todo,
         Todo1,
