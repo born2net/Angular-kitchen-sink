@@ -155,6 +155,7 @@ import {Popup} from "../comps/popup/Popup";
 import {ngTemplateOutletExample, TempRefContentExample, NestedComponent} from "../comps/ngtemplateoutlet/ngTemplateOutlet";
 import {AnimateCallBack} from "../comps/animatecallback/AnimateCallBack";
 import {TabsComponent, TabComponent, TabsTemplateRef} from "../comps/tabstempref/tabs.template.ref";
+import {MatchHeightDirective, PageSameHeightComponent, CardSameHeightComponent} from "../comps/matchheight/matchhieght.component";
 window['jQuery'] = jQuery;
 
 
@@ -215,6 +216,7 @@ if (!Ngmslib.DevMode())
         ButtonCheckbox,
         ButtonRadio,
         CardComponent,
+        CardSameHeightComponent,
         CartView,
         CharCount,
         Clock,
@@ -262,6 +264,7 @@ if (!Ngmslib.DevMode())
         LoginPanel,
         Logo,
         Logout,
+        MatchHeightDirective,
         MakeDraggable,
         MakeDroppable,
         Menu,
@@ -292,6 +295,7 @@ if (!Ngmslib.DevMode())
         ObsRedux,
         OptionListComponent,
         OrderBy,
+        PageSameHeightComponent,
         PartsView,
         Popup,
         Properties,

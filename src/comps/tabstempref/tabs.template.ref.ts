@@ -54,7 +54,7 @@ export class TabComponent {
       cursor: pointer;
     }
     
-    .selected {
+    .tabIsSelected {
       background-color: #FBFCFF;
       color: #333;
     }
@@ -71,7 +71,7 @@ export class TabComponent {
     template: `
     <span 
       *ngFor="let tab of tabList" 
-      [ngClass]="{selected: isSelected(tab)}" 
+      [ngClass]="{tabIsSelected: isSelected(tab)}" 
       (click)="onTabClick(tab)"
     >
       {{tab.name}}
