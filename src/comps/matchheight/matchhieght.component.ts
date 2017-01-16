@@ -1,3 +1,5 @@
+// blog: https://scotch.io/tutorials/responsive-equal-height-with-angular-directive
+
 import {Component, OnInit, Input, Directive, ElementRef, AfterViewChecked, HostListener} from "@angular/core";
 
 @Component({
@@ -92,7 +94,7 @@ export class MatchHeightDirective implements AfterViewChecked {
             <!-- Example 1: Use it in the same component -->
             <div class="row" myMatchHeight="card">
                 <div class="col-sm-4" *ngFor="let state of list">
-                    <div class="card card-block">
+                    <div class="card half card-block">
                         <h4 class="card-title">{{ state.title }}</h4>
                         <p class="card-text">
                             {{ state.content }}
