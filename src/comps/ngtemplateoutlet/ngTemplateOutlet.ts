@@ -26,6 +26,10 @@ export class ngTemplateOutletExample {}
     <button (click)="display = !display" style="margin-bottom: 20px;">Toggle content</button>
     <br>
     <template *ngIf="display" [ngTemplateOutlet]="templateRef"></template>
+     <!-- In ng v4+ NgTemplateOutlet now compatible with * syntax.-->
+    <!-- <ng-container *ngTemplateOutlet="templateRefExp; -->
+              <!--context: contextExp">-->
+    <!-- </ng-container>-->
   `,
 })
 export class TempRefContentExample {
