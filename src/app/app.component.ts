@@ -1,9 +1,7 @@
-import {Component, ViewContainerRef, forwardRef, Inject} from '@angular/core';
-import {Ngmslib} from "ng-mslib";
-import {ToastsManager, ToastOptions} from "ng2-toastr";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component, ViewContainerRef, VERSION} from "@angular/core";
+import {ToastsManager} from "ng2-toastr";
 import {Http} from "@angular/http";
-import 'rxjs/add/operator/catch';
+import "rxjs/add/operator/catch";
 import {Observable} from "rxjs";
 import {LocalStorage} from "../services/LocalStorage";
 import {AppStore} from "angular2-redux-util";
@@ -11,8 +9,7 @@ import {AppdbAction} from "../actions/AppdbAction";
 import {CommBroker} from "../services/CommBroker";
 import {StyleService} from "../styles/StyleService";
 import {Consts} from "../Conts";
-import {VERSION} from '@angular/core';
-import * as packageJson from '../../package.json'
+import * as packageJson from "../../package.json";
 
 
 @Component({
@@ -22,22 +19,20 @@ import * as packageJson from '../../package.json'
     providers: [StyleService, AppdbAction],
 })
 export class AppComponent {
-    constructor(private appStore:AppStore,
+    constructor(private appStore: AppStore,
                 private commBroker: CommBroker,
                 private styleService: StyleService,
                 private http: Http,
                 private toastr: ToastsManager,
-                private vRef: ViewContainerRef, 
-                private appdbAction:AppdbAction,
+                private vRef: ViewContainerRef,
+                private appdbAction: AppdbAction,
                 private localStorage: LocalStorage) {
 
-        Ngmslib.GlobalizeStringJS();
 
         this.kitchenSink = packageJson.version;
         this.ngVersion = VERSION.full
 
         this.toastr.setRootViewContainerRef(vRef);
-        console.log(StringJS('string-js-is-init').humanize().s);
         // this.appStore.dispatch(appdbAction.appStartTime());
         this.commBroker.setService(Consts.Services().App, this);
         Observable.fromEvent(window, 'resize').debounceTime(250).subscribe(() => {
@@ -46,8 +41,8 @@ export class AppComponent {
 
     }
 
-    private kitchenSink:any;
-    private ngVersion:string;
+    private kitchenSink: any;
+    private ngVersion: string;
 
     /**
      On application resize deal with height changes

@@ -1,5 +1,5 @@
 import {Component, ChangeDetectionStrategy, ViewChild, Input} from "@angular/core";
-import {Compbaser} from "../Compbases";
+import {Compbaser} from "ng-mslib";
 
 @Component({
     selector: 'MyTemplateExample',

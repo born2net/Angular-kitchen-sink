@@ -18,7 +18,6 @@ import "rxjs/add/observable/from";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged";
-import {Ngmslib} from "ng-mslib";
 
 @Component({
     selector: 'Digg',

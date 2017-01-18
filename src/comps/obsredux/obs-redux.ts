@@ -1,8 +1,7 @@
 import {NgRedux, select} from "ng2-redux"; //toggle
 import {Component, Inject} from "@angular/core";
 import {AppStore} from "angular2-redux-util";
-import {Ngmslib} from "ng-mslib";
-import {Compbaser} from "../Compbases";
+import {Compbaser} from "ng-mslib";
 import * as SampleActionTypes from "../../actions/SampleActions";
 import {SampleActions} from "../../actions/SampleActions";
 import * as _ from "lodash";

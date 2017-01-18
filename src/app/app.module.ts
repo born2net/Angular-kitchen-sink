@@ -19,7 +19,7 @@ import appdb from "../reducers/AppdbReducer";
 import {todos} from "../comps/app1/todos/reducers/TodoReducer";
 import {LocalStorage} from "../services/LocalStorage";
 import {NgReduxModule, DevToolsExtension, NgRedux} from "ng2-redux";
-import {createEpicMiddleware, combineEpics} from 'redux-observable';
+import {createEpicMiddleware, combineEpics} from "redux-observable";
 import {MsLibModule} from "ng-mslib/dist/mslib.module";
 import {ToastModule} from "ng2-toastr";
 import {SampleActions, pingEpic, pongEpic2} from "../actions/SampleActions";
@@ -138,7 +138,7 @@ import {ShowHideDirective} from "../comps/showHideDirective/ShowHideDirective";
 import {BreadcrumbComponent} from "../comps/breadcrumb/Breadcrumb";
 import {MouseWheelDirective} from "../comps/Mousewheel/Mousewheel";
 import * as jQuery from "jquery";
-import {Ngmslib,MyNgComp} from "ng-mslib";
+import {MyNgComp} from "ng-mslib";
 import {LogoutDeactivate} from "../comps/logout/LogoutDeactivate";
 import {ErrorLogService} from "../services/errorhandler/ErrorLogService";
 import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "../services/errorhandler/LoggingErrorHandlerOptions";
@@ -156,6 +156,7 @@ import {ngTemplateOutletExample, TempRefContentExample, NestedComponent} from ".
 import {AnimateCallBack} from "../comps/animatecallback/AnimateCallBack";
 import {TabsComponent, TabComponent, TabsTemplateRef} from "../comps/tabstempref/tabs.template.ref";
 import {MatchHeightDirective, PageSameHeightComponent, CardSameHeightComponent} from "../comps/matchheight/matchhieght.component";
+import {NgmslibService} from "ng-mslib/dist/services/ngmslib.service";
 window['jQuery'] = jQuery;
 
 
@@ -194,8 +195,7 @@ var providing = [{
     useClass: TodoStatsModel
 }];
 
-if (!Ngmslib.DevMode())
-    enableProdMode();
+
 
 @NgModule({
     declarations: [
@@ -357,7 +357,7 @@ if (!Ngmslib.DevMode())
         routing,
         HttpModule,
         ToastModule,
-        MsLibModule.forRoot({a:1}),
+        MsLibModule.forRoot({a: 1}),
         NgReduxModule.forRoot(), //toggle
         MaterialModule.forRoot()
     ],
@@ -389,7 +389,12 @@ if (!Ngmslib.DevMode())
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor(private appStore: AppStore) {
+    constructor(private appStore: AppStore, private ngmslibService: NgmslibService) {
+        console.log(`running in dev mode: ${ngmslibService.inDevMode()}`);
+        this.ngmslibService.globalizeStringJS();
+        console.log(StringJS('app-loaded-and-ready').humanize().s);
+        if (!ngmslibService.inDevMode())
+            enableProdMode();
     }
 }
 
