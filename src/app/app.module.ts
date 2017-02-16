@@ -21,7 +21,7 @@ import {LocalStorage} from "../services/LocalStorage";
 import {NgReduxModule, DevToolsExtension, NgRedux} from "ng2-redux";
 import {createEpicMiddleware, combineEpics} from "redux-observable";
 import {MsLibModule} from "ng-mslib/dist/mslib.module";
-import {ToastModule} from "ng2-toastr";
+import {ToastModule, ToastOptions} from "ng2-toastr";
 import {SampleActions, pingEpic, pongEpic2} from "../actions/SampleActions";
 import {Sliderpanel} from "../comps/sliderpanel/Sliderpanel";
 import {Slideritem} from "../comps/sliderpanel/Slideritem";
