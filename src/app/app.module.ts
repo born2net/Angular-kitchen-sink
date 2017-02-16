@@ -356,7 +356,10 @@ var providing = [{
         SharedModule.forRoot(),
         routing,
         HttpModule,
-        ToastModule,
+        ToastModule.forRoot(new ToastOptions({
+            animate: 'flyRight',
+            positionClass: 'toast-bottom-right',
+        })),
         MsLibModule.forRoot({a: 1}),
         NgReduxModule.forRoot(), //toggle
         MaterialModule.forRoot()
