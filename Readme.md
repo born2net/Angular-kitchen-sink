@@ -17,12 +17,13 @@ Cherry pick the snippets you like and use the code to see just what's possible w
 
 <hr/>
 to install::
-```             
+
+             
 git clone https://github.com/born2net/Angular-kitchen-sink.git
 cd Angular-kitchen-sink
 npm install
 open browser to http://localhost:4201/
-```
+
 
 <hr/>
 What features of Angular does this app cover? everything:
