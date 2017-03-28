@@ -18,15 +18,16 @@ Cherry pick the snippets you like and use the code to see just what's possible w
 <hr/>
 to install::
 
-             
+```             
 git clone https://github.com/born2net/Angular-kitchen-sink.git
 cd Angular-kitchen-sink
 npm install
 open browser to http://localhost:4201/
-
+```
 
 <hr/>
 What features of Angular does this app cover? everything:
+
 - Gulp tasks for dev / prod, doc gen and more
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
    - use: gulp development --restart (see below on details for best performance debugging)
