@@ -1,20 +1,17 @@
-import {Component, Injectable} from '@angular/core';
+import {Component, Injectable} from "@angular/core";
 import {CommBroker} from "../../services/CommBroker";
 import {Consts} from "../../Conts";
 import {Router} from "@angular/router";
-import 'rxjs/add/observable/from';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/bufferCount';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/scan';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/observable/range';
-import {Subject} from "rxjs/Subject";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/from";
+import "rxjs/add/observable/fromEvent";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/bufferCount";
+import "rxjs/add/operator/filter";
+import "rxjs/add/operator/scan";
+import "rxjs/add/operator/do";
+import "rxjs/add/observable/range";
 import {AppStore} from "angular2-redux-util";
-import {ToastsManager} from "ng2-toastr";
+import {ToastrService} from "ngx-toastr";
 
 export class User {
     public id: string;
@@ -33,28 +30,28 @@ export class User {
 @Injectable()
 @Component({
     selector: 'LoginPanel',
-    template: `                
-                <div id="appLogin" style="">
-                  <form class="form-signin" role="form">
-                    <h2 class="form-signin-heading"></h2>
-                    <input #userName id="userName" type="text" value="{{user}}" class="form-control" data-localize="username" placeholder="Type anything" required autofocus>
-                    <input #userPass id="userPass" type="password" value="{{pass}}" class="form-control" data-localize="password" placeholder="Type anything" required>
-                    <label class="checkbox">
-                      <input id="rememberMe" type="checkbox" checked value="remember-me">
-                      <span> Remember me </span></label>
-                    <button id="loginButton" (click)="authUser(userName.value, userPass.value)" class="btn btn-lg btn-primary btn-block" type="submit">
-                      Sign in
-                    </button>
-                    <hr class="hrThin"/>
-                    <a [routerLink]="['/ForgotPass']">Forgot password</a>
-                    <div id="languageSelectionLogin"></div>
-                  </form>
-                </div>
+    template: `
+        <div id="appLogin" style="">
+            <form class="form-signin" role="form">
+                <h2 class="form-signin-heading"></h2>
+                <input #userName id="userName" type="text" value="{{user}}" class="form-control" data-localize="username" placeholder="Type anything" required autofocus>
+                <input #userPass id="userPass" type="password" value="{{pass}}" class="form-control" data-localize="password" placeholder="Type anything" required>
+                <label class="checkbox">
+                    <input id="rememberMe" type="checkbox" checked value="remember-me">
+                    <span> Remember me </span></label>
+                <button id="loginButton" (click)="authUser(userName.value, userPass.value)" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Sign in
+                </button>
+                <hr class="hrThin"/>
+                <a [routerLink]="['/ForgotPass']">Forgot password</a>
+                <div id="languageSelectionLogin"></div>
+            </form>
+        </div>
 
-                <!-- <a [routerLink]="['/EntryPanelNoId', {id: 123}']">To forgot pass</a> -->
-                <!-- <a [routerLink]="['/App1']">Direct to App1</a><br/> -->
-                <!-- <a [routerLink]="['/App2']">Direct to App2</a><br/> -->
-                <small>I am Login component and I am inside EntryPanel</small>`
+        <!-- <a [routerLink]="['/EntryPanelNoId', {id: 123}']">To forgot pass</a> -->
+        <!-- <a [routerLink]="['/App1']">Direct to App1</a><br/> -->
+        <!-- <a [routerLink]="['/App2']">Direct to App2</a><br/> -->
+        <small>I am Login component and I am inside EntryPanel</small>`
 })
 export class LoginPanel {
     private user: string;
@@ -62,7 +59,7 @@ export class LoginPanel {
     private myRouter: Router;
     private unsub: Function;
 
-    constructor(private appStore: AppStore, router: Router, private commBroker: CommBroker, public toastr: ToastsManager) {
+    constructor(private appStore: AppStore, router: Router, private commBroker: CommBroker, public toastrService: ToastrService) {
 
         // // const currentUrlTree: UrlTree = router.urlTree;
         // root segment
@@ -120,7 +117,7 @@ export class LoginPanel {
     }
 
     private onLogin() {
-        this.toastr.warning("Please wait, Authenticating...");
+        this.toastrService.warning("Please wait, Authenticating...");
         setTimeout((e) => {
             this.myRouter.navigate(['/AppManager']);
         }, 2000);

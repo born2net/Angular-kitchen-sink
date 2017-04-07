@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 import {appInjService} from "./AppInjService";
 import Map = Immutable.Map;
 import * as Immutable from "immutable";
-import {ToastsManager} from "ng2-toastr";
+import {ToastrService} from "ngx-toastr";
 
 export enum FlagsAuth {
     AuthPass,
@@ -16,7 +16,7 @@ export enum FlagsAuth {
 @Injectable()
 export class AuthService {
 
-    constructor(public toastr: ToastsManager){
+    constructor(public toastrService: ToastrService){
 
     }
     private ubsub:()=>void;
@@ -40,7 +40,7 @@ export class AuthService {
         // here is an example of auth that failed and we nabigate to default route
         // and resolve false so a calling component's @CanActivate will not load
         if (!this.m_authenticated) {
-            this.toastr.error('Sorry user or password are incorrect');
+            this.toastrService.error('Sorry user or password are incorrect');
             router.navigate(target);
             return Promise.resolve(false);
         }

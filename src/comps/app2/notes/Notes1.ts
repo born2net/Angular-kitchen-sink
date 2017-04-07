@@ -12,7 +12,7 @@ import {
 } from "@angular/forms";
 import StartCapValidator from "../../../validators/StartCapValidator";
 import NameTakenValidator from "../../../validators/NameTakenValidator";
-import {ToastsManager} from "ng2-toastr";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'Notes1',
@@ -37,7 +37,7 @@ import {ToastsManager} from "ng2-toastr";
     private mapModel: Map<any, any>; // demonstrates map although we are not using it for anything
 
 
-    constructor(fb: FormBuilder, protected sliderPanel: Sliderpanel, protected commBroker: CommBroker, public toastr: ToastsManager) {
+    constructor(fb: FormBuilder, protected sliderPanel: Sliderpanel, protected commBroker: CommBroker, public toastrService: ToastrService) {
         super(sliderPanel, commBroker);
         this.slideLeft = 'notes2';
 
@@ -114,7 +114,7 @@ import {ToastsManager} from "ng2-toastr";
     }
 
     onSubmit(event) {
-        this.toastr.success(`sent ${event.notesTextArea}`);
+        this.toastrService.success(`sent ${event.notesTextArea}`);
     }
 
     onChange(event) {

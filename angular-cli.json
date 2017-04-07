@@ -1,6 +1,5 @@
 {
   "project": {
-    "version": "1.0.0-beta.22-1",
     "name": "ng-kitchen-sink"
   },
   "apps": [
@@ -19,9 +18,9 @@
       "mobile": false,
       "styles": [
         "./styles/style.css",
+        "../node_modules/ngx-toastr/toastr.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css"
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [],
       "environments": {

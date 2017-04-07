@@ -28,23 +28,16 @@
  examples 3 in controller
  ====================================
  **/
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
-import {
-    Injectable,
-    ReflectiveInjector
-} from "@angular/core";
+import {Injectable, ReflectiveInjector} from "@angular/core";
 import {Http} from "@angular/http";
 import "rxjs/add/operator/share";
 import TodoStatsModel from "./TodoStatsModel";
 import {TodoModel} from "./TodoModel";
-import {
-    AppStore,
-    Actions
-} from "angular2-redux-util";
+import {Actions, AppStore} from "angular2-redux-util";
 import {CommBroker} from "../../../services/CommBroker";
-import {ToastsManager} from "ng2-toastr";
-import {NgmslibService} from "ng-mslib";
+import {ToastrService} from "ngx-toastr";
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
@@ -89,7 +82,7 @@ export class TodoService extends Actions {
     private m_clearTodoDispatch: Function;
     private newOrderNumber: number = 9999
 
-    constructor(private _http: Http, private todoStatsModel: TodoStatsModel, private appStore: AppStore, public toastr: ToastsManager) {
+    constructor(private _http: Http, private todoStatsModel: TodoStatsModel, private appStore: AppStore, public toastrService: ToastrService) {
         super();
         this.m_dataStore = {todos: []};
         this.m_addTodoDispatch = this.createDispatcher(this.addTodoDispatch, this.appStore);
@@ -101,7 +94,7 @@ export class TodoService extends Actions {
      *  example of todo service creator
      * @returns {any}
      */
-    private factoryTodoService():TodoService {
+    private factoryTodoService(): TodoService {
         var injector = ReflectiveInjector.resolveAndCreate(
             [
                 TodoService,
@@ -112,7 +105,7 @@ export class TodoService extends Actions {
         return injector.get(TodoService);
     }
 
-    public saveTodoRemote(todo: TodoModel, cb: (status: number)=>void) {
+    public saveTodoRemote(todo: TodoModel, cb: (status: number) => void) {
         this.todoStatsModel.creates++;
         let sendData = JSON.stringify(todo);
         this._http.post(`${url}/todos`, sendData)
@@ -124,7 +117,7 @@ export class TodoService extends Actions {
         });
     }
 
-    public loadTodosRemote(cb: (status: number)=>void) {
+    public loadTodosRemote(cb: (status: number) => void) {
         this.m_clearTodoDispatch();
         this.todoStatsModel.reads++;
         this._http.get(`${url}/todos`).map(response => response.json()).subscribe(data => {
@@ -146,7 +139,7 @@ export class TodoService extends Actions {
         }, error => console.log(`Could not load todos ${error}`));
     }
 
-    public removeTodoRemote(todoModel: TodoModel, cb: (status: number)=>void) {
+    public removeTodoRemote(todoModel: TodoModel, cb: (status: number) => void) {
         this.todoStatsModel.deletes++;
         var modelId = todoModel.getKey('modelId');
         this._http.delete(`${url}/todos/${modelId}`).subscribe(response => {
@@ -158,7 +151,7 @@ export class TodoService extends Actions {
         }, error => console.log('Could not delete todo.'));
     }
 
-    public editTodoRemote(todoModel: TodoModel, cb: (status: number)=>void) {
+    public editTodoRemote(todoModel: TodoModel, cb: (status: number) => void) {
         this.todoStatsModel.updates++;
         var modelId = todoModel.getKey('modelId');
         var data = JSON.stringify(todoModel);
@@ -179,9 +172,9 @@ export class TodoService extends Actions {
                 modelId,
                 order: this.newOrderNumber++
             });
-            this.saveTodoRemote(todoModel, (status: number)=> {
+            this.saveTodoRemote(todoModel, (status: number) => {
                 if (status == -1) {
-                    this.toastr.warning('problem saving to server 1');
+                    this.toastrService.warning('problem saving to server 1');
                     return;
                 }
                 //dispatch({type: ADD_TODO, todoModel: todoModel});
@@ -203,9 +196,9 @@ export class TodoService extends Actions {
 
     public removeTodo(todoModel: TodoModel) {
         return (dispatch) => {
-            this.removeTodoRemote(todoModel, (status: number)=> {
+            this.removeTodoRemote(todoModel, (status: number) => {
                 if (status == -1) {
-                    this.toastr.warning('problem saving to server 2');
+                    this.toastrService.warning('problem saving to server 2');
                     return;
                 }
                 dispatch(this.removeTodoDispatch(todoModel));
@@ -224,9 +217,9 @@ export class TodoService extends Actions {
         return (dispatch) => {
             dispatch(this.editTodoDispatch(todoModel));
             dispatch(this.editTodoOrderDispatch(todoModel));
-            this.editTodoRemote(todoModel, (status: number)=> {
+            this.editTodoRemote(todoModel, (status: number) => {
                 if (status == -1) {
-                    this.toastr.warning('problem saving to server 3');
+                    this.toastrService.warning('problem saving to server 3');
                     return;
                 }
             });

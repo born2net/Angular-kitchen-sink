@@ -21,7 +21,6 @@ import {LocalStorage} from "../services/LocalStorage";
 import {NgReduxModule, DevToolsExtension, NgRedux} from "ng2-redux";
 import {createEpicMiddleware, combineEpics} from "redux-observable";
 import {MsLibModule} from "ng-mslib/dist/mslib.module";
-import {ToastModule, ToastOptions} from "ng2-toastr";
 import {SampleActions, pingEpic, pongEpic2} from "../actions/SampleActions";
 import {Sliderpanel} from "../comps/sliderpanel/Sliderpanel";
 import {Slideritem} from "../comps/sliderpanel/Slideritem";
@@ -157,6 +156,7 @@ import {AnimateCallBack} from "../comps/animatecallback/AnimateCallBack";
 import {TabsComponent, TabComponent, TabsTemplateRef} from "../comps/tabstempref/tabs.template.ref";
 import {MatchHeightDirective, PageSameHeightComponent, CardSameHeightComponent} from "../comps/matchheight/matchhieght.component";
 import {NgmslibService} from "ng-mslib/dist/services/ngmslib.service";
+import {ToastrModule} from "ngx-toastr";
 window['jQuery'] = jQuery;
 
 
@@ -356,13 +356,10 @@ var providing = [{
         SharedModule.forRoot(),
         routing,
         HttpModule,
-        ToastModule.forRoot(new ToastOptions({
-            animate: 'flyRight',
-            positionClass: 'toast-bottom-right',
-        })),
+        ToastrModule.forRoot(),
         MsLibModule.forRoot({a: 1}),
         NgReduxModule.forRoot(), //toggle
-        MaterialModule.forRoot()
+        MaterialModule
     ],
     entryComponents: [
         DynaFactoryResHelloWorld,
