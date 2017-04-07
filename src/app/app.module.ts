@@ -159,245 +159,249 @@ import {MatchHeightDirective, PageSameHeightComponent, CardSameHeightComponent} 
 import {NgmslibService} from "ng-mslib/dist/services/ngmslib.service";
 window['jQuery'] = jQuery;
 
+export class CustomToast extends ToastOptions {
+  animate = 'flyRight';
+  positionClass: 'toast-bottom-right';
+}
 
 export function appStoreFactory(ngRedux: NgRedux<any>, devTools: DevToolsExtension) {
-    const reducers = combineReducers({
-        parts, cart, films, users, appdb, notify, todos, sample_reducer
-    });
-    const rootEpic = combineEpics(pingEpic, pongEpic2);
-    const epicMiddleware = createEpicMiddleware(rootEpic)
-    const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware, epicMiddleware);
-    const isDebug = window['devToolsExtension']
-    const applyDevTools = () => isDebug ? window['devToolsExtension']() : f => f;
-    const enhancers: any = compose(middlewareEnhancer, applyDevTools());
-    const store = createStore(reducers, enhancers);
-    ngRedux.provideStore(store);
-    return new AppStore(store);
+  const reducers = combineReducers({
+    parts, cart, films, users, appdb, notify, todos, sample_reducer
+  });
+  const rootEpic = combineEpics(pingEpic, pongEpic2);
+  const epicMiddleware = createEpicMiddleware(rootEpic)
+  const middlewareEnhancer = applyMiddleware(<any>thunkMiddleware, epicMiddleware);
+  const isDebug = window['devToolsExtension']
+  const applyDevTools = () => isDebug ? window['devToolsExtension']() : f => f;
+  const enhancers: any = compose(middlewareEnhancer, applyDevTools());
+  const store = createStore(reducers, enhancers);
+  ngRedux.provideStore(store);
+  return new AppStore(store);
 }
 
 
 var providing = [{
-    provide: AppStore, useFactory: appStoreFactory, deps: [NgRedux, DevToolsExtension]
+  provide: AppStore, useFactory: appStoreFactory, deps: [NgRedux, DevToolsExtension]
 }, {
-    provide: "OFFLINE_ENV",
-    useValue: false
+  provide: "OFFLINE_ENV",
+  useValue: false
 }, {
-    provide: LocalStorage,
-    useClass: LocalStorage
+  provide: LocalStorage,
+  useClass: LocalStorage
 }, {
-    provide: SampleActions,
-    useClass: SampleActions
+  provide: SampleActions,
+  useClass: SampleActions
 }, {
-    provide: TodoService,
-    useClass: TodoService
+  provide: TodoService,
+  useClass: TodoService
 }, {
-    provide: TodoStatsModel,
-    useClass: TodoStatsModel
-}];
+  provide: TodoStatsModel,
+  useClass: TodoStatsModel
+}, {
+  provide: ToastOptions,
+  useClass: CustomToast
+} ];
 
 
 
 @NgModule({
-    declarations: [
-        Accordion,
-        AccordionGroup,
-        AddPartsView,
-        AdminComponent,
-        AnimateBox,
-        AnimateCallBack,
-        AnimateCards,
-        App1,
-        App2,
-        App3,
-        AppComponent,
-        AppManager,
-        BarEditorComponent,
-        BreadcrumbComponent,
-        ButtonCheckbox,
-        ButtonRadio,
-        CardComponent,
-        CardSameHeightComponent,
-        CartView,
-        CharCount,
-        Clock,
-        CompElemBuilder,
-        Contact,
-        ContentBarApp,
-        ContentHero,
-        ContentHeroes,
-        Contributors,
-        CountDown,
-        CounterInputComponent,
-        CreateEmbedDiffer,
-        Digg,
-        DisplayError,
-        DividerPanel,
-        DynaFactoryRes,
-        DynaFactoryResHelloWorld,
-        DynamicApp,
-        DynamicComponent,
-        DynamicContentComponent,
-        DynamicSample1Component,
-        DynamicSample2Component,
-        EditorComponent,
-        EmbedView,
-        EntryPanel,
-        ExampleHex,
-        Filemenu,
-        FilemenuItem,
-        FilmSelectionView,
-        FilmView,
-        FilmsComponent,
-        FooEditorComponent,
-        Footer,
-        ForgotPass,
-        FormSelectComponent,
-        FormTextComponent,
-        HeightDirective,
-        HelloWorldComponent,
-        Help,
-        HexadecimalValueValidator,
-        IncrementingDisplay,
-        InfinityScroll,
-        InjectTemplateChild,
-        InjectTemplateParent,
-        LoginPanel,
-        Logo,
-        Logout,
-        MatchHeightDirective,
-        MakeDraggable,
-        MakeDroppable,
-        Menu,
-        Menu,
-        MenuItem,
-        MenuItem,
-        Minitab,
-        Minitabs,
-        ModalDialog,
-        ModalDialog,
-        MouseWheelDirective,
-        MultiSlotTransclusion,
-        MyChart,
-        MyIp,
-        MyTemplate,
-        MyTemplateExample,
-        NestedComponent,
-        Nodelogger,
-        Notes,
-        Notes1,
-        Notes1Props,
-        Notes2,
-        Notes3,
-        Notes4,
-        Notes5,
-        NotesDetails,
-        NotesDetailsItems,
-        ObsRedux,
-        OptionListComponent,
-        OrderBy,
-        PageSameHeightComponent,
-        PartsView,
-        Popup,
-        Properties,
-        PureDialog,
-        PureDialogDirective,
-        Settings,
-        ShoppingComponent,
-        ShowHideDirective,
-        SimpleList,
-        Slideritem,
-        Sliderpanel,
-        Sliderpanel,
-        SortBy,
-        SortableHeader,
-        StarWarsSearch,
-        Starwars,
-        StreamButton,
-        SwitchComponent,
-        TListComponent,
-        Tab,
-        Tabs,
-        TabsTemplateRef,
-        TabsComponent,
-        TabComponent,
-        TempRefContentExample,
-        Todo,
-        Todo1,
-        Todo2,
-        Todo3,
-        TodoItem,
-        TodoList,
-        Todos,
-        ToggleBut,
-        ToggleButton,
-        ToggleButtonApp,
-        TrimmedInput,
-        UnknownDynamicComponent,
-        UserView,
-        UsersView,
-        ValidationComponent,
-        Weather,
-        Welcome,
-        WikiSearch,
-        WorldHelloComponent,
-        ngBookRepeat,
-        ngBookRepeatSample,
-        ngTemplateOutletExample
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        ModalModule.forRoot(),
-        AlertModule.forRoot(),
-        RatingModule.forRoot(),
-        TooltipModule.forRoot(),
-        ModuleExample.withComponents([DynamicComponent]),
-        SharedModule.forRoot(),
-        routing,
-        HttpModule,
-        ToastModule.forRoot(new ToastOptions({
-            animate: 'flyRight',
-            positionClass: 'toast-bottom-right',
-        })),
-        MsLibModule.forRoot({a: 1}),
-        NgReduxModule.forRoot(), //toggle
-        MaterialModule.forRoot()
-    ],
-    entryComponents: [
-        DynaFactoryResHelloWorld,
-        DynamicSample1Component,
-        DynamicSample2Component,
-        UnknownDynamicComponent
-    ],
-    providers: [...providing,
-        LogoutDeactivate,
-        ErrorLogService,
+  declarations: [
+    Accordion,
+    AccordionGroup,
+    AddPartsView,
+    AdminComponent,
+    AnimateBox,
+    AnimateCallBack,
+    AnimateCards,
+    App1,
+    App2,
+    App3,
+    AppComponent,
+    AppManager,
+    BarEditorComponent,
+    BreadcrumbComponent,
+    ButtonCheckbox,
+    ButtonRadio,
+    CardComponent,
+    CardSameHeightComponent,
+    CartView,
+    CharCount,
+    Clock,
+    CompElemBuilder,
+    Contact,
+    ContentBarApp,
+    ContentHero,
+    ContentHeroes,
+    Contributors,
+    CountDown,
+    CounterInputComponent,
+    CreateEmbedDiffer,
+    Digg,
+    DisplayError,
+    DividerPanel,
+    DynaFactoryRes,
+    DynaFactoryResHelloWorld,
+    DynamicApp,
+    DynamicComponent,
+    DynamicContentComponent,
+    DynamicSample1Component,
+    DynamicSample2Component,
+    EditorComponent,
+    EmbedView,
+    EntryPanel,
+    ExampleHex,
+    Filemenu,
+    FilemenuItem,
+    FilmSelectionView,
+    FilmView,
+    FilmsComponent,
+    FooEditorComponent,
+    Footer,
+    ForgotPass,
+    FormSelectComponent,
+    FormTextComponent,
+    HeightDirective,
+    HelloWorldComponent,
+    Help,
+    HexadecimalValueValidator,
+    IncrementingDisplay,
+    InfinityScroll,
+    InjectTemplateChild,
+    InjectTemplateParent,
+    LoginPanel,
+    Logo,
+    Logout,
+    MatchHeightDirective,
+    MakeDraggable,
+    MakeDroppable,
+    Menu,
+    Menu,
+    MenuItem,
+    MenuItem,
+    Minitab,
+    Minitabs,
+    ModalDialog,
+    ModalDialog,
+    MouseWheelDirective,
+    MultiSlotTransclusion,
+    MyChart,
+    MyIp,
+    MyTemplate,
+    MyTemplateExample,
+    NestedComponent,
+    Nodelogger,
+    Notes,
+    Notes1,
+    Notes1Props,
+    Notes2,
+    Notes3,
+    Notes4,
+    Notes5,
+    NotesDetails,
+    NotesDetailsItems,
+    ObsRedux,
+    OptionListComponent,
+    OrderBy,
+    PageSameHeightComponent,
+    PartsView,
+    Popup,
+    Properties,
+    PureDialog,
+    PureDialogDirective,
+    Settings,
+    ShoppingComponent,
+    ShowHideDirective,
+    SimpleList,
+    Slideritem,
+    Sliderpanel,
+    Sliderpanel,
+    SortBy,
+    SortableHeader,
+    StarWarsSearch,
+    Starwars,
+    StreamButton,
+    SwitchComponent,
+    TListComponent,
+    Tab,
+    Tabs,
+    TabsTemplateRef,
+    TabsComponent,
+    TabComponent,
+    TempRefContentExample,
+    Todo,
+    Todo1,
+    Todo2,
+    Todo3,
+    TodoItem,
+    TodoList,
+    Todos,
+    ToggleBut,
+    ToggleButton,
+    ToggleButtonApp,
+    TrimmedInput,
+    UnknownDynamicComponent,
+    UserView,
+    UsersView,
+    ValidationComponent,
+    Weather,
+    Welcome,
+    WikiSearch,
+    WorldHelloComponent,
+    ngBookRepeat,
+    ngBookRepeatSample,
+    ngTemplateOutletExample
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
+    AlertModule.forRoot(),
+    RatingModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModuleExample.withComponents([DynamicComponent]),
+    SharedModule.forRoot(),
+    routing,
+    HttpModule,
+    ToastModule.forRoot(),
+    MsLibModule.forRoot({a: 1}),
+    NgReduxModule.forRoot(), //toggle
+    MaterialModule.forRoot()
+  ],
+  entryComponents: [
+    DynaFactoryResHelloWorld,
+    DynamicSample1Component,
+    DynamicSample2Component,
+    UnknownDynamicComponent
+  ],
+  providers: [...providing,
+    LogoutDeactivate,
+    ErrorLogService,
 
-        // CAUTION: This providers collection overrides the CORE ErrorHandler with our
-        // custom version of the service that logs errors to the ErrorLogService.
-        LOGGING_ERROR_HANDLER_PROVIDERS,
+    // CAUTION: This providers collection overrides the CORE ErrorHandler with our
+    // custom version of the service that logs errors to the ErrorLogService.
+    LOGGING_ERROR_HANDLER_PROVIDERS,
 
-        // OPTIONAL: By default, our custom LoggingErrorHandler has behavior around
-        // rethrowing and / or unwrapping errors. In order to facilitate dependency-
-        // injection instead of resorting to the use of a Factory for instantiation,
-        // these options can be overridden in the providers collection.
-        {
-            provide: LOGGING_ERROR_HANDLER_OPTIONS,
-            useValue: {
-                rethrowError: false,
-                unwrapError: false
-            }
-        }],
-    bootstrap: [AppComponent]
+    // OPTIONAL: By default, our custom LoggingErrorHandler has behavior around
+    // rethrowing and / or unwrapping errors. In order to facilitate dependency-
+    // injection instead of resorting to the use of a Factory for instantiation,
+    // these options can be overridden in the providers collection.
+    {
+      provide: LOGGING_ERROR_HANDLER_OPTIONS,
+      useValue: {
+        rethrowError: false,
+        unwrapError: false
+      }
+    }],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor(private appStore: AppStore, private ngmslibService: NgmslibService) {
-        console.log(`running in dev mode: ${ngmslibService.inDevMode()}`);
-        this.ngmslibService.globalizeStringJS();
-        console.log(StringJS('app-loaded-and-ready').humanize().s);
-        if (!ngmslibService.inDevMode())
-            enableProdMode();
-    }
+  constructor(private appStore: AppStore, private ngmslibService: NgmslibService) {
+    console.log(`running in dev mode: ${ngmslibService.inDevMode()}`);
+    this.ngmslibService.globalizeStringJS();
+    console.log(StringJS('app-loaded-and-ready').humanize().s);
+    if (!ngmslibService.inDevMode())
+      enableProdMode();
+  }
 }
 
