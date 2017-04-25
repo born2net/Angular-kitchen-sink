@@ -1,7 +1,7 @@
 Angular kitchen sink
 ======================
 
-The Ultimate Angular 2 (3,4,5...) kitchen sink Single Page App, because code samples are always better than docs! 
+The Ultimate Angular kitchen sink Single Page App, because code samples are always better than docs! 
 ----------------
 
 Powered by angular-cli
@@ -33,7 +33,7 @@ What features of Angular does this app cover? everything:
    - use: gulp developer (to debug in real time (i.e.: compile TS in the browser and work close to the metal)
    - use: gulp development --restart (see below on details for best performance debugging)
    - use: gulp production (see below on details for server directory setup)
-- ng-bootstrap components (https://github.com/valor-software/ng2-bootstrap)
+- ng-bootstrap components (https://github.com/valor-software/ngx-bootstrap)
 - Support the awesomeness of Redux DevTool with live time travel (http://goo.gl/PNG5nV)
 - Immutable.js (https://facebook.github.io/immutable-js/) Todo component with: 
    - backend server sync   
@@ -87,7 +87,7 @@ What features of Angular does this app cover? everything:
 - manage app version by injecting from package.json and gulp bumping on release 
 - Extend the Date pipe with custom implementation
 - Extend the http service with an Http interceptor service
-- ng2Animation
+- ngAnimation
     - router animation
     - enter / leave states
     - default any / void animations 
