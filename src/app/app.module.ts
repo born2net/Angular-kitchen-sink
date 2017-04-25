@@ -174,7 +174,6 @@ export function appStoreFactory(ngRedux: NgRedux<any>, devTools: DevToolsExtensi
     return new AppStore(store);
 }
 
-
 var providing = [{
     provide: AppStore, useFactory: appStoreFactory, deps: [NgRedux, DevToolsExtension]
 }, {
