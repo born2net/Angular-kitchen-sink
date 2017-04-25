@@ -16,7 +16,6 @@ import {
     IterableDiffer,
 } from '@angular/core';
 
-
 @Directive({
     selector: '[ngBookRepeat]',
     inputs: ['ngBookRepeatOf']
@@ -44,7 +43,7 @@ export class ngBookRepeat implements DoCheck {
     set ngBookRepeatOf(items) {
         this.items = items;
         if (this.items && !this.differ) {
-            this.differ = this.differs.find(items).create(this.changeDetector);
+            this.differ = this.differs.find(items).create((value) => value);
         }
     }
 

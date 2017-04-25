@@ -41,7 +41,7 @@ export class SimpleList {
     constructor(differs:IterableDiffers, private changeDetector:ChangeDetectorRef) {
 
         // we can also re-use an existing changeDetector via:
-        // this.differ = this.differs.find(items).create(this.changeDetector);
+        // this.differ = this.differs.find(items).create(value=>value);
         // to keep track of changes
         this.differ = differs.find([]).create(null);
     }
