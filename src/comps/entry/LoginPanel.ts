@@ -54,10 +54,10 @@ export class User {
         <small>I am Login component and I am inside EntryPanel</small>`
 })
 export class LoginPanel {
-    private user: string;
-    private pass: string;
-    private myRouter: Router;
-    private unsub: Function;
+     user: string;
+     pass: string;
+     myRouter: Router;
+     unsub: Function;
 
     constructor(private appStore: AppStore, router: Router, private commBroker: CommBroker, public toastrService: ToastrService) {
 

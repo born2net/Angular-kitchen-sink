@@ -54,13 +54,6 @@ The /deep/ and >>> selectors should only be used with emulated view encapsulatio
 
 **/
 
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-* {
-    font-family: 'Montserrat', arial;
-}
-
 
 @font-face {
     font-family: 'Raleway';

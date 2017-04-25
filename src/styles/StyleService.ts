@@ -40,24 +40,7 @@ export class StyleService {
                 this.loadCss('../styles/style_dark.css');
                 break;
             }
-            case 'polymer':
-            {
-                this.loadMaterial();
-                break;
-            }
         }
-    }
-
-    private loadMaterial() {
-        //you can check manually if a module has downloaded using system.js
-        //System.has(`${window.location.origin}/src/styles/material-design/js/material.min.js`)
-        //this.loadCss('src/styles/material-design/css/bootstrap-material-design.css');
-        //this.loadCss('src/styles/material-design/css/ripples.min.css');
-        //var a:Promise<any> = System.import('src/styles/material-design/js/material.min.js');
-        //var b:Promise<any> = System.import('src/styles/material-design/js/ripples.min.js');
-        //Promise.all([a, b]).then(function (e) {
-        //    jQuery.material.init();
-        //})
     }
 
     private loadCss(url:string) {

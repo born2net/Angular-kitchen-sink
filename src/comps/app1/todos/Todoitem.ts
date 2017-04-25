@@ -40,7 +40,7 @@ export class TodoItem {
         }
     }
 
-    private differ:KeyValueDiffer;
+    private differ:KeyValueDiffer<any,any>;
     private editMode = false;
     private _item:TodoItemModel;
 

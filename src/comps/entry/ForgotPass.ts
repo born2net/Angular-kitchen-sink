@@ -29,8 +29,8 @@ import 'rxjs/add/operator/do';
                 <small>ForgotPass component and I am inside EntryPanel</small>`
 })
 export class ForgotPass {
-    private clickStream:EventEmitter<any> = new EventEmitter();
-    private disableButton:boolean = false;
+     clickStream:EventEmitter<any> = new EventEmitter();
+     disableButton:boolean = false;
 
     constructor() {
         this.forgotPassInit();

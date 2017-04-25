@@ -36,7 +36,7 @@ import {Directive, DoCheck, ElementRef, Input, KeyValueChangeRecord, KeyValueDif
 @Directive({selector: '[ngStyleCustom]'})
 export class NgStyle implements DoCheck {
     private _ngStyle: {[key: string]: string};
-    private _differ: KeyValueDiffer;
+    private _differ: KeyValueDiffer<any,any>;
 
     constructor(
         private _differs: KeyValueDiffers, private _ngEl: ElementRef, private _renderer: Renderer) {}
@@ -59,13 +59,13 @@ export class NgStyle implements DoCheck {
     }
 
     private _applyChanges(changes: any): void {
-        changes.forEachRemovedItem((record: KeyValueChangeRecord) => this._setStyle(record.key, null));
+        changes.forEachRemovedItem((record: KeyValueChangeRecord<any,any>) => this._setStyle(record.key, null));
 
         changes.forEachAddedItem(
-            (record: KeyValueChangeRecord) => this._setStyle(record.key, record.currentValue));
+            (record: KeyValueChangeRecord<any,any>) => this._setStyle(record.key, record.currentValue));
 
         changes.forEachChangedItem(
-            (record: KeyValueChangeRecord) => this._setStyle(record.key, record.currentValue));
+            (record: KeyValueChangeRecord<any,any>) => this._setStyle(record.key, record.currentValue));
     }
 
     private _setStyle(nameAndUnit: string, value: string): void {

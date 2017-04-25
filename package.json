@@ -14,15 +14,16 @@
     "release": "gulp bump && npm run build_prod && sleep 10 && npm run rsync"
   },
   "dependencies": {
-    "@angular/common": "2.4.3",
-    "@angular/compiler": "2.4.3",
-    "@angular/core": "2.4.3",
-    "@angular/forms": "2.4.3",
-    "@angular/http": "2.4.3",
+    "@angular/animations": "^4.0.2",
+    "@angular/common": "^4.0.2",
+    "@angular/compiler": "^4.0.2",
+    "@angular/core": "^4.0.2",
+    "@angular/forms": "^4.0.2",
+    "@angular/http": "^4.0.2",
+    "@angular/platform-browser": "^4.0.2",
+    "@angular/platform-browser-dynamic": "^4.0.2",
+    "@angular/router": "4.0.2",
     "@angular/material": "^2.0.0-alpha.10",
-    "@angular/platform-browser": "2.4.3",
-    "@angular/platform-browser-dynamic": "2.4.3",
-    "@angular/router": "3.2.1",
     "@types/greensock": "^1.15.32",
     "@types/immutable": "^3.8.6",
     "@types/lodash": "ts2.0",
@@ -55,17 +56,19 @@
     "rxjs": "^5.0.2",
     "string": "^3.3.3",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "0.8.4"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "2.4.3",
+    "@angular/cli": "^1.0.0",
+    "@angular/compiler-cli": "^4.0.2",
+    "@angular/language-service": "^4.0.2",
+    "@angularclass/hmr": "^1.2.2",
     "@types/hammerjs": "^2.0.33",
     "@types/immutable": "^3.8.6",
     "@types/jasmine": "2.5.38",
     "@types/jquery": "^2.0.34",
     "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.25.5",
-    "codelyzer": "~1.0.0-beta.3",
+    "codelyzer": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-comment-swap": "0.0.10",
     "gulp-concat": "^2.6.0",
@@ -87,7 +90,7 @@
     "run-sequence": "^1.2.2",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "~2.0.3",
+    "typescript": "~2.2.1",
     "webdriver-manager": "10.2.5"
   }
 }

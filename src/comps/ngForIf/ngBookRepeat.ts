@@ -23,7 +23,7 @@ import {
 })
 export class ngBookRepeat implements DoCheck {
     private items:any;
-    private differ:IterableDiffer;
+    private differ:IterableDiffer<any>;
     private views:Map<any, ViewRef> = new Map<any, ViewRef>();
 
 

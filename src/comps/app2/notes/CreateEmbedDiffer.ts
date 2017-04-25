@@ -36,7 +36,7 @@ export class CardComponent {
     @ViewChild('word', {read: TemplateRef}) word;
 
     @Input() message;
-    messageDiffer:KeyValueDiffer;
+    messageDiffer:KeyValueDiffer<any,any>;
 
     constructor(public keyValueDiffers:KeyValueDiffers, public changeDetector:ChangeDetectorRef) {
         this.messageDiffer = this.keyValueDiffers.find({}).create(this.changeDetector);

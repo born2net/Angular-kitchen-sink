@@ -82,7 +82,7 @@ export class Digg {
     private el: any;
     private viewContainer: ViewContainerRef;
     private dom: HTMLBodyElement;
-
+    
     constructor(private commBroker: CommBroker, diggLoader: DiggLoader, @Inject(DOCUMENT) private doc, private m_commBroker: CommBroker, viewContainer: ViewContainerRef) {
         var self = this;
         self.mode = 'list';

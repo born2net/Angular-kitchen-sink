@@ -46,7 +46,7 @@ export class SimpleList {
         this.differ = differs.find([]).create(null);
     }
 
-    private differ:IterableDiffer;
+    private differ:IterableDiffer<any>;
 
     ngDoCheck():void {
         var changes = this.differ.diff(this.list);

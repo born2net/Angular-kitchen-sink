@@ -2,7 +2,6 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule, enableProdMode} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
-import {MaterialModule} from "@angular/material";
 import {AppComponent} from "./app.component";
 import {AppStore} from "angular2-redux-util";
 import {applyMiddleware, createStore, compose, combineReducers} from "redux";
@@ -137,7 +136,6 @@ import {ShowHideDirective} from "../comps/showHideDirective/ShowHideDirective";
 import {BreadcrumbComponent} from "../comps/breadcrumb/Breadcrumb";
 import {MouseWheelDirective} from "../comps/Mousewheel/Mousewheel";
 import * as jQuery from "jquery";
-import {MyNgComp} from "ng-mslib";
 import {LogoutDeactivate} from "../comps/logout/LogoutDeactivate";
 import {ErrorLogService} from "../services/errorhandler/ErrorLogService";
 import {LOGGING_ERROR_HANDLER_PROVIDERS, LOGGING_ERROR_HANDLER_OPTIONS} from "../services/errorhandler/LoggingErrorHandlerOptions";
@@ -157,6 +155,7 @@ import {TabsComponent, TabComponent, TabsTemplateRef} from "../comps/tabstempref
 import {MatchHeightDirective, PageSameHeightComponent, CardSameHeightComponent} from "../comps/matchheight/matchhieght.component";
 import {NgmslibService} from "ng-mslib/dist/services/ngmslib.service";
 import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 window['jQuery'] = jQuery;
 
 
@@ -215,6 +214,7 @@ var providing = [{
         BreadcrumbComponent,
         ButtonCheckbox,
         ButtonRadio,
+        BrowserAnimationsModule,
         CardComponent,
         CardSameHeightComponent,
         CartView,
@@ -358,8 +358,7 @@ var providing = [{
         HttpModule,
         ToastrModule.forRoot(),
         MsLibModule.forRoot({a: 1}),
-        NgReduxModule.forRoot(), //toggle
-        MaterialModule
+        NgReduxModule.forRoot()
     ],
     entryComponents: [
         DynaFactoryResHelloWorld,
