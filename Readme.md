@@ -55,6 +55,7 @@ What features of Angular does this app cover? everything:
 - Component is passed in style via inputs and evaluates (light class)
 - Component is styled using deep css selector from parent component (border)
 - Use EventEmitter.observers and show element only when (onMyEvent) is bound to
+- Use HTML5 CustomEvent to pass data to ancestor parent components via bubbling event 
 - Use ngDoCheck with a combination of IterableDiffer or KeyValueDiffers to know when specific inputs to a component changed
 - LocalStorage service
 - Global Consts for event and vars registration

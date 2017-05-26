@@ -1,6 +1,6 @@
 import {
     Component, Input, Output, EventEmitter, ChangeDetectionStrategy, KeyValueDiffers,
-    KeyValueDiffer
+    KeyValueDiffer, ElementRef
 } from '@angular/core';
 import {TodoItemModel} from './TodoService';
 // import TodoItemTemplate from './Todoitem.css!text';
@@ -23,7 +23,7 @@ import {TodoItemModel} from './TodoService';
 })
 export class TodoItem {
 
-    constructor(differs: KeyValueDiffers) {
+    constructor(private differs: KeyValueDiffers, private el:ElementRef) {
         this.differ = differs.find([]).create(null);
     }
 
@@ -59,10 +59,26 @@ export class TodoItem {
         this.done.emit(this._item);
     }
 
+    /**
+     * demonstate passing data to ancestor component via the DOM tree
+     */
+    dispatchViaDom() {
+        this.el.nativeElement
+            .dispatchEvent(new CustomEvent('toggle-edited', {
+                detail: {
+                    todo: 'foo',
+                    source: this
+                },
+                bubbles: true
+            }));
+    }
+
     editClicked() {
         this.editMode = !this.editMode;
         if (this.editMode)
             return;
         this.edit.emit(this._item);
+        this.dispatchViaDom();
+
     }
 }

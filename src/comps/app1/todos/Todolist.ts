@@ -23,7 +23,7 @@ type channelTodosObservable = Observable<Array<channelTodoObservable>>;
                     autofocus [(ngModel)]="newItem" (keyup.enter)="addItem(newItem)">
                     <button class="btn btn-default btn-lg" (click)="addItem(newItem)">Add todo</button>
                   </header>
-                  <section class="main">
+                  <section class="main" (toggle-edited)="toggleExitedDomEvent($event)">
                     <ul class="todo-list">
                       <li *ngFor="let item of m_dataStore | sortBy;  let i=index;trackBy:identify" nodeLogger="{{item}}"> 
                         <todo-item [item]="item" (done)="removeItem($event)"
@@ -62,6 +62,10 @@ export class TodoList {
         this.addItem = todoService.createDispatcher(todoService.addTodo, appStore);
         this.removeItem = todoService.createDispatcher(todoService.removeTodo, appStore);
         this.editItem = todoService.createDispatcher(todoService.editTodo, appStore);
+    }
+
+    toggleExitedDomEvent(event){
+        console.log(event);
     }
 
     onDrop(src:any, trg:TodoModel) {
