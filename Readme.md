@@ -117,6 +117,7 @@ What features of Angular does this app cover? everything:
 - Pipes including grid sort and character counter
 - Use reflection to automatically show a component's name, super useful for debugging component location in page
 - Interfaces
+- TypeScript ype guard example via interfaces (IPet, IWildAnimal)
 - UI data binding / uni and 2 way
 - Document generation
 - and much more...
