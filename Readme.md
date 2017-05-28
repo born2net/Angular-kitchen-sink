@@ -52,7 +52,7 @@ What features of Angular does this app cover? everything:
 - Access native HTML elements like <input> by inserting identifiers (i.e.: #anotherWayToGetInput)
 - CommBroker dependency service, value sharing / mediator design pattern
 - Custom @Decorator (@StyleDecorator) for components
-- Custom decorators style, log, thorttle, observable log, page, once, visit and others
+- Custom decorators style, log, thorttle, observable log, page, once, visit, auto unsubs and others
 - Component is passed in style via inputs and evaluates (light class)
 - Component is styled using deep css selector from parent component (border)
 - Use EventEmitter.observers and show element only when (onMyEvent) is bound to
