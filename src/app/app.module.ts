@@ -157,6 +157,7 @@ import {NgmslibService} from "ng-mslib/dist/services/ngmslib.service";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RangeDirective} from "../comps/range/range";
+import {IconComponent} from "../comps/svgicon/svgicon";
 window['jQuery'] = jQuery;
 
 
@@ -256,6 +257,7 @@ var providing = [{
         HelloWorldComponent,
         Help,
         HexadecimalValueValidator,
+        IconComponent,
         IncrementingDisplay,
         InfinityScroll,
         InjectTemplateChild,
