@@ -31,7 +31,10 @@ export class Notes3 extends NotesBase {
 
     @Output() myKeyUp: EventEmitter<any> = new EventEmitter<any>();
 
-    private items: any[] = [
+    middleware = obs => obs.debounceTime(1000).filter(val => val !== "test");
+    middlewareResult = '';
+
+    items: any[] = [
         {title: 'Item 1'},
         {title: 'Item 2'},
         {title: 'Item 3'}

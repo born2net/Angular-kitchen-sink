@@ -206,6 +206,11 @@
         <h4>Output observable, emit event and pipe in an external observable filter criteria</h4>
         <output-observable [items]="myList" (onUpdate)="search($event)"></output-observable>
     </mini-tab>
+    <mini-tab [tabTitle]="'Code 30'">
+        <h4>Pass in middleware to a dumb component with the power of the <strong><i>let</i></strong> operator</h4>
+        <middleware-input (value)="middlewareResult = $event" [middleware]="middleware"></middleware-input>
+        received back through my middleware: {{middlewareResult}}
+    </mini-tab>
 </mini-tabs>
 
 <small>I am a Minitab component (@ContentChildren)</small>

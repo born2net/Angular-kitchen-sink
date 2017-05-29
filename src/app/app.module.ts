@@ -159,6 +159,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RangeDirective} from "../comps/range/range";
 import {IconComponent} from "../comps/svgicon/svgicon";
 import {OutputObservable} from "../comps/outputobs/outputobs";
+import {MiddlewareInput} from "../comps/middleware/middleware";
 window['jQuery'] = jQuery;
 
 
@@ -273,6 +274,7 @@ var providing = [{
         Menu,
         MenuItem,
         MenuItem,
+        MiddlewareInput,
         Minitab,
         Minitabs,
         ModalDialog,
