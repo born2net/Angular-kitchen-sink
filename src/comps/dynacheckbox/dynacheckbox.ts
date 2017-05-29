@@ -1,9 +1,11 @@
-//our root app component
-import {Component} from "@angular/core";
+// ref: https://netbasal.com/handling-multiple-checkboxes-in-angular-forms-57eb8e846d21
+
+import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
     selector: 'dynamic-check-box',
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <form [formGroup]="form" (submit)="submit(form.value)">
             <div *ngFor="let skill of skills.controls; let i=index">
@@ -38,8 +40,7 @@ export class DynamicCheckBox {
         return this.form.get('skills') as FormArray;
     };
 
-
-    buildSkills() {
+    buildSkills(): FormArray {
         const arr = this.user.skills.map(s => {
             return this.fb.control(s.selected);
             // return this.fb.group({
@@ -61,7 +62,7 @@ export class DynamicCheckBox {
             })
         });
 
-        console.log(f);
+        console.log('send to server ' + f);
     }
 
 
