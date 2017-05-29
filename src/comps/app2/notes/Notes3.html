@@ -202,6 +202,10 @@
             </ng-container>
         </select>
     </mini-tab>
+    <mini-tab [tabTitle]="'Code 29'">
+        <h4>Output observable, emit event and pipe in an external observable filter criteria</h4>
+        <output-observable [items]="myList" (onUpdate)="search($event)"></output-observable>
+    </mini-tab>
 </mini-tabs>
 
 <small>I am a Minitab component (@ContentChildren)</small>

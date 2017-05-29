@@ -158,6 +158,7 @@ import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RangeDirective} from "../comps/range/range";
 import {IconComponent} from "../comps/svgicon/svgicon";
+import {OutputObservable} from "../comps/outputobs/outputobs";
 window['jQuery'] = jQuery;
 
 
@@ -296,6 +297,7 @@ var providing = [{
         ObsRedux,
         OptionListComponent,
         OrderBy,
+        OutputObservable,
         PageSameHeightComponent,
         PartsView,
         Popup,

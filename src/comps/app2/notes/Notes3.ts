@@ -3,6 +3,8 @@ import {Sliderpanel} from "../../sliderpanel/Sliderpanel";
 import {CommBroker} from "../../../services/CommBroker";
 import {NotesBase} from "./NotesBase";
 import {DynaFactoryResService} from "./DynaFactoryResService";
+import {ListItem, MyReactiveInputEvent} from "../../outputobs/outputobs";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'Notes3',
@@ -35,6 +37,21 @@ export class Notes3 extends NotesBase {
         {title: 'Item 3'}
     ];
 
+    myList: ListItem[] = [
+        {name: 'foo'},
+        {name: 'bar'},
+        {name: 'bar2'},
+        {name: '2bar'},
+        {name: 'test'}
+    ]
+
+    search(event: MyReactiveInputEvent) {
+        let items = this.myList.filter((e: ListItem) => {
+            return new RegExp(event.term, 'gi').test(e.name)
+        })
+        // pipe the new Observable of filtered items to the observer source we received from the interfaced event
+        Observable.from(items).subscribe(event.observer)
+    }
 
     toggleShowHide() {
         this.show = !this.show;
