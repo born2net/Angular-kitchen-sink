@@ -156,6 +156,7 @@ import {MatchHeightDirective, PageSameHeightComponent, CardSameHeightComponent} 
 import {NgmslibService} from "ng-mslib/dist/services/ngmslib.service";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RangeDirective} from "../comps/range/range";
 window['jQuery'] = jQuery;
 
 
@@ -299,6 +300,7 @@ var providing = [{
         Properties,
         PureDialog,
         PureDialogDirective,
+        RangeDirective,
         Settings,
         ShoppingComponent,
         ShowHideDirective,

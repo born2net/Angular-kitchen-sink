@@ -186,6 +186,22 @@
         <h3>Example of sizing children to same height</h3>
         <page-same-height></page-same-height>
     </mini-tab>
+    <mini-tab [tabTitle]="'Code 28'">
+        <h3>Range directive with templateRef and var access</h3>
+        <h4>Your age:</h4>
+        <select>
+            <ng-container *range="[18, 80];  let youCanChooseTheVariableName=number">
+                <option [ngValue]="youCanChooseTheVariableName">{{youCanChooseTheVariableName}}</option>
+            </ng-container>
+        </select>
+
+        <h4>Year:</h4>
+        <select>
+            <ng-container *range="[1998, 2016]; let someVar=number">
+                <option [ngValue]="someVar">{{someVar}}</option>
+            </ng-container>
+        </select>
+    </mini-tab>
 </mini-tabs>
 
 <small>I am a Minitab component (@ContentChildren)</small>
