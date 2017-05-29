@@ -211,6 +211,10 @@
         <middleware-input (value)="middlewareResult = $event" [middleware]="middleware"></middleware-input>
         received back through my middleware: {{middlewareResult}}
     </mini-tab>
+    <mini-tab [tabTitle]="'Code 31'">
+        <h4>Use FormArray to create reactive form checkbox controls</h4>
+        <dynamic-check-box></dynamic-check-box>
+    </mini-tab>
 </mini-tabs>
 
 <small>I am a Minitab component (@ContentChildren)</small>

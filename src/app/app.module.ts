@@ -160,6 +160,7 @@ import {RangeDirective} from "../comps/range/range";
 import {IconComponent} from "../comps/svgicon/svgicon";
 import {OutputObservable} from "../comps/outputobs/outputobs";
 import {MiddlewareInput} from "../comps/middleware/middleware";
+import {DynamicCheckBox} from "../comps/dynacheckbox/dynacheckbox";
 window['jQuery'] = jQuery;
 
 
@@ -237,6 +238,7 @@ var providing = [{
         DynaFactoryRes,
         DynaFactoryResHelloWorld,
         DynamicApp,
+        DynamicCheckBox,
         DynamicComponent,
         DynamicContentComponent,
         DynamicSample1Component,
