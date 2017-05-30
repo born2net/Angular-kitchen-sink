@@ -53,7 +53,7 @@ export class Notes3 extends NotesBase {
             return new RegExp(event.term, 'gi').test(e.name)
         })
         // pipe the new Observable of filtered items to the observer source we received from the interfaced event
-        Observable.from(items).subscribe(event.observer)
+        Observable.from(items).subscribe(event.observer);
     }
 
     toggleShowHide() {

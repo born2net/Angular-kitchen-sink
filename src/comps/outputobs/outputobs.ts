@@ -3,6 +3,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {FormControl} from "@angular/forms";
 import {Observable, Observer} from "rxjs/Rx";
+import {Subscription} from "rxjs/Subscription";
 
 export interface ListItem {
     name: string;
@@ -26,18 +27,18 @@ export interface MyReactiveInputEvent {
 })
 export class OutputObservable implements OnInit {
     searchControl: FormControl = new FormControl();
+    sub:Subscription;
     @Input() items: any[]
     @Output() onUpdate: EventEmitter<MyReactiveInputEvent> = new EventEmitter()
 
+
     ngOnInit() {
-        this.searchControl.valueChanges
+        this.sub = this.searchControl.valueChanges
             .debounceTime(500)
             .distinctUntilChanged()
             .switchMap((term: string) => {
-                if (this.onUpdate.observers.length === 0) {
+                if (this.onUpdate.observers.length === 0)
                     return Observable.empty()
-                }
-
                 this.items = [];
                 return Observable.create((observer: Observer<any>) => {
                     this.onUpdate.emit({term: term, observer: observer})
@@ -46,6 +47,10 @@ export class OutputObservable implements OnInit {
             .subscribe((item: any) => {
                 this.items.push(item)
             })
+    }
+
+    ngOnDestroy(){
+        this.sub.unsubscribe();
     }
 }
 
