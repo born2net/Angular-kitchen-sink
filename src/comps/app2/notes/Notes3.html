@@ -215,7 +215,18 @@
         <h4>Use FormArray to create reactive form checkbox controls</h4>
         <dynamic-check-box></dynamic-check-box>
     </mini-tab>
+    <mini-tab [tabTitle]="'Code 32'">
+        <h4>Grab a hold of contentChild form control and manage error state externally</h4>
+        <form novalidate autocomplete="off" [formGroup]="contGroup">
+            <form-container>
+                <input minlength="3" formControlName="txt" required form-container-textbox type="text"/>
+            </form-container>
+        </form>
+    </mini-tab>
 </mini-tabs>
 
 <small>I am a Minitab component (@ContentChildren)</small>
 <ng-content></ng-content>
+
+
+

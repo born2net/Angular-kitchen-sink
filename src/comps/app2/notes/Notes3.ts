@@ -5,6 +5,7 @@ import {NotesBase} from "./NotesBase";
 import {DynaFactoryResService} from "./DynaFactoryResService";
 import {ListItem, MyReactiveInputEvent} from "../../outputobs/outputobs";
 import {Observable} from "rxjs/Observable";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'Notes3',
@@ -18,16 +19,22 @@ import {Observable} from "rxjs/Observable";
 })
 
 export class Notes3 extends NotesBase {
-    constructor(protected sliderPanel: Sliderpanel, protected commBroker: CommBroker) {
+    constructor(protected sliderPanel: Sliderpanel, protected commBroker: CommBroker, private fb: FormBuilder) {
         super(sliderPanel, commBroker);
         this.me = this;
         this.slideLeft = 'notes4';
         this.slideRight = 'notes2';
+
+        this.contGroup = fb.group({
+            'txt': []
+        });
+
     }
 
     private myInputText: string = '';
     private show = true;
     private wheelDirection = 'wheel me in';
+    contGroup: FormGroup;
 
     @Output() myKeyUp: EventEmitter<any> = new EventEmitter<any>();
 

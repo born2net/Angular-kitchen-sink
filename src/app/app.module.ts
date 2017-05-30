@@ -161,6 +161,7 @@ import {IconComponent} from "../comps/svgicon/svgicon";
 import {OutputObservable} from "../comps/outputobs/outputobs";
 import {MiddlewareInput} from "../comps/middleware/middleware";
 import {DynamicCheckBox} from "../comps/dynacheckbox/dynacheckbox";
+import {FormContainer, FormContainerTextBox} from "../comps/formcontainer/formcontainer";
 window['jQuery'] = jQuery;
 
 
@@ -255,6 +256,8 @@ var providing = [{
         FooEditorComponent,
         Footer,
         ForgotPass,
+        FormContainer,
+        FormContainerTextBox,
         FormSelectComponent,
         FormTextComponent,
         HeightDirective,
