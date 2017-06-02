@@ -162,6 +162,7 @@ import {OutputObservable} from "../comps/outputobs/outputobs";
 import {MiddlewareInput} from "../comps/middleware/middleware";
 import {DynamicCheckBox} from "../comps/dynacheckbox/dynacheckbox";
 import {FormContainer, FormContainerTextBox} from "../comps/formcontainer/formcontainer";
+import {InvalidFormMessage, InvalidmessageDirective, InvalidTypeDirective} from "../comps/invalidformmessage/invalidformmessage";
 window['jQuery'] = jQuery;
 
 
@@ -269,6 +270,9 @@ var providing = [{
         InfinityScroll,
         InjectTemplateChild,
         InjectTemplateParent,
+        InvalidFormMessage,
+        InvalidTypeDirective,
+        InvalidmessageDirective,
         LoginPanel,
         Logo,
         Logout,
