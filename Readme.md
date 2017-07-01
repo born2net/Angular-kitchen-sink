@@ -85,6 +85,7 @@ What features of Angular does this app cover? everything:
 - Shared state (Side menu and file menu)
 - use module.moduleName inside component to be able to reference files paths locally (Notes1.ts)
 - use contentWrap.childNodes.length to provide a default template to component if not provided by consumer
+- use ngTemplateOutlet to pass in template and use $implicit for values</h4>
 - use lazy loading of components when router enters path (NoteDynamic, kind of like require(...))
 - manage app version by injecting from package.json and gulp bumping on release 
 - Extend the Date pipe with custom implementation

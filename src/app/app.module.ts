@@ -163,6 +163,7 @@ import {MiddlewareInput} from "../comps/middleware/middleware";
 import {DynamicCheckBox} from "../comps/dynacheckbox/dynacheckbox";
 import {FormContainer, FormContainerTextBox} from "../comps/formcontainer/formcontainer";
 import {InvalidFormMessage, InvalidmessageDirective, InvalidTypeDirective} from "../comps/invalidformmessage/invalidformmessage";
+import {CardItemDirective, CardOrListViewComponent, ListItemDirective, TemplateOutletExample} from "../comps/tempoulet/tempoulet";
 window['jQuery'] = jQuery;
 
 
@@ -336,6 +337,10 @@ var providing = [{
         TabsComponent,
         TabComponent,
         TempRefContentExample,
+        TemplateOutletExample,
+        ListItemDirective,
+        CardItemDirective,
+        CardOrListViewComponent,
         Todo,
         Todo1,
         Todo2,
