@@ -164,6 +164,7 @@ import {DynamicCheckBox} from "../comps/dynacheckbox/dynacheckbox";
 import {FormContainer, FormContainerTextBox} from "../comps/formcontainer/formcontainer";
 import {InvalidFormMessage, InvalidmessageDirective, InvalidTypeDirective} from "../comps/invalidformmessage/invalidformmessage";
 import {CardItemDirective, CardOrListViewComponent, ListItemDirective, TemplateOutletExample} from "../comps/tempoulet/tempoulet";
+import {NbDropdownComponent, NbSelectMatchDirective, NbSelectOptionDirective, TenmplateOutlet2} from "../comps/templateoutlet2/templateoutlet2";
 window['jQuery'] = jQuery;
 
 
@@ -295,6 +296,9 @@ var providing = [{
         MyIp,
         MyTemplate,
         MyTemplateExample,
+        NbSelectMatchDirective,
+        NbSelectOptionDirective,
+        NbDropdownComponent,
         NestedComponent,
         Nodelogger,
         Notes,
@@ -338,6 +342,7 @@ var providing = [{
         TabComponent,
         TempRefContentExample,
         TemplateOutletExample,
+        TenmplateOutlet2,
         ListItemDirective,
         CardItemDirective,
         CardOrListViewComponent,
